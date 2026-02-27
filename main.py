@@ -13,6 +13,10 @@ import feedparser
 from dateutil import parser as dtparser
 from openai import OpenAI
 
+BRIEF_MAX_CHARS = 120
+IMPACT_MAX_CHARS = 100
+TITLE_MAX_CHARS = 50
+
 
 def clean_text(text: str) -> str:
     text = re.sub(r"<[^>]+>", " ", text or "")
@@ -146,9 +150,9 @@ def fallback_selection(items: list[dict[str, str]], top_n: int) -> list[dict[str
 
         summary = clean_text(item.get("summary", ""))
         if summary:
-            result["brief"] = summary[:70]
+            result["brief"] = summary[:BRIEF_MAX_CHARS]
         else:
-            result["brief"] = clean_text(item.get("title", ""))[:70]
+            result["brief"] = clean_text(item.get("title", ""))[:BRIEF_MAX_CHARS]
 
         result["impact"] = "信息持续跟进中，建议查看原文链接。"
         fallback.append(result)
@@ -178,7 +182,8 @@ def rank_and_summarize(
         "你是AI资讯编辑。请从候选中选出最值得做早报的内容并摘要。\n"
         "严格输出JSON："
         '{"items":[{"id":1,"score":90,"brief":"...","impact":"..."}]}\n'
-        f"最多返回{top_n}条；brief<=70字；impact<=60字；必须基于输入，不编造。\n\n"
+        f"最多返回{top_n}条；brief<={BRIEF_MAX_CHARS}字；impact<={IMPACT_MAX_CHARS}字；必须基于输入，不编造；"
+        "brief和impact必须使用简体中文。\n\n"
         + "\n".join(candidates)
     )
 
@@ -227,14 +232,88 @@ def rank_and_summarize(
         except (TypeError, ValueError):
             score = 0
         result["score"] = str(score)
-        result["brief"] = clean_text(str(row.get("brief", "")))[:120]
-        result["impact"] = clean_text(str(row.get("impact", "")))[:120]
+        result["brief"] = clean_text(str(row.get("brief", "")))[:BRIEF_MAX_CHARS]
+        result["impact"] = clean_text(str(row.get("impact", "")))[:IMPACT_MAX_CHARS]
         selected.append(result)
 
     selected.sort(key=lambda x: int(x.get("score", "0")), reverse=True)
     if not selected:
         return fallback_selection(items=items, top_n=top_n)
     return selected[:top_n]
+
+
+def localize_items_to_chinese(
+    items: list[dict[str, str]],
+    qwen_api_key: str,
+    qwen_model: str,
+) -> list[dict[str, str]]:
+    if not items:
+        return items
+
+    client = OpenAI(api_key=qwen_api_key, base_url="https://dashscope.aliyuncs.com/compatible-mode/v1")
+    payload = [
+        {
+            "id": idx + 1,
+            "title": item.get("title", ""),
+            "brief": item.get("brief", ""),
+            "impact": item.get("impact", ""),
+        }
+        for idx, item in enumerate(items)
+    ]
+
+    user_prompt = (
+        "请把下面资讯字段统一改写为简体中文，必须保持事实不变。\n"
+        "严格输出JSON："
+        '{"items":[{"id":1,"title":"中文标题","brief":"中文摘要","impact":"中文影响"}]}\n'
+        f"要求：title<={TITLE_MAX_CHARS}字，brief<={BRIEF_MAX_CHARS}字，impact<={IMPACT_MAX_CHARS}字。\n\n"
+        + json.dumps(payload, ensure_ascii=False)
+    )
+
+    try:
+        raw = llm_chat(
+            client=client,
+            model=qwen_model,
+            system_prompt="你是中文科技编辑，只输出合法JSON。",
+            user_prompt=user_prompt,
+        )
+        data = extract_json(raw)
+    except Exception:
+        return items
+
+    rows = data.get("items", [])
+    if not isinstance(rows, list):
+        return items
+
+    localized: list[dict[str, str]] = []
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        try:
+            idx = int(row.get("id", 0))
+        except (TypeError, ValueError):
+            continue
+        if idx < 1 or idx > len(items):
+            continue
+
+        item = items[idx - 1].copy()
+        item["title_en"] = item.get("title", "")
+        item["brief_en"] = item.get("brief", "")
+        item["impact_en"] = item.get("impact", "")
+        title_cn = clean_text(str(row.get("title", "")))[:TITLE_MAX_CHARS]
+        brief_cn = clean_text(str(row.get("brief", "")))[:BRIEF_MAX_CHARS]
+        impact_cn = clean_text(str(row.get("impact", "")))[:IMPACT_MAX_CHARS]
+
+        if title_cn:
+            item["title"] = title_cn
+        if brief_cn:
+            item["brief"] = brief_cn
+        if impact_cn:
+            item["impact"] = impact_cn
+        localized.append(item)
+
+    if len(localized) != len(items):
+        return items
+    return localized
 
 
 def polish_with_kimi(markdown: str, kimi_api_key: str, kimi_model: str) -> str:
@@ -256,7 +335,7 @@ def polish_with_kimi(markdown: str, kimi_api_key: str, kimi_model: str) -> str:
     )
 
 
-def render_markdown(items: list[dict[str, str]]) -> str:
+def render_markdown(items: list[dict[str, str]], report_lang: str = "zh") -> str:
     today = datetime.now().strftime("%Y-%m-%d")
     lines = [
         f"# AI 早报（{today}）",
@@ -267,20 +346,41 @@ def render_markdown(items: list[dict[str, str]]) -> str:
     ]
 
     for idx, item in enumerate(items[:5], 1):
-        lines.append(f"- {idx}. {item.get('brief', '')}")
+        if report_lang == "bilingual":
+            brief_cn = item.get("brief", "")
+            brief_en = item.get("brief_en", "")
+            lines.append(f"- {idx}. {brief_cn}")
+            if brief_en:
+                lines.append(f"  - EN: {brief_en}")
+        else:
+            lines.append(f"- {idx}. {item.get('brief', '')}")
 
     lines.append("")
     lines.append("## 详细快讯")
     for idx, item in enumerate(items, 1):
-        lines.extend(
-            [
-                "",
-                f"### {idx}) {item['title']}",
-                f"- 摘要：{item.get('brief', '')}",
-                f"- 影响：{item.get('impact', '')}",
-                f"- 来源：{item['link']}",
-            ]
-        )
+        if report_lang == "bilingual":
+            lines.extend(
+                [
+                    "",
+                    f"### {idx}) {item['title']}",
+                    f"- 标题(EN)：{item.get('title_en', '')}",
+                    f"- 摘要(中)：{item.get('brief', '')}",
+                    f"- Summary(EN)：{item.get('brief_en', '')}",
+                    f"- 影响(中)：{item.get('impact', '')}",
+                    f"- Impact(EN)：{item.get('impact_en', '')}",
+                    f"- 来源：{item['link']}",
+                ]
+            )
+        else:
+            lines.extend(
+                [
+                    "",
+                    f"### {idx}) {item['title']}",
+                    f"- 摘要：{item.get('brief', '')}",
+                    f"- 影响：{item.get('impact', '')}",
+                    f"- 来源：{item['link']}",
+                ]
+            )
     return "\n".join(lines)
 
 
@@ -294,6 +394,9 @@ def main() -> None:
     kimi_model = os.getenv("KIMI_MODEL", "kimi-latest")
     max_items = int(os.getenv("MAX_ITEMS", "30"))
     top_n = int(os.getenv("TOP_N", "10"))
+    report_lang = os.getenv("REPORT_LANG", "bilingual").strip().lower()
+    if report_lang not in {"zh", "bilingual"}:
+        report_lang = "bilingual"
 
     sources = load_sources("sources.txt")
     items = fetch_items(sources=sources, hours=36, per_source=30)[:max_items]
@@ -301,7 +404,8 @@ def main() -> None:
         raise RuntimeError("未抓到资讯，请检查 sources.txt")
 
     selected = rank_and_summarize(items=items, qwen_api_key=qwen_api_key, qwen_model=qwen_model, top_n=top_n)
-    markdown = render_markdown(selected)
+    selected = localize_items_to_chinese(items=selected, qwen_api_key=qwen_api_key, qwen_model=qwen_model)
+    markdown = render_markdown(selected, report_lang=report_lang)
     markdown = polish_with_kimi(markdown=markdown, kimi_api_key=kimi_api_key, kimi_model=kimi_model)
 
     report_dir = Path("reports")

@@ -22,6 +22,7 @@ jobs:
       KIMI_MODEL: kimi-latest
       MAX_ITEMS: "30"
       TOP_N: "10"
+      REPORT_LANG: bilingual
       NITTER_RSS_BASES: "https://nitter.net,https://nitter.poast.org,https://nitter.privacydev.net"
       QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
       KIMI_API_KEY: ${{ secrets.KIMI_API_KEY }}
