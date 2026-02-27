@@ -11,6 +11,15 @@
 3. 在 Actions 里手动运行 `ai-morning-brief`
 4. 查看 `reports/latest.md`
 
+## 配置 QWEN_API_KEY（6步）
+
+1. 打开你的 GitHub 仓库页面。
+2. 进入 `Settings`。
+3. 左侧点击 `Secrets and variables` -> `Actions`。
+4. 点击 `New repository secret`。
+5. `Name` 填写 `QWEN_API_KEY`。
+6. `Secret` 填入阿里百炼 API Key（`sk-...`），点击 `Add secret`。
+
 ## 首次运行检查（避免常见坑）
 
 - 仓库默认分支要和你实际使用的分支一致（当前示例为 `master`），`schedule` 只会在默认分支触发。
