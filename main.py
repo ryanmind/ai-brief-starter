@@ -200,7 +200,7 @@ def rank_and_summarize(
             last_error = exc
 
     if data is None:
-        raise RuntimeError(f"Qwen JSON parse failed after retries: {last_error}")
+        return fallback_selection(items=items, top_n=top_n)
 
     selected: list[dict[str, str]] = []
     for row in data.get("items", []):
