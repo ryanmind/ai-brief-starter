@@ -1,0 +1,43 @@
+name: ai-morning-brief
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 23 * * *" # Beijing 07:30
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
+      QWEN_MODEL: qwen-flash
+      KIMI_MODEL: kimi-latest
+      MAX_ITEMS: "30"
+      TOP_N: "10"
+      QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
+      KIMI_API_KEY: ${{ secrets.KIMI_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate daily brief
+        run: python main.py
+
+      - name: Commit reports
+        run: |
+          if [ -n "$(git status --porcelain reports/)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add reports/
+            git commit -m "chore(report): update AI morning brief"
+            git push
+          fi

@@ -1,0 +1,5 @@
+# AI/Tech RSS sources
+https://blog.google/technology/ai/rss/
+https://huggingface.co/blog/feed.xml
+https://news.ycombinator.com/rss
+https://export.arxiv.org/rss/cs.AI
