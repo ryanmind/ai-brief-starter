@@ -55,7 +55,9 @@ def fetch_items(sources: list[str], hours: int = 36, per_source: int = 30) -> li
 
             if not title or not link:
                 continue
-            if published and published < cutoff:
+            if not published:
+                continue
+            if published < cutoff:
                 continue
 
             key = hashlib.md5((link.split("?")[0] + "|" + title.lower()).encode("utf-8")).hexdigest()
