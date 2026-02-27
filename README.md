@@ -11,6 +11,12 @@
 3. 在 Actions 里手动运行 `ai-morning-brief`
 4. 查看 `reports/latest.md`
 
+## 首次运行检查（避免常见坑）
+
+- 仓库默认分支要和你实际使用的分支一致（当前示例为 `master`），`schedule` 只会在默认分支触发。
+- 仓库设置需允许工作流写回仓库：`Settings -> Actions -> General -> Workflow permissions -> Read and write permissions`。
+- 必须配置 `QWEN_API_KEY`，未配置会在工作流里直接报错并停止。
+
 ## 目录
 
 - `PRD.md`：需求文档

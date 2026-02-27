@@ -3,20 +3,26 @@ name: ai-morning-brief
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 23 * * *" # Beijing 07:30
+    - cron: "30 23 * * *" # UTC 23:30 = Beijing 07:30
 
 permissions:
   contents: write
 
+concurrency:
+  group: ai-morning-brief-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   run:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     env:
       TZ: Asia/Shanghai
       QWEN_MODEL: qwen-flash
       KIMI_MODEL: kimi-latest
       MAX_ITEMS: "30"
       TOP_N: "10"
+      NITTER_RSS_BASES: "https://nitter.net,https://nitter.poast.org,https://nitter.privacydev.net"
       QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
       KIMI_API_KEY: ${{ secrets.KIMI_API_KEY }}
     steps:
@@ -25,6 +31,15 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+          cache: "pip"
+          cache-dependency-path: requirements.txt
+
+      - name: Validate required secrets
+        run: |
+          if [ -z "${QWEN_API_KEY}" ]; then
+            echo "::error::Missing required secret: QWEN_API_KEY"
+            exit 1
+          fi
 
       - name: Install dependencies
         run: pip install -r requirements.txt
@@ -39,5 +54,5 @@ jobs:
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add reports/
             git commit -m "chore(report): update AI morning brief"
-            git push
+            git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
