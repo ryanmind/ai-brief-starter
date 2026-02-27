@@ -91,10 +91,44 @@ def llm_chat(client: OpenAI, model: str, system_prompt: str, user_prompt: str, m
 
 def extract_json(text: str) -> dict[str, Any]:
     raw = text.strip()
+    candidates: list[str] = [raw]
+
     if raw.startswith("```"):
-        raw = re.sub(r"^```(?:json)?", "", raw).strip()
-        raw = re.sub(r"```$", "", raw).strip()
-    return json.loads(raw)
+        fence_stripped = re.sub(r"^```(?:json)?", "", raw).strip()
+        fence_stripped = re.sub(r"```$", "", fence_stripped).strip()
+        candidates.append(fence_stripped)
+
+    start = raw.find("{")
+    end = raw.rfind("}")
+    if start != -1 and end != -1 and end > start:
+        candidates.append(raw[start : end + 1])
+
+    for candidate in candidates:
+        try:
+            parsed = json.loads(candidate)
+        except json.JSONDecodeError:
+            continue
+        if isinstance(parsed, dict):
+            return parsed
+
+    raise ValueError("model output is not valid JSON object")
+
+
+def fallback_selection(items: list[dict[str, str]], top_n: int) -> list[dict[str, str]]:
+    fallback: list[dict[str, str]] = []
+    for idx, item in enumerate(items[:top_n], 1):
+        result = item.copy()
+        result["score"] = str(100 - idx)
+
+        summary = clean_text(item.get("summary", ""))
+        if summary:
+            result["brief"] = summary[:70]
+        else:
+            result["brief"] = clean_text(item.get("title", ""))[:70]
+
+        result["impact"] = "信息持续跟进中，建议查看原文链接。"
+        fallback.append(result)
+    return fallback
 
 
 def rank_and_summarize(
@@ -124,13 +158,30 @@ def rank_and_summarize(
         + "\n".join(candidates)
     )
 
-    raw = llm_chat(
-        client=client,
-        model=qwen_model,
-        system_prompt="你是严谨的科技新闻编辑，只输出JSON。",
-        user_prompt=user_prompt,
-    )
-    data = extract_json(raw)
+    last_error: Exception | None = None
+    data: dict[str, Any] | None = None
+    for attempt in range(2):
+        system_prompt = "你是严谨的科技新闻编辑，只输出JSON。"
+        if attempt > 0:
+            system_prompt = (
+                "你是严谨的科技新闻编辑。"
+                "你上一次输出格式错误，这次必须仅输出一个合法JSON对象，不要输出任何说明文字。"
+            )
+
+        raw = llm_chat(
+            client=client,
+            model=qwen_model,
+            system_prompt=system_prompt,
+            user_prompt=user_prompt,
+        )
+        try:
+            data = extract_json(raw)
+            break
+        except ValueError as exc:
+            last_error = exc
+
+    if data is None:
+        raise RuntimeError(f"Qwen JSON parse failed after retries: {last_error}")
 
     selected: list[dict[str, str]] = []
     for row in data.get("items", []):
@@ -144,6 +195,8 @@ def rank_and_summarize(
         selected.append(result)
 
     selected.sort(key=lambda x: int(x.get("score", "0")), reverse=True)
+    if not selected:
+        return fallback_selection(items=items, top_n=top_n)
     return selected[:top_n]
 
 
