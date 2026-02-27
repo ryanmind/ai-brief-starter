@@ -23,3 +23,4 @@
 
 - 默认只用 Qwen；配置 `KIMI_API_KEY` 后才会启用 Kimi 精修。
 - 当前版本不包含企业微信通知。
+- `sources.txt` 可直接写 `https://x.com/<账号>`，脚本会自动转成 Nitter RSS（可用 `NITTER_RSS_BASE` 覆盖默认域名）。

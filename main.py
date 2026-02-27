@@ -7,6 +7,7 @@ import re
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Optional
+from urllib.parse import urlparse
 
 import feedparser
 from dateutil import parser as dtparser
@@ -36,7 +37,23 @@ def parse_time(entry: Any) -> Optional[datetime]:
 
 def load_sources(path: str = "sources.txt") -> list[str]:
     lines = Path(path).read_text(encoding="utf-8").splitlines()
-    return [line.strip() for line in lines if line.strip() and not line.strip().startswith("#")]
+    raw_sources = [line.strip() for line in lines if line.strip() and not line.strip().startswith("#")]
+    return [normalize_source_url(source) for source in raw_sources]
+
+
+def normalize_source_url(source: str) -> str:
+    parsed = urlparse(source)
+    host = (parsed.netloc or "").lower()
+
+    if host in {"x.com", "www.x.com", "twitter.com", "www.twitter.com"}:
+        path = (parsed.path or "").strip("/")
+        handle = path.split("/", 1)[0] if path else ""
+        reserved = {"home", "explore", "search", "i", "messages", "notifications", "settings"}
+        if handle and handle not in reserved:
+            nitter_base = os.getenv("NITTER_RSS_BASE", "https://nitter.net").rstrip("/")
+            return f"{nitter_base}/{handle}/rss"
+
+    return source
 
 
 def fetch_items(sources: list[str], hours: int = 36, per_source: int = 30) -> list[dict[str, str]]:

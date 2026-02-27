@@ -3,3 +3,7 @@ https://blog.google/technology/ai/rss/
 https://huggingface.co/blog/feed.xml
 https://news.ycombinator.com/rss
 https://export.arxiv.org/rss/cs.AI
+
+# X profiles (auto-converted to Nitter RSS by main.py)
+https://x.com/OpenAI
+https://x.com/AnthropicAI
