@@ -38,10 +38,13 @@ def parse_time(entry: Any) -> Optional[datetime]:
 def load_sources(path: str = "sources.txt") -> list[str]:
     lines = Path(path).read_text(encoding="utf-8").splitlines()
     raw_sources = [line.strip() for line in lines if line.strip() and not line.strip().startswith("#")]
-    return [normalize_source_url(source) for source in raw_sources]
+    expanded: list[str] = []
+    for source in raw_sources:
+        expanded.extend(expand_source_urls(source))
+    return list(dict.fromkeys(expanded))
 
 
-def normalize_source_url(source: str) -> str:
+def expand_source_urls(source: str) -> list[str]:
     parsed = urlparse(source)
     host = (parsed.netloc or "").lower()
 
@@ -50,10 +53,14 @@ def normalize_source_url(source: str) -> str:
         handle = path.split("/", 1)[0] if path else ""
         reserved = {"home", "explore", "search", "i", "messages", "notifications", "settings"}
         if handle and handle not in reserved:
-            nitter_base = os.getenv("NITTER_RSS_BASE", "https://nitter.net").rstrip("/")
-            return f"{nitter_base}/{handle}/rss"
+            raw_bases = os.getenv(
+                "NITTER_RSS_BASES",
+                "https://nitter.net,https://nitter.poast.org,https://nitter.privacydev.net",
+            )
+            bases = [base.strip().rstrip("/") for base in raw_bases.split(",") if base.strip()]
+            return [f"{base}/{handle}/rss" for base in dict.fromkeys(bases)]
 
-    return source
+    return [source]
 
 
 def fetch_items(sources: list[str], hours: int = 36, per_source: int = 30) -> list[dict[str, str]]:
@@ -72,9 +79,7 @@ def fetch_items(sources: list[str], hours: int = 36, per_source: int = 30) -> li
 
             if not title or not link:
                 continue
-            if not published:
-                continue
-            if published < cutoff:
+            if published and published < cutoff:
                 continue
 
             key = hashlib.md5((link.split("?")[0] + "|" + title.lower()).encode("utf-8")).hexdigest()
@@ -203,12 +208,25 @@ def rank_and_summarize(
         return fallback_selection(items=items, top_n=top_n)
 
     selected: list[dict[str, str]] = []
-    for row in data.get("items", []):
-        idx = int(row.get("id", 0))
+    rows = data.get("items", [])
+    if not isinstance(rows, list):
+        return fallback_selection(items=items, top_n=top_n)
+
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        try:
+            idx = int(row.get("id", 0))
+        except (TypeError, ValueError):
+            continue
         if idx < 1 or idx > len(items):
             continue
         result = items[idx - 1].copy()
-        result["score"] = str(int(row.get("score", 0)))
+        try:
+            score = int(row.get("score", 0))
+        except (TypeError, ValueError):
+            score = 0
+        result["score"] = str(score)
         result["brief"] = clean_text(str(row.get("brief", "")))[:120]
         result["impact"] = clean_text(str(row.get("impact", "")))[:120]
         selected.append(result)
