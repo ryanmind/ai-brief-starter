@@ -6,7 +6,7 @@
 
 1. 配置 GitHub Actions Secrets
    - 必需：`QWEN_API_KEY`
-   - 可选：`KIMI_API_KEY`
+   - 可选：`KIMI_API_KEY`、`FEISHU_WEBHOOK_URL`、`FEISHU_BOT_SECRET`
 2. 推送代码到 GitHub（建议 private 仓库）
 3. 在 Actions 里手动运行 `ai-morning-brief`
 4. 查看 `reports/latest.md`
@@ -31,6 +31,8 @@
 - `PRD.md`：需求文档
 - `main.py`：采集 + 摘要 + 生成早报
 - `sources.txt`：RSS 来源
+- `scripts/notify_feishu.py`：将日报推送到飞书群机器人
+- `docs/feishu_docs_guide_zh.md`：飞书文档与飞书同步教程
 - `.github/workflows/daily.yml`：定时任务
 - `reports/`：日报输出
 
@@ -49,5 +51,6 @@
 - 默认 `TOP_N=20`，如需更全可调到 `30`（建议同时提高 `MAX_ITEMS`，例如 `120`）。
 - 详细快讯会输出 `关键点` 列表（2-3条短 bullet），更适合朋友圈/飞书阅读。
 - 默认不显式限制模型输出 token（仍受模型服务端上限约束）。
+- 配置 `FEISHU_WEBHOOK_URL` 后，工作流会自动发送日报摘要到飞书群。
 - 可运行 `python scripts/report_quality_check.py reports/latest.md` 做质量闸门检查（标题完整率/二手域名/关键点格式）。
 - 可运行 `python scripts/source_health_check.py --output reports/source_health.md` 做信息源健康检查。

@@ -32,6 +32,8 @@ jobs:
       NITTER_RSS_BASES: "https://nitter.net,https://nitter.poast.org,https://nitter.privacydev.net,https://nitter.d420.de,https://nitter.unixfox.eu"
       QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
       KIMI_API_KEY: ${{ secrets.KIMI_API_KEY }}
+      FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
+      FEISHU_BOT_SECRET: ${{ secrets.FEISHU_BOT_SECRET }}
     steps:
       - uses: actions/checkout@v4
 
@@ -66,3 +68,9 @@ jobs:
             git commit -m "chore(report): update AI morning brief"
             git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
+
+      - name: Notify Feishu
+        if: success() && env.FEISHU_WEBHOOK_URL != ''
+        env:
+          ACTIONS_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: python scripts/notify_feishu.py reports/latest.md
