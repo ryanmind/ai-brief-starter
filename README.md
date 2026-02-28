@@ -39,4 +39,7 @@
 - 默认只用 Qwen；配置 `KIMI_API_KEY` 后才会启用 Kimi 精修。
 - 当前版本不包含企业微信通知。
 - 当前版本仅输出中文早报。
+- 默认开启一手信息过滤（`STRICT_PRIMARY_ONLY=1`），会剔除疑似二手转述内容。
+- 可用 `PRIMARY_SOURCE_DOMAINS`、`PRIMARY_X_HANDLES` 覆盖允许来源白名单（逗号分隔）。
+- 可用 `SECOND_HAND_DOMAINS` 追加二手媒体域名黑名单（逗号分隔）。
 - `sources.txt` 可直接写 `https://x.com/<账号>`，脚本会自动转成 Nitter RSS（可用 `NITTER_RSS_BASES` 配置多个实例，逗号分隔）。
