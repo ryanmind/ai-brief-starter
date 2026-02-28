@@ -17,6 +17,12 @@ if str(ROOT_DIR) not in sys.path:
 import main
 
 
+def is_enabled(value: str | None, default: bool = True) -> bool:
+    if value is None:
+        return default
+    return value.strip().lower() not in {"0", "false", "no", "off"}
+
+
 def normalize_host(url: str) -> str:
     host = (urlparse(url).netloc or "").lower()
     return host[4:] if host.startswith("www.") else host
@@ -32,6 +38,7 @@ def check_sources() -> tuple[list[dict[str, str]], int]:
     results: list[dict[str, str]] = []
     failed = 0
     sources, x_handles = main.load_source_config("sources.txt")
+    strict_x_api_required = is_enabled(os.getenv("STRICT_X_API_REQUIRED"), default=True)
 
     for source in sources:
         try:
@@ -84,13 +91,16 @@ def check_sources() -> tuple[list[dict[str, str]], int]:
     for handle in x_handles:
         source = f"https://x.com/{handle} (API)"
         if not x_bearer_token:
+            status = "FAIL" if strict_x_api_required else "WARN"
+            if status == "FAIL":
+                failed += 1
             results.append(
                 {
                     "source": source,
                     "host": "x.com",
                     "entries": "0",
                     "latest": "-",
-                    "status": "WARN",
+                    "status": status,
                     "reason": "missing X_BEARER_TOKEN",
                 }
             )
@@ -173,8 +183,12 @@ def main_cli() -> int:
         output_path.parent.mkdir(parents=True, exist_ok=True)
         output_path.write_text(report, encoding="utf-8")
 
-    if failed == len(rows):
-        print("ERROR: all sources failed")
+    checkable_rows = [row for row in rows if row.get("status") != "WARN"]
+    if not checkable_rows:
+        print("ERROR: no checkable sources")
+        return 1
+    if failed >= len(checkable_rows):
+        print("ERROR: all checkable sources failed")
         return 1
     return 0
 

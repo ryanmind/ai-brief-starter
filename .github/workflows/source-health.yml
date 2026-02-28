@@ -11,6 +11,7 @@ jobs:
     timeout-minutes: 15
     env:
       TZ: Asia/Shanghai
+      STRICT_X_API_REQUIRED: "1"
       X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
     steps:
       - uses: actions/checkout@v4

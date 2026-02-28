@@ -6,7 +6,8 @@
 
 1. 配置 GitHub Actions Secrets
    - 必需：`QWEN_API_KEY`
-   - 可选：`KIMI_API_KEY`、`X_BEARER_TOKEN`（当 `sources.txt` 包含 `x.com` 账号时建议必配）
+   - 必需（默认严格模式）：若 `sources.txt` 含 `x.com` 账号，必须配置 `X_BEARER_TOKEN`
+   - 可选：`KIMI_API_KEY`
 2. 推送代码到 GitHub（建议 private 仓库）
 3. 在 Actions 里手动运行 `ai-morning-brief`
 4. 查看 `reports/latest.md`
@@ -25,6 +26,7 @@
 - 仓库默认分支要和你实际使用的分支一致（当前示例为 `master`），`schedule` 只会在默认分支触发。
 - 仓库设置需允许工作流写回仓库：`Settings -> Actions -> General -> Workflow permissions -> Read and write permissions`。
 - 必须配置 `QWEN_API_KEY`，未配置会在工作流里直接报错并停止。
+- 默认 `STRICT_X_API_REQUIRED=1`：若保留 `x.com` 来源，未配置 `X_BEARER_TOKEN` 会直接失败。
 
 ## 目录
 
