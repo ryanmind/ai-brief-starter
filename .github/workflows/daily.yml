@@ -29,9 +29,11 @@ jobs:
       KEY_POINTS_MAX_COUNT: "3"
       KEY_POINT_MAX_CHARS: "28"
       STRICT_PRIMARY_ONLY: "1"
-      NITTER_RSS_BASES: "https://nitter.net,https://nitter.poast.org,https://nitter.privacydev.net,https://nitter.d420.de,https://nitter.unixfox.eu"
+      STRICT_X_API_REQUIRED: "1"
+      X_API_PER_HANDLE: "8"
       QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
       KIMI_API_KEY: ${{ secrets.KIMI_API_KEY }}
+      X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
     steps:
       - uses: actions/checkout@v4
 

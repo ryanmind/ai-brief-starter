@@ -8,7 +8,9 @@ import re
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Optional
-from urllib.parse import urlparse
+from urllib import error as urlerror
+from urllib import request as urlrequest
+from urllib.parse import quote, urlparse
 
 import feedparser
 from dateutil import parser as dtparser
@@ -116,12 +118,9 @@ DEFAULT_SECOND_HAND_DOMAINS = (
 X_HOSTS = {
     "x.com",
     "twitter.com",
-    "nitter.net",
-    "nitter.poast.org",
-    "nitter.privacydev.net",
-    "nitter.d420.de",
-    "nitter.unixfox.eu",
 }
+X_RESERVED_PATHS = {"home", "explore", "search", "i", "messages", "notifications", "settings"}
+X_API_BASE_URLS = ("https://api.x.com", "https://api.twitter.com")
 
 logger = logging.getLogger(__name__)
 
@@ -168,7 +167,21 @@ def extract_account_from_url(url: str) -> str:
     path = urlparse(url).path.strip("/")
     if not path:
         return ""
-    return path.split("/", 1)[0].strip().lower()
+    return path.split("/", 1)[0].strip().lstrip("@").lower()
+
+
+def extract_x_handle_from_source(source: str) -> str:
+    parsed = urlparse(source)
+    host = normalize_host(parsed.netloc or "")
+    if host not in {"x.com", "twitter.com"}:
+        return ""
+    path = (parsed.path or "").strip("/")
+    if not path:
+        return ""
+    handle = path.split("/", 1)[0].strip().lstrip("@").lower()
+    if not handle or handle in X_RESERVED_PATHS:
+        return ""
+    return handle
 
 
 def contains_second_hand_cue(text: str) -> bool:
@@ -472,13 +485,23 @@ def apply_source_limits(items: list[dict[str, str]]) -> tuple[list[dict[str, str
     return kept, dropped
 
 
-def load_sources(path: str = "sources.txt") -> list[str]:
+def load_source_config(path: str = "sources.txt") -> tuple[list[str], list[str]]:
     lines = Path(path).read_text(encoding="utf-8").splitlines()
     raw_sources = [line.strip() for line in lines if line.strip() and not line.strip().startswith("#")]
     expanded: list[str] = []
+    x_handles: list[str] = []
     for source in raw_sources:
+        x_handle = extract_x_handle_from_source(source)
+        if x_handle:
+            x_handles.append(x_handle)
+            continue
         expanded.extend(expand_source_urls(source))
-    return list(dict.fromkeys(expanded))
+    return list(dict.fromkeys(expanded)), list(dict.fromkeys(x_handles))
+
+
+def load_sources(path: str = "sources.txt") -> list[str]:
+    feed_sources, _ = load_source_config(path=path)
+    return feed_sources
 
 
 def expand_source_urls(source: str) -> list[str]:
@@ -498,18 +521,6 @@ def expand_source_urls(source: str) -> list[str]:
             owner, repo, branch, tracked_file = match.groups()
             if tracked_file.lower().endswith("changelog.md"):
                 return [f"https://github.com/{owner}/{repo}/commits/{branch}/{tracked_file}.atom"]
-
-    if host in {"x.com", "www.x.com", "twitter.com", "www.twitter.com"}:
-        path = (parsed.path or "").strip("/")
-        handle = path.split("/", 1)[0] if path else ""
-        reserved = {"home", "explore", "search", "i", "messages", "notifications", "settings"}
-        if handle and handle not in reserved:
-            raw_bases = os.getenv(
-                "NITTER_RSS_BASES",
-                "https://nitter.net,https://nitter.poast.org,https://nitter.privacydev.net",
-            )
-            bases = [base.strip().rstrip("/") for base in raw_bases.split(",") if base.strip()]
-            return [f"{base}/{handle}/rss" for base in dict.fromkeys(bases)]
 
     return [source]
 
@@ -545,6 +556,101 @@ def fetch_items(sources: list[str], hours: int = 36, per_source: int = 30) -> li
                     "link": link,
                     "summary": summary[:1000],
                     "published": published.isoformat() if published else "",
+                }
+            )
+
+    items.sort(key=lambda x: x.get("published", ""), reverse=True)
+    return items
+
+
+def http_get_json(url: str, headers: dict[str, str]) -> dict[str, Any]:
+    req = urlrequest.Request(url=url, headers=headers, method="GET")
+    try:
+        with urlrequest.urlopen(req, timeout=20) as response:
+            body = response.read().decode("utf-8", errors="replace")
+    except urlerror.HTTPError as exc:
+        detail = exc.read().decode("utf-8", errors="replace")[:240]
+        raise RuntimeError(f"HTTP {exc.code} for {url}: {detail}") from exc
+    except urlerror.URLError as exc:
+        raise RuntimeError(f"request failed for {url}: {exc}") from exc
+
+    try:
+        parsed = json.loads(body)
+    except json.JSONDecodeError as exc:
+        raise RuntimeError(f"invalid json from {url}") from exc
+    if not isinstance(parsed, dict):
+        raise RuntimeError(f"unexpected response from {url}")
+    return parsed
+
+
+def fetch_x_recent_posts(handle: str, bearer_token: str, per_handle: int) -> list[dict[str, Any]]:
+    max_results = max(5, min(per_handle, 100))
+    query = quote(f"from:{handle} -is:retweet -is:reply", safe="")
+    endpoint = f"/2/tweets/search/recent?query={query}&tweet.fields=created_at&max_results={max_results}"
+    headers = {
+        "Authorization": f"Bearer {bearer_token}",
+        "Accept": "application/json",
+        "User-Agent": "ai-brief-starter/1.0",
+    }
+
+    last_error: Exception | None = None
+    for base_url in X_API_BASE_URLS:
+        try:
+            payload = http_get_json(f"{base_url}{endpoint}", headers=headers)
+        except Exception as exc:
+            last_error = exc
+            continue
+
+        data = payload.get("data", [])
+        if isinstance(data, list):
+            return data
+        return []
+
+    if last_error is not None:
+        raise RuntimeError(f"X API fetch failed for @{handle}: {last_error}") from last_error
+    return []
+
+
+def fetch_x_items_via_api(handles: list[str], bearer_token: str, hours: int = 36, per_handle: int = 8) -> list[dict[str, str]]:
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=hours)
+    items: list[dict[str, str]] = []
+    seen: set[str] = set()
+
+    for handle in handles:
+        try:
+            posts = fetch_x_recent_posts(handle=handle, bearer_token=bearer_token, per_handle=per_handle)
+        except Exception as exc:
+            logger.warning("fetch_x_items_via_api: handle=%s error=%s", handle, exc)
+            continue
+
+        for post in posts:
+            if not isinstance(post, dict):
+                continue
+            post_id = str(post.get("id", "")).strip()
+            text = clean_text(str(post.get("text", "")))
+            created_at = str(post.get("created_at", "")).strip()
+            if not post_id or not text or not created_at:
+                continue
+
+            try:
+                published = dtparser.parse(created_at).astimezone(timezone.utc)
+            except Exception:
+                continue
+            if published < cutoff:
+                continue
+
+            link = f"https://x.com/{handle}/status/{post_id}"
+            title = text[:200]
+            key = hashlib.md5((link + "|" + title.lower()).encode("utf-8")).hexdigest()
+            if key in seen:
+                continue
+            seen.add(key)
+            items.append(
+                {
+                    "title": title,
+                    "link": link,
+                    "summary": text[:1000],
+                    "published": published.isoformat(),
                 }
             )
 
@@ -823,10 +929,12 @@ def render_markdown(items: list[dict[str, str]]) -> str:
     lines.append("")
     lines.append("## 详细快讯")
     for idx, item in enumerate(items, 1):
+        published = clean_text(item.get("published", "")) or "-"
         lines.extend(
             [
                 "",
                 f"### {idx}) {item['title']}",
+                f"- 发布时间：{published}",
                 f"- 摘要：{item.get('brief', '')}",
                 "- 关键点：",
                 *[f"  - {point}" for point in finalize_key_points(normalize_key_points(item.get("key_points")), item)],
@@ -852,17 +960,39 @@ def main() -> None:
     kimi_model = os.getenv("KIMI_MODEL", "kimi-latest")
     max_items = int(os.getenv("MAX_ITEMS", "120"))
     top_n = int(os.getenv("TOP_N", "20"))
-    sources = load_sources("sources.txt")
+    x_bearer_token = os.getenv("X_BEARER_TOKEN", "").strip()
+    x_api_per_handle = int(os.getenv("X_API_PER_HANDLE", "8"))
+    strict_x_api_required = os.getenv("STRICT_X_API_REQUIRED", "1").strip().lower() not in {"0", "false", "no", "off"}
+    sources, x_handles = load_source_config("sources.txt")
+
     fetched_items = fetch_items(sources=sources, hours=36, per_source=30)
+    if x_handles:
+        if not x_bearer_token:
+            msg = "sources.txt 含 x.com 账号，但未设置 X_BEARER_TOKEN（官方 X API）。"
+            if strict_x_api_required:
+                raise RuntimeError(msg)
+            logger.warning("%s 已跳过 X 数据抓取。", msg)
+        else:
+            fetched_items.extend(
+                fetch_x_items_via_api(
+                    handles=x_handles,
+                    bearer_token=x_bearer_token,
+                    hours=36,
+                    per_handle=x_api_per_handle,
+                )
+            )
+
+    fetched_items.sort(key=lambda x: x.get("published", ""), reverse=True)
     filtered_items, rejected_stats = filter_primary_items_with_stats(fetched_items)
     diversified_items, diversity_stats = apply_source_limits(filtered_items)
     items = diversified_items[:max_items]
     logger.info(
-        "items fetched=%s filtered=%s kept=%s top_n=%s",
+        "items fetched=%s filtered=%s kept=%s top_n=%s x_handles=%s",
         len(fetched_items),
         len(fetched_items) - len(filtered_items),
         len(items),
         top_n,
+        len(x_handles),
     )
     if rejected_stats:
         logger.info("primary filter rejected reasons=%s", json.dumps(rejected_stats, ensure_ascii=False))

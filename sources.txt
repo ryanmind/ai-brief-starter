@@ -120,7 +120,7 @@ https://github.com/zai-org/CogView4/commits/main/CHANGELOG.md.atom
 https://github.com/MiniMax-AI/MiniMax-M2.1/commits/main/CHANGELOG.md.atom
 https://github.com/MiniMax-AI/MiniMax-M1/commits/main/CHANGELOG.md.atom
 
-# X profiles（由 main.py 自动转为 Nitter RSS）
+# X profiles（由 main.py 通过官方 X API 拉取最新原创推文）
 https://x.com/sama
 https://x.com/OpenAI
 https://x.com/AnthropicAI

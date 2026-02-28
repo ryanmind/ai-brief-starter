@@ -11,7 +11,7 @@ jobs:
     timeout-minutes: 15
     env:
       TZ: Asia/Shanghai
-      NITTER_RSS_BASES: "https://nitter.net,https://nitter.poast.org,https://nitter.privacydev.net,https://nitter.d420.de,https://nitter.unixfox.eu"
+      X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
     steps:
       - uses: actions/checkout@v4
 

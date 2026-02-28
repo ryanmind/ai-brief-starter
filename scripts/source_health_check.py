@@ -2,11 +2,17 @@
 from __future__ import annotations
 
 import argparse
+import os
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
 
 import feedparser
+
+ROOT_DIR = Path(__file__).resolve().parents[1]
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
 
 import main
 
@@ -25,7 +31,7 @@ def format_dt(dt: datetime | None) -> str:
 def check_sources() -> tuple[list[dict[str, str]], int]:
     results: list[dict[str, str]] = []
     failed = 0
-    sources = main.load_sources("sources.txt")
+    sources, x_handles = main.load_source_config("sources.txt")
 
     for source in sources:
         try:
@@ -67,6 +73,64 @@ def check_sources() -> tuple[list[dict[str, str]], int]:
                 {
                     "source": source,
                     "host": normalize_host(source),
+                    "entries": "0",
+                    "latest": "-",
+                    "status": "FAIL",
+                    "reason": str(exc),
+                }
+            )
+
+    x_bearer_token = os.getenv("X_BEARER_TOKEN", "").strip()
+    for handle in x_handles:
+        source = f"https://x.com/{handle} (API)"
+        if not x_bearer_token:
+            results.append(
+                {
+                    "source": source,
+                    "host": "x.com",
+                    "entries": "0",
+                    "latest": "-",
+                    "status": "WARN",
+                    "reason": "missing X_BEARER_TOKEN",
+                }
+            )
+            continue
+
+        try:
+            posts = main.fetch_x_recent_posts(handle=handle, bearer_token=x_bearer_token, per_handle=10)
+            latest_dt = None
+            for post in posts:
+                if not isinstance(post, dict):
+                    continue
+                created_at = str(post.get("created_at", "")).strip()
+                if not created_at:
+                    continue
+                try:
+                    published = main.dtparser.parse(created_at)
+                    if published.tzinfo is None:
+                        published = published.replace(tzinfo=timezone.utc)
+                    published = published.astimezone(timezone.utc)
+                except Exception:
+                    continue
+                if latest_dt is None or published > latest_dt:
+                    latest_dt = published
+
+            results.append(
+                {
+                    "source": source,
+                    "host": "x.com",
+                    "entries": str(len(posts)),
+                    "latest": format_dt(latest_dt),
+                    "status": "OK",
+                    "reason": "",
+                }
+            )
+        except Exception as exc:
+            failed += 1
+            results.append(
+                {
+                    "source": source,
+                    "host": "x.com",
                     "entries": "0",
                     "latest": "-",
                     "status": "FAIL",
