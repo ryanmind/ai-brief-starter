@@ -9,7 +9,7 @@
    - 可选：`KIMI_API_KEY`、`FEISHU_WEBHOOK_URL`、`FEISHU_BOT_SECRET`、`FEISHU_REPORT_DOC_URL`、`FEISHU_APP_ID`、`FEISHU_APP_SECRET`、`FEISHU_REPORT_FOLDER_TOKEN`、`FEISHU_DOC_SYNC_REQUIRED`
 2. 推送代码到 GitHub（建议 private 仓库）
 3. 在 Actions 里手动运行 `ai-morning-brief`
-4. 查看 `reports/latest.md`
+4. 在飞书查看通知与“今日完整文档（飞书）”，或在 Actions 下载 `ai-brief-reports` artifact
 
 ## 配置 QWEN_API_KEY（6步）
 
@@ -23,7 +23,7 @@
 ## 首次运行检查（避免常见坑）
 
 - 仓库默认分支要和你实际使用的分支一致（当前示例为 `master`），`schedule` 只会在默认分支触发。
-- 仓库设置需允许工作流写回仓库：`Settings -> Actions -> General -> Workflow permissions -> Read and write permissions`。
+- 工作流不再回写 `reports/` 到仓库，默认 `contents: read` 即可运行。
 - 必须配置 `QWEN_API_KEY`，未配置会在工作流里直接报错并停止。
 
 ## 目录
@@ -34,7 +34,7 @@
 - `scripts/notify_feishu.py`：将日报推送到飞书群机器人
 - `docs/feishu_docs_guide_zh.md`：飞书文档与飞书同步教程
 - `.github/workflows/daily.yml`：定时任务
-- `reports/`：日报输出
+- `reports/`：运行时产物目录（默认不提交到 Git）
 
 ## 说明
 
@@ -54,5 +54,6 @@
 - 配置 `FEISHU_WEBHOOK_URL` 后，工作流会自动发送日报摘要到飞书群；配置 `FEISHU_APP_ID/FEISHU_APP_SECRET` 后会自动新建飞书文档并写入全文（不会覆盖历史）。
 - 如配置 `FEISHU_REPORT_FOLDER_TOKEN`，每日新文档会创建在指定文件夹；`FEISHU_REPORT_DOC_URL` 可作为总览入口链接附在消息中。
 - `FEISHU_DOC_SYNC_REQUIRED` 默认 `1`，未配置文档写入凭证会直接失败；如仅需群通知可设为 `0`。
+- 默认不跟踪 `reports/*.md`，工作流通过 artifact 与飞书保留结果。
 - 可运行 `python scripts/report_quality_check.py reports/latest.md` 做质量闸门检查（标题完整率/二手域名/关键点格式）。
 - 可运行 `python scripts/source_health_check.py --output reports/source_health.md` 做信息源健康检查。

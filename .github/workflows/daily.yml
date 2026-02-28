@@ -6,7 +6,7 @@ on:
     - cron: "30 23 * * *" # UTC 23:30 = Beijing 07:30
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: ai-morning-brief-${{ github.ref }}
@@ -64,19 +64,14 @@ jobs:
       - name: Report quality check
         run: python scripts/report_quality_check.py reports/latest.md
 
-      - name: Commit reports
-        run: |
-          if [ -n "$(git status --porcelain reports/)" ]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add reports/
-            git commit -m "chore(report): update AI morning brief"
-            git push origin "HEAD:${GITHUB_REF_NAME}"
-          fi
+      - name: Upload reports artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-brief-reports
+          path: reports/
 
       - name: Notify Feishu
         if: success() && env.FEISHU_WEBHOOK_URL != ''
         env:
           ACTIONS_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          REPORT_PUBLIC_URL: https://github.com/${{ github.repository }}/blob/${{ github.ref_name }}/reports/latest.md
         run: python scripts/notify_feishu.py reports/latest.md
