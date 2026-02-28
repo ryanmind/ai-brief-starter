@@ -17,6 +17,10 @@ from openai import OpenAI
 BRIEF_MAX_CHARS = 120
 IMPACT_MAX_CHARS = 100
 TITLE_MAX_CHARS = 50
+KEY_POINTS_MAX_COUNT = 3
+KEY_POINTS_MIN_COUNT = 2
+KEY_POINT_MAX_CHARS = 28
+KEY_POINT_MIN_CHARS = 4
 TITLE_INCOMPLETE_PREFIXES = (
     "获",
     "宣布",
@@ -109,6 +113,15 @@ DEFAULT_SECOND_HAND_DOMAINS = (
     "jiqizhixin.com",
     "zhidx.com",
 )
+X_HOSTS = {
+    "x.com",
+    "twitter.com",
+    "nitter.net",
+    "nitter.poast.org",
+    "nitter.privacydev.net",
+    "nitter.d420.de",
+    "nitter.unixfox.eu",
+}
 
 logger = logging.getLogger(__name__)
 
@@ -180,6 +193,122 @@ def pick_preferred_title(candidate_title: str, fallback_title: str) -> str:
     return candidate
 
 
+def key_point_dedupe_key(text: str) -> str:
+    return re.sub(r"\W+", "", text.lower(), flags=re.UNICODE)
+
+
+def normalize_key_point_text(text: str) -> str:
+    value = clean_text(text)
+    value = re.sub(r"^[\-*•·\d\.\)\(、\s]+", "", value)
+    value = re.sub(r"^(并且|并将|并可|并支持|并|同时|且)\s*", "", value)
+    value = value.strip("，,。；;：:、- ")
+    return value[:KEY_POINT_MAX_CHARS]
+
+
+def split_key_point_candidates(text: str) -> list[str]:
+    cleaned = clean_text(text)
+    if not cleaned:
+        return []
+
+    candidates: list[str] = []
+    segments = re.split(r"[。！？!?；;]+", cleaned)
+    for segment in segments:
+        piece = segment.strip()
+        if not piece:
+            continue
+        parts = [piece]
+        if len(piece) > KEY_POINT_MAX_CHARS:
+            parts = [part.strip() for part in re.split(r"[，,]|(?:\band\b)|(?:\bwith\b)", piece) if part.strip()]
+        candidates.extend(parts)
+
+    return candidates or [cleaned]
+
+
+def normalize_key_points(value: Any) -> list[str]:
+    if not isinstance(value, list):
+        return []
+    points: list[str] = []
+    seen: set[str] = set()
+    for raw in value:
+        for candidate in split_key_point_candidates(str(raw)):
+            text = normalize_key_point_text(candidate)
+            if len(text) < KEY_POINT_MIN_CHARS:
+                continue
+            key = key_point_dedupe_key(text)
+            if not key or key in seen:
+                continue
+            seen.add(key)
+            points.append(text)
+            if len(points) >= KEY_POINTS_MAX_COUNT:
+                return points
+    return points
+
+
+def build_default_key_points(item: dict[str, str]) -> list[str]:
+    points: list[str] = []
+    seen: set[str] = set()
+    for field in ("summary", "brief", "impact", "title"):
+        for candidate in split_key_point_candidates(item.get(field, "")):
+            text = normalize_key_point_text(candidate)
+            if len(text) < KEY_POINT_MIN_CHARS:
+                continue
+            key = key_point_dedupe_key(text)
+            if not key or key in seen:
+                continue
+            seen.add(key)
+            points.append(text)
+            if len(points) >= KEY_POINTS_MAX_COUNT:
+                return points
+
+    if not points:
+        fallback_text = normalize_key_point_text(item.get("title", "")) or "建议查看原文获取完整信息"
+        points.append(fallback_text)
+
+    return points[:KEY_POINTS_MAX_COUNT]
+
+
+def finalize_key_points(points: list[str], item: dict[str, str]) -> list[str]:
+    merged: list[str] = []
+    seen: set[str] = set()
+
+    for text in points + build_default_key_points(item):
+        normalized = normalize_key_point_text(text)
+        if len(normalized) < KEY_POINT_MIN_CHARS:
+            continue
+        key = key_point_dedupe_key(normalized)
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        merged.append(normalized)
+        if len(merged) >= KEY_POINTS_MAX_COUNT:
+            break
+
+    if len(merged) < KEY_POINTS_MIN_COUNT:
+        return build_default_key_points(item)
+    return merged
+
+
+def source_bucket_key(link: str) -> str:
+    parsed = urlparse(link)
+    host = normalize_host(parsed.netloc or "")
+    if not host:
+        return ""
+
+    if host == "github.com":
+        path_parts = [segment for segment in parsed.path.split("/") if segment]
+        if len(path_parts) >= 2:
+            return f"github:{path_parts[0].lower()}/{path_parts[1].lower()}"
+        return host
+
+    if host in X_HOSTS:
+        account = extract_account_from_url(link)
+        if account:
+            return f"x:{account}"
+        return "x:unknown"
+
+    return host
+
+
 def contains_second_hand_domain(text: str, blocked_domains: set[str]) -> bool:
     normalized = text.lower()
     return any(domain in normalized for domain in blocked_domains)
@@ -243,8 +372,7 @@ def get_primary_rejection_reason(
     if not host:
         return "missing_host"
 
-    x_hosts = {"x.com", "twitter.com", "nitter.net", "nitter.poast.org", "nitter.privacydev.net"}
-    if host in x_hosts:
+    if host in X_HOSTS:
         account = extract_account_from_url(link)
         if not account:
             return "missing_x_account"
@@ -317,26 +445,27 @@ def apply_source_limits(items: list[dict[str, str]]) -> tuple[list[dict[str, str
         return items, {}
 
     kept: list[dict[str, str]] = []
-    host_counts: dict[str, int] = {}
+    bucket_counts: dict[str, int] = {}
     arxiv_count = 0
     dropped: dict[str, int] = {}
 
     for item in items:
         link = item.get("link", "")
         host = normalize_host(urlparse(link).netloc or "")
+        bucket = source_bucket_key(link)
         is_arxiv = host in {"arxiv.org", "export.arxiv.org"}
 
         if is_arxiv and arxiv_max_items > 0 and arxiv_count >= arxiv_max_items:
             dropped["arxiv_limit"] = dropped.get("arxiv_limit", 0) + 1
             continue
 
-        if per_domain_limit > 0 and host and host_counts.get(host, 0) >= per_domain_limit:
-            dropped["domain_limit"] = dropped.get("domain_limit", 0) + 1
+        if per_domain_limit > 0 and bucket and bucket_counts.get(bucket, 0) >= per_domain_limit:
+            dropped["source_bucket_limit"] = dropped.get("source_bucket_limit", 0) + 1
             continue
 
         kept.append(item)
-        if host:
-            host_counts[host] = host_counts.get(host, 0) + 1
+        if bucket:
+            bucket_counts[bucket] = bucket_counts.get(bucket, 0) + 1
         if is_arxiv:
             arxiv_count += 1
 
@@ -423,16 +552,25 @@ def fetch_items(sources: list[str], hours: int = 36, per_source: int = 30) -> li
     return items
 
 
-def llm_chat(client: OpenAI, model: str, system_prompt: str, user_prompt: str, max_tokens: int = 2200) -> str:
-    response = client.chat.completions.create(
-        model=model,
-        messages=[
+def llm_chat(
+    client: OpenAI,
+    model: str,
+    system_prompt: str,
+    user_prompt: str,
+    max_tokens: int | None = None,
+) -> str:
+    params: dict[str, Any] = {
+        "model": model,
+        "messages": [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt},
         ],
-        temperature=0.2,
-        max_tokens=max_tokens,
-    )
+        "temperature": 0.2,
+    }
+    if max_tokens is not None and max_tokens > 0:
+        params["max_tokens"] = max_tokens
+
+    response = client.chat.completions.create(**params)
     return (response.choices[0].message.content or "").strip()
 
 
@@ -474,6 +612,7 @@ def fallback_selection(items: list[dict[str, str]], top_n: int) -> list[dict[str
             result["brief"] = clean_text(item.get("title", ""))[:BRIEF_MAX_CHARS]
 
         result["impact"] = "信息持续跟进中，建议查看原文链接。"
+        result["key_points"] = build_default_key_points(result)
         fallback.append(result)
     return fallback
 
@@ -500,9 +639,10 @@ def rank_and_summarize(
     user_prompt = (
         "你是AI资讯编辑。请从候选中选出最值得做早报的内容并摘要。\n"
         "严格输出JSON："
-        '{"items":[{"id":1,"score":90,"title":"...","brief":"...","impact":"..."}]}\n'
+        '{"items":[{"id":1,"score":90,"title":"...","brief":"...","impact":"...","key_points":["...","..."]}]}\n'
         f"最多返回{top_n}条；title<={TITLE_MAX_CHARS}字；brief<={BRIEF_MAX_CHARS}字；impact<={IMPACT_MAX_CHARS}字；必须基于输入，不编造；"
         "brief和impact必须使用简体中文。"
+        f"key_points返回2-3条，每条<={KEY_POINT_MAX_CHARS}字。"
         "标题必须完整，包含主体名称（公司/产品/人物），不能省略主语。"
         "仅可选择一手来源（官方公告、论文原文、作者/机构本人账号原帖），"
         "禁止媒体转述、二手解读、汇总搬运、未证实传闻。\n\n"
@@ -563,6 +703,7 @@ def rank_and_summarize(
             result["title"] = title
         result["brief"] = clean_text(str(row.get("brief", "")))[:BRIEF_MAX_CHARS]
         result["impact"] = clean_text(str(row.get("impact", "")))[:IMPACT_MAX_CHARS]
+        result["key_points"] = finalize_key_points(normalize_key_points(row.get("key_points")), result)
         selected.append(result)
 
     selected.sort(key=lambda x: int(x.get("score", "0")), reverse=True)
@@ -587,6 +728,7 @@ def localize_items_to_chinese(
             "title": item.get("title", ""),
             "brief": item.get("brief", ""),
             "impact": item.get("impact", ""),
+            "key_points": item.get("key_points", [])[:KEY_POINTS_MAX_COUNT],
         }
         for idx, item in enumerate(items)
     ]
@@ -594,8 +736,9 @@ def localize_items_to_chinese(
     user_prompt = (
         "请把下面资讯字段统一改写为简体中文，必须保持事实不变。\n"
         "严格输出JSON："
-        '{"items":[{"id":1,"title":"中文标题","brief":"中文摘要","impact":"中文影响"}]}\n'
-        f"要求：title<={TITLE_MAX_CHARS}字，brief<={BRIEF_MAX_CHARS}字，impact<={IMPACT_MAX_CHARS}字。\n\n"
+        '{"items":[{"id":1,"title":"中文标题","brief":"中文摘要","impact":"中文影响","key_points":["要点1","要点2"]}]}\n'
+        f"要求：title<={TITLE_MAX_CHARS}字，brief<={BRIEF_MAX_CHARS}字，impact<={IMPACT_MAX_CHARS}字，"
+        f"key_points最多{KEY_POINTS_MAX_COUNT}条且每条<={KEY_POINT_MAX_CHARS}字。\n\n"
         + json.dumps(payload, ensure_ascii=False)
     )
 
@@ -637,6 +780,7 @@ def localize_items_to_chinese(
             item["brief"] = brief_cn
         if impact_cn:
             item["impact"] = impact_cn
+        item["key_points"] = finalize_key_points(normalize_key_points(row.get("key_points")), item)
         localized.append(item)
 
     if len(localized) != len(items):
@@ -660,7 +804,6 @@ def polish_with_kimi(markdown: str, kimi_api_key: str, kimi_model: str) -> str:
         model=kimi_model,
         system_prompt="你是中文科技编辑。",
         user_prompt=prompt,
-        max_tokens=2500,
     )
 
 
@@ -685,6 +828,8 @@ def render_markdown(items: list[dict[str, str]]) -> str:
                 "",
                 f"### {idx}) {item['title']}",
                 f"- 摘要：{item.get('brief', '')}",
+                "- 关键点：",
+                *[f"  - {point}" for point in finalize_key_points(normalize_key_points(item.get("key_points")), item)],
                 f"- 影响：{item.get('impact', '')}",
                 f"- 来源：{item['link']}",
             ]

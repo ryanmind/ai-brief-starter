@@ -25,6 +25,9 @@ jobs:
       PER_DOMAIN_LIMIT: "4"
       ARXIV_MAX_ITEMS: "4"
       TITLE_COMPLETE_RATIO_MIN: "0.90"
+      KEY_POINTS_MIN_COUNT: "2"
+      KEY_POINTS_MAX_COUNT: "3"
+      KEY_POINT_MAX_CHARS: "28"
       STRICT_PRIMARY_ONLY: "1"
       NITTER_RSS_BASES: "https://nitter.net,https://nitter.poast.org,https://nitter.privacydev.net,https://nitter.d420.de,https://nitter.unixfox.eu"
       QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
