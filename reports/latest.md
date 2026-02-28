@@ -1,97 +1,62 @@
 # AI 早报（2026-02-28）
 
-生成时间：2026-02-28 07:48:08
+生成时间：2026-02-28 10:02:19
 
 ## 今日要点
-- 1. OpenAI完成1100亿美元融资，估值达7300亿美元，创历史纪录。
-  - EN: OpenAI完成1100亿美元融资，估值达7300亿美元，创历史纪录。
-- 2. OpenAI获软银、英伟达、亚马逊支持，加速AI普及基础设施布局。
-  - EN: OpenAI获软银、英伟达、亚马逊支持，加速AI普及基础设施布局。
-- 3. NASA因安全问题调整阿耳忒弥斯计划，推迟登月任务。
-  - EN: NASA因安全问题调整阿耳忒弥斯计划，推迟登月任务。
-- 4. 开源计算器固件DB48X禁止CA/CO使用，需年龄验证。
-  - EN: 开源计算器固件DB48X禁止CA/CO使用，需年龄验证。
-- 5. 加州新法要求所有操作系统在注册时进行年龄验证。
-  - EN: 加州新法要求所有操作系统在注册时进行年龄验证。
+- 1. Starlink直连手机服务在英国启用，为无地面网络覆盖地区提供语音、视频和消息数据支持。
+- 2. Starship V3完成建造并启动预发射测试，配备推力提升51%的Raptor 3发动机。
+- 3. 何恺明团队推出GeoPT，通过新预训练范式让模型自主学习真实物理规律。
+- 4. DeepSeek新论文展示V4框架，利用闲置网卡加速智能体推理性能。
+- 5. 国产视频模型实现音画同步一次生成，全模态创作能力跃升，进入全球前列。
 
 ## 详细快讯
 
-### 1) OpenAI完成1100亿美元融资
-- 标题(EN)：OpenAI raises $110B on $730B pre-money valuation
-- 摘要(中)：OpenAI完成1100亿美元融资，估值达7300亿美元，创历史纪录。
-- Summary(EN)：OpenAI完成1100亿美元融资，估值达7300亿美元，创历史纪录。
-- 影响(中)：推动AI基础设施建设，影响全球科技投资格局。
-- Impact(EN)：推动AI基础设施建设，影响全球科技投资格局。
-- 来源：https://techcrunch.com/2026/02/27/openai-raises-110b-in-one-of-the-largest-private-funding-rounds-in-history/
+### 1) Starlink直连手机已在英国上线
+- 摘要：Starlink直连手机服务在英国启用，为无地面网络覆盖地区提供语音、视频和消息数据支持。
+- 影响：提升偏远地区通信能力，推动卫星互联网普及。
+- 来源：https://nitter.net/Starlink/status/2027528623994114297
 
-### 2) OpenAI获三巨头支持加速AI普及
-- 标题(EN)：Helping AI reach more people requires deep collaboration across the ecosystem. Today we’re announcing new investment, with support from @SoftBank, @NVIDIA, and @Amazon, to scale the infrastructure nee
-- 摘要(中)：OpenAI获软银、英伟达、亚马逊支持，加速AI普及基础设施布局。
-- Summary(EN)：OpenAI获软银、英伟达、亚马逊支持，加速AI普及基础设施布局。
-- 影响(中)：强化AI生态合作，提升算力与服务可及性。
-- Impact(EN)：强化AI生态合作，提升算力与服务可及性。
-- 来源：https://nitter.net/OpenAI/status/2027376050263793814
+### 2) Starship V3进入预发射测试
+- 摘要：Starship V3完成建造并启动预发射测试，配备推力提升51%的Raptor 3发动机。
+- 影响：显著增强载荷能力，加速深空探索与太空商业化。
+- 来源：https://nitter.net/XFreeze/status/2027309638891487286
 
-### 3) NASA调整阿耳忒弥斯计划推迟登月
-- 标题(EN)：NASA announces overhaul of Artemis program amid safety concerns, delays
-- 摘要(中)：NASA因安全问题调整阿耳忒弥斯计划，推迟登月任务。
-- Summary(EN)：NASA因安全问题调整阿耳忒弥斯计划，推迟登月任务。
-- 影响(中)：影响美国载人登月时间表，引发航天领域关注。
-- Impact(EN)：影响美国载人登月时间表，引发航天领域关注。
-- 来源：https://www.cbsnews.com/news/nasa-artemis-moon-program-overhaul/
+### 3) 何恺明团队发布GeoPT新模型
+- 摘要：何恺明团队推出GeoPT，通过新预训练范式让模型自主学习真实物理规律。
+- 影响：提升AI复杂环境推理能力，助力具身智能发展。
+- 来源：https://www.qbitai.com/2026/02/382888.html
 
-### 4) 开源计算器固件禁用CA/CO需年龄验证
-- 标题(EN)：Open source calculator firmware DB48X forbids CA/CO use due to age verification
-- 摘要(中)：开源计算器固件DB48X禁止CA/CO使用，需年龄验证。
-- Summary(EN)：开源计算器固件DB48X禁止CA/CO使用，需年龄验证。
-- 影响(中)：反映软件合规趋势，或影响开源项目政策设计。
-- Impact(EN)：反映软件合规趋势，或影响开源项目政策设计。
-- 来源：https://github.com/c3d/db48x/commit/7819972b641ac808d46c54d3f5d1df70d706d286
+### 4) DeepSeek披露V4框架新技术
+- 摘要：DeepSeek新论文展示V4框架，利用闲置网卡加速智能体推理性能。
+- 影响：降低推理成本，提升算力利用率，推动高效智能体落地。
+- 来源：https://www.qbitai.com/2026/02/382872.html
 
-### 5) 加州新法要求操作系统进行年龄验证
-- 标题(EN)：A new California law says all operating systems need to have age verification
-- 摘要(中)：加州新法要求所有操作系统在注册时进行年龄验证。
-- Summary(EN)：加州新法要求所有操作系统在注册时进行年龄验证。
-- 影响(中)：可能影响用户隐私与系统设计，引发监管讨论。
-- Impact(EN)：可能影响用户隐私与系统设计，引发监管讨论。
-- 来源：https://www.pcgamer.com/software/operating-systems/a-new-california-law-says-all-operating-systems-including-linux-need-to-have-some-form-of-age-verification-at-account-setup/
+### 5) 国产视频模型跻身全球TOP2
+- 摘要：国产视频模型实现音画同步一次生成，全模态创作能力跃升，进入全球前列。
+- 影响：标志中国多模态生成技术突破，增强国际竞争力。
+- 来源：https://www.qbitai.com/2026/02/382803.html
 
-### 6) 构建安全可扩展的AI代理沙箱
-- 标题(EN)：Building secure, scalable agent sandbox infrastructure
-- 摘要(中)：构建安全可扩展的AI代理沙箱基础设施的技术探讨。
-- Summary(EN)：构建安全可扩展的AI代理沙箱基础设施的技术探讨。
-- 影响(中)：提升AI代理安全性，推动可信AI发展。
-- Impact(EN)：提升AI代理安全性，推动可信AI发展。
-- 来源：https://browser-use.com/posts/two-ways-to-sandbox-agents
+### 6) 获1100亿美元联合融资
+- 摘要：宣布获得亚马逊、英伟达、软银联合投资的1100亿美元融资，强化生态合作。
+- 影响：资本信心彰显，加速AI基础设施迭代进程。
+- 来源：https://nitter.net/sama/status/2027386252555919386
 
-### 7) AI代理行为合约实现形式化规范
-- 标题(EN)：Agent Behavioral Contracts: Formal Specification and Runtime Enforcement for Reliable Autonomous AI Agents
-- 摘要(中)：提出AI代理行为合约，实现行为形式化规范与运行时强制。
-- Summary(EN)：提出AI代理行为合约，实现行为形式化规范与运行时强制。
-- 影响(中)：解决AI代理失控风险，增强可控性与治理能力。
-- Impact(EN)：解决AI代理失控风险，增强可控性与治理能力。
-- 来源：https://arxiv.org/abs/2602.22302
+### 7) 阶跃星辰跻身AI新六小虎
+- 摘要：阶跃星辰进入AI‘新六小虎’第一梯队，成为行业竞争核心力量。
+- 影响：反映中国AI企业梯队优化，推动产业生态多元化。
+- 来源：https://www.qbitai.com/2026/02/382747.html
 
-### 8) 迈向自主记忆代理实现持续学习
-- 标题(EN)：Towards Autonomous Memory Agents
-- 摘要(中)：迈向自主记忆代理，实现持续学习与主动记忆管理。
-- Summary(EN)：迈向自主记忆代理，实现持续学习与主动记忆管理。
-- 影响(中)：提升AI长期智能表现，推动通用人工智能进展。
-- Impact(EN)：提升AI长期智能表现，推动通用人工智能进展。
-- 来源：https://arxiv.org/abs/2602.22406
+### 8) 李彦宏回应萝卜快跑分拆传闻
+- 摘要：百度Robotaxi‘萝卜快跑’分拆传闻获李彦宏回应，日均订单超4.3万单。
+- 影响：凸显自动驾驶商业化进展，或引发行业整合与资本关注。
+- 来源：https://www.qbitai.com/2026/02/382914.html
 
-### 9) AI代理能否替代社会科学家？
-- 标题(EN)：Vibe Researching as Wolf Coming: Can AI Agents with Skills Replace or Augment Social Scientists?
-- 摘要(中)：研究AI代理能否替代或辅助社会科学家开展研究。
-- Summary(EN)：研究AI代理能否替代或辅助社会科学家开展研究。
-- 影响(中)：拓展AI在社会科学中的应用边界，引发方法论变革。
-- Impact(EN)：拓展AI在社会科学中的应用边界，引发方法论变革。
-- 来源：https://arxiv.org/abs/2602.22401
+### 9) Cursor工具使用比例动态变化
+- 摘要：Cursor平台数据显示Tab补全与Agent请求比例随能力提升持续演变。
+- 影响：揭示AI编程工具使用趋势，指导体验优化方向。
+- 来源：https://nitter.net/karpathy/status/2027501331125239822
 
-### 10) 图谱融合检索生成提升科学创意
-- 标题(EN)：Graph Your Way to Inspiration: Integrating Co-Author Graphs with Retrieval-Augmented Generation for Large Language Model Based Scientific Idea Generation
-- 摘要(中)：GyWi系统结合图谱与检索增强生成，提升科学创意生成质量。
-- Summary(EN)：GyWi系统结合图谱与检索增强生成，提升科学创意生成质量。
-- 影响(中)：促进科研创新效率，助力跨学科知识融合。
-- Impact(EN)：促进科研创新效率，助力跨学科知识融合。
-- 来源：https://arxiv.org/abs/2602.22215
+### 10) Karpathy实验警示调参风险
+- 摘要：Karpathy实验显示移除logit softcap导致系统混乱，但视觉效果仍具观赏性。
+- 影响：为大模型训练机制提供实证反馈，警示激进调参风险。
+- 来源：https://nitter.net/karpathy/status/2027521323275325622
