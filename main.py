@@ -17,6 +17,20 @@ from openai import OpenAI
 BRIEF_MAX_CHARS = 120
 IMPACT_MAX_CHARS = 100
 TITLE_MAX_CHARS = 50
+TITLE_INCOMPLETE_PREFIXES = (
+    "获",
+    "宣布",
+    "发布",
+    "推出",
+    "进入",
+    "回应",
+    "跻身",
+    "完成",
+    "上线",
+    "披露",
+    "实现",
+    "启动",
+)
 SECOND_HAND_CUES = (
     "据报道",
     "消息称",
@@ -147,6 +161,23 @@ def extract_account_from_url(url: str) -> str:
 def contains_second_hand_cue(text: str) -> bool:
     normalized = text.lower()
     return any(cue in normalized for cue in SECOND_HAND_CUES)
+
+
+def title_looks_incomplete(title: str) -> bool:
+    candidate = clean_text(title)
+    if len(candidate) < 4:
+        return True
+    return any(candidate.startswith(prefix) for prefix in TITLE_INCOMPLETE_PREFIXES)
+
+
+def pick_preferred_title(candidate_title: str, fallback_title: str) -> str:
+    candidate = clean_text(candidate_title)[:TITLE_MAX_CHARS]
+    fallback = clean_text(fallback_title)[:TITLE_MAX_CHARS]
+    if not candidate:
+        return fallback
+    if title_looks_incomplete(candidate) and fallback:
+        return fallback
+    return candidate
 
 
 def contains_second_hand_domain(text: str, blocked_domains: set[str]) -> bool:
@@ -433,8 +464,10 @@ def rank_and_summarize(
         except (TypeError, ValueError):
             score = 0
         result["score"] = str(score)
-        title = clean_text(str(row.get("title", "")))[:TITLE_MAX_CHARS]
+        title = pick_preferred_title(str(row.get("title", "")), result.get("title", ""))
         if title:
+            if title != clean_text(str(row.get("title", "")))[:TITLE_MAX_CHARS]:
+                logger.info("rank_and_summarize: 标题疑似缺主语，回退为原始标题。")
             result["title"] = title
         result["brief"] = clean_text(str(row.get("brief", "")))[:BRIEF_MAX_CHARS]
         result["impact"] = clean_text(str(row.get("impact", "")))[:IMPACT_MAX_CHARS]
