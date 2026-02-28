@@ -23,7 +23,7 @@ jobs:
       MAX_ITEMS: "30"
       TOP_N: "10"
       STRICT_PRIMARY_ONLY: "1"
-      NITTER_RSS_BASES: "https://nitter.net,https://nitter.poast.org,https://nitter.privacydev.net"
+      NITTER_RSS_BASES: "https://nitter.net,https://nitter.poast.org,https://nitter.privacydev.net,https://nitter.d420.de,https://nitter.unixfox.eu"
       QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
       KIMI_API_KEY: ${{ secrets.KIMI_API_KEY }}
     steps:

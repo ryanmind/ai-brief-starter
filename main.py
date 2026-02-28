@@ -38,6 +38,9 @@ DEFAULT_PRIMARY_SOURCE_DOMAINS = (
     "openai.com",
     "anthropic.com",
     "deepseek.com",
+    "deepmind.google",
+    "mistral.ai",
+    "cohere.com",
     "aliyun.com",
     "alibabacloud.com",
     "augmentcode.com",
@@ -67,10 +70,18 @@ DEFAULT_PRIMARY_SOURCE_DOMAINS = (
 )
 DEFAULT_PRIMARY_X_HANDLES = (
     "sama",
+    "openai",
+    "anthropicai",
+    "mistralai",
+    "deepmind",
     "elonmusk",
     "demishassabis",
     "karpathy",
     "drjimfan",
+    "tszzq",
+    "goodfellow_ian",
+    "codeeditapp",
+    "replit",
     "runwayml",
     "elevenlabsio",
 )
