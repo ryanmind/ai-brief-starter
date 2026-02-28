@@ -296,9 +296,6 @@ def localize_items_to_chinese(
             continue
 
         item = items[idx - 1].copy()
-        item["title_en"] = item.get("title", "")
-        item["brief_en"] = item.get("brief", "")
-        item["impact_en"] = item.get("impact", "")
         title_cn = clean_text(str(row.get("title", "")))[:TITLE_MAX_CHARS]
         brief_cn = clean_text(str(row.get("brief", "")))[:BRIEF_MAX_CHARS]
         impact_cn = clean_text(str(row.get("impact", "")))[:IMPACT_MAX_CHARS]
@@ -335,7 +332,7 @@ def polish_with_kimi(markdown: str, kimi_api_key: str, kimi_model: str) -> str:
     )
 
 
-def render_markdown(items: list[dict[str, str]], report_lang: str = "zh") -> str:
+def render_markdown(items: list[dict[str, str]]) -> str:
     today = datetime.now().strftime("%Y-%m-%d")
     lines = [
         f"# AI 早报（{today}）",
@@ -346,41 +343,20 @@ def render_markdown(items: list[dict[str, str]], report_lang: str = "zh") -> str
     ]
 
     for idx, item in enumerate(items[:5], 1):
-        if report_lang == "bilingual":
-            brief_cn = item.get("brief", "")
-            brief_en = item.get("brief_en", "")
-            lines.append(f"- {idx}. {brief_cn}")
-            if brief_en:
-                lines.append(f"  - EN: {brief_en}")
-        else:
-            lines.append(f"- {idx}. {item.get('brief', '')}")
+        lines.append(f"- {idx}. {item.get('brief', '')}")
 
     lines.append("")
     lines.append("## 详细快讯")
     for idx, item in enumerate(items, 1):
-        if report_lang == "bilingual":
-            lines.extend(
-                [
-                    "",
-                    f"### {idx}) {item['title']}",
-                    f"- 标题(EN)：{item.get('title_en', '')}",
-                    f"- 摘要(中)：{item.get('brief', '')}",
-                    f"- Summary(EN)：{item.get('brief_en', '')}",
-                    f"- 影响(中)：{item.get('impact', '')}",
-                    f"- Impact(EN)：{item.get('impact_en', '')}",
-                    f"- 来源：{item['link']}",
-                ]
-            )
-        else:
-            lines.extend(
-                [
-                    "",
-                    f"### {idx}) {item['title']}",
-                    f"- 摘要：{item.get('brief', '')}",
-                    f"- 影响：{item.get('impact', '')}",
-                    f"- 来源：{item['link']}",
-                ]
-            )
+        lines.extend(
+            [
+                "",
+                f"### {idx}) {item['title']}",
+                f"- 摘要：{item.get('brief', '')}",
+                f"- 影响：{item.get('impact', '')}",
+                f"- 来源：{item['link']}",
+            ]
+        )
     return "\n".join(lines)
 
 
@@ -394,10 +370,6 @@ def main() -> None:
     kimi_model = os.getenv("KIMI_MODEL", "kimi-latest")
     max_items = int(os.getenv("MAX_ITEMS", "30"))
     top_n = int(os.getenv("TOP_N", "10"))
-    report_lang = os.getenv("REPORT_LANG", "bilingual").strip().lower()
-    if report_lang not in {"zh", "bilingual"}:
-        report_lang = "bilingual"
-
     sources = load_sources("sources.txt")
     items = fetch_items(sources=sources, hours=36, per_source=30)[:max_items]
     if not items:
@@ -405,7 +377,7 @@ def main() -> None:
 
     selected = rank_and_summarize(items=items, qwen_api_key=qwen_api_key, qwen_model=qwen_model, top_n=top_n)
     selected = localize_items_to_chinese(items=selected, qwen_api_key=qwen_api_key, qwen_model=qwen_model)
-    markdown = render_markdown(selected, report_lang=report_lang)
+    markdown = render_markdown(selected)
     markdown = polish_with_kimi(markdown=markdown, kimi_api_key=kimi_api_key, kimi_model=kimi_model)
 
     report_dir = Path("reports")

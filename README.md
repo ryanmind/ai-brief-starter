@@ -38,5 +38,5 @@
 
 - 默认只用 Qwen；配置 `KIMI_API_KEY` 后才会启用 Kimi 精修。
 - 当前版本不包含企业微信通知。
-- 可用 `REPORT_LANG` 控制报告语言：`zh`（中文）或 `bilingual`（中英对照，默认）。
+- 当前版本仅输出中文早报。
 - `sources.txt` 可直接写 `https://x.com/<账号>`，脚本会自动转成 Nitter RSS（可用 `NITTER_RSS_BASES` 配置多个实例，逗号分隔）。

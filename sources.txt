@@ -1,9 +1,21 @@
-# AI/Tech RSS sources
-https://blog.google/technology/ai/rss/
-https://huggingface.co/blog/feed.xml
-https://news.ycombinator.com/rss
-https://export.arxiv.org/rss/cs.AI
+# AI资讯信息源（参考 PRD_new.md）
 
-# X profiles (auto-converted to Nitter RSS by main.py)
-https://x.com/OpenAI
-https://x.com/AnthropicAI
+# 国内资讯媒体
+https://www.qbitai.com/feed
+https://www.jiqizhixin.com/rss
+https://www.zhidx.com/feed
+https://www.founderpark.com/feed
+
+# 海外官方博客 / 产品发现
+https://openai.com/news/rss.xml
+https://blog.google/technology/ai/rss/
+https://ai.meta.com/blog/rss/
+https://www.producthunt.com/feed
+https://www.futurepedia.io/feed
+
+# X profiles（由 main.py 自动转为 Nitter RSS）
+https://x.com/sama
+https://x.com/elonmusk
+https://x.com/demishassabis
+https://x.com/karpathy
+https://x.com/DrJimFan
