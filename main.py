@@ -266,6 +266,40 @@ def filter_primary_items_with_stats(items: list[dict[str, str]]) -> tuple[list[d
     return filtered, rejected_stats
 
 
+def apply_source_limits(items: list[dict[str, str]]) -> tuple[list[dict[str, str]], dict[str, int]]:
+    per_domain_limit = int(os.getenv("PER_DOMAIN_LIMIT", "4"))
+    arxiv_max_items = int(os.getenv("ARXIV_MAX_ITEMS", "4"))
+
+    if per_domain_limit <= 0 and arxiv_max_items <= 0:
+        return items, {}
+
+    kept: list[dict[str, str]] = []
+    host_counts: dict[str, int] = {}
+    arxiv_count = 0
+    dropped: dict[str, int] = {}
+
+    for item in items:
+        link = item.get("link", "")
+        host = normalize_host(urlparse(link).netloc or "")
+        is_arxiv = host in {"arxiv.org", "export.arxiv.org"}
+
+        if is_arxiv and arxiv_max_items > 0 and arxiv_count >= arxiv_max_items:
+            dropped["arxiv_limit"] = dropped.get("arxiv_limit", 0) + 1
+            continue
+
+        if per_domain_limit > 0 and host and host_counts.get(host, 0) >= per_domain_limit:
+            dropped["domain_limit"] = dropped.get("domain_limit", 0) + 1
+            continue
+
+        kept.append(item)
+        if host:
+            host_counts[host] = host_counts.get(host, 0) + 1
+        if is_arxiv:
+            arxiv_count += 1
+
+    return kept, dropped
+
+
 def load_sources(path: str = "sources.txt") -> list[str]:
     lines = Path(path).read_text(encoding="utf-8").splitlines()
     raw_sources = [line.strip() for line in lines if line.strip() and not line.strip().startswith("#")]
@@ -618,7 +652,8 @@ def main() -> None:
     sources = load_sources("sources.txt")
     fetched_items = fetch_items(sources=sources, hours=36, per_source=30)
     filtered_items, rejected_stats = filter_primary_items_with_stats(fetched_items)
-    items = filtered_items[:max_items]
+    diversified_items, diversity_stats = apply_source_limits(filtered_items)
+    items = diversified_items[:max_items]
     logger.info(
         "items fetched=%s filtered=%s kept=%s top_n=%s",
         len(fetched_items),
@@ -628,6 +663,8 @@ def main() -> None:
     )
     if rejected_stats:
         logger.info("primary filter rejected reasons=%s", json.dumps(rejected_stats, ensure_ascii=False))
+    if diversity_stats:
+        logger.info("source limit dropped reasons=%s", json.dumps(diversity_stats, ensure_ascii=False))
     if not items:
         raise RuntimeError("未抓到一手资讯，请检查 sources.txt 或放宽 STRICT_PRIMARY_ONLY 配置")
 

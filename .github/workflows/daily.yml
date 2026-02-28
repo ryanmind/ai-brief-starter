@@ -22,6 +22,9 @@ jobs:
       KIMI_MODEL: kimi-latest
       MAX_ITEMS: "30"
       TOP_N: "10"
+      PER_DOMAIN_LIMIT: "4"
+      ARXIV_MAX_ITEMS: "4"
+      TITLE_COMPLETE_RATIO_MIN: "0.90"
       STRICT_PRIMARY_ONLY: "1"
       NITTER_RSS_BASES: "https://nitter.net,https://nitter.poast.org,https://nitter.privacydev.net,https://nitter.d420.de,https://nitter.unixfox.eu"
       QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
@@ -47,6 +50,9 @@ jobs:
 
       - name: Generate daily brief
         run: python main.py
+
+      - name: Report quality check
+        run: python scripts/report_quality_check.py reports/latest.md
 
       - name: Commit reports
         run: |
