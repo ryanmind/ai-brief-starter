@@ -185,6 +185,47 @@ def contains_second_hand_domain(text: str, blocked_domains: set[str]) -> bool:
     return any(domain in normalized for domain in blocked_domains)
 
 
+def parse_github_changelog_feed(source_url: str) -> tuple[str, str, str, str] | None:
+    parsed = urlparse(source_url)
+    host = normalize_host(parsed.netloc or "")
+    if host != "github.com":
+        return None
+
+    path = parsed.path.strip("/")
+    # e.g. owner/repo/commits/main/CHANGELOG.md.atom
+    match = re.match(
+        r"([^/]+)/([^/]+)/commits/([^/]+)/(.+)\.atom$",
+        path,
+        flags=re.IGNORECASE,
+    )
+    if not match:
+        return None
+
+    owner, repo, branch, tracked_file = match.groups()
+    return owner, repo, branch, tracked_file
+
+
+def normalize_link_for_source(source_url: str, link: str) -> str:
+    feed_info = parse_github_changelog_feed(source_url)
+    if not feed_info:
+        return link
+
+    owner, repo, branch, tracked_file = feed_info
+    if tracked_file.lower().endswith("changelog.md"):
+        return f"https://github.com/{owner}/{repo}/blob/{branch}/{tracked_file}"
+    return link
+
+
+def is_github_commit_link(url: str) -> bool:
+    parsed = urlparse(url)
+    host = normalize_host(parsed.netloc or "")
+    if host != "github.com":
+        return False
+    path = parsed.path.strip("/")
+    # e.g. owner/repo/commit/<sha>
+    return bool(re.match(r"[^/]+/[^/]+/commit/[0-9a-f]{7,40}$", path, flags=re.IGNORECASE))
+
+
 def get_primary_rejection_reason(
     item: dict[str, str],
     allowed_domains: set[str],
@@ -194,6 +235,8 @@ def get_primary_rejection_reason(
     link = (item.get("link", "") or "").strip()
     if not link:
         return "missing_link"
+    if is_github_commit_link(link):
+        return "github_commit_link"
 
     parsed = urlparse(link)
     host = normalize_host(parsed.netloc or "")
@@ -313,6 +356,20 @@ def expand_source_urls(source: str) -> list[str]:
     parsed = urlparse(source)
     host = (parsed.netloc or "").lower()
 
+    if host in {"github.com", "www.github.com"}:
+        path = (parsed.path or "").strip("/")
+        # Support direct changelog URL:
+        # https://github.com/<owner>/<repo>/blob/<branch>/CHANGELOG.md
+        match = re.match(
+            r"([^/]+)/([^/]+)/blob/([^/]+)/(.+)$",
+            path,
+            flags=re.IGNORECASE,
+        )
+        if match:
+            owner, repo, branch, tracked_file = match.groups()
+            if tracked_file.lower().endswith("changelog.md"):
+                return [f"https://github.com/{owner}/{repo}/commits/{branch}/{tracked_file}.atom"]
+
     if host in {"x.com", "www.x.com", "twitter.com", "www.twitter.com"}:
         path = (parsed.path or "").strip("/")
         handle = path.split("/", 1)[0] if path else ""
@@ -338,7 +395,8 @@ def fetch_items(sources: list[str], hours: int = 36, per_source: int = 30) -> li
         entries = getattr(feed, "entries", [])
         for entry in entries[:per_source]:
             title = clean_text(entry.get("title", ""))
-            link = (entry.get("link", "") or "").split("#")[0]
+            raw_link = (entry.get("link", "") or "").split("#")[0]
+            link = normalize_link_for_source(source_url=source, link=raw_link)
             summary = clean_text(entry.get("summary", "") or entry.get("description", ""))
             published = parse_time(entry)
 
@@ -424,7 +482,7 @@ def rank_and_summarize(
     items: list[dict[str, str]],
     qwen_api_key: str,
     qwen_model: str,
-    top_n: int = 10,
+    top_n: int = 20,
 ) -> list[dict[str, str]]:
     client = OpenAI(api_key=qwen_api_key, base_url="https://dashscope.aliyuncs.com/compatible-mode/v1")
 
@@ -647,8 +705,8 @@ def main() -> None:
     qwen_model = os.getenv("QWEN_MODEL", "qwen-flash")
     kimi_api_key = os.getenv("KIMI_API_KEY", "").strip()
     kimi_model = os.getenv("KIMI_MODEL", "kimi-latest")
-    max_items = int(os.getenv("MAX_ITEMS", "30"))
-    top_n = int(os.getenv("TOP_N", "10"))
+    max_items = int(os.getenv("MAX_ITEMS", "120"))
+    top_n = int(os.getenv("TOP_N", "20"))
     sources = load_sources("sources.txt")
     fetched_items = fetch_items(sources=sources, hours=36, per_source=30)
     filtered_items, rejected_stats = filter_primary_items_with_stats(fetched_items)

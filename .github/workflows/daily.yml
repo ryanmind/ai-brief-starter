@@ -20,8 +20,8 @@ jobs:
       TZ: Asia/Shanghai
       QWEN_MODEL: qwen-flash
       KIMI_MODEL: kimi-latest
-      MAX_ITEMS: "30"
-      TOP_N: "10"
+      MAX_ITEMS: "120"
+      TOP_N: "20"
       PER_DOMAIN_LIMIT: "4"
       ARXIV_MAX_ITEMS: "4"
       TITLE_COMPLETE_RATIO_MIN: "0.90"
