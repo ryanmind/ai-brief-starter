@@ -33,6 +33,7 @@
 - `PRD.md`：需求文档
 - `main.py`：采集 + 摘要 + 生成早报
 - `sources.txt`：RSS 来源
+- `docs/x_api_setup_zh.md`：X 官方 API 开通与 Token 配置指南
 - `.github/workflows/daily.yml`：定时任务
 - `reports/`：日报输出
 
