@@ -197,18 +197,40 @@
 
 作用：让 GitHub Actions 能把消息推送到飞书群。
 
-### Step 2：在 GitHub 配置 Secrets
+### Step 2：创建飞书自建应用（用于“自动写入文档”）
+
+1. 打开 [飞书开放平台（做自动化/机器人时用）](https://open.feishu.cn/)。
+2. 创建一个企业自建应用（同一租户下）。
+3. 在应用里启用云文档相关读写权限（用于创建/编辑新版文档）。
+4. 发布应用到当前租户并完成授权。
+5. 记录 `App ID` 与 `App Secret`。
+
+作用：机器人 Webhook 只负责“发群消息”，要自动写文档必须用 OpenAPI 应用凭证。
+
+### Step 3：准备文档目录（可选但强烈建议）
+
+1. 在飞书云空间创建文件夹，例如：`AI早报归档`。
+2. 复制该文件夹 token（从文件夹链接中获取）。
+
+作用：每天新建的日报文档统一归档在这个文件夹，便于检索。
+
+### Step 4：在 GitHub 配置 Secrets
 
 路径：`Settings -> Secrets and variables -> Actions`
 
 新增以下密钥：
 
-- `FEISHU_WEBHOOK_URL`：机器人 Webhook（必填）
+- `FEISHU_WEBHOOK_URL`：机器人 Webhook（必填，负责群通知）
 - `FEISHU_BOT_SECRET`：签名 Secret（仅当你在飞书开启签名时填写）
+- `FEISHU_APP_ID`：飞书自建应用 App ID（自动写文档必填）
+- `FEISHU_APP_SECRET`：飞书自建应用 App Secret（自动写文档必填）
+- `FEISHU_REPORT_FOLDER_TOKEN`：日报归档文件夹 token（可选，建议配置）
+- `FEISHU_REPORT_DOC_URL`：飞书总览文档链接（可选，作为固定入口）
+- `FEISHU_DOC_SYNC_REQUIRED`：是否强制文档同步（默认 `1`；仅群通知可设 `0`）
 
 作用：避免把凭证写死在代码里。
 
-### Step 3：确认仓库脚本与工作流
+### Step 5：确认仓库脚本与工作流
 
 本仓库已包含：
 
@@ -220,9 +242,10 @@
 1. 生成日报 `reports/latest.md`
 2. 质量检查
 3. 回写报告到仓库
-4. 推送飞书通知
+4. 自动新建“今日飞书文档”并写入全文（不会覆盖旧文档）
+5. 推送飞书通知（摘要 + 今日文档链接）
 
-### Step 4：手动触发一次验证
+### Step 6：手动触发一次验证
 
 先确认：你已经把本地改动 `commit + push` 到远程分支（否则 Actions 仍运行旧代码）。
 
@@ -230,11 +253,35 @@
 2. 选择 `ai-morning-brief`。
 3. 点击 `Run workflow`。
 4. 观察 `Notify Feishu` 步骤日志应为 `notify success`。
-5. 飞书群里应收到“标题 + 今日要点 + 任务详情链接”。
+5. 飞书群里应收到“标题 + 今日要点 + 今日完整文档（飞书）链接 + 任务详情链接”。
+6. 在飞书文件夹中应看到新增文档（例如：`AI 早报（YYYY-MM-DD）-YYYY-MM-DD-HHMMSS`）。
 
-### Step 5：常见报错排查
+### Step 7：常见报错排查
 
 - 没消息但步骤成功：检查群里是否有关键词限制。
 - `HTTP 403/401`：Webhook 或签名错误。
 - 步骤被跳过：`FEISHU_WEBHOOK_URL` 为空。
 - 文案为空：确认 `reports/latest.md` 有「今日要点」段落。
+- 日报没有自动写入飞书文档：检查 `FEISHU_APP_ID`、`FEISHU_APP_SECRET`、应用权限与发布状态。
+- 文档未进指定目录：检查 `FEISHU_REPORT_FOLDER_TOKEN` 是否正确。
+
+---
+
+## 14. 你现在应该做什么（按顺序）
+
+1. 在飞书开放平台创建自建应用并授权文档读写能力。  
+2. 获取并保存以下信息：  
+   - 机器人 `Webhook`（以及可选 `Secret`）  
+   - 应用 `App ID`、`App Secret`  
+   - （可选）归档文件夹 `folder token`  
+3. 在 GitHub Secrets 配置：  
+   - 必填：`QWEN_API_KEY`、`FEISHU_WEBHOOK_URL`、`FEISHU_APP_ID`、`FEISHU_APP_SECRET`  
+   - 可选：`FEISHU_BOT_SECRET`、`FEISHU_REPORT_FOLDER_TOKEN`、`FEISHU_REPORT_DOC_URL`  
+4. 将代码推送到远程分支（确保 Actions 跑的是新脚本）。  
+5. 手动运行一次 `ai-morning-brief`。  
+6. 验证结果：  
+   - Actions 日志 `Notify Feishu` 显示 `notify success`  
+   - 飞书群消息里出现“今日完整文档（飞书）”链接  
+   - 飞书空间里新增一篇当天新文档（不会覆盖旧文档）
+
+如果你当前只想先验证“群通知”而不写文档，可临时把 `FEISHU_DOC_SYNC_REQUIRED` 设为 `0`。

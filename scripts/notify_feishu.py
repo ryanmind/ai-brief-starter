@@ -9,9 +9,19 @@ import os
 import re
 import sys
 import time
+from datetime import datetime
 from pathlib import Path
 from urllib import error as urlerror
 from urllib import request as urlrequest
+
+API_BASE = "https://open.feishu.cn"
+DEFAULT_DOC_BASE_URL = "https://feishu.cn/docx"
+
+
+def is_enabled(value: str | None, default: bool = True) -> bool:
+    if value is None:
+        return default
+    return value.strip().lower() not in {"0", "false", "no", "off"}
 
 
 def pick_highlights(markdown: str, max_items: int = 5) -> list[str]:
@@ -50,12 +60,25 @@ def extract_title(markdown: str) -> str:
 
 
 def post_to_feishu(webhook_url: str, payload: dict[str, object]) -> dict[str, object]:
-    req = urlrequest.Request(
-        url=webhook_url,
-        data=json.dumps(payload, ensure_ascii=False).encode("utf-8"),
-        headers={"Content-Type": "application/json"},
+    return http_json_request(
         method="POST",
+        url=webhook_url,
+        payload=payload,
+        headers={"Content-Type": "application/json"},
     )
+
+
+def http_json_request(
+    method: str,
+    url: str,
+    payload: dict[str, object] | None = None,
+    headers: dict[str, str] | None = None,
+) -> dict[str, object]:
+    req_headers = {"Content-Type": "application/json"}
+    if headers:
+        req_headers.update(headers)
+    body = None if payload is None else json.dumps(payload, ensure_ascii=False).encode("utf-8")
+    req = urlrequest.Request(url=url, data=body, headers=req_headers, method=method)
     try:
         with urlrequest.urlopen(req, timeout=15) as response:
             raw = response.read().decode("utf-8", errors="replace")
@@ -72,6 +95,147 @@ def post_to_feishu(webhook_url: str, payload: dict[str, object]) -> dict[str, ob
     if not isinstance(parsed, dict):
         raise RuntimeError(f"unexpected response payload: {raw}")
     return parsed
+
+
+def ensure_openapi_success(response: dict[str, object], action: str) -> None:
+    code = response.get("code")
+    if code is None:
+        return
+    if str(code) not in {"0", ""}:
+        raise RuntimeError(f"{action} failed: {response}")
+
+
+def get_tenant_access_token(app_id: str, app_secret: str) -> str:
+    response = http_json_request(
+        method="POST",
+        url=f"{API_BASE}/open-apis/auth/v3/tenant_access_token/internal",
+        payload={"app_id": app_id, "app_secret": app_secret},
+    )
+    ensure_openapi_success(response, action="get tenant_access_token")
+    token = str(response.get("tenant_access_token", "")).strip()
+    if not token:
+        raise RuntimeError(f"tenant_access_token missing: {response}")
+    return token
+
+
+def create_docx_document(token: str, title: str, folder_token: str) -> str:
+    payload: dict[str, object] = {"title": title}
+    if folder_token:
+        payload["folder_token"] = folder_token
+
+    response = http_json_request(
+        method="POST",
+        url=f"{API_BASE}/open-apis/docx/v1/documents",
+        payload=payload,
+        headers={"Authorization": f"Bearer {token}"},
+    )
+    ensure_openapi_success(response, action="create docx document")
+    data = response.get("data")
+    if not isinstance(data, dict):
+        raise RuntimeError(f"create document failed: {response}")
+
+    document = data.get("document")
+    if isinstance(document, dict):
+        doc_id = str(document.get("document_id", "")).strip()
+        if doc_id:
+            return doc_id
+    doc_id = str(data.get("document_id", "")).strip()
+    if doc_id:
+        return doc_id
+    raise RuntimeError(f"document_id missing in response: {response}")
+
+
+def markdown_to_text_blocks(markdown: str) -> list[str]:
+    blocks: list[str] = []
+    for raw_line in markdown.splitlines():
+        line = raw_line.rstrip()
+        if not line:
+            blocks.append("")
+            continue
+        # Keep markdown markers to preserve context while writing plain text blocks.
+        blocks.append(line)
+    return blocks
+
+
+def create_docx_children(token: str, document_id: str, lines: list[str], batch_size: int = 20) -> None:
+    if not lines:
+        lines = ["（空内容）"]
+
+    for start in range(0, len(lines), batch_size):
+        batch = lines[start : start + batch_size]
+        text_children: list[dict[str, object]] = []
+        paragraph_children: list[dict[str, object]] = []
+        for line in batch:
+            content = line if line else " "
+            text_children.append(
+                {
+                    "block_type": 2,
+                    "text": {
+                        "elements": [
+                            {
+                                "text_run": {
+                                    "content": content,
+                                }
+                            }
+                        ]
+                    },
+                }
+            )
+            paragraph_children.append(
+                {
+                    "block_type": 2,
+                    "paragraph": {
+                        "elements": [
+                            {
+                                "text_run": {
+                                    "content": content,
+                                }
+                            }
+                        ]
+                    },
+                }
+            )
+
+        url = f"{API_BASE}/open-apis/docx/v1/documents/{document_id}/blocks/{document_id}/children?document_revision_id=-1"
+        try:
+            response = http_json_request(
+                method="POST",
+                url=url,
+                payload={"children": text_children},
+                headers={"Authorization": f"Bearer {token}"},
+            )
+            ensure_openapi_success(response, action="append docx blocks")
+        except Exception:
+            # Different tenants/versions may require `paragraph` instead of `text`.
+            response = http_json_request(
+                method="POST",
+                url=url,
+                payload={"children": paragraph_children},
+                headers={"Authorization": f"Bearer {token}"},
+            )
+            ensure_openapi_success(response, action="append docx blocks (paragraph fallback)")
+
+
+def sync_markdown_to_new_doc(markdown: str, title: str) -> str:
+    app_id = os.getenv("FEISHU_APP_ID", "").strip()
+    app_secret = os.getenv("FEISHU_APP_SECRET", "").strip()
+    sync_required = is_enabled(os.getenv("FEISHU_DOC_SYNC_REQUIRED"), default=True)
+    if not app_id or not app_secret:
+        if sync_required:
+            raise RuntimeError("FEISHU_APP_ID/FEISHU_APP_SECRET missing")
+        return ""
+
+    folder_token = os.getenv("FEISHU_REPORT_FOLDER_TOKEN", "").strip()
+    date_part = datetime.now().strftime("%Y-%m-%d")
+    time_part = datetime.now().strftime("%H%M%S")
+    daily_title = f"{title}-{date_part}-{time_part}"
+
+    token = get_tenant_access_token(app_id=app_id, app_secret=app_secret)
+    document_id = create_docx_document(token=token, title=daily_title[:120], folder_token=folder_token)
+    create_docx_children(token=token, document_id=document_id, lines=markdown_to_text_blocks(markdown))
+
+    doc_base_url = os.getenv("FEISHU_DOC_BASE_URL", DEFAULT_DOC_BASE_URL).strip().rstrip("/")
+    return f"{doc_base_url}/{document_id}"
 
 
 def main() -> int:
@@ -93,12 +257,29 @@ def main() -> int:
     title = extract_title(markdown)
     highlights = pick_highlights(markdown, max_items=5)
     run_url = os.getenv("ACTIONS_RUN_URL", "").strip()
+    feishu_doc_url = os.getenv("FEISHU_REPORT_DOC_URL", "").strip()
+    report_public_url = os.getenv("REPORT_PUBLIC_URL", "").strip()
+    synced_doc_url = ""
+
+    try:
+        synced_doc_url = sync_markdown_to_new_doc(markdown=markdown, title=title)
+    except Exception as exc:
+        raise RuntimeError(f"sync report to feishu doc failed: {exc}") from exc
 
     text_lines = [f"AI早报已生成：{title}"]
     if highlights:
         text_lines.append("")
         for idx, item in enumerate(highlights, 1):
             text_lines.append(f"{idx}. {item}")
+    full_report_url = synced_doc_url or feishu_doc_url or report_public_url
+    if full_report_url:
+        text_lines.append("")
+        if synced_doc_url:
+            text_lines.append(f"今日完整文档（飞书）：{full_report_url}")
+        elif feishu_doc_url:
+            text_lines.append(f"全文文档（飞书总览）：{full_report_url}")
+        else:
+            text_lines.append(f"全文内容：{full_report_url}")
     if run_url:
         text_lines.append("")
         text_lines.append(f"任务详情：{run_url}")

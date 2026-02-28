@@ -34,6 +34,11 @@ jobs:
       KIMI_API_KEY: ${{ secrets.KIMI_API_KEY }}
       FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
       FEISHU_BOT_SECRET: ${{ secrets.FEISHU_BOT_SECRET }}
+      FEISHU_REPORT_DOC_URL: ${{ secrets.FEISHU_REPORT_DOC_URL }}
+      FEISHU_APP_ID: ${{ secrets.FEISHU_APP_ID }}
+      FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
+      FEISHU_REPORT_FOLDER_TOKEN: ${{ secrets.FEISHU_REPORT_FOLDER_TOKEN }}
+      FEISHU_DOC_SYNC_REQUIRED: "1"
     steps:
       - uses: actions/checkout@v4
 
@@ -73,4 +78,5 @@ jobs:
         if: success() && env.FEISHU_WEBHOOK_URL != ''
         env:
           ACTIONS_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          REPORT_PUBLIC_URL: https://github.com/${{ github.repository }}/blob/${{ github.ref_name }}/reports/latest.md
         run: python scripts/notify_feishu.py reports/latest.md

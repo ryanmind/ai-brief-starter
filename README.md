@@ -6,7 +6,7 @@
 
 1. 配置 GitHub Actions Secrets
    - 必需：`QWEN_API_KEY`
-   - 可选：`KIMI_API_KEY`、`FEISHU_WEBHOOK_URL`、`FEISHU_BOT_SECRET`
+   - 可选：`KIMI_API_KEY`、`FEISHU_WEBHOOK_URL`、`FEISHU_BOT_SECRET`、`FEISHU_REPORT_DOC_URL`、`FEISHU_APP_ID`、`FEISHU_APP_SECRET`、`FEISHU_REPORT_FOLDER_TOKEN`、`FEISHU_DOC_SYNC_REQUIRED`
 2. 推送代码到 GitHub（建议 private 仓库）
 3. 在 Actions 里手动运行 `ai-morning-brief`
 4. 查看 `reports/latest.md`
@@ -51,6 +51,8 @@
 - 默认 `TOP_N=20`，如需更全可调到 `30`（建议同时提高 `MAX_ITEMS`，例如 `120`）。
 - 详细快讯会输出 `关键点` 列表（2-3条短 bullet），更适合朋友圈/飞书阅读。
 - 默认不显式限制模型输出 token（仍受模型服务端上限约束）。
-- 配置 `FEISHU_WEBHOOK_URL` 后，工作流会自动发送日报摘要到飞书群。
+- 配置 `FEISHU_WEBHOOK_URL` 后，工作流会自动发送日报摘要到飞书群；配置 `FEISHU_APP_ID/FEISHU_APP_SECRET` 后会自动新建飞书文档并写入全文（不会覆盖历史）。
+- 如配置 `FEISHU_REPORT_FOLDER_TOKEN`，每日新文档会创建在指定文件夹；`FEISHU_REPORT_DOC_URL` 可作为总览入口链接附在消息中。
+- `FEISHU_DOC_SYNC_REQUIRED` 默认 `1`，未配置文档写入凭证会直接失败；如仅需群通知可设为 `0`。
 - 可运行 `python scripts/report_quality_check.py reports/latest.md` 做质量闸门检查（标题完整率/二手域名/关键点格式）。
 - 可运行 `python scripts/source_health_check.py --output reports/source_health.md` 做信息源健康检查。
