@@ -1021,7 +1021,7 @@ def render_markdown(items: list[dict[str, str]]) -> str:
         "",
         f"生成时间：{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
         "",
-        "## 30秒导读（可直接发朋友圈）",
+        "## 30秒导读",
     ]
 
     for idx, item in enumerate(items[:5], 1):
@@ -1035,7 +1035,7 @@ def render_markdown(items: list[dict[str, str]]) -> str:
             lines.append(f"- {idx}. {title}")
 
     lines.append("")
-    lines.append("## 详细快讯（可直接贴公众号）")
+    lines.append("## 详细快讯")
     for idx, item in enumerate(items, 1):
         brief = ensure_sentence_end(item.get("brief", ""))
         details = ensure_sentence_end(item.get("details", "") or item.get("brief", ""))
