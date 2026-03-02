@@ -14,8 +14,9 @@ import feedparser
 from dateutil import parser as dtparser
 from openai import OpenAI
 
-BRIEF_MAX_CHARS = 120
-IMPACT_MAX_CHARS = 100
+BRIEF_MAX_CHARS = 140
+IMPACT_MAX_CHARS = 120
+DETAIL_MAX_CHARS = 180
 TITLE_MAX_CHARS = 50
 KEY_POINTS_MAX_COUNT = 3
 KEY_POINTS_MIN_COUNT = 2
@@ -741,6 +742,7 @@ def fallback_selection(items: list[dict[str, str]], top_n: int, start_score: int
         else:
             result["brief"] = clean_text(item.get("title", ""))[:BRIEF_MAX_CHARS]
 
+        result["details"] = summary[:DETAIL_MAX_CHARS] if summary else result["brief"]
         result["impact"] = "信息持续跟进中，建议查看原文链接。"
         result["key_points"] = build_default_key_points(result)
         fallback.append(result)
@@ -805,9 +807,10 @@ def rank_and_summarize(
     user_prompt = (
         "你是AI资讯编辑。请从候选中选出最值得做早报的内容并摘要。\n"
         "严格输出JSON："
-        '{"items":[{"id":1,"score":90,"title":"...","brief":"...","impact":"...","key_points":["...","..."]}]}\n'
-        f"最多返回{top_n}条；title<={TITLE_MAX_CHARS}字；brief<={BRIEF_MAX_CHARS}字；impact<={IMPACT_MAX_CHARS}字；必须基于输入，不编造；"
+        '{"items":[{"id":1,"score":90,"title":"...","brief":"...","details":"...","impact":"...","key_points":["...","..."]}]}\n'
+        f"最多返回{top_n}条；title<={TITLE_MAX_CHARS}字；brief<={BRIEF_MAX_CHARS}字；details<={DETAIL_MAX_CHARS}字；impact<={IMPACT_MAX_CHARS}字；必须基于输入，不编造；"
         "brief和impact必须使用简体中文。"
+        "details写1-2句具体事实，尽量包含实体名/数字/版本/时间等可核实信息。"
         f"key_points返回2-3条，每条<={KEY_POINT_MAX_CHARS}字。"
         "标题必须完整，包含主体名称（公司/产品/人物），不能省略主语。"
         "写法要可直接用于朋友圈/公众号：先结论后细节、避免空话与套话。"
@@ -874,6 +877,12 @@ def rank_and_summarize(
                 logger.info("rank_and_summarize: 标题疑似缺主语，回退为原始标题。")
             result["title"] = title
         result["brief"] = clean_text(str(row.get("brief", "")))[:BRIEF_MAX_CHARS]
+        details = clean_text(str(row.get("details", "")))[:DETAIL_MAX_CHARS]
+        if not details:
+            details = clean_text(result.get("summary", ""))[:DETAIL_MAX_CHARS]
+        if not details:
+            details = result["brief"]
+        result["details"] = details
         result["impact"] = clean_text(str(row.get("impact", "")))[:IMPACT_MAX_CHARS]
         result["key_points"] = finalize_key_points(normalize_key_points(row.get("key_points")), result)
         fingerprints = item_dedupe_fingerprints(result)
@@ -906,6 +915,7 @@ def localize_items_to_chinese(
             "id": idx + 1,
             "title": item.get("title", ""),
             "brief": item.get("brief", ""),
+            "details": item.get("details", ""),
             "impact": item.get("impact", ""),
             "key_points": item.get("key_points", [])[:KEY_POINTS_MAX_COUNT],
         }
@@ -915,8 +925,8 @@ def localize_items_to_chinese(
     user_prompt = (
         "请把下面资讯字段统一改写为简体中文，必须保持事实不变。\n"
         "严格输出JSON："
-        '{"items":[{"id":1,"title":"中文标题","brief":"中文摘要","impact":"中文影响","key_points":["要点1","要点2"]}]}\n'
-        f"要求：title<={TITLE_MAX_CHARS}字，brief<={BRIEF_MAX_CHARS}字，impact<={IMPACT_MAX_CHARS}字，"
+        '{"items":[{"id":1,"title":"中文标题","brief":"中文摘要","details":"中文细节","impact":"中文影响","key_points":["要点1","要点2"]}]}\n'
+        f"要求：title<={TITLE_MAX_CHARS}字，brief<={BRIEF_MAX_CHARS}字，details<={DETAIL_MAX_CHARS}字，impact<={IMPACT_MAX_CHARS}字，"
         f"key_points最多{KEY_POINTS_MAX_COUNT}条且每条<={KEY_POINT_MAX_CHARS}字。\n\n"
         "文风要求：口语化但专业，信息密度高，像可直接发朋友圈/公众号的成稿。"
         "避免机械重复开头（如连续使用“宣布/发布”）。\n\n"
@@ -953,12 +963,15 @@ def localize_items_to_chinese(
         item = items[idx - 1].copy()
         title_cn = clean_text(str(row.get("title", "")))[:TITLE_MAX_CHARS]
         brief_cn = clean_text(str(row.get("brief", "")))[:BRIEF_MAX_CHARS]
+        details_cn = clean_text(str(row.get("details", "")))[:DETAIL_MAX_CHARS]
         impact_cn = clean_text(str(row.get("impact", "")))[:IMPACT_MAX_CHARS]
 
         if title_cn:
             item["title"] = title_cn
         if brief_cn:
             item["brief"] = brief_cn
+        if details_cn:
+            item["details"] = details_cn
         if impact_cn:
             item["impact"] = impact_cn
         item["key_points"] = finalize_key_points(normalize_key_points(row.get("key_points")), item)
@@ -1013,12 +1026,14 @@ def render_markdown(items: list[dict[str, str]]) -> str:
     lines.append("## 详细快讯（可直接贴公众号）")
     for idx, item in enumerate(items, 1):
         brief = ensure_sentence_end(item.get("brief", ""))
+        details = ensure_sentence_end(item.get("details", "") or item.get("brief", ""))
         impact = ensure_sentence_end(item.get("impact", ""))
         lines.extend(
             [
                 "",
                 f"### {idx}) {item['title']}",
                 f"- 摘要：{brief}",
+                f"- 细节：{details}",
                 "- 关键点：",
                 *[f"  - {point}" for point in finalize_key_points(normalize_key_points(item.get("key_points")), item)],
                 f"- 影响：{impact}",

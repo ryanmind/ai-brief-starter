@@ -45,6 +45,11 @@ def pick_highlights(markdown: str, max_items: int = 5) -> list[str]:
     return highlights
 
 
+def normalize_highlight_item(text: str) -> str:
+    normalized = re.sub(r"^\s*(?:[-*•]\s*)*(?:\d+\s*[\.\)、]\s*)+", "", text).strip()
+    return normalized or text.strip()
+
+
 def build_feishu_sign(secret: str) -> tuple[str, str]:
     timestamp = str(int(time.time()))
     string_to_sign = f"{timestamp}\n{secret}".encode("utf-8")
@@ -176,7 +181,12 @@ def markdown_to_text_blocks(markdown: str) -> list[str]:
             blocks.append("关键点：")
             in_key_points = True
             continue
-        if stripped.startswith("- 摘要") or stripped.startswith("- 影响") or stripped.startswith("- 来源"):
+        if (
+            stripped.startswith("- 摘要")
+            or stripped.startswith("- 细节")
+            or stripped.startswith("- 影响")
+            or stripped.startswith("- 来源")
+        ):
             blocks.append(stripped[2:].strip())
             in_key_points = False
             continue
@@ -293,6 +303,7 @@ def main() -> int:
     markdown = report_path.read_text(encoding="utf-8")
     title = extract_title(markdown)
     highlights = pick_highlights(markdown, max_items=5)
+    include_run_url = is_enabled(os.getenv("FEISHU_INCLUDE_RUN_URL"), default=False)
     run_url = os.getenv("ACTIONS_RUN_URL", "").strip()
     feishu_doc_url = os.getenv("FEISHU_REPORT_DOC_URL", "").strip()
     report_public_url = os.getenv("REPORT_PUBLIC_URL", "").strip()
@@ -307,7 +318,7 @@ def main() -> int:
     if highlights:
         text_lines.append("")
         for idx, item in enumerate(highlights, 1):
-            text_lines.append(f"{idx}. {item}")
+            text_lines.append(f"{idx}. {normalize_highlight_item(item)}")
     full_report_url = synced_doc_url or feishu_doc_url or report_public_url
     if full_report_url:
         text_lines.append("")
@@ -317,7 +328,7 @@ def main() -> int:
             text_lines.append(f"全文文档（飞书总览）：{full_report_url}")
         else:
             text_lines.append(f"全文内容：{full_report_url}")
-    if run_url:
+    if include_run_url and run_url:
         text_lines.append("")
         text_lines.append(f"任务详情：{run_url}")
 

@@ -52,10 +52,11 @@
 - 默认开启跨天去重（`HISTORY_DEDUP_DAYS=2`），会自动避开最近两天已发过的相同资讯链接/标题。
 - 若条目不足会自动扩大抓取窗口（`FETCH_HOURS=24`，`FALLBACK_FETCH_HOURS=72`），尽量补足 `TOP_N`。
 - 可用 `PER_SOURCE_ITEMS` 提高单源抓取条数（默认 `30`），提升候选池丰富度。
-- 详细快讯会输出 `关键点` 列表（2-3条短 bullet），更适合朋友圈/飞书阅读。
+- 详细快讯包含 `摘要/细节/关键点/影响`，并输出 `关键点` 列表（2-3条短 bullet），更适合朋友圈/公众号发布。
 - 默认不显式限制模型输出 token（仍受模型服务端上限约束）。
 - 配置 `FEISHU_WEBHOOK_URL` 后，工作流会自动发送日报摘要到飞书群；配置 `FEISHU_APP_ID/FEISHU_APP_SECRET` 后会自动新建飞书文档并写入全文（不会覆盖历史）。
 - 飞书文档写入会自动去除 Markdown 标记，默认以可读正文样式展示（非原始 Markdown 状态）。
+- 默认不在群消息中展示 GitHub Actions 任务详情；如需展示可设置 `FEISHU_INCLUDE_RUN_URL=1`。
 - 如配置 `FEISHU_REPORT_FOLDER_TOKEN`，每日新文档会创建在指定文件夹；`FEISHU_REPORT_DOC_URL` 可作为总览入口链接附在消息中。
 - `FEISHU_DOC_SYNC_REQUIRED` 默认 `1`，未配置文档写入凭证会直接失败；如仅需群通知可设为 `0`。
 - 默认不跟踪 `reports/*.md`，工作流通过 artifact 与飞书保留结果。
