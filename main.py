@@ -14,9 +14,21 @@ import feedparser
 from dateutil import parser as dtparser
 from openai import OpenAI
 
-BRIEF_MAX_CHARS = 140
-IMPACT_MAX_CHARS = 120
-DETAIL_MAX_CHARS = 180
+
+def int_env(name: str, default: int, min_value: int = 1, max_value: int = 1000) -> int:
+    raw = os.getenv(name, "").strip()
+    if not raw:
+        return default
+    try:
+        value = int(raw)
+    except ValueError:
+        return default
+    return max(min_value, min(max_value, value))
+
+
+BRIEF_MAX_CHARS = int_env("BRIEF_MAX_CHARS", 160, min_value=40, max_value=400)
+IMPACT_MAX_CHARS = int_env("IMPACT_MAX_CHARS", 140, min_value=40, max_value=320)
+DETAIL_MAX_CHARS = int_env("DETAIL_MAX_CHARS", 260, min_value=80, max_value=800)
 TITLE_MAX_CHARS = 50
 KEY_POINTS_MAX_COUNT = 3
 KEY_POINTS_MIN_COUNT = 2

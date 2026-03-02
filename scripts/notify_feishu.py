@@ -9,7 +9,6 @@ import os
 import re
 import sys
 import time
-from datetime import datetime
 from pathlib import Path
 from urllib import error as urlerror
 from urllib import request as urlrequest
@@ -273,12 +272,8 @@ def sync_markdown_to_new_doc(markdown: str, title: str) -> str:
         return ""
 
     folder_token = os.getenv("FEISHU_REPORT_FOLDER_TOKEN", "").strip()
-    date_part = datetime.now().strftime("%Y-%m-%d")
-    time_part = datetime.now().strftime("%H%M%S")
-    daily_title = f"{title}-{date_part}-{time_part}"
-
     token = get_tenant_access_token(app_id=app_id, app_secret=app_secret)
-    document_id = create_docx_document(token=token, title=daily_title[:120], folder_token=folder_token)
+    document_id = create_docx_document(token=token, title=title[:120], folder_token=folder_token)
     create_docx_children(token=token, document_id=document_id, lines=markdown_to_text_blocks(markdown))
 
     doc_base_url = os.getenv("FEISHU_DOC_BASE_URL", DEFAULT_DOC_BASE_URL).strip().rstrip("/")
