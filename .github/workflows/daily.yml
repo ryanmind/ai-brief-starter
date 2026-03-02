@@ -46,6 +46,8 @@ jobs:
       FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
       FEISHU_REPORT_FOLDER_TOKEN: ${{ secrets.FEISHU_REPORT_FOLDER_TOKEN }}
       FEISHU_DOC_SYNC_REQUIRED: "1"
+      FEISHU_DOC_PUBLIC_READABLE: "1"
+      FEISHU_DOC_PUBLIC_REQUIRED: "0"
     steps:
       - uses: actions/checkout@v4
 

@@ -110,6 +110,45 @@ def ensure_openapi_success(response: dict[str, object], action: str) -> None:
         raise RuntimeError(f"{action} failed: {response}")
 
 
+def is_no_folder_permission_error(exc: Exception) -> bool:
+    text = str(exc).lower()
+    return '"code":1770040' in text or "no folder permission" in text
+
+
+def configure_docx_public_permission(token: str, document_id: str) -> None:
+    readable_enabled = is_enabled(os.getenv("FEISHU_DOC_PUBLIC_READABLE"), default=True)
+    if not readable_enabled:
+        return
+
+    required = is_enabled(os.getenv("FEISHU_DOC_PUBLIC_REQUIRED"), default=False)
+    # For audience-facing briefs, default to "anyone with link can read" (including outside tenant).
+    payload: dict[str, object] = {
+        "external_access": True,
+        "security_entity": "anyone_can_view",
+        "comment_entity": "anyone_can_view",
+        "share_entity": "anyone",
+        "link_share_entity": "anyone_readable",
+        "invite_external": True,
+    }
+    url = f"{API_BASE}/open-apis/drive/v1/permissions/{document_id}/public?type=docx"
+    try:
+        response = http_json_request(
+            method="PATCH",
+            url=url,
+            payload=payload,
+            headers={"Authorization": f"Bearer {token}"},
+        )
+        ensure_openapi_success(response, action="set docx public permission")
+    except Exception as exc:
+        message = (
+            "warn: failed to set doc public permission to external-readable; "
+            f"keep default access. error={exc}"
+        )
+        if required:
+            raise RuntimeError(message) from exc
+        print(message)
+
+
 def get_tenant_access_token(app_id: str, app_secret: str) -> str:
     response = http_json_request(
         method="POST",
@@ -128,12 +167,25 @@ def create_docx_document(token: str, title: str, folder_token: str) -> str:
     if folder_token:
         payload["folder_token"] = folder_token
 
-    response = http_json_request(
-        method="POST",
-        url=f"{API_BASE}/open-apis/docx/v1/documents",
-        payload=payload,
-        headers={"Authorization": f"Bearer {token}"},
-    )
+    try:
+        response = http_json_request(
+            method="POST",
+            url=f"{API_BASE}/open-apis/docx/v1/documents",
+            payload=payload,
+            headers={"Authorization": f"Bearer {token}"},
+        )
+    except Exception as exc:
+        if folder_token and is_no_folder_permission_error(exc):
+            print("warn: folder permission denied, fallback to default location")
+            response = http_json_request(
+                method="POST",
+                url=f"{API_BASE}/open-apis/docx/v1/documents",
+                payload={"title": title},
+                headers={"Authorization": f"Bearer {token}"},
+            )
+        else:
+            raise
+
     ensure_openapi_success(response, action="create docx document")
     data = response.get("data")
     if not isinstance(data, dict):
@@ -274,6 +326,7 @@ def sync_markdown_to_new_doc(markdown: str, title: str) -> str:
     folder_token = os.getenv("FEISHU_REPORT_FOLDER_TOKEN", "").strip()
     token = get_tenant_access_token(app_id=app_id, app_secret=app_secret)
     document_id = create_docx_document(token=token, title=title[:120], folder_token=folder_token)
+    configure_docx_public_permission(token=token, document_id=document_id)
     create_docx_children(token=token, document_id=document_id, lines=markdown_to_text_blocks(markdown))
 
     doc_base_url = os.getenv("FEISHU_DOC_BASE_URL", DEFAULT_DOC_BASE_URL).strip().rstrip("/")

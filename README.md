@@ -57,6 +57,8 @@
 - 默认不显式限制模型输出 token（仍受模型服务端上限约束）。
 - 配置 `FEISHU_WEBHOOK_URL` 后，工作流会自动发送日报摘要到飞书群；配置 `FEISHU_APP_ID/FEISHU_APP_SECRET` 后会自动新建飞书文档并写入全文（不会覆盖历史）。
 - 飞书文档写入会自动去除 Markdown 标记，默认以可读正文样式展示（非原始 Markdown 状态）。
+- 默认会尝试将新建飞书文档设为“组织外获得链接可读”（`FEISHU_DOC_PUBLIC_READABLE=1`）；若租户策略不允许会降级为默认权限并打印警告。
+- 可设 `FEISHU_DOC_PUBLIC_REQUIRED=1`，在无法设置公开权限时让任务直接失败。
 - 默认不在群消息中展示 GitHub Actions 任务详情；如需展示可设置 `FEISHU_INCLUDE_RUN_URL=1`。
 - 如配置 `FEISHU_REPORT_FOLDER_TOKEN`，每日新文档会创建在指定文件夹；`FEISHU_REPORT_DOC_URL` 可作为总览入口链接附在消息中。
 - `FEISHU_DOC_SYNC_REQUIRED` 默认 `1`，未配置文档写入凭证会直接失败；如仅需群通知可设为 `0`。
