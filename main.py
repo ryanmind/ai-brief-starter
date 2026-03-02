@@ -122,6 +122,8 @@ X_HOSTS = {
     "nitter.d420.de",
     "nitter.unixfox.eu",
 }
+REPORT_ITEM_TITLE_PATTERN = re.compile(r"^###\s+\d+\)\s+(.+)$")
+REPORT_ITEM_SOURCE_PATTERN = re.compile(r"^- 来源[：:](.+)$")
 
 logger = logging.getLogger(__name__)
 
@@ -267,6 +269,28 @@ def build_default_key_points(item: dict[str, str]) -> list[str]:
     return points[:KEY_POINTS_MAX_COUNT]
 
 
+def ensure_sentence_end(text: str) -> str:
+    value = clean_text(text)
+    if not value:
+        return ""
+    if value[-1] in "。！？!?":
+        return value
+    return f"{value}。"
+
+
+def shorten_for_highlight(text: str, max_chars: int = 42) -> str:
+    value = clean_text(text)
+    if len(value) <= max_chars:
+        return value
+
+    for sep in ("。", "；", ";", "，", ","):
+        if sep in value:
+            head = value.split(sep, 1)[0].strip()
+            if 0 < len(head) <= max_chars:
+                return head
+    return value[:max_chars].rstrip()
+
+
 def finalize_key_points(points: list[str], item: dict[str, str]) -> list[str]:
     merged: list[str] = []
     seen: set[str] = set()
@@ -343,6 +367,112 @@ def normalize_link_for_source(source_url: str, link: str) -> str:
     if tracked_file.lower().endswith("changelog.md"):
         return f"https://github.com/{owner}/{repo}/blob/{branch}/{tracked_file}"
     return link
+
+
+def normalize_link_for_dedupe(url: str) -> str:
+    parsed = urlparse((url or "").strip())
+    host = normalize_host(parsed.netloc or "")
+    if not host:
+        return ""
+
+    path = re.sub(r"/+$", "", parsed.path or "")
+    if host in X_HOSTS:
+        host = "x.com"
+        parts = [part for part in path.split("/") if part]
+        if len(parts) >= 3 and parts[1] == "status":
+            path = f"/{parts[0].lower()}/status/{parts[2]}"
+        elif parts:
+            path = f"/{parts[0].lower()}"
+        else:
+            path = ""
+    elif host in {"arxiv.org", "export.arxiv.org"}:
+        match = re.match(r"^/(abs|pdf)/(\d{4}\.\d{4,5})(?:v\d+)?(?:\.pdf)?$", path, flags=re.IGNORECASE)
+        if match:
+            path = f"/{match.group(1).lower()}/{match.group(2)}"
+        host = "arxiv.org"
+
+    return f"{host}{path}".strip()
+
+
+def normalize_title_for_dedupe(title: str) -> str:
+    return re.sub(r"\W+", "", clean_text(title).lower(), flags=re.UNICODE)
+
+
+def item_dedupe_fingerprints(item: dict[str, str]) -> set[str]:
+    fingerprints: set[str] = set()
+    link_key = normalize_link_for_dedupe(item.get("link", ""))
+    if link_key:
+        fingerprints.add(f"l:{link_key}")
+    title_key = normalize_title_for_dedupe(item.get("title", ""))
+    if title_key:
+        fingerprints.add(f"t:{title_key}")
+    return fingerprints
+
+
+def collect_report_history_fingerprints(report_path: Path) -> set[str]:
+    fingerprints: set[str] = set()
+    current_title = ""
+    try:
+        lines = report_path.read_text(encoding="utf-8").splitlines()
+    except Exception as exc:
+        logger.warning("read report failed, skip history dedupe: %s (%s)", report_path, exc)
+        return fingerprints
+
+    for raw_line in lines:
+        line = raw_line.strip()
+        title_match = REPORT_ITEM_TITLE_PATTERN.match(line)
+        if title_match:
+            current_title = clean_text(title_match.group(1))
+            continue
+
+        source_match = REPORT_ITEM_SOURCE_PATTERN.match(line)
+        if not source_match:
+            continue
+        source = clean_text(source_match.group(1))
+        if source:
+            source_key = normalize_link_for_dedupe(source)
+            if source_key:
+                fingerprints.add(f"l:{source_key}")
+        if current_title:
+            title_key = normalize_title_for_dedupe(current_title)
+            if title_key:
+                fingerprints.add(f"t:{title_key}")
+        current_title = ""
+
+    return fingerprints
+
+
+def load_recent_history_fingerprints(report_dir: Path, lookback_days: int) -> set[str]:
+    if lookback_days <= 0 or not report_dir.exists():
+        return set()
+
+    history_keys: set[str] = set()
+    today = datetime.now().date()
+    for offset in range(1, lookback_days + 1):
+        target = today - timedelta(days=offset)
+        report_path = report_dir / f"{target.strftime('%Y-%m-%d')}.md"
+        if report_path.exists():
+            history_keys.update(collect_report_history_fingerprints(report_path))
+    return history_keys
+
+
+def filter_items_by_history(
+    items: list[dict[str, str]],
+    history_fingerprints: set[str],
+) -> tuple[list[dict[str, str]], int]:
+    if not history_fingerprints:
+        return items, 0
+
+    kept: list[dict[str, str]] = []
+    dropped = 0
+    for item in items:
+        fingerprints = item_dedupe_fingerprints(item)
+        if fingerprints and history_fingerprints.intersection(fingerprints):
+            dropped += 1
+            continue
+        kept.append(item)
+
+    return kept, dropped
 
 
 def is_github_commit_link(url: str) -> bool:
@@ -599,11 +729,11 @@ def extract_json(text: str) -> dict[str, Any]:
     raise ValueError("model output is not valid JSON object")
 
 
-def fallback_selection(items: list[dict[str, str]], top_n: int) -> list[dict[str, str]]:
+def fallback_selection(items: list[dict[str, str]], top_n: int, start_score: int = 100) -> list[dict[str, str]]:
     fallback: list[dict[str, str]] = []
     for idx, item in enumerate(items[:top_n], 1):
         result = item.copy()
-        result["score"] = str(100 - idx)
+        result["score"] = str(max(start_score - idx + 1, 0))
 
         summary = clean_text(item.get("summary", ""))
         if summary:
@@ -615,6 +745,42 @@ def fallback_selection(items: list[dict[str, str]], top_n: int) -> list[dict[str
         result["key_points"] = build_default_key_points(result)
         fallback.append(result)
     return fallback
+
+
+def backfill_selected_items(
+    selected: list[dict[str, str]],
+    items: list[dict[str, str]],
+    top_n: int,
+) -> list[dict[str, str]]:
+    target_count = min(top_n, len(items))
+    if len(selected) >= target_count:
+        return selected[:target_count]
+
+    used_fingerprints: set[str] = set()
+    for item in selected:
+        used_fingerprints.update(item_dedupe_fingerprints(item))
+
+    remaining: list[dict[str, str]] = []
+    for item in items:
+        fingerprints = item_dedupe_fingerprints(item)
+        if fingerprints and used_fingerprints.intersection(fingerprints):
+            continue
+        used_fingerprints.update(fingerprints)
+        remaining.append(item)
+
+    needed = target_count - len(selected)
+    if needed <= 0:
+        return selected[:target_count]
+
+    last_score = 100
+    if selected:
+        try:
+            last_score = int(selected[-1].get("score", "100"))
+        except (TypeError, ValueError):
+            last_score = 100
+
+    selected.extend(fallback_selection(remaining, top_n=needed, start_score=max(last_score - 1, 0)))
+    return selected[:target_count]
 
 
 def rank_and_summarize(
@@ -644,6 +810,8 @@ def rank_and_summarize(
         "brief和impact必须使用简体中文。"
         f"key_points返回2-3条，每条<={KEY_POINT_MAX_CHARS}字。"
         "标题必须完整，包含主体名称（公司/产品/人物），不能省略主语。"
+        "写法要可直接用于朋友圈/公众号：先结论后细节、避免空话与套话。"
+        "brief只写1句，尽量包含“主体+动作+结果”；impact回答“为什么值得关注”。"
         "仅可选择一手来源（官方公告、论文原文、作者/机构本人账号原帖），"
         "禁止媒体转述、二手解读、汇总搬运、未证实传闻。\n\n"
         + "\n".join(candidates)
@@ -676,6 +844,8 @@ def rank_and_summarize(
         return fallback_selection(items=items, top_n=top_n)
 
     selected: list[dict[str, str]] = []
+    used_item_ids: set[int] = set()
+    selected_fingerprints: set[str] = set()
     rows = data.get("items", [])
     if not isinstance(rows, list):
         logger.warning("rank_and_summarize: items 字段不是列表，使用 fallback。")
@@ -689,6 +859,8 @@ def rank_and_summarize(
         except (TypeError, ValueError):
             continue
         if idx < 1 or idx > len(items):
+            continue
+        if idx in used_item_ids:
             continue
         result = items[idx - 1].copy()
         try:
@@ -704,13 +876,20 @@ def rank_and_summarize(
         result["brief"] = clean_text(str(row.get("brief", "")))[:BRIEF_MAX_CHARS]
         result["impact"] = clean_text(str(row.get("impact", "")))[:IMPACT_MAX_CHARS]
         result["key_points"] = finalize_key_points(normalize_key_points(row.get("key_points")), result)
+        fingerprints = item_dedupe_fingerprints(result)
+        if fingerprints and selected_fingerprints.intersection(fingerprints):
+            continue
+        selected_fingerprints.update(fingerprints)
+        used_item_ids.add(idx)
         selected.append(result)
 
     selected.sort(key=lambda x: int(x.get("score", "0")), reverse=True)
     if not selected:
         logger.warning("rank_and_summarize: 解析结果为空，使用 fallback。")
         return fallback_selection(items=items, top_n=top_n)
-    return selected[:top_n]
+    selected = backfill_selected_items(selected=selected, items=items, top_n=top_n)
+    selected.sort(key=lambda x: int(x.get("score", "0")), reverse=True)
+    return selected[: min(top_n, len(items))]
 
 
 def localize_items_to_chinese(
@@ -739,6 +918,8 @@ def localize_items_to_chinese(
         '{"items":[{"id":1,"title":"中文标题","brief":"中文摘要","impact":"中文影响","key_points":["要点1","要点2"]}]}\n'
         f"要求：title<={TITLE_MAX_CHARS}字，brief<={BRIEF_MAX_CHARS}字，impact<={IMPACT_MAX_CHARS}字，"
         f"key_points最多{KEY_POINTS_MAX_COUNT}条且每条<={KEY_POINT_MAX_CHARS}字。\n\n"
+        "文风要求：口语化但专业，信息密度高，像可直接发朋友圈/公众号的成稿。"
+        "避免机械重复开头（如连续使用“宣布/发布”）。\n\n"
         + json.dumps(payload, ensure_ascii=False)
     )
 
@@ -796,7 +977,8 @@ def polish_with_kimi(markdown: str, kimi_api_key: str, kimi_model: str) -> str:
     client = OpenAI(api_key=kimi_api_key, base_url="https://api.moonshot.cn/v1")
     prompt = (
         "请润色以下AI早报Markdown："
-        "1) 不改事实和链接；2) 保持简洁专业；3) 不新增未提供的信息。\n\n"
+        "1) 不改事实和链接；2) 保持简洁专业；3) 不新增未提供的信息；"
+        "4) 文风适合直接发朋友圈/公众号，减少机器感。\n\n"
         + markdown
     )
     return llm_chat(
@@ -814,26 +996,38 @@ def render_markdown(items: list[dict[str, str]]) -> str:
         "",
         f"生成时间：{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
         "",
-        "## 今日要点",
+        "## 30秒导读（可直接发朋友圈）",
     ]
 
     for idx, item in enumerate(items[:5], 1):
-        lines.append(f"- {idx}. {item.get('brief', '')}")
+        title = clean_text(item.get("title", ""))
+        brief = shorten_for_highlight(item.get("brief", ""))
+        if title and brief:
+            lines.append(f"- {idx}. {title}：{ensure_sentence_end(brief)}")
+        elif brief:
+            lines.append(f"- {idx}. {ensure_sentence_end(brief)}")
+        else:
+            lines.append(f"- {idx}. {title}")
 
     lines.append("")
-    lines.append("## 详细快讯")
+    lines.append("## 详细快讯（可直接贴公众号）")
     for idx, item in enumerate(items, 1):
+        brief = ensure_sentence_end(item.get("brief", ""))
+        impact = ensure_sentence_end(item.get("impact", ""))
         lines.extend(
             [
                 "",
                 f"### {idx}) {item['title']}",
-                f"- 摘要：{item.get('brief', '')}",
+                f"- 摘要：{brief}",
                 "- 关键点：",
                 *[f"  - {point}" for point in finalize_key_points(normalize_key_points(item.get("key_points")), item)],
-                f"- 影响：{item.get('impact', '')}",
+                f"- 影响：{impact}",
                 f"- 来源：{item['link']}",
+                "---",
             ]
         )
+    if lines and lines[-1] == "---":
+        lines.pop()
     return "\n".join(lines)
 
 
@@ -852,15 +1046,44 @@ def main() -> None:
     kimi_model = os.getenv("KIMI_MODEL", "kimi-latest")
     max_items = int(os.getenv("MAX_ITEMS", "120"))
     top_n = int(os.getenv("TOP_N", "20"))
+    fetch_hours = int(os.getenv("FETCH_HOURS", "24"))
+    fallback_fetch_hours = int(os.getenv("FALLBACK_FETCH_HOURS", "72"))
+    per_source_items = int(os.getenv("PER_SOURCE_ITEMS", "30"))
+    history_dedupe_days = int(os.getenv("HISTORY_DEDUP_DAYS", "2"))
+
+    report_dir = Path("reports")
+    report_dir.mkdir(parents=True, exist_ok=True)
+    history_fingerprints = load_recent_history_fingerprints(report_dir=report_dir, lookback_days=history_dedupe_days)
+
     sources = load_sources("sources.txt")
-    fetched_items = fetch_items(sources=sources, hours=36, per_source=30)
-    filtered_items, rejected_stats = filter_primary_items_with_stats(fetched_items)
-    diversified_items, diversity_stats = apply_source_limits(filtered_items)
-    items = diversified_items[:max_items]
+    fetched_items = fetch_items(sources=sources, hours=fetch_hours, per_source=per_source_items)
+
+    def prepare_items(
+        raw_items: list[dict[str, str]],
+    ) -> tuple[list[dict[str, str]], dict[str, int], dict[str, int], int]:
+        filtered_items, rejected_stats = filter_primary_items_with_stats(raw_items)
+        diversified_items, diversity_stats = apply_source_limits(filtered_items)
+        history_filtered_items, history_dropped = filter_items_by_history(diversified_items, history_fingerprints)
+        return history_filtered_items[:max_items], rejected_stats, diversity_stats, history_dropped
+
+    items, rejected_stats, diversity_stats, history_dropped = prepare_items(fetched_items)
+
+    if len(items) < top_n and fallback_fetch_hours > fetch_hours:
+        expanded_fetched_items = fetch_items(
+            sources=sources,
+            hours=fallback_fetch_hours,
+            per_source=per_source_items,
+        )
+        if len(expanded_fetched_items) > len(fetched_items):
+            items, rejected_stats, diversity_stats, history_dropped = prepare_items(expanded_fetched_items)
+            fetched_items = expanded_fetched_items
+
+    rejected_count = sum(rejected_stats.values())
     logger.info(
-        "items fetched=%s filtered=%s kept=%s top_n=%s",
+        "items fetched=%s rejected=%s history_dropped=%s kept=%s top_n=%s",
         len(fetched_items),
-        len(fetched_items) - len(filtered_items),
+        rejected_count,
+        history_dropped,
         len(items),
         top_n,
     )
@@ -875,9 +1098,6 @@ def main() -> None:
     selected = localize_items_to_chinese(items=selected, qwen_api_key=qwen_api_key, qwen_model=qwen_model)
     markdown = render_markdown(selected)
     markdown = polish_with_kimi(markdown=markdown, kimi_api_key=kimi_api_key, kimi_model=kimi_model)
-
-    report_dir = Path("reports")
-    report_dir.mkdir(parents=True, exist_ok=True)
 
     daily = report_dir / f"{datetime.now().strftime('%Y-%m-%d')}.md"
     latest = report_dir / "latest.md"

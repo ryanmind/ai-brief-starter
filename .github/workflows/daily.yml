@@ -22,6 +22,10 @@ jobs:
       KIMI_MODEL: kimi-latest
       MAX_ITEMS: "120"
       TOP_N: "20"
+      FETCH_HOURS: "24"
+      FALLBACK_FETCH_HOURS: "72"
+      PER_SOURCE_ITEMS: "30"
+      HISTORY_DEDUP_DAYS: "2"
       PER_DOMAIN_LIMIT: "4"
       ARXIV_MAX_ITEMS: "4"
       TITLE_COMPLETE_RATIO_MIN: "0.90"

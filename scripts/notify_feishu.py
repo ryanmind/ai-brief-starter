@@ -28,10 +28,11 @@ def pick_highlights(markdown: str, max_items: int = 5) -> list[str]:
     lines = markdown.splitlines()
     in_section = False
     highlights: list[str] = []
+    highlight_headers = ("## 今日要点", "## 30秒导读")
 
     for line in lines:
         stripped = line.strip()
-        if stripped.startswith("## 今日要点"):
+        if any(stripped.startswith(header) for header in highlight_headers):
             in_section = True
             continue
         if in_section and stripped.startswith("## "):
@@ -147,13 +148,49 @@ def create_docx_document(token: str, title: str, folder_token: str) -> str:
 
 def markdown_to_text_blocks(markdown: str) -> list[str]:
     blocks: list[str] = []
+    in_key_points = False
+
     for raw_line in markdown.splitlines():
         line = raw_line.rstrip()
-        if not line:
-            blocks.append("")
+        stripped = line.strip()
+        if not stripped:
+            if blocks and blocks[-1] != "":
+                blocks.append("")
+            in_key_points = False
             continue
-        # Keep markdown markers to preserve context while writing plain text blocks.
-        blocks.append(line)
+
+        if stripped.startswith("# "):
+            blocks.append(stripped[2:].strip())
+            blocks.append("")
+            in_key_points = False
+            continue
+        if stripped.startswith("## "):
+            blocks.append(f"【{stripped[3:].strip()}】")
+            in_key_points = False
+            continue
+        if stripped.startswith("### "):
+            blocks.append(stripped[4:].strip())
+            in_key_points = False
+            continue
+        if stripped.startswith("- 关键点"):
+            blocks.append("关键点：")
+            in_key_points = True
+            continue
+        if stripped.startswith("- 摘要") or stripped.startswith("- 影响") or stripped.startswith("- 来源"):
+            blocks.append(stripped[2:].strip())
+            in_key_points = False
+            continue
+        if stripped.startswith("- "):
+            item = stripped[2:].strip()
+            blocks.append(f"• {item}")
+            continue
+        if stripped == "---":
+            blocks.append("——")
+            continue
+
+        blocks.append(stripped)
+        in_key_points = False
+
     return blocks
 
 
