@@ -822,8 +822,8 @@ def filter_primary_items_with_stats(items: list[dict[str, str]]) -> tuple[list[d
 
 
 def apply_source_limits(items: list[dict[str, str]]) -> tuple[list[dict[str, str]], dict[str, int]]:
-    per_domain_limit = int(os.getenv("PER_DOMAIN_LIMIT", "4"))
-    arxiv_max_items = int(os.getenv("ARXIV_MAX_ITEMS", "4"))
+    per_domain_limit = int_env("PER_DOMAIN_LIMIT", 4, min_value=0, max_value=50)
+    arxiv_max_items = int_env("ARXIV_MAX_ITEMS", 4, min_value=0, max_value=50)
 
     if per_domain_limit <= 0 and arxiv_max_items <= 0:
         return items, {}
@@ -1323,12 +1323,12 @@ def main() -> None:
     qwen_model = os.getenv("QWEN_MODEL", "qwen-flash")
     kimi_api_key = os.getenv("KIMI_API_KEY", "").strip()
     kimi_model = os.getenv("KIMI_MODEL", "kimi-latest")
-    max_items = int(os.getenv("MAX_ITEMS", "120"))
-    top_n = int(os.getenv("TOP_N", "20"))
-    fetch_hours = int(os.getenv("FETCH_HOURS", "24"))
-    fallback_fetch_hours = int(os.getenv("FALLBACK_FETCH_HOURS", "72"))
-    per_source_items = int(os.getenv("PER_SOURCE_ITEMS", "30"))
-    history_dedupe_days = int(os.getenv("HISTORY_DEDUP_DAYS", "2"))
+    max_items = int_env("MAX_ITEMS", 120, min_value=10, max_value=500)
+    top_n = int_env("TOP_N", 20, min_value=5, max_value=100)
+    fetch_hours = int_env("FETCH_HOURS", 24, min_value=1, max_value=168)
+    fallback_fetch_hours = int_env("FALLBACK_FETCH_HOURS", 72, min_value=1, max_value=168)
+    per_source_items = int_env("PER_SOURCE_ITEMS", 30, min_value=5, max_value=200)
+    history_dedupe_days = int_env("HISTORY_DEDUP_DAYS", 2, min_value=0, max_value=30)
     history_state_max_days = int_env("HISTORY_STATE_MAX_DAYS", 14, min_value=1, max_value=90)
 
     report_dir = Path("reports")
