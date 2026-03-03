@@ -119,6 +119,9 @@ def is_public_readable_state(response: dict[str, object]) -> bool:
     data = response.get("data")
     if not isinstance(data, dict):
         data = response
+    permission_public = data.get("permission_public")
+    if isinstance(permission_public, dict):
+        data = permission_public
     link_share_entity = str(data.get("link_share_entity", "")).strip().lower()
     if link_share_entity == "anyone_readable":
         return True

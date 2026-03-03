@@ -201,6 +201,19 @@ def test_sync_markdown_to_new_doc_prefers_api_returned_url(monkeypatch):
     assert url == "https://tenant.feishu.cn/docx/doc-id"
 
 
+def test_is_public_readable_state_handles_v2_nested_shape():
+    response = {
+        "code": 0,
+        "data": {
+            "permission_public": {
+                "external_access_entity": "open",
+                "link_share_entity": "anyone_readable",
+            }
+        },
+    }
+    assert notify_feishu.is_public_readable_state(response) is True
+
+
 def test_markdown_to_text_blocks_keeps_ordered_list_without_bullet():
     markdown = """# AI 早报
 
