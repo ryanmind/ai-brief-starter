@@ -66,7 +66,7 @@ def test_quality_check_autofix_fills_missing_summary(tmp_path, monkeypatch):
     monkeypatch.setenv("DETAIL_MIN_CHARS", "20")
     assert run_checks(report, autofix=True) == 0
     content = report.read_text(encoding="utf-8")
-    assert "- 摘要：" in content
+    assert ("- 摘要：" in content) or ("**摘要**：" in content)
 
 
 def test_quality_check_missing_source_fails(tmp_path, monkeypatch):

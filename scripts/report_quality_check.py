@@ -26,18 +26,33 @@ from src.config import (  # noqa: E402
 )
 
 SUMMARY_LINE_PATTERN = re.compile(
-    r"^(?P<prefix>\s*(?:[-*]\s*)?(?:摘要|summary)\s*[：:]\s*)(?P<value>.*)$",
+    r"^(?P<prefix>\s*(?:[-*]\s*)?(?:\*{0,2})?(?:摘要|summary)(?:\*{0,2})?\s*[：:]\s*)(?P<value>.*)$",
     flags=re.IGNORECASE,
 )
 DETAIL_LINE_PATTERN = re.compile(
-    r"^(?P<prefix>\s*(?:[-*]\s*)?(?:细节|详情|detail)\s*[：:]\s*)(?P<value>.*)$",
+    r"^(?P<prefix>\s*(?:[-*]\s*)?(?:\*{0,2})?(?:细节|详情|detail)(?:\*{0,2})?\s*[：:]\s*)(?P<value>.*)$",
     flags=re.IGNORECASE,
 )
-IMPACT_PATTERN = re.compile(r"^(?:[-*]\s*)?(?:影响|impact)\s*[：:]\s*(.+)$", flags=re.IGNORECASE)
-SOURCE_PATTERN = re.compile(r"^(?:[-*]\s*)?(?:来源|source)\s*[：:]\s*(.+)$", flags=re.IGNORECASE)
-TITLE_PATTERN = re.compile(r"^###\s*\d+\)\s*(.+)$")
-KEY_POINTS_HEADER_PATTERN = re.compile(r"^(?:[-*]\s*)?关键点\s*[：:]?$")
+IMPACT_PATTERN = re.compile(
+    r"^(?:[-*]\s*)?(?:\*{0,2})?(?:影响分析|影响|impact)(?:\*{0,2})?\s*[：:]\s*(.+)$",
+    flags=re.IGNORECASE,
+)
+SOURCE_PATTERN = re.compile(
+    r"^(?:[-*]\s*)?(?:\*{0,2})?(?:来源|source)(?:\*{0,2})?\s*[：:]\s*(.+)$",
+    flags=re.IGNORECASE,
+)
+TITLE_PATTERN = re.compile(r"^###\s*\d+[)\.、]\s*(.+)$")
+KEY_POINTS_HEADER_PATTERN = re.compile(r"^(?:[-*]\s*)?(?:\*{0,2})?关键点(?:\*{0,2})?\s*[：:]?$")
 BULLET_PATTERN = re.compile(r"^\s*(?:[-*•]\s+|\d+\.\s+)(.+)$")
+SUMMARY_HEADER_PATTERN = re.compile(r"^(?:\*{0,2})?(?:摘要|summary)(?:\*{0,2})?\s*[：:]?$", flags=re.IGNORECASE)
+DETAIL_HEADER_PATTERN = re.compile(r"^(?:\*{0,2})?(?:细节|详情|detail)(?:\*{0,2})?\s*[：:]?$", flags=re.IGNORECASE)
+IMPACT_HEADER_PATTERN = re.compile(
+    r"^(?:\*{0,2})?(?:影响分析|影响|impact)(?:\*{0,2})?\s*[：:]?$",
+    flags=re.IGNORECASE,
+)
+SOURCE_HEADER_PATTERN = re.compile(r"^(?:\*{0,2})?(?:来源|source)(?:\*{0,2})?\s*[：:]?$", flags=re.IGNORECASE)
+MARKDOWN_LINK_URL_PATTERN = re.compile(r"\[[^\]]+\]\((https?://[^)\s]+)\)")
+PLAIN_URL_PATTERN = re.compile(r"https?://[^\s\]\)]+")
 
 
 @dataclass
@@ -58,8 +73,22 @@ def clean_text(value: str) -> str:
     return re.sub(r"\s+", " ", str(value or "")).strip()
 
 
+def extract_first_url(value: str) -> str:
+    text = str(value or "").strip()
+    if not text:
+        return ""
+    md_match = MARKDOWN_LINK_URL_PATTERN.search(text)
+    if md_match:
+        return md_match.group(1).strip()
+    plain_match = PLAIN_URL_PATTERN.search(text)
+    if plain_match:
+        return plain_match.group(0).strip().rstrip(".,;:)]")
+    return ""
+
+
 def normalize_host(url: str) -> str:
-    host = (urlparse(url).netloc or "").strip().lower()
+    parsed_source = extract_first_url(url) or url
+    host = (urlparse(parsed_source).netloc or "").strip().lower()
     if host.startswith("www."):
         host = host[4:]
     return host
@@ -70,7 +99,8 @@ def host_matches(host: str, domains: set[str]) -> bool:
 
 
 def extract_account_from_url(url: str) -> str:
-    path = urlparse(url).path.strip("/")
+    parsed_source = extract_first_url(url) or url
+    path = urlparse(parsed_source).path.strip("/")
     if not path:
         return ""
     return path.split("/", 1)[0].strip().lower()
@@ -209,6 +239,7 @@ def parse_report_structure(text: str) -> list[dict[str, object]]:
     items: list[dict[str, object]] = []
     current: dict[str, object] | None = None
     in_key_points = False
+    pending_field: str | None = None
 
     for idx, line in enumerate(lines):
         stripped = line.strip()
@@ -223,57 +254,97 @@ def parse_report_structure(text: str) -> list[dict[str, object]]:
                 "end_idx": len(lines),
                 "summary": "",
                 "summary_idx": None,
-                "summary_prefix": "- 摘要：",
+                "summary_prefix": "**摘要**：",
                 "detail": "",
                 "detail_idx": None,
-                "detail_prefix": "- 细节：",
+                "detail_prefix": "**细节**：",
                 "impact": "",
                 "impact_idx": None,
+                "impact_prefix": "**影响分析**：",
                 "source": "",
                 "source_idx": None,
+                "source_prefix": "**来源**：",
                 "key_points": [],
                 "key_points_header_idx": None,
                 "key_point_line_indices": [],
             }
             in_key_points = False
+            pending_field = None
             continue
 
         if current is None:
             continue
 
-        if KEY_POINTS_HEADER_PATTERN.match(stripped):
-            in_key_points = True
-            current["key_points_header_idx"] = idx
-            continue
-
         summary_match = SUMMARY_LINE_PATTERN.match(line)
         if summary_match:
+            current["summary_prefix"] = summary_match.group("prefix")
             current["summary"] = summary_match.group("value").strip()
             current["summary_idx"] = idx
-            current["summary_prefix"] = summary_match.group("prefix")
+            if not current["summary"]:
+                pending_field = "summary"
             in_key_points = False
+            if current["summary"]:
+                pending_field = None
             continue
 
         detail_match = DETAIL_LINE_PATTERN.match(line)
         if detail_match:
+            current["detail_prefix"] = detail_match.group("prefix")
             current["detail"] = detail_match.group("value").strip()
             current["detail_idx"] = idx
-            current["detail_prefix"] = detail_match.group("prefix")
+            if not current["detail"]:
+                pending_field = "detail"
             in_key_points = False
+            if current["detail"]:
+                pending_field = None
             continue
 
         impact_match = IMPACT_PATTERN.match(stripped)
         if impact_match:
             current["impact"] = impact_match.group(1).strip()
             current["impact_idx"] = idx
+            current["impact_prefix"] = stripped.split("：", 1)[0].split(":", 1)[0] + "："
             in_key_points = False
+            pending_field = None
             continue
 
         source_match = SOURCE_PATTERN.match(stripped)
         if source_match:
-            current["source"] = source_match.group(1).strip()
+            source_value = source_match.group(1).strip()
+            current["source"] = extract_first_url(source_value) or source_value
             current["source_idx"] = idx
+            current["source_prefix"] = stripped.split("：", 1)[0].split(":", 1)[0] + "："
             in_key_points = False
+            if not current["source"]:
+                pending_field = "source"
+            else:
+                pending_field = None
+            continue
+
+        if KEY_POINTS_HEADER_PATTERN.match(stripped):
+            in_key_points = True
+            pending_field = None
+            current["key_points_header_idx"] = idx
+            continue
+
+        if SUMMARY_HEADER_PATTERN.match(stripped):
+            in_key_points = False
+            pending_field = "summary"
+            continue
+
+        if DETAIL_HEADER_PATTERN.match(stripped):
+            in_key_points = False
+            pending_field = "detail"
+            continue
+
+        if IMPACT_HEADER_PATTERN.match(stripped):
+            in_key_points = False
+            pending_field = "impact"
+            continue
+
+        if SOURCE_HEADER_PATTERN.match(stripped):
+            in_key_points = False
+            pending_field = "source"
             continue
 
         if in_key_points:
@@ -287,6 +358,17 @@ def parse_report_structure(text: str) -> list[dict[str, object]]:
                     line_indices = current["key_point_line_indices"]
                     if isinstance(line_indices, list):
                         line_indices.append(idx)
+                continue
+            if stripped and stripped != "---":
+                in_key_points = False
+
+        if pending_field and stripped and stripped != "---":
+            value = stripped
+            if pending_field == "source":
+                value = extract_first_url(value) or value
+            current[pending_field] = value
+            current[f"{pending_field}_idx"] = idx
+            pending_field = None
 
     if current is not None:
         current["end_idx"] = len(lines)
@@ -327,7 +409,7 @@ def autofix_report(path: Path, detail_min_chars: int, key_points_min_count: int,
         detail = str(item.get("detail", "")).strip()
         title_idx = item.get("title_idx")
         summary_idx = item.get("summary_idx")
-        summary_prefix = str(item.get("summary_prefix", "- 摘要："))
+        summary_prefix = str(item.get("summary_prefix", "**摘要**："))
         key_points_raw = item.get("key_points", [])
         key_points = [str(point).strip() for point in key_points_raw] if isinstance(key_points_raw, list) else []
 
@@ -342,9 +424,9 @@ def autofix_report(path: Path, detail_min_chars: int, key_points_min_count: int,
                 edits.append((summary_idx, summary_idx + 1, [f"{summary_prefix}{new_summary}"]))
             else:
                 insert_at = title_idx + 1 if isinstance(title_idx, int) else 0
-                edits.append((insert_at, insert_at, [f"- 摘要：{new_summary}"]))
+                edits.append((insert_at, insert_at, [f"**摘要**：{new_summary}"]))
                 summary_idx = insert_at
-                summary_prefix = "- 摘要："
+                summary_prefix = "**摘要**："
             summary = new_summary
 
         # Detail autofix
@@ -364,13 +446,13 @@ def autofix_report(path: Path, detail_min_chars: int, key_points_min_count: int,
             )
             detail_idx = item.get("detail_idx")
             if isinstance(detail_idx, int):
-                prefix = str(item.get("detail_prefix", "- 细节："))
+                prefix = str(item.get("detail_prefix", "**细节**："))
                 edits.append((detail_idx, detail_idx + 1, [f"{prefix}{new_detail}"]))
             else:
                 insert_at = title_idx + 1 if isinstance(title_idx, int) else 0
                 if isinstance(summary_idx, int):
                     insert_at = summary_idx + 1
-                edits.append((insert_at, insert_at, [f"- 细节：{new_detail}"]))
+                edits.append((insert_at, insert_at, [f"**细节**：{new_detail}"]))
 
         # Key points autofix
         too_long_points = [point for point in key_points if len(point) > key_point_max_chars]
@@ -398,7 +480,7 @@ def autofix_report(path: Path, detail_min_chars: int, key_points_min_count: int,
                 if isinstance(point_indices, list) and point_indices:
                     start = min(point_indices)
                     end = max(point_indices) + 1
-                edits.append((start, end, [f"  - {point}" for point in new_points]))
+                edits.append((start, end, [f"- {point}" for point in new_points]))
             else:
                 impact_idx = item.get("impact_idx")
                 source_idx = item.get("source_idx")
@@ -412,7 +494,7 @@ def autofix_report(path: Path, detail_min_chars: int, key_points_min_count: int,
                     insert_at = source_idx
                 if isinstance(impact_idx, int):
                     insert_at = impact_idx
-                block = ["- 关键点："] + [f"  - {point}" for point in new_points]
+                block = ["**关键点**"] + [f"- {point}" for point in new_points]
                 edits.append((insert_at, insert_at, block))
 
     if not edits:

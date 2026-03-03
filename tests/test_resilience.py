@@ -3,6 +3,7 @@ from __future__ import annotations
 import base64
 import hashlib
 import hmac
+import json
 from pathlib import Path
 from concurrent.futures import TimeoutError as FuturesTimeoutError
 from types import SimpleNamespace
@@ -228,7 +229,7 @@ def test_markdown_to_text_blocks_keeps_ordered_list_without_bullet():
     assert "• 1. 第一条" not in blocks
 
 
-def test_render_markdown_drops_empty_lines_for_missing_fields():
+def test_render_markdown_hides_empty_field_lines():
     markdown = main.render_markdown(
         [
             {
@@ -241,10 +242,11 @@ def test_render_markdown_drops_empty_lines_for_missing_fields():
             }
         ]
     )
-    assert "- 摘要：" not in markdown
-    assert "- 细节：" not in markdown
-    assert "- 影响：" not in markdown
-    assert "- 来源：" not in markdown
+    assert "**摘要**：" not in markdown
+    assert "**细节**：" not in markdown
+    assert "**关键点**" not in markdown
+    assert "**影响分析**：" not in markdown
+    assert "**来源**：" not in markdown
 
 
 def test_main_quality_check_fail_open_keeps_pipeline_running(monkeypatch, tmp_path):
@@ -293,7 +295,7 @@ def test_main_quality_check_fail_open_keeps_pipeline_running(monkeypatch, tmp_pa
     assert (tmp_path / "reports/latest.md").exists()
 
 
-def test_main_quality_check_fail_open_disabled_still_blocks(monkeypatch, tmp_path):
+def test_main_quality_check_fail_open_disabled_still_continues(monkeypatch, tmp_path):
     monkeypatch.chdir(tmp_path)
     monkeypatch.setenv("QWEN_API_KEY", "test-key")
     monkeypatch.setenv("QUALITY_CHECK_FAIL_OPEN", "0")
@@ -322,8 +324,23 @@ def test_main_quality_check_fail_open_disabled_still_blocks(monkeypatch, tmp_pat
     monkeypatch.setattr(main, "check_category_balance", lambda items: {})
     monkeypatch.setattr(main, "run_quality_checks", lambda **kwargs: 1)
 
-    try:
-        main.main()
-        assert False, "expected RuntimeError"
-    except RuntimeError as exc:
-        assert "自动修复后质检仍未通过" in str(exc)
+    main.main()
+    assert (tmp_path / "reports/latest.md").exists()
+
+
+def test_build_quality_warning_lines_reads_merged_quality_metrics(tmp_path):
+    report = tmp_path / "latest.md"
+    report.write_text("# AI 早报\n", encoding="utf-8")
+    metrics = {
+        "quality_check": {
+            "passed": False,
+            "failure_reasons": {"detail_quality": 2, "missing_source": 1},
+            "repaired_count": 3,
+        }
+    }
+    (tmp_path / "quality_metrics.json").write_text(json.dumps(metrics, ensure_ascii=False), encoding="utf-8")
+
+    lines = notify_feishu.build_quality_warning_lines(report)
+    assert any("质检提醒" in line for line in lines)
+    assert any("detail_quality：2" in line for line in lines)
+    assert any("自动修复：3 处" in line for line in lines)

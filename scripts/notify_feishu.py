@@ -27,14 +27,18 @@ def pick_highlights(markdown: str, max_items: int = 5) -> list[str]:
     lines = markdown.splitlines()
     in_section = False
     highlights: list[str] = []
-    highlight_headers = ("## 今日要点", "## 30秒导读")
+    highlight_headers = ("## 今日要点", "## 30秒导读", "### 📌 本期摘要")
 
     for line in lines:
         stripped = line.strip()
         if any(stripped.startswith(header) for header in highlight_headers):
             in_section = True
             continue
-        if in_section and stripped.startswith("## "):
+        if in_section and (
+            stripped.startswith("## ")
+            or stripped == "---"
+            or (stripped.startswith("### ") and stripped not in highlight_headers)
+        ):
             break
         if in_section and stripped.startswith("- "):
             highlights.append(stripped[2:].strip())
@@ -306,6 +310,19 @@ def markdown_to_text_blocks(markdown: str) -> list[str]:
             blocks.append(stripped[4:].strip())
             in_key_points = False
             continue
+        bold_key_points_match = re.match(r"^\*\*关键点\*\*\s*[：:]?$", stripped)
+        if bold_key_points_match:
+            blocks.append("关键点：")
+            in_key_points = True
+            continue
+        bold_field_match = re.match(r"^\*\*(摘要|细节|影响分析|影响|来源)\*\*\s*[：:]\s*(.*)$", stripped)
+        if bold_field_match:
+            label = bold_field_match.group(1)
+            value = bold_field_match.group(2).strip()
+            normalized_label = "影响分析" if label in {"影响", "影响分析"} else label
+            blocks.append(f"{normalized_label}：{value}" if value else f"{normalized_label}：")
+            in_key_points = False
+            continue
         if stripped.startswith("- 关键点"):
             blocks.append("关键点：")
             in_key_points = True
@@ -468,6 +485,55 @@ def notify_failure(webhook_url: str, failed_step: str, error_reason: str, run_ur
     send_text_message(webhook_url=webhook_url, text="\n".join(lines))
 
 
+def build_quality_warning_lines(report_path: Path) -> list[str]:
+    metrics_path = report_path.parent / "quality_metrics.json"
+    if not metrics_path.exists():
+        return []
+    try:
+        payload = json.loads(metrics_path.read_text(encoding="utf-8"))
+    except Exception:
+        return []
+    if not isinstance(payload, dict):
+        return []
+
+    quality_payload = payload.get("quality_check")
+    quality_metrics = quality_payload if isinstance(quality_payload, dict) else payload
+    if not isinstance(quality_metrics, dict):
+        return []
+
+    failure_reasons_raw = quality_metrics.get("failure_reasons")
+    failure_reasons: list[tuple[str, int]] = []
+    if isinstance(failure_reasons_raw, dict):
+        for key, value in failure_reasons_raw.items():
+            try:
+                count = int(value)
+            except (TypeError, ValueError):
+                continue
+            if count > 0:
+                failure_reasons.append((str(key), count))
+
+    passed_flag = quality_metrics.get("passed")
+    has_quality_issue = bool(failure_reasons)
+    if isinstance(passed_flag, bool) and not passed_flag:
+        has_quality_issue = True
+    if not has_quality_issue:
+        return []
+
+    repaired_count = 0
+    for source in (quality_metrics, payload):
+        try:
+            repaired_count = max(repaired_count, int(source.get("repaired_count", 0)))
+        except (TypeError, ValueError, AttributeError):
+            continue
+
+    lines = ["", "【质检提醒】检测到缺陷，流程已继续发布，请人工复核："]
+    for reason, count in sorted(failure_reasons, key=lambda item: item[1], reverse=True)[:3]:
+        lines.append(f"- {reason}：{count}")
+    if repaired_count > 0:
+        lines.append(f"- 自动修复：{repaired_count} 处")
+    return lines
+
+
 def notify_success(report_path: Path, webhook_url: str, run_url: str) -> None:
     if not report_path.exists():
         print(f"skip: report not found: {report_path}")
@@ -491,6 +557,7 @@ def notify_success(report_path: Path, webhook_url: str, run_url: str) -> None:
         text_lines.append("")
         for idx, item in enumerate(highlights, 1):
             text_lines.append(f"{idx}. {normalize_highlight_item(item)}")
+    text_lines.extend(build_quality_warning_lines(report_path))
     full_report_url = synced_doc_url or feishu_doc_url or report_public_url
     if full_report_url:
         text_lines.append("")

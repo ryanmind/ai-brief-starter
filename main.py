@@ -91,6 +91,23 @@ def nitter_to_x_url(url: str) -> str:
     return parsed._replace(netloc="x.com").geturl()
 
 
+MARKDOWN_LINK_URL_PATTERN = re.compile(r"\[[^\]]+\]\((https?://[^)\s]+)\)")
+PLAIN_URL_PATTERN = re.compile(r"https?://[^\s\]\)]+")
+
+
+def extract_first_url(text: str) -> str:
+    content = str(text or "").strip()
+    if not content:
+        return ""
+    md_link_match = MARKDOWN_LINK_URL_PATTERN.search(content)
+    if md_link_match:
+        return md_link_match.group(1).strip()
+    plain_match = PLAIN_URL_PATTERN.search(content)
+    if plain_match:
+        return plain_match.group(0).strip().rstrip(".,;:)]")
+    return ""
+
+
 def host_matches(host: str, allowed_domains: set[str]) -> bool:
     return any(host == domain or host.endswith(f".{domain}") for domain in allowed_domains)
 
@@ -412,7 +429,7 @@ def fix_items_detail(items: list[dict[str, str]]) -> list[dict[str, str]]:
 
 
 def extract_urls(text: str) -> set[str]:
-    matches = re.findall(r"https?://[^\s\]\)]+", text)
+    matches = PLAIN_URL_PATTERN.findall(text)
     return {match.rstrip(".,;:)]") for match in matches}
 
 
@@ -432,17 +449,16 @@ def polish_result_is_safe(original_markdown: str, polished_markdown: str) -> boo
         return False
 
     # Keep report structure stable after polishing.
-    markers = (
-        "## 详细快讯",
-        "### ",
-        "- 摘要：",
-        "- 细节：",
-        "- 关键点：",
-        "- 影响：",
-        "- 来源：",
+    structure_patterns = (
+        re.compile(r"(?m)^###\s*\d+[)\.、]\s+"),
+        re.compile(r"(?m)^(?:-\s*)?(?:\*{0,2})?(?:摘要|summary)(?:\*{0,2})\s*[：:]"),
+        re.compile(r"(?m)^(?:-\s*)?(?:\*{0,2})?(?:细节|详情|detail)(?:\*{0,2})\s*[：:]"),
+        re.compile(r"(?m)^(?:-\s*)?(?:\*{0,2})?关键点(?:\*{0,2})\s*[：:]?$"),
+        re.compile(r"(?m)^(?:-\s*)?(?:\*{0,2})?(?:影响分析|影响|impact)(?:\*{0,2})\s*[：:]"),
+        re.compile(r"(?m)^(?:-\s*)?(?:\*{0,2})?(?:来源|source)(?:\*{0,2})\s*[：:]"),
     )
-    for marker in markers:
-        if original_markdown.count(marker) != polished_markdown.count(marker):
+    for pattern in structure_patterns:
+        if len(pattern.findall(original_markdown)) != len(pattern.findall(polished_markdown)):
             return False
 
     return True
@@ -598,7 +614,7 @@ def collect_report_history_fingerprints(report_path: Path) -> set[str]:
         source_match = REPORT_ITEM_SOURCE_PATTERN.match(line)
         if not source_match:
             continue
-        source = clean_text(source_match.group(1))
+        source = extract_first_url(source_match.group(1)) or clean_text(source_match.group(1))
         if source:
             source_key = normalize_link_for_dedupe(source)
             if source_key:
@@ -1480,13 +1496,17 @@ def check_category_balance(items: list[dict[str, str]]) -> dict[str, int]:
 
 
 def render_markdown(items: list[dict[str, str]]) -> str:
-    today = datetime.now().strftime("%Y-%m-%d")
+    now = datetime.now()
+    today = now.strftime("%Y-%m-%d")
+    today_cn = now.strftime("%Y年%m月%d日")
     lines = [
         f"# AI 早报（{today}）",
         "",
-        f"生成时间：{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
+        f"生成时间：{now.strftime('%Y-%m-%d %H:%M:%S')}",
         "",
-        "## 30秒导读",
+        f"## 📰 AI 早报 · {today_cn}",
+        "",
+        "### 📌 本期摘要",
     ]
 
     for idx, item in enumerate(items[:5], 1):
@@ -1502,27 +1522,34 @@ def render_markdown(items: list[dict[str, str]]) -> str:
             lines.append(f"- {idx}. {title}")
 
     lines.append("")
-    lines.append("## 详细快讯")
+    lines.append("---")
     for idx, item in enumerate(items, 1):
         brief = ensure_sentence_end(item.get("brief", ""))
-        details = ensure_sentence_end(item.get("details", "") or item.get("brief", ""))
+        details = ensure_sentence_end(item.get("details", ""))
         impact = ensure_sentence_end(item.get("impact", ""))
         title = clean_text(item.get("title", ""))
         source = nitter_to_x_url((item.get("link", "") or "").strip())
-        key_points = [point for point in finalize_key_points(normalize_key_points(item.get("key_points")), item) if clean_text(point)]
+        key_points = [point for point in normalize_key_points(item.get("key_points")) if clean_text(point)]
 
-        entry_lines = ["", f"### {idx}) {title or '未命名条目'}"]
+        entry_lines = ["", f"### {idx}. {title or '未命名条目'}", ""]
         if brief:
-            entry_lines.append(f"- 摘要：{brief}")
+            entry_lines.append(f"**摘要**：{brief}")
+            entry_lines.append("")
         if details:
-            entry_lines.append(f"- 细节：{details}")
+            entry_lines.append(f"**细节**：{details}")
+            entry_lines.append("")
         if key_points:
-            entry_lines.append("- 关键点：")
-            entry_lines.extend([f"  - {point}" for point in key_points])
+            entry_lines.append("**关键点**")
+            entry_lines.extend([f"- {point}" for point in key_points])
+            entry_lines.append("")
         if impact:
-            entry_lines.append(f"- 影响：{impact}")
+            entry_lines.append(f"**影响分析**：{impact}")
+            entry_lines.append("")
         if source:
-            entry_lines.append(f"- 来源：{source}")
+            entry_lines.append(f"**来源**：[原文链接]({source})")
+            entry_lines.append("")
+        while entry_lines and not entry_lines[-1].strip():
+            entry_lines.pop()
         entry_lines.append("---")
         lines.extend(entry_lines)
     if lines and lines[-1] == "---":
@@ -1548,12 +1575,15 @@ def main() -> None:
     per_source_items = int_env("PER_SOURCE_ITEMS", 30, min_value=5, max_value=200)
     history_dedupe_days = int_env("HISTORY_DEDUP_DAYS", 2, min_value=0, max_value=30)
     history_state_max_days = int_env("HISTORY_STATE_MAX_DAYS", 14, min_value=1, max_value=90)
-    quality_check_fail_open = os.getenv("QUALITY_CHECK_FAIL_OPEN", "1").strip().lower() not in {
+    quality_check_fail_open_requested = os.getenv("QUALITY_CHECK_FAIL_OPEN", "1").strip().lower() not in {
         "0",
         "false",
         "no",
         "off",
     }
+    quality_check_fail_open = True
+    if not quality_check_fail_open_requested:
+        logger.warning("QUALITY_CHECK_FAIL_OPEN=0 已被忽略：质量检测缺陷仅告警，不再中断发布流程。")
 
     report_dir = Path("reports")
     report_dir.mkdir(parents=True, exist_ok=True)
@@ -1639,19 +1669,13 @@ def main() -> None:
         high_risk_output=high_risk_path,
     )
     if quality_code != 0:
-        if quality_check_fail_open:
-            quality_gate_opened = True
-            logger.error("自动修复后质检仍未通过，QUALITY_CHECK_FAIL_OPEN=1，继续发布并保留未修复字段为空白。")
-        else:
-            raise RuntimeError("自动修复后质检仍未通过，停止发布")
+        quality_gate_opened = True
+        logger.error("自动修复后质检仍未通过：流程不中断，将在飞书通知中提示缺陷。")
     else:
         second_quality_code = run_quality_checks(path=draft_report_path, autofix=False)
         if second_quality_code != 0:
-            if quality_check_fail_open:
-                quality_gate_opened = True
-                logger.error("二次质检失败，QUALITY_CHECK_FAIL_OPEN=1，继续发布当前草稿。")
-            else:
-                raise RuntimeError("二次质检失败，停止发布")
+            quality_gate_opened = True
+            logger.error("二次质检失败：流程不中断，将在飞书通知中提示缺陷。")
     markdown = draft_report_path.read_text(encoding="utf-8")
     final_item_count = markdown.count("\n### ")
     if final_item_count <= 0:

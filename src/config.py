@@ -225,5 +225,5 @@ X_HOSTS = {
 
 # ---- Report parsing patterns ----
 
-REPORT_ITEM_TITLE_PATTERN = re.compile(r"^###\s+\d+\)\s+(.+)$")
-REPORT_ITEM_SOURCE_PATTERN = re.compile(r"^- 来源[：:](.+)$")
+REPORT_ITEM_TITLE_PATTERN = re.compile(r"^###\s+\d+[)\.、]\s+(.+)$")
+REPORT_ITEM_SOURCE_PATTERN = re.compile(r"^(?:-\s*)?(?:\*{0,2})?(?:来源|source)(?:\*{0,2})\s*[：:](.+)$", flags=re.IGNORECASE)
