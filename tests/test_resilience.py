@@ -4,6 +4,7 @@ import base64
 import hashlib
 import hmac
 from concurrent.futures import TimeoutError as FuturesTimeoutError
+from types import SimpleNamespace
 
 import main
 from scripts import notify_feishu
@@ -71,3 +72,35 @@ def test_rank_and_summarize_fallback_on_llm_exception(monkeypatch):
     assert result[0]["title"] == "OpenAI 发布新模型"
     assert result[0]["impact"]
     assert "建议查看原文" not in result[0]["impact"]
+
+
+def test_fetch_single_source_github_changelog_fallback(monkeypatch):
+    source = "https://github.com/ByteDance-Seed/Seed-VC/commits/main/CHANGELOG.md.atom"
+
+    def fake_parse(url):
+        if url.endswith("CHANGELOG.md.atom"):
+            return SimpleNamespace(entries=[], bozo=1, bozo_exception=Exception("syntax error"))
+        if url.endswith("/releases.atom"):
+            return SimpleNamespace(
+                entries=[
+                    {
+                        "title": "v1.0.0",
+                        "link": "https://github.com/ByteDance-Seed/Seed-VC/releases/tag/v1.0.0",
+                        "summary": "release notes",
+                        "published": "2026-03-03T00:00:00Z",
+                    }
+                ],
+                bozo=0,
+            )
+        return SimpleNamespace(entries=[], bozo=0)
+
+    monkeypatch.setattr(main.feedparser, "parse", fake_parse)
+
+    _, items, error = main._fetch_single_source(
+        source=source,
+        cutoff=main.datetime(2026, 3, 1, tzinfo=main.timezone.utc),
+        per_source=5,
+    )
+    assert error is None
+    assert len(items) == 1
+    assert items[0]["link"].endswith("/releases/tag/v1.0.0")

@@ -422,6 +422,18 @@ def parse_github_changelog_feed(source_url: str) -> tuple[str, str, str, str] | 
     return owner, repo, branch, tracked_file
 
 
+def github_feed_fallback_urls(source_url: str) -> list[str]:
+    feed_info = parse_github_changelog_feed(source_url)
+    if not feed_info:
+        return []
+
+    owner, repo, branch, _tracked_file = feed_info
+    return [
+        f"https://github.com/{owner}/{repo}/releases.atom",
+        f"https://github.com/{owner}/{repo}/commits/{branch}.atom",
+    ]
+
+
 def normalize_link_for_source(source_url: str, link: str) -> str:
     feed_info = parse_github_changelog_feed(source_url)
     if not feed_info:
@@ -831,14 +843,36 @@ def _fetch_single_source(
     source: str, cutoff: datetime, per_source: int,
 ) -> tuple[str, list[dict[str, str]], str | None]:
     """抓取单个 RSS 源，返回 (source_url, items, error_reason)。"""
+    active_source = source
     try:
-        feed = feedparser.parse(source)
+        feed = feedparser.parse(active_source)
     except Exception as exc:
         return source, [], str(exc)
 
     entries = getattr(feed, "entries", [])
+    bozo_exception = getattr(feed, "bozo_exception", "bozo")
+
+    # GitHub 某些 CHANGELOG atom 会返回 HTML/404，自动降级到 releases/commits feed。
     if getattr(feed, "bozo", 0) and not entries:
-        return source, [], str(getattr(feed, "bozo_exception", "bozo"))
+        for fallback_source in github_feed_fallback_urls(source):
+            try:
+                fallback_feed = feedparser.parse(fallback_source)
+            except Exception:
+                continue
+            fallback_entries = getattr(fallback_feed, "entries", [])
+            if getattr(fallback_feed, "bozo", 0) and not fallback_entries:
+                continue
+            if not fallback_entries:
+                continue
+            logger.info("source fallback: %s -> %s", source, fallback_source)
+            active_source = fallback_source
+            feed = fallback_feed
+            entries = fallback_entries
+            bozo_exception = getattr(fallback_feed, "bozo_exception", bozo_exception)
+            break
+
+    if getattr(feed, "bozo", 0) and not entries:
+        return source, [], str(bozo_exception)
     if not entries:
         return source, [], None
 
@@ -846,7 +880,7 @@ def _fetch_single_source(
     for entry in entries[:per_source]:
         title = clean_text(entry.get("title", ""))
         raw_link = (entry.get("link", "") or "").split("#")[0]
-        link = normalize_link_for_source(source_url=source, link=raw_link)
+        link = normalize_link_for_source(source_url=active_source, link=raw_link)
         summary = clean_text(entry.get("summary", "") or entry.get("description", ""))
         published = parse_time(entry)
 
