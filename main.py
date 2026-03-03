@@ -866,6 +866,33 @@ def load_sources(path: str = "sources.txt") -> list[str]:
     return list(dict.fromkeys(expanded))
 
 
+_nitter_alive_cache: list[str] | None = None
+
+
+def probe_nitter_bases(bases: list[str], timeout: float = 5.0) -> list[str]:
+    """探测哪些 Nitter 实例可用，返回存活列表（结果缓存）。"""
+    global _nitter_alive_cache
+    if _nitter_alive_cache is not None:
+        return _nitter_alive_cache
+
+    from urllib import request as urlrequest, error as urlerror
+
+    alive: list[str] = []
+    for base in bases:
+        try:
+            req = urlrequest.Request(f"{base}/", method="HEAD")
+            with urlrequest.urlopen(req, timeout=timeout):
+                alive.append(base)
+        except Exception:
+            logger.warning("nitter instance down: %s", base)
+    if not alive:
+        logger.error("all nitter instances are down, X/Twitter sources will be unavailable")
+    else:
+        logger.info("nitter alive instances: %d/%d", len(alive), len(bases))
+    _nitter_alive_cache = alive
+    return alive
+
+
 def expand_source_urls(source: str) -> list[str]:
     parsed = urlparse(source)
     host = (parsed.netloc or "").lower()
@@ -893,8 +920,12 @@ def expand_source_urls(source: str) -> list[str]:
                 "NITTER_RSS_BASES",
                 "https://nitter.net,https://nitter.poast.org,https://nitter.privacydev.net",
             )
-            bases = [base.strip().rstrip("/") for base in raw_bases.split(",") if base.strip()]
-            return [f"{base}/{handle}/rss" for base in dict.fromkeys(bases)]
+            all_bases = [base.strip().rstrip("/") for base in raw_bases.split(",") if base.strip()]
+            bases = probe_nitter_bases(list(dict.fromkeys(all_bases)))
+            if not bases:
+                logger.warning("skipping X source (no alive nitter): %s", source)
+                return []
+            return [f"{base}/{handle}/rss" for base in bases]
 
     return [source]
 
