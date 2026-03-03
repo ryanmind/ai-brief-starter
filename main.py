@@ -148,8 +148,11 @@ def key_point_dedupe_key(text: str) -> str:
 def normalize_key_point_text(text: str) -> str:
     value = clean_text(text)
     value = re.sub(r"^[\-*•·\d\.\)\(、\s]+", "", value)
+    value = re.sub(r"^(?:关键点|要点)\s*[：:]\s*", "", value)
     value = re.sub(r"^(并且|并将|并可|并支持|并|同时|且)\s*", "", value)
     value = value.strip("，,。；;：:、- ")
+    if is_placeholder_text(value):
+        return ""
     return value[:KEY_POINT_MAX_CHARS]
 
 
@@ -252,6 +255,10 @@ LOW_SIGNAL_TERMS: tuple[str, ...] = (
 LOW_SIGNAL_CLAUSE_PATTERN = re.compile(
     r"^(?:" + "|".join(re.escape(term) for term in LOW_SIGNAL_TERMS) + r")+$"
 )
+PLACEHOLDER_TEXT_PATTERN = re.compile(
+    r"^(?:value|null|none|n/?a|na|unknown|待补充|暂无|无)$",
+    flags=re.IGNORECASE,
+)
 
 
 def collapse_duplicate_punctuation(text: str) -> str:
@@ -263,17 +270,29 @@ def collapse_duplicate_punctuation(text: str) -> str:
     return value
 
 
+def is_placeholder_text(text: str) -> bool:
+    value = clean_text(text).strip(" ，,。；;：:-_—")
+    if not value:
+        return True
+    return bool(PLACEHOLDER_TEXT_PATTERN.fullmatch(value))
+
+
 def sanitize_generated_clause(text: str) -> str:
     clause = clean_text(text)
     if not clause:
         return ""
+    if is_placeholder_text(clause):
+        return ""
     clause = re.sub(r"(?<!\w)@+(?!\w)", " ", clause)
     clause = re.sub(r"[‘’'\"“”]+", "", clause)
+    clause = re.sub(r"[（）()\[\]【】{}<>《》]+", "", clause)
     clause = re.sub(r"\s*[-—–]+\s*", "-", clause)
     clause = collapse_duplicate_punctuation(clause)
     clause = clause.strip(" ，,。；;：:、-—–")
-    compact = re.sub(r"[，,。；;：:、\-—–\s]", "", clause)
+    compact = re.sub(r"[，,。；;：:、\-—–\s\.!?！？…·]", "", clause)
     if not compact:
+        return ""
+    if re.fullmatch(r"\d+(?:\.\d+)?", compact):
         return ""
     if LOW_SIGNAL_CLAUSE_PATTERN.fullmatch(compact):
         return ""
@@ -1603,8 +1622,11 @@ def render_markdown(items: list[dict[str, str]]) -> str:
         key_points: list[str] = []
         for point in normalize_key_points(item.get("key_points")):
             cleaned_point = clean_generated_text(point)
-            if cleaned_point:
-                key_points.append(cleaned_point)
+            if not cleaned_point or is_placeholder_text(cleaned_point):
+                continue
+            if re.match(r"^(?:关键点|要点)\s*[：:]", cleaned_point):
+                continue
+            key_points.append(cleaned_point)
 
         entry_lines = ["", f"### {idx}. {title or '未命名条目'}"]
         if brief:

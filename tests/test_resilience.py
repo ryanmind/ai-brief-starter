@@ -278,6 +278,40 @@ def test_render_markdown_compacts_field_spacing():
     assert "\n\n**来源**：" not in markdown
 
 
+def test_render_markdown_drops_empty_placeholder_summary_line():
+    markdown = main.render_markdown(
+        [
+            {
+                "title": "测试条目",
+                "brief": "( )。",
+                "details": "内部细节",
+                "impact": "这是影响",
+                "key_points": ["要点一", "要点二"],
+                "link": "https://example.com",
+            }
+        ]
+    )
+    assert "**摘要**：" not in markdown
+
+
+def test_render_markdown_drops_placeholder_key_points_without_extra_blank_lines():
+    markdown = main.render_markdown(
+        [
+            {
+                "title": "测试条目",
+                "brief": "这是摘要",
+                "details": "内部细节",
+                "impact": "这是影响",
+                "key_points": ["关键点：value", "要点：value", "value"],
+                "link": "https://example.com",
+            }
+        ]
+    )
+    assert "**关键点**" not in markdown
+    assert "关键点：value" not in markdown
+    assert "\n\n\n" not in markdown
+
+
 def test_main_quality_check_fail_open_keeps_pipeline_running(monkeypatch, tmp_path):
     monkeypatch.chdir(tmp_path)
     monkeypatch.setenv("QWEN_API_KEY", "test-key")
