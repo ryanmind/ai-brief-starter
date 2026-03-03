@@ -16,6 +16,7 @@ from dateutil import parser as dtparser
 from openai import OpenAI
 
 from src.config import (
+    DEFAULT_AI_TOPIC_KEYWORDS,
     BRIEF_MAX_CHARS,
     DEFAULT_PRIMARY_SOURCE_DOMAINS,
     DEFAULT_PRIMARY_X_HANDLES,
@@ -203,6 +204,74 @@ def ensure_sentence_end(text: str) -> str:
     if value[-1] in "。！？!?":
         return value
     return f"{value}。"
+
+
+ASCII_TERM_REPLACEMENTS: tuple[tuple[str, str], ...] = (
+    (r"(?i)\bai\b", "人工智能"),
+    (r"(?i)\bllm\b", "大模型"),
+    (r"(?i)\bgpt\b", "生成式模型"),
+    (r"(?i)\brag\b", "检索增强"),
+    (r"(?i)\bagentic\b", "智能体"),
+    (r"(?i)\bagent\b", "智能体"),
+    (r"(?i)\bimage\b", "图像"),
+    (r"(?i)\bvideo\b", "视频"),
+    (r"(?i)\baudio\b", "音频"),
+    (r"(?i)\bapi\b", "接口"),
+    (r"(?i)\bsdk\b", "开发工具包"),
+)
+
+
+def has_ascii_letters(text: str) -> bool:
+    return bool(re.search(r"[A-Za-z]", clean_text(text)))
+
+
+def force_no_ascii_text(text: str, fallback: str = "", max_chars: int = 0) -> str:
+    value = clean_text(text)
+    for pattern, replacement in ASCII_TERM_REPLACEMENTS:
+        value = re.sub(pattern, replacement, value)
+    value = re.sub(r"[A-Za-z]+(?:[0-9._/\-]*[A-Za-z0-9]*)*", "", value)
+    value = re.sub(r"\s+", " ", value).strip(" ，,。；;：:-")
+    if not value:
+        value = clean_text(fallback)
+    if max_chars > 0:
+        value = value[:max_chars]
+    return value.strip(" ，,。；;：:-")
+
+
+def force_chinese_item_fields(item: dict[str, str]) -> dict[str, str]:
+    fixed = item.copy()
+    fixed["title"] = force_no_ascii_text(
+        fixed.get("title", ""),
+        fallback="",
+        max_chars=TITLE_MAX_CHARS,
+    )
+    fixed["brief"] = force_no_ascii_text(
+        fixed.get("brief", ""),
+        fallback="",
+        max_chars=BRIEF_MAX_CHARS,
+    )
+    fixed["details"] = force_no_ascii_text(
+        fixed.get("details", ""),
+        fallback="",
+        max_chars=DETAIL_MAX_CHARS,
+    )
+    fixed["impact"] = force_no_ascii_text(
+        fixed.get("impact", ""),
+        fallback="",
+        max_chars=IMPACT_MAX_CHARS,
+    )
+    points = fixed.get("key_points", [])
+    if isinstance(points, list):
+        sanitized_points = [
+            force_no_ascii_text(
+                str(point),
+                fallback="",
+                max_chars=KEY_POINT_MAX_CHARS,
+            )
+            for point in points[:KEY_POINTS_MAX_COUNT]
+        ]
+        fixed["key_points"] = [point for point in sanitized_points if point]
+    return fixed
 
 
 def shorten_for_highlight(text: str, max_chars: int = 42) -> str:
@@ -736,6 +805,38 @@ def filter_primary_items_with_stats(items: list[dict[str, str]]) -> tuple[list[d
             continue
         rejected_stats[reason] = rejected_stats.get(reason, 0) + 1
 
+    return filtered, rejected_stats
+
+
+def is_ai_topic_item(item: dict[str, str], keywords: set[str]) -> bool:
+    if not keywords:
+        return True
+    evidence = (
+        f"{clean_text(item.get('title', ''))} "
+        f"{clean_text(item.get('summary', ''))} "
+        f"{item.get('link', '')}"
+    ).strip().lower()
+    if not evidence:
+        return False
+    return any(keyword in evidence for keyword in keywords)
+
+
+def filter_ai_topic_items_with_stats(items: list[dict[str, str]]) -> tuple[list[dict[str, str]], dict[str, int]]:
+    strict_ai_topic_only = os.getenv("STRICT_AI_TOPIC_ONLY", "1").strip().lower()
+    if strict_ai_topic_only in {"0", "false", "no", "off"}:
+        return items, {"strict_mode_disabled": len(items)}
+
+    keywords = parse_csv_env("AI_TOPIC_KEYWORDS", DEFAULT_AI_TOPIC_KEYWORDS)
+    if not keywords:
+        return items, {}
+
+    filtered: list[dict[str, str]] = []
+    rejected_stats: dict[str, int] = {}
+    for item in items:
+        if is_ai_topic_item(item, keywords):
+            filtered.append(item)
+            continue
+        rejected_stats["non_ai_topic"] = rejected_stats.get("non_ai_topic", 0) + 1
     return filtered, rejected_stats
 
 
@@ -1419,6 +1520,8 @@ def render_markdown(items: list[dict[str, str]]) -> str:
     for idx, item in enumerate(items[:5], 1):
         title = clean_text(item.get("title", ""))
         brief = shorten_for_highlight(item.get("brief", ""))
+        if not title and not brief:
+            continue
         if title and brief:
             lines.append(f"- {idx}. {title}：{ensure_sentence_end(brief)}")
         elif brief:
@@ -1432,19 +1535,24 @@ def render_markdown(items: list[dict[str, str]]) -> str:
         brief = ensure_sentence_end(item.get("brief", ""))
         details = ensure_sentence_end(item.get("details", "") or item.get("brief", ""))
         impact = ensure_sentence_end(item.get("impact", ""))
-        lines.extend(
-            [
-                "",
-                f"### {idx}) {item['title']}",
-                f"- 摘要：{brief}",
-                f"- 细节：{details}",
-                "- 关键点：",
-                *[f"  - {point}" for point in finalize_key_points(normalize_key_points(item.get("key_points")), item)],
-                f"- 影响：{impact}",
-                f"- 来源：{nitter_to_x_url(item['link'])}",
-                "---",
-            ]
-        )
+        title = clean_text(item.get("title", ""))
+        source = nitter_to_x_url((item.get("link", "") or "").strip())
+        key_points = [point for point in finalize_key_points(normalize_key_points(item.get("key_points")), item) if clean_text(point)]
+
+        entry_lines = ["", f"### {idx}) {title or '未命名条目'}"]
+        if brief:
+            entry_lines.append(f"- 摘要：{brief}")
+        if details:
+            entry_lines.append(f"- 细节：{details}")
+        if key_points:
+            entry_lines.append("- 关键点：")
+            entry_lines.extend([f"  - {point}" for point in key_points])
+        if impact:
+            entry_lines.append(f"- 影响：{impact}")
+        if source:
+            entry_lines.append(f"- 来源：{source}")
+        entry_lines.append("---")
+        lines.extend(entry_lines)
     if lines and lines[-1] == "---":
         lines.pop()
     return "\n".join(lines)
@@ -1483,13 +1591,14 @@ def main() -> None:
 
     def prepare_items(
         raw_items: list[dict[str, str]],
-    ) -> tuple[list[dict[str, str]], dict[str, int], dict[str, int], int]:
+    ) -> tuple[list[dict[str, str]], dict[str, int], dict[str, int], dict[str, int], int]:
         filtered_items, rejected_stats = filter_primary_items_with_stats(raw_items)
-        diversified_items, diversity_stats = apply_source_limits(filtered_items)
+        ai_topic_items, ai_topic_stats = filter_ai_topic_items_with_stats(filtered_items)
+        diversified_items, diversity_stats = apply_source_limits(ai_topic_items)
         history_filtered_items, history_dropped = filter_items_by_history(diversified_items, history_fingerprints)
-        return history_filtered_items[:max_items], rejected_stats, diversity_stats, history_dropped
+        return history_filtered_items[:max_items], rejected_stats, ai_topic_stats, diversity_stats, history_dropped
 
-    items, rejected_stats, diversity_stats, history_dropped = prepare_items(fetched_items)
+    items, rejected_stats, ai_topic_stats, diversity_stats, history_dropped = prepare_items(fetched_items)
 
     if len(items) < top_n and fallback_fetch_hours > fetch_hours:
         expanded_fetched_items = fetch_items(
@@ -1498,7 +1607,7 @@ def main() -> None:
             per_source=per_source_items,
         )
         if len(expanded_fetched_items) > len(fetched_items):
-            items, rejected_stats, diversity_stats, history_dropped = prepare_items(expanded_fetched_items)
+            items, rejected_stats, ai_topic_stats, diversity_stats, history_dropped = prepare_items(expanded_fetched_items)
             fetched_items = expanded_fetched_items
 
     rejected_count = sum(rejected_stats.values())
@@ -1512,6 +1621,8 @@ def main() -> None:
     )
     if rejected_stats:
         logger.info("primary filter rejected reasons=%s", json.dumps(rejected_stats, ensure_ascii=False))
+    if ai_topic_stats:
+        logger.info("ai-topic filter rejected reasons=%s", json.dumps(ai_topic_stats, ensure_ascii=False))
     if diversity_stats:
         logger.info("source limit dropped reasons=%s", json.dumps(diversity_stats, ensure_ascii=False))
     if not items:

@@ -41,6 +41,7 @@ jobs:
       KEY_POINTS_MAX_COUNT: "3"
       KEY_POINT_MAX_CHARS: "28"
       STRICT_PRIMARY_ONLY: "1"
+      STRICT_AI_TOPIC_ONLY: "1"
       QUALITY_CHECK_STRICT: "1"
       NITTER_RSS_BASES: "https://nitter.net,https://nitter.poast.org,https://nitter.privacydev.net,https://nitter.d420.de,https://nitter.unixfox.eu"
       QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
@@ -52,8 +53,8 @@ jobs:
       FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
       FEISHU_REPORT_FOLDER_TOKEN: ${{ secrets.FEISHU_REPORT_FOLDER_TOKEN }}
       FEISHU_DOC_SYNC_REQUIRED: "1"
-      FEISHU_DOC_PUBLIC_READABLE: "0"
-      FEISHU_DOC_PUBLIC_REQUIRED: "0"
+      FEISHU_DOC_PUBLIC_READABLE: "1"
+      FEISHU_DOC_PUBLIC_REQUIRED: "1"
     steps:
       - uses: actions/checkout@v4
 

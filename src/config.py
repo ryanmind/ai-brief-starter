@@ -167,6 +167,50 @@ DEFAULT_PRIMARY_X_HANDLES = (
     "elevenlabsio",
 )
 
+# ---- AI topic relevance ----
+
+DEFAULT_AI_TOPIC_KEYWORDS = (
+    "ai",
+    "artificial intelligence",
+    "machine learning",
+    "deep learning",
+    "llm",
+    "gpt",
+    "chatgpt",
+    "rag",
+    "agent",
+    "agentic",
+    "multimodal",
+    "diffusion",
+    "transformer",
+    "inference",
+    "fine-tuning",
+    "fine tuning",
+    "模型",
+    "大模型",
+    "智能体",
+    "多模态",
+    "推理",
+    "训练",
+    "微调",
+    "生成式",
+    "开源权重",
+    "openai",
+    "anthropic",
+    "deepmind",
+    "mistral",
+    "qwen",
+    "deepseek",
+    "hunyuan",
+    "moonshot",
+    "kimi",
+    "gemini",
+    "llama",
+    "claude",
+    "codex",
+    "arxiv",
+)
+
 # ---- X/Twitter / Nitter hosts ----
 
 X_HOSTS = {

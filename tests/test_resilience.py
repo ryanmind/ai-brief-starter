@@ -161,3 +161,73 @@ def test_history_dedupe_prefers_dedupe_link():
     kept, dropped = main.filter_items_by_history([item], {commit_fp})
     assert dropped == 1
     assert kept == []
+
+
+def test_sync_markdown_to_new_doc_skips_unreadable_link(monkeypatch):
+    monkeypatch.setenv("FEISHU_APP_ID", "app")
+    monkeypatch.setenv("FEISHU_APP_SECRET", "secret")
+    monkeypatch.setenv("FEISHU_DOC_PUBLIC_READABLE", "1")
+    monkeypatch.setenv("FEISHU_DOC_PUBLIC_REQUIRED", "0")
+
+    monkeypatch.setattr(notify_feishu, "get_tenant_access_token", lambda app_id, app_secret: "token")
+    monkeypatch.setattr(
+        notify_feishu,
+        "create_docx_document",
+        lambda token, title, folder_token: ("doc-id", "https://tenant.feishu.cn/docx/doc-id"),
+    )
+    monkeypatch.setattr(notify_feishu, "configure_docx_public_permission", lambda token, document_id: False)
+    monkeypatch.setattr(notify_feishu, "create_docx_children", lambda token, document_id, lines: None)
+
+    url = notify_feishu.sync_markdown_to_new_doc(markdown="# 标题", title="标题")
+    assert url == ""
+
+
+def test_sync_markdown_to_new_doc_prefers_api_returned_url(monkeypatch):
+    monkeypatch.setenv("FEISHU_APP_ID", "app")
+    monkeypatch.setenv("FEISHU_APP_SECRET", "secret")
+    monkeypatch.setenv("FEISHU_DOC_PUBLIC_READABLE", "1")
+    monkeypatch.setenv("FEISHU_DOC_PUBLIC_REQUIRED", "1")
+
+    monkeypatch.setattr(notify_feishu, "get_tenant_access_token", lambda app_id, app_secret: "token")
+    monkeypatch.setattr(
+        notify_feishu,
+        "create_docx_document",
+        lambda token, title, folder_token: ("doc-id", "https://tenant.feishu.cn/docx/doc-id"),
+    )
+    monkeypatch.setattr(notify_feishu, "configure_docx_public_permission", lambda token, document_id: True)
+    monkeypatch.setattr(notify_feishu, "create_docx_children", lambda token, document_id, lines: None)
+
+    url = notify_feishu.sync_markdown_to_new_doc(markdown="# 标题", title="标题")
+    assert url == "https://tenant.feishu.cn/docx/doc-id"
+
+
+def test_markdown_to_text_blocks_keeps_ordered_list_without_bullet():
+    markdown = """# AI 早报
+
+## 30秒导读
+- 1. 第一条
+- 2. 第二条
+"""
+    blocks = notify_feishu.markdown_to_text_blocks(markdown)
+    assert "1. 第一条" in blocks
+    assert "2. 第二条" in blocks
+    assert "• 1. 第一条" not in blocks
+
+
+def test_render_markdown_drops_empty_lines_for_missing_fields():
+    markdown = main.render_markdown(
+        [
+            {
+                "title": "测试条目",
+                "brief": "",
+                "details": "",
+                "impact": "",
+                "key_points": [],
+                "link": "",
+            }
+        ]
+    )
+    assert "- 摘要：" not in markdown
+    assert "- 细节：" not in markdown
+    assert "- 影响：" not in markdown
+    assert "- 来源：" not in markdown

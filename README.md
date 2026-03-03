@@ -42,6 +42,7 @@
 - 当前版本不包含企业微信通知。
 - 当前版本仅输出中文早报。
 - 默认开启一手信息过滤（`STRICT_PRIMARY_ONLY=1`），会剔除疑似二手转述内容。
+- 默认开启 AI 主题过滤（`STRICT_AI_TOPIC_ONLY=1`），会剔除非 AI 主题内容；可用 `AI_TOPIC_KEYWORDS`（逗号分隔）补充关键词。
 - 可用 `PRIMARY_SOURCE_DOMAINS`、`PRIMARY_X_HANDLES` 覆盖允许来源白名单（逗号分隔）。
 - 可用 `SECOND_HAND_DOMAINS` 追加二手媒体域名黑名单（逗号分隔）。
 - `sources.txt` 可直接写 `https://x.com/<账号>`，脚本会自动转成 Nitter RSS（可用 `NITTER_RSS_BASES` 配置多个实例，逗号分隔）。
@@ -63,8 +64,7 @@
 - 默认不显式限制模型输出 token（仍受模型服务端上限约束）。
 - 配置 `FEISHU_WEBHOOK_URL` 后，工作流会自动发送日报摘要到飞书群；配置 `FEISHU_APP_ID/FEISHU_APP_SECRET` 后会自动新建飞书文档并写入全文（不会覆盖历史）。
 - 飞书文档写入会自动去除 Markdown 标记，默认以可读正文样式展示（非原始 Markdown 状态）。
-- 默认不自动开启飞书文档外链公开（`FEISHU_DOC_PUBLIC_READABLE=0`）；如需对外分享可手动设为 `1`。
-- 当开启自动外链公开时，可设 `FEISHU_DOC_PUBLIC_REQUIRED=1`，无法设置公开权限就直接失败并打印明确错误。
+- 工作流默认开启飞书文档外链公开（`FEISHU_DOC_PUBLIC_READABLE=1`）并强制校验（`FEISHU_DOC_PUBLIC_REQUIRED=1`），确保群里发送的是可外部访问链接。
 - 默认不在群消息中展示 GitHub Actions 任务详情；如需展示可设置 `FEISHU_INCLUDE_RUN_URL=1`。
 - 如配置 `FEISHU_REPORT_FOLDER_TOKEN`，每日新文档会创建在指定文件夹；`FEISHU_REPORT_DOC_URL` 可作为总览入口链接附在消息中。
 - `FEISHU_DOC_SYNC_REQUIRED` 默认 `1`，未配置文档写入凭证会直接失败；如仅需群通知可设为 `0`。

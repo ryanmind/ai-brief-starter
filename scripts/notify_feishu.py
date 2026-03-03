@@ -127,10 +127,10 @@ def is_public_readable_state(response: dict[str, object]) -> bool:
     return external_access_entity == "open" or external_access is True
 
 
-def configure_docx_public_permission(token: str, document_id: str) -> None:
+def configure_docx_public_permission(token: str, document_id: str) -> bool:
     readable_enabled = is_enabled(os.getenv("FEISHU_DOC_PUBLIC_READABLE"), default=False)
     if not readable_enabled:
-        return
+        return True
 
     required = is_enabled(os.getenv("FEISHU_DOC_PUBLIC_REQUIRED"), default=False)
     headers = {"Authorization": f"Bearer {token}"}
@@ -201,7 +201,7 @@ def configure_docx_public_permission(token: str, document_id: str) -> None:
 
     if verified:
         print("info: doc public permission configured to anyone-readable")
-        return
+        return True
 
     detail = "; ".join((errors + verify_errors)[-3:]) if (errors or verify_errors) else "unknown"
     message = (
@@ -212,6 +212,7 @@ def configure_docx_public_permission(token: str, document_id: str) -> None:
     if required:
         raise RuntimeError(message)
     print(f"warn: {message}")
+    return False
 
 
 def get_tenant_access_token(app_id: str, app_secret: str) -> str:
@@ -227,7 +228,7 @@ def get_tenant_access_token(app_id: str, app_secret: str) -> str:
     return token
 
 
-def create_docx_document(token: str, title: str, folder_token: str) -> str:
+def create_docx_document(token: str, title: str, folder_token: str) -> tuple[str, str]:
     payload: dict[str, object] = {"title": title}
     if folder_token:
         payload["folder_token"] = folder_token
@@ -257,13 +258,22 @@ def create_docx_document(token: str, title: str, folder_token: str) -> str:
         raise RuntimeError(f"create document failed: {response}")
 
     document = data.get("document")
+    doc_url = ""
     if isinstance(document, dict):
         doc_id = str(document.get("document_id", "")).strip()
+        doc_url = str(
+            document.get("url")
+            or document.get("document_url")
+            or document.get("web_url")
+            or ""
+        ).strip()
         if doc_id:
-            return doc_id
+            return doc_id, doc_url
     doc_id = str(data.get("document_id", "")).strip()
+    if not doc_url:
+        doc_url = str(data.get("url") or data.get("document_url") or data.get("web_url") or "").strip()
     if doc_id:
-        return doc_id
+        return doc_id, doc_url
     raise RuntimeError(f"document_id missing in response: {response}")
 
 
@@ -308,7 +318,11 @@ def markdown_to_text_blocks(markdown: str) -> list[str]:
             continue
         if stripped.startswith("- "):
             item = stripped[2:].strip()
-            blocks.append(f"• {item}")
+            # Keep ordered list lines as-is (e.g. "1. ..."), avoid "• 1. ..."
+            if re.match(r"^\d+\s*[\.\)、]\s*", item):
+                blocks.append(item)
+            else:
+                blocks.append(f"• {item}")
             continue
         if stripped == "---":
             blocks.append("——")
@@ -390,10 +404,16 @@ def sync_markdown_to_new_doc(markdown: str, title: str) -> str:
 
     folder_token = os.getenv("FEISHU_REPORT_FOLDER_TOKEN", "").strip()
     token = get_tenant_access_token(app_id=app_id, app_secret=app_secret)
-    document_id = create_docx_document(token=token, title=title[:120], folder_token=folder_token)
-    configure_docx_public_permission(token=token, document_id=document_id)
+    document_id, doc_url = create_docx_document(token=token, title=title[:120], folder_token=folder_token)
+    public_ready = configure_docx_public_permission(token=token, document_id=document_id)
+    readable_enabled = is_enabled(os.getenv("FEISHU_DOC_PUBLIC_READABLE"), default=False)
+    if readable_enabled and not public_ready:
+        print("warn: skip sending newly created doc link because it is not publicly readable")
+        return ""
     create_docx_children(token=token, document_id=document_id, lines=markdown_to_text_blocks(markdown))
 
+    if doc_url:
+        return doc_url
     doc_base_url = os.getenv("FEISHU_DOC_BASE_URL", DEFAULT_DOC_BASE_URL).strip().rstrip("/")
     return f"{doc_base_url}/{document_id}"
 
