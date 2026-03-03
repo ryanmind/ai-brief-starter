@@ -69,4 +69,5 @@ def test_rank_and_summarize_fallback_on_llm_exception(monkeypatch):
 
     assert len(result) == 1
     assert result[0]["title"] == "OpenAI 发布新模型"
-    assert result[0]["impact"] == "信息持续跟进中，建议查看原文链接。"
+    assert result[0]["impact"]
+    assert "建议查看原文" not in result[0]["impact"]

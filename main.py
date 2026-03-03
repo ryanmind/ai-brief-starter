@@ -990,10 +990,31 @@ def fallback_selection(items: list[dict[str, str]], top_n: int, start_score: int
             result["brief"] = clean_text(item.get("title", ""))[:BRIEF_MAX_CHARS]
 
         result["details"] = summary[:DETAIL_MAX_CHARS] if summary else result["brief"]
-        result["impact"] = "信息持续跟进中，建议查看原文链接。"
+        result["impact"] = build_fallback_impact(result)
         result["key_points"] = build_default_key_points(result)
         fallback.append(result)
     return fallback
+
+
+def build_fallback_impact(item: dict[str, str]) -> str:
+    brief = clean_text(item.get("brief", ""))
+    summary = clean_text(item.get("summary", ""))
+    title = clean_text(item.get("title", ""))
+    brief_key = normalize_for_compare(brief)
+
+    for candidate in sentence_candidates(summary):
+        normalized = normalize_for_compare(candidate)
+        if not normalized or normalized == brief_key:
+            continue
+        if len(candidate) < 12:
+            continue
+        return candidate[:IMPACT_MAX_CHARS]
+
+    if title:
+        return f"{title}相关进展已由一手来源披露，预计将影响后续产品与行业节奏。"[:IMPACT_MAX_CHARS]
+    if brief:
+        return f"{brief[:28]}这一进展已披露，预计将影响相关技术与应用落地节奏。"[:IMPACT_MAX_CHARS]
+    return "该进展已由一手来源披露，预计将影响相关技术与产业节奏。"
 
 
 def backfill_selected_items(
@@ -1133,7 +1154,10 @@ def rank_and_summarize(
         if not details:
             details = result["brief"]
         result["details"] = details
-        result["impact"] = clean_text(str(row.get("impact", "")))[:IMPACT_MAX_CHARS]
+        impact = clean_text(str(row.get("impact", "")))[:IMPACT_MAX_CHARS]
+        if not impact or "建议查看原文" in impact or "信息持续跟进" in impact:
+            impact = build_fallback_impact(result)
+        result["impact"] = impact
         result["key_points"] = finalize_key_points(normalize_key_points(row.get("key_points")), result)
         fingerprints = item_dedupe_fingerprints(result)
         if fingerprints and selected_fingerprints.intersection(fingerprints):
