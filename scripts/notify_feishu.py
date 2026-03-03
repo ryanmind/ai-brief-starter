@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import argparse
 import base64
 import hashlib
 import hmac
 import json
 import os
 import re
-import sys
 import time
 from pathlib import Path
 from urllib import error as urlerror
@@ -418,26 +418,62 @@ def sync_markdown_to_new_doc(markdown: str, title: str) -> str:
     return f"{doc_base_url}/{document_id}"
 
 
-def main() -> int:
-    if len(sys.argv) < 2:
-        print("usage: python scripts/notify_feishu.py reports/latest.md")
-        return 1
+def send_text_message(webhook_url: str, text: str) -> None:
+    payload: dict[str, object] = {
+        "msg_type": "text",
+        "content": {"text": text},
+    }
+    bot_secret = os.getenv("FEISHU_BOT_SECRET", "").strip()
+    if bot_secret:
+        timestamp, sign = build_feishu_sign(bot_secret)
+        payload["timestamp"] = timestamp
+        payload["sign"] = sign
 
-    report_path = Path(sys.argv[1])
+    response = post_to_feishu(webhook_url=webhook_url, payload=payload)
+    code = str(response.get("code", ""))
+    if code not in {"0", ""}:
+        raise RuntimeError(f"feishu rejected message: {response}")
+
+
+def build_failure_suggestions(failed_step: str) -> list[str]:
+    step = failed_step.lower()
+    if "secret" in step:
+        return ["检查 QWEN_API_KEY 等必填 Secrets 是否已配置且未过期。"]
+    if "test" in step:
+        return ["先在本地执行 `python -m pytest tests/ -v` 并修复失败用例。"]
+    if "generate" in step or "brief" in step:
+        return [
+            "检查上游源可用性与 API Key 配额。",
+            "查看 quality_metrics.json 与 high_risk_items.md 的告警信息。",
+        ]
+    return ["查看失败步骤日志中的 ERROR 段落并按提示修复。"]
+
+
+def notify_failure(webhook_url: str, failed_step: str, error_reason: str, run_url: str) -> None:
+    suggestions = build_failure_suggestions(failed_step)
+    lines = [
+        "AI早报任务失败告警",
+        f"失败步骤：{failed_step or '未知步骤'}",
+        f"错误原因：{error_reason or '请查看任务日志中的 ERROR 输出。'}",
+        "",
+        "建议排查：",
+    ]
+    for idx, suggestion in enumerate(suggestions, 1):
+        lines.append(f"{idx}. {suggestion}")
+    if run_url:
+        lines.extend(["", f"任务链接：{run_url}"])
+    send_text_message(webhook_url=webhook_url, text="\n".join(lines))
+
+
+def notify_success(report_path: Path, webhook_url: str, run_url: str) -> None:
     if not report_path.exists():
         print(f"skip: report not found: {report_path}")
-        return 0
-
-    webhook_url = os.getenv("FEISHU_WEBHOOK_URL", "").strip()
-    if not webhook_url:
-        print("skip: FEISHU_WEBHOOK_URL is empty")
-        return 0
+        return
 
     markdown = report_path.read_text(encoding="utf-8")
     title = extract_title(markdown)
     highlights = pick_highlights(markdown, max_items=5)
     include_run_url = is_enabled(os.getenv("FEISHU_INCLUDE_RUN_URL"), default=False)
-    run_url = os.getenv("ACTIONS_RUN_URL", "").strip()
     feishu_doc_url = os.getenv("FEISHU_REPORT_DOC_URL", "").strip()
     report_public_url = os.getenv("REPORT_PUBLIC_URL", "").strip()
     synced_doc_url = ""
@@ -464,22 +500,40 @@ def main() -> int:
     if include_run_url and run_url:
         text_lines.append("")
         text_lines.append(f"任务详情：{run_url}")
+    send_text_message(webhook_url=webhook_url, text="\n".join(text_lines))
 
-    payload: dict[str, object] = {
-        "msg_type": "text",
-        "content": {"text": "\n".join(text_lines)},
-    }
 
-    bot_secret = os.getenv("FEISHU_BOT_SECRET", "").strip()
-    if bot_secret:
-        timestamp, sign = build_feishu_sign(bot_secret)
-        payload["timestamp"] = timestamp
-        payload["sign"] = sign
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Send AI brief notifications to Feishu.")
+    parser.add_argument("report", nargs="?", default="reports/latest.md", help="Markdown report path for success mode")
+    parser.add_argument("--failure", action="store_true", help="Send failure summary instead of success report")
+    parser.add_argument("--failed-step", default="", help="Failed step name for failure summary")
+    parser.add_argument("--error-reason", default="", help="Failure reason for failure summary")
+    parser.add_argument("--run-url", default="", help="Workflow run URL")
+    return parser.parse_args()
 
-    response = post_to_feishu(webhook_url=webhook_url, payload=payload)
-    code = str(response.get("code", ""))
-    if code not in {"0", ""}:
-        raise RuntimeError(f"feishu rejected message: {response}")
+
+def main() -> int:
+    args = parse_args()
+
+    webhook_url = os.getenv("FEISHU_WEBHOOK_URL", "").strip()
+    if not webhook_url:
+        print("skip: FEISHU_WEBHOOK_URL is empty")
+        return 0
+
+    run_url = args.run_url.strip() or os.getenv("ACTIONS_RUN_URL", "").strip()
+
+    if args.failure:
+        notify_failure(
+            webhook_url=webhook_url,
+            failed_step=args.failed_step.strip(),
+            error_reason=args.error_reason.strip(),
+            run_url=run_url,
+        )
+        print("failure notify sent")
+        return 0
+
+    notify_success(report_path=Path(args.report), webhook_url=webhook_url, run_url=run_url)
 
     print("notify success")
     return 0

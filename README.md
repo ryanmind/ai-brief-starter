@@ -6,7 +6,7 @@
 
 1. 配置 GitHub Actions Secrets
    - 必需：`QWEN_API_KEY`
-   - 可选：`KIMI_API_KEY`、`FEISHU_WEBHOOK_URL`、`FEISHU_BOT_SECRET`、`FEISHU_REPORT_DOC_URL`、`FEISHU_APP_ID`、`FEISHU_APP_SECRET`、`FEISHU_REPORT_FOLDER_TOKEN`、`FEISHU_DOC_SYNC_REQUIRED`
+   - 可选：`FEISHU_WEBHOOK_URL`、`FEISHU_BOT_SECRET`、`FEISHU_REPORT_DOC_URL`、`FEISHU_APP_ID`、`FEISHU_APP_SECRET`、`FEISHU_REPORT_FOLDER_TOKEN`、`FEISHU_DOC_SYNC_REQUIRED`
 2. 推送代码到 GitHub（建议 private 仓库）
 3. 在 Actions 里手动运行 `ai-morning-brief`
 4. 在飞书查看通知与“今日完整文档（飞书）”，或在 Actions 下载 `ai-brief-reports` artifact
@@ -38,7 +38,7 @@
 
 ## 说明
 
-- 默认只用 Qwen；配置 `KIMI_API_KEY` 后才会启用 Kimi 精修。
+- 默认使用 Qwen 生成与本地化，不再依赖额外润色模型。
 - 当前版本不包含企业微信通知。
 - 当前版本仅输出中文早报。
 - 默认开启一手信息过滤（`STRICT_PRIMARY_ONLY=1`），会剔除疑似二手转述内容。
@@ -60,7 +60,7 @@
 - 可用 `DETAIL_MIN_CHARS` 约束细节最小信息量（默认 48），低于阈值会自动尝试用原始摘要补全，质量检查也会拦截。
 - 默认开启事实保守模式（`STRICT_FACT_MODE=1`），若摘要/细节与原文摘要重合度过低或出现新数字，会自动回退到抽取式写法。
 - 可用 `FACT_OVERLAP_MIN` 调整事实重合阈值（默认 `0.55`，越高越保守）。
-- Kimi 润色后会做链接/数字一致性校验，检测到事实漂移会自动回退原稿。
+- 渲染后会执行自动修复与二次质检，保障结构完整与事实一致性。
 - 默认不显式限制模型输出 token（仍受模型服务端上限约束）。
 - 配置 `FEISHU_WEBHOOK_URL` 后，工作流会自动发送日报摘要到飞书群；配置 `FEISHU_APP_ID/FEISHU_APP_SECRET` 后会自动新建飞书文档并写入全文（不会覆盖历史）。
 - 飞书文档写入会自动去除 Markdown 标记，默认以可读正文样式展示（非原始 Markdown 状态）。

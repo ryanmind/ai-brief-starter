@@ -15,6 +15,7 @@ import feedparser
 from dateutil import parser as dtparser
 from openai import OpenAI
 
+from scripts.report_quality_check import run_checks as run_quality_checks
 from src.config import (
     DEFAULT_AI_TOPIC_KEYWORDS,
     BRIEF_MAX_CHARS,
@@ -1434,35 +1435,6 @@ def localize_items_to_chinese(
     return fix_items_detail(localized)
 
 
-def polish_with_kimi(markdown: str, kimi_api_key: str, kimi_model: str) -> str:
-    if not kimi_api_key:
-        return markdown
-
-    client = OpenAI(api_key=kimi_api_key, base_url="https://api.moonshot.cn/v1")
-    prompt = (
-        "请润色以下AI早报Markdown："
-        "1) 不改事实和链接；2) 保持简洁专业；3) 不新增未提供的信息；"
-        "4) 文风适合直接发朋友圈/公众号，减少机器感。\n\n"
-        + markdown
-    )
-    try:
-        polished = llm_chat(
-            client=client,
-            model=kimi_model,
-            system_prompt="你是中文科技编辑。",
-            user_prompt=prompt,
-        )
-    except Exception as exc:
-        logger.warning("polish_with_kimi: 润色失败，回退原稿。error=%s", exc)
-        return markdown
-
-    if not polish_result_is_safe(markdown, polished):
-        logger.warning("polish_with_kimi: 检测到潜在事实漂移，回退原稿。")
-        return markdown
-
-    return polished
-
-
 SOURCE_CATEGORY_DOMAINS: dict[str, set[str]] = {
     "vendor": {
         "openai.com", "anthropic.com", "deepseek.com", "deepmind.google", "mistral.ai",
@@ -1569,8 +1541,6 @@ def main() -> None:
         raise RuntimeError("QWEN_API_KEY 未设置")
 
     qwen_model = os.getenv("QWEN_MODEL", "qwen-flash")
-    kimi_api_key = os.getenv("KIMI_API_KEY", "").strip()
-    kimi_model = os.getenv("KIMI_MODEL", "kimi-latest")
     max_items = int_env("MAX_ITEMS", 120, min_value=10, max_value=500)
     top_n = int_env("TOP_N", 20, min_value=5, max_value=100)
     fetch_hours = int_env("FETCH_HOURS", 24, min_value=1, max_value=168)
@@ -1581,6 +1551,8 @@ def main() -> None:
 
     report_dir = Path("reports")
     report_dir.mkdir(parents=True, exist_ok=True)
+    quality_metrics_path = report_dir / "quality_metrics.json"
+    high_risk_path = report_dir / "high_risk_items.md"
     history_state_path = Path(os.getenv("HISTORY_STATE_PATH", str(report_dir / "history_index.json")))
     history_state = load_history_state(history_state_path)
     history_fingerprints = load_recent_history_fingerprints(report_dir=report_dir, lookback_days=history_dedupe_days)
@@ -1591,14 +1563,27 @@ def main() -> None:
 
     def prepare_items(
         raw_items: list[dict[str, str]],
-    ) -> tuple[list[dict[str, str]], dict[str, int], dict[str, int], dict[str, int], int]:
+    ) -> tuple[list[dict[str, str]], dict[str, int], dict[str, int], dict[str, int], int, dict[str, int]]:
         filtered_items, rejected_stats = filter_primary_items_with_stats(raw_items)
         ai_topic_items, ai_topic_stats = filter_ai_topic_items_with_stats(filtered_items)
         diversified_items, diversity_stats = apply_source_limits(ai_topic_items)
         history_filtered_items, history_dropped = filter_items_by_history(diversified_items, history_fingerprints)
-        return history_filtered_items[:max_items], rejected_stats, ai_topic_stats, diversity_stats, history_dropped
+        stage_stats = {
+            "after_primary": len(filtered_items),
+            "after_ai_topic": len(ai_topic_items),
+            "after_source_limit": len(diversified_items),
+            "after_history_dedupe": len(history_filtered_items),
+        }
+        return (
+            history_filtered_items[:max_items],
+            rejected_stats,
+            ai_topic_stats,
+            diversity_stats,
+            history_dropped,
+            stage_stats,
+        )
 
-    items, rejected_stats, ai_topic_stats, diversity_stats, history_dropped = prepare_items(fetched_items)
+    items, rejected_stats, ai_topic_stats, diversity_stats, history_dropped, stage_stats = prepare_items(fetched_items)
 
     if len(items) < top_n and fallback_fetch_hours > fetch_hours:
         expanded_fetched_items = fetch_items(
@@ -1607,7 +1592,9 @@ def main() -> None:
             per_source=per_source_items,
         )
         if len(expanded_fetched_items) > len(fetched_items):
-            items, rejected_stats, ai_topic_stats, diversity_stats, history_dropped = prepare_items(expanded_fetched_items)
+            items, rejected_stats, ai_topic_stats, diversity_stats, history_dropped, stage_stats = prepare_items(
+                expanded_fetched_items
+            )
             fetched_items = expanded_fetched_items
 
     rejected_count = sum(rejected_stats.values())
@@ -1630,9 +1617,29 @@ def main() -> None:
 
     selected = rank_and_summarize(items=items, qwen_api_key=qwen_api_key, qwen_model=qwen_model, top_n=top_n)
     selected = localize_items_to_chinese(items=selected, qwen_api_key=qwen_api_key, qwen_model=qwen_model)
+    selected = [force_chinese_item_fields(item) for item in selected]
+    if not selected:
+        raise RuntimeError("无内容：模型筛选后最终条目数为 0")
+
     check_category_balance(selected)
-    markdown = render_markdown(selected)
-    markdown = polish_with_kimi(markdown=markdown, kimi_api_key=kimi_api_key, kimi_model=kimi_model)
+    draft_report_path = report_dir / "latest.draft.md"
+    draft_report_path.write_text(render_markdown(selected), encoding="utf-8")
+
+    quality_code = run_quality_checks(
+        path=draft_report_path,
+        autofix=True,
+        metrics_output=quality_metrics_path,
+        high_risk_output=high_risk_path,
+    )
+    if quality_code != 0:
+        raise RuntimeError("自动修复后质检仍未通过，停止发布")
+    second_quality_code = run_quality_checks(path=draft_report_path, autofix=False)
+    if second_quality_code != 0:
+        raise RuntimeError("二次质检失败，停止发布")
+    markdown = draft_report_path.read_text(encoding="utf-8")
+    final_item_count = markdown.count("\n### ")
+    if final_item_count <= 0:
+        raise RuntimeError("无内容：最终报告条目数为 0，停止发布")
 
     history_state = update_history_state(
         state=history_state,
@@ -1646,6 +1653,44 @@ def main() -> None:
     latest = report_dir / "latest.md"
     daily.write_text(markdown, encoding="utf-8")
     latest.write_text(markdown, encoding="utf-8")
+    if draft_report_path.exists():
+        draft_report_path.unlink()
+
+    quality_metrics: dict[str, Any] = {}
+    if quality_metrics_path.exists():
+        try:
+            quality_metrics = json.loads(quality_metrics_path.read_text(encoding="utf-8"))
+        except Exception as exc:
+            logger.warning("quality metrics parse failed: %s", exc)
+            quality_metrics = {}
+
+    combined_failure_reasons: dict[str, int] = {}
+    for reason_stats in (rejected_stats, ai_topic_stats, diversity_stats):
+        for key, count in reason_stats.items():
+            combined_failure_reasons[key] = combined_failure_reasons.get(key, 0) + int(count)
+    if history_dropped > 0:
+        combined_failure_reasons["history_dedup"] = history_dropped
+    quality_failure_reasons = quality_metrics.get("failure_reasons", {})
+    if isinstance(quality_failure_reasons, dict):
+        for key, count in quality_failure_reasons.items():
+            try:
+                count_int = int(count)
+            except (TypeError, ValueError):
+                continue
+            combined_failure_reasons[key] = combined_failure_reasons.get(key, 0) + count_int
+
+    top_failure_reasons = sorted(combined_failure_reasons.items(), key=lambda item: item[1], reverse=True)[:5]
+    merged_metrics = {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "fetched_count": len(fetched_items),
+        "filtered_count": max(len(fetched_items) - len(items), 0),
+        "repaired_count": int(quality_metrics.get("repaired_count", 0)) if isinstance(quality_metrics, dict) else 0,
+        "final_item_count": final_item_count,
+        "stage_counts": stage_stats,
+        "failure_reasons_top": [{"reason": reason, "count": count} for reason, count in top_failure_reasons],
+        "quality_check": quality_metrics,
+    }
+    quality_metrics_path.write_text(json.dumps(merged_metrics, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     print(f"done: {daily}")
 

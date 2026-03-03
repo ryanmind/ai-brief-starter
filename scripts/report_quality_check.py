@@ -2,9 +2,11 @@
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import re
 import sys
+from dataclasses import dataclass
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -12,10 +14,14 @@ ROOT_DIR = Path(__file__).resolve().parents[1]
 if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 
-from src.config import (
+from src.config import (  # noqa: E402
+    DEFAULT_PRIMARY_SOURCE_DOMAINS,
+    DEFAULT_PRIMARY_X_HANDLES,
     DEFAULT_SECOND_HAND_DOMAINS,
     DETAIL_WEAK_PHRASES,
     TITLE_INCOMPLETE_PREFIXES,
+    X_HOSTS,
+    float_env,
     parse_csv_env,
 )
 
@@ -25,12 +31,29 @@ DETAIL_LINE_PATTERN = re.compile(
     r"^(?P<prefix>\s*(?:[-*]\s*)?(?:细节|详情|detail)\s*[：:]\s*)(?P<value>.*)$",
     flags=re.IGNORECASE,
 )
+IMPACT_PATTERN = re.compile(r"^(?:[-*]\s*)?(?:影响|impact)\s*[：:]\s*(.+)$", flags=re.IGNORECASE)
+SOURCE_PATTERN = re.compile(r"^(?:[-*]\s*)?(?:来源|source)\s*[：:]\s*(.+)$", flags=re.IGNORECASE)
+TITLE_PATTERN = re.compile(r"^###\s*\d+\)\s*(.+)$")
+KEY_POINTS_HEADER_PATTERN = re.compile(r"^(?:[-*]\s*)?关键点\s*[：:]?$")
+BULLET_PATTERN = re.compile(r"^\s*(?:[-*•]\s+|\d+\.\s+)(.+)$")
+
+
+@dataclass
+class Evaluation:
+    metrics: dict[str, object]
+    errors: list[str]
+    warnings: list[str]
+    high_risk_items: list[dict[str, str]]
 
 
 def is_enabled(value: str | None, default: bool = False) -> bool:
     if value is None:
         return default
     return value.strip().lower() not in {"0", "false", "no", "off"}
+
+
+def clean_text(value: str) -> str:
+    return re.sub(r"\s+", " ", str(value or "")).strip()
 
 
 def normalize_host(url: str) -> str:
@@ -44,6 +67,13 @@ def host_matches(host: str, domains: set[str]) -> bool:
     return any(host == d or host.endswith(f".{d}") for d in domains)
 
 
+def extract_account_from_url(url: str) -> str:
+    path = urlparse(url).path.strip("/")
+    if not path:
+        return ""
+    return path.split("/", 1)[0].strip().lower()
+
+
 def title_looks_incomplete(title: str) -> bool:
     clean_title = re.sub(r"\s+", " ", title.strip())
     if len(clean_title) < 4:
@@ -53,6 +83,68 @@ def title_looks_incomplete(title: str) -> bool:
 
 def normalize_for_compare(text: str) -> str:
     return re.sub(r"\W+", "", text.strip().lower(), flags=re.UNICODE)
+
+
+def split_key_point_candidates(text: str) -> list[str]:
+    cleaned = clean_text(text)
+    if not cleaned:
+        return []
+
+    chunks: list[str] = []
+    for sentence in re.split(r"[。！？!?；;]+", cleaned):
+        sentence = sentence.strip()
+        if not sentence:
+            continue
+        parts = [sentence]
+        if len(sentence) > 28:
+            parts = [part.strip() for part in re.split(r"[，,]", sentence) if part.strip()]
+        chunks.extend(parts)
+    return chunks
+
+
+def normalize_key_point_text(text: str, max_chars: int) -> str:
+    value = clean_text(text)
+    value = re.sub(r"^[\-*•·\d\.\)\(、\s]+", "", value)
+    value = re.sub(r"^(并且|并将|并可|并支持|并|同时|且)\s*", "", value)
+    value = value.strip("，,。；;：:、- ")
+    return value[:max_chars]
+
+
+def build_key_points_from_fields(
+    summary: str,
+    detail: str,
+    title: str,
+    existing: list[str],
+    min_count: int,
+    max_count: int,
+    max_chars: int,
+) -> list[str]:
+    points: list[str] = []
+    seen: set[str] = set()
+
+    for raw in existing + split_key_point_candidates(summary) + split_key_point_candidates(detail) + [title]:
+        normalized = normalize_key_point_text(str(raw), max_chars=max_chars)
+        if len(normalized) < 4:
+            continue
+        key = normalize_for_compare(normalized)
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        points.append(normalized)
+        if len(points) >= max_count:
+            break
+
+    if not points:
+        points = [normalize_key_point_text(title, max_chars=max_chars) or "建议查看来源了解完整信息"]
+
+    while len(points) < min_count:
+        candidate = normalize_key_point_text(summary or detail or title, max_chars=max_chars)
+        if not candidate or normalize_for_compare(candidate) in seen:
+            break
+        seen.add(normalize_for_compare(candidate))
+        points.append(candidate)
+
+    return points[:max_count]
 
 
 def build_detail_from_existing_fields(
@@ -98,37 +190,35 @@ def build_detail_from_existing_fields(
     return merged
 
 
-def autofix_detail_lines(path: Path, detail_min_chars: int) -> int:
-    text = path.read_text(encoding="utf-8")
+def parse_report_structure(text: str) -> list[dict[str, object]]:
     lines = text.splitlines()
-    if not lines:
-        return 0
-
-    title_pattern = re.compile(r"^###\s*\d+\)\s*(.+)$")
-    key_points_header_pattern = re.compile(r"^(?:[-*]\s*)?关键点\s*[：:]?$")
-    bullet_pattern = re.compile(r"^\s*(?:[-*•]\s+|\d+\.\s+)(.+)$")
-    impact_pattern = re.compile(r"^(?:[-*]\s*)?(?:影响|impact)\s*[：:]", flags=re.IGNORECASE)
-    source_pattern = re.compile(r"^(?:[-*]\s*)?(?:来源|source)\s*[：:]", flags=re.IGNORECASE)
-
     items: list[dict[str, object]] = []
     current: dict[str, object] | None = None
     in_key_points = False
 
     for idx, line in enumerate(lines):
         stripped = line.strip()
-        title_match = title_pattern.match(stripped)
+        title_match = TITLE_PATTERN.match(stripped)
         if title_match:
             if current is not None:
+                current["end_idx"] = idx
                 items.append(current)
             current = {
                 "title": title_match.group(1).strip(),
                 "title_idx": idx,
+                "end_idx": len(lines),
                 "summary": "",
                 "summary_idx": None,
                 "detail": "",
                 "detail_idx": None,
                 "detail_prefix": "- 细节：",
+                "impact": "",
+                "impact_idx": None,
+                "source": "",
+                "source_idx": None,
                 "key_points": [],
+                "key_points_header_idx": None,
+                "key_point_line_indices": [],
             }
             in_key_points = False
             continue
@@ -136,8 +226,9 @@ def autofix_detail_lines(path: Path, detail_min_chars: int) -> int:
         if current is None:
             continue
 
-        if key_points_header_pattern.match(stripped):
+        if KEY_POINTS_HEADER_PATTERN.match(stripped):
             in_key_points = True
+            current["key_points_header_idx"] = idx
             continue
 
         summary_match = SUMMARY_PATTERN.match(stripped)
@@ -155,73 +246,150 @@ def autofix_detail_lines(path: Path, detail_min_chars: int) -> int:
             in_key_points = False
             continue
 
-        if impact_pattern.match(stripped) or source_pattern.match(stripped):
+        impact_match = IMPACT_PATTERN.match(stripped)
+        if impact_match:
+            current["impact"] = impact_match.group(1).strip()
+            current["impact_idx"] = idx
+            in_key_points = False
+            continue
+
+        source_match = SOURCE_PATTERN.match(stripped)
+        if source_match:
+            current["source"] = source_match.group(1).strip()
+            current["source_idx"] = idx
             in_key_points = False
             continue
 
         if in_key_points:
-            bullet_match = bullet_pattern.match(line)
+            bullet_match = BULLET_PATTERN.match(line)
             if bullet_match:
                 point = bullet_match.group(1).strip()
                 if point:
-                    points = current["key_points"]
-                    if isinstance(points, list):
-                        points.append(point)
+                    key_points = current["key_points"]
+                    if isinstance(key_points, list):
+                        key_points.append(point)
+                    line_indices = current["key_point_line_indices"]
+                    if isinstance(line_indices, list):
+                        line_indices.append(idx)
 
     if current is not None:
+        current["end_idx"] = len(lines)
         items.append(current)
 
-    edits: list[tuple[str, int, str]] = []
+    return items
+
+
+def extract_report_items(text: str) -> list[dict[str, object]]:
+    items = parse_report_structure(text)
+    cleaned: list[dict[str, object]] = []
     for item in items:
+        cleaned.append(
+            {
+                "title": str(item.get("title", "")),
+                "summary": str(item.get("summary", "")),
+                "detail": str(item.get("detail", "")),
+                "impact": str(item.get("impact", "")),
+                "source": str(item.get("source", "")),
+                "key_points": item.get("key_points", []),
+            }
+        )
+    return cleaned
+
+
+def autofix_report(path: Path, detail_min_chars: int, key_points_min_count: int, key_points_max_count: int, key_point_max_chars: int) -> int:
+    text = path.read_text(encoding="utf-8")
+    lines = text.splitlines()
+    if not lines:
+        return 0
+
+    items = parse_report_structure(text)
+    edits: list[tuple[int, int, list[str]]] = []
+
+    for item in items:
+        title = str(item.get("title", "")).strip()
         summary = str(item.get("summary", "")).strip()
         detail = str(item.get("detail", "")).strip()
-        title = str(item.get("title", "")).strip()
         key_points_raw = item.get("key_points", [])
         key_points = [str(point).strip() for point in key_points_raw] if isinstance(key_points_raw, list) else []
 
-        needs_fix = (
+        # Detail autofix
+        needs_detail_fix = (
             not detail
             or len(detail) < detail_min_chars
             or (summary and normalize_for_compare(summary) == normalize_for_compare(detail))
             or any(phrase in detail for phrase in DETAIL_WEAK_PHRASES)
         )
-        if not needs_fix:
-            continue
+        if needs_detail_fix:
+            new_detail = build_detail_from_existing_fields(
+                title=title,
+                summary=summary,
+                detail=detail,
+                key_points=key_points,
+                min_chars=detail_min_chars,
+            )
+            detail_idx = item.get("detail_idx")
+            if isinstance(detail_idx, int):
+                prefix = str(item.get("detail_prefix", "- 细节："))
+                edits.append((detail_idx, detail_idx + 1, [f"{prefix}{new_detail}"]))
+            else:
+                summary_idx = item.get("summary_idx")
+                title_idx = item.get("title_idx")
+                insert_at = title_idx + 1 if isinstance(title_idx, int) else 0
+                if isinstance(summary_idx, int):
+                    insert_at = summary_idx + 1
+                edits.append((insert_at, insert_at, [f"- 细节：{new_detail}"]))
 
-        new_detail = build_detail_from_existing_fields(
-            title=title,
-            summary=summary,
-            detail=detail,
-            key_points=key_points,
-            min_chars=detail_min_chars,
+        # Key points autofix
+        too_long_points = [point for point in key_points if len(point) > key_point_max_chars]
+        key_point_issue = (
+            len(key_points) < key_points_min_count
+            or len(key_points) > key_points_max_count
+            or bool(too_long_points)
         )
-        detail_idx = item.get("detail_idx")
-        if isinstance(detail_idx, int):
-            prefix = str(item.get("detail_prefix", "- 细节："))
-            edits.append(("replace", detail_idx, f"{prefix}{new_detail}"))
-            continue
+        if key_point_issue:
+            new_points = build_key_points_from_fields(
+                summary=summary,
+                detail=detail,
+                title=title,
+                existing=key_points,
+                min_count=key_points_min_count,
+                max_count=key_points_max_count,
+                max_chars=key_point_max_chars,
+            )
 
-        summary_idx = item.get("summary_idx")
-        title_idx = item.get("title_idx")
-        if isinstance(summary_idx, int):
-            insert_at = summary_idx + 1
-        elif isinstance(title_idx, int):
-            insert_at = title_idx + 1
-        else:
-            continue
-        edits.append(("insert", insert_at, f"- 细节：{new_detail}"))
+            header_idx = item.get("key_points_header_idx")
+            if isinstance(header_idx, int):
+                point_indices = item.get("key_point_line_indices", [])
+                start = header_idx + 1
+                end = start
+                if isinstance(point_indices, list) and point_indices:
+                    start = min(point_indices)
+                    end = max(point_indices) + 1
+                edits.append((start, end, [f"  - {point}" for point in new_points]))
+            else:
+                impact_idx = item.get("impact_idx")
+                source_idx = item.get("source_idx")
+                detail_idx = item.get("detail_idx")
+                summary_idx = item.get("summary_idx")
+                title_idx = item.get("title_idx")
+                insert_at = title_idx + 1 if isinstance(title_idx, int) else 0
+                if isinstance(summary_idx, int):
+                    insert_at = summary_idx + 1
+                if isinstance(detail_idx, int):
+                    insert_at = detail_idx + 1
+                if isinstance(source_idx, int):
+                    insert_at = source_idx
+                if isinstance(impact_idx, int):
+                    insert_at = impact_idx
+                block = ["- 关键点："] + [f"  - {point}" for point in new_points]
+                edits.append((insert_at, insert_at, block))
 
     if not edits:
         return 0
 
-    offset = 0
-    for action, idx, value in sorted(edits, key=lambda item: item[1]):
-        real_idx = idx + offset
-        if action == "replace":
-            lines[real_idx] = value
-        else:
-            lines.insert(real_idx, value)
-            offset += 1
+    # Apply from bottom to top so line offsets remain valid.
+    for start, end, new_lines in sorted(edits, key=lambda x: x[0], reverse=True):
+        lines[start:end] = new_lines
 
     new_text = "\n".join(lines)
     if text.endswith("\n"):
@@ -230,113 +398,163 @@ def autofix_detail_lines(path: Path, detail_min_chars: int) -> int:
     return len(edits)
 
 
-def extract_report_items(text: str) -> list[dict[str, object]]:
-    title_pattern = re.compile(r"^###\s*\d+\)\s*(.+)$")
-    source_pattern = re.compile(r"^(?:[-*]\s*)?(?:来源|source)\s*[：:]\s*(.+)$", flags=re.IGNORECASE)
-    key_points_header_pattern = re.compile(r"^(?:[-*]\s*)?关键点\s*[：:]?$")
-    bullet_pattern = re.compile(r"^\s*(?:[-*•]\s+|\d+\.\s+)(.+)$")
-
-    items: list[dict[str, object]] = []
-    current: dict[str, object] | None = None
-    in_key_points = False
-
-    for line in text.splitlines():
-        stripped = line.strip()
-        title_match = title_pattern.match(stripped)
-        if title_match:
-            if current is not None:
-                items.append(current)
-            current = {
-                "title": title_match.group(1).strip(),
-                "summary": "",
-                "detail": "",
-                "source": "",
-                "key_points": [],
-            }
-            in_key_points = False
-            continue
-
-        if current is None:
-            continue
-
-        if key_points_header_pattern.match(stripped):
-            in_key_points = True
-            continue
-
-        summary_match = SUMMARY_PATTERN.match(stripped)
-        if summary_match:
-            current["summary"] = summary_match.group(1).strip()
-            in_key_points = False
-            continue
-
-        detail_match = DETAIL_PATTERN.match(stripped)
-        if detail_match:
-            current["detail"] = detail_match.group(1).strip()
-            in_key_points = False
-            continue
-
-        if re.match(r"^(?:[-*]\s*)?(?:影响|impact)\s*[：:]", stripped, flags=re.IGNORECASE):
-            in_key_points = False
-            continue
-
-        source_match = source_pattern.match(stripped)
-        if source_match:
-            current["source"] = source_match.group(1).strip()
-            in_key_points = False
-            continue
-
-        if in_key_points:
-            if stripped.startswith("### "):
-                in_key_points = False
-                continue
-            bullet_match = bullet_pattern.match(line)
-            if bullet_match:
-                point = bullet_match.group(1).strip()
-                if point:
-                    points = current["key_points"]
-                    if isinstance(points, list):
-                        points.append(point)
-
-    if current is not None:
-        items.append(current)
-
-    return items
+def is_primary_source(source: str, allowed_domains: set[str], allowed_x_handles: set[str]) -> bool:
+    host = normalize_host(source)
+    if not host:
+        return False
+    if host in X_HOSTS:
+        account = extract_account_from_url(source)
+        if not account:
+            return False
+        if allowed_x_handles and account not in allowed_x_handles:
+            return False
+        return True
+    return host_matches(host, allowed_domains)
 
 
-def run_checks(path: Path, autofix: bool = False) -> int:
-    if not path.exists():
-        print(f"ERROR: report not found: {path}")
-        return 1
+def source_category(source: str) -> str:
+    host = normalize_host(source)
+    if not host:
+        return "other"
+    if host in {"arxiv.org", "export.arxiv.org"}:
+        return "academic"
+    if host == "github.com":
+        return "github"
+    if host in X_HOSTS:
+        return "social"
+    if host_matches(host, {
+        "openai.com", "anthropic.com", "deepseek.com", "deepmind.google", "mistral.ai", "cohere.com",
+        "ai.meta.com", "stability.ai", "runwayml.com", "elevenlabs.io", "suno.com", "pika.art", "luma.ai",
+        "lumalabs.ai", "udio.com", "seed.bytedance.com", "bytedance.com", "tencent.com", "hunyuan.tencent.com",
+        "moonshot.ai", "moonshot.cn", "bigmodel.cn", "minimax.io", "aliyun.com", "alibabacloud.com",
+        "augmentcode.com", "huggingface.co",
+    }):
+        return "vendor"
+    return "other"
 
-    items = extract_report_items(path.read_text(encoding="utf-8"))
+
+def detect_high_risk_items(items: list[dict[str, object]]) -> list[dict[str, str]]:
+    finance_cues = {"融资", "估值", "亿美元", "万元", "轮融资", "ipo", "revenue", "arr", "营收"}
+    policy_cues = {"政策", "监管", "法案", "禁令", "合规", "government", "eu", "白宫", "许可证"}
+
+    risky: list[dict[str, str]] = []
+    for idx, item in enumerate(items, 1):
+        title = clean_text(str(item.get("title", "")))
+        source = clean_text(str(item.get("source", "")))
+        text = " ".join(
+            [
+                title,
+                clean_text(str(item.get("summary", ""))),
+                clean_text(str(item.get("detail", ""))),
+                clean_text(str(item.get("impact", ""))),
+            ]
+        ).lower()
+        numbers = re.findall(r"\d+(?:\.\d+)?%?", text)
+
+        reasons: list[str] = []
+        if any(cue in text for cue in finance_cues):
+            reasons.append("融资/财务信息")
+        if any(cue in text for cue in policy_cues):
+            reasons.append("政策/监管信息")
+        if len(numbers) >= 4:
+            reasons.append("数字密集")
+
+        if reasons:
+            risky.append(
+                {
+                    "id": str(idx),
+                    "title": title,
+                    "source": source,
+                    "reason": "、".join(dict.fromkeys(reasons)),
+                }
+            )
+
+    return risky
+
+
+def write_high_risk_report(path: Path, high_risk_items: list[dict[str, str]]) -> None:
+    lines = ["# 高风险条目清单", "", "发布前建议人工快速复核以下条目（约 1 分钟）。", ""]
+    if not high_risk_items:
+        lines.append("- 本次未识别到高风险条目。")
+    else:
+        for item in high_risk_items:
+            lines.append(f"- {item['id']}) {item['title']}（原因：{item['reason']}）")
+            if item.get("source"):
+                lines.append(f"  - 来源：{item['source']}")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def evaluate_report(path: Path, strict_mode: bool) -> Evaluation:
+    text = path.read_text(encoding="utf-8")
+    items = extract_report_items(text)
     titles = [str(item.get("title", "")) for item in items]
-    sources = [str(item.get("source", "")) for item in items if item.get("source")]
-    if not titles:
-        print("ERROR: no report items found")
-        return 1
 
-    title_complete_ratio_min = float(os.getenv("TITLE_COMPLETE_RATIO_MIN", "0.90"))
+    title_complete_ratio_min = float_env("TITLE_COMPLETE_RATIO_MIN", 0.90, min_value=0.5, max_value=1.0)
+    primary_source_ratio_min = float_env("PRIMARY_SOURCE_RATIO_MIN", 0.85, min_value=0.0, max_value=1.0)
     key_points_min_count = int(os.getenv("KEY_POINTS_MIN_COUNT", "2"))
     key_points_max_count = int(os.getenv("KEY_POINTS_MAX_COUNT", "3"))
     key_point_max_chars = int(os.getenv("KEY_POINT_MAX_CHARS", "28"))
-    blocked_domains = parse_csv_env("SECOND_HAND_DOMAINS", DEFAULT_SECOND_HAND_DOMAINS)
     detail_min_chars = int(os.getenv("DETAIL_MIN_CHARS", "48"))
 
+    blocked_domains = parse_csv_env("SECOND_HAND_DOMAINS", DEFAULT_SECOND_HAND_DOMAINS)
+    allowed_domains = parse_csv_env("PRIMARY_SOURCE_DOMAINS", DEFAULT_PRIMARY_SOURCE_DOMAINS)
+    allowed_x_handles = parse_csv_env("PRIMARY_X_HANDLES", DEFAULT_PRIMARY_X_HANDLES)
+
+    errors: list[str] = []
+    warnings: list[str] = []
+    failure_reasons: dict[str, int] = {}
+
+    def add_failure(code: str, message: str, as_error: bool = True) -> None:
+        failure_reasons[code] = failure_reasons.get(code, 0) + 1
+        if as_error:
+            errors.append(message)
+        else:
+            warnings.append(message)
+
+    if not titles:
+        add_failure("no_items", "no report items found", as_error=True)
+
     incomplete_count = sum(1 for title in titles if title_looks_incomplete(title))
-    complete_ratio = (len(titles) - incomplete_count) / len(titles)
+    complete_ratio = (len(titles) - incomplete_count) / len(titles) if titles else 0.0
+    if complete_ratio < title_complete_ratio_min:
+        add_failure(
+            "title_incomplete_ratio",
+            f"title complete ratio {complete_ratio:.2f} < threshold {title_complete_ratio_min:.2f}",
+            as_error=strict_mode,
+        )
 
     blocked_hits: list[str] = []
-    for source in sources:
-        host = normalize_host(source)
-        if host and host_matches(host, blocked_domains):
-            blocked_hits.append(source)
-
-    key_point_issues: list[str] = []
+    missing_source_issues: list[str] = []
+    structure_issues: list[str] = []
     detail_issues: list[str] = []
+    key_point_issues: list[str] = []
+    missing_impact_issues: list[str] = []
+
+    category_counts: dict[str, int] = {"vendor": 0, "academic": 0, "social": 0, "github": 0, "other": 0}
+    primary_source_count = 0
+    source_count = 0
+
     for idx, item in enumerate(items, 1):
-        title = str(item.get("title", ""))
-        summary = str(item.get("summary", "")).strip()
-        detail = str(item.get("detail", "")).strip()
+        title = clean_text(str(item.get("title", "")))
+        summary = clean_text(str(item.get("summary", "")))
+        detail = clean_text(str(item.get("detail", "")))
+        source = clean_text(str(item.get("source", "")))
+        impact = clean_text(str(item.get("impact", "")))
+
+        if not summary:
+            structure_issues.append(f"{idx}) {title}: 缺少摘要字段")
+        if not source:
+            missing_source_issues.append(f"{idx}) {title}: 缺少来源链接")
+        elif not normalize_host(source):
+            missing_source_issues.append(f"{idx}) {title}: 来源链接无效")
+        else:
+            source_count += 1
+            category_counts[source_category(source)] += 1
+            if is_primary_source(source, allowed_domains, allowed_x_handles):
+                primary_source_count += 1
+            if host_matches(normalize_host(source), blocked_domains):
+                blocked_hits.append(source)
 
         if not detail:
             detail_issues.append(f"{idx}) {title}: 缺少细节字段")
@@ -351,67 +569,182 @@ def run_checks(path: Path, autofix: bool = False) -> int:
         points = item.get("key_points", [])
         if not isinstance(points, list):
             key_point_issues.append(f"{idx}) {title}: key_points字段不是列表")
-            continue
+        else:
+            if len(points) < key_points_min_count or len(points) > key_points_max_count:
+                key_point_issues.append(f"{idx}) {title}: 关键点数量={len(points)}")
+            too_long = [point for point in points if len(clean_text(str(point))) > key_point_max_chars]
+            if too_long:
+                key_point_issues.append(f"{idx}) {title}: 存在超长关键点({len(too_long)}条)")
 
-        if len(points) < key_points_min_count or len(points) > key_points_max_count:
-            key_point_issues.append(f"{idx}) {title}: 关键点数量={len(points)}")
-            continue
+        if not impact:
+            missing_impact_issues.append(f"{idx}) {title}: 影响字段为空")
 
-        too_long = [point for point in points if len(str(point).strip()) > key_point_max_chars]
-        if too_long:
-            key_point_issues.append(f"{idx}) {title}: 存在超长关键点({len(too_long)}条)")
+    primary_source_ratio = (primary_source_count / source_count) if source_count else 0.0
+    if missing_source_issues:
+        add_failure("missing_source", "missing source links found", as_error=True)
+    if structure_issues:
+        add_failure("structure_missing", "template required fields missing", as_error=True)
+    if blocked_hits:
+        add_failure("blocked_source", "blocked second-hand domains found", as_error=strict_mode)
+    if primary_source_ratio < primary_source_ratio_min:
+        add_failure(
+            "primary_ratio",
+            f"primary source ratio {primary_source_ratio:.2f} < threshold {primary_source_ratio_min:.2f}",
+            as_error=True,
+        )
+    if detail_issues:
+        add_failure("detail_quality", "detail quality issues found", as_error=strict_mode)
+    if key_point_issues:
+        add_failure("key_points", "key point format issues found", as_error=strict_mode)
 
+    # P2 warnings: only warn, never block.
+    total = len(items)
+    if total >= 5:
+        dominant_category, dominant_count = max(category_counts.items(), key=lambda x: x[1])
+        if dominant_count / total >= 0.7:
+            warnings.append(f"category imbalance warning: {dominant_category}={dominant_count}/{total}")
+
+    avg_detail_len = 0.0
+    if items:
+        avg_detail_len = sum(len(clean_text(str(item.get("detail", "")))) for item in items) / len(items)
+        if avg_detail_len < detail_min_chars + 8:
+            warnings.append(f"style warning: average detail length is low ({avg_detail_len:.1f})")
+
+    if missing_impact_issues:
+        warnings.append(f"non-core field warning: missing impact on {len(missing_impact_issues)} item(s)")
+
+    high_risk_items = detect_high_risk_items(items)
+
+    metrics: dict[str, object] = {
+        "total_items": len(items),
+        "title_complete_ratio": round(complete_ratio, 4),
+        "primary_source_ratio": round(primary_source_ratio, 4),
+        "blocked_sources": len(blocked_hits),
+        "missing_source_issues": len(missing_source_issues),
+        "structure_issues": len(structure_issues),
+        "detail_issues": len(detail_issues),
+        "key_point_issues": len(key_point_issues),
+        "warning_count": len(warnings),
+        "missing_impact_count": len(missing_impact_issues),
+        "avg_detail_len": round(avg_detail_len, 2),
+        "high_risk_count": len(high_risk_items),
+        "category_counts": category_counts,
+        "failure_reasons": dict(sorted(failure_reasons.items(), key=lambda item: item[1], reverse=True)),
+    }
+
+    # Print a concise summary to logs.
     print(
         "quality summary:",
-        f"items={len(titles)}",
-        f"title_complete_ratio={complete_ratio:.2f}",
-        f"blocked_sources={len(blocked_hits)}",
-        f"detail_issues={len(detail_issues)}",
-        f"key_point_issues={len(key_point_issues)}",
+        f"items={metrics['total_items']}",
+        f"title_complete_ratio={metrics['title_complete_ratio']}",
+        f"primary_source_ratio={metrics['primary_source_ratio']}",
+        f"detail_issues={metrics['detail_issues']}",
+        f"key_point_issues={metrics['key_point_issues']}",
+        f"warnings={metrics['warning_count']}",
     )
 
-    strict_mode = is_enabled(os.getenv("QUALITY_CHECK_STRICT"), default=True)
-    failed = False
-    if complete_ratio < title_complete_ratio_min:
-        level = "ERROR" if strict_mode else "WARN"
-        print(f"{level}: title complete ratio {complete_ratio:.2f} < threshold {title_complete_ratio_min:.2f}")
-        failed = strict_mode
+    if missing_source_issues:
+        print("ERROR: missing source issues found:")
+        for issue in missing_source_issues:
+            print(f"- {issue}")
+
+    if structure_issues:
+        print("ERROR: structure issues found:")
+        for issue in structure_issues:
+            print(f"- {issue}")
+
     if blocked_hits:
         level = "ERROR" if strict_mode else "WARN"
         print(f"{level}: blocked second-hand domains found:")
         for hit in blocked_hits:
             print(f"- {hit}")
-        failed = strict_mode
+
     if detail_issues:
-        if strict_mode and autofix:
-            fixed_count = autofix_detail_lines(path, detail_min_chars=detail_min_chars)
-            if fixed_count > 0:
-                print(f"info: autofix repaired {fixed_count} detail field(s), re-running checks")
-                return run_checks(path, autofix=False)
         level = "ERROR" if strict_mode else "WARN"
         print(f"{level}: detail quality issues found:")
         for issue in detail_issues:
             print(f"- {issue}")
-        failed = strict_mode
+
     if key_point_issues:
         level = "ERROR" if strict_mode else "WARN"
         print(f"{level}: key point format issues found:")
         for issue in key_point_issues:
             print(f"- {issue}")
-        failed = strict_mode
 
-    if not strict_mode and (complete_ratio < title_complete_ratio_min or blocked_hits or detail_issues or key_point_issues):
+    for warning in warnings:
+        print(f"WARN: {warning}")
+
+    return Evaluation(metrics=metrics, errors=errors, warnings=warnings, high_risk_items=high_risk_items)
+
+
+def run_checks(
+    path: Path,
+    autofix: bool = False,
+    metrics_output: Path | None = None,
+    high_risk_output: Path | None = None,
+) -> int:
+    if not path.exists():
+        print(f"ERROR: report not found: {path}")
+        return 1
+
+    strict_mode = is_enabled(os.getenv("QUALITY_CHECK_STRICT"), default=True)
+    detail_min_chars = int(os.getenv("DETAIL_MIN_CHARS", "48"))
+    key_points_min_count = int(os.getenv("KEY_POINTS_MIN_COUNT", "2"))
+    key_points_max_count = int(os.getenv("KEY_POINTS_MAX_COUNT", "3"))
+    key_point_max_chars = int(os.getenv("KEY_POINT_MAX_CHARS", "28"))
+
+    repaired_count = 0
+    if autofix:
+        repaired_count = autofix_report(
+            path,
+            detail_min_chars=detail_min_chars,
+            key_points_min_count=key_points_min_count,
+            key_points_max_count=key_points_max_count,
+            key_point_max_chars=key_point_max_chars,
+        )
+        if repaired_count > 0:
+            print(f"info: autofix repaired {repaired_count} field block(s)")
+
+    evaluation = evaluate_report(path, strict_mode=strict_mode)
+    evaluation.metrics["repaired_count"] = repaired_count
+    evaluation.metrics["strict_mode"] = strict_mode
+    evaluation.metrics["passed"] = (not evaluation.errors) or not strict_mode
+
+    if metrics_output is not None:
+        metrics_output.parent.mkdir(parents=True, exist_ok=True)
+        metrics_output.write_text(
+            json.dumps(evaluation.metrics, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+
+    if high_risk_output is not None:
+        write_high_risk_report(high_risk_output, evaluation.high_risk_items)
+
+    if strict_mode and evaluation.errors:
+        return 1
+
+    if not strict_mode and evaluation.errors:
         print("info: quality check running in soft mode (QUALITY_CHECK_STRICT=0), continue without failing")
 
-    return 1 if failed else 0
+    return 0
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Validate report quality.")
     parser.add_argument("report", nargs="?", default="reports/latest.md")
-    parser.add_argument("--autofix", action="store_true", help="Auto-repair low-quality detail fields before failing")
+    parser.add_argument("--autofix", action="store_true", help="Auto-repair low-quality detail/key point fields before checks")
+    parser.add_argument("--metrics-output", default="", help="Optional JSON output path for quality metrics")
+    parser.add_argument("--high-risk-output", default="", help="Optional markdown output path for high-risk items")
     args = parser.parse_args()
-    return run_checks(Path(args.report), autofix=args.autofix)
+
+    metrics_output = Path(args.metrics_output) if args.metrics_output else None
+    high_risk_output = Path(args.high_risk_output) if args.high_risk_output else None
+    return run_checks(
+        path=Path(args.report),
+        autofix=args.autofix,
+        metrics_output=metrics_output,
+        high_risk_output=high_risk_output,
+    )
 
 
 if __name__ == "__main__":
