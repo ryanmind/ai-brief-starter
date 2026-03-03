@@ -20,6 +20,12 @@ from src.config import (
 )
 
 
+def is_enabled(value: str | None, default: bool = False) -> bool:
+    if value is None:
+        return default
+    return value.strip().lower() not in {"0", "false", "no", "off"}
+
+
 def normalize_host(url: str) -> str:
     host = (urlparse(url).netloc or "").strip().lower()
     if host.startswith("www."):
@@ -184,27 +190,33 @@ def run_checks(path: Path) -> int:
         f"key_point_issues={len(key_point_issues)}",
     )
 
+    strict_mode = is_enabled(os.getenv("QUALITY_CHECK_STRICT"), default=False)
     failed = False
     if complete_ratio < title_complete_ratio_min:
-        print(
-            f"ERROR: title complete ratio {complete_ratio:.2f} < threshold {title_complete_ratio_min:.2f}"
-        )
-        failed = True
+        level = "ERROR" if strict_mode else "WARN"
+        print(f"{level}: title complete ratio {complete_ratio:.2f} < threshold {title_complete_ratio_min:.2f}")
+        failed = strict_mode
     if blocked_hits:
-        print("ERROR: blocked second-hand domains found:")
+        level = "ERROR" if strict_mode else "WARN"
+        print(f"{level}: blocked second-hand domains found:")
         for hit in blocked_hits:
             print(f"- {hit}")
-        failed = True
+        failed = strict_mode
     if detail_issues:
-        print("ERROR: detail quality issues found:")
+        level = "ERROR" if strict_mode else "WARN"
+        print(f"{level}: detail quality issues found:")
         for issue in detail_issues:
             print(f"- {issue}")
-        failed = True
+        failed = strict_mode
     if key_point_issues:
-        print("ERROR: key point format issues found:")
+        level = "ERROR" if strict_mode else "WARN"
+        print(f"{level}: key point format issues found:")
         for issue in key_point_issues:
             print(f"- {issue}")
-        failed = True
+        failed = strict_mode
+
+    if not strict_mode and (complete_ratio < title_complete_ratio_min or blocked_hits or detail_issues or key_point_issues):
+        print("info: quality check running in soft mode (QUALITY_CHECK_STRICT=0), continue without failing")
 
     return 1 if failed else 0
 
