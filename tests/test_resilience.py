@@ -312,6 +312,32 @@ def test_render_markdown_drops_placeholder_key_points_without_extra_blank_lines(
     assert "\n\n\n" not in markdown
 
 
+def test_render_markdown_removes_entry_separator_and_keeps_single_gap_between_items():
+    markdown = main.render_markdown(
+        [
+            {
+                "title": "条目一",
+                "brief": "摘要一",
+                "details": "内部细节一",
+                "impact": "影响一",
+                "key_points": ["要点一", "要点二"],
+                "link": "https://example.com/1",
+            },
+            {
+                "title": "条目二",
+                "brief": "摘要二",
+                "details": "内部细节二",
+                "impact": "影响二",
+                "key_points": ["要点三", "要点四"],
+                "link": "https://example.com/2",
+            },
+        ]
+    )
+    assert "---" not in markdown
+    assert "\n\n\n### 2." not in markdown
+    assert "\n**来源**：[原文链接](https://example.com/1)\n\n### 2. 条目二" in markdown
+
+
 def test_main_quality_check_fail_open_keeps_pipeline_running(monkeypatch, tmp_path):
     monkeypatch.chdir(tmp_path)
     monkeypatch.setenv("QWEN_API_KEY", "test-key")

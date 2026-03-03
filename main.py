@@ -1589,11 +1589,9 @@ def check_category_balance(items: list[dict[str, str]]) -> dict[str, int]:
 def render_markdown(items: list[dict[str, str]]) -> str:
     now = datetime.now()
     today = now.strftime("%Y-%m-%d")
-    today_cn = now.strftime("%Y年%m月%d日")
+    today_cn = now.strftime("%Y年%m月%d日%H:%M:%S")
     lines = [
         f"# AI 早报（{today}）",
-        "",
-        f"生成时间：{now.strftime('%Y-%m-%d %H:%M:%S')}",
         "",
         f"## 📰 AI 早报 · {today_cn}",
         "",
@@ -1613,8 +1611,9 @@ def render_markdown(items: list[dict[str, str]]) -> str:
             lines.append(f"- {idx}. {title}")
 
     lines.append("")
-    lines.append("---")
     for idx, item in enumerate(items, 1):
+        if idx > 1:
+            lines.append("")
         brief = ensure_sentence_end(clean_generated_text(item.get("brief", "")))
         impact = ensure_sentence_end(clean_generated_text(item.get("impact", "")))
         title = clean_generated_text(item.get("title", ""))
@@ -1628,7 +1627,7 @@ def render_markdown(items: list[dict[str, str]]) -> str:
                 continue
             key_points.append(cleaned_point)
 
-        entry_lines = ["", f"### {idx}. {title or '未命名条目'}"]
+        entry_lines = [f"### {idx}. {title or '未命名条目'}"]
         if brief:
             entry_lines.append(f"**摘要**：{brief}")
         if key_points:
@@ -1640,10 +1639,7 @@ def render_markdown(items: list[dict[str, str]]) -> str:
             entry_lines.append(f"**来源**：[原文链接]({source})")
         while entry_lines and not entry_lines[-1].strip():
             entry_lines.pop()
-        entry_lines.append("---")
         lines.extend(entry_lines)
-    if lines and lines[-1] == "---":
-        lines.pop()
     return "\n".join(lines)
 
 
