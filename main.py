@@ -227,20 +227,6 @@ def ensure_sentence_end(text: str) -> str:
     return f"{value}。"
 
 
-ASCII_TERM_REPLACEMENTS: tuple[tuple[str, str], ...] = (
-    (r"(?i)\bai\b", "人工智能"),
-    (r"(?i)\bllm\b", "大模型"),
-    (r"(?i)\bgpt\b", "生成式模型"),
-    (r"(?i)\brag\b", "检索增强"),
-    (r"(?i)\bagentic\b", "智能体"),
-    (r"(?i)\bagent\b", "智能体"),
-    (r"(?i)\bimage\b", "图像"),
-    (r"(?i)\bvideo\b", "视频"),
-    (r"(?i)\baudio\b", "音频"),
-    (r"(?i)\bapi\b", "接口"),
-    (r"(?i)\bsdk\b", "开发工具包"),
-)
-
 LOW_SIGNAL_TERMS: tuple[str, ...] = (
     "人工智能",
     "大模型",
@@ -328,59 +314,6 @@ def clean_generated_text(text: str) -> str:
     value = re.sub(r"\s*([，,；;：:])\s*", r"\1", value)
     value = re.sub(r"([，,；;：:])[。！？!?]+", r"\1", value)
     return value.strip(" ，,。；;：:-")
-
-
-def has_ascii_letters(text: str) -> bool:
-    return bool(re.search(r"[A-Za-z]", clean_text(text)))
-
-
-def force_no_ascii_text(text: str, fallback: str = "", max_chars: int = 0) -> str:
-    value = clean_text(text)
-    for pattern, replacement in ASCII_TERM_REPLACEMENTS:
-        value = re.sub(pattern, replacement, value)
-    value = re.sub(r"[A-Za-z]+(?:[0-9._/\-]*[A-Za-z0-9]*)*", "", value)
-    value = clean_generated_text(value)
-    if not value:
-        value = clean_generated_text(fallback)
-    if max_chars > 0:
-        value = value[:max_chars]
-    return clean_generated_text(value)
-
-
-def force_chinese_item_fields(item: dict[str, str]) -> dict[str, str]:
-    fixed = item.copy()
-    fixed["title"] = force_no_ascii_text(
-        fixed.get("title", ""),
-        fallback="",
-        max_chars=TITLE_MAX_CHARS,
-    )
-    fixed["brief"] = force_no_ascii_text(
-        fixed.get("brief", ""),
-        fallback="",
-        max_chars=BRIEF_MAX_CHARS,
-    )
-    fixed["details"] = force_no_ascii_text(
-        fixed.get("details", ""),
-        fallback="",
-        max_chars=DETAIL_MAX_CHARS,
-    )
-    fixed["impact"] = force_no_ascii_text(
-        fixed.get("impact", ""),
-        fallback="",
-        max_chars=IMPACT_MAX_CHARS,
-    )
-    points = fixed.get("key_points", [])
-    if isinstance(points, list):
-        sanitized_points = [
-            force_no_ascii_text(
-                str(point),
-                fallback="",
-                max_chars=KEY_POINT_MAX_CHARS,
-            )
-            for point in points[:KEY_POINTS_MAX_COUNT]
-        ]
-        fixed["key_points"] = [point for point in sanitized_points if point]
-    return fixed
 
 
 def shorten_for_highlight(text: str, max_chars: int = 42) -> str:
@@ -1475,11 +1408,13 @@ def localize_items_to_chinese(
     ]
 
     user_prompt = (
-        "请把下面资讯字段统一改写为简体中文，必须保持事实不变。\n"
+        "请把下面资讯字段统一改写为简体中文，并完成数据清洗，必须保持事实不变。\n"
         "严格输出JSON："
         '{"items":[{"id":1,"title":"中文标题","brief":"中文摘要","details":"中文细节","impact":"中文影响","key_points":["要点1","要点2"]}]}\n'
         f"要求：title<={TITLE_MAX_CHARS}字，brief<={BRIEF_MAX_CHARS}字，details<={DETAIL_MAX_CHARS}字，impact<={IMPACT_MAX_CHARS}字，"
         f"key_points最多{KEY_POINTS_MAX_COUNT}条且每条<={KEY_POINT_MAX_CHARS}字。\n\n"
+        "清洗规则：删除占位词（如 value/null/none/n-a）、无意义噪声字符（如孤立 @、重复标点）、"
+        "空洞重复短语与无信息量内容；若字段无法清洗出有效信息则返回空字符串。\n\n"
         "文风要求：口语化但专业，信息密度高，像可直接发朋友圈/公众号的成稿。"
         "避免机械重复开头（如连续使用“宣布/发布”）。\n\n"
         + json.dumps(payload, ensure_ascii=False)
@@ -1524,6 +1459,15 @@ def localize_items_to_chinese(
         brief_cn = clean_text(str(row.get("brief", "")))[:BRIEF_MAX_CHARS]
         details_cn = clean_text(str(row.get("details", "")))[:DETAIL_MAX_CHARS]
         impact_cn = clean_text(str(row.get("impact", "")))[:IMPACT_MAX_CHARS]
+
+        if is_placeholder_text(title_cn):
+            title_cn = ""
+        if is_placeholder_text(brief_cn):
+            brief_cn = ""
+        if is_placeholder_text(details_cn):
+            details_cn = ""
+        if is_placeholder_text(impact_cn):
+            impact_cn = ""
 
         if title_cn:
             merged["title"] = title_cn
@@ -1739,7 +1683,6 @@ def main() -> None:
 
     selected = rank_and_summarize(items=items, qwen_api_key=qwen_api_key, qwen_model=qwen_model, top_n=top_n)
     selected = localize_items_to_chinese(items=selected, qwen_api_key=qwen_api_key, qwen_model=qwen_model)
-    selected = [force_chinese_item_fields(item) for item in selected]
     if not selected:
         raise RuntimeError("无内容：模型筛选后最终条目数为 0")
 

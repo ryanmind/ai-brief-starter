@@ -23,6 +23,10 @@
 - Prefer small, composable helpers in `main.py`; move shared thresholds and patterns to `src/config.py`.
 - Keep user-facing copy concise and Chinese-compatible (the brief output is Chinese-first).
 
+## Data Cleaning Rules
+- Use LLM-based processing for data cleaning tasks.
+- Do not add or maintain Python 3 rule-based cleaning logic for new or updated cleaning flows.
+
 ## Testing Guidelines
 - Framework: `pytest`.
 - Add regression tests for every bug fix; keep tests deterministic (use `tmp_path` and `monkeypatch` for env/file behavior).

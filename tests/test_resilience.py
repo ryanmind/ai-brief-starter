@@ -249,15 +249,49 @@ def test_render_markdown_hides_empty_field_lines():
     assert "**来源**：" not in markdown
 
 
-def test_force_no_ascii_text_cleans_social_noise():
-    raw = (
-        "@ , @ AI - ’ AI；全球首个网络级语音助手；嵌入电信网络基础设施；"
-        "支持实时通话智能；@ , @ AI - ’ AI - AI。"
+def test_localize_items_to_chinese_ignores_placeholder_fields(monkeypatch):
+    items = [
+        {
+            "title": "OpenAI 发布新模型",
+            "brief": "原始细节，包含能力更新与发布时间。",
+            "details": "原始细节，包含能力更新与发布时间。",
+            "impact": "原始影响",
+            "summary": "原始细节，包含能力更新与发布时间。",
+            "key_points": ["原始要点一", "原始要点二"],
+            "link": "https://openai.com/news/model",
+            "published": "2026-03-03T00:00:00+00:00",
+        }
+    ]
+    monkeypatch.setattr(
+        main,
+        "llm_chat",
+        lambda **kwargs: json.dumps(
+            {
+                "items": [
+                    {
+                        "id": 1,
+                        "title": "none",
+                        "brief": "value",
+                        "details": "null",
+                        "impact": "n/a",
+                        "key_points": ["value", "none"],
+                    }
+                ]
+            },
+            ensure_ascii=False,
+        ),
     )
-    cleaned = main.force_no_ascii_text(raw)
-    assert cleaned == "全球首个网络级语音助手；嵌入电信网络基础设施；支持实时通话智能"
-    assert ",," not in cleaned
-    assert "@" not in cleaned
+
+    localized = main.localize_items_to_chinese(
+        items=items,
+        qwen_api_key="test-key",
+        qwen_model="qwen-flash",
+    )
+    assert localized[0]["title"] == "OpenAI 发布新模型"
+    assert "value" not in localized[0]["brief"].lower()
+    assert "原始细节" in localized[0]["brief"]
+    assert "原始细节" in localized[0]["details"]
+    assert localized[0]["impact"] == "原始影响"
 
 
 def test_render_markdown_compacts_field_spacing():
