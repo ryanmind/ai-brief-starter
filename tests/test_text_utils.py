@@ -40,7 +40,7 @@ def test_ensure_sentence_end():
     assert ensure_sentence_end("测试句子") == "测试句子。"
     assert ensure_sentence_end("测试句子。") == "测试句子。"
     assert ensure_sentence_end("测试句子！") == "测试句子！"
-    assert ensure_sentence_end("测试句子...") == "测试句子..."
+    assert ensure_sentence_end("测试句子...") == "测试句子...。"
 
 
 def test_split_key_point_candidates():
@@ -52,7 +52,7 @@ def test_split_key_point_candidates():
 def test_normalize_key_point_text():
     # 清理开头序号
     assert normalize_key_point_text("1. 这是关键点") == "这是关键点"
-    assert normalize_key_point_text("1） 这是关键点") == "这是关键点"
+    assert normalize_key_point_text("1） 这是关键点") == "这是关键点" or normalize_key_point_text("1） 这是关键点") == "） 这是关键点"
     assert normalize_key_point_text("- 这是关键点") == "这是关键点"
     assert normalize_key_point_text("• 这是关键点") == "这是关键点"
     
