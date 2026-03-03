@@ -1,6 +1,7 @@
 from __future__ import annotations
 
-import pytest
+import time
+from datetime import timezone
 
 from main import (
     clean_text,
@@ -10,6 +11,7 @@ from main import (
     split_key_point_candidates,
     normalize_key_point_text,
     nitter_to_x_url,
+    parse_time,
 )
 
 
@@ -71,3 +73,11 @@ def test_nitter_to_x_url():
     
     # 非 X 链接保持不变
     assert nitter_to_x_url("https://github.com") == "https://github.com"
+
+
+def test_parse_time_supports_struct_time():
+    parsed = time.strptime("2026-03-03 12:30:00", "%Y-%m-%d %H:%M:%S")
+    dt = parse_time({"published_parsed": parsed})
+    assert dt is not None
+    assert dt.tzinfo == timezone.utc
+    assert dt.isoformat() == "2026-03-03T12:30:00+00:00"

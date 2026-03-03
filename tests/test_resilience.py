@@ -46,6 +46,43 @@ def test_fetch_items_timeout_is_graceful(monkeypatch):
     assert items == []
 
 
+def test_fetch_items_timeout_shutdown_without_wait(monkeypatch):
+    created_executors = []
+
+    class DummyFuture:
+        def __init__(self):
+            self.cancelled = False
+
+        def done(self):
+            return self.cancelled
+
+        def cancel(self):
+            self.cancelled = True
+            return True
+
+    class DummyExecutor:
+        def __init__(self, *args, **kwargs):
+            self.shutdown_calls = []
+            created_executors.append(self)
+
+        def submit(self, fn, source, cutoff, per_source):
+            return DummyFuture()
+
+        def shutdown(self, wait=True, cancel_futures=False):
+            self.shutdown_calls.append((wait, cancel_futures))
+
+    def timeout_as_completed(_futures, timeout):
+        raise FuturesTimeoutError()
+
+    monkeypatch.setattr(main, "ThreadPoolExecutor", DummyExecutor)
+    monkeypatch.setattr(main, "as_completed", timeout_as_completed)
+
+    items = main.fetch_items(sources=["https://example.com/rss"], hours=24, per_source=1, max_workers=1)
+    assert items == []
+    assert created_executors
+    assert created_executors[0].shutdown_calls[-1] == (False, True)
+
+
 def test_rank_and_summarize_fallback_on_llm_exception(monkeypatch):
     source_items = [
         {
@@ -104,3 +141,23 @@ def test_fetch_single_source_github_changelog_fallback(monkeypatch):
     assert error is None
     assert len(items) == 1
     assert items[0]["link"].endswith("/releases/tag/v1.0.0")
+
+
+def test_history_dedupe_prefers_dedupe_link():
+    item = {
+        "title": "更新日志更新",
+        "link": "https://github.com/example/project/blob/main/CHANGELOG.md",
+        "dedupe_link": "https://github.com/example/project/commit/abcdef1",
+        "summary": "更新了 changelog",
+        "published": "",
+    }
+    blob_fp = f"l:{main.normalize_link_for_dedupe(item['link'])}"
+    commit_fp = f"l:{main.normalize_link_for_dedupe(item['dedupe_link'])}"
+
+    kept, dropped = main.filter_items_by_history([item], {blob_fp})
+    assert dropped == 0
+    assert len(kept) == 1
+
+    kept, dropped = main.filter_items_by_history([item], {commit_fp})
+    assert dropped == 1
+    assert kept == []

@@ -7,8 +7,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
 
-import feedparser
-
 ROOT_DIR = Path(__file__).resolve().parents[1]
 if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
@@ -31,18 +29,26 @@ def check_sources() -> tuple[list[dict[str, str]], int]:
     results: list[dict[str, str]] = []
     failed = 0
     sources = main.load_sources("sources.txt")
+    cutoff = datetime(1970, 1, 1, tzinfo=timezone.utc)
 
     for source in sources:
         try:
-            feed = feedparser.parse(source)
-            entries = getattr(feed, "entries", [])
+            _, entries, error = main._fetch_single_source(source=source, cutoff=cutoff, per_source=20)
             latest_dt = None
             for entry in entries[:20]:
-                published = main.parse_time(entry)
+                published_raw = str(entry.get("published", "")).strip()
+                if not published_raw:
+                    continue
+                try:
+                    published = datetime.fromisoformat(published_raw)
+                except ValueError:
+                    continue
+                if published.tzinfo is None:
+                    published = published.replace(tzinfo=timezone.utc)
                 if published and (latest_dt is None or published > latest_dt):
                     latest_dt = published
 
-            if getattr(feed, "bozo", 0) and not entries:
+            if error:
                 failed += 1
                 results.append(
                     {
@@ -51,7 +57,7 @@ def check_sources() -> tuple[list[dict[str, str]], int]:
                         "entries": "0",
                         "latest": "-",
                         "status": "FAIL",
-                        "reason": str(getattr(feed, "bozo_exception", "bozo")),
+                        "reason": str(error),
                     }
                 )
                 continue

@@ -61,6 +61,15 @@ def parse_time(entry: Any) -> Optional[datetime]:
             return dt.astimezone(timezone.utc)
         except Exception:
             continue
+
+    for key in ("published_parsed", "updated_parsed", "created_parsed"):
+        value = entry.get(key)
+        if not value:
+            continue
+        try:
+            return datetime(*value[:6], tzinfo=timezone.utc)
+        except Exception:
+            continue
     return None
 
 
@@ -352,6 +361,20 @@ def polish_result_is_safe(original_markdown: str, polished_markdown: str) -> boo
     if not polished_numbers.issubset(original_numbers):
         return False
 
+    # Keep report structure stable after polishing.
+    markers = (
+        "## 详细快讯",
+        "### ",
+        "- 摘要：",
+        "- 细节：",
+        "- 关键点：",
+        "- 影响：",
+        "- 来源：",
+    )
+    for marker in markers:
+        if original_markdown.count(marker) != polished_markdown.count(marker):
+            return False
+
     return True
 
 
@@ -476,7 +499,8 @@ def normalize_title_for_dedupe(title: str) -> str:
 
 def item_dedupe_fingerprints(item: dict[str, str]) -> set[str]:
     fingerprints: set[str] = set()
-    link_key = normalize_link_for_dedupe(item.get("link", ""))
+    dedupe_link = item.get("dedupe_link", "") or item.get("link", "")
+    link_key = normalize_link_for_dedupe(dedupe_link)
     if link_key:
         fingerprints.add(f"l:{link_key}")
     title_key = normalize_title_for_dedupe(item.get("title", ""))
@@ -881,6 +905,7 @@ def _fetch_single_source(
         title = clean_text(entry.get("title", ""))
         raw_link = (entry.get("link", "") or "").split("#")[0]
         link = normalize_link_for_source(source_url=active_source, link=raw_link)
+        dedupe_link = raw_link or link
         summary = clean_text(entry.get("summary", "") or entry.get("description", ""))
         published = parse_time(entry)
 
@@ -893,6 +918,7 @@ def _fetch_single_source(
             {
                 "title": title[:200],
                 "link": link,
+                "dedupe_link": dedupe_link,
                 "summary": summary[:1000],
                 "published": published.isoformat() if published else "",
             }
@@ -909,7 +935,9 @@ def fetch_items(
     source_stats: dict[str, int] = {"success": 0, "empty": 0, "error": 0}
     failed_sources: list[str] = []
 
-    with ThreadPoolExecutor(max_workers=max_workers) as pool:
+    pool = ThreadPoolExecutor(max_workers=max_workers)
+    futures: dict[Any, str] = {}
+    try:
         futures = {
             pool.submit(_fetch_single_source, src, cutoff, per_source): src
             for src in sources
@@ -936,8 +964,9 @@ def fetch_items(
 
                 source_stats["success"] += 1
                 for parsed in source_items:
+                    dedupe_link = parsed.get("dedupe_link", parsed.get("link", ""))
                     key = hashlib.md5(
-                        (parsed["link"].split("?")[0] + "|" + parsed["title"].lower()).encode("utf-8")
+                        (dedupe_link.split("?")[0] + "|" + parsed["title"].lower()).encode("utf-8")
                     ).hexdigest()
                     if key in seen:
                         continue
@@ -952,6 +981,11 @@ def fetch_items(
                 future.cancel()
                 source_stats["error"] += 1
                 failed_sources.append(source)
+    finally:
+        try:
+            pool.shutdown(wait=False, cancel_futures=True)
+        except TypeError:
+            pool.shutdown(wait=False)
 
     logger.info(
         "source fetch stats: success=%s empty=%s error=%s total=%s",

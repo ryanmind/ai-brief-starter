@@ -190,7 +190,7 @@ def run_checks(path: Path) -> int:
         f"key_point_issues={len(key_point_issues)}",
     )
 
-    strict_mode = is_enabled(os.getenv("QUALITY_CHECK_STRICT"), default=False)
+    strict_mode = is_enabled(os.getenv("QUALITY_CHECK_STRICT"), default=True)
     failed = False
     if complete_ratio < title_complete_ratio_min:
         level = "ERROR" if strict_mode else "WARN"
