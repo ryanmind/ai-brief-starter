@@ -52,7 +52,7 @@ def normalize_highlight_item(text: str) -> str:
 def build_feishu_sign(secret: str) -> tuple[str, str]:
     timestamp = str(int(time.time()))
     string_to_sign = f"{timestamp}\n{secret}".encode("utf-8")
-    digest = hmac.new(secret.encode("utf-8"), string_to_sign, digestmod=hashlib.sha256).digest()
+    digest = hmac.new(string_to_sign, digestmod=hashlib.sha256).digest()
     sign = base64.b64encode(digest).decode("utf-8")
     return timestamp, sign
 

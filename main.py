@@ -5,7 +5,7 @@ import json
 import logging
 import os
 import re
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeoutError, as_completed
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Optional
@@ -756,15 +756,31 @@ def probe_nitter_bases(bases: list[str], timeout: float = 5.0) -> list[str]:
     if _nitter_alive_cache is not None:
         return _nitter_alive_cache
 
-    from urllib import request as urlrequest, error as urlerror
+    from urllib import error as urlerror, request as urlrequest
 
     alive: list[str] = []
     for base in bases:
-        try:
-            req = urlrequest.Request(f"{base}/", method="HEAD")
-            with urlrequest.urlopen(req, timeout=timeout):
-                alive.append(base)
-        except Exception:
+        is_alive = False
+        for method in ("HEAD", "GET"):
+            try:
+                req = urlrequest.Request(
+                    f"{base}/",
+                    method=method,
+                    headers={"User-Agent": "ai-brief-starter/1.0"},
+                )
+                with urlrequest.urlopen(req, timeout=timeout):
+                    is_alive = True
+                    break
+            except urlerror.HTTPError as exc:
+                # 4xx 说明服务可达（只是根路径被策略拒绝），仍视为可用实例。
+                if 400 <= exc.code < 500:
+                    is_alive = True
+                    break
+            except Exception:
+                continue
+        if is_alive:
+            alive.append(base)
+        else:
             logger.warning("nitter instance down: %s", base)
     if not alive:
         logger.error("all nitter instances are down, X/Twitter sources will be unavailable")
@@ -864,26 +880,44 @@ def fetch_items(
             pool.submit(_fetch_single_source, src, cutoff, per_source): src
             for src in sources
         }
-        for future in as_completed(futures, timeout=180):
-            source, source_items, error = future.result()
-            if error:
+        try:
+            for future in as_completed(futures, timeout=180):
+                source_hint = futures[future]
+                try:
+                    source, source_items, error = future.result()
+                except Exception as exc:
+                    source_stats["error"] += 1
+                    failed_sources.append(source_hint)
+                    logger.warning("source fetch crashed: %s (reason=%s)", source_hint, exc)
+                    continue
+
+                if error:
+                    source_stats["error"] += 1
+                    failed_sources.append(source)
+                    logger.warning("source fetch failed: %s (reason=%s)", source, error)
+                    continue
+                if not source_items:
+                    source_stats["empty"] += 1
+                    continue
+
+                source_stats["success"] += 1
+                for parsed in source_items:
+                    key = hashlib.md5(
+                        (parsed["link"].split("?")[0] + "|" + parsed["title"].lower()).encode("utf-8")
+                    ).hexdigest()
+                    if key in seen:
+                        continue
+                    seen.add(key)
+                    items.append(parsed)
+        except FuturesTimeoutError:
+            logger.warning("source fetch timed out after 180s, pending sources will be cancelled")
+        finally:
+            for future, source in futures.items():
+                if future.done():
+                    continue
+                future.cancel()
                 source_stats["error"] += 1
                 failed_sources.append(source)
-                logger.warning("source fetch failed: %s (reason=%s)", source, error)
-                continue
-            if not source_items:
-                source_stats["empty"] += 1
-                continue
-
-            source_stats["success"] += 1
-            for parsed in source_items:
-                key = hashlib.md5(
-                    (parsed["link"].split("?")[0] + "|" + parsed["title"].lower()).encode("utf-8")
-                ).hexdigest()
-                if key in seen:
-                    continue
-                seen.add(key)
-                items.append(parsed)
 
     logger.info(
         "source fetch stats: success=%s empty=%s error=%s total=%s",
@@ -1043,17 +1077,20 @@ def rank_and_summarize(
                 "你上一次输出格式错误，这次必须仅输出一个合法JSON对象，不要输出任何说明文字。"
             )
 
-        raw = llm_chat(
-            client=client,
-            model=qwen_model,
-            system_prompt=system_prompt,
-            user_prompt=user_prompt,
-        )
         try:
+            raw = llm_chat(
+                client=client,
+                model=qwen_model,
+                system_prompt=system_prompt,
+                user_prompt=user_prompt,
+            )
             data = extract_json(raw)
             break
         except ValueError as exc:
             last_error = exc
+        except Exception as exc:
+            last_error = exc
+            logger.warning("rank_and_summarize: LLM request failed on attempt %d: %s", attempt + 1, exc)
 
     if data is None:
         logger.warning("rank_and_summarize: 模型输出无法解析，使用 fallback。error=%s", last_error)
