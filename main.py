@@ -488,6 +488,57 @@ def polish_result_is_safe(original_markdown: str, polished_markdown: str) -> boo
     return True
 
 
+def strip_markdown_fence(text: str) -> str:
+    value = str(text or "").strip()
+    if not value.startswith("```"):
+        return value
+    value = re.sub(r"^```(?:markdown|md)?\s*", "", value, flags=re.IGNORECASE)
+    value = re.sub(r"\s*```$", "", value)
+    return value.strip()
+
+
+def polish_markdown_with_llm(markdown: str, qwen_api_key: str, qwen_model: str) -> str:
+    enabled = os.getenv("FINAL_POLISH_ENABLED", "1").strip().lower() not in {"0", "false", "no", "off"}
+    if not enabled:
+        return markdown
+
+    source_markdown = str(markdown or "").strip()
+    if not source_markdown:
+        return markdown
+
+    client = OpenAI(api_key=qwen_api_key, base_url="https://dashscope.aliyuncs.com/compatible-mode/v1")
+    user_prompt = (
+        "请只做文案润色，提升可读性；必须保持 Markdown 结构、标题层级、编号、链接和数字不变。\n"
+        "硬性约束：\n"
+        "1) 不得新增或删除任何条目；\n"
+        "2) 所有 URL 必须原样保留；\n"
+        "3) 所有数字（含百分比/版本号）必须原样保留；\n"
+        "4) 字段标签“摘要/关键点/影响分析/来源”保持不变；\n"
+        "5) 仅输出润色后的完整 Markdown 正文，不要解释，不要代码块。\n\n"
+        + source_markdown
+    )
+
+    try:
+        polished = llm_chat(
+            client=client,
+            model=qwen_model,
+            system_prompt="你是严谨的中文科技编辑，只做润色改写，不改事实与结构。",
+            user_prompt=user_prompt,
+        )
+    except Exception as exc:
+        logger.warning("polish_markdown_with_llm: LLM request failed, keep original markdown. error=%s", exc)
+        return markdown
+
+    polished = strip_markdown_fence(polished)
+    if not polished:
+        return markdown
+    if polish_result_is_safe(source_markdown, polished):
+        return polished
+
+    logger.warning("polish_markdown_with_llm: guard rejected polished markdown, keep original")
+    return markdown
+
+
 def finalize_key_points(points: list[str], item: dict[str, str]) -> list[str]:
     merged: list[str] = []
     seen: set[str] = set()
@@ -1685,7 +1736,13 @@ def main() -> None:
 
     check_category_balance(selected)
     draft_report_path = report_dir / "latest.draft.md"
-    draft_report_path.write_text(render_markdown(selected), encoding="utf-8")
+    markdown = render_markdown(selected)
+    markdown = polish_markdown_with_llm(
+        markdown=markdown,
+        qwen_api_key=qwen_api_key,
+        qwen_model=qwen_model,
+    )
+    draft_report_path.write_text(markdown, encoding="utf-8")
 
     quality_gate_opened = False
     quality_code = run_quality_checks(

@@ -376,6 +376,7 @@ def test_main_quality_check_fail_open_keeps_pipeline_running(monkeypatch, tmp_pa
     monkeypatch.chdir(tmp_path)
     monkeypatch.setenv("QWEN_API_KEY", "test-key")
     monkeypatch.setenv("QUALITY_CHECK_FAIL_OPEN", "1")
+    monkeypatch.setenv("FINAL_POLISH_ENABLED", "0")
     monkeypatch.setenv("TOP_N", "5")
     monkeypatch.setenv("MAX_ITEMS", "10")
 
@@ -422,6 +423,7 @@ def test_main_quality_check_fail_open_disabled_still_continues(monkeypatch, tmp_
     monkeypatch.chdir(tmp_path)
     monkeypatch.setenv("QWEN_API_KEY", "test-key")
     monkeypatch.setenv("QUALITY_CHECK_FAIL_OPEN", "0")
+    monkeypatch.setenv("FINAL_POLISH_ENABLED", "0")
     monkeypatch.setenv("TOP_N", "5")
     monkeypatch.setenv("MAX_ITEMS", "10")
 
