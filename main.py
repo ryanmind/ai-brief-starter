@@ -902,10 +902,23 @@ def fetch_items(sources: list[str], hours: int = 36, per_source: int = 30) -> li
     cutoff = datetime.now(timezone.utc) - timedelta(hours=hours)
     items: list[dict[str, str]] = []
     seen: set[str] = set()
+    source_stats: dict[str, int] = {"success": 0, "empty": 0, "error": 0}
+    failed_sources: list[str] = []
 
     for source in sources:
         feed = feedparser.parse(source)
         entries = getattr(feed, "entries", [])
+
+        if getattr(feed, "bozo", 0) and not entries:
+            source_stats["error"] += 1
+            failed_sources.append(source)
+            logger.warning("source fetch failed: %s (reason=%s)", source, getattr(feed, "bozo_exception", "unknown"))
+            continue
+        if not entries:
+            source_stats["empty"] += 1
+            continue
+
+        source_stats["success"] += 1
         for entry in entries[:per_source]:
             title = clean_text(entry.get("title", ""))
             raw_link = (entry.get("link", "") or "").split("#")[0]
@@ -931,6 +944,13 @@ def fetch_items(sources: list[str], hours: int = 36, per_source: int = 30) -> li
                     "published": published.isoformat() if published else "",
                 }
             )
+
+    logger.info(
+        "source fetch stats: success=%s empty=%s error=%s total=%s",
+        source_stats["success"], source_stats["empty"], source_stats["error"], len(sources),
+    )
+    if failed_sources:
+        logger.warning("failed sources (%d): %s", len(failed_sources), ", ".join(failed_sources[:10]))
 
     items.sort(key=lambda x: x.get("published", ""), reverse=True)
     return items
