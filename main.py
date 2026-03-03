@@ -183,6 +183,15 @@ def normalize_host(host: str) -> str:
     return normalized
 
 
+def nitter_to_x_url(url: str) -> str:
+    """将 Nitter 链接转为 x.com 原始链接，供读者直接访问。"""
+    parsed = urlparse(url)
+    host = normalize_host(parsed.netloc or "")
+    if host not in X_HOSTS or host in {"x.com", "twitter.com"}:
+        return url
+    return parsed._replace(netloc="x.com").geturl()
+
+
 def parse_csv_env(name: str, default_values: tuple[str, ...]) -> set[str]:
     raw = os.getenv(name)
     values = raw.split(",") if raw is not None else list(default_values)
@@ -1292,7 +1301,7 @@ def render_markdown(items: list[dict[str, str]]) -> str:
                 "- 关键点：",
                 *[f"  - {point}" for point in finalize_key_points(normalize_key_points(item.get("key_points")), item)],
                 f"- 影响：{impact}",
-                f"- 来源：{item['link']}",
+                f"- 来源：{nitter_to_x_url(item['link'])}",
                 "---",
             ]
         )
