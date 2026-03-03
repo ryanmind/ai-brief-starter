@@ -5,8 +5,8 @@ import json
 import logging
 import os
 import re
-from datetime import datetime, timedelta, timezone
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Optional
 from urllib.parse import urlparse
@@ -15,143 +15,30 @@ import feedparser
 from dateutil import parser as dtparser
 from openai import OpenAI
 
-
-def int_env(name: str, default: int, min_value: int = 1, max_value: int = 1000) -> int:
-    raw = os.getenv(name, "").strip()
-    if not raw:
-        return default
-    try:
-        value = int(raw)
-    except ValueError:
-        return default
-    return max(min_value, min(max_value, value))
-
-
-def float_env(name: str, default: float, min_value: float = 0.0, max_value: float = 1.0) -> float:
-    raw = os.getenv(name, "").strip()
-    if not raw:
-        return default
-    try:
-        value = float(raw)
-    except ValueError:
-        return default
-    return max(min_value, min(max_value, value))
-
-
-BRIEF_MAX_CHARS = int_env("BRIEF_MAX_CHARS", 160, min_value=40, max_value=400)
-IMPACT_MAX_CHARS = int_env("IMPACT_MAX_CHARS", 140, min_value=40, max_value=320)
-DETAIL_MAX_CHARS = int_env("DETAIL_MAX_CHARS", 260, min_value=80, max_value=800)
-DETAIL_MIN_CHARS = int_env("DETAIL_MIN_CHARS", 48, min_value=20, max_value=200)
-STRICT_FACT_MODE = os.getenv("STRICT_FACT_MODE", "1").strip().lower() not in {"0", "false", "no", "off"}
-FACT_OVERLAP_MIN = float_env("FACT_OVERLAP_MIN", 0.55, min_value=0.1, max_value=1.0)
-TITLE_MAX_CHARS = 50
-KEY_POINTS_MAX_COUNT = 3
-KEY_POINTS_MIN_COUNT = 2
-KEY_POINT_MAX_CHARS = 28
-KEY_POINT_MIN_CHARS = 4
-TITLE_INCOMPLETE_PREFIXES = (
-    "获",
-    "宣布",
-    "发布",
-    "推出",
-    "进入",
-    "回应",
-    "跻身",
-    "完成",
-    "上线",
-    "披露",
-    "实现",
-    "启动",
+from src.config import (
+    BRIEF_MAX_CHARS,
+    DEFAULT_PRIMARY_SOURCE_DOMAINS,
+    DEFAULT_PRIMARY_X_HANDLES,
+    DEFAULT_SECOND_HAND_DOMAINS,
+    DETAIL_MAX_CHARS,
+    DETAIL_MIN_CHARS,
+    FACT_OVERLAP_MIN,
+    IMPACT_MAX_CHARS,
+    KEY_POINT_MAX_CHARS,
+    KEY_POINT_MIN_CHARS,
+    KEY_POINTS_MAX_COUNT,
+    KEY_POINTS_MIN_COUNT,
+    REPORT_ITEM_SOURCE_PATTERN,
+    REPORT_ITEM_TITLE_PATTERN,
+    SECOND_HAND_CUES,
+    STRICT_FACT_MODE,
+    TITLE_INCOMPLETE_PREFIXES,
+    TITLE_MAX_CHARS,
+    X_HOSTS,
+    float_env,
+    int_env,
+    parse_csv_env,
 )
-SECOND_HAND_CUES = (
-    "据报道",
-    "消息称",
-    "传闻",
-    "网传",
-    "爆料",
-    "编译",
-    "转载",
-    "转自",
-    "整理自",
-    "综合自",
-    "rumor",
-    "reportedly",
-    "according to",
-    "via ",
-    "source:",
-)
-DEFAULT_PRIMARY_SOURCE_DOMAINS = (
-    "openai.com",
-    "anthropic.com",
-    "deepseek.com",
-    "deepmind.google",
-    "mistral.ai",
-    "cohere.com",
-    "aliyun.com",
-    "alibabacloud.com",
-    "augmentcode.com",
-    "blog.google",
-    "ai.meta.com",
-    "huggingface.co",
-    "runwayml.com",
-    "pika.art",
-    "luma.ai",
-    "lumalabs.ai",
-    "stability.ai",
-    "elevenlabs.io",
-    "suno.com",
-    "udio.com",
-    "seed.bytedance.com",
-    "bytedance.com",
-    "tencent.com",
-    "hunyuan.tencent.com",
-    "moonshot.ai",
-    "moonshot.cn",
-    "bigmodel.cn",
-    "z.ai",
-    "minimax.io",
-    "arxiv.org",
-    "export.arxiv.org",
-    "github.com",
-)
-DEFAULT_PRIMARY_X_HANDLES = (
-    "sama",
-    "openai",
-    "anthropicai",
-    "mistralai",
-    "deepmind",
-    "elonmusk",
-    "demishassabis",
-    "karpathy",
-    "drjimfan",
-    "tszzq",
-    "goodfellow_ian",
-    "codeeditapp",
-    "replit",
-    "runwayml",
-    "elevenlabsio",
-)
-DEFAULT_SECOND_HAND_DOMAINS = (
-    "qbitai.com",
-    "36kr.com",
-    "jiemian.com",
-    "ifanr.com",
-    "techcrunch.com",
-    "theverge.com",
-    "jiqizhixin.com",
-    "zhidx.com",
-)
-X_HOSTS = {
-    "x.com",
-    "twitter.com",
-    "nitter.net",
-    "nitter.poast.org",
-    "nitter.privacydev.net",
-    "nitter.d420.de",
-    "nitter.unixfox.eu",
-}
-REPORT_ITEM_TITLE_PATTERN = re.compile(r"^###\s+\d+\)\s+(.+)$")
-REPORT_ITEM_SOURCE_PATTERN = re.compile(r"^- 来源[：:](.+)$")
 
 logger = logging.getLogger(__name__)
 
@@ -191,12 +78,6 @@ def nitter_to_x_url(url: str) -> str:
     if host not in X_HOSTS or host in {"x.com", "twitter.com"}:
         return url
     return parsed._replace(netloc="x.com").geturl()
-
-
-def parse_csv_env(name: str, default_values: tuple[str, ...]) -> set[str]:
-    raw = os.getenv(name)
-    values = raw.split(",") if raw is not None else list(default_values)
-    return {value.strip().lower() for value in values if value.strip()}
 
 
 def host_matches(host: str, allowed_domains: set[str]) -> bool:

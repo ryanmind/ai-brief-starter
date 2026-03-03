@@ -4,47 +4,20 @@ from __future__ import annotations
 import argparse
 import os
 import re
+import sys
 from pathlib import Path
 from urllib.parse import urlparse
 
+ROOT_DIR = Path(__file__).resolve().parents[1]
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
 
-DEFAULT_SECOND_HAND_DOMAINS = (
-    "qbitai.com",
-    "36kr.com",
-    "jiemian.com",
-    "ifanr.com",
-    "techcrunch.com",
-    "theverge.com",
-    "jiqizhixin.com",
-    "zhidx.com",
+from src.config import (
+    DEFAULT_SECOND_HAND_DOMAINS,
+    DETAIL_WEAK_PHRASES,
+    TITLE_INCOMPLETE_PREFIXES,
+    parse_csv_env,
 )
-TITLE_INCOMPLETE_PREFIXES = (
-    "获",
-    "宣布",
-    "发布",
-    "推出",
-    "进入",
-    "回应",
-    "跻身",
-    "完成",
-    "上线",
-    "披露",
-    "实现",
-    "启动",
-)
-DETAIL_WEAK_PHRASES = (
-    "信息持续跟进",
-    "建议查看原文",
-    "值得关注",
-    "持续观察",
-    "后续关注",
-)
-
-
-def parse_csv_env(name: str, defaults: tuple[str, ...]) -> set[str]:
-    raw = os.getenv(name)
-    values = raw.split(",") if raw else list(defaults)
-    return {v.strip().lower() for v in values if v.strip()}
 
 
 def normalize_host(url: str) -> str:
