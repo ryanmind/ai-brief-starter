@@ -1352,6 +1352,50 @@ def polish_with_kimi(markdown: str, kimi_api_key: str, kimi_model: str) -> str:
     return polished
 
 
+SOURCE_CATEGORY_DOMAINS: dict[str, set[str]] = {
+    "vendor": {
+        "openai.com", "anthropic.com", "deepseek.com", "deepmind.google", "mistral.ai",
+        "cohere.com", "ai.meta.com", "stability.ai", "runwayml.com", "elevenlabs.io",
+        "suno.com", "pika.art", "luma.ai", "lumalabs.ai", "udio.com",
+        "seed.bytedance.com", "bytedance.com", "tencent.com", "hunyuan.tencent.com",
+        "moonshot.ai", "moonshot.cn", "bigmodel.cn", "minimax.io",
+        "aliyun.com", "alibabacloud.com", "augmentcode.com",
+    },
+    "academic": {"arxiv.org", "export.arxiv.org"},
+    "social": X_HOSTS,
+    "github": {"github.com"},
+}
+
+
+def check_category_balance(items: list[dict[str, str]]) -> dict[str, int]:
+    """统计各类来源分布并输出告警。"""
+    counts: dict[str, int] = {cat: 0 for cat in SOURCE_CATEGORY_DOMAINS}
+    counts["other"] = 0
+    for item in items:
+        host = normalize_host(urlparse(item.get("link", "")).netloc or "")
+        matched = False
+        for cat, domains in SOURCE_CATEGORY_DOMAINS.items():
+            if host_matches(host, domains):
+                counts[cat] += 1
+                matched = True
+                break
+        if not matched:
+            counts["other"] += 1
+
+    logger.info("category balance: %s", json.dumps(counts, ensure_ascii=False))
+    total = len(items)
+    if total > 0:
+        for cat, count in counts.items():
+            if count / total >= 0.7 and total >= 5:
+                logger.warning(
+                    "category '%s' dominates report (%d/%d = %.0f%%), content diversity may be low",
+                    cat, count, total, count / total * 100,
+                )
+    if counts.get("vendor", 0) == 0 and total > 0:
+        logger.warning("no vendor news in final report, consider checking source availability")
+    return counts
+
+
 def render_markdown(items: list[dict[str, str]]) -> str:
     today = datetime.now().strftime("%Y-%m-%d")
     lines = [
@@ -1465,6 +1509,7 @@ def main() -> None:
 
     selected = rank_and_summarize(items=items, qwen_api_key=qwen_api_key, qwen_model=qwen_model, top_n=top_n)
     selected = localize_items_to_chinese(items=selected, qwen_api_key=qwen_api_key, qwen_model=qwen_model)
+    check_category_balance(selected)
     markdown = render_markdown(selected)
     markdown = polish_with_kimi(markdown=markdown, kimi_api_key=kimi_api_key, kimi_model=kimi_model)
 
