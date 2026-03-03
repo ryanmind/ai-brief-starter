@@ -46,6 +46,29 @@ def test_quality_check_autofix_repairs_and_passes(tmp_path, monkeypatch):
     assert "细节：" in content
 
 
+def test_quality_check_autofix_fills_missing_summary(tmp_path, monkeypatch):
+    report = tmp_path / "report.md"
+    report.write_text(
+        """# AI 早报
+
+## 详细快讯
+
+### 1) 重申三大使用禁区
+- 细节：平台补充了最新使用边界，并强调违规场景会被限制调用。
+- 关键点：
+  - 补充边界说明
+  - 强调违规限制
+- 来源：https://openai.com/index/test
+""",
+        encoding="utf-8",
+    )
+    monkeypatch.setenv("QUALITY_CHECK_STRICT", "1")
+    monkeypatch.setenv("DETAIL_MIN_CHARS", "20")
+    assert run_checks(report, autofix=True) == 0
+    content = report.read_text(encoding="utf-8")
+    assert "- 摘要：" in content
+
+
 def test_quality_check_missing_source_fails(tmp_path, monkeypatch):
     report = tmp_path / "report.md"
     report.write_text(

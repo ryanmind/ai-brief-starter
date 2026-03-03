@@ -25,8 +25,10 @@ from src.config import (  # noqa: E402
     parse_csv_env,
 )
 
-SUMMARY_PATTERN = re.compile(r"^(?:[-*]\s*)?(?:摘要|summary)\s*[：:]\s*(.+)$", flags=re.IGNORECASE)
-DETAIL_PATTERN = re.compile(r"^(?:[-*]\s*)?(?:细节|详情|detail)\s*[：:]\s*(.+)$", flags=re.IGNORECASE)
+SUMMARY_LINE_PATTERN = re.compile(
+    r"^(?P<prefix>\s*(?:[-*]\s*)?(?:摘要|summary)\s*[：:]\s*)(?P<value>.*)$",
+    flags=re.IGNORECASE,
+)
 DETAIL_LINE_PATTERN = re.compile(
     r"^(?P<prefix>\s*(?:[-*]\s*)?(?:细节|详情|detail)\s*[：:]\s*)(?P<value>.*)$",
     flags=re.IGNORECASE,
@@ -190,6 +192,18 @@ def build_detail_from_existing_fields(
     return merged
 
 
+def build_summary_from_existing_fields(title: str, detail: str, key_points: list[str], max_chars: int = 56) -> str:
+    for raw in key_points + split_key_point_candidates(detail) + [detail, title]:
+        value = clean_text(str(raw))
+        if not value:
+            continue
+        value = re.sub(r"^[\-*•·\d\.\)\(、\s]+", "", value).strip("，,。；;：:- ")
+        if len(value) >= 4:
+            return value[:max_chars]
+    fallback = clean_text(title) or "该进展已披露，建议结合来源查看完整信息"
+    return fallback[:max_chars]
+
+
 def parse_report_structure(text: str) -> list[dict[str, object]]:
     lines = text.splitlines()
     items: list[dict[str, object]] = []
@@ -209,6 +223,7 @@ def parse_report_structure(text: str) -> list[dict[str, object]]:
                 "end_idx": len(lines),
                 "summary": "",
                 "summary_idx": None,
+                "summary_prefix": "- 摘要：",
                 "detail": "",
                 "detail_idx": None,
                 "detail_prefix": "- 细节：",
@@ -231,10 +246,11 @@ def parse_report_structure(text: str) -> list[dict[str, object]]:
             current["key_points_header_idx"] = idx
             continue
 
-        summary_match = SUMMARY_PATTERN.match(stripped)
+        summary_match = SUMMARY_LINE_PATTERN.match(line)
         if summary_match:
-            current["summary"] = summary_match.group(1).strip()
+            current["summary"] = summary_match.group("value").strip()
             current["summary_idx"] = idx
+            current["summary_prefix"] = summary_match.group("prefix")
             in_key_points = False
             continue
 
@@ -309,8 +325,27 @@ def autofix_report(path: Path, detail_min_chars: int, key_points_min_count: int,
         title = str(item.get("title", "")).strip()
         summary = str(item.get("summary", "")).strip()
         detail = str(item.get("detail", "")).strip()
+        title_idx = item.get("title_idx")
+        summary_idx = item.get("summary_idx")
+        summary_prefix = str(item.get("summary_prefix", "- 摘要："))
         key_points_raw = item.get("key_points", [])
         key_points = [str(point).strip() for point in key_points_raw] if isinstance(key_points_raw, list) else []
+
+        # Summary autofix
+        if not summary:
+            new_summary = build_summary_from_existing_fields(
+                title=title,
+                detail=detail,
+                key_points=key_points,
+            )
+            if isinstance(summary_idx, int):
+                edits.append((summary_idx, summary_idx + 1, [f"{summary_prefix}{new_summary}"]))
+            else:
+                insert_at = title_idx + 1 if isinstance(title_idx, int) else 0
+                edits.append((insert_at, insert_at, [f"- 摘要：{new_summary}"]))
+                summary_idx = insert_at
+                summary_prefix = "- 摘要："
+            summary = new_summary
 
         # Detail autofix
         needs_detail_fix = (
@@ -332,8 +367,6 @@ def autofix_report(path: Path, detail_min_chars: int, key_points_min_count: int,
                 prefix = str(item.get("detail_prefix", "- 细节："))
                 edits.append((detail_idx, detail_idx + 1, [f"{prefix}{new_detail}"]))
             else:
-                summary_idx = item.get("summary_idx")
-                title_idx = item.get("title_idx")
                 insert_at = title_idx + 1 if isinstance(title_idx, int) else 0
                 if isinstance(summary_idx, int):
                     insert_at = summary_idx + 1
@@ -370,8 +403,6 @@ def autofix_report(path: Path, detail_min_chars: int, key_points_min_count: int,
                 impact_idx = item.get("impact_idx")
                 source_idx = item.get("source_idx")
                 detail_idx = item.get("detail_idx")
-                summary_idx = item.get("summary_idx")
-                title_idx = item.get("title_idx")
                 insert_at = title_idx + 1 if isinstance(title_idx, int) else 0
                 if isinstance(summary_idx, int):
                     insert_at = summary_idx + 1
