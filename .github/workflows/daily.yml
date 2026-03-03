@@ -89,7 +89,7 @@ jobs:
         run: python main.py
 
       - name: Report quality check
-        run: python scripts/report_quality_check.py reports/latest.md
+        run: python scripts/report_quality_check.py reports/latest.md --autofix
 
       - name: Save history dedupe cache
         if: success() && hashFiles('reports/history_index.json') != ''

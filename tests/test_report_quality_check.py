@@ -31,3 +31,14 @@ def test_quality_check_strict_mode_fails(tmp_path, monkeypatch):
     monkeypatch.setenv("QUALITY_CHECK_STRICT", "1")
     monkeypatch.setenv("DETAIL_MIN_CHARS", "48")
     assert run_checks(report) == 1
+
+
+def test_quality_check_autofix_repairs_and_passes(tmp_path, monkeypatch):
+    report = tmp_path / "report.md"
+    report.write_text(REPORT_WITH_DETAIL_ISSUE, encoding="utf-8")
+    monkeypatch.setenv("QUALITY_CHECK_STRICT", "1")
+    monkeypatch.setenv("DETAIL_MIN_CHARS", "48")
+    assert run_checks(report, autofix=True) == 0
+    content = report.read_text(encoding="utf-8")
+    assert "细节：这是摘要。" not in content
+    assert "细节：" in content

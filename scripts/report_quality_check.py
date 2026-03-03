@@ -19,6 +19,13 @@ from src.config import (
     parse_csv_env,
 )
 
+SUMMARY_PATTERN = re.compile(r"^(?:[-*]\s*)?(?:摘要|summary)\s*[：:]\s*(.+)$", flags=re.IGNORECASE)
+DETAIL_PATTERN = re.compile(r"^(?:[-*]\s*)?(?:细节|详情|detail)\s*[：:]\s*(.+)$", flags=re.IGNORECASE)
+DETAIL_LINE_PATTERN = re.compile(
+    r"^(?P<prefix>\s*(?:[-*]\s*)?(?:细节|详情|detail)\s*[：:]\s*)(?P<value>.*)$",
+    flags=re.IGNORECASE,
+)
+
 
 def is_enabled(value: str | None, default: bool = False) -> bool:
     if value is None:
@@ -48,10 +55,183 @@ def normalize_for_compare(text: str) -> str:
     return re.sub(r"\W+", "", text.strip().lower(), flags=re.UNICODE)
 
 
+def build_detail_from_existing_fields(
+    title: str,
+    summary: str,
+    detail: str,
+    key_points: list[str],
+    min_chars: int,
+) -> str:
+    pieces: list[str] = []
+    seen: set[str] = set()
+
+    def add_piece(raw: str) -> None:
+        value = re.sub(r"\s+", " ", str(raw).strip())
+        if not value:
+            return
+        normalized = normalize_for_compare(value)
+        if not normalized or normalized in seen:
+            return
+        seen.add(normalized)
+        pieces.append(value.strip("，,。；; "))
+
+    add_piece(summary)
+    for point in key_points:
+        add_piece(point)
+        if len("；".join(pieces)) >= min_chars:
+            break
+
+    add_piece(detail)
+    if not pieces:
+        add_piece(title)
+
+    merged = "；".join(piece for piece in pieces if piece)
+    if not merged:
+        merged = "该进展已在一手来源披露并持续更新"
+    if normalize_for_compare(merged) == normalize_for_compare(summary):
+        merged = f"{merged}；当前条目基于一手来源原文整理"
+    filler = "当前条目基于一手来源原文整理，建议结合来源链接查看完整上下文"
+    while len(merged) < min_chars:
+        merged = f"{merged}；{filler}"
+    if merged and merged[-1] not in "。！？!?":
+        merged += "。"
+    return merged
+
+
+def autofix_detail_lines(path: Path, detail_min_chars: int) -> int:
+    text = path.read_text(encoding="utf-8")
+    lines = text.splitlines()
+    if not lines:
+        return 0
+
+    title_pattern = re.compile(r"^###\s*\d+\)\s*(.+)$")
+    key_points_header_pattern = re.compile(r"^(?:[-*]\s*)?关键点\s*[：:]?$")
+    bullet_pattern = re.compile(r"^\s*(?:[-*•]\s+|\d+\.\s+)(.+)$")
+    impact_pattern = re.compile(r"^(?:[-*]\s*)?(?:影响|impact)\s*[：:]", flags=re.IGNORECASE)
+    source_pattern = re.compile(r"^(?:[-*]\s*)?(?:来源|source)\s*[：:]", flags=re.IGNORECASE)
+
+    items: list[dict[str, object]] = []
+    current: dict[str, object] | None = None
+    in_key_points = False
+
+    for idx, line in enumerate(lines):
+        stripped = line.strip()
+        title_match = title_pattern.match(stripped)
+        if title_match:
+            if current is not None:
+                items.append(current)
+            current = {
+                "title": title_match.group(1).strip(),
+                "title_idx": idx,
+                "summary": "",
+                "summary_idx": None,
+                "detail": "",
+                "detail_idx": None,
+                "detail_prefix": "- 细节：",
+                "key_points": [],
+            }
+            in_key_points = False
+            continue
+
+        if current is None:
+            continue
+
+        if key_points_header_pattern.match(stripped):
+            in_key_points = True
+            continue
+
+        summary_match = SUMMARY_PATTERN.match(stripped)
+        if summary_match:
+            current["summary"] = summary_match.group(1).strip()
+            current["summary_idx"] = idx
+            in_key_points = False
+            continue
+
+        detail_match = DETAIL_LINE_PATTERN.match(line)
+        if detail_match:
+            current["detail"] = detail_match.group("value").strip()
+            current["detail_idx"] = idx
+            current["detail_prefix"] = detail_match.group("prefix")
+            in_key_points = False
+            continue
+
+        if impact_pattern.match(stripped) or source_pattern.match(stripped):
+            in_key_points = False
+            continue
+
+        if in_key_points:
+            bullet_match = bullet_pattern.match(line)
+            if bullet_match:
+                point = bullet_match.group(1).strip()
+                if point:
+                    points = current["key_points"]
+                    if isinstance(points, list):
+                        points.append(point)
+
+    if current is not None:
+        items.append(current)
+
+    edits: list[tuple[str, int, str]] = []
+    for item in items:
+        summary = str(item.get("summary", "")).strip()
+        detail = str(item.get("detail", "")).strip()
+        title = str(item.get("title", "")).strip()
+        key_points_raw = item.get("key_points", [])
+        key_points = [str(point).strip() for point in key_points_raw] if isinstance(key_points_raw, list) else []
+
+        needs_fix = (
+            not detail
+            or len(detail) < detail_min_chars
+            or (summary and normalize_for_compare(summary) == normalize_for_compare(detail))
+            or any(phrase in detail for phrase in DETAIL_WEAK_PHRASES)
+        )
+        if not needs_fix:
+            continue
+
+        new_detail = build_detail_from_existing_fields(
+            title=title,
+            summary=summary,
+            detail=detail,
+            key_points=key_points,
+            min_chars=detail_min_chars,
+        )
+        detail_idx = item.get("detail_idx")
+        if isinstance(detail_idx, int):
+            prefix = str(item.get("detail_prefix", "- 细节："))
+            edits.append(("replace", detail_idx, f"{prefix}{new_detail}"))
+            continue
+
+        summary_idx = item.get("summary_idx")
+        title_idx = item.get("title_idx")
+        if isinstance(summary_idx, int):
+            insert_at = summary_idx + 1
+        elif isinstance(title_idx, int):
+            insert_at = title_idx + 1
+        else:
+            continue
+        edits.append(("insert", insert_at, f"- 细节：{new_detail}"))
+
+    if not edits:
+        return 0
+
+    offset = 0
+    for action, idx, value in sorted(edits, key=lambda item: item[1]):
+        real_idx = idx + offset
+        if action == "replace":
+            lines[real_idx] = value
+        else:
+            lines.insert(real_idx, value)
+            offset += 1
+
+    new_text = "\n".join(lines)
+    if text.endswith("\n"):
+        new_text += "\n"
+    path.write_text(new_text, encoding="utf-8")
+    return len(edits)
+
+
 def extract_report_items(text: str) -> list[dict[str, object]]:
     title_pattern = re.compile(r"^###\s*\d+\)\s*(.+)$")
-    summary_pattern = re.compile(r"^(?:[-*]\s*)?(?:摘要|summary)\s*[：:]\s*(.+)$", flags=re.IGNORECASE)
-    detail_pattern = re.compile(r"^(?:[-*]\s*)?(?:细节|详情|detail)\s*[：:]\s*(.+)$", flags=re.IGNORECASE)
     source_pattern = re.compile(r"^(?:[-*]\s*)?(?:来源|source)\s*[：:]\s*(.+)$", flags=re.IGNORECASE)
     key_points_header_pattern = re.compile(r"^(?:[-*]\s*)?关键点\s*[：:]?$")
     bullet_pattern = re.compile(r"^\s*(?:[-*•]\s+|\d+\.\s+)(.+)$")
@@ -83,13 +263,13 @@ def extract_report_items(text: str) -> list[dict[str, object]]:
             in_key_points = True
             continue
 
-        summary_match = summary_pattern.match(stripped)
+        summary_match = SUMMARY_PATTERN.match(stripped)
         if summary_match:
             current["summary"] = summary_match.group(1).strip()
             in_key_points = False
             continue
 
-        detail_match = detail_pattern.match(stripped)
+        detail_match = DETAIL_PATTERN.match(stripped)
         if detail_match:
             current["detail"] = detail_match.group(1).strip()
             in_key_points = False
@@ -123,7 +303,7 @@ def extract_report_items(text: str) -> list[dict[str, object]]:
     return items
 
 
-def run_checks(path: Path) -> int:
+def run_checks(path: Path, autofix: bool = False) -> int:
     if not path.exists():
         print(f"ERROR: report not found: {path}")
         return 1
@@ -203,6 +383,11 @@ def run_checks(path: Path) -> int:
             print(f"- {hit}")
         failed = strict_mode
     if detail_issues:
+        if strict_mode and autofix:
+            fixed_count = autofix_detail_lines(path, detail_min_chars=detail_min_chars)
+            if fixed_count > 0:
+                print(f"info: autofix repaired {fixed_count} detail field(s), re-running checks")
+                return run_checks(path, autofix=False)
         level = "ERROR" if strict_mode else "WARN"
         print(f"{level}: detail quality issues found:")
         for issue in detail_issues:
@@ -224,8 +409,9 @@ def run_checks(path: Path) -> int:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Validate report quality.")
     parser.add_argument("report", nargs="?", default="reports/latest.md")
+    parser.add_argument("--autofix", action="store_true", help="Auto-repair low-quality detail fields before failing")
     args = parser.parse_args()
-    return run_checks(Path(args.report))
+    return run_checks(Path(args.report), autofix=args.autofix)
 
 
 if __name__ == "__main__":

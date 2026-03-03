@@ -69,5 +69,5 @@
 - 如配置 `FEISHU_REPORT_FOLDER_TOKEN`，每日新文档会创建在指定文件夹；`FEISHU_REPORT_DOC_URL` 可作为总览入口链接附在消息中。
 - `FEISHU_DOC_SYNC_REQUIRED` 默认 `1`，未配置文档写入凭证会直接失败；如仅需群通知可设为 `0`。
 - 默认不跟踪 `reports/*.md`，工作流通过 artifact 与飞书保留结果。
-- 可运行 `python scripts/report_quality_check.py reports/latest.md` 做质量闸门检查（标题完整率/二手域名/关键点格式）。
+- 可运行 `python scripts/report_quality_check.py reports/latest.md --autofix` 做质量闸门检查并自动修复细节字段（标题完整率/二手域名/关键点格式）。
 - 可运行 `python scripts/source_health_check.py --output reports/source_health.md` 做信息源健康检查。
