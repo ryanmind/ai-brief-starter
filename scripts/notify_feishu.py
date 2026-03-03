@@ -115,38 +115,103 @@ def is_no_folder_permission_error(exc: Exception) -> bool:
     return '"code":1770040' in text or "no folder permission" in text
 
 
+def is_public_readable_state(response: dict[str, object]) -> bool:
+    data = response.get("data")
+    if not isinstance(data, dict):
+        data = response
+    link_share_entity = str(data.get("link_share_entity", "")).strip().lower()
+    if link_share_entity == "anyone_readable":
+        return True
+    external_access_entity = str(data.get("external_access_entity", "")).strip().lower()
+    external_access = data.get("external_access")
+    return external_access_entity == "open" or external_access is True
+
+
 def configure_docx_public_permission(token: str, document_id: str) -> None:
-    readable_enabled = is_enabled(os.getenv("FEISHU_DOC_PUBLIC_READABLE"), default=True)
+    readable_enabled = is_enabled(os.getenv("FEISHU_DOC_PUBLIC_READABLE"), default=False)
     if not readable_enabled:
         return
 
     required = is_enabled(os.getenv("FEISHU_DOC_PUBLIC_REQUIRED"), default=False)
-    # For audience-facing briefs, default to "anyone with link can read" (including outside tenant).
-    payload: dict[str, object] = {
-        "external_access": True,
-        "security_entity": "anyone_can_view",
-        "comment_entity": "anyone_can_view",
-        "share_entity": "anyone",
-        "link_share_entity": "anyone_readable",
-        "invite_external": True,
-    }
-    url = f"{API_BASE}/open-apis/drive/v1/permissions/{document_id}/public?type=docx"
-    try:
-        response = http_json_request(
-            method="PATCH",
-            url=url,
-            payload=payload,
-            headers={"Authorization": f"Bearer {token}"},
-        )
-        ensure_openapi_success(response, action="set docx public permission")
-    except Exception as exc:
-        message = (
-            "warn: failed to set doc public permission to external-readable; "
-            f"keep default access. error={exc}"
-        )
-        if required:
-            raise RuntimeError(message) from exc
-        print(message)
+    headers = {"Authorization": f"Bearer {token}"}
+    set_urls = [
+        f"{API_BASE}/open-apis/drive/v1/permissions/{document_id}/public?type=docx",
+        f"{API_BASE}/open-apis/drive/v2/permissions/{document_id}/public?type=docx",
+        f"{API_BASE}/open-apis/drive/v1/permissions/{document_id}/public?type=file",
+    ]
+    # Different tenants may expose slightly different field names; try common variants.
+    payloads: list[dict[str, object]] = [
+        {
+            "external_access_entity": "open",
+            "security_entity": "anyone_can_view",
+            "comment_entity": "anyone_can_view",
+            "share_entity": "anyone",
+            "link_share_entity": "anyone_readable",
+        },
+        {
+            "external_access": True,
+            "security_entity": "anyone_can_view",
+            "comment_entity": "anyone_can_view",
+            "share_entity": "anyone",
+            "link_share_entity": "anyone_readable",
+            "invite_external": True,
+        },
+        {
+            "link_share_entity": "anyone_readable",
+            "share_entity": "anyone",
+        },
+    ]
+
+    errors: list[str] = []
+    configured = False
+    for url in set_urls:
+        for payload in payloads:
+            try:
+                response = http_json_request(
+                    method="PATCH",
+                    url=url,
+                    payload=payload,
+                    headers=headers,
+                )
+                ensure_openapi_success(response, action="set docx public permission")
+                configured = True
+                break
+            except Exception as exc:
+                errors.append(f"PATCH {url} payload={list(payload.keys())}: {exc}")
+        if configured:
+            break
+
+    query_urls = [
+        f"{API_BASE}/open-apis/drive/v1/permissions/{document_id}/public?type=docx",
+        f"{API_BASE}/open-apis/drive/v2/permissions/{document_id}/public?type=docx",
+        f"{API_BASE}/open-apis/drive/v1/permissions/{document_id}/public?type=file",
+    ]
+    verified = False
+    verify_errors: list[str] = []
+    for url in query_urls:
+        try:
+            response = http_json_request(method="GET", url=url, headers=headers)
+            ensure_openapi_success(response, action="get docx public permission")
+            if is_public_readable_state(response):
+                verified = True
+                break
+            verify_errors.append(f"GET {url}: not public-readable, response={response}")
+        except Exception as exc:
+            verify_errors.append(f"GET {url}: {exc}")
+
+    if verified:
+        print("info: doc public permission configured to anyone-readable")
+        return
+
+    detail = "; ".join((errors + verify_errors)[-3:]) if (errors or verify_errors) else "unknown"
+    message = (
+        "failed to enable external-readable doc link. "
+        "please enable external sharing policy in admin console and app drive permissions. "
+        f"detail={detail}"
+    )
+    if required:
+        raise RuntimeError(message)
+    print(f"warn: {message}")
 
 
 def get_tenant_access_token(app_id: str, app_secret: str) -> str:

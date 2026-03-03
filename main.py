@@ -26,9 +26,23 @@ def int_env(name: str, default: int, min_value: int = 1, max_value: int = 1000) 
     return max(min_value, min(max_value, value))
 
 
+def float_env(name: str, default: float, min_value: float = 0.0, max_value: float = 1.0) -> float:
+    raw = os.getenv(name, "").strip()
+    if not raw:
+        return default
+    try:
+        value = float(raw)
+    except ValueError:
+        return default
+    return max(min_value, min(max_value, value))
+
+
 BRIEF_MAX_CHARS = int_env("BRIEF_MAX_CHARS", 160, min_value=40, max_value=400)
 IMPACT_MAX_CHARS = int_env("IMPACT_MAX_CHARS", 140, min_value=40, max_value=320)
 DETAIL_MAX_CHARS = int_env("DETAIL_MAX_CHARS", 260, min_value=80, max_value=800)
+DETAIL_MIN_CHARS = int_env("DETAIL_MIN_CHARS", 48, min_value=20, max_value=200)
+STRICT_FACT_MODE = os.getenv("STRICT_FACT_MODE", "1").strip().lower() not in {"0", "false", "no", "off"}
+FACT_OVERLAP_MIN = float_env("FACT_OVERLAP_MIN", 0.55, min_value=0.1, max_value=1.0)
 TITLE_MAX_CHARS = 50
 KEY_POINTS_MAX_COUNT = 3
 KEY_POINTS_MIN_COUNT = 2
@@ -304,6 +318,152 @@ def shorten_for_highlight(text: str, max_chars: int = 42) -> str:
     return value[:max_chars].rstrip()
 
 
+def sentence_candidates(text: str) -> list[str]:
+    cleaned = clean_text(text)
+    if not cleaned:
+        return []
+    return [segment.strip() for segment in re.split(r"[。！？!?；;]+", cleaned) if segment.strip()]
+
+
+def normalize_for_compare(text: str) -> str:
+    return re.sub(r"\W+", "", clean_text(text).lower(), flags=re.UNICODE)
+
+
+def extract_numbers(text: str) -> set[str]:
+    return set(re.findall(r"\d+(?:\.\d+)?%?", clean_text(text)))
+
+
+def has_unseen_numbers(text: str, evidence: str) -> bool:
+    numbers = extract_numbers(text)
+    if not numbers:
+        return False
+    evidence_numbers = extract_numbers(evidence)
+    return not numbers.issubset(evidence_numbers)
+
+
+def fact_overlap_ratio(text: str, evidence: str) -> float:
+    text_chars = {ch for ch in clean_text(text) if ch.isalnum() or ("\u4e00" <= ch <= "\u9fff")}
+    if not text_chars:
+        return 0.0
+    evidence_chars = {ch for ch in clean_text(evidence) if ch.isalnum() or ("\u4e00" <= ch <= "\u9fff")}
+    return len(text_chars & evidence_chars) / len(text_chars)
+
+
+def extractive_brief(item: dict[str, str]) -> str:
+    summary = clean_text(item.get("summary", ""))
+    if not summary:
+        return clean_text(item.get("title", ""))[:BRIEF_MAX_CHARS]
+    sentences = sentence_candidates(summary)
+    if sentences:
+        return sentences[0][:BRIEF_MAX_CHARS]
+    return summary[:BRIEF_MAX_CHARS]
+
+
+def sanitize_item_factuality(item: dict[str, str]) -> dict[str, str]:
+    if not STRICT_FACT_MODE:
+        return item
+
+    fixed = item.copy()
+    evidence = f"{clean_text(fixed.get('title', ''))} {clean_text(fixed.get('summary', ''))}".strip()
+    if not evidence:
+        return fixed
+
+    brief = clean_text(fixed.get("brief", ""))
+    if (
+        not brief
+        or has_unseen_numbers(brief, evidence)
+        or fact_overlap_ratio(brief, evidence) < FACT_OVERLAP_MIN
+    ):
+        brief = extractive_brief(fixed)
+    fixed["brief"] = brief[:BRIEF_MAX_CHARS]
+
+    details = clean_text(fixed.get("details", ""))
+    if (
+        not details
+        or len(details) < DETAIL_MIN_CHARS
+        or normalize_for_compare(details) == normalize_for_compare(brief)
+        or has_unseen_numbers(details, evidence)
+        or fact_overlap_ratio(details, evidence) < FACT_OVERLAP_MIN
+    ):
+        details = build_detail_from_summary(summary=fixed.get("summary", ""), brief=fixed.get("brief", ""))
+    if not details:
+        details = fixed["brief"]
+    fixed["details"] = details[:DETAIL_MAX_CHARS]
+
+    impact = clean_text(fixed.get("impact", ""))
+    if impact and has_unseen_numbers(impact, evidence):
+        fixed["impact"] = "该进展已在一手来源披露，建议结合原文评估实际影响。"
+
+    return fixed
+
+
+def sanitize_items_factuality(items: list[dict[str, str]]) -> list[dict[str, str]]:
+    return [sanitize_item_factuality(item) for item in items]
+
+
+def build_detail_from_summary(summary: str, brief: str) -> str:
+    brief_key = normalize_for_compare(brief)
+    detail_parts: list[str] = []
+    for candidate in sentence_candidates(summary):
+        if len(candidate) < 12:
+            continue
+        if normalize_for_compare(candidate) == brief_key:
+            continue
+        detail_parts.append(candidate)
+        if len(detail_parts) >= 2:
+            break
+    if not detail_parts:
+        return clean_text(summary)[:DETAIL_MAX_CHARS]
+    detail_text = "；".join(detail_parts)
+    return detail_text[:DETAIL_MAX_CHARS]
+
+
+def fix_item_detail(item: dict[str, str]) -> dict[str, str]:
+    fixed = item.copy()
+    brief = clean_text(fixed.get("brief", ""))
+    details = clean_text(fixed.get("details", ""))
+    summary = clean_text(fixed.get("summary", ""))
+
+    low_quality = (
+        not details
+        or len(details) < DETAIL_MIN_CHARS
+        or normalize_for_compare(details) == normalize_for_compare(brief)
+    )
+    if low_quality and summary:
+        details = build_detail_from_summary(summary=summary, brief=brief)
+    if not details:
+        details = brief
+    fixed["details"] = details[:DETAIL_MAX_CHARS]
+    return fixed
+
+
+def fix_items_detail(items: list[dict[str, str]]) -> list[dict[str, str]]:
+    return sanitize_items_factuality([fix_item_detail(item) for item in items])
+
+
+def extract_urls(text: str) -> set[str]:
+    matches = re.findall(r"https?://[^\s\]\)]+", text)
+    return {match.rstrip(".,;:)]") for match in matches}
+
+
+def extract_numeric_tokens(text: str) -> set[str]:
+    return set(re.findall(r"\d+(?:\.\d+)?%?", clean_text(text)))
+
+
+def polish_result_is_safe(original_markdown: str, polished_markdown: str) -> bool:
+    original_urls = extract_urls(original_markdown)
+    polished_urls = extract_urls(polished_markdown)
+    if original_urls != polished_urls:
+        return False
+
+    original_numbers = extract_numeric_tokens(original_markdown)
+    polished_numbers = extract_numeric_tokens(polished_markdown)
+    if not polished_numbers.issubset(original_numbers):
+        return False
+
+    return True
+
+
 def finalize_key_points(points: list[str], item: dict[str, str]) -> list[str]:
     merged: list[str] = []
     seen: set[str] = set()
@@ -467,6 +627,78 @@ def load_recent_history_fingerprints(report_dir: Path, lookback_days: int) -> se
         if report_path.exists():
             history_keys.update(collect_report_history_fingerprints(report_path))
     return history_keys
+
+
+def load_history_state(path: Path) -> dict[str, list[str]]:
+    if not path.exists():
+        return {}
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        logger.warning("history state parse failed: %s (%s)", path, exc)
+        return {}
+
+    if not isinstance(payload, dict):
+        return {}
+    days = payload.get("days")
+    if not isinstance(days, dict):
+        return {}
+
+    state: dict[str, list[str]] = {}
+    for date_key, values in days.items():
+        if not isinstance(date_key, str) or not isinstance(values, list):
+            continue
+        fingerprints = [str(value).strip() for value in values if str(value).strip()]
+        if fingerprints:
+            state[date_key] = fingerprints
+    return state
+
+
+def history_state_fingerprints(state: dict[str, list[str]], lookback_days: int) -> set[str]:
+    if lookback_days <= 0:
+        return set()
+    today = datetime.now().date()
+    keys: set[str] = set()
+    for offset in range(1, lookback_days + 1):
+        date_key = (today - timedelta(days=offset)).strftime("%Y-%m-%d")
+        keys.update(state.get(date_key, []))
+    return keys
+
+
+def update_history_state(
+    state: dict[str, list[str]],
+    run_date: datetime,
+    items: list[dict[str, str]],
+    keep_days: int,
+) -> dict[str, list[str]]:
+    updated: dict[str, list[str]] = {key: list(values) for key, values in state.items()}
+    date_key = run_date.strftime("%Y-%m-%d")
+    fingerprints: set[str] = set(updated.get(date_key, []))
+    for item in items:
+        fingerprints.update(item_dedupe_fingerprints(item))
+    updated[date_key] = sorted(fingerprints)
+
+    if keep_days <= 0:
+        keep_days = 1
+    cutoff = run_date.date() - timedelta(days=keep_days - 1)
+    cleaned: dict[str, list[str]] = {}
+    for key, values in updated.items():
+        try:
+            parsed_date = datetime.strptime(key, "%Y-%m-%d").date()
+        except ValueError:
+            continue
+        if parsed_date >= cutoff and values:
+            cleaned[key] = values
+    return cleaned
+
+
+def save_history_state(path: Path, state: dict[str, list[str]]) -> None:
+    payload = {
+        "updated_at": datetime.now(timezone.utc).isoformat(),
+        "days": {key: state[key] for key in sorted(state.keys(), reverse=True)},
+    }
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
 def filter_items_by_history(
@@ -910,7 +1142,8 @@ def rank_and_summarize(
         return fallback_selection(items=items, top_n=top_n)
     selected = backfill_selected_items(selected=selected, items=items, top_n=top_n)
     selected.sort(key=lambda x: int(x.get("score", "0")), reverse=True)
-    return selected[: min(top_n, len(items))]
+    selected = selected[: min(top_n, len(items))]
+    return fix_items_detail(selected)
 
 
 def localize_items_to_chinese(
@@ -992,7 +1225,7 @@ def localize_items_to_chinese(
     if len(localized) != len(items):
         logger.warning("localize_items_to_chinese: 本地化条目数不匹配，回退原文。")
         return items
-    return localized
+    return fix_items_detail(localized)
 
 
 def polish_with_kimi(markdown: str, kimi_api_key: str, kimi_model: str) -> str:
@@ -1006,12 +1239,22 @@ def polish_with_kimi(markdown: str, kimi_api_key: str, kimi_model: str) -> str:
         "4) 文风适合直接发朋友圈/公众号，减少机器感。\n\n"
         + markdown
     )
-    return llm_chat(
-        client=client,
-        model=kimi_model,
-        system_prompt="你是中文科技编辑。",
-        user_prompt=prompt,
-    )
+    try:
+        polished = llm_chat(
+            client=client,
+            model=kimi_model,
+            system_prompt="你是中文科技编辑。",
+            user_prompt=prompt,
+        )
+    except Exception as exc:
+        logger.warning("polish_with_kimi: 润色失败，回退原稿。error=%s", exc)
+        return markdown
+
+    if not polish_result_is_safe(markdown, polished):
+        logger.warning("polish_with_kimi: 检测到潜在事实漂移，回退原稿。")
+        return markdown
+
+    return polished
 
 
 def render_markdown(items: list[dict[str, str]]) -> str:
@@ -1077,10 +1320,14 @@ def main() -> None:
     fallback_fetch_hours = int(os.getenv("FALLBACK_FETCH_HOURS", "72"))
     per_source_items = int(os.getenv("PER_SOURCE_ITEMS", "30"))
     history_dedupe_days = int(os.getenv("HISTORY_DEDUP_DAYS", "2"))
+    history_state_max_days = int_env("HISTORY_STATE_MAX_DAYS", 14, min_value=1, max_value=90)
 
     report_dir = Path("reports")
     report_dir.mkdir(parents=True, exist_ok=True)
+    history_state_path = Path(os.getenv("HISTORY_STATE_PATH", str(report_dir / "history_index.json")))
+    history_state = load_history_state(history_state_path)
     history_fingerprints = load_recent_history_fingerprints(report_dir=report_dir, lookback_days=history_dedupe_days)
+    history_fingerprints.update(history_state_fingerprints(history_state, lookback_days=history_dedupe_days))
 
     sources = load_sources("sources.txt")
     fetched_items = fetch_items(sources=sources, hours=fetch_hours, per_source=per_source_items)
@@ -1125,6 +1372,14 @@ def main() -> None:
     selected = localize_items_to_chinese(items=selected, qwen_api_key=qwen_api_key, qwen_model=qwen_model)
     markdown = render_markdown(selected)
     markdown = polish_with_kimi(markdown=markdown, kimi_api_key=kimi_api_key, kimi_model=kimi_model)
+
+    history_state = update_history_state(
+        state=history_state,
+        run_date=datetime.now(),
+        items=selected,
+        keep_days=history_state_max_days,
+    )
+    save_history_state(path=history_state_path, state=history_state)
 
     daily = report_dir / f"{datetime.now().strftime('%Y-%m-%d')}.md"
     latest = report_dir / "latest.md"

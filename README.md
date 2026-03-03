@@ -50,15 +50,21 @@
 - 可用 `PER_DOMAIN_LIMIT`、`ARXIV_MAX_ITEMS` 控制单域名与 arXiv 来源配额，避免单一来源刷屏。
 - 默认 `TOP_N=20`，如需更全可调到 `30`（建议同时提高 `MAX_ITEMS`，例如 `120`）。
 - 默认开启跨天去重（`HISTORY_DEDUP_DAYS=2`），会自动避开最近两天已发过的相同资讯链接/标题。
+- 工作流会缓存去重索引（`HISTORY_STATE_PATH`，默认 `reports/history_index.json`），即使不提交 `reports/` 也能跨运行去重。
+- 可用 `HISTORY_STATE_MAX_DAYS` 控制去重索引保留天数（默认 `14`）。
 - 若条目不足会自动扩大抓取窗口（`FETCH_HOURS=24`，`FALLBACK_FETCH_HOURS=72`），尽量补足 `TOP_N`。
 - 可用 `PER_SOURCE_ITEMS` 提高单源抓取条数（默认 `30`），提升候选池丰富度。
 - 详细快讯包含 `摘要/细节/关键点/影响`，并输出 `关键点` 列表（2-3条短 bullet），更适合朋友圈/公众号发布。
 - 可用 `BRIEF_MAX_CHARS`、`DETAIL_MAX_CHARS`、`IMPACT_MAX_CHARS` 调整每条内容长度（默认 160/260/140）。
+- 可用 `DETAIL_MIN_CHARS` 约束细节最小信息量（默认 48），低于阈值会自动尝试用原始摘要补全，质量检查也会拦截。
+- 默认开启事实保守模式（`STRICT_FACT_MODE=1`），若摘要/细节与原文摘要重合度过低或出现新数字，会自动回退到抽取式写法。
+- 可用 `FACT_OVERLAP_MIN` 调整事实重合阈值（默认 `0.55`，越高越保守）。
+- Kimi 润色后会做链接/数字一致性校验，检测到事实漂移会自动回退原稿。
 - 默认不显式限制模型输出 token（仍受模型服务端上限约束）。
 - 配置 `FEISHU_WEBHOOK_URL` 后，工作流会自动发送日报摘要到飞书群；配置 `FEISHU_APP_ID/FEISHU_APP_SECRET` 后会自动新建飞书文档并写入全文（不会覆盖历史）。
 - 飞书文档写入会自动去除 Markdown 标记，默认以可读正文样式展示（非原始 Markdown 状态）。
-- 默认会尝试将新建飞书文档设为“组织外获得链接可读”（`FEISHU_DOC_PUBLIC_READABLE=1`）；若租户策略不允许会降级为默认权限并打印警告。
-- 可设 `FEISHU_DOC_PUBLIC_REQUIRED=1`，在无法设置公开权限时让任务直接失败。
+- 默认不自动开启飞书文档外链公开（`FEISHU_DOC_PUBLIC_READABLE=0`）；如需对外分享可手动设为 `1`。
+- 当开启自动外链公开时，可设 `FEISHU_DOC_PUBLIC_REQUIRED=1`，无法设置公开权限就直接失败并打印明确错误。
 - 默认不在群消息中展示 GitHub Actions 任务详情；如需展示可设置 `FEISHU_INCLUDE_RUN_URL=1`。
 - 如配置 `FEISHU_REPORT_FOLDER_TOKEN`，每日新文档会创建在指定文件夹；`FEISHU_REPORT_DOC_URL` 可作为总览入口链接附在消息中。
 - `FEISHU_DOC_SYNC_REQUIRED` 默认 `1`，未配置文档写入凭证会直接失败；如仅需群通知可设为 `0`。

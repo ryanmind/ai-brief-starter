@@ -32,6 +32,13 @@ TITLE_INCOMPLETE_PREFIXES = (
     "实现",
     "启动",
 )
+DETAIL_WEAK_PHRASES = (
+    "信息持续跟进",
+    "建议查看原文",
+    "值得关注",
+    "持续观察",
+    "后续关注",
+)
 
 
 def parse_csv_env(name: str, defaults: tuple[str, ...]) -> set[str]:
@@ -58,11 +65,17 @@ def title_looks_incomplete(title: str) -> bool:
     return any(clean_title.startswith(prefix) for prefix in TITLE_INCOMPLETE_PREFIXES)
 
 
+def normalize_for_compare(text: str) -> str:
+    return re.sub(r"\W+", "", text.strip().lower(), flags=re.UNICODE)
+
+
 def extract_report_items(text: str) -> list[dict[str, object]]:
-    title_pattern = re.compile(r"^###\s+\d+\)\s+(.+)$")
-    source_pattern = re.compile(r"^- 来源[：:](.+)$")
-    key_points_header_pattern = re.compile(r"^- 关键点[：:]$")
-    bullet_pattern = re.compile(r"^\s*-\s+(.+)$")
+    title_pattern = re.compile(r"^###\s*\d+\)\s*(.+)$")
+    summary_pattern = re.compile(r"^(?:[-*]\s*)?(?:摘要|summary)\s*[：:]\s*(.+)$", flags=re.IGNORECASE)
+    detail_pattern = re.compile(r"^(?:[-*]\s*)?(?:细节|详情|detail)\s*[：:]\s*(.+)$", flags=re.IGNORECASE)
+    source_pattern = re.compile(r"^(?:[-*]\s*)?(?:来源|source)\s*[：:]\s*(.+)$", flags=re.IGNORECASE)
+    key_points_header_pattern = re.compile(r"^(?:[-*]\s*)?关键点\s*[：:]?$")
+    bullet_pattern = re.compile(r"^\s*(?:[-*•]\s+|\d+\.\s+)(.+)$")
 
     items: list[dict[str, object]] = []
     current: dict[str, object] | None = None
@@ -76,6 +89,8 @@ def extract_report_items(text: str) -> list[dict[str, object]]:
                 items.append(current)
             current = {
                 "title": title_match.group(1).strip(),
+                "summary": "",
+                "detail": "",
                 "source": "",
                 "key_points": [],
             }
@@ -89,7 +104,19 @@ def extract_report_items(text: str) -> list[dict[str, object]]:
             in_key_points = True
             continue
 
-        if stripped.startswith("- 摘要") or stripped.startswith("- 影响"):
+        summary_match = summary_pattern.match(stripped)
+        if summary_match:
+            current["summary"] = summary_match.group(1).strip()
+            in_key_points = False
+            continue
+
+        detail_match = detail_pattern.match(stripped)
+        if detail_match:
+            current["detail"] = detail_match.group(1).strip()
+            in_key_points = False
+            continue
+
+        if re.match(r"^(?:[-*]\s*)?(?:影响|impact)\s*[：:]", stripped, flags=re.IGNORECASE):
             in_key_points = False
             continue
 
@@ -100,6 +127,9 @@ def extract_report_items(text: str) -> list[dict[str, object]]:
             continue
 
         if in_key_points:
+            if stripped.startswith("### "):
+                in_key_points = False
+                continue
             bullet_match = bullet_pattern.match(line)
             if bullet_match:
                 point = bullet_match.group(1).strip()
@@ -131,6 +161,7 @@ def run_checks(path: Path) -> int:
     key_points_max_count = int(os.getenv("KEY_POINTS_MAX_COUNT", "3"))
     key_point_max_chars = int(os.getenv("KEY_POINT_MAX_CHARS", "28"))
     blocked_domains = parse_csv_env("SECOND_HAND_DOMAINS", DEFAULT_SECOND_HAND_DOMAINS)
+    detail_min_chars = int(os.getenv("DETAIL_MIN_CHARS", "48"))
 
     incomplete_count = sum(1 for title in titles if title_looks_incomplete(title))
     complete_ratio = (len(titles) - incomplete_count) / len(titles)
@@ -142,8 +173,22 @@ def run_checks(path: Path) -> int:
             blocked_hits.append(source)
 
     key_point_issues: list[str] = []
+    detail_issues: list[str] = []
     for idx, item in enumerate(items, 1):
         title = str(item.get("title", ""))
+        summary = str(item.get("summary", "")).strip()
+        detail = str(item.get("detail", "")).strip()
+
+        if not detail:
+            detail_issues.append(f"{idx}) {title}: 缺少细节字段")
+        else:
+            if len(detail) < detail_min_chars:
+                detail_issues.append(f"{idx}) {title}: 细节过短(len={len(detail)})")
+            if summary and normalize_for_compare(summary) == normalize_for_compare(detail):
+                detail_issues.append(f"{idx}) {title}: 细节与摘要重复")
+            if any(phrase in detail for phrase in DETAIL_WEAK_PHRASES):
+                detail_issues.append(f"{idx}) {title}: 细节内容过泛")
+
         points = item.get("key_points", [])
         if not isinstance(points, list):
             key_point_issues.append(f"{idx}) {title}: key_points字段不是列表")
@@ -162,6 +207,7 @@ def run_checks(path: Path) -> int:
         f"items={len(titles)}",
         f"title_complete_ratio={complete_ratio:.2f}",
         f"blocked_sources={len(blocked_hits)}",
+        f"detail_issues={len(detail_issues)}",
         f"key_point_issues={len(key_point_issues)}",
     )
 
@@ -175,6 +221,11 @@ def run_checks(path: Path) -> int:
         print("ERROR: blocked second-hand domains found:")
         for hit in blocked_hits:
             print(f"- {hit}")
+        failed = True
+    if detail_issues:
+        print("ERROR: detail quality issues found:")
+        for issue in detail_issues:
+            print(f"- {issue}")
         failed = True
     if key_point_issues:
         print("ERROR: key point format issues found:")

@@ -24,11 +24,16 @@ jobs:
       TOP_N: "20"
       BRIEF_MAX_CHARS: "160"
       DETAIL_MAX_CHARS: "260"
+      DETAIL_MIN_CHARS: "48"
       IMPACT_MAX_CHARS: "140"
+      STRICT_FACT_MODE: "1"
+      FACT_OVERLAP_MIN: "0.55"
       FETCH_HOURS: "24"
       FALLBACK_FETCH_HOURS: "72"
       PER_SOURCE_ITEMS: "30"
       HISTORY_DEDUP_DAYS: "2"
+      HISTORY_STATE_PATH: "reports/history_index.json"
+      HISTORY_STATE_MAX_DAYS: "14"
       PER_DOMAIN_LIMIT: "4"
       ARXIV_MAX_ITEMS: "4"
       TITLE_COMPLETE_RATIO_MIN: "0.90"
@@ -46,7 +51,7 @@ jobs:
       FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
       FEISHU_REPORT_FOLDER_TOKEN: ${{ secrets.FEISHU_REPORT_FOLDER_TOKEN }}
       FEISHU_DOC_SYNC_REQUIRED: "1"
-      FEISHU_DOC_PUBLIC_READABLE: "1"
+      FEISHU_DOC_PUBLIC_READABLE: "0"
       FEISHU_DOC_PUBLIC_REQUIRED: "0"
     steps:
       - uses: actions/checkout@v4
@@ -67,11 +72,27 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Restore history dedupe cache
+        id: history-cache-restore
+        uses: actions/cache/restore@v4
+        with:
+          path: reports/history_index.json
+          key: ai-brief-history-${{ github.ref_name }}-${{ github.run_id }}
+          restore-keys: |
+            ai-brief-history-${{ github.ref_name }}-
+
       - name: Generate daily brief
         run: python main.py
 
       - name: Report quality check
         run: python scripts/report_quality_check.py reports/latest.md
+
+      - name: Save history dedupe cache
+        if: success() && hashFiles('reports/history_index.json') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: reports/history_index.json
+          key: ai-brief-history-${{ github.ref_name }}-${{ github.run_id }}
 
       - name: Upload reports artifact
         uses: actions/upload-artifact@v4
