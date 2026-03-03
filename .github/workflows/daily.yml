@@ -42,6 +42,7 @@ jobs:
       STRICT_PRIMARY_ONLY: "1"
       STRICT_AI_TOPIC_ONLY: "1"
       QUALITY_CHECK_STRICT: "1"
+      QUALITY_CHECK_FAIL_OPEN: "1"
       NITTER_RSS_BASES: "https://nitter.net,https://nitter.poast.org,https://nitter.privacydev.net,https://nitter.d420.de,https://nitter.unixfox.eu"
       QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
       FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}

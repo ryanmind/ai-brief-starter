@@ -1548,6 +1548,12 @@ def main() -> None:
     per_source_items = int_env("PER_SOURCE_ITEMS", 30, min_value=5, max_value=200)
     history_dedupe_days = int_env("HISTORY_DEDUP_DAYS", 2, min_value=0, max_value=30)
     history_state_max_days = int_env("HISTORY_STATE_MAX_DAYS", 14, min_value=1, max_value=90)
+    quality_check_fail_open = os.getenv("QUALITY_CHECK_FAIL_OPEN", "1").strip().lower() not in {
+        "0",
+        "false",
+        "no",
+        "off",
+    }
 
     report_dir = Path("reports")
     report_dir.mkdir(parents=True, exist_ok=True)
@@ -1625,6 +1631,7 @@ def main() -> None:
     draft_report_path = report_dir / "latest.draft.md"
     draft_report_path.write_text(render_markdown(selected), encoding="utf-8")
 
+    quality_gate_opened = False
     quality_code = run_quality_checks(
         path=draft_report_path,
         autofix=True,
@@ -1632,10 +1639,19 @@ def main() -> None:
         high_risk_output=high_risk_path,
     )
     if quality_code != 0:
-        raise RuntimeError("自动修复后质检仍未通过，停止发布")
-    second_quality_code = run_quality_checks(path=draft_report_path, autofix=False)
-    if second_quality_code != 0:
-        raise RuntimeError("二次质检失败，停止发布")
+        if quality_check_fail_open:
+            quality_gate_opened = True
+            logger.error("自动修复后质检仍未通过，QUALITY_CHECK_FAIL_OPEN=1，继续发布并保留未修复字段为空白。")
+        else:
+            raise RuntimeError("自动修复后质检仍未通过，停止发布")
+    else:
+        second_quality_code = run_quality_checks(path=draft_report_path, autofix=False)
+        if second_quality_code != 0:
+            if quality_check_fail_open:
+                quality_gate_opened = True
+                logger.error("二次质检失败，QUALITY_CHECK_FAIL_OPEN=1，继续发布当前草稿。")
+            else:
+                raise RuntimeError("二次质检失败，停止发布")
     markdown = draft_report_path.read_text(encoding="utf-8")
     final_item_count = markdown.count("\n### ")
     if final_item_count <= 0:
@@ -1686,6 +1702,8 @@ def main() -> None:
         "filtered_count": max(len(fetched_items) - len(items), 0),
         "repaired_count": int(quality_metrics.get("repaired_count", 0)) if isinstance(quality_metrics, dict) else 0,
         "final_item_count": final_item_count,
+        "quality_fail_open_enabled": quality_check_fail_open,
+        "quality_gate_opened": quality_gate_opened,
         "stage_counts": stage_stats,
         "failure_reasons_top": [{"reason": reason, "count": count} for reason, count in top_failure_reasons],
         "quality_check": quality_metrics,

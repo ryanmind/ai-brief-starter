@@ -3,6 +3,7 @@ from __future__ import annotations
 import base64
 import hashlib
 import hmac
+from pathlib import Path
 from concurrent.futures import TimeoutError as FuturesTimeoutError
 from types import SimpleNamespace
 
@@ -244,3 +245,85 @@ def test_render_markdown_drops_empty_lines_for_missing_fields():
     assert "- 细节：" not in markdown
     assert "- 影响：" not in markdown
     assert "- 来源：" not in markdown
+
+
+def test_main_quality_check_fail_open_keeps_pipeline_running(monkeypatch, tmp_path):
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv("QWEN_API_KEY", "test-key")
+    monkeypatch.setenv("QUALITY_CHECK_FAIL_OPEN", "1")
+    monkeypatch.setenv("TOP_N", "5")
+    monkeypatch.setenv("MAX_ITEMS", "10")
+
+    item = {
+        "title": "OpenAI 发布新模型",
+        "link": "https://openai.com/news/new-model",
+        "summary": "官方发布新模型并更新能力说明。",
+        "published": "2026-03-03T00:00:00+00:00",
+    }
+    selected_item = {
+        **item,
+        "brief": "OpenAI 发布新模型并披露关键能力升级。",
+        "details": "官方说明包含模型能力更新与适用范围。",
+        "impact": "有助于开发者更快落地相关应用。",
+        "score": "100",
+        "key_points": ["官方已发布", "包含能力升级"],
+    }
+
+    monkeypatch.setattr(main, "load_sources", lambda path="sources.txt": ["https://openai.com/news/rss.xml"])
+    monkeypatch.setattr(main, "fetch_items", lambda **kwargs: [item])
+    monkeypatch.setattr(main, "rank_and_summarize", lambda **kwargs: [selected_item])
+    monkeypatch.setattr(main, "localize_items_to_chinese", lambda items, **kwargs: items)
+    monkeypatch.setattr(main, "check_category_balance", lambda items: {})
+
+    calls: list[bool] = []
+
+    def fake_run_quality_checks(*, path, autofix, metrics_output=None, high_risk_output=None):
+        calls.append(autofix)
+        if metrics_output is not None:
+            Path(metrics_output).write_text('{"failure_reasons":{"structure_missing":1}}', encoding="utf-8")
+        if high_risk_output is not None:
+            Path(high_risk_output).write_text("# 高风险条目清单\n", encoding="utf-8")
+        return 1
+
+    monkeypatch.setattr(main, "run_quality_checks", fake_run_quality_checks)
+
+    main.main()
+
+    assert calls == [True]
+    assert (tmp_path / "reports/latest.md").exists()
+
+
+def test_main_quality_check_fail_open_disabled_still_blocks(monkeypatch, tmp_path):
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv("QWEN_API_KEY", "test-key")
+    monkeypatch.setenv("QUALITY_CHECK_FAIL_OPEN", "0")
+    monkeypatch.setenv("TOP_N", "5")
+    monkeypatch.setenv("MAX_ITEMS", "10")
+
+    item = {
+        "title": "OpenAI 发布新模型",
+        "link": "https://openai.com/news/new-model",
+        "summary": "官方发布新模型并更新能力说明。",
+        "published": "2026-03-03T00:00:00+00:00",
+    }
+    selected_item = {
+        **item,
+        "brief": "OpenAI 发布新模型并披露关键能力升级。",
+        "details": "官方说明包含模型能力更新与适用范围。",
+        "impact": "有助于开发者更快落地相关应用。",
+        "score": "100",
+        "key_points": ["官方已发布", "包含能力升级"],
+    }
+
+    monkeypatch.setattr(main, "load_sources", lambda path="sources.txt": ["https://openai.com/news/rss.xml"])
+    monkeypatch.setattr(main, "fetch_items", lambda **kwargs: [item])
+    monkeypatch.setattr(main, "rank_and_summarize", lambda **kwargs: [selected_item])
+    monkeypatch.setattr(main, "localize_items_to_chinese", lambda items, **kwargs: items)
+    monkeypatch.setattr(main, "check_category_balance", lambda items: {})
+    monkeypatch.setattr(main, "run_quality_checks", lambda **kwargs: 1)
+
+    try:
+        main.main()
+        assert False, "expected RuntimeError"
+    except RuntimeError as exc:
+        assert "自动修复后质检仍未通过" in str(exc)
