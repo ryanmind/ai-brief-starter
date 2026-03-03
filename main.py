@@ -6,6 +6,7 @@ import logging
 import os
 import re
 from datetime import datetime, timedelta, timezone
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any, Optional
 from urllib.parse import urlparse
@@ -898,52 +899,79 @@ def expand_source_urls(source: str) -> list[str]:
     return [source]
 
 
-def fetch_items(sources: list[str], hours: int = 36, per_source: int = 30) -> list[dict[str, str]]:
+def _fetch_single_source(
+    source: str, cutoff: datetime, per_source: int,
+) -> tuple[str, list[dict[str, str]], str | None]:
+    """抓取单个 RSS 源，返回 (source_url, items, error_reason)。"""
+    try:
+        feed = feedparser.parse(source)
+    except Exception as exc:
+        return source, [], str(exc)
+
+    entries = getattr(feed, "entries", [])
+    if getattr(feed, "bozo", 0) and not entries:
+        return source, [], str(getattr(feed, "bozo_exception", "bozo"))
+    if not entries:
+        return source, [], None
+
+    parsed_items: list[dict[str, str]] = []
+    for entry in entries[:per_source]:
+        title = clean_text(entry.get("title", ""))
+        raw_link = (entry.get("link", "") or "").split("#")[0]
+        link = normalize_link_for_source(source_url=source, link=raw_link)
+        summary = clean_text(entry.get("summary", "") or entry.get("description", ""))
+        published = parse_time(entry)
+
+        if not title or not link:
+            continue
+        if published and published < cutoff:
+            continue
+
+        parsed_items.append(
+            {
+                "title": title[:200],
+                "link": link,
+                "summary": summary[:1000],
+                "published": published.isoformat() if published else "",
+            }
+        )
+    return source, parsed_items, None
+
+
+def fetch_items(
+    sources: list[str], hours: int = 36, per_source: int = 30, max_workers: int = 10,
+) -> list[dict[str, str]]:
     cutoff = datetime.now(timezone.utc) - timedelta(hours=hours)
     items: list[dict[str, str]] = []
     seen: set[str] = set()
     source_stats: dict[str, int] = {"success": 0, "empty": 0, "error": 0}
     failed_sources: list[str] = []
 
-    for source in sources:
-        feed = feedparser.parse(source)
-        entries = getattr(feed, "entries", [])
-
-        if getattr(feed, "bozo", 0) and not entries:
-            source_stats["error"] += 1
-            failed_sources.append(source)
-            logger.warning("source fetch failed: %s (reason=%s)", source, getattr(feed, "bozo_exception", "unknown"))
-            continue
-        if not entries:
-            source_stats["empty"] += 1
-            continue
-
-        source_stats["success"] += 1
-        for entry in entries[:per_source]:
-            title = clean_text(entry.get("title", ""))
-            raw_link = (entry.get("link", "") or "").split("#")[0]
-            link = normalize_link_for_source(source_url=source, link=raw_link)
-            summary = clean_text(entry.get("summary", "") or entry.get("description", ""))
-            published = parse_time(entry)
-
-            if not title or not link:
+    with ThreadPoolExecutor(max_workers=max_workers) as pool:
+        futures = {
+            pool.submit(_fetch_single_source, src, cutoff, per_source): src
+            for src in sources
+        }
+        for future in as_completed(futures, timeout=180):
+            source, source_items, error = future.result()
+            if error:
+                source_stats["error"] += 1
+                failed_sources.append(source)
+                logger.warning("source fetch failed: %s (reason=%s)", source, error)
                 continue
-            if published and published < cutoff:
+            if not source_items:
+                source_stats["empty"] += 1
                 continue
 
-            key = hashlib.md5((link.split("?")[0] + "|" + title.lower()).encode("utf-8")).hexdigest()
-            if key in seen:
-                continue
-            seen.add(key)
-
-            items.append(
-                {
-                    "title": title[:200],
-                    "link": link,
-                    "summary": summary[:1000],
-                    "published": published.isoformat() if published else "",
-                }
-            )
+            source_stats["success"] += 1
+            for parsed in source_items:
+                key = hashlib.md5(
+                    (parsed["link"].split("?")[0] + "|" + parsed["title"].lower()).encode("utf-8")
+                ).hexdigest()
+                if key in seen:
+                    continue
+                seen.add(key)
+                items.append(parsed)
 
     logger.info(
         "source fetch stats: success=%s empty=%s error=%s total=%s",
