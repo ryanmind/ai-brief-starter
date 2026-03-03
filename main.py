@@ -1532,11 +1532,8 @@ def check_category_balance(items: list[dict[str, str]]) -> dict[str, int]:
 
 def render_markdown(items: list[dict[str, str]]) -> str:
     now = datetime.now()
-    today = now.strftime("%Y-%m-%d")
     today_cn = now.strftime("%Y年%m月%d日%H:%M:%S")
     lines = [
-        f"# AI 早报（{today}）",
-        "",
         f"## 📰 AI 早报 · {today_cn}",
         "",
         "### 📌 本期摘要",
