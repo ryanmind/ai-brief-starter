@@ -40,7 +40,7 @@ def test_fact_overlap_ratio():
 
 def test_extractive_brief():
     # 优先抽取第一句
-    assert extractive_brief({"title": "标题", "summary": "第一句。第二句！"}) == "第一句。"
+    assert extractive_brief({"title": "标题", "summary": "第一句。第二句！"}) == "第一句"
     
     # 没有标点时抽取前 160 字
     long_text = "我" * 200
@@ -70,7 +70,7 @@ def test_sanitize_item_factuality():
         sanitized = sanitize_item_factuality(item)
     finally:
         main.FACT_OVERLAP_MIN = old_min
-    assert sanitized["brief"] == "这是原始摘要的第一句。"
+    assert sanitized["brief"] == "这是原始摘要的第一句"
     
     # 此时 details 也会被重置为抽取式的第二句或等于 brief
     assert sanitized["details"].startswith("这是原始摘要的第一句")
