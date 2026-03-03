@@ -1223,7 +1223,7 @@ def localize_items_to_chinese(
     if not isinstance(rows, list):
         return items
 
-    localized: list[dict[str, str]] = []
+    id_to_row: dict[int, dict] = {}
     for row in rows:
         if not isinstance(row, dict):
             continue
@@ -1231,29 +1231,36 @@ def localize_items_to_chinese(
             idx = int(row.get("id", 0))
         except (TypeError, ValueError):
             continue
-        if idx < 1 or idx > len(items):
+        if 1 <= idx <= len(items):
+            id_to_row[idx] = row
+
+    localized: list[dict[str, str]] = []
+    for idx, item in enumerate(items, 1):
+        row = id_to_row.get(idx)
+        if row is None:
+            localized.append(item)
             continue
 
-        item = items[idx - 1].copy()
+        merged = item.copy()
         title_cn = clean_text(str(row.get("title", "")))[:TITLE_MAX_CHARS]
         brief_cn = clean_text(str(row.get("brief", "")))[:BRIEF_MAX_CHARS]
         details_cn = clean_text(str(row.get("details", "")))[:DETAIL_MAX_CHARS]
         impact_cn = clean_text(str(row.get("impact", "")))[:IMPACT_MAX_CHARS]
 
         if title_cn:
-            item["title"] = title_cn
+            merged["title"] = title_cn
         if brief_cn:
-            item["brief"] = brief_cn
+            merged["brief"] = brief_cn
         if details_cn:
-            item["details"] = details_cn
+            merged["details"] = details_cn
         if impact_cn:
-            item["impact"] = impact_cn
-        item["key_points"] = finalize_key_points(normalize_key_points(row.get("key_points")), item)
-        localized.append(item)
+            merged["impact"] = impact_cn
+        merged["key_points"] = finalize_key_points(normalize_key_points(row.get("key_points")), merged)
+        localized.append(merged)
 
-    if len(localized) != len(items):
-        logger.warning("localize_items_to_chinese: 本地化条目数不匹配，回退原文。")
-        return items
+    missed = len(items) - len(id_to_row)
+    if missed > 0:
+        logger.warning("localize_items_to_chinese: %d/%d 条未被本地化，保留原文。", missed, len(items))
     return fix_items_detail(localized)
 
 
