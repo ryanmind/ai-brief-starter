@@ -249,6 +249,35 @@ def test_render_markdown_hides_empty_field_lines():
     assert "**来源**：" not in markdown
 
 
+def test_force_no_ascii_text_cleans_social_noise():
+    raw = (
+        "@ , @ AI - ’ AI；全球首个网络级语音助手；嵌入电信网络基础设施；"
+        "支持实时通话智能；@ , @ AI - ’ AI - AI。"
+    )
+    cleaned = main.force_no_ascii_text(raw)
+    assert cleaned == "全球首个网络级语音助手；嵌入电信网络基础设施；支持实时通话智能"
+    assert ",," not in cleaned
+    assert "@" not in cleaned
+
+
+def test_render_markdown_compacts_field_spacing():
+    markdown = main.render_markdown(
+        [
+            {
+                "title": "测试条目",
+                "brief": "这是摘要",
+                "details": "这是细节（内部字段，不应直接渲染）",
+                "impact": "这是影响",
+                "key_points": ["要点一", "要点二"],
+                "link": "https://example.com",
+            }
+        ]
+    )
+    assert "**细节**：" not in markdown
+    assert "\n\n**影响分析**：" not in markdown
+    assert "\n\n**来源**：" not in markdown
+
+
 def test_main_quality_check_fail_open_keeps_pipeline_running(monkeypatch, tmp_path):
     monkeypatch.chdir(tmp_path)
     monkeypatch.setenv("QWEN_API_KEY", "test-key")

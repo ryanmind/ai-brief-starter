@@ -55,10 +55,10 @@
 - 可用 `HISTORY_STATE_MAX_DAYS` 控制去重索引保留天数（默认 `14`）。
 - 若条目不足会自动扩大抓取窗口（`FETCH_HOURS=24`，`FALLBACK_FETCH_HOURS=72`），尽量补足 `TOP_N`。
 - 可用 `PER_SOURCE_ITEMS` 提高单源抓取条数（默认 `30`），提升候选池丰富度。
-- 详细快讯包含 `摘要/细节/关键点/影响`，并输出 `关键点` 列表（2-3条短 bullet），更适合朋友圈/公众号发布。
+- 详细快讯按模板输出 `摘要/关键点/影响分析/来源`，并输出 `关键点` 列表（2-3条短 bullet），更适合朋友圈/公众号发布。
 - 可用 `BRIEF_MAX_CHARS`、`DETAIL_MAX_CHARS`、`IMPACT_MAX_CHARS` 调整每条内容长度（默认 160/260/140）。
-- 可用 `DETAIL_MIN_CHARS` 约束细节最小信息量（默认 48），低于阈值会自动尝试用原始摘要补全，质量检查也会拦截。
-- 默认开启事实保守模式（`STRICT_FACT_MODE=1`），若摘要/细节与原文摘要重合度过低或出现新数字，会自动回退到抽取式写法。
+- `DETAIL_*` 参数仅用于内部抽取与事实约束，不会直接作为模板展示字段输出。
+- 默认开启事实保守模式（`STRICT_FACT_MODE=1`），若摘要与原文重合度过低或出现新数字，会自动回退到抽取式写法。
 - 可用 `FACT_OVERLAP_MIN` 调整事实重合阈值（默认 `0.55`，越高越保守）。
 - 渲染后会执行自动修复与二次质检，保障结构完整与事实一致性。
 - 质检缺陷默认仅告警不阻断发布；若存在缺陷会在飞书通知中追加“质检提醒”。
@@ -71,5 +71,5 @@
 - 如配置 `FEISHU_REPORT_FOLDER_TOKEN`，每日新文档会创建在指定文件夹；`FEISHU_REPORT_DOC_URL` 可作为总览入口链接附在消息中。
 - `FEISHU_DOC_SYNC_REQUIRED` 默认 `1`，未配置文档写入凭证会直接失败；如仅需群通知可设为 `0`。
 - 默认不跟踪 `reports/*.md`，工作流通过 artifact 与飞书保留结果。
-- 可运行 `python scripts/report_quality_check.py reports/latest.md --autofix` 做质量闸门检查并自动修复细节字段（标题完整率/二手域名/关键点格式）。
+- 可运行 `python scripts/report_quality_check.py reports/latest.md --autofix` 做质量闸门检查并自动修复摘要/关键点字段（标题完整率/二手域名/关键点格式）。
 - 可运行 `python scripts/source_health_check.py --output reports/source_health.md` 做信息源健康检查。

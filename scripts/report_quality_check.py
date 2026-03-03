@@ -394,7 +394,7 @@ def extract_report_items(text: str) -> list[dict[str, object]]:
     return cleaned
 
 
-def autofix_report(path: Path, detail_min_chars: int, key_points_min_count: int, key_points_max_count: int, key_point_max_chars: int) -> int:
+def autofix_report(path: Path, key_points_min_count: int, key_points_max_count: int, key_point_max_chars: int) -> int:
     text = path.read_text(encoding="utf-8")
     lines = text.splitlines()
     if not lines:
@@ -428,31 +428,6 @@ def autofix_report(path: Path, detail_min_chars: int, key_points_min_count: int,
                 summary_idx = insert_at
                 summary_prefix = "**摘要**："
             summary = new_summary
-
-        # Detail autofix
-        needs_detail_fix = (
-            not detail
-            or len(detail) < detail_min_chars
-            or (summary and normalize_for_compare(summary) == normalize_for_compare(detail))
-            or any(phrase in detail for phrase in DETAIL_WEAK_PHRASES)
-        )
-        if needs_detail_fix:
-            new_detail = build_detail_from_existing_fields(
-                title=title,
-                summary=summary,
-                detail=detail,
-                key_points=key_points,
-                min_chars=detail_min_chars,
-            )
-            detail_idx = item.get("detail_idx")
-            if isinstance(detail_idx, int):
-                prefix = str(item.get("detail_prefix", "**细节**："))
-                edits.append((detail_idx, detail_idx + 1, [f"{prefix}{new_detail}"]))
-            else:
-                insert_at = title_idx + 1 if isinstance(title_idx, int) else 0
-                if isinstance(summary_idx, int):
-                    insert_at = summary_idx + 1
-                edits.append((insert_at, insert_at, [f"**细节**：{new_detail}"]))
 
         # Key points autofix
         too_long_points = [point for point in key_points if len(point) > key_point_max_chars]
@@ -640,7 +615,7 @@ def evaluate_report(path: Path, strict_mode: bool) -> Evaluation:
     blocked_hits: list[str] = []
     missing_source_issues: list[str] = []
     structure_issues: list[str] = []
-    detail_issues: list[str] = []
+    optional_detail_issues: list[str] = []
     key_point_issues: list[str] = []
     missing_impact_issues: list[str] = []
 
@@ -669,15 +644,13 @@ def evaluate_report(path: Path, strict_mode: bool) -> Evaluation:
             if host_matches(normalize_host(source), blocked_domains):
                 blocked_hits.append(source)
 
-        if not detail:
-            detail_issues.append(f"{idx}) {title}: 缺少细节字段")
-        else:
+        if detail:
             if len(detail) < detail_min_chars:
-                detail_issues.append(f"{idx}) {title}: 细节过短(len={len(detail)})")
+                optional_detail_issues.append(f"{idx}) {title}: 细节过短(len={len(detail)})")
             if summary and normalize_for_compare(summary) == normalize_for_compare(detail):
-                detail_issues.append(f"{idx}) {title}: 细节与摘要重复")
+                optional_detail_issues.append(f"{idx}) {title}: 细节与摘要重复")
             if any(phrase in detail for phrase in DETAIL_WEAK_PHRASES):
-                detail_issues.append(f"{idx}) {title}: 细节内容过泛")
+                optional_detail_issues.append(f"{idx}) {title}: 细节内容过泛")
 
         points = item.get("key_points", [])
         if not isinstance(points, list):
@@ -705,8 +678,6 @@ def evaluate_report(path: Path, strict_mode: bool) -> Evaluation:
             f"primary source ratio {primary_source_ratio:.2f} < threshold {primary_source_ratio_min:.2f}",
             as_error=True,
         )
-    if detail_issues:
-        add_failure("detail_quality", "detail quality issues found", as_error=strict_mode)
     if key_point_issues:
         add_failure("key_points", "key point format issues found", as_error=strict_mode)
 
@@ -717,11 +688,12 @@ def evaluate_report(path: Path, strict_mode: bool) -> Evaluation:
         if dominant_count / total >= 0.7:
             warnings.append(f"category imbalance warning: {dominant_category}={dominant_count}/{total}")
 
+    detail_values = [clean_text(str(item.get("detail", ""))) for item in items if clean_text(str(item.get("detail", "")))]
     avg_detail_len = 0.0
-    if items:
-        avg_detail_len = sum(len(clean_text(str(item.get("detail", "")))) for item in items) / len(items)
+    if detail_values:
+        avg_detail_len = sum(len(value) for value in detail_values) / len(detail_values)
         if avg_detail_len < detail_min_chars + 8:
-            warnings.append(f"style warning: average detail length is low ({avg_detail_len:.1f})")
+            warnings.append(f"legacy detail warning: average detail length is low ({avg_detail_len:.1f})")
 
     if missing_impact_issues:
         warnings.append(f"non-core field warning: missing impact on {len(missing_impact_issues)} item(s)")
@@ -735,11 +707,11 @@ def evaluate_report(path: Path, strict_mode: bool) -> Evaluation:
         "blocked_sources": len(blocked_hits),
         "missing_source_issues": len(missing_source_issues),
         "structure_issues": len(structure_issues),
-        "detail_issues": len(detail_issues),
+        "optional_detail_issues": len(optional_detail_issues),
         "key_point_issues": len(key_point_issues),
         "warning_count": len(warnings),
         "missing_impact_count": len(missing_impact_issues),
-        "avg_detail_len": round(avg_detail_len, 2),
+        "legacy_avg_detail_len": round(avg_detail_len, 2),
         "high_risk_count": len(high_risk_items),
         "category_counts": category_counts,
         "failure_reasons": dict(sorted(failure_reasons.items(), key=lambda item: item[1], reverse=True)),
@@ -751,7 +723,7 @@ def evaluate_report(path: Path, strict_mode: bool) -> Evaluation:
         f"items={metrics['total_items']}",
         f"title_complete_ratio={metrics['title_complete_ratio']}",
         f"primary_source_ratio={metrics['primary_source_ratio']}",
-        f"detail_issues={metrics['detail_issues']}",
+        f"optional_detail_issues={metrics['optional_detail_issues']}",
         f"key_point_issues={metrics['key_point_issues']}",
         f"warnings={metrics['warning_count']}",
     )
@@ -772,16 +744,15 @@ def evaluate_report(path: Path, strict_mode: bool) -> Evaluation:
         for hit in blocked_hits:
             print(f"- {hit}")
 
-    if detail_issues:
-        level = "ERROR" if strict_mode else "WARN"
-        print(f"{level}: detail quality issues found:")
-        for issue in detail_issues:
-            print(f"- {issue}")
-
     if key_point_issues:
         level = "ERROR" if strict_mode else "WARN"
         print(f"{level}: key point format issues found:")
         for issue in key_point_issues:
+            print(f"- {issue}")
+
+    if optional_detail_issues:
+        print("WARN: optional detail quality issues found:")
+        for issue in optional_detail_issues:
             print(f"- {issue}")
 
     for warning in warnings:
@@ -801,7 +772,6 @@ def run_checks(
         return 1
 
     strict_mode = is_enabled(os.getenv("QUALITY_CHECK_STRICT"), default=True)
-    detail_min_chars = int(os.getenv("DETAIL_MIN_CHARS", "48"))
     key_points_min_count = int(os.getenv("KEY_POINTS_MIN_COUNT", "2"))
     key_points_max_count = int(os.getenv("KEY_POINTS_MAX_COUNT", "3"))
     key_point_max_chars = int(os.getenv("KEY_POINT_MAX_CHARS", "28"))
@@ -810,7 +780,6 @@ def run_checks(
     if autofix:
         repaired_count = autofix_report(
             path,
-            detail_min_chars=detail_min_chars,
             key_points_min_count=key_points_min_count,
             key_points_max_count=key_points_max_count,
             key_point_max_chars=key_point_max_chars,
@@ -845,7 +814,7 @@ def run_checks(
 def main() -> int:
     parser = argparse.ArgumentParser(description="Validate report quality.")
     parser.add_argument("report", nargs="?", default="reports/latest.md")
-    parser.add_argument("--autofix", action="store_true", help="Auto-repair low-quality detail/key point fields before checks")
+    parser.add_argument("--autofix", action="store_true", help="Auto-repair summary/key point fields before checks")
     parser.add_argument("--metrics-output", default="", help="Optional JSON output path for quality metrics")
     parser.add_argument("--high-risk-output", default="", help="Optional markdown output path for high-risk items")
     args = parser.parse_args()

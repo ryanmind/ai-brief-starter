@@ -238,6 +238,78 @@ ASCII_TERM_REPLACEMENTS: tuple[tuple[str, str], ...] = (
     (r"(?i)\bsdk\b", "开发工具包"),
 )
 
+LOW_SIGNAL_TERMS: tuple[str, ...] = (
+    "人工智能",
+    "大模型",
+    "生成式模型",
+    "智能体",
+    "图像",
+    "视频",
+    "音频",
+    "接口",
+    "开发工具包",
+)
+LOW_SIGNAL_CLAUSE_PATTERN = re.compile(
+    r"^(?:" + "|".join(re.escape(term) for term in LOW_SIGNAL_TERMS) + r")+$"
+)
+
+
+def collapse_duplicate_punctuation(text: str) -> str:
+    value = text
+    value = re.sub(r"[，,]{2,}", "，", value)
+    value = re.sub(r"[；;]{2,}", "；", value)
+    value = re.sub(r"[：:]{2,}", "：", value)
+    value = re.sub(r"([，,；;：:])(?:\s*[，,；;：:])+", r"\1", value)
+    return value
+
+
+def sanitize_generated_clause(text: str) -> str:
+    clause = clean_text(text)
+    if not clause:
+        return ""
+    clause = re.sub(r"(?<!\w)@+(?!\w)", " ", clause)
+    clause = re.sub(r"[‘’'\"“”]+", "", clause)
+    clause = re.sub(r"\s*[-—–]+\s*", "-", clause)
+    clause = collapse_duplicate_punctuation(clause)
+    clause = clause.strip(" ，,。；;：:、-—–")
+    compact = re.sub(r"[，,。；;：:、\-—–\s]", "", clause)
+    if not compact:
+        return ""
+    if LOW_SIGNAL_CLAUSE_PATTERN.fullmatch(compact):
+        return ""
+    return clause
+
+
+def clean_generated_text(text: str) -> str:
+    value = clean_text(text)
+    if not value:
+        return ""
+
+    value = collapse_duplicate_punctuation(value)
+    clauses = re.split(r"[；;]+", value)
+    cleaned_clauses: list[str] = []
+    seen: set[str] = set()
+    for clause in clauses:
+        cleaned = sanitize_generated_clause(clause)
+        if not cleaned:
+            continue
+        key = key_point_dedupe_key(cleaned)
+        if key and key in seen:
+            continue
+        if key:
+            seen.add(key)
+        cleaned_clauses.append(cleaned)
+
+    if cleaned_clauses:
+        value = "；".join(cleaned_clauses)
+    else:
+        value = sanitize_generated_clause(value)
+
+    value = collapse_duplicate_punctuation(value)
+    value = re.sub(r"\s*([，,；;：:])\s*", r"\1", value)
+    value = re.sub(r"([，,；;：:])[。！？!?]+", r"\1", value)
+    return value.strip(" ，,。；;：:-")
+
 
 def has_ascii_letters(text: str) -> bool:
     return bool(re.search(r"[A-Za-z]", clean_text(text)))
@@ -248,12 +320,12 @@ def force_no_ascii_text(text: str, fallback: str = "", max_chars: int = 0) -> st
     for pattern, replacement in ASCII_TERM_REPLACEMENTS:
         value = re.sub(pattern, replacement, value)
     value = re.sub(r"[A-Za-z]+(?:[0-9._/\-]*[A-Za-z0-9]*)*", "", value)
-    value = re.sub(r"\s+", " ", value).strip(" ，,。；;：:-")
+    value = clean_generated_text(value)
     if not value:
-        value = clean_text(fallback)
+        value = clean_generated_text(fallback)
     if max_chars > 0:
         value = value[:max_chars]
-    return value.strip(" ，,。；;：:-")
+    return clean_generated_text(value)
 
 
 def force_chinese_item_fields(item: dict[str, str]) -> dict[str, str]:
@@ -1510,8 +1582,8 @@ def render_markdown(items: list[dict[str, str]]) -> str:
     ]
 
     for idx, item in enumerate(items[:5], 1):
-        title = clean_text(item.get("title", ""))
-        brief = shorten_for_highlight(item.get("brief", ""))
+        title = clean_generated_text(item.get("title", ""))
+        brief = shorten_for_highlight(clean_generated_text(item.get("brief", "")))
         if not title and not brief:
             continue
         if title and brief:
@@ -1524,30 +1596,26 @@ def render_markdown(items: list[dict[str, str]]) -> str:
     lines.append("")
     lines.append("---")
     for idx, item in enumerate(items, 1):
-        brief = ensure_sentence_end(item.get("brief", ""))
-        details = ensure_sentence_end(item.get("details", ""))
-        impact = ensure_sentence_end(item.get("impact", ""))
-        title = clean_text(item.get("title", ""))
+        brief = ensure_sentence_end(clean_generated_text(item.get("brief", "")))
+        impact = ensure_sentence_end(clean_generated_text(item.get("impact", "")))
+        title = clean_generated_text(item.get("title", ""))
         source = nitter_to_x_url((item.get("link", "") or "").strip())
-        key_points = [point for point in normalize_key_points(item.get("key_points")) if clean_text(point)]
+        key_points: list[str] = []
+        for point in normalize_key_points(item.get("key_points")):
+            cleaned_point = clean_generated_text(point)
+            if cleaned_point:
+                key_points.append(cleaned_point)
 
-        entry_lines = ["", f"### {idx}. {title or '未命名条目'}", ""]
+        entry_lines = ["", f"### {idx}. {title or '未命名条目'}"]
         if brief:
             entry_lines.append(f"**摘要**：{brief}")
-            entry_lines.append("")
-        if details:
-            entry_lines.append(f"**细节**：{details}")
-            entry_lines.append("")
         if key_points:
             entry_lines.append("**关键点**")
             entry_lines.extend([f"- {point}" for point in key_points])
-            entry_lines.append("")
         if impact:
             entry_lines.append(f"**影响分析**：{impact}")
-            entry_lines.append("")
         if source:
             entry_lines.append(f"**来源**：[原文链接]({source})")
-            entry_lines.append("")
         while entry_lines and not entry_lines[-1].strip():
             entry_lines.pop()
         entry_lines.append("---")

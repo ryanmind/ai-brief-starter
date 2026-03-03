@@ -6,6 +6,7 @@
 - `scripts/`: operational tools (`notify_feishu.py`, `report_quality_check.py`, `source_health_check.py`).
 - `tests/`: `pytest` suite for text utilities, fact checks, resilience, and script-level quality checks.
 - `reports/`: runtime outputs (for example `latest.md`, health reports); treat as generated artifacts.
+- `TEMPLATE.md`: template standard file and must not be modified; adapt output only through generation logic.
 - `.github/workflows/`: CI schedules for daily brief generation and weekly source-health checks.
 
 ## Build, Test, and Development Commands
@@ -13,7 +14,7 @@
 - `pip install -r requirements.txt`: install runtime and test dependencies.
 - `python main.py`: run the full brief pipeline locally and write outputs to `reports/`.
 - `python -m pytest tests/ -v`: run all unit tests.
-- `python scripts/report_quality_check.py reports/latest.md --autofix`: enforce/repair report format and detail quality.
+- `python scripts/report_quality_check.py reports/latest.md --autofix`: enforce/repair report format (summary/key points and related checks).
 - `python scripts/source_health_check.py --output reports/source_health.md`: audit source availability and diversity.
 
 ## Coding Style & Naming Conventions
