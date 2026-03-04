@@ -212,6 +212,9 @@ def to_safe_text(markdown_or_text: str) -> str:
     link = MARKDOWN_LINK_PATTERN.search(markdown_or_text)
     if link:
         return f"[{link.group('label')}]({link.group('url')})"
+    url = URL_PATTERN.search(markdown_or_text)
+    if url:
+        return f"[原文链接]({url.group(0)})"
     return markdown_or_text
 
 
