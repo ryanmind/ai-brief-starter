@@ -1,8 +1,18 @@
 /* 自定义样式 */
 
+:root {
+  --brief-card-border: color-mix(in srgb, var(--md-default-fg-color) 12%, transparent);
+  --brief-card-bg: color-mix(in srgb, var(--md-default-bg-color) 92%, var(--md-primary-fg-color) 8%);
+}
+
+[data-md-color-scheme="slate"] {
+  --brief-card-border: color-mix(in srgb, var(--md-default-fg-color) 20%, transparent);
+  --brief-card-bg: color-mix(in srgb, var(--md-default-bg-color) 88%, var(--md-primary-fg-color) 12%);
+}
+
 /* 内容最大宽度 */
 .md-content {
-  max-width: 900px;
+  max-width: 960px;
 }
 
 /* 中文排版优化 */
@@ -45,6 +55,44 @@
 /* Admonition 样式 */
 .md-content .admonition {
   border-radius: 8px;
+}
+
+/* 头部信息样式 */
+.md-typeset blockquote {
+  border-inline-start-color: var(--md-primary-fg-color);
+  background: color-mix(in srgb, var(--md-default-bg-color) 94%, var(--md-primary-fg-color) 6%);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+}
+
+/* 今日看板与 TOP 卡片 */
+.md-typeset .brief-kpi-grid > ul > li,
+.md-typeset .brief-top-grid > ul > li {
+  border: 1px solid var(--brief-card-border);
+  background: var(--brief-card-bg);
+  border-radius: 12px;
+}
+
+.md-typeset .brief-top-grid > ul > li {
+  min-height: 98px;
+}
+
+/* 折叠详情卡片 */
+.md-typeset details.info {
+  border: 1px solid var(--brief-card-border);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--md-default-bg-color) 95%, var(--md-primary-fg-color) 5%);
+  box-shadow: 0 4px 14px rgb(0 0 0 / 3%);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.md-typeset details.info summary {
+  font-weight: 600;
+}
+
+.md-typeset details.info[open] {
+  border-color: color-mix(in srgb, var(--md-primary-fg-color) 60%, var(--brief-card-border));
+  box-shadow: 0 8px 18px rgb(0 0 0 / 6%);
 }
 
 /* 页脚优化 */

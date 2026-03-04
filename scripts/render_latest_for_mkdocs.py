@@ -11,6 +11,82 @@ SUMMARY_HEADER = "### 📌 本期摘要"
 SUMMARY_HEADERS = (SUMMARY_HEADER, "## 今日要点", "## 30秒导读")
 ITEM_HEADER_PATTERN = re.compile(r"^###\s+(\d+)[\.\)、)]\s+(.+)$")
 MARKDOWN_LINK_PATTERN = re.compile(r"\[(?P<label>[^\]]+)\]\((?P<url>[^)]+)\)")
+URL_PATTERN = re.compile(r"https?://[^\s)]+")
+MANUAL_TAG_PATTERN = re.compile(r"(?<!\w)#([A-Za-z][A-Za-z0-9_-]*|[\u4e00-\u9fff]{1,8})")
+MANUAL_DIRECTIVE_PATTERN = re.compile(r"\[(?:cat|category|分类)\s*:\s*([A-Za-z\u4e00-\u9fff_-]+)\]", re.IGNORECASE)
+
+CATEGORY_MODEL = "model"
+CATEGORY_PAPER = "paper"
+CATEGORY_PRODUCT = "product"
+CATEGORY_ORDER = (CATEGORY_MODEL, CATEGORY_PAPER, CATEGORY_PRODUCT)
+CATEGORY_LABELS = {
+    CATEGORY_MODEL: "🤖 模型进展",
+    CATEGORY_PAPER: "🧪 论文研究",
+    CATEGORY_PRODUCT: "🏢 产品与行业",
+}
+CATEGORY_ICONS = {
+    CATEGORY_MODEL: "material/robot-outline",
+    CATEGORY_PAPER: "material/flask-outline",
+    CATEGORY_PRODUCT: "material/office-building-outline",
+}
+MODEL_KEYWORDS = (
+    "gpt",
+    "gemini",
+    "claude",
+    "grok",
+    "qwen",
+    "llama",
+    "deepseek",
+    "mistral",
+    "llm",
+    "模型",
+    "模型卡",
+    "system card",
+    "flash",
+    "instant",
+)
+MODEL_WEAK_KEYWORDS = ("agent", "推理", "reasoning", "inference")
+PAPER_STRONG_KEYWORDS = ("arxiv", "论文", "预印本", "preprint")
+PRODUCT_KEYWORDS = (
+    "发布",
+    "上线",
+    "推出",
+    "更新",
+    "版本",
+    "sdk",
+    "融资",
+    "合作",
+    "平台",
+    "生态",
+    "changelog",
+    "release",
+    "投资",
+    "并购",
+    "收购",
+)
+PRODUCT_STRONG_KEYWORDS = (
+    "融资",
+    "并购",
+    "收购",
+    "合作",
+    "版本",
+    "release",
+    "changelog",
+)
+MANUAL_CATEGORY_ALIASES = {
+    "model": CATEGORY_MODEL,
+    "models": CATEGORY_MODEL,
+    "llm": CATEGORY_MODEL,
+    "模型": CATEGORY_MODEL,
+    "paper": CATEGORY_PAPER,
+    "research": CATEGORY_PAPER,
+    "论文": CATEGORY_PAPER,
+    "product": CATEGORY_PRODUCT,
+    "industry": CATEGORY_PRODUCT,
+    "business": CATEGORY_PRODUCT,
+    "产品": CATEGORY_PRODUCT,
+    "行业": CATEGORY_PRODUCT,
+}
 
 
 @dataclass
@@ -139,11 +215,160 @@ def to_safe_text(markdown_or_text: str) -> str:
     return markdown_or_text
 
 
+def normalize_manual_tag(token: str) -> str:
+    return token.strip().lower().replace("-", "_")
+
+
+def detect_manual_category(item: BriefItem) -> str | None:
+    text_fields = [item.title, item.summary, item.detail, item.impact, *item.key_points, *item.extra_lines, item.source]
+    for text in text_fields:
+        if not text:
+            continue
+        for directive in MANUAL_DIRECTIVE_PATTERN.finditer(text):
+            category = MANUAL_CATEGORY_ALIASES.get(normalize_manual_tag(directive.group(1)))
+            if category:
+                return category
+        for hashtag in MANUAL_TAG_PATTERN.finditer(text):
+            category = MANUAL_CATEGORY_ALIASES.get(normalize_manual_tag(hashtag.group(1)))
+            if category:
+                return category
+    return None
+
+
+def strip_manual_category_tags(text: str) -> str:
+    if not text:
+        return text
+
+    def _replace_directive(match: re.Match[str]) -> str:
+        token = normalize_manual_tag(match.group(1))
+        return "" if token in MANUAL_CATEGORY_ALIASES else match.group(0)
+
+    def _replace_hashtag(match: re.Match[str]) -> str:
+        token = normalize_manual_tag(match.group(1))
+        return "" if token in MANUAL_CATEGORY_ALIASES else match.group(0)
+
+    cleaned = MANUAL_DIRECTIVE_PATTERN.sub(_replace_directive, text)
+    cleaned = MANUAL_TAG_PATTERN.sub(_replace_hashtag, cleaned)
+    cleaned = re.sub(r"\s{2,}", " ", cleaned).strip()
+    return cleaned
+
+
+def extract_url(markdown_or_text: str) -> str:
+    if not markdown_or_text:
+        return ""
+    link = MARKDOWN_LINK_PATTERN.search(markdown_or_text)
+    if link:
+        return link.group("url").strip()
+    url = URL_PATTERN.search(markdown_or_text)
+    if url:
+        return url.group(0).strip()
+    return ""
+
+
+def compact_text(text: str) -> str:
+    if not text:
+        return ""
+    text = strip_manual_category_tags(text)
+    without_links = MARKDOWN_LINK_PATTERN.sub(lambda match: match.group("label"), text)
+    collapsed = re.sub(r"\s+", " ", without_links).strip()
+    return collapsed.strip("。")
+
+
+def truncate_text(text: str, limit: int = 72) -> str:
+    compacted = compact_text(text)
+    if len(compacted) <= limit:
+        return compacted
+    trimmed = compacted[: limit - 1].rstrip(" ,，。；;：:")
+    return f"{trimmed}…"
+
+
+def classify_item(item: BriefItem) -> str:
+    manual_category = detect_manual_category(item)
+    if manual_category:
+        return manual_category
+
+    source_url = extract_url(item.source).lower()
+    text_blob = " ".join([item.title, item.summary, item.detail, item.impact, *item.key_points]).lower()
+    paper_blob = " ".join([item.title, item.summary, item.source]).lower()
+
+    if "arxiv.org" in source_url or any(keyword in paper_blob for keyword in PAPER_STRONG_KEYWORDS):
+        return CATEGORY_PAPER
+
+    model_score = 0
+    product_score = 0
+
+    model_score += sum(2 for keyword in MODEL_KEYWORDS if keyword in text_blob)
+    model_score += sum(1 for keyword in MODEL_WEAK_KEYWORDS if keyword in text_blob)
+
+    product_score += sum(2 for keyword in PRODUCT_STRONG_KEYWORDS if keyword in text_blob)
+    product_score += sum(1 for keyword in PRODUCT_KEYWORDS if keyword in text_blob)
+
+    if "github.com" in source_url:
+        product_score += 2
+    if "openai.com" in source_url and any(keyword in source_url for keyword in ("/gpt-", "/system-card")):
+        model_score += 2
+
+    if model_score >= product_score + 1:
+        return CATEGORY_MODEL
+    if product_score > 0:
+        return CATEGORY_PRODUCT
+    if any(domain in source_url for domain in ("x.com", "nitter.net", "github.com", "openai.com")):
+        return CATEGORY_PRODUCT
+    return CATEGORY_PRODUCT
+
+
+def group_items_by_category(items: list[BriefItem]) -> dict[str, list[BriefItem]]:
+    grouped = {key: [] for key in CATEGORY_ORDER}
+    for item in items:
+        grouped[classify_item(item)].append(item)
+    return grouped
+
+
+def choose_item_preview(item: BriefItem, limit: int = 86) -> str:
+    for candidate in (item.impact, item.summary, item.detail):
+        text = truncate_text(candidate, limit=limit)
+        if text:
+            return text
+    return "暂无概览"
+
+
+def escape_admonition_title(text: str) -> str:
+    return text.replace('"', '\\"')
+
+
+def append_item_block(output: list[str], item: BriefItem) -> None:
+    cleaned_title = strip_manual_category_tags(item.title)
+    cleaned_summary = strip_manual_category_tags(item.summary)
+    cleaned_detail = strip_manual_category_tags(item.detail)
+    cleaned_impact = strip_manual_category_tags(item.impact)
+
+    output.append(f'??? info "{item.index}. {escape_admonition_title(cleaned_title)}"')
+    output.append(f"    - **摘要**：{cleaned_summary or '暂无'}")
+    if cleaned_detail:
+        output.append(f"    - **细节**：{cleaned_detail}")
+    output.append("    - **关键点**：")
+    if item.key_points:
+        for point in item.key_points:
+            output.append(f"        - {strip_manual_category_tags(point)}")
+    else:
+        output.append("        - 暂无")
+    output.append(f"    - **影响分析**：{cleaned_impact or '暂无'}")
+    source = to_safe_text(item.source)
+    output.append(f"    - **来源**：{source or '暂无'}")
+    if item.extra_lines:
+        output.append("    - **补充**：")
+        for extra in item.extra_lines:
+            output.append(f"        - {strip_manual_category_tags(extra)}")
+    output.append("")
+
+
 def build_mkdocs_latest(markdown: str) -> str:
     lines = markdown.splitlines()
     updated_at = extract_updated_at(lines)
     summary = collect_summary(lines)
     items = parse_items(lines)
+    grouped_items = group_items_by_category(items)
+    top_items = items[:5]
 
     output: list[str] = []
     output.append("# 今日早报")
@@ -154,15 +379,56 @@ def build_mkdocs_latest(markdown: str) -> str:
         output.append("> 更新时间：未知")
     output.append("> 说明：该页面由 `ai-morning-brief` 自动生成并同步。")
     output.append("")
+    output.append("## 今日看板")
+    output.append("")
+    output.append('<div class="grid cards brief-kpi-grid" markdown>')
+    output.append("")
+    output.append("- :material/clock-outline: **更新时间**  ")
+    output.append(f"  {updated_at or '未知'}")
+    output.append("- :material/format-list-numbered: **快讯总数**  ")
+    output.append(f"  {len(items)} 条")
+    for category in CATEGORY_ORDER:
+        output.append(f"- :{CATEGORY_ICONS[category]}: **{CATEGORY_LABELS[category]}**  ")
+        output.append(f"  {len(grouped_items[category])} 条")
+    output.append("")
+    output.append("</div>")
+    output.append("")
     output.append("## 本期摘要")
     output.append("")
     if summary:
         for idx, text in enumerate(summary, start=1):
-            output.append(f"{idx}. {text}")
+            output.append(f"{idx}. {strip_manual_category_tags(text)}")
     else:
         output.append("- 暂无摘要")
     output.append("")
-    output.append("## 详细内容（点击展开）")
+    output.append("## TOP 5 快速导读")
+    output.append("")
+    if top_items:
+        output.append('<div class="grid cards brief-top-grid" markdown>')
+        output.append("")
+        for item in top_items:
+            preview = choose_item_preview(item)
+            output.append(f"- **{item.index}. {strip_manual_category_tags(item.title)}**  ")
+            output.append(f"  {preview}")
+        output.append("")
+        output.append("</div>")
+    else:
+        output.append("- 暂无条目")
+    output.append("")
+    output.append("## 分类速览")
+    output.append("")
+    for category in CATEGORY_ORDER:
+        label = CATEGORY_LABELS[category]
+        category_items = grouped_items[category]
+        output.append(f'=== "{label}（{len(category_items)}）"')
+        if category_items:
+            for item in category_items[:8]:
+                preview = choose_item_preview(item, limit=48)
+                output.append(f"    - **{item.index}. {strip_manual_category_tags(item.title)}**：{preview}")
+        else:
+            output.append("    - 暂无条目")
+        output.append("")
+    output.append("## 全部快讯（按分类折叠）")
     output.append("")
 
     if not items:
@@ -170,25 +436,16 @@ def build_mkdocs_latest(markdown: str) -> str:
         output.append("")
         return "\n".join(output).rstrip() + "\n"
 
-    for item in items:
-        output.append(f'??? info "{item.index}. {item.title}"')
-        output.append(f"    - **摘要**：{item.summary or '暂无'}")
-        if item.detail:
-            output.append(f"    - **细节**：{item.detail}")
-        output.append("    - **关键点**：")
-        if item.key_points:
-            for point in item.key_points:
-                output.append(f"        - {point}")
-        else:
-            output.append("        - 暂无")
-        output.append(f"    - **影响分析**：{item.impact or '暂无'}")
-        source = to_safe_text(item.source)
-        output.append(f"    - **来源**：{source or '暂无'}")
-        if item.extra_lines:
-            output.append("    - **补充**：")
-            for extra in item.extra_lines:
-                output.append(f"        - {extra}")
+    for category in CATEGORY_ORDER:
+        category_items = grouped_items[category]
+        output.append(f"### {CATEGORY_LABELS[category]}（{len(category_items)}）")
         output.append("")
+        if not category_items:
+            output.append("暂无条目。")
+            output.append("")
+            continue
+        for item in category_items:
+            append_item_block(output, item)
 
     return "\n".join(output).rstrip() + "\n"
 
