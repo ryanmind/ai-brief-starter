@@ -200,6 +200,133 @@ def pick_preferred_title(candidate_title: str, fallback_title: str) -> str:
     return candidate
 
 
+SUBJECT_ACTION_MARKERS = (
+    "发布",
+    "推出",
+    "宣布",
+    "上线",
+    "更新",
+    "开源",
+    "达成",
+    "回应",
+    "披露",
+)
+
+
+def title_has_explicit_subject(title: str) -> bool:
+    candidate = clean_text(title)
+    if not candidate:
+        return False
+    if candidate.startswith("@"):
+        return True
+    if re.match(r"^[^/\s]{2,40}/[^/\s]{2,60}\s+", candidate):
+        return True
+
+    lowered = candidate.lower()
+    if re.match(r"^[a-z][\w@./-]{1,40}\s+(?:releases?|launches?|announces?|updates?)\b", lowered):
+        return True
+
+    for marker in SUBJECT_ACTION_MARKERS:
+        pos = candidate.find(marker)
+        if pos <= 0:
+            continue
+        subject = clean_text(candidate[:pos]).strip("：:：- ")
+        if not subject:
+            continue
+        if TITLE_VERSION_ONLY_PATTERN.match(subject):
+            continue
+        if re.match(r"^v?\d+(?:\.\d+){1,3}$", subject, flags=re.IGNORECASE):
+            continue
+        return True
+    return False
+
+
+def build_subject_guaranteed_title(title: str, summary: str, link: str) -> str:
+    candidate = build_contextual_title(title=title, summary=summary, link=link)
+    if candidate and title_has_explicit_subject(candidate):
+        return candidate
+
+    subject = extract_source_subject(link)
+    combined = f"{clean_text(title)} {clean_text(summary)}"
+    version_match = VERSION_TOKEN_PATTERN.search(combined)
+    version = version_match.group(0) if version_match else ""
+
+    if subject and version:
+        return f"{subject} 发布 {version} 版本更新"[:TITLE_MAX_CHARS]
+    if subject:
+        return f"{subject} 发布重要更新"[:TITLE_MAX_CHARS]
+    if version:
+        return f"相关项目发布 {version} 版本更新"[:TITLE_MAX_CHARS]
+    return clean_text(title)[:TITLE_MAX_CHARS] or "相关项目发布重要更新"
+
+
+def enforce_titles_with_subject(
+    items: list[dict[str, str]],
+    qwen_api_key: str,
+    qwen_model: str,
+) -> list[dict[str, str]]:
+    if not items:
+        return items
+
+    payload = [
+        {
+            "id": idx + 1,
+            "title": item.get("title", ""),
+            "summary": item.get("summary", ""),
+            "source_link": item.get("link", ""),
+        }
+        for idx, item in enumerate(items)
+    ]
+
+    rewritten_titles: dict[int, str] = {}
+    try:
+        client = OpenAI(api_key=qwen_api_key, base_url="https://dashscope.aliyuncs.com/compatible-mode/v1")
+        user_prompt = (
+            "你是AI资讯标题编辑。请重写每条标题，要求：\n"
+            "1) 每一条标题都必须包含明确主语（公司/产品/机构/账号）。\n"
+            "2) 若包含版本号，必须写清“谁的什么版本”，禁止无主语标题。\n"
+            "3) 保持事实不变，标题简洁，长度不超过40字。\n"
+            "严格输出JSON："
+            '{"items":[{"id":1,"title":"含明确主语的新标题"}]}\n\n'
+            + json.dumps(payload, ensure_ascii=False)
+        )
+        raw = llm_chat(
+            client=client,
+            model=qwen_model,
+            system_prompt="你是严谨的中文标题编辑，只输出合法JSON。",
+            user_prompt=user_prompt,
+        )
+        data = extract_json(raw)
+        rows = data.get("items", [])
+        if isinstance(rows, list):
+            for row in rows:
+                if not isinstance(row, dict):
+                    continue
+                try:
+                    row_id = int(row.get("id", 0))
+                except (TypeError, ValueError):
+                    continue
+                if row_id < 1 or row_id > len(items):
+                    continue
+                rewritten = clean_text(str(row.get("title", "")))[:TITLE_MAX_CHARS]
+                if rewritten:
+                    rewritten_titles[row_id] = rewritten
+    except Exception as exc:
+        logger.warning("enforce_titles_with_subject: llm rewrite failed, fallback to deterministic repair. error=%s", exc)
+
+    normalized: list[dict[str, str]] = []
+    for idx, item in enumerate(items, 1):
+        merged = item.copy()
+        title_candidate = rewritten_titles.get(idx, merged.get("title", ""))
+        merged["title"] = build_subject_guaranteed_title(
+            title=title_candidate,
+            summary=merged.get("summary", ""),
+            link=merged.get("link", ""),
+        )
+        normalized.append(merged)
+    return normalized
+
+
 def key_point_dedupe_key(text: str) -> str:
     return re.sub(r"\W+", "", text.lower(), flags=re.UNICODE)
 
@@ -959,36 +1086,147 @@ def filter_primary_items_with_stats(items: list[dict[str, str]]) -> tuple[list[d
     return filtered, rejected_stats
 
 
-def is_ai_topic_item(item: dict[str, str], keywords: set[str]) -> bool:
-    if not keywords:
-        return True
-    evidence = (
-        f"{clean_text(item.get('title', ''))} "
-        f"{clean_text(item.get('summary', ''))} "
-        f"{item.get('link', '')}"
-    ).strip().lower()
-    if not evidence:
-        return False
-    return any(keyword in evidence for keyword in keywords)
+def classify_ai_topic_items_with_llm(
+    items: list[dict[str, str]],
+    qwen_api_key: str,
+    qwen_model: str,
+    keywords: set[str],
+) -> tuple[list[bool | None], dict[str, int]]:
+    batch_size = int_env("AI_TOPIC_LLM_BATCH_SIZE", 24, min_value=1, max_value=80)
+    client = OpenAI(api_key=qwen_api_key, base_url="https://dashscope.aliyuncs.com/compatible-mode/v1")
+    decisions: list[bool | None] = [None] * len(items)
+    stats: dict[str, int] = {}
+    keywords_hint = "、".join(sorted(keywords)) if keywords else "无"
+
+    for batch_start in range(0, len(items), batch_size):
+        batch = items[batch_start : batch_start + batch_size]
+        payload: list[dict[str, Any]] = []
+        for idx, item in enumerate(batch, 1):
+            payload.append(
+                {
+                    "id": idx,
+                    "title": clean_text(item.get("title", ""))[:TITLE_MAX_CHARS],
+                    "summary": clean_text(item.get("summary", ""))[:360],
+                    "link": item.get("link", ""),
+                }
+            )
+
+        user_prompt = (
+            "你是AI资讯审核编辑。请判断每条是否属于“AI相关内容”。\n"
+            "判定为 true 的条件：与AI模型/算法/论文/智能体/推理/训练/AI产品发布/AI基础设施直接相关。\n"
+            "判定为 false 的条件：社会新闻、泛政治评论、纯商业活动、无AI实质信息的内容。\n"
+            "严格输出JSON："
+            '{"items":[{"id":1,"is_ai_topic":true,"reason":"一句话理由"}]}\n'
+            "id 必须对应输入；禁止输出任何额外说明。\n"
+            f"可参考关键词（仅作辅助，不是硬规则）：{keywords_hint}\n\n"
+            + json.dumps(payload, ensure_ascii=False)
+        )
+
+        try:
+            raw = llm_chat(
+                client=client,
+                model=qwen_model,
+                system_prompt="你是严谨的信息审核员，只输出合法JSON。",
+                user_prompt=user_prompt,
+            )
+            data = extract_json(raw)
+        except Exception as exc:
+            stats["llm_batch_failed_kept"] = stats.get("llm_batch_failed_kept", 0) + len(batch)
+            logger.warning(
+                "ai-topic llm batch failed, keep batch as fallback. start=%s size=%s error=%s",
+                batch_start,
+                len(batch),
+                exc,
+            )
+            continue
+
+        rows = data.get("items", [])
+        if not isinstance(rows, list):
+            stats["llm_batch_invalid_kept"] = stats.get("llm_batch_invalid_kept", 0) + len(batch)
+            logger.warning(
+                "ai-topic llm batch invalid payload, keep batch as fallback. start=%s size=%s",
+                batch_start,
+                len(batch),
+            )
+            continue
+
+        for row in rows:
+            if not isinstance(row, dict):
+                continue
+            try:
+                row_id = int(row.get("id", 0))
+            except (TypeError, ValueError):
+                continue
+            if row_id < 1 or row_id > len(batch):
+                continue
+
+            decision_raw = row.get("is_ai_topic")
+            decision: bool | None = None
+            if isinstance(decision_raw, bool):
+                decision = decision_raw
+            elif isinstance(decision_raw, str):
+                lowered = decision_raw.strip().lower()
+                if lowered in {"true", "yes", "1", "ai", "related"}:
+                    decision = True
+                elif lowered in {"false", "no", "0", "not_ai", "non_ai"}:
+                    decision = False
+            if decision is None:
+                continue
+            decisions[batch_start + row_id - 1] = decision
+
+    unclassified = sum(1 for value in decisions if value is None)
+    if unclassified > 0:
+        stats["llm_unclassified_kept"] = unclassified
+    return decisions, stats
 
 
-def filter_ai_topic_items_with_stats(items: list[dict[str, str]]) -> tuple[list[dict[str, str]], dict[str, int]]:
+def filter_ai_topic_items_with_stats(
+    items: list[dict[str, str]],
+    qwen_api_key: str = "",
+    qwen_model: str = "",
+) -> tuple[list[dict[str, str]], dict[str, int]]:
     strict_ai_topic_only = os.getenv("STRICT_AI_TOPIC_ONLY", "1").strip().lower()
     if strict_ai_topic_only in {"0", "false", "no", "off"}:
         return items, {"strict_mode_disabled": len(items)}
 
-    keywords = parse_csv_env("AI_TOPIC_KEYWORDS", DEFAULT_AI_TOPIC_KEYWORDS)
-    if not keywords:
+    if not items:
         return items, {}
 
+    api_key = qwen_api_key.strip() if qwen_api_key else os.getenv("QWEN_API_KEY", "").strip()
+    model = qwen_model.strip() if qwen_model else os.getenv("QWEN_MODEL", "qwen-flash").strip()
+    if not api_key:
+        logger.warning("STRICT_AI_TOPIC_ONLY=1 but QWEN_API_KEY missing, keep all items as fallback")
+        return items, {"llm_unavailable_keep_all": len(items)}
+
+    keywords = parse_csv_env("AI_TOPIC_KEYWORDS", DEFAULT_AI_TOPIC_KEYWORDS)
+    decisions, llm_stats = classify_ai_topic_items_with_llm(
+        items=items,
+        qwen_api_key=api_key,
+        qwen_model=model,
+        keywords=keywords,
+    )
+    if len(decisions) != len(items):
+        logger.warning("ai-topic llm returned mismatched decisions, keep all items as fallback")
+        return items, {"llm_invalid_result_keep_all": len(items)}
+
     filtered: list[dict[str, str]] = []
-    rejected_stats: dict[str, int] = {}
-    for item in items:
-        if is_ai_topic_item(item, keywords):
-            filtered.append(item)
+    rejected = 0
+    for item, decision in zip(items, decisions):
+        if decision is False:
+            rejected += 1
             continue
-        rejected_stats["non_ai_topic"] = rejected_stats.get("non_ai_topic", 0) + 1
-    return filtered, rejected_stats
+        filtered.append(item)
+
+    stats = {k: v for k, v in llm_stats.items() if v > 0}
+    if rejected > 0:
+        stats["non_ai_topic"] = rejected
+
+    if not filtered and items:
+        logger.warning("ai-topic llm rejected all items, keep all as fallback to avoid empty output")
+        stats["llm_all_rejected_keep_all"] = len(items)
+        return items, stats
+
+    return filtered, stats
 
 
 def apply_source_limits(items: list[dict[str, str]]) -> tuple[list[dict[str, str]], dict[str, int]]:
@@ -1312,7 +1550,7 @@ def fallback_selection(items: list[dict[str, str]], top_n: int, start_score: int
         result["details"] = summary[:DETAIL_MAX_CHARS] if summary else result["brief"]
         result["impact"] = build_fallback_impact(result)
         result["key_points"] = build_default_key_points(result)
-        result["title"] = build_contextual_title(
+        result["title"] = build_subject_guaranteed_title(
             title=result.get("title", ""),
             summary=result.get("summary", ""),
             link=result.get("link", ""),
@@ -1472,7 +1710,7 @@ def rank_and_summarize(
         if title:
             if title != clean_text(str(row.get("title", "")))[:TITLE_MAX_CHARS]:
                 logger.info("rank_and_summarize: 标题疑似缺主语，回退为原始标题。")
-            result["title"] = build_contextual_title(
+            result["title"] = build_subject_guaranteed_title(
                 title=title,
                 summary=result.get("summary", ""),
                 link=result.get("link", ""),
@@ -1592,7 +1830,7 @@ def localize_items_to_chinese(
             impact_cn = ""
 
         if title_cn:
-            merged["title"] = build_contextual_title(
+            merged["title"] = build_subject_guaranteed_title(
                 title=title_cn,
                 summary=merged.get("summary", ""),
                 link=merged.get("link", ""),
@@ -1754,7 +1992,11 @@ def main() -> None:
         raw_items: list[dict[str, str]],
     ) -> tuple[list[dict[str, str]], dict[str, int], dict[str, int], dict[str, int], int, dict[str, int]]:
         filtered_items, rejected_stats = filter_primary_items_with_stats(raw_items)
-        ai_topic_items, ai_topic_stats = filter_ai_topic_items_with_stats(filtered_items)
+        ai_topic_items, ai_topic_stats = filter_ai_topic_items_with_stats(
+            filtered_items,
+            qwen_api_key=qwen_api_key,
+            qwen_model=qwen_model,
+        )
         diversified_items, diversity_stats = apply_source_limits(ai_topic_items)
         history_filtered_items, history_dropped = filter_items_by_history(diversified_items, history_fingerprints)
         stage_stats = {
@@ -1806,6 +2048,7 @@ def main() -> None:
 
     selected = rank_and_summarize(items=items, qwen_api_key=qwen_api_key, qwen_model=qwen_model, top_n=top_n)
     selected = localize_items_to_chinese(items=selected, qwen_api_key=qwen_api_key, qwen_model=qwen_model)
+    selected = enforce_titles_with_subject(items=selected, qwen_api_key=qwen_api_key, qwen_model=qwen_model)
     if not selected:
         raise RuntimeError("无内容：模型筛选后最终条目数为 0")
 

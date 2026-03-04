@@ -399,6 +399,7 @@ def test_main_quality_check_fail_open_keeps_pipeline_running(monkeypatch, tmp_pa
     monkeypatch.setattr(main, "fetch_items", lambda **kwargs: [item])
     monkeypatch.setattr(main, "rank_and_summarize", lambda **kwargs: [selected_item])
     monkeypatch.setattr(main, "localize_items_to_chinese", lambda items, **kwargs: items)
+    monkeypatch.setattr(main, "enforce_titles_with_subject", lambda items, **kwargs: items)
     monkeypatch.setattr(main, "check_category_balance", lambda items: {})
 
     calls: list[bool] = []
@@ -446,6 +447,7 @@ def test_main_quality_check_fail_open_disabled_still_continues(monkeypatch, tmp_
     monkeypatch.setattr(main, "fetch_items", lambda **kwargs: [item])
     monkeypatch.setattr(main, "rank_and_summarize", lambda **kwargs: [selected_item])
     monkeypatch.setattr(main, "localize_items_to_chinese", lambda items, **kwargs: items)
+    monkeypatch.setattr(main, "enforce_titles_with_subject", lambda items, **kwargs: items)
     monkeypatch.setattr(main, "check_category_balance", lambda items: {})
     monkeypatch.setattr(main, "run_quality_checks", lambda **kwargs: 1)
 
@@ -487,3 +489,25 @@ def test_build_contextual_title_for_x_version_only_title():
         link="https://x.com/OpenAI/status/2028909019977703752",
     )
     assert title == "@openai 发布 5.4 版本更新"
+
+
+def test_build_subject_guaranteed_title_adds_subject_when_missing():
+    title = main.build_subject_guaranteed_title(
+        title="5.4版本即将上线",
+        summary="OpenAI 即将发布新版",
+        link="https://x.com/OpenAI/status/2028909019977703752",
+    )
+    assert "@openai" in title.lower()
+
+
+def test_enforce_titles_with_subject_uses_deterministic_fallback(monkeypatch):
+    monkeypatch.setattr(main, "llm_chat", lambda **kwargs: (_ for _ in ()).throw(RuntimeError("upstream")))
+    items = [
+        {
+            "title": "发布4.6.3版本",
+            "summary": "SDK 版本更新",
+            "link": "https://github.com/runwayml/sdk-python/blob/main/CHANGELOG.md",
+        }
+    ]
+    fixed = main.enforce_titles_with_subject(items=items, qwen_api_key="test-key", qwen_model="qwen-flash")
+    assert fixed[0]["title"].startswith("runwayml/sdk-python")

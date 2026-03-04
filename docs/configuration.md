@@ -54,17 +54,25 @@
 | `STRICT_PRIMARY_ONLY` | `1` | 开启一手来源过滤 |
 | `STRICT_AI_TOPIC_ONLY` | `1` | 开启 AI 主题过滤 |
 | `AI_TOPIC_KEYWORDS` | 见下方 | AI 主题关键词 |
+| `AI_TOPIC_LLM_BATCH_SIZE` | `24` | AI 主题 LLM 判定批大小 |
 | `PRIMARY_SOURCE_DOMAINS` | 见下方 | 一手来源域名白名单 |
 | `PRIMARY_X_HANDLES` | 见下方 | 一手 X 账号白名单 |
 | `SECOND_HAND_DOMAINS` | 见下方 | 二手媒体域名黑名单 |
 
 ### AI 主题关键词（默认）
 
+以下为当前代码默认值（以 `src/config.py` 为准）：
+
 ```
-AI, 人工智能, 机器学习, 深度学习, LLM, 大模型, GPT, Claude, 
-OpenAI, Anthropic, Gemini, Qwen, 通义, 文心, Midjourney, 
-Stable Diffusion, 生成式, AIGC, AGI, AI Agent, 智能体
+ai, artificial intelligence, machine learning, deep learning, llm,
+gpt, chatgpt, rag, agent, agentic, multimodal, diffusion, transformer,
+inference, fine-tuning, fine tuning, 模型, 大模型, 智能体, 多模态,
+推理, 训练, 微调, 生成式, 开源权重, openai, anthropic, deepmind,
+mistral, qwen, deepseek, hunyuan, moonshot, kimi, gemini, llama,
+claude, codex, arxiv
 ```
+
+> 说明：当前 AI 主题过滤以 LLM 判定为主，`AI_TOPIC_KEYWORDS` 用作模型提示词辅助，不再作为硬规则子串过滤。
 
 ---
 

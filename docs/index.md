@@ -37,6 +37,7 @@ python main.py
 | [快速开始](quick-start.md) | 本地运行与 GitHub Actions 配置 |
 | [今日早报](latest.md) | 自动同步的最新一期早报 |
 | [历史归档](history.md) | 按日期浏览历史早报 |
+| [问题清单](error.md) | 当前已知问题与修复优先级 |
 | [环境变量](configuration.md) | 所有可配置参数详解 |
 | [信息源配置](sources.md) | RSS、Twitter、GitHub 源配置 |
 | [飞书集成](feishu_docs_guide_zh.md) | 飞书群通知与文档同步 |

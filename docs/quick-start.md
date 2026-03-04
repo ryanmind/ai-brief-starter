@@ -76,6 +76,8 @@ schedule:
   - cron: "30 23 * * *"  # UTC 23:30 = Beijing 07:30
 ```
 
+> 注意：`schedule` 仅在仓库默认分支触发，请确保默认分支与实际使用分支一致。
+
 ### 4. 自动发布到文档站
 
 - `ai-morning-brief` 成功后会自动将 `reports/latest.md` 渲染为可读性更高的文档页，再同步到 `docs/latest.md`
