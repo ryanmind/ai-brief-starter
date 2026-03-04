@@ -78,7 +78,7 @@ schedule:
 
 ### 4. 自动发布到文档站
 
-- `ai-morning-brief` 成功后会自动同步 `reports/latest.md` 到 `docs/latest.md`
+- `ai-morning-brief` 成功后会自动将 `reports/latest.md` 渲染为可读性更高的文档页，再同步到 `docs/latest.md`
 - 同步有变化时会自动提交到当前分支
 - `docs` 工作流会检测到 `docs/**` 变更并发布到 GitHub Pages
 

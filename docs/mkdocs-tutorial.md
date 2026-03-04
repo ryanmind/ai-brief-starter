@@ -53,9 +53,10 @@ mkdocs build --strict
 
 `ai-morning-brief` 成功后会执行：
 
-1. 复制 `reports/latest.md` 到 `docs/latest.md`
-2. 若内容有变化，自动提交并 push 到当前分支
-3. 触发 `docs` 工作流重新部署站点
+1. 将 `reports/latest.md` 渲染为更易读的 MkDocs 页面格式
+2. 写入 `docs/latest.md`
+3. 若内容有变化，自动提交并 push 到当前分支
+4. 触发 `docs` 工作流重新部署站点
 
 所以“早报已生成但站点没更新”的排查顺序是：
 
