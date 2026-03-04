@@ -3,6 +3,7 @@ name: docs
 on:
   push:
     branches:
+      - master
       - mkdocs
     paths:
       - 'docs/**'
@@ -32,7 +33,7 @@ jobs:
           cache: 'pip'
 
       - name: Install dependencies
-        run: pip install mkdocs mkdocs-material
+        run: pip install -r requirements.txt
 
       - name: Build documentation
         run: mkdocs build --strict

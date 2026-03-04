@@ -2,16 +2,7 @@ openai>=1.51.0
 feedparser>=6.0.11
 python-dateutil>=2.9.0.post0
 pytest
-
-
-
-
-
 # MkDocs 文档站点（锁定版本避免 2.0 不兼容）
-
-
 mkdocs>=1.5.0,<2.0.0
-
-
 mkdocs-material>=9.4.0
-
+requests>=2.31,<3
