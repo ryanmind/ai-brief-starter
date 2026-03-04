@@ -55,6 +55,7 @@ jobs:
       FEISHU_DOC_PUBLIC_READABLE: "1"
       FEISHU_DOC_PUBLIC_REQUIRED: "1"
       SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}
+      REPORT_PUBLIC_URL: ${{ format('https://{0}.github.io/{1}/latest/', github.repository_owner, github.event.repository.name) }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -147,7 +148,7 @@ jobs:
         id: notify_wechat
         continue-on-error: true
         if: success() && env.SERVERCHAN_SENDKEY != ''
-        run: python scripts/notify_wechat.py reports/latest.md
+        run: python scripts/notify_wechat.py reports/latest.md --doc-url "${REPORT_PUBLIC_URL}"
 
       - name: Summarize notification status
         id: notify_summary
