@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import re
+from datetime import datetime
 from pathlib import Path
 
 try:
@@ -27,11 +28,17 @@ def render_report(report_path: Path, title: str) -> str:
     return with_page_title(rendered, title=title)
 
 
+def current_sync_time() -> str:
+    return datetime.now().strftime("%Y年%m月%d日%H:%M:%S")
+
+
 def update_latest_page(reports_dir: Path, docs_dir: Path) -> None:
     latest_report = reports_dir / "latest.md"
     latest_page = docs_dir / "latest.md"
+    content = latest_report.read_text(encoding="utf-8")
+    rendered = build_mkdocs_latest(content, updated_at_override=current_sync_time())
     latest_page.write_text(
-        render_report(latest_report, title="今日早报"),
+        with_page_title(rendered, title="今日早报"),
         encoding="utf-8",
     )
 

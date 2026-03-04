@@ -37,6 +37,21 @@ def test_build_mkdocs_latest_generates_collapsible_sections():
     assert "- **来源**：[原文链接](https://example.com/a)" in rendered
 
 
+def test_build_mkdocs_latest_uses_override_updated_time():
+    source = """## 📰 AI 早报 · 2026年03月04日12:25:24
+
+### 📌 本期摘要
+- 1. 第一条摘要
+"""
+    rendered = render_latest_for_mkdocs.build_mkdocs_latest(
+        source,
+        updated_at_override="2026年03月04日18:30:00",
+    )
+
+    assert "更新时间：2026年03月04日18:30:00" in rendered
+    assert "更新时间：2026年03月04日12:25:24" not in rendered
+
+
 def test_build_mkdocs_latest_handles_missing_sections():
     source = """## 📰 AI 早报 · 2026年03月04日12:25:24
 

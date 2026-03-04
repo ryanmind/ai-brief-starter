@@ -362,9 +362,9 @@ def append_item_block(output: list[str], item: BriefItem) -> None:
     output.append("")
 
 
-def build_mkdocs_latest(markdown: str) -> str:
+def build_mkdocs_latest(markdown: str, updated_at_override: str = "") -> str:
     lines = markdown.splitlines()
-    updated_at = extract_updated_at(lines)
+    updated_at = updated_at_override.strip() or extract_updated_at(lines)
     summary = collect_summary(lines)
     items = parse_items(lines)
     grouped_items = group_items_by_category(items)
