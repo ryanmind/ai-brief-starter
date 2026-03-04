@@ -35,6 +35,7 @@ python main.py
 | 文档 | 说明 |
 |------|------|
 | [快速开始](quick-start.md) | 本地运行与 GitHub Actions 配置 |
+| [Agent 集群](agent-cluster.md) | Agent 集群概念与 3-Agent 改造路线 |
 | [今日早报](latest.md) | 自动同步的最新一期早报 |
 | [历史归档](history.md) | 按日期浏览历史早报 |
 | [环境变量](configuration.md) | 所有可配置参数详解 |
