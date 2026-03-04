@@ -1,6 +1,7 @@
 # 环境变量配置
 
-所有配置项都通过环境变量控制，可在 GitHub Actions 中设置或本地 export。
+所有配置项都通过环境变量控制，可在 GitHub Actions 中设置或本地 `export`。
+默认值主要来自 `src/config.py` 与 `.github/workflows/daily.yml`。
 
 ## 必需配置
 
@@ -91,17 +92,27 @@ Stable Diffusion, 生成式, AIGC, AGI, AI Agent, 智能体
 
 ## 飞书配置
 
-| 变量名 | 说明 |
-|--------|------|
-| `FEISHU_WEBHOOK_URL` | 飞书群机器人 Webhook |
-| `FEISHU_BOT_SECRET` | 机器人签名密钥 |
-| `FEISHU_APP_ID` | 飞书应用 ID |
-| `FEISHU_APP_SECRET` | 飞书应用密钥 |
-| `FEISHU_REPORT_FOLDER_TOKEN` | 归档文件夹 Token |
-| `FEISHU_REPORT_DOC_URL` | 总览文档链接 |
-| `FEISHU_DOC_SYNC_REQUIRED` | `1` 是否必须同步文档 |
-| `FEISHU_DOC_PUBLIC_READABLE` | `1` 文档是否公开可读 |
-| `FEISHU_DOC_PUBLIC_REQUIRED` | `1` 是否必须公开 |
+| 变量名 | 默认值 | 说明 |
+|--------|--------|------|
+| `FEISHU_WEBHOOK_URL` | 空 | 飞书群机器人 Webhook |
+| `FEISHU_BOT_SECRET` | 空 | 机器人签名密钥 |
+| `FEISHU_APP_ID` | 空 | 飞书应用 ID |
+| `FEISHU_APP_SECRET` | 空 | 飞书应用密钥 |
+| `FEISHU_REPORT_FOLDER_TOKEN` | 空 | 归档文件夹 Token |
+| `FEISHU_REPORT_DOC_URL` | 空 | 飞书总览文档链接 |
+| `FEISHU_DOC_SYNC_REQUIRED` | `1` | 是否必须同步文档后再发送飞书消息 |
+| `FEISHU_DOC_PUBLIC_READABLE` | `1` | 文档是否公开可读 |
+| `FEISHU_DOC_PUBLIC_REQUIRED` | `1` | 是否强制公开可读，不满足则报错 |
+
+> 当前默认配置下，若设置了 `FEISHU_WEBHOOK_URL` 但缺少 `FEISHU_APP_ID`/`FEISHU_APP_SECRET`，飞书通知步骤会失败。
+
+---
+
+## 微信配置
+
+| 变量名 | 默认值 | 说明 |
+|--------|--------|------|
+| `SERVERCHAN_SENDKEY` | 空 | Server酱 SendKey，用于微信推送 |
 
 ---
 
@@ -111,3 +122,4 @@ Stable Diffusion, 生成式, AIGC, AGI, AI Agent, 智能体
 |--------|--------|------|
 | `NITTER_RSS_BASES` | 多个实例 | Nitter RSS 实例列表 |
 | `FINAL_POLISH_ENABLED` | `1` | 开启最终润色 |
+| `TZ` | `Asia/Shanghai` | 工作流时区 |

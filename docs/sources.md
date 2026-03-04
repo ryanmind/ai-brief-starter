@@ -63,15 +63,15 @@ https://github.com/owner/repo/blob/main/CHANGELOG.md
 | Sam Altman | OpenAI CEO | `https://x.com/sama` | GPT 系列、ChatGPT 掌舵人 |
 | Demis Hassabis | Google DeepMind CEO | `https://x.com/demishassabis` | AlphaGo、AlphaFold 之父 |
 | Elon Musk | xAI 创始人 | `https://x.com/elonmusk` | Tesla、SpaceX、Grok |
-| Dario Amodei | Anthropic CEO | `https://x.com/AnthropicAI` | Claude 系列主导者 |
-| Arthur Mensch | Mistral CEO | `https://x.com/MistralAI` | 欧洲开源大模型领军者 |
+| Anthropic 官方账号 | 公司官方 | `https://x.com/AnthropicAI` | 公司动态与产品发布（非个人号） |
+| Mistral 官方账号 | 公司官方 | `https://x.com/MistralAI` | 公司动态与产品发布（非个人号） |
 | Andrej Karpathy | AI 研究员/教育家 | `https://x.com/karpathy` | 前 OpenAI/Tesla AI 总监，Eureka Labs 创始人 |
 | Ilya Sutskever | Safe Superintelligence | `https://x.com/ilyasut` | 前 OpenAI 首席科学家，AlexNet 共同作者 |
 | Jim Fan | NVIDIA 高级研究员 | `https://x.com/DrJimFan` | 具身智能、机器人学习专家 |
 | Ian Goodfellow | Google DeepMind | `https://x.com/goodfellow_ian` | GAN 发明者 |
 | Yann LeCun | Meta AI 首席科学家 | `https://x.com/ylecun` | 卷积神经网络之父，图灵奖得主 |
 | Andrew Ng | DeepLearning.AI | `https://x.com/AndrewYNg` | 深度学习教育先驱 |
-| Jensen Huang | NVIDIA CEO | `https://x.com/nvidia` | AI 算力基建领袖 |
+| NVIDIA 官方账号 | 公司官方 | `https://x.com/nvidia` | NVIDIA 官方发布（非黄仁勋个人账号） |
 
 **中国 AI 创始人/领军人物**：
 

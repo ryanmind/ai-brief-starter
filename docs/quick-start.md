@@ -1,6 +1,6 @@
 # 快速开始
 
-本指南帮助你在 5 分钟内运行起 AI 早报生成器。
+本指南帮助你在 5 分钟内跑通 AI 早报生成、通知与文档发布。
 
 ## 本地运行
 
@@ -51,16 +51,21 @@ python main.py
 
 | Secret | 必需 | 说明 |
 |--------|------|------|
-| `QWEN_API_KEY` | ✅ | 阿里百炼 API Key |
-| `FEISHU_WEBHOOK_URL` | ❌ | 飞书群机器人 Webhook |
-| `FEISHU_APP_ID` | ❌ | 飞书应用 ID |
-| `FEISHU_APP_SECRET` | ❌ | 飞书应用密钥 |
+| `QWEN_API_KEY` | ✅ | 阿里百炼 API Key，主流程必需 |
+| `FEISHU_WEBHOOK_URL` | 条件必需 | 需要飞书通知时填写 |
+| `FEISHU_APP_ID` | 条件必需 | 当启用飞书通知时必需（当前默认强制文档同步） |
+| `FEISHU_APP_SECRET` | 条件必需 | 当启用飞书通知时必需（当前默认强制文档同步） |
+| `SERVERCHAN_SENDKEY` | ❌ | 微信通知（Server酱） |
+| `FEISHU_REPORT_FOLDER_TOKEN` | ❌ | 飞书文档归档目录 |
+| `FEISHU_REPORT_DOC_URL` | ❌ | 飞书总览文档链接 |
+| `FEISHU_BOT_SECRET` | ❌ | 飞书机器人签名密钥 |
 
 ### 2. 手动触发
 
 1. 进入 `Actions` 标签页
 2. 选择 `ai-morning-brief` 工作流
-3. 点击 `Run workflow`
+3. 选择分支（`master` 或 `mkdocs`）
+4. 点击 `Run workflow`
 
 ### 3. 自动定时
 
@@ -71,6 +76,12 @@ schedule:
   - cron: "30 23 * * *"  # UTC 23:30 = Beijing 07:30
 ```
 
+### 4. 自动发布到文档站
+
+- `ai-morning-brief` 成功后会自动同步 `reports/latest.md` 到 `docs/latest.md`
+- 同步有变化时会自动提交到当前分支
+- `docs` 工作流会检测到 `docs/**` 变更并发布到 GitHub Pages
+
 ---
 
 ## 常见问题
@@ -78,6 +89,18 @@ schedule:
 ### Q: 运行失败提示缺少 QWEN_API_KEY
 
 确保已在 GitHub Secrets 中配置 `QWEN_API_KEY`。
+
+### Q: 为什么没有飞书提醒？
+
+先检查 `FEISHU_WEBHOOK_URL`、`FEISHU_APP_ID`、`FEISHU_APP_SECRET` 是否都已配置。当前默认 `FEISHU_DOC_SYNC_REQUIRED=1`，缺少应用凭证会导致飞书通知步骤失败。
+
+### Q: 为什么没有微信提醒？
+
+检查是否配置 `SERVERCHAN_SENDKEY`，并确认 `ai-morning-brief` 中 `Notify WeChat` 步骤执行成功。
+
+### Q: 为什么 GitHub Pages 上“今日早报”没更新？
+
+确认 `ai-morning-brief` 已成功，并且日志里出现 `Commit docs latest brief` 步骤；随后 `docs` 工作流会自动部署。
 
 ### Q: 如何获取阿里百炼 API Key？
 

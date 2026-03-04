@@ -11,6 +11,8 @@
 - `FEISHU_APP_ID`
 - `FEISHU_APP_SECRET`
 
+> 说明：当前工作流默认 `FEISHU_DOC_SYNC_REQUIRED=1`，即飞书通知会先创建飞书文档，再发送群消息。
+
 ## 获取 `FEISHU_APP_ID`、`FEISHU_APP_SECRET`
 
 1. 打开飞书开放平台：https://open.feishu.cn/  登录。  
@@ -28,7 +30,7 @@
 
 ## 生效步骤
 
-1. 确认本地代码已 `commit + push` 到远程 `master`。  
+1. 确认本地代码已 `commit + push` 到远程 `master` 或 `mkdocs`。  
 2. 手动运行 GitHub Actions：`ai-morning-brief`。  
 3. 成功后你会看到：  
    - 飞书群通知里出现“今日完整文档（飞书）”链接  
@@ -36,6 +38,6 @@
 
 ## 常见问题
 
-- 缺少 `FEISHU_APP_ID`/`FEISHU_APP_SECRET`：会导致文档同步失败。  
+- 缺少 `FEISHU_APP_ID`/`FEISHU_APP_SECRET`：会导致文档同步失败，飞书提醒也不会发出。  
 - 机器人有关键词/签名限制：请确保消息策略与 Secret 配置一致。  
 - 应用未发布或权限不足：即使凭证正确，也可能无法创建/写入文档。
