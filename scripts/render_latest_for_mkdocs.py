@@ -325,7 +325,7 @@ def group_items_by_category(items: list[BriefItem]) -> dict[str, list[BriefItem]
 
 
 def choose_item_preview(item: BriefItem, limit: int = 86) -> str:
-    for candidate in (item.impact, item.summary, item.detail):
+    for candidate in (item.impact, item.summary):
         text = truncate_text(candidate, limit=limit)
         if text:
             return text
@@ -339,13 +339,10 @@ def escape_admonition_title(text: str) -> str:
 def append_item_block(output: list[str], item: BriefItem) -> None:
     cleaned_title = strip_manual_category_tags(item.title)
     cleaned_summary = strip_manual_category_tags(item.summary)
-    cleaned_detail = strip_manual_category_tags(item.detail)
     cleaned_impact = strip_manual_category_tags(item.impact)
 
     output.append(f'??? info "{item.index}. {escape_admonition_title(cleaned_title)}"')
     output.append(f"    - **摘要**：{cleaned_summary or '暂无'}")
-    if cleaned_detail:
-        output.append(f"    - **细节**：{cleaned_detail}")
     output.append("    - **关键点**：")
     if item.key_points:
         for point in item.key_points:
@@ -368,7 +365,6 @@ def build_mkdocs_latest(markdown: str) -> str:
     summary = collect_summary(lines)
     items = parse_items(lines)
     grouped_items = group_items_by_category(items)
-    top_items = items[:5]
 
     output: list[str] = []
     output.append("# 今日早报")
@@ -379,20 +375,6 @@ def build_mkdocs_latest(markdown: str) -> str:
         output.append("> 更新时间：未知")
     output.append("> 说明：该页面由 `ai-morning-brief` 自动生成并同步。")
     output.append("")
-    output.append("## 今日看板")
-    output.append("")
-    output.append('<div class="grid cards brief-kpi-grid" markdown>')
-    output.append("")
-    output.append("- :material/clock-outline: **更新时间**  ")
-    output.append(f"  {updated_at or '未知'}")
-    output.append("- :material/format-list-numbered: **快讯总数**  ")
-    output.append(f"  {len(items)} 条")
-    for category in CATEGORY_ORDER:
-        output.append(f"- :{CATEGORY_ICONS[category]}: **{CATEGORY_LABELS[category]}**  ")
-        output.append(f"  {len(grouped_items[category])} 条")
-    output.append("")
-    output.append("</div>")
-    output.append("")
     output.append("## 本期摘要")
     output.append("")
     if summary:
@@ -400,20 +382,6 @@ def build_mkdocs_latest(markdown: str) -> str:
             output.append(f"{idx}. {strip_manual_category_tags(text)}")
     else:
         output.append("- 暂无摘要")
-    output.append("")
-    output.append("## TOP 5 快速导读")
-    output.append("")
-    if top_items:
-        output.append('<div class="grid cards brief-top-grid" markdown>')
-        output.append("")
-        for item in top_items:
-            preview = choose_item_preview(item)
-            output.append(f"- **{item.index}. {strip_manual_category_tags(item.title)}**  ")
-            output.append(f"  {preview}")
-        output.append("")
-        output.append("</div>")
-    else:
-        output.append("- 暂无条目")
     output.append("")
     output.append("## 分类速览")
     output.append("")

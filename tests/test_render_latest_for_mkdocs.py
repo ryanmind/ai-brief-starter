@@ -76,7 +76,7 @@ def test_build_mkdocs_latest_supports_legacy_report_shape():
     assert "更新时间：2026-02-28 15:48:56" in rendered
     assert "1. 第一条要点" in rendered
     assert '??? info "1. 旧格式标题"' in rendered
-    assert "- **细节**：旧格式细节" in rendered
+    assert "旧格式细节" not in rendered
     assert "- **来源**：https://example.com/legacy" in rendered
 
 

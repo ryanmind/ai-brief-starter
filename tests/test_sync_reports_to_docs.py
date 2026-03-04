@@ -55,6 +55,6 @@ def test_sync_reports_to_docs_updates_latest_and_history(tmp_path):
     assert latest_page.startswith("# 今日早报")
     assert "1. 今日摘要A" in latest_page
     assert history_page.startswith("# AI 早报归档 · 2026-03-04")
-    assert "历史细节A" in history_page
+    assert "历史细节A" not in history_page
     assert "- [2026-03-04](history/2026-03-04.md)" in history_index
     assert "- [2026-03-03](history/2026-03-03.md)" in history_index
