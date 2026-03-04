@@ -42,6 +42,10 @@ SOURCE_PATTERN = re.compile(
     flags=re.IGNORECASE,
 )
 TITLE_PATTERN = re.compile(r"^###\s*\d+[)\.、]\s*(.+)$")
+TITLE_VERSION_ONLY_PATTERN = re.compile(
+    r"^(?:v?\d+(?:\.\d+){1,3})(?:\s*(?:版本|版|release|update|上线))?$",
+    flags=re.IGNORECASE,
+)
 KEY_POINTS_HEADER_PATTERN = re.compile(r"^(?:[-*]\s*)?(?:\*{0,2})?关键点(?:\*{0,2})?\s*[：:]?$")
 BULLET_PATTERN = re.compile(r"^\s*(?:[-*•]\s+|\d+\.\s+)(.+)$")
 SUMMARY_HEADER_PATTERN = re.compile(r"^(?:\*{0,2})?(?:摘要|summary)(?:\*{0,2})?\s*[：:]?$", flags=re.IGNORECASE)
@@ -110,7 +114,16 @@ def title_looks_incomplete(title: str) -> bool:
     clean_title = re.sub(r"\s+", " ", title.strip())
     if len(clean_title) < 4:
         return True
-    return any(clean_title.startswith(prefix) for prefix in TITLE_INCOMPLETE_PREFIXES)
+    lowered = clean_title.lower()
+    if any(lowered.startswith(prefix.lower()) for prefix in TITLE_INCOMPLETE_PREFIXES):
+        return True
+    if TITLE_VERSION_ONLY_PATTERN.match(clean_title):
+        return True
+    if re.match(r"^v?\d+(?:\.\d+){1,3}\b", clean_title, flags=re.IGNORECASE):
+        return True
+    if lowered.startswith(("release:", "chore:", "fix:", "feat:", "docs:", "ci:", "build:")):
+        return True
+    return False
 
 
 def normalize_for_compare(text: str) -> str:

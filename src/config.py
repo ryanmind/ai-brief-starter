@@ -69,6 +69,16 @@ TITLE_INCOMPLETE_PREFIXES = (
     "披露",
     "实现",
     "启动",
+    "release",
+    "chore",
+    "fix",
+    "feat",
+    "refactor",
+    "docs",
+    "test",
+    "style",
+    "build",
+    "ci",
 )
 
 # ---- Second-hand content detection ----

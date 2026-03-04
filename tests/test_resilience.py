@@ -469,3 +469,21 @@ def test_build_quality_warning_lines_reads_merged_quality_metrics(tmp_path):
     assert any("质检提醒" in line for line in lines)
     assert any("detail_quality：2" in line for line in lines)
     assert any("自动修复：3 处" in line for line in lines)
+
+
+def test_build_contextual_title_for_github_release_like_title():
+    title = main.build_contextual_title(
+        title="release:4.6.3",
+        summary="SDK 更新发布",
+        link="https://github.com/runwayml/sdk-python/blob/main/CHANGELOG.md",
+    )
+    assert title == "runwayml/sdk-python 发布 4.6.3 版本更新"
+
+
+def test_build_contextual_title_for_x_version_only_title():
+    title = main.build_contextual_title(
+        title="5.4 sooner than you Think.",
+        summary="OpenAI 即将推出新版本更新",
+        link="https://x.com/OpenAI/status/2028909019977703752",
+    )
+    assert title == "@openai 发布 5.4 版本更新"

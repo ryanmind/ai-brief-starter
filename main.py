@@ -128,7 +128,66 @@ def title_looks_incomplete(title: str) -> bool:
     candidate = clean_text(title)
     if len(candidate) < 4:
         return True
-    return any(candidate.startswith(prefix) for prefix in TITLE_INCOMPLETE_PREFIXES)
+    lowered = candidate.lower()
+    return any(lowered.startswith(prefix.lower()) for prefix in TITLE_INCOMPLETE_PREFIXES)
+
+
+VERSION_TOKEN_PATTERN = re.compile(r"\bv?\d+(?:\.\d+){1,3}\b", flags=re.IGNORECASE)
+TITLE_VERSION_ONLY_PATTERN = re.compile(
+    r"^(?:v?\d+(?:\.\d+){1,3})(?:\s*(?:版本|版|release|update|上线))?$",
+    flags=re.IGNORECASE,
+)
+
+
+def extract_source_subject(link: str) -> str:
+    parsed = urlparse(link)
+    host = normalize_host(parsed.netloc or "")
+    if not host:
+        return ""
+    if host == "github.com":
+        parts = [segment for segment in parsed.path.split("/") if segment]
+        if len(parts) >= 2:
+            return f"{parts[0]}/{parts[1]}"
+    if host in X_HOSTS:
+        account = extract_account_from_url(link)
+        if account:
+            return f"@{account}"
+    return host
+
+
+def title_needs_subject_context(title: str) -> bool:
+    candidate = clean_text(title)
+    if title_looks_incomplete(candidate):
+        return True
+    if TITLE_VERSION_ONLY_PATTERN.match(candidate):
+        return True
+    if re.match(r"^v?\d+(?:\.\d+){1,3}\b", candidate, flags=re.IGNORECASE):
+        return True
+    lowered = candidate.lower()
+    if lowered.startswith(("release:", "chore:", "fix:", "feat:", "docs:", "ci:", "build:")):
+        return True
+    return False
+
+
+def build_contextual_title(title: str, summary: str, link: str) -> str:
+    candidate = clean_text(title)[:TITLE_MAX_CHARS]
+    if not candidate:
+        return candidate
+    if not title_needs_subject_context(candidate):
+        return candidate
+
+    subject = extract_source_subject(link)
+    combined = f"{candidate} {clean_text(summary)}"
+    version_match = VERSION_TOKEN_PATTERN.search(combined)
+    version = version_match.group(0) if version_match else ""
+
+    if subject and version:
+        return f"{subject} 发布 {version} 版本更新"[:TITLE_MAX_CHARS]
+    if subject:
+        return f"{subject} 发布产品更新"[:TITLE_MAX_CHARS]
+    if version:
+        return f"发布 {version} 版本更新"[:TITLE_MAX_CHARS]
+    return candidate
 
 
 def pick_preferred_title(candidate_title: str, fallback_title: str) -> str:
@@ -1253,6 +1312,11 @@ def fallback_selection(items: list[dict[str, str]], top_n: int, start_score: int
         result["details"] = summary[:DETAIL_MAX_CHARS] if summary else result["brief"]
         result["impact"] = build_fallback_impact(result)
         result["key_points"] = build_default_key_points(result)
+        result["title"] = build_contextual_title(
+            title=result.get("title", ""),
+            summary=result.get("summary", ""),
+            link=result.get("link", ""),
+        )
         fallback.append(result)
     return fallback
 
@@ -1342,6 +1406,7 @@ def rank_and_summarize(
         "details写1-2句具体事实，尽量包含实体名/数字/版本/时间等可核实信息。"
         f"key_points返回2-3条，每条<={KEY_POINT_MAX_CHARS}字。"
         "标题必须完整，包含主体名称（公司/产品/人物），不能省略主语。"
+        "若出现版本号，标题必须明确“哪个产品/仓库的哪个版本”，禁止仅写“release:4.6.3”或“5.4即将上线”。"
         "写法要可直接用于朋友圈/公众号：先结论后细节、避免空话与套话。"
         "brief只写1句，尽量包含“主体+动作+结果”；impact回答“为什么值得关注”。"
         "仅可选择一手来源（官方公告、论文原文、作者/机构本人账号原帖），"
@@ -1407,7 +1472,11 @@ def rank_and_summarize(
         if title:
             if title != clean_text(str(row.get("title", "")))[:TITLE_MAX_CHARS]:
                 logger.info("rank_and_summarize: 标题疑似缺主语，回退为原始标题。")
-            result["title"] = title
+            result["title"] = build_contextual_title(
+                title=title,
+                summary=result.get("summary", ""),
+                link=result.get("link", ""),
+            )
         result["brief"] = clean_text(str(row.get("brief", "")))[:BRIEF_MAX_CHARS]
         details = clean_text(str(row.get("details", "")))[:DETAIL_MAX_CHARS]
         if not details:
@@ -1454,6 +1523,7 @@ def localize_items_to_chinese(
             "details": item.get("details", ""),
             "impact": item.get("impact", ""),
             "key_points": item.get("key_points", [])[:KEY_POINTS_MAX_COUNT],
+            "source_link": item.get("link", ""),
         }
         for idx, item in enumerate(items)
     ]
@@ -1466,6 +1536,7 @@ def localize_items_to_chinese(
         f"key_points最多{KEY_POINTS_MAX_COUNT}条且每条<={KEY_POINT_MAX_CHARS}字。\n\n"
         "清洗规则：删除占位词（如 value/null/none/n-a）、无意义噪声字符（如孤立 @、重复标点）、"
         "空洞重复短语与无信息量内容；若字段无法清洗出有效信息则返回空字符串。\n\n"
+        "标题规则：标题必须包含明确主体；若含版本号，需明确产品/仓库名称，禁止仅保留“release:4.6.3”这类低信息标题。\n\n"
         "文风要求：口语化但专业，信息密度高，像可直接发朋友圈/公众号的成稿。"
         "避免机械重复开头（如连续使用“宣布/发布”）。\n\n"
         + json.dumps(payload, ensure_ascii=False)
@@ -1521,7 +1592,11 @@ def localize_items_to_chinese(
             impact_cn = ""
 
         if title_cn:
-            merged["title"] = title_cn
+            merged["title"] = build_contextual_title(
+                title=title_cn,
+                summary=merged.get("summary", ""),
+                link=merged.get("link", ""),
+            )
         if brief_cn:
             merged["brief"] = brief_cn
         if details_cn:
