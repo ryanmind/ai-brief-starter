@@ -46,7 +46,7 @@ def parse_time(entry: Any) -> Optional[datetime]:
             if dt.tzinfo is None:
                 dt = dt.replace(tzinfo=timezone.utc)
             return dt.astimezone(timezone.utc)
-        except Exception:
+        except (TypeError, ValueError, OverflowError):
             continue
 
     for key in ("published_parsed", "updated_parsed", "created_parsed"):
@@ -55,7 +55,7 @@ def parse_time(entry: Any) -> Optional[datetime]:
             continue
         try:
             return datetime(*value[:6], tzinfo=timezone.utc)
-        except Exception:
+        except (TypeError, ValueError, OverflowError):
             continue
     return None
 

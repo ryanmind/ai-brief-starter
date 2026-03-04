@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import logging
 import os
+from concurrent.futures import ThreadPoolExecutor, as_completed  # noqa: F401 - Backward compatibility for tests
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -90,6 +91,7 @@ def sanitize_items_factuality(items: list[dict[str, str]]) -> list[dict[str, str
 _X_RESERVED_HANDLES = feed_module._X_RESERVED_HANDLES
 _twitterapi_io_cache = feed_module._twitterapi_io_cache
 _twitterapi_io_cache_lock = feed_module._twitterapi_io_cache_lock
+clear_twitter_caches = feed_module.clear_twitter_caches
 is_twitterapi_io_enabled = feed_module.is_twitterapi_io_enabled
 twitterapi_io_fallback_ready = feed_module.twitterapi_io_fallback_ready
 extract_x_handle_from_source = feed_module.extract_x_handle_from_source
@@ -334,7 +336,7 @@ def main() -> None:
     if quality_metrics_path.exists():
         try:
             quality_metrics = json.loads(quality_metrics_path.read_text(encoding="utf-8"))
-        except Exception as exc:
+        except (json.JSONDecodeError, OSError) as exc:
             logger.warning("quality metrics parse failed: %s", exc)
             quality_metrics = {}
 

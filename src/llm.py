@@ -5,6 +5,7 @@ import json
 import logging
 import os
 import re
+import time
 from typing import Any
 
 from openai import OpenAI
@@ -44,6 +45,7 @@ def llm_chat(
     system_prompt: str,
     user_prompt: str,
     max_tokens: int | None = None,
+    max_retries: int = 3,
 ) -> str:
     params: dict[str, Any] = {
         "model": model,
@@ -56,8 +58,35 @@ def llm_chat(
     if max_tokens is not None and max_tokens > 0:
         params["max_tokens"] = max_tokens
 
-    response = client.chat.completions.create(**params)
-    return (response.choices[0].message.content or "").strip()
+    last_error: Exception | None = None
+    for attempt in range(max_retries):
+        try:
+            response = client.chat.completions.create(**params)
+            return (response.choices[0].message.content or "").strip()
+        except Exception as exc:
+            last_error = exc
+            if attempt == max_retries - 1:
+                logger.warning(
+                    "llm_chat: failed after %d attempts: %s",
+                    max_retries,
+                    exc,
+                )
+                raise
+            wait = 2**attempt
+            logger.warning(
+                "llm_chat: retry %d/%d after %ds: %s",
+                attempt + 1,
+                max_retries,
+                wait,
+                exc,
+            )
+            time.sleep(wait)
+
+    # This line is theoretically unreachable because the loop either returns or raises,
+    # but keeps type-checkers happy.
+    if last_error is not None:
+        raise last_error
+    raise RuntimeError("llm_chat failed without raising an exception")
 
 
 def extract_json(text: str) -> dict[str, Any]:

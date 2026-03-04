@@ -47,7 +47,7 @@ def collect_report_history_fingerprints(report_path: Path) -> set[str]:
     current_title = ""
     try:
         lines = report_path.read_text(encoding="utf-8").splitlines()
-    except Exception as exc:
+    except (OSError, UnicodeDecodeError) as exc:
         logger.warning("read report failed, skip history dedupe: %s (%s)", report_path, exc)
         return fingerprints
 
@@ -94,7 +94,7 @@ def load_history_state(path: Path) -> dict[str, list[str]]:
         return {}
     try:
         payload = json.loads(path.read_text(encoding="utf-8"))
-    except Exception as exc:
+    except (json.JSONDecodeError, OSError) as exc:
         logger.warning("history state parse failed: %s (%s)", path, exc)
         return {}
 

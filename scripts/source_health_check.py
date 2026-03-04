@@ -72,7 +72,7 @@ def check_sources() -> tuple[list[dict[str, str]], int]:
                     "reason": "",
                 }
             )
-        except Exception as exc:
+        except (OSError, ValueError, TypeError) as exc:
             failed += 1
             results.append(
                 {

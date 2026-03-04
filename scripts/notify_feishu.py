@@ -491,7 +491,7 @@ def build_quality_warning_lines(report_path: Path) -> list[str]:
         return []
     try:
         payload = json.loads(metrics_path.read_text(encoding="utf-8"))
-    except Exception:
+    except (json.JSONDecodeError, OSError, UnicodeDecodeError):
         return []
     if not isinstance(payload, dict):
         return []

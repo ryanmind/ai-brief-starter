@@ -49,6 +49,7 @@ def test_fetch_items_timeout_is_graceful(monkeypatch):
 
 
 def test_fetch_items_timeout_shutdown_without_wait(monkeypatch):
+    from src import feed as feed_module
     created_executors = []
 
     class DummyFuture:
@@ -76,8 +77,8 @@ def test_fetch_items_timeout_shutdown_without_wait(monkeypatch):
     def timeout_as_completed(_futures, timeout):
         raise FuturesTimeoutError()
 
-    monkeypatch.setattr(main, "ThreadPoolExecutor", DummyExecutor)
-    monkeypatch.setattr(main, "as_completed", timeout_as_completed)
+    monkeypatch.setattr(feed_module, "ThreadPoolExecutor", DummyExecutor)
+    monkeypatch.setattr(feed_module, "as_completed", timeout_as_completed)
 
     items = main.fetch_items(sources=["https://example.com/rss"], hours=24, per_source=1, max_workers=1)
     assert items == []
@@ -148,7 +149,10 @@ def test_fetch_single_source_github_changelog_fallback(monkeypatch):
 def test_expand_source_urls_keeps_x_source_when_nitter_down_and_api_fallback_ready(monkeypatch):
     monkeypatch.setenv("TWITTERAPI_IO_ENABLED", "1")
     monkeypatch.setenv("TWITTERAPI_IO_KEY", "test-key")
-    monkeypatch.setattr(main, "probe_nitter_bases", lambda bases: [])
+
+    # Mock probe_nitter_bases in the feed module where it's actually called
+    from src import feed as feed_module
+    monkeypatch.setattr(feed_module, "probe_nitter_bases", lambda bases: [])
 
     urls = main.expand_source_urls("https://x.com/openai")
     assert urls == ["https://x.com/openai"]

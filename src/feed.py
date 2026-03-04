@@ -32,6 +32,48 @@ from src.text_utils import (
 logger = logging.getLogger(__name__)
 
 
+class TwitterFeedCache:
+    """Encapsulates Twitter/Nitter feed caching state."""
+
+    def __init__(self):
+        self._twitterapi_io_cache: dict[tuple[str, str, int], tuple[list[dict[str, str]], str | None]] = {}
+        self._twitterapi_io_cache_lock = Lock()
+        self._nitter_alive_cache: list[str] | None = None
+
+    def get_twitterapi_io_cache(self, key: tuple[str, str, int]) -> tuple[list[dict[str, str]], str | None] | None:
+        with self._twitterapi_io_cache_lock:
+            return self._twitterapi_io_cache.get(key)
+
+    def set_twitterapi_io_cache(self, key: tuple[str, str, int], value: tuple[list[dict[str, str]], str | None]) -> None:
+        with self._twitterapi_io_cache_lock:
+            self._twitterapi_io_cache[key] = value
+
+    def get_nitter_alive_cache(self) -> list[str] | None:
+        return self._nitter_alive_cache
+
+    def set_nitter_alive_cache(self, value: list[str]) -> None:
+        self._nitter_alive_cache = value
+
+    def clear(self) -> None:
+        """Clear all caches (useful for testing)."""
+        with self._twitterapi_io_cache_lock:
+            self._twitterapi_io_cache.clear()
+        self._nitter_alive_cache = None
+
+
+# Global instance
+_global_twitter_cache = TwitterFeedCache()
+
+# Backward compatibility: expose as module-level variables for existing code
+_twitterapi_io_cache = _global_twitter_cache._twitterapi_io_cache
+_twitterapi_io_cache_lock = _global_twitter_cache._twitterapi_io_cache_lock
+
+
+def clear_twitter_caches() -> None:
+    """Clear all Twitter/Nitter caches. Useful for testing."""
+    _global_twitter_cache.clear()
+
+
 _X_RESERVED_HANDLES = {
     "home",
     "explore",
@@ -41,9 +83,6 @@ _X_RESERVED_HANDLES = {
     "notifications",
     "settings",
 }
-
-_twitterapi_io_cache: dict[tuple[str, str, int], tuple[list[dict[str, str]], str | None]] = {}
-_twitterapi_io_cache_lock = Lock()
 
 
 def is_twitterapi_io_enabled() -> bool:
@@ -119,7 +158,7 @@ def _extract_tweet_datetime(tweet: dict[str, Any]) -> datetime | None:
         if isinstance(value, str) and value.strip():
             try:
                 dt = dtparser.parse(value)
-            except Exception:
+            except (TypeError, ValueError, OverflowError):
                 continue
             if dt.tzinfo is None:
                 dt = dt.replace(tzinfo=timezone.utc)
@@ -133,7 +172,7 @@ def _extract_tweet_datetime(tweet: dict[str, Any]) -> datetime | None:
                 ts_value /= 1000.0
             try:
                 return datetime.fromtimestamp(ts_value, tz=timezone.utc)
-            except Exception:
+            except (OSError, OverflowError, TypeError, ValueError):
                 continue
     return None
 
@@ -305,14 +344,13 @@ def load_sources(path: str = "sources.txt") -> list[str]:
     return list(dict.fromkeys(expanded))
 
 
-_nitter_alive_cache: list[str] | None = None
 
 
 def probe_nitter_bases(bases: list[str], timeout: float = 5.0) -> list[str]:
     """探测哪些 Nitter 实例可用，返回存活列表（结果缓存）。"""
-    global _nitter_alive_cache
-    if _nitter_alive_cache is not None:
-        return _nitter_alive_cache
+    cached = _global_twitter_cache.get_nitter_alive_cache()
+    if cached is not None:
+        return cached
 
     from urllib import error as urlerror, request as urlrequest
 
@@ -333,7 +371,7 @@ def probe_nitter_bases(bases: list[str], timeout: float = 5.0) -> list[str]:
                 if 400 <= exc.code < 500:
                     is_alive = True
                     break
-            except Exception:
+            except (urlerror.URLError, OSError, TimeoutError):
                 continue
         if is_alive:
             alive.append(base)
@@ -343,7 +381,7 @@ def probe_nitter_bases(bases: list[str], timeout: float = 5.0) -> list[str]:
         logger.error("all nitter instances are down, X/Twitter sources will be unavailable")
     else:
         logger.info("nitter alive instances: %d/%d", len(alive), len(bases))
-    _nitter_alive_cache = alive
+    _global_twitter_cache.set_nitter_alive_cache(alive)
     return alive
 
 
@@ -445,7 +483,7 @@ def _fetch_single_source(
     active_source = source
     try:
         feed = feedparser.parse(active_source)
-    except Exception as exc:
+    except (OSError, ValueError, TypeError) as exc:
         if source_handle and source_host in X_HOSTS and twitterapi_io_fallback_ready():
             fallback_items, fallback_error = fetch_from_twitterapi_io(
                 handle=source_handle,
@@ -465,7 +503,7 @@ def _fetch_single_source(
         for fallback_source in github_feed_fallback_urls(source):
             try:
                 fallback_feed = feedparser.parse(fallback_source)
-            except Exception:
+            except (OSError, ValueError, TypeError):
                 continue
             fallback_entries = getattr(fallback_feed, "entries", [])
             if getattr(fallback_feed, "bozo", 0) and not fallback_entries:
@@ -559,9 +597,8 @@ def fetch_items(
                 source_stats["success"] += 1
                 for parsed in source_items:
                     dedupe_link = parsed.get("dedupe_link", parsed.get("link", ""))
-                    key = hashlib.md5(
-                        (dedupe_link.split("?")[0] + "|" + parsed["title"].lower()).encode("utf-8")
-                    ).hexdigest()
+                    key_payload = (dedupe_link.split("?")[0] + "|" + parsed["title"].lower()).encode("utf-8")
+                    key = hashlib.sha256(key_payload).hexdigest()
                     if key in seen:
                         continue
                     seen.add(key)

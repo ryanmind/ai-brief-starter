@@ -4,6 +4,7 @@ import main
 
 
 def test_filter_ai_topic_items_with_stats_keeps_only_ai(monkeypatch):
+    from src import llm as llm_module
     monkeypatch.setenv("STRICT_AI_TOPIC_ONLY", "1")
     monkeypatch.setenv("QWEN_API_KEY", "test-key")
     items = [
@@ -19,7 +20,7 @@ def test_filter_ai_topic_items_with_stats_keeps_only_ai(monkeypatch):
         },
     ]
     monkeypatch.setattr(
-        main,
+        llm_module,
         "classify_ai_topic_items_with_llm",
         lambda items, qwen_api_key, qwen_model, keywords: ([True, False], {}),
     )

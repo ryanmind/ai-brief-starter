@@ -11,3 +11,4 @@ reports/history_index.json
 .DS_Store
 *.egg-info/
 site/
+.vscode/
