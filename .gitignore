@@ -3,4 +3,11 @@ __pycache__/
 .venv/
 .env
 reports/*.md
+reports/*.json
 reports/history_index.json
+.pycache/
+.pycache_local/
+.pytest_cache/
+.DS_Store
+*.egg-info/
+site/
