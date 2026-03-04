@@ -2,3 +2,8 @@ openai>=1.51.0
 feedparser>=6.0.11
 python-dateutil>=2.9.0.post0
 pytest
+
+
+# MkDocs 文档站点
+mkdocs>=1.5.0
+mkdocs-material>=9.4.0

@@ -1,0 +1,53 @@
+/* 自定义样式 */
+
+/* 内容最大宽度 */
+.md-content {
+  max-width: 900px;
+}
+
+/* 中文排版优化 */
+.md-content p {
+  line-height: 1.8;
+}
+
+/* 标题间距 */
+.md-content h2 {
+  margin-top: 2rem;
+}
+
+.md-content h3 {
+  margin-top: 1.5rem;
+}
+
+/* 代码块优化 */
+.md-content pre {
+  border-radius: 8px;
+}
+
+/* 表格优化 */
+.md-content table {
+  font-size: 0.9em;
+}
+
+.md-content th {
+  background-color: var(--md-code-bg-color);
+}
+
+/* 链接样式 */
+.md-content a {
+  text-decoration: none;
+}
+
+.md-content a:hover {
+  text-decoration: underline;
+}
+
+/* Admonition 样式 */
+.md-content .admonition {
+  border-radius: 8px;
+}
+
+/* 页脚优化 */
+.md-footer {
+  margin-top: 3rem;
+}

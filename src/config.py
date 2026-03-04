@@ -150,17 +150,26 @@ DEFAULT_PRIMARY_SOURCE_DOMAINS = (
 )
 
 DEFAULT_PRIMARY_X_HANDLES = (
+    # AI 创始人/大佬
     "sama",
-    "openai",
-    "anthropicai",
-    "mistralai",
-    "deepmind",
     "elonmusk",
     "demishassabis",
+    "anthropicai",
+    "mistralai",
     "karpathy",
+    "ilyasut",
     "drjimfan",
-    "tszzq",
     "goodfellow_ian",
+    "ylecun",
+    "andrewyng",
+    "nvidia",
+    # 中国 AI 领军人物
+    "tszzq",
+    "kaifulee",
+    # 官方账号
+    "openai",
+    "deepmind",
+    # 代码/视频/音频工具
     "codeeditapp",
     "replit",
     "runwayml",

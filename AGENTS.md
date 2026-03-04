@@ -7,15 +7,19 @@
 - `tests/`: `pytest` suite for text utilities, fact checks, resilience, and script-level quality checks.
 - `reports/`: runtime outputs (for example `latest.md`, health reports); treat as generated artifacts.
 - `TEMPLATE.md`: template standard file and must not be modified; adapt output only through generation logic.
-- `.github/workflows/`: CI schedules for daily brief generation and weekly source-health checks.
+- `docs/`: MkDocs documentation source files; edit Markdown files here for the documentation site.
+- `mkdocs.yml`: MkDocs configuration; update navigation and theme settings here.
+- `.github/workflows/`: CI schedules for daily brief generation, source-health checks, and docs deployment.
 
 ## Build, Test, and Development Commands
 - `python -m venv .venv && source .venv/bin/activate`: create/activate local environment.
-- `pip install -r requirements.txt`: install runtime and test dependencies.
+- `pip install -r requirements.txt`: install runtime, test, and documentation dependencies.
 - `python main.py`: run the full brief pipeline locally and write outputs to `reports/`.
 - `python -m pytest tests/ -v`: run all unit tests.
 - `python scripts/report_quality_check.py reports/latest.md --autofix`: enforce/repair report format (summary/key points and related checks).
 - `python scripts/source_health_check.py --output reports/source_health.md`: audit source availability and diversity.
+- `mkdocs serve`: start local documentation server with hot reload (http://127.0.0.1:8000).
+- `mkdocs build --strict`: build documentation site; fail on warnings.
 
 ## Coding Style & Naming Conventions
 - Target Python 3.11, 4-space indentation, and clear type hints on non-trivial functions.
