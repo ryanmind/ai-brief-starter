@@ -39,6 +39,7 @@ mkdocs serve
 
 - 分支：`master` 或 `mkdocs`
 - 文件变更包含：`docs/**` 或 `mkdocs.yml`
+- `ai-morning-brief` 成功结束后（`workflow_run`）
 - 或手动点击 `Run workflow`
 
 工作流构建命令：
