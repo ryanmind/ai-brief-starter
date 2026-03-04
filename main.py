@@ -235,6 +235,12 @@ def title_has_explicit_subject(title: str) -> bool:
             continue
         if TITLE_VERSION_ONLY_PATTERN.match(subject):
             continue
+        if re.match(
+            r"^v?\d+(?:\.\d+){1,3}(?:\s*(?:版本|版))?(?:\s*(?:即将|将|预计|或|soon|coming))?$",
+            subject,
+            flags=re.IGNORECASE,
+        ):
+            continue
         if re.match(r"^v?\d+(?:\.\d+){1,3}$", subject, flags=re.IGNORECASE):
             continue
         return True
