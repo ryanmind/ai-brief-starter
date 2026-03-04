@@ -145,6 +145,66 @@ def test_fetch_single_source_github_changelog_fallback(monkeypatch):
     assert items[0]["link"].endswith("/releases/tag/v1.0.0")
 
 
+def test_expand_source_urls_keeps_x_source_when_nitter_down_and_api_fallback_ready(monkeypatch):
+    monkeypatch.setenv("TWITTERAPI_IO_ENABLED", "1")
+    monkeypatch.setenv("TWITTERAPI_IO_KEY", "test-key")
+    monkeypatch.setattr(main, "probe_nitter_bases", lambda bases: [])
+
+    urls = main.expand_source_urls("https://x.com/openai")
+    assert urls == ["https://x.com/openai"]
+
+
+def test_fetch_single_source_nitter_uses_twitterapi_io_fallback_with_cache(monkeypatch):
+    monkeypatch.setenv("TWITTERAPI_IO_ENABLED", "1")
+    monkeypatch.setenv("TWITTERAPI_IO_KEY", "test-key")
+    with main._twitterapi_io_cache_lock:
+        main._twitterapi_io_cache.clear()
+
+    monkeypatch.setattr(
+        main.feedparser,
+        "parse",
+        lambda _url: SimpleNamespace(entries=[], bozo=1, bozo_exception=Exception("rss broken")),
+    )
+
+    request_calls = []
+
+    class FakeResponse:
+        def raise_for_status(self):
+            return None
+
+        def json(self):
+            return {
+                "tweets": [
+                    {
+                        "id": "1888888",
+                        "text": "OpenAI 发布了新的模型能力更新",
+                        "created_at": "2026-03-03T00:00:00Z",
+                        "user": {"screen_name": "openai"},
+                    }
+                ]
+            }
+
+    def fake_get(url, headers, params, timeout):
+        request_calls.append((url, headers.get("X-API-Key"), params.get("userName"), timeout))
+        return FakeResponse()
+
+    monkeypatch.setattr(main.requests, "get", fake_get)
+
+    source = "https://nitter.net/openai/rss"
+    cutoff = main.datetime(2026, 3, 1, tzinfo=main.timezone.utc)
+
+    _, items, error = main._fetch_single_source(source=source, cutoff=cutoff, per_source=5)
+    assert error is None
+    assert len(items) == 1
+    assert items[0]["link"] == "https://x.com/openai/status/1888888"
+    assert request_calls and request_calls[0][2] == "openai"
+
+    _, items_cached, error_cached = main._fetch_single_source(source=source, cutoff=cutoff, per_source=5)
+    assert error_cached is None
+    assert len(items_cached) == 1
+    assert len(request_calls) == 1
+
+
 def test_history_dedupe_prefers_dedupe_link():
     item = {
         "title": "更新日志更新",

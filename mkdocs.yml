@@ -93,6 +93,7 @@ nav:
   - 配置说明:
       - 环境变量: configuration.md
       - 信息源配置: sources.md
+      - X 数据源 Fallback: twitterapi-io.md
   - 飞书集成: feishu_docs_guide_zh.md
   - 搭建教程: mkdocs-tutorial.md
 

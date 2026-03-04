@@ -43,7 +43,10 @@ jobs:
       QUALITY_CHECK_STRICT: "1"
       QUALITY_CHECK_FAIL_OPEN: "1"
       NITTER_RSS_BASES: "https://nitter.net,https://nitter.poast.org,https://nitter.privacydev.net,https://nitter.d420.de,https://nitter.unixfox.eu"
+      TWITTERAPI_IO_ENABLED: "1"
+      TWITTERAPI_IO_TIMEOUT: "8"
       QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
+      TWITTERAPI_IO_KEY: ${{ secrets.TWITTERAPI_IO_KEY }}
       FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
       FEISHU_BOT_SECRET: ${{ secrets.FEISHU_BOT_SECRET }}
       FEISHU_REPORT_DOC_URL: ${{ secrets.FEISHU_REPORT_DOC_URL }}

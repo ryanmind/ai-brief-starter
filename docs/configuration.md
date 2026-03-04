@@ -8,6 +8,7 @@
 | 变量名 | 说明 | 示例 |
 |--------|------|------|
 | `QWEN_API_KEY` | 阿里百炼 API Key | `sk-xxxxxx` |
+| `TWITTERAPI_IO_KEY` | （可选）TwitterAPI.io API Key，用于 X 源 fallback | `taio-xxxxxx` |
 
 ---
 
@@ -44,6 +45,9 @@
 | `PER_SOURCE_ITEMS` | `30` | 单源最大抓取条数 |
 | `PER_DOMAIN_LIMIT` | `4` | 单域名最大输出条数 |
 | `ARXIV_MAX_ITEMS` | `4` | arXiv 来源最大条数 |
+| `TWITTERAPI_IO_ENABLED` | `0` | 启用 TwitterAPI.io 作为 X 源 fallback |
+| `TWITTERAPI_IO_TIMEOUT` | `8` | TwitterAPI.io 请求超时（秒） |
+| `TWITTERAPI_IO_BASE_URL` | `https://api.twitterapi.io` | TwitterAPI.io API 基础地址 |
 
 ---
 

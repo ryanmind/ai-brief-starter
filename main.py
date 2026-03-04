@@ -8,10 +8,12 @@ import re
 from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeoutError, as_completed
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from threading import Lock
 from typing import Any, Optional
 from urllib.parse import urlparse
 
 import feedparser
+import requests
 from dateutil import parser as dtparser
 from openai import OpenAI
 
@@ -1270,6 +1272,270 @@ def apply_source_limits(items: list[dict[str, str]]) -> tuple[list[dict[str, str
     return kept, dropped
 
 
+_X_RESERVED_HANDLES = {
+    "home",
+    "explore",
+    "search",
+    "i",
+    "messages",
+    "notifications",
+    "settings",
+}
+
+_twitterapi_io_cache: dict[tuple[str, str, int], tuple[list[dict[str, str]], str | None]] = {}
+_twitterapi_io_cache_lock = Lock()
+
+
+def is_twitterapi_io_enabled() -> bool:
+    raw = os.getenv("TWITTERAPI_IO_ENABLED", "0").strip().lower()
+    return raw not in {"0", "false", "no", "off"}
+
+
+def twitterapi_io_fallback_ready() -> bool:
+    return is_twitterapi_io_enabled() and bool(os.getenv("TWITTERAPI_IO_KEY", "").strip())
+
+
+def extract_x_handle_from_source(source: str) -> str:
+    parsed = urlparse(source)
+    host = normalize_host(parsed.netloc or "")
+    if host not in X_HOSTS:
+        return ""
+    parts = [segment.strip() for segment in (parsed.path or "").split("/") if segment.strip()]
+    if not parts:
+        return ""
+    handle = parts[0].lstrip("@").lower()
+    if not handle or handle in _X_RESERVED_HANDLES:
+        return ""
+    return handle
+
+
+def _pick_first_text(payload: Any) -> str:
+    if isinstance(payload, str):
+        return clean_text(payload)
+    if isinstance(payload, dict):
+        for key in ("full_text", "text", "content"):
+            value = payload.get(key)
+            if isinstance(value, str) and value.strip():
+                return clean_text(value)
+    return ""
+
+
+def _extract_twitterapi_io_tweets(payload: Any) -> list[dict[str, Any]]:
+    if isinstance(payload, list):
+        return [item for item in payload if isinstance(item, dict)]
+    if not isinstance(payload, dict):
+        return []
+
+    candidate_keys = ("tweets", "data", "items", "results", "statuses")
+    for key in candidate_keys:
+        value = payload.get(key)
+        if isinstance(value, list):
+            return [item for item in value if isinstance(item, dict)]
+        if isinstance(value, dict):
+            for nested_key in candidate_keys:
+                nested_value = value.get(nested_key)
+                if isinstance(nested_value, list):
+                    return [item for item in nested_value if isinstance(item, dict)]
+    return []
+
+
+def _extract_twitterapi_io_error(payload: Any) -> str:
+    if not isinstance(payload, dict):
+        return ""
+    for key in ("error", "message", "detail"):
+        value = payload.get(key)
+        if isinstance(value, str) and value.strip():
+            return clean_text(value)[:200]
+        if isinstance(value, dict):
+            nested = _pick_first_text(value)
+            if nested:
+                return nested[:200]
+    return ""
+
+
+def _extract_tweet_datetime(tweet: dict[str, Any]) -> datetime | None:
+    for key in ("created_at", "createdAt", "published_at", "publishedAt", "date"):
+        value = tweet.get(key)
+        if isinstance(value, str) and value.strip():
+            try:
+                dt = dtparser.parse(value)
+            except Exception:
+                continue
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=timezone.utc)
+            return dt.astimezone(timezone.utc)
+
+    for key in ("timestamp", "created_timestamp"):
+        value = tweet.get(key)
+        if isinstance(value, (int, float)):
+            ts_value = float(value)
+            if ts_value > 1e12:
+                ts_value /= 1000.0
+            try:
+                return datetime.fromtimestamp(ts_value, tz=timezone.utc)
+            except Exception:
+                continue
+    return None
+
+
+def _extract_tweet_text(tweet: dict[str, Any]) -> str:
+    for key in ("full_text", "text", "content", "tweet_text", "description"):
+        value = tweet.get(key)
+        if isinstance(value, str) and value.strip():
+            return clean_text(value)
+
+    legacy = tweet.get("legacy")
+    if isinstance(legacy, dict):
+        legacy_text = _pick_first_text(legacy)
+        if legacy_text:
+            return legacy_text
+
+    note_tweet = tweet.get("note_tweet")
+    if isinstance(note_tweet, dict):
+        note_text = _pick_first_text(note_tweet)
+        if note_text:
+            return note_text
+    return ""
+
+
+def _extract_tweet_id(tweet: dict[str, Any]) -> str:
+    for key in ("id_str", "id", "tweet_id", "tweetId"):
+        value = tweet.get(key)
+        if value is None:
+            continue
+        raw = str(value).strip()
+        if raw:
+            return raw
+    return ""
+
+
+def _extract_tweet_author_handle(tweet: dict[str, Any], fallback_handle: str) -> str:
+    for key in ("screen_name", "username", "user_name", "handle"):
+        value = tweet.get(key)
+        if isinstance(value, str) and value.strip():
+            return value.strip().lstrip("@")
+
+    for key in ("user", "author"):
+        candidate = tweet.get(key)
+        if not isinstance(candidate, dict):
+            continue
+        for field in ("screen_name", "username", "user_name", "handle"):
+            value = candidate.get(field)
+            if isinstance(value, str) and value.strip():
+                return value.strip().lstrip("@")
+
+    return fallback_handle
+
+
+def _clone_items(items: list[dict[str, str]]) -> list[dict[str, str]]:
+    return [dict(item) for item in items]
+
+
+def fetch_from_twitterapi_io(
+    handle: str,
+    cutoff: datetime,
+    per_source: int,
+    source_hint: str = "",
+) -> tuple[list[dict[str, str]], str | None]:
+    api_key = os.getenv("TWITTERAPI_IO_KEY", "").strip()
+    if not api_key:
+        return [], "TWITTERAPI_IO_KEY missing"
+    if not is_twitterapi_io_enabled():
+        return [], "twitterapi_io disabled"
+
+    normalized_handle = handle.strip().lstrip("@").lower()
+    if not normalized_handle or normalized_handle in _X_RESERVED_HANDLES:
+        return [], "invalid x handle"
+
+    timeout = int_env("TWITTERAPI_IO_TIMEOUT", 8, min_value=2, max_value=30)
+    base_url = os.getenv("TWITTERAPI_IO_BASE_URL", "https://api.twitterapi.io").strip().rstrip("/")
+    endpoint = f"{base_url}/twitter/user/last_tweets"
+    cache_key = (normalized_handle, cutoff.isoformat(), per_source)
+
+    with _twitterapi_io_cache_lock:
+        cached = _twitterapi_io_cache.get(cache_key)
+    if cached is not None:
+        cached_items, cached_error = cached
+        return _clone_items(cached_items), cached_error
+
+    try:
+        response = requests.get(
+            endpoint,
+            headers={
+                "X-API-Key": api_key,
+                "Accept": "application/json",
+                "User-Agent": "ai-brief-starter/1.0",
+            },
+            params={"userName": normalized_handle, "count": str(max(per_source, 1))},
+            timeout=timeout,
+        )
+        response.raise_for_status()
+        payload: Any = response.json()
+    except requests.RequestException as exc:
+        reason = f"twitterapi.io request failed: {exc}"
+        with _twitterapi_io_cache_lock:
+            _twitterapi_io_cache[cache_key] = ([], reason)
+        return [], reason
+    except ValueError as exc:
+        reason = f"twitterapi.io invalid json: {exc}"
+        with _twitterapi_io_cache_lock:
+            _twitterapi_io_cache[cache_key] = ([], reason)
+        return [], reason
+
+    tweets = _extract_twitterapi_io_tweets(payload)
+    if not tweets:
+        payload_error = _extract_twitterapi_io_error(payload)
+        reason = f"twitterapi.io response error: {payload_error}" if payload_error else None
+        with _twitterapi_io_cache_lock:
+            _twitterapi_io_cache[cache_key] = ([], reason)
+        return [], reason
+
+    parsed_items: list[dict[str, str]] = []
+    for tweet in tweets:
+        if len(parsed_items) >= per_source:
+            break
+        text = _extract_tweet_text(tweet)
+        if not text:
+            continue
+
+        published_dt = _extract_tweet_datetime(tweet)
+        if published_dt and published_dt < cutoff:
+            continue
+
+        tweet_id = _extract_tweet_id(tweet)
+        author_handle = _extract_tweet_author_handle(tweet, fallback_handle=normalized_handle)
+        raw_link = clean_text(str(tweet.get("url", "") or tweet.get("tweet_url", "") or tweet.get("permalink", "")))
+        if not raw_link and tweet_id:
+            raw_link = f"https://x.com/{author_handle}/status/{tweet_id}"
+        if not raw_link:
+            continue
+
+        link = nitter_to_x_url(raw_link)
+        title = text[:200]
+        parsed_items.append(
+            {
+                "title": title,
+                "link": link,
+                "dedupe_link": link,
+                "summary": text[:1000],
+                "published": published_dt.isoformat() if published_dt else "",
+            }
+        )
+
+    with _twitterapi_io_cache_lock:
+        _twitterapi_io_cache[cache_key] = (_clone_items(parsed_items), None)
+
+    if source_hint:
+        logger.info(
+            "twitterapi.io fallback success: source=%s handle=%s items=%d",
+            source_hint,
+            normalized_handle,
+            len(parsed_items),
+        )
+
+    return parsed_items, None
+
+
 def load_sources(path: str = "sources.txt") -> list[str]:
     lines = Path(path).read_text(encoding="utf-8").splitlines()
     raw_sources = [line.strip() for line in lines if line.strip() and not line.strip().startswith("#")]
@@ -1343,8 +1609,7 @@ def expand_source_urls(source: str) -> list[str]:
     if host in {"x.com", "www.x.com", "twitter.com", "www.twitter.com"}:
         path = (parsed.path or "").strip("/")
         handle = path.split("/", 1)[0] if path else ""
-        reserved = {"home", "explore", "search", "i", "messages", "notifications", "settings"}
-        if handle and handle not in reserved:
+        if handle and handle.lower() not in _X_RESERVED_HANDLES:
             raw_bases = os.getenv(
                 "NITTER_RSS_BASES",
                 "https://nitter.net,https://nitter.poast.org,https://nitter.privacydev.net",
@@ -1352,6 +1617,9 @@ def expand_source_urls(source: str) -> list[str]:
             all_bases = [base.strip().rstrip("/") for base in raw_bases.split(",") if base.strip()]
             bases = probe_nitter_bases(list(dict.fromkeys(all_bases)))
             if not bases:
+                if twitterapi_io_fallback_ready():
+                    logger.warning("no alive nitter, fallback to twitterapi.io for: %s", source)
+                    return [source]
                 logger.warning("skipping X source (no alive nitter): %s", source)
                 return []
             return [f"{base}/{handle}/rss" for base in bases]
@@ -1363,10 +1631,33 @@ def _fetch_single_source(
     source: str, cutoff: datetime, per_source: int,
 ) -> tuple[str, list[dict[str, str]], str | None]:
     """抓取单个 RSS 源，返回 (source_url, items, error_reason)。"""
+    source_host = normalize_host(urlparse(source).netloc or "")
+    source_handle = extract_x_handle_from_source(source)
+
+    # 当没有可用 Nitter 且 source 仍是 x.com/twitter.com 时，直接走 API fallback。
+    if source_host in {"x.com", "twitter.com"} and source_handle:
+        fallback_items, fallback_error = fetch_from_twitterapi_io(
+            handle=source_handle,
+            cutoff=cutoff,
+            per_source=per_source,
+            source_hint=source,
+        )
+        return source, fallback_items, fallback_error
+
     active_source = source
     try:
         feed = feedparser.parse(active_source)
     except Exception as exc:
+        if source_handle and source_host in X_HOSTS and twitterapi_io_fallback_ready():
+            fallback_items, fallback_error = fetch_from_twitterapi_io(
+                handle=source_handle,
+                cutoff=cutoff,
+                per_source=per_source,
+                source_hint=source,
+            )
+            if fallback_items or fallback_error is None:
+                return source, fallback_items, fallback_error
+            return source, [], fallback_error
         return source, [], str(exc)
 
     entries = getattr(feed, "entries", [])
@@ -1392,6 +1683,16 @@ def _fetch_single_source(
             break
 
     if getattr(feed, "bozo", 0) and not entries:
+        if source_handle and source_host in X_HOSTS and twitterapi_io_fallback_ready():
+            fallback_items, fallback_error = fetch_from_twitterapi_io(
+                handle=source_handle,
+                cutoff=cutoff,
+                per_source=per_source,
+                source_hint=source,
+            )
+            if fallback_items or fallback_error is None:
+                return source, fallback_items, fallback_error
+            return source, [], fallback_error
         return source, [], str(bozo_exception)
     if not entries:
         return source, [], None
