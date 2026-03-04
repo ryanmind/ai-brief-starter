@@ -1985,7 +1985,6 @@ def main() -> None:
     max_items = int_env("MAX_ITEMS", 120, min_value=10, max_value=500)
     top_n = int_env("TOP_N", 20, min_value=5, max_value=100)
     fetch_hours = int_env("FETCH_HOURS", 24, min_value=1, max_value=168)
-    fallback_fetch_hours = int_env("FALLBACK_FETCH_HOURS", 72, min_value=1, max_value=168)
     per_source_items = int_env("PER_SOURCE_ITEMS", 30, min_value=5, max_value=200)
     history_dedupe_days = int_env("HISTORY_DEDUP_DAYS", 2, min_value=0, max_value=30)
     history_state_max_days = int_env("HISTORY_STATE_MAX_DAYS", 14, min_value=1, max_value=90)
@@ -2038,18 +2037,6 @@ def main() -> None:
         )
 
     items, rejected_stats, ai_topic_stats, diversity_stats, history_dropped, stage_stats = prepare_items(fetched_items)
-
-    if len(items) < top_n and fallback_fetch_hours > fetch_hours:
-        expanded_fetched_items = fetch_items(
-            sources=sources,
-            hours=fallback_fetch_hours,
-            per_source=per_source_items,
-        )
-        if len(expanded_fetched_items) > len(fetched_items):
-            items, rejected_stats, ai_topic_stats, diversity_stats, history_dropped, stage_stats = prepare_items(
-                expanded_fetched_items
-            )
-            fetched_items = expanded_fetched_items
 
     rejected_count = sum(rejected_stats.values())
     logger.info(

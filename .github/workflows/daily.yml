@@ -28,7 +28,6 @@ jobs:
       STRICT_FACT_MODE: "1"
       FACT_OVERLAP_MIN: "0.55"
       FETCH_HOURS: "24"
-      FALLBACK_FETCH_HOURS: "72"
       PER_SOURCE_ITEMS: "30"
       HISTORY_DEDUP_DAYS: "2"
       HISTORY_STATE_PATH: "reports/history_index.json"
