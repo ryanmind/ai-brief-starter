@@ -36,9 +36,8 @@ python main.py
 | [快速开始](quick-start.md) | 本地运行与 GitHub Actions 配置 |
 | [环境变量](configuration.md) | 所有可配置参数详解 |
 | [信息源配置](sources.md) | RSS、Twitter、GitHub 源配置 |
-| [飞书集成](feishu-sync.md) | 飞书群通知与文档同步 |
-| [早报模板](template.md) | 输出格式说明 |
-| [产品需求](prd.md) | PRD 文档 |
+| [飞书集成](feishu_docs_guide_zh.md) | 飞书群通知与文档同步 |
+| [搭建教程](mkdocs-tutorial.md) | MkDocs 文档站点搭建指南 |
 
 ## 🏗️ 项目结构
 
