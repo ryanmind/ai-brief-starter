@@ -1948,6 +1948,23 @@ def render_markdown(items: list[dict[str, str]]) -> str:
     return "\n".join(lines)
 
 
+def prepend_quality_review_banner(markdown: str) -> str:
+    if not markdown.strip():
+        return markdown
+    if "质量提示：本期内容在自动质检中发现缺陷" in markdown:
+        return markdown
+
+    lines = markdown.splitlines()
+    insert_at = 1 if lines and lines[0].startswith("# ") else 0
+    banner_lines = [
+        "> ⚠️ 质量提示：本期内容在自动质检中发现缺陷，已按不断流策略发布，请优先人工复核。",
+        "> 详情请查看 `reports/quality_metrics.json` 与 `reports/high_risk_items.md`。",
+        "",
+    ]
+    merged = lines[:insert_at] + [""] + banner_lines + lines[insert_at:]
+    return "\n".join(merged).rstrip() + "\n"
+
+
 def main() -> None:
     logging.basicConfig(
         level=os.getenv("LOG_LEVEL", "INFO").upper(),
@@ -2078,6 +2095,8 @@ def main() -> None:
             quality_gate_opened = True
             logger.error("二次质检失败：流程不中断，将在飞书通知中提示缺陷。")
     markdown = draft_report_path.read_text(encoding="utf-8")
+    if quality_gate_opened:
+        markdown = prepend_quality_review_banner(markdown)
     final_item_count = markdown.count("\n### ")
     if final_item_count <= 0:
         raise RuntimeError("无内容：最终报告条目数为 0，停止发布")

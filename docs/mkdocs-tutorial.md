@@ -40,7 +40,7 @@ mkdocs serve
 
 - 分支：`master` 或 `mkdocs`
 - 文件变更包含：`docs/**` 或 `mkdocs.yml`
-- `ai-morning-brief` 成功结束后（`workflow_run`）
+- 文件变更包含：`requirements.txt`（保证文档依赖变化也会重建）
 - 或手动点击 `Run workflow`
 
 工作流构建命令：
@@ -59,7 +59,7 @@ mkdocs build --strict
 3. 将 `reports/YYYY-MM-DD.md` 渲染并写入 `docs/history/YYYY-MM-DD.md`
 4. 重建历史索引 `docs/history.md`
 5. 若内容有变化，自动提交并 push 到当前分支
-6. 触发 `docs` 工作流重新部署站点
+6. 通过 `push` 触发 `docs` 工作流重新部署站点
 
 所以“早报已生成但站点没更新”的排查顺序是：
 

@@ -136,6 +136,7 @@ jobs:
           path: reports/
 
       - name: Notify Feishu
+        id: notify_feishu
         continue-on-error: true
         if: success() && env.FEISHU_WEBHOOK_URL != ''
         env:
@@ -143,9 +144,40 @@ jobs:
         run: python scripts/notify_feishu.py reports/latest.md
 
       - name: Notify WeChat
+        id: notify_wechat
         continue-on-error: true
         if: success() && env.SERVERCHAN_SENDKEY != ''
         run: python scripts/notify_wechat.py reports/latest.md
+
+      - name: Summarize notification status
+        id: notify_summary
+        if: always()
+        env:
+          FEISHU_OUTCOME: ${{ steps.notify_feishu.outcome }}
+          WECHAT_OUTCOME: ${{ steps.notify_wechat.outcome }}
+        run: |
+          feishu_status="${FEISHU_OUTCOME:-skipped}"
+          wechat_status="${WECHAT_OUTCOME:-skipped}"
+          echo "notify_failed=false" >> "$GITHUB_OUTPUT"
+          echo "### Notification status" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Feishu: ${feishu_status}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- WeChat: ${wechat_status}" >> "$GITHUB_STEP_SUMMARY"
+          if [ "${feishu_status}" = "failure" ] || [ "${wechat_status}" = "failure" ]; then
+            echo "notify_failed=true" >> "$GITHUB_OUTPUT"
+            echo "::warning::Notification failure detected (Feishu=${feishu_status}, WeChat=${wechat_status})"
+          fi
+
+      - name: Notify Feishu on notification channel failure
+        continue-on-error: true
+        if: always() && steps.notify_summary.outputs.notify_failed == 'true' && env.FEISHU_WEBHOOK_URL != ''
+        env:
+          ACTIONS_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          python scripts/notify_feishu.py \
+            --failure \
+            --failed-step "Notify Channels" \
+            --error-reason "Feishu=${{ steps.notify_feishu.outcome || 'skipped' }}, WeChat=${{ steps.notify_wechat.outcome || 'skipped' }}" \
+            --run-url "${ACTIONS_RUN_URL}"
 
       - name: Notify Feishu on failure
         if: failure() && env.FEISHU_WEBHOOK_URL != ''

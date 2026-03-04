@@ -417,7 +417,9 @@ def test_main_quality_check_fail_open_keeps_pipeline_running(monkeypatch, tmp_pa
     main.main()
 
     assert calls == [True]
-    assert (tmp_path / "reports/latest.md").exists()
+    latest = tmp_path / "reports/latest.md"
+    assert latest.exists()
+    assert "质量提示：本期内容在自动质检中发现缺陷" in latest.read_text(encoding="utf-8")
 
 
 def test_main_quality_check_fail_open_disabled_still_continues(monkeypatch, tmp_path):
@@ -452,7 +454,9 @@ def test_main_quality_check_fail_open_disabled_still_continues(monkeypatch, tmp_
     monkeypatch.setattr(main, "run_quality_checks", lambda **kwargs: 1)
 
     main.main()
-    assert (tmp_path / "reports/latest.md").exists()
+    latest = tmp_path / "reports/latest.md"
+    assert latest.exists()
+    assert "质量提示：本期内容在自动质检中发现缺陷" in latest.read_text(encoding="utf-8")
 
 
 def test_build_quality_warning_lines_reads_merged_quality_metrics(tmp_path):
@@ -511,3 +515,11 @@ def test_enforce_titles_with_subject_uses_deterministic_fallback(monkeypatch):
     ]
     fixed = main.enforce_titles_with_subject(items=items, qwen_api_key="test-key", qwen_model="qwen-flash")
     assert fixed[0]["title"].startswith("runwayml/sdk-python")
+
+
+def test_prepend_quality_review_banner_is_idempotent():
+    markdown = "# AI 早报\n\n## 本期摘要\n\n1. A\n"
+    with_banner = main.prepend_quality_review_banner(markdown)
+    assert "质量提示：本期内容在自动质检中发现缺陷" in with_banner
+    twice = main.prepend_quality_review_banner(with_banner)
+    assert twice == with_banner
