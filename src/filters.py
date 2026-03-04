@@ -18,6 +18,7 @@ from src.config import (
     int_env,
     parse_csv_env,
 )
+from src.models import NewsItem
 from src.text_utils import (
     clean_text,
     contains_second_hand_cue,
@@ -128,7 +129,7 @@ def history_state_fingerprints(state: dict[str, list[str]], lookback_days: int) 
 def update_history_state(
     state: dict[str, list[str]],
     run_date: datetime,
-    items: list[dict[str, str]],
+    items: list[NewsItem] | list[dict[str, str]],
     keep_days: int,
 ) -> dict[str, list[str]]:
     updated: dict[str, list[str]] = {key: list(values) for key, values in state.items()}
@@ -162,13 +163,20 @@ def save_history_state(path: Path, state: dict[str, list[str]]) -> None:
 
 
 def filter_items_by_history(
-    items: list[dict[str, str]],
+    items: list[NewsItem] | list[dict[str, str]],
     history_fingerprints: set[str],
-) -> tuple[list[dict[str, str]], int]:
+) -> tuple[list[NewsItem], int]:
     if not history_fingerprints:
+        # Convert dicts to NewsItem if needed
+        if items and isinstance(items[0], dict):
+            items = [NewsItem.from_dict(item) for item in items]
         return items, 0
 
-    kept: list[dict[str, str]] = []
+    # Convert dicts to NewsItem if needed
+    if items and isinstance(items[0], dict):
+        items = [NewsItem.from_dict(item) for item in items]
+
+    kept: list[NewsItem] = []
     dropped = 0
     for item in items:
         fingerprints = item_dedupe_fingerprints(item)
@@ -190,12 +198,21 @@ def is_github_commit_link(url: str) -> bool:
 
 
 def get_primary_rejection_reason(
-    item: dict[str, str],
+    item: NewsItem | dict[str, str],
     allowed_domains: set[str],
     allowed_x_handles: set[str],
     blocked_domains: set[str] | None = None,
 ) -> str | None:
-    link = (item.get("link", "") or "").strip()
+    # Handle both NewsItem and dict for backward compatibility
+    if isinstance(item, dict):
+        link = (item.get("link", "") or "").strip()
+        title = item.get("title", "")
+        summary = item.get("summary", "")
+    else:
+        link = (item.link or "").strip()
+        title = item.title
+        summary = item.summary
+
     if not link:
         return "missing_link"
     if is_github_commit_link(link):
@@ -216,7 +233,7 @@ def get_primary_rejection_reason(
         if not host_matches(host, allowed_domains):
             return "non_primary_domain"
 
-    evidence = f"{clean_text(item.get('title', ''))} {clean_text(item.get('summary', ''))}".strip()
+    evidence = f"{clean_text(title)} {clean_text(summary)}".strip()
     if evidence and contains_second_hand_cue(evidence):
         return "second_hand_cue"
 
@@ -229,7 +246,7 @@ def get_primary_rejection_reason(
 
 
 def is_primary_item(
-    item: dict[str, str],
+    item: NewsItem | dict[str, str],
     allowed_domains: set[str],
     allowed_x_handles: set[str],
 ) -> bool:
@@ -240,20 +257,27 @@ def is_primary_item(
     ) is None
 
 
-def filter_primary_items(items: list[dict[str, str]]) -> list[dict[str, str]]:
+def filter_primary_items(items: list[NewsItem] | list[dict[str, str]]) -> list[NewsItem]:
     filtered, _ = filter_primary_items_with_stats(items)
     return filtered
 
 
-def filter_primary_items_with_stats(items: list[dict[str, str]]) -> tuple[list[dict[str, str]], dict[str, int]]:
+def filter_primary_items_with_stats(items: list[NewsItem] | list[dict[str, str]]) -> tuple[list[NewsItem], dict[str, int]]:
     strict_primary_only = os.getenv("STRICT_PRIMARY_ONLY", "1").strip().lower()
     if strict_primary_only in {"0", "false", "no", "off"}:
+        # Convert dicts to NewsItem if needed
+        if items and isinstance(items[0], dict):
+            items = [NewsItem.from_dict(item) for item in items]
         return items, {"strict_mode_disabled": len(items)}
+
+    # Convert dicts to NewsItem if needed
+    if items and isinstance(items[0], dict):
+        items = [NewsItem.from_dict(item) for item in items]
 
     allowed_domains = parse_csv_env("PRIMARY_SOURCE_DOMAINS", DEFAULT_PRIMARY_SOURCE_DOMAINS)
     allowed_x_handles = parse_csv_env("PRIMARY_X_HANDLES", DEFAULT_PRIMARY_X_HANDLES)
     blocked_domains = parse_csv_env("SECOND_HAND_DOMAINS", DEFAULT_SECOND_HAND_DOMAINS)
-    filtered: list[dict[str, str]] = []
+    filtered: list[NewsItem] = []
     rejected_stats: dict[str, int] = {}
 
     for item in items:
@@ -272,18 +296,25 @@ def filter_primary_items_with_stats(items: list[dict[str, str]]) -> tuple[list[d
 
 
 def filter_ai_topic_items_with_stats(
-    items: list[dict[str, str]],
+    items: list[NewsItem] | list[dict[str, str]],
     qwen_api_key: str = "",
     qwen_model: str = "",
-) -> tuple[list[dict[str, str]], dict[str, int]]:
+) -> tuple[list[NewsItem], dict[str, int]]:
     from src.llm import classify_ai_topic_items_with_llm  # avoid circular import
 
     strict_ai_topic_only = os.getenv("STRICT_AI_TOPIC_ONLY", "1").strip().lower()
     if strict_ai_topic_only in {"0", "false", "no", "off"}:
+        # Convert dicts to NewsItem if needed
+        if items and isinstance(items[0], dict):
+            items = [NewsItem.from_dict(item) for item in items]
         return items, {"strict_mode_disabled": len(items)}
 
     if not items:
-        return items, {}
+        return [], {}
+
+    # Convert dicts to NewsItem if needed
+    if items and isinstance(items[0], dict):
+        items = [NewsItem.from_dict(item) for item in items]
 
     api_key = qwen_api_key.strip() if qwen_api_key else os.getenv("QWEN_API_KEY", "").strip()
     model = qwen_model.strip() if qwen_model else os.getenv("QWEN_MODEL", "qwen-flash").strip()
@@ -302,7 +333,7 @@ def filter_ai_topic_items_with_stats(
         logger.warning("ai-topic llm returned mismatched decisions, keep all items as fallback")
         return items, {"llm_invalid_result_keep_all": len(items)}
 
-    filtered: list[dict[str, str]] = []
+    filtered: list[NewsItem] = []
     rejected = 0
     for item, decision in zip(items, decisions):
         if decision is False:
@@ -322,20 +353,27 @@ def filter_ai_topic_items_with_stats(
     return filtered, stats
 
 
-def apply_source_limits(items: list[dict[str, str]]) -> tuple[list[dict[str, str]], dict[str, int]]:
+def apply_source_limits(items: list[NewsItem] | list[dict[str, str]]) -> tuple[list[NewsItem], dict[str, int]]:
     per_domain_limit = int_env("PER_DOMAIN_LIMIT", 4, min_value=0, max_value=50)
     arxiv_max_items = int_env("ARXIV_MAX_ITEMS", 4, min_value=0, max_value=50)
 
     if per_domain_limit <= 0 and arxiv_max_items <= 0:
+        # Convert dicts to NewsItem if needed
+        if items and isinstance(items[0], dict):
+            items = [NewsItem.from_dict(item) for item in items]
         return items, {}
 
-    kept: list[dict[str, str]] = []
+    # Convert dicts to NewsItem if needed
+    if items and isinstance(items[0], dict):
+        items = [NewsItem.from_dict(item) for item in items]
+
+    kept: list[NewsItem] = []
     bucket_counts: dict[str, int] = {}
     arxiv_count = 0
     dropped: dict[str, int] = {}
 
     for item in items:
-        link = item.get("link", "")
+        link = item.link
         host = normalize_host(urlparse(link).netloc or "")
         bucket = source_bucket_key(link)
         is_arxiv = host in {"arxiv.org", "export.arxiv.org"}

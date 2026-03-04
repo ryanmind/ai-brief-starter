@@ -6,6 +6,7 @@ helpers live here so they can be reused by main, scripts, and tests.
 from __future__ import annotations
 
 import re
+from dataclasses import replace
 from typing import Any, Optional
 from datetime import datetime, timezone
 from urllib.parse import urlparse
@@ -28,6 +29,7 @@ from src.config import (
     X_HOSTS,
     IMPACT_MAX_CHARS,
 )
+from src.models import NewsItem
 
 
 def clean_text(text: str) -> str:
@@ -305,11 +307,11 @@ def normalize_key_points(value: Any) -> list[str]:
     return points
 
 
-def build_default_key_points(item: dict[str, str]) -> list[str]:
+def build_default_key_points(item: NewsItem) -> list[str]:
     points: list[str] = []
     seen: set[str] = set()
     for field in ("summary", "brief", "impact", "title"):
-        for candidate in split_key_point_candidates(item.get(field, "")):
+        for candidate in split_key_point_candidates(getattr(item, field, "")):
             text = normalize_key_point_text(candidate)
             if len(text) < KEY_POINT_MIN_CHARS:
                 continue
@@ -322,7 +324,7 @@ def build_default_key_points(item: dict[str, str]) -> list[str]:
                 return points
 
     if not points:
-        fallback_text = normalize_key_point_text(item.get("title", "")) or "建议查看原文获取完整信息"
+        fallback_text = normalize_key_point_text(item.title) or "建议查看原文获取完整信息"
         points.append(fallback_text)
 
     return points[:KEY_POINTS_MAX_COUNT]
@@ -470,35 +472,34 @@ def fact_overlap_ratio(text: str, evidence: str) -> float:
     return len(text_chars & evidence_chars) / len(text_chars)
 
 
-def extractive_brief(item: dict[str, str]) -> str:
-    summary = clean_text(item.get("summary", ""))
+def extractive_brief(item: NewsItem) -> str:
+    summary = clean_text(item.summary)
     if not summary:
-        return clean_text(item.get("title", ""))[:BRIEF_MAX_CHARS]
+        return clean_text(item.title)[:BRIEF_MAX_CHARS]
     sentences = sentence_candidates(summary)
     if sentences:
         return sentences[0][:BRIEF_MAX_CHARS]
     return summary[:BRIEF_MAX_CHARS]
 
 
-def sanitize_item_factuality(item: dict[str, str]) -> dict[str, str]:
+def sanitize_item_factuality(item: NewsItem) -> NewsItem:
     if not STRICT_FACT_MODE:
         return item
 
-    fixed = item.copy()
-    evidence = f"{clean_text(fixed.get('title', ''))} {clean_text(fixed.get('summary', ''))}".strip()
+    evidence = f"{clean_text(item.title)} {clean_text(item.summary)}".strip()
     if not evidence:
-        return fixed
+        return item
 
-    brief = clean_text(fixed.get("brief", ""))
+    brief = clean_text(item.brief)
     if (
         not brief
         or has_unseen_numbers(brief, evidence)
         or fact_overlap_ratio(brief, evidence) < FACT_OVERLAP_MIN
     ):
-        brief = extractive_brief(fixed)
-    fixed["brief"] = brief[:BRIEF_MAX_CHARS]
+        brief = extractive_brief(item)
+    brief = brief[:BRIEF_MAX_CHARS]
 
-    details = clean_text(fixed.get("details", ""))
+    details = clean_text(item.details)
     if (
         not details
         or len(details) < DETAIL_MIN_CHARS
@@ -506,19 +507,19 @@ def sanitize_item_factuality(item: dict[str, str]) -> dict[str, str]:
         or has_unseen_numbers(details, evidence)
         or fact_overlap_ratio(details, evidence) < FACT_OVERLAP_MIN
     ):
-        details = build_detail_from_summary(summary=fixed.get("summary", ""), brief=fixed.get("brief", ""))
+        details = build_detail_from_summary(summary=item.summary, brief=brief)
     if not details:
-        details = fixed["brief"]
-    fixed["details"] = details[:DETAIL_MAX_CHARS]
+        details = brief
+    details = details[:DETAIL_MAX_CHARS]
 
-    impact = clean_text(fixed.get("impact", ""))
+    impact = clean_text(item.impact)
     if impact and has_unseen_numbers(impact, evidence):
-        fixed["impact"] = "该进展已在一手来源披露，建议结合原文评估实际影响。"
+        impact = "该进展已在一手来源披露，建议结合原文评估实际影响。"
 
-    return fixed
+    return replace(item, brief=brief, details=details, impact=impact)
 
 
-def sanitize_items_factuality(items: list[dict[str, str]]) -> list[dict[str, str]]:
+def sanitize_items_factuality(items: list[NewsItem]) -> list[NewsItem]:
     return [sanitize_item_factuality(item) for item in items]
 
 
@@ -539,11 +540,10 @@ def build_detail_from_summary(summary: str, brief: str) -> str:
     return detail_text[:DETAIL_MAX_CHARS]
 
 
-def fix_item_detail(item: dict[str, str]) -> dict[str, str]:
-    fixed = item.copy()
-    brief = clean_text(fixed.get("brief", ""))
-    details = clean_text(fixed.get("details", ""))
-    summary = clean_text(fixed.get("summary", ""))
+def fix_item_detail(item: NewsItem) -> NewsItem:
+    brief = clean_text(item.brief)
+    details = clean_text(item.details)
+    summary = clean_text(item.summary)
 
     low_quality = (
         not details
@@ -554,11 +554,12 @@ def fix_item_detail(item: dict[str, str]) -> dict[str, str]:
         details = build_detail_from_summary(summary=summary, brief=brief)
     if not details:
         details = brief
-    fixed["details"] = details[:DETAIL_MAX_CHARS]
-    return fixed
+    details = details[:DETAIL_MAX_CHARS]
+
+    return replace(item, details=details)
 
 
-def fix_items_detail(items: list[dict[str, str]]) -> list[dict[str, str]]:
+def fix_items_detail(items: list[NewsItem]) -> list[NewsItem]:
     return sanitize_items_factuality([fix_item_detail(item) for item in items])
 
 
@@ -571,7 +572,7 @@ def extract_numeric_tokens(text: str) -> set[str]:
     return set(re.findall(r"\d+(?:\.\d+)?%?", clean_text(text)))
 
 
-def finalize_key_points(points: list[str], item: dict[str, str]) -> list[str]:
+def finalize_key_points(points: list[str], item: NewsItem) -> list[str]:
     merged: list[str] = []
     seen: set[str] = set()
 
@@ -597,10 +598,10 @@ def contains_second_hand_domain(text: str, blocked_domains: set[str]) -> bool:
     return any(domain in normalized for domain in blocked_domains)
 
 
-def build_fallback_impact(item: dict[str, str]) -> str:
-    brief = clean_text(item.get("brief", ""))
-    summary = clean_text(item.get("summary", ""))
-    title = clean_text(item.get("title", ""))
+def build_fallback_impact(item: NewsItem) -> str:
+    brief = clean_text(item.brief)
+    summary = clean_text(item.summary)
+    title = clean_text(item.title)
     brief_key = normalize_for_compare(brief)
 
     for candidate in sentence_candidates(summary):
@@ -647,13 +648,20 @@ def normalize_title_for_dedupe(title: str) -> str:
     return re.sub(r"\W+", "", clean_text(title).lower(), flags=re.UNICODE)
 
 
-def item_dedupe_fingerprints(item: dict[str, str]) -> set[str]:
+def item_dedupe_fingerprints(item: "NewsItem | dict[str, str]") -> set[str]:
     fingerprints: set[str] = set()
-    dedupe_link = item.get("dedupe_link", "") or item.get("link", "")
+    # Handle both NewsItem and dict for backward compatibility
+    if isinstance(item, dict):
+        dedupe_link = item.get("dedupe_link", "") or item.get("link", "")
+        title = item.get("title", "")
+    else:
+        dedupe_link = item.dedupe_link or item.link
+        title = item.title
+
     link_key = normalize_link_for_dedupe(dedupe_link)
     if link_key:
         fingerprints.add(f"l:{link_key}")
-    title_key = normalize_title_for_dedupe(item.get("title", ""))
+    title_key = normalize_title_for_dedupe(title)
     if title_key:
         fingerprints.add(f"t:{title_key}")
     return fingerprints

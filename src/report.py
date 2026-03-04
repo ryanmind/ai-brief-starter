@@ -11,6 +11,7 @@ from typing import Any
 from urllib.parse import urlparse
 
 from src.config import X_HOSTS
+from src.models import NewsItem
 from src.text_utils import (
     clean_generated_text,
     ensure_sentence_end,
@@ -40,12 +41,12 @@ SOURCE_CATEGORY_DOMAINS: dict[str, set[str]] = {
 }
 
 
-def check_category_balance(items: list[dict[str, str]]) -> dict[str, int]:
+def check_category_balance(items: list[NewsItem]) -> dict[str, int]:
     """统计各类来源分布并输出告警。"""
     counts: dict[str, int] = {cat: 0 for cat in SOURCE_CATEGORY_DOMAINS}
     counts["other"] = 0
     for item in items:
-        host = normalize_host(urlparse(item.get("link", "")).netloc or "")
+        host = normalize_host(urlparse(item.link).netloc or "")
         matched = False
         for cat, domains in SOURCE_CATEGORY_DOMAINS.items():
             if host_matches(host, domains):
@@ -69,7 +70,7 @@ def check_category_balance(items: list[dict[str, str]]) -> dict[str, int]:
     return counts
 
 
-def render_markdown(items: list[dict[str, str]]) -> str:
+def render_markdown(items: list[NewsItem]) -> str:
     now = datetime.now()
     today_cn = now.strftime("%Y年%m月%d日%H:%M:%S")
     lines = [
@@ -79,8 +80,8 @@ def render_markdown(items: list[dict[str, str]]) -> str:
     ]
 
     for idx, item in enumerate(items[:5], 1):
-        title = clean_generated_text(item.get("title", ""))
-        brief = shorten_for_highlight(clean_generated_text(item.get("brief", "")))
+        title = clean_generated_text(item.title)
+        brief = shorten_for_highlight(clean_generated_text(item.brief))
         if not title and not brief:
             continue
         if title and brief:
@@ -94,12 +95,12 @@ def render_markdown(items: list[dict[str, str]]) -> str:
     for idx, item in enumerate(items, 1):
         if idx > 1:
             lines.append("")
-        brief = ensure_sentence_end(clean_generated_text(item.get("brief", "")))
-        impact = ensure_sentence_end(clean_generated_text(item.get("impact", "")))
-        title = clean_generated_text(item.get("title", ""))
-        source = nitter_to_x_url((item.get("link", "") or "").strip())
+        brief = ensure_sentence_end(clean_generated_text(item.brief))
+        impact = ensure_sentence_end(clean_generated_text(item.impact))
+        title = clean_generated_text(item.title)
+        source = nitter_to_x_url((item.link or "").strip())
         key_points: list[str] = []
-        for point in normalize_key_points(item.get("key_points")):
+        for point in normalize_key_points(item.key_points):
             cleaned_point = clean_generated_text(point)
             if not cleaned_point or is_placeholder_text(cleaned_point):
                 continue

@@ -8,6 +8,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from src.models import NewsItem
+
 import feedparser  # noqa: F401 - Backward compatibility for tests monkeypatching main.feedparser
 import requests  # noqa: F401 - Backward compatibility for tests monkeypatching main.requests
 
@@ -22,6 +24,7 @@ from src import filters as filters_module
 from src import llm as llm_module
 from src import report as report_module
 from src import text_utils as text_utils_module
+from src.models import NewsItem
 
 logger = logging.getLogger(__name__)
 
@@ -46,7 +49,6 @@ key_point_dedupe_key = text_utils_module.key_point_dedupe_key
 normalize_key_point_text = text_utils_module.normalize_key_point_text
 split_key_point_candidates = text_utils_module.split_key_point_candidates
 normalize_key_points = text_utils_module.normalize_key_points
-build_default_key_points = text_utils_module.build_default_key_points
 ensure_sentence_end = text_utils_module.ensure_sentence_end
 collapse_duplicate_punctuation = text_utils_module.collapse_duplicate_punctuation
 is_placeholder_text = text_utils_module.is_placeholder_text
@@ -58,15 +60,10 @@ normalize_for_compare = text_utils_module.normalize_for_compare
 extract_numbers = text_utils_module.extract_numbers
 has_unseen_numbers = text_utils_module.has_unseen_numbers
 fact_overlap_ratio = text_utils_module.fact_overlap_ratio
-extractive_brief = text_utils_module.extractive_brief
 build_detail_from_summary = text_utils_module.build_detail_from_summary
-fix_item_detail = text_utils_module.fix_item_detail
-fix_items_detail = text_utils_module.fix_items_detail
 extract_urls = text_utils_module.extract_urls
 extract_numeric_tokens = text_utils_module.extract_numeric_tokens
-finalize_key_points = text_utils_module.finalize_key_points
 contains_second_hand_domain = text_utils_module.contains_second_hand_domain
-build_fallback_impact = text_utils_module.build_fallback_impact
 normalize_link_for_dedupe = text_utils_module.normalize_link_for_dedupe
 normalize_title_for_dedupe = text_utils_module.normalize_title_for_dedupe
 item_dedupe_fingerprints = text_utils_module.item_dedupe_fingerprints
@@ -75,17 +72,62 @@ strip_markdown_fence = text_utils_module.strip_markdown_fence
 polish_result_is_safe = text_utils_module.polish_result_is_safe
 
 
+# Wrapper functions for backward compatibility with dict-based API
+def extractive_brief(item: dict[str, str]) -> str:
+    from src.models import NewsItem
+    news_item = NewsItem.from_dict(item)
+    return text_utils_module.extractive_brief(news_item)
+
+
+def fix_item_detail(item: dict[str, str]) -> dict[str, str]:
+    from src.models import NewsItem
+    news_item = NewsItem.from_dict(item)
+    result = text_utils_module.fix_item_detail(news_item)
+    return result.to_dict()
+
+
+def fix_items_detail(items: list[dict[str, str]]) -> list[dict[str, str]]:
+    from src.models import NewsItem
+    news_items = NewsItem.from_dict_list(items)
+    result = text_utils_module.fix_items_detail(news_items)
+    return NewsItem.to_dict_list(result)
+
+
+def finalize_key_points(points: list[str], item: dict[str, str]) -> list[str]:
+    from src.models import NewsItem
+    news_item = NewsItem.from_dict(item)
+    return text_utils_module.finalize_key_points(points, news_item)
+
+
+def build_fallback_impact(item: dict[str, str]) -> str:
+    from src.models import NewsItem
+    news_item = NewsItem.from_dict(item)
+    return text_utils_module.build_fallback_impact(news_item)
+
+
+def build_default_key_points(item: dict[str, str]) -> list[str]:
+    from src.models import NewsItem
+    news_item = NewsItem.from_dict(item)
+    return text_utils_module.build_default_key_points(news_item)
+
+
 # Keep FACT_OVERLAP_MIN / STRICT_FACT_MODE monkeypatch behavior from historical tests.
 def sanitize_item_factuality(item: dict[str, str]) -> dict[str, str]:
     text_utils_module.FACT_OVERLAP_MIN = FACT_OVERLAP_MIN
     text_utils_module.STRICT_FACT_MODE = STRICT_FACT_MODE
-    return text_utils_module.sanitize_item_factuality(item)
+    from src.models import NewsItem
+    news_item = NewsItem.from_dict(item)
+    result = text_utils_module.sanitize_item_factuality(news_item)
+    return result.to_dict()
 
 
 def sanitize_items_factuality(items: list[dict[str, str]]) -> list[dict[str, str]]:
     text_utils_module.FACT_OVERLAP_MIN = FACT_OVERLAP_MIN
     text_utils_module.STRICT_FACT_MODE = STRICT_FACT_MODE
-    return text_utils_module.sanitize_items_factuality(items)
+    from src.models import NewsItem
+    news_items = NewsItem.from_dict_list(items)
+    result = text_utils_module.sanitize_items_factuality(news_items)
+    return NewsItem.to_dict_list(result)
 
 
 _X_RESERVED_HANDLES = feed_module._X_RESERVED_HANDLES
@@ -234,8 +276,8 @@ def main() -> None:
     fetched_items = fetch_items_fn(sources=sources, hours=fetch_hours, per_source=per_source_items)
 
     def prepare_items(
-        raw_items: list[dict[str, str]],
-    ) -> tuple[list[dict[str, str]], dict[str, int], dict[str, int], dict[str, int], int, dict[str, int]]:
+        raw_items: list[NewsItem],
+    ) -> tuple[list[NewsItem], dict[str, int], dict[str, int], dict[str, int], int, dict[str, int]]:
         filtered_items, rejected_stats = filter_primary_items_with_stats_fn(raw_items)
         ai_topic_items, ai_topic_stats = filter_ai_topic_items_with_stats_fn(
             filtered_items,

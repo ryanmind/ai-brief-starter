@@ -20,6 +20,7 @@ from src.config import (
     X_HOSTS,
     int_env,
 )
+from src.models import NewsItem
 from src.text_utils import (
     clean_text,
     extract_account_from_url,
@@ -235,7 +236,7 @@ def fetch_from_twitterapi_io(
     cutoff: datetime,
     per_source: int,
     source_hint: str = "",
-) -> tuple[list[dict[str, str]], str | None]:
+) -> tuple[list[NewsItem], str | None]:
     api_key = os.getenv("TWITTERAPI_IO_KEY", "").strip()
     if not api_key:
         return [], "TWITTERAPI_IO_KEY missing"
@@ -251,11 +252,10 @@ def fetch_from_twitterapi_io(
     endpoint = f"{base_url}/twitter/user/last_tweets"
     cache_key = (normalized_handle, cutoff.isoformat(), per_source)
 
-    with _twitterapi_io_cache_lock:
-        cached = _twitterapi_io_cache.get(cache_key)
+    cached = _twitterapi_io_cache.get(cache_key)
     if cached is not None:
         cached_items, cached_error = cached
-        return _clone_items(cached_items), cached_error
+        return [NewsItem.from_dict(item) for item in _clone_items(cached_items)], cached_error
 
     try:
         response = requests.get(
@@ -332,7 +332,7 @@ def fetch_from_twitterapi_io(
             len(parsed_items),
         )
 
-    return parsed_items, None
+    return [NewsItem.from_dict(item) for item in parsed_items], None
 
 
 def load_sources(path: str = "sources.txt") -> list[str]:
@@ -466,7 +466,7 @@ def expand_source_urls(source: str) -> list[str]:
 
 def _fetch_single_source(
     source: str, cutoff: datetime, per_source: int,
-) -> tuple[str, list[dict[str, str]], str | None]:
+) -> tuple[str, list[NewsItem], str | None]:
     """抓取单个 RSS 源，返回 (source_url, items, error_reason)。"""
     source_host = normalize_host(urlparse(source).netloc or "")
     source_handle = extract_x_handle_from_source(source)
@@ -555,14 +555,14 @@ def _fetch_single_source(
                 "published": published.isoformat() if published else "",
             }
         )
-    return source, parsed_items, None
+    return source, [NewsItem.from_dict(item) for item in parsed_items], None
 
 
 def fetch_items(
     sources: list[str], hours: int = 36, per_source: int = 30, max_workers: int = 10,
-) -> list[dict[str, str]]:
+) -> list[NewsItem]:
     cutoff = datetime.now(timezone.utc) - timedelta(hours=hours)
-    items: list[dict[str, str]] = []
+    items: list[NewsItem] = []
     seen: set[str] = set()
     source_stats: dict[str, int] = {"success": 0, "empty": 0, "error": 0}
     failed_sources: list[str] = []
@@ -596,8 +596,8 @@ def fetch_items(
 
                 source_stats["success"] += 1
                 for parsed in source_items:
-                    dedupe_link = parsed.get("dedupe_link", parsed.get("link", ""))
-                    key_payload = (dedupe_link.split("?")[0] + "|" + parsed["title"].lower()).encode("utf-8")
+                    dedupe_link = parsed.dedupe_link or parsed.link
+                    key_payload = (dedupe_link.split("?")[0] + "|" + parsed.title.lower()).encode("utf-8")
                     key = hashlib.sha256(key_payload).hexdigest()
                     if key in seen:
                         continue
@@ -625,5 +625,5 @@ def fetch_items(
     if failed_sources:
         logger.warning("failed sources (%d): %s", len(failed_sources), ", ".join(failed_sources[:10]))
 
-    items.sort(key=lambda x: x.get("published", ""), reverse=True)
+    items.sort(key=lambda x: x.published, reverse=True)
     return items

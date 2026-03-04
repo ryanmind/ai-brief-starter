@@ -21,6 +21,7 @@ from src.config import (
     parse_csv_env,
     DEFAULT_AI_TOPIC_KEYWORDS,
 )
+from src.models import NewsItem
 from src.text_utils import (
     build_default_key_points,
     build_fallback_impact,
@@ -114,35 +115,47 @@ def extract_json(text: str) -> dict[str, Any]:
     raise ValueError("model output is not valid JSON object")
 
 
-def fallback_selection(items: list[dict[str, str]], top_n: int, start_score: int = 100) -> list[dict[str, str]]:
-    fallback: list[dict[str, str]] = []
+def fallback_selection(items: list[NewsItem], top_n: int, start_score: int = 100) -> list[NewsItem]:
+    fallback: list[NewsItem] = []
     for idx, item in enumerate(items[:top_n], 1):
-        result = item.copy()
-        result["score"] = str(max(start_score - idx + 1, 0))
+        result = NewsItem(
+            title=item.title,
+            link=item.link,
+            summary=item.summary,
+            published=item.published,
+            dedupe_link=item.dedupe_link,
+            score=str(max(start_score - idx + 1, 0)),
+            brief=item.brief,
+            details=item.details,
+            impact=item.impact,
+            key_points=item.key_points.copy(),
+        )
 
-        summary = clean_text(item.get("summary", ""))
+        summary = clean_text(item.summary)
         if summary:
-            result["brief"] = summary[:BRIEF_MAX_CHARS]
+            result.brief = summary[:BRIEF_MAX_CHARS]
         else:
-            result["brief"] = clean_text(item.get("title", ""))[:BRIEF_MAX_CHARS]
+            result.brief = clean_text(item.title)[:BRIEF_MAX_CHARS]
 
-        result["details"] = summary[:DETAIL_MAX_CHARS] if summary else result["brief"]
-        result["impact"] = build_fallback_impact(result)
-        result["key_points"] = build_default_key_points(result)
-        result["title"] = build_subject_guaranteed_title(
-            title=result.get("title", ""),
-            summary=result.get("summary", ""),
-            link=result.get("link", ""),
+        result.details = summary[:DETAIL_MAX_CHARS] if summary else result.brief
+
+        result.impact = build_fallback_impact(result)
+        result.key_points = build_default_key_points(result)
+
+        result.title = build_subject_guaranteed_title(
+            title=result.title,
+            summary=result.summary,
+            link=result.link,
         )
         fallback.append(result)
     return fallback
 
 
 def backfill_selected_items(
-    selected: list[dict[str, str]],
-    items: list[dict[str, str]],
+    selected: list[NewsItem],
+    items: list[NewsItem],
     top_n: int,
-) -> list[dict[str, str]]:
+) -> list[NewsItem]:
     target_count = min(top_n, len(items))
     if len(selected) >= target_count:
         return selected[:target_count]
@@ -151,7 +164,7 @@ def backfill_selected_items(
     for item in selected:
         used_fingerprints.update(item_dedupe_fingerprints(item))
 
-    remaining: list[dict[str, str]] = []
+    remaining: list[NewsItem] = []
     for item in items:
         fingerprints = item_dedupe_fingerprints(item)
         if fingerprints and used_fingerprints.intersection(fingerprints):
@@ -166,7 +179,7 @@ def backfill_selected_items(
     last_score = 100
     if selected:
         try:
-            last_score = int(selected[-1].get("score", "100"))
+            last_score = int(selected[-1].score)
         except (TypeError, ValueError):
             last_score = 100
 
@@ -175,21 +188,21 @@ def backfill_selected_items(
 
 
 def rank_and_summarize(
-    items: list[dict[str, str]],
+    items: list[NewsItem],
     qwen_api_key: str,
     qwen_model: str,
     top_n: int = 20,
-) -> list[dict[str, str]]:
+) -> list[NewsItem]:
     client = OpenAI(api_key=qwen_api_key, base_url="https://dashscope.aliyuncs.com/compatible-mode/v1")
 
     candidates: list[str] = []
     for idx, item in enumerate(items, 1):
         candidates.append(
             (
-                f"{idx}. 标题: {item['title']}\n"
-                f"链接: {item['link']}\n"
-                f"内容: {item['summary'][:350]}\n"
-                f"发布时间: {item['published']}\n"
+                f"{idx}. 标题: {item.title}\n"
+                f"链接: {item.link}\n"
+                f"内容: {item.summary[:350]}\n"
+                f"发布时间: {item.published}\n"
             )
         )
 
@@ -239,7 +252,7 @@ def rank_and_summarize(
         logger.warning("rank_and_summarize: 模型输出无法解析，使用 fallback。error=%s", last_error)
         return fallback_selection(items=items, top_n=top_n)
 
-    selected: list[dict[str, str]] = []
+    selected: list[NewsItem] = []
     used_item_ids: set[int] = set()
     selected_fingerprints: set[str] = set()
     rows = data.get("items", [])
@@ -258,33 +271,49 @@ def rank_and_summarize(
             continue
         if idx in used_item_ids:
             continue
-        result = items[idx - 1].copy()
+        source_item = items[idx - 1]
         try:
             score = int(row.get("score", 0))
         except (TypeError, ValueError):
             score = 0
-        result["score"] = str(score)
-        title = pick_preferred_title(str(row.get("title", "")), result.get("title", ""))
+
+        title = pick_preferred_title(str(row.get("title", "")), source_item.title)
         if title:
             if title != clean_text(str(row.get("title", "")))[:TITLE_MAX_CHARS]:
                 logger.info("rank_and_summarize: 标题疑似缺主语，回退为原始标题。")
-            result["title"] = build_subject_guaranteed_title(
+            title = build_subject_guaranteed_title(
                 title=title,
-                summary=result.get("summary", ""),
-                link=result.get("link", ""),
+                summary=source_item.summary,
+                link=source_item.link,
             )
-        result["brief"] = clean_text(str(row.get("brief", "")))[:BRIEF_MAX_CHARS]
+
+        brief = clean_text(str(row.get("brief", "")))[:BRIEF_MAX_CHARS]
         details = clean_text(str(row.get("details", "")))[:DETAIL_MAX_CHARS]
         if not details:
-            details = clean_text(result.get("summary", ""))[:DETAIL_MAX_CHARS]
+            details = clean_text(source_item.summary)[:DETAIL_MAX_CHARS]
         if not details:
-            details = result["brief"]
-        result["details"] = details
+            details = brief
+
         impact = clean_text(str(row.get("impact", "")))[:IMPACT_MAX_CHARS]
+
+        result = NewsItem(
+            title=title,
+            link=source_item.link,
+            summary=source_item.summary,
+            published=source_item.published,
+            dedupe_link=source_item.dedupe_link,
+            score=str(score),
+            brief=brief,
+            details=details,
+            impact=impact,
+            key_points=[],
+        )
+
         if not impact or "建议查看原文" in impact or "信息持续跟进" in impact:
-            impact = build_fallback_impact(result)
-        result["impact"] = impact
-        result["key_points"] = finalize_key_points(normalize_key_points(row.get("key_points")), result)
+            result.impact = build_fallback_impact(result)
+
+        result.key_points = finalize_key_points(normalize_key_points(row.get("key_points")), result)
+
         fingerprints = item_dedupe_fingerprints(result)
         if fingerprints and selected_fingerprints.intersection(fingerprints):
             continue
@@ -292,21 +321,22 @@ def rank_and_summarize(
         used_item_ids.add(idx)
         selected.append(result)
 
-    selected.sort(key=lambda x: int(x.get("score", "0")), reverse=True)
+    selected.sort(key=lambda x: int(x.score), reverse=True)
     if not selected:
         logger.warning("rank_and_summarize: 解析结果为空，使用 fallback。")
         return fallback_selection(items=items, top_n=top_n)
     selected = backfill_selected_items(selected=selected, items=items, top_n=top_n)
-    selected.sort(key=lambda x: int(x.get("score", "0")), reverse=True)
+    selected.sort(key=lambda x: int(x.score), reverse=True)
     selected = selected[: min(top_n, len(items))]
+
     return fix_items_detail(selected)
 
 
 def localize_items_to_chinese(
-    items: list[dict[str, str]],
+    items: list[NewsItem],
     qwen_api_key: str,
     qwen_model: str,
-) -> list[dict[str, str]]:
+) -> list[NewsItem]:
     if not items:
         return items
 
@@ -314,12 +344,12 @@ def localize_items_to_chinese(
     payload = [
         {
             "id": idx + 1,
-            "title": item.get("title", ""),
-            "brief": item.get("brief", ""),
-            "details": item.get("details", ""),
-            "impact": item.get("impact", ""),
-            "key_points": item.get("key_points", [])[:KEY_POINTS_MAX_COUNT],
-            "source_link": item.get("link", ""),
+            "title": item.title,
+            "brief": item.brief,
+            "details": item.details,
+            "impact": item.impact,
+            "key_points": item.key_points[:KEY_POINTS_MAX_COUNT],
+            "source_link": item.link,
         }
         for idx, item in enumerate(items)
     ]
@@ -365,14 +395,13 @@ def localize_items_to_chinese(
         if 1 <= idx <= len(items):
             id_to_row[idx] = row
 
-    localized: list[dict[str, str]] = []
+    localized: list[NewsItem] = []
     for idx, item in enumerate(items, 1):
         row = id_to_row.get(idx)
         if row is None:
             localized.append(item)
             continue
 
-        merged = item.copy()
         title_cn = clean_text(str(row.get("title", "")))[:TITLE_MAX_CHARS]
         brief_cn = clean_text(str(row.get("brief", "")))[:BRIEF_MAX_CHARS]
         details_cn = clean_text(str(row.get("details", "")))[:DETAIL_MAX_CHARS]
@@ -387,19 +416,32 @@ def localize_items_to_chinese(
         if is_placeholder_text(impact_cn):
             impact_cn = ""
 
+        merged = NewsItem(
+            title=item.title,
+            link=item.link,
+            summary=item.summary,
+            published=item.published,
+            dedupe_link=item.dedupe_link,
+            score=item.score,
+            brief=item.brief,
+            details=item.details,
+            impact=item.impact,
+            key_points=item.key_points.copy(),
+        )
+
         if title_cn:
-            merged["title"] = build_subject_guaranteed_title(
+            merged.title = build_subject_guaranteed_title(
                 title=title_cn,
-                summary=merged.get("summary", ""),
-                link=merged.get("link", ""),
+                summary=merged.summary,
+                link=merged.link,
             )
         if brief_cn:
-            merged["brief"] = brief_cn
+            merged.brief = brief_cn
         if details_cn:
-            merged["details"] = details_cn
+            merged.details = details_cn
         if impact_cn:
-            merged["impact"] = impact_cn
-        merged["key_points"] = finalize_key_points(normalize_key_points(row.get("key_points")), merged)
+            merged.impact = impact_cn
+        merged.key_points = finalize_key_points(normalize_key_points(row.get("key_points")), merged)
         localized.append(merged)
 
     missed = len(items) - len(id_to_row)
@@ -409,19 +451,19 @@ def localize_items_to_chinese(
 
 
 def enforce_titles_with_subject(
-    items: list[dict[str, str]],
+    items: list[NewsItem],
     qwen_api_key: str,
     qwen_model: str,
-) -> list[dict[str, str]]:
+) -> list[NewsItem]:
     if not items:
         return items
 
     payload = [
         {
             "id": idx + 1,
-            "title": item.get("title", ""),
-            "summary": item.get("summary", ""),
-            "source_link": item.get("link", ""),
+            "title": item.title,
+            "summary": item.summary,
+            "source_link": item.link,
         }
         for idx, item in enumerate(items)
     ]
@@ -462,21 +504,32 @@ def enforce_titles_with_subject(
     except Exception as exc:
         logger.warning("enforce_titles_with_subject: llm rewrite failed, fallback to deterministic repair. error=%s", exc)
 
-    normalized: list[dict[str, str]] = []
+    normalized: list[NewsItem] = []
     for idx, item in enumerate(items, 1):
-        merged = item.copy()
-        title_candidate = rewritten_titles.get(idx, merged.get("title", ""))
-        merged["title"] = build_subject_guaranteed_title(
-            title=title_candidate,
-            summary=merged.get("summary", ""),
-            link=merged.get("link", ""),
+        title_candidate = rewritten_titles.get(idx, item.title)
+        normalized.append(
+            NewsItem(
+                title=build_subject_guaranteed_title(
+                    title=title_candidate,
+                    summary=item.summary,
+                    link=item.link,
+                ),
+                link=item.link,
+                summary=item.summary,
+                published=item.published,
+                dedupe_link=item.dedupe_link,
+                score=item.score,
+                brief=item.brief,
+                details=item.details,
+                impact=item.impact,
+                key_points=item.key_points.copy(),
+            )
         )
-        normalized.append(merged)
     return normalized
 
 
 def classify_ai_topic_items_with_llm(
-    items: list[dict[str, str]],
+    items: list[NewsItem],
     qwen_api_key: str,
     qwen_model: str,
     keywords: set[str],
@@ -494,9 +547,9 @@ def classify_ai_topic_items_with_llm(
             payload.append(
                 {
                     "id": idx,
-                    "title": clean_text(item.get("title", ""))[:TITLE_MAX_CHARS],
-                    "summary": clean_text(item.get("summary", ""))[:360],
-                    "link": item.get("link", ""),
+                    "title": clean_text(item.title)[:TITLE_MAX_CHARS],
+                    "summary": clean_text(item.summary)[:360],
+                    "link": item.link,
                 }
             )
 

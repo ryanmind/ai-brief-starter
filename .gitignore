@@ -12,3 +12,4 @@ reports/history_index.json
 *.egg-info/
 site/
 .vscode/
+.claude/

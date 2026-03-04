@@ -13,6 +13,7 @@ AI Brief Starter is an automated AI news briefing generator that runs daily via 
 ### Modular Structure (Post-Refactor)
 - `main.py` (375 lines): Thin entry point that orchestrates the pipeline and exports backward-compatible APIs for tests
 - `src/config.py`: Single source of truth for all configuration constants and environment variable parsing
+- `src/models.py`: NewsItem dataclass definition for type-safe data structures
 - `src/feed.py`: RSS/Twitter/GitHub feed fetching with Nitter fallback and TwitterAPI.io integration
 - `src/filters.py`: Primary source filtering, AI topic filtering, deduplication, and per-domain quota enforcement
 - `src/llm.py`: LLM interaction (chat, JSON extraction, ranking, localization, title completion)
@@ -107,6 +108,12 @@ See `src/config.py` for full list of configurable parameters.
 1. Keep exports in `main.py` until all references are migrated
 2. Update tests to import from `src.*` modules directly when possible
 3. Do not break the `main.py` API surface without checking test dependencies
+
+### Data Model
+All news items use the `NewsItem` dataclass defined in `src/models.py`:
+- Type-safe with clear field definitions
+- Supports conversion to/from dict for backward compatibility
+- Fields: title, link, summary, published, dedupe_link, score, brief, details, impact, key_points
 
 ### Testing Philosophy
 - Add regression tests for every bug fix
