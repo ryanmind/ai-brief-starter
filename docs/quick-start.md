@@ -79,6 +79,7 @@ schedule:
 ### 4. 自动发布到文档站
 
 - `ai-morning-brief` 成功后会自动将 `reports/latest.md` 渲染为可读性更高的文档页，再同步到 `docs/latest.md`
+- 同时将 `reports/YYYY-MM-DD.md` 同步为 `docs/history/YYYY-MM-DD.md`
 - 同步有变化时会自动提交到当前分支
 - `docs` 工作流会检测到 `docs/**` 变更并发布到 GitHub Pages
 
@@ -101,6 +102,10 @@ schedule:
 ### Q: 为什么 GitHub Pages 上“今日早报”没更新？
 
 确认 `ai-morning-brief` 已成功，并且日志里出现 `Commit docs latest brief` 步骤；随后 `docs` 工作流会自动部署。
+
+### Q: 在哪里查看历史早报？
+
+在文档站打开“历史归档”页面（`/history/`），可按日期访问 `history/YYYY-MM-DD.md`。
 
 ### Q: 如何获取阿里百炼 API Key？
 

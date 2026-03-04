@@ -17,4 +17,4 @@
 
 ## 待办需求
 
-- [ ] MkDocs 支持查看历史早报数据（不仅是 `latest.md`）
+- [x] MkDocs 支持查看历史早报数据（不仅是 `latest.md`）

@@ -112,8 +112,8 @@ jobs:
             echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          python scripts/render_latest_for_mkdocs.py reports/latest.md docs/latest.md
-          if git diff --quiet -- docs/latest.md; then
+          python scripts/sync_reports_to_docs.py --reports-dir reports --docs-dir docs
+          if git diff --quiet -- docs/latest.md docs/history.md docs/history; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
@@ -124,8 +124,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/latest.md
-          git commit -m "docs(report): 同步每日早报"
+          git add docs/latest.md docs/history.md docs/history
+          git commit -m "docs(report): 同步每日早报与历史归档"
           git push origin HEAD:${{ github.ref_name }}
 
       - name: Upload reports artifact

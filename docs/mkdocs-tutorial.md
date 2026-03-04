@@ -26,6 +26,7 @@ mkdocs serve
 
 - `index.md`：首页
 - `latest.md`：今日早报（由工作流自动覆盖更新）
+- `history.md`：历史归档索引
 - `quick-start.md`：快速开始
 - `configuration.md`：环境变量
 - `sources.md`：信息源配置
@@ -55,8 +56,10 @@ mkdocs build --strict
 
 1. 将 `reports/latest.md` 渲染为更易读的 MkDocs 页面格式
 2. 写入 `docs/latest.md`
-3. 若内容有变化，自动提交并 push 到当前分支
-4. 触发 `docs` 工作流重新部署站点
+3. 将 `reports/YYYY-MM-DD.md` 渲染并写入 `docs/history/YYYY-MM-DD.md`
+4. 重建历史索引 `docs/history.md`
+5. 若内容有变化，自动提交并 push 到当前分支
+6. 触发 `docs` 工作流重新部署站点
 
 所以“早报已生成但站点没更新”的排查顺序是：
 
