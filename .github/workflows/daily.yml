@@ -6,7 +6,7 @@ on:
     - cron: "30 23 * * *" # UTC 23:30 = Beijing 07:30
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: ai-morning-brief-${{ github.ref }}
@@ -57,6 +57,9 @@ jobs:
       SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref_name }}
 
       - uses: actions/setup-python@v5
         with:
@@ -100,6 +103,30 @@ jobs:
         with:
           path: reports/history_index.json
           key: ai-brief-history-${{ github.ref_name }}-${{ github.run_id }}
+
+      - name: Sync latest brief to docs
+        id: sync_docs
+        if: success()
+        run: |
+          if [ ! -f reports/latest.md ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          cp reports/latest.md docs/latest.md
+          if git diff --quiet -- docs/latest.md; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit docs latest brief
+        if: success() && steps.sync_docs.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/latest.md
+          git commit -m "docs(report): 同步每日早报"
+          git push origin HEAD:${{ github.ref_name }}
 
       - name: Upload reports artifact
         if: always()
