@@ -344,21 +344,26 @@ def append_item_block(output: list[str], item: BriefItem) -> None:
     cleaned_summary = strip_manual_category_tags(item.summary)
     cleaned_impact = strip_manual_category_tags(item.impact)
 
+    # 使用影响分析作为主要描述（更简洁），如果没有则使用原摘要
+    display_summary = cleaned_impact if cleaned_impact and cleaned_impact != "暂无" else cleaned_summary
+
     output.append(f'??? info "{item.index}. {escape_admonition_title(cleaned_title)}"')
-    output.append(f"    - **摘要**：{cleaned_summary or '暂无'}")
-    output.append("    - **关键点**：")
+    if display_summary:
+        output.append(f"    **{display_summary}**")
+        output.append("")
     if item.key_points:
+        output.append("    **关键点**")
         for point in item.key_points:
-            output.append(f"        - {strip_manual_category_tags(point)}")
-    else:
-        output.append("        - 暂无")
-    output.append(f"    - **影响分析**：{cleaned_impact or '暂无'}")
+            output.append(f"    - {strip_manual_category_tags(point)}")
+        output.append("")
     source = to_safe_text(item.source)
-    output.append(f"    - **来源**：{source or '暂无'}")
+    if source and source != "暂无":
+        output.append(f"    **来源**：{source}")
     if item.extra_lines:
-        output.append("    - **补充**：")
+        output.append("")
+        output.append("    **补充信息**")
         for extra in item.extra_lines:
-            output.append(f"        - {strip_manual_category_tags(extra)}")
+            output.append(f"    - {strip_manual_category_tags(extra)}")
     output.append("")
 
 
