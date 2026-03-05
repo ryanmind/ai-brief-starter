@@ -1,138 +1,98 @@
 # 今日早报
 
-> 更新时间：2026-02-28 15:48:56
+> 更新时间：2026年03月05日09:39:04
 > 说明：该页面由 `ai-morning-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. Anthropic宣布与美国国防部就其模型在机密网络中的部署达成协议，强调安全与合作是核心使命。
-2. OpenAI与亚马逊合作，将前沿平台引入AWS，扩展企业级AI代理与定制模型服务。
-3. Runway推出最新图像生成与编辑模型Nano Banana 2，宣称在性能与一致性上达到新高度。
-4. OpenAI获得1100亿美元新投资，软银、英伟达、亚马逊共同参与，支持AI规模化发展。
-5. 论文提出形式化规范与运行时执行机制，确保自主AI代理行为可预测、可追溯。
+1. NotebookLM发布电影级视频概览功能：Still super underrated what the incredible。
+2. NVIDIA发布重要更新：Open models are at the center of one of th。
+3. Google推出JAX训练大模型实战课程：Wow Rob Wiblin @robertwiblin Huge reposito。
+4. Andrew Ng发布JAX训练LLM新课程：New course:Build and Train an LLM with JAX。
+5. Elon Musk发布Grok全球热度新高：Grok hits new high DogeDesigner @cb_doge B。
 
 ## 分类速览
 
 === "🤖 模型进展（3）"
-    - **8. Runway机器人策略仿真研究取得突破**：显著降低机器人开发成本，加速算法迭代
-    - **9. Karpathy测试多智能体协同实验**：揭示多智能体系统复杂性，为协同架构优化提供参考
-    - **10. Cursor中Tab补全与Agent请求比例变化分析**：揭示AI编程工具使用范式变迁，指导产品设计优化
+    - **3. Google推出JAX训练大模型实战课程**：降低大模型训练门槛，加速开发者对Gemini等系统底层技术的理解与应用
+    - **4. Andrew Ng发布JAX训练LLM新课程**：提升开发者对JAX框架的掌握能力，推动大模型训练技术普及
+    - **5. Elon Musk发布Grok全球热度新高**：反映马斯克AI产品正迅速获得市场关注，形成新的竞争格局
 
-=== "🧪 论文研究（3）"
-    - **5. 提出AI代理行为合约规范框架**：为AI治理提供技术路径，缓解代理失控风险
-    - **6. FIRE：金融智能推理综合评测基准**：填补金融领域AI评测空白，推动专业模型发展
-    - **7. 提出科学创意生成系统GYWI**：推动AI在科研创新中的可解释性应用
+=== "🧪 论文研究（1）"
+    - **7. OpenAI发布GPT-5.2 Pro预印本更新**：推动AI在基础科学领域的深度应用，拓展理论物理研究范式
 
-=== "🏢 产品与行业（4）"
-    - **1. Anthropic与美国国防部达成模型部署协议**：AI军事化应用迈出关键一步，引发安全与伦理讨论
-    - **2. OpenAI与亚马逊宣布战略合作伙伴关系**：强化AI基础设施布局，推动企业AI落地应用
-    - **3. Runway发布Nano Banana 2图像生成模型**：刷新图像生成领域基准，推动AIGC技术演进
-    - **4. OpenAI完成1100亿美元融资，估值达7300亿美元**：奠定全球AI产业资本基础，加速技术迭代与生态扩张
+=== "🏢 产品与行业（3）"
+    - **1. NotebookLM发布电影级视频概览功能**：推动AI内容生成从文字向动态视觉演进，大幅提升信息传达效率与用户沉浸感
+    - **2. NVIDIA发布重要更新**：凸显开放模型成为AI产业核心驱动力，加速行业协同创新进程
+    - **6. @ylecun 发布重要更新**：若属实，将重塑智能硬件与AI融合的发展路径，引发行业高度关注
 
 ## 全部快讯（按分类折叠）
 
 ### 🤖 模型进展（3）
 
-??? info "8. Runway机器人策略仿真研究取得突破"
-    **显著降低机器人开发成本，加速算法迭代。**
+??? info "3. Google推出JAX训练大模型实战课程"
+    - **摘要**：Wow Rob Wiblin @robertwiblin Huge repository of information about OpenAI and Altman just dropped—The OpenAI Files. There's so much crazy shit in there. He。
+    - **关键点**：
+        - Google推出JAX训练LLM课程
+        - 支持从零训练2000万参数模型
+        - 基于Gemini核心技术框架
+    - **影响分析**：降低大模型训练门槛，加速开发者对Gemini等系统底层技术的理解与应用。
+    - **来源**：[原文链接](https://x.com/elonmusk/status/2029268083043688905)
 
-    **关键点**
-    - 世界模型模拟机器人策略
-    - 仿真与实测相关性0.95
-    - 提升研发效率与可扩展性
+??? info "4. Andrew Ng发布JAX训练LLM新课程"
+    - **摘要**：New course: Build and Train an LLM with JAX, built in partnership with @Google and taught by @chrisachard. JAX is the open-source library behind Google's Gemini。
+    - **关键点**：
+        - JAX训练LLM课程上线
+        - 由Andrew Ng与Google联合推出
+        - 支持2000万参数模型训练
+    - **影响分析**：提升开发者对JAX框架的掌握能力，推动大模型训练技术普及。
+    - **来源**：[原文链接](https://x.com/AndrewYNg/status/2029266102178693378)
 
-    **来源**：[原文链接](https://nitter.net/runwayml/status/2027469515903127825)
+??? info "5. Elon Musk发布Grok全球热度新高"
+    - **摘要**：Grok hits new high DogeDesigner @cb_doge BREAKING: Grok hits a new high on Google Trends. Popularity and real world usage are skyrocketing globally. 🔥 - https。
+    - **关键点**：
+        - Grok谷歌趋势达新高
+        - 全球使用量持续攀升
+        - 马斯克AI产品受关注
+    - **影响分析**：反映马斯克AI产品正迅速获得市场关注，形成新的竞争格局。
+    - **来源**：[原文链接](https://x.com/elonmusk/status/2029212992571867548)
 
-??? info "9. Karpathy测试多智能体协同实验"
-    **揭示多智能体系统复杂性，为协同架构优化提供参考。**
+### 🧪 论文研究（1）
 
-    **关键点**
-    - 智能体并行实验
-    - 尝试移除logit软帽
-    - 发现系统易失控
+??? info "7. OpenAI发布GPT-5.2 Pro预印本更新"
+    - **摘要**：A new preprint extends single-minus amplitudes to gravitons, with GPT-5.2 Pro helping derive and verify nonzero graviton tree amplitudes in quantum gravity。
+    - **关键点**：
+        - GPT-5.2 Pro助力物理研究
+        - 验证引力子树振幅
+        - 拓展量子引力理论边界
+    - **影响分析**：推动AI在基础科学领域的深度应用，拓展理论物理研究范式。
+    - **来源**：[原文链接](https://openai.com/index/extending-single-minus-amplitudes-to-gravitons)
 
-    **来源**：[原文链接](https://nitter.net/karpathy/status/2027521323275325622)
+### 🏢 产品与行业（3）
 
-??? info "10. Cursor中Tab补全与Agent请求比例变化分析"
-    **揭示AI编程工具使用范式变迁，指导产品设计优化。**
+??? info "1. NotebookLM发布电影级视频概览功能"
+    - **摘要**：Still super underrated what the incredible @NotebookLM can do. Its magical—one of my favourite AI tools. NotebookLM @NotebookLM Introducing Cinematic Video。
+    - **关键点**：
+        - NotebookLM发布电影级视频功能
+        - 支持定制化视觉内容生成
+        - 适用于创作与演示场景
+    - **影响分析**：推动AI内容生成从文字向动态视觉演进，大幅提升信息传达效率与用户沉浸感。
+    - **来源**：[原文链接](https://x.com/demishassabis/status/2029369663210008835)
 
-    **关键点**
-    - 使用模式从Tab到Agent演进
-    - 社区平均值跟踪最优配置
-    - 体现工具智能化升级
+??? info "2. NVIDIA发布重要更新"
+    - **摘要**：Open models are at the center of one of the most important shifts in AI. At #NVIDIAGTC, NVIDIA founder and CEO Jensen Huang is bringing together leaders from s。
+    - **关键点**：
+        - NVIDIA GTC聚焦开放模型
+        - 汇聚多家头部AI公司
+        - 推动生态协作发展
+    - **影响分析**：凸显开放模型成为AI产业核心驱动力，加速行业协同创新进程。
+    - **来源**：[原文链接](https://x.com/nvidia/status/2029363481598672934)
 
-    **来源**：[原文链接](https://nitter.net/karpathy/status/2027501331125239822)
-
-### 🧪 论文研究（3）
-
-??? info "5. 提出AI代理行为合约规范框架"
-    **为AI治理提供技术路径，缓解代理失控风险。**
-
-    **关键点**
-    - 定义AI代理行为合约
-    - 支持运行时强制执行
-    - 提升自治系统可靠性
-
-    **来源**：[原文链接](https://arxiv.org/abs/2602.22302)
-
-??? info "6. FIRE：金融智能推理综合评测基准"
-    **填补金融领域AI评测空白，推动专业模型发展。**
-
-    **关键点**
-    - 覆盖金融理论与实务场景
-    - 构建综合性评估体系
-    - 助力金融AI可信验证
-
-    **来源**：[原文链接](https://arxiv.org/abs/2602.22273)
-
-??? info "7. 提出科学创意生成系统GYWI"
-    **推动AI在科研创新中的可解释性应用。**
-
-    **关键点**
-    - 整合共著图与RAG技术
-    - 增强创意生成可控性
-    - 支持灵感路径追踪
-
-    **来源**：[原文链接](https://arxiv.org/abs/2602.22215)
-
-### 🏢 产品与行业（4）
-
-??? info "1. Anthropic与美国国防部达成模型部署协议"
-    **AI军事化应用迈出关键一步，引发安全与伦理讨论。**
-
-    **关键点**
-    - 模型将部署于国防部机密网络
-    - 强调AI安全与广泛利益共享
-    - 体现AI企业与政府深度合作趋势
-
-    **来源**：[原文链接](https://nitter.net/sama/status/2027578652477821175)
-
-??? info "2. OpenAI与亚马逊宣布战略合作伙伴关系"
-    **强化AI基础设施布局，推动企业AI落地应用。**
-
-    **关键点**
-    - OpenAI平台接入AWS云服务
-    - 支持企业级AI代理与定制模型
-    - 加速AI技术规模化部署
-
-    **来源**：[原文链接](https://openai.com/index/amazon-partnership)
-
-??? info "3. Runway发布Nano Banana 2图像生成模型"
-    **刷新图像生成领域基准，推动AIGC技术演进。**
-
-    **关键点**
-    - Nano Banana 2正式上线Runway
-    - 实现高一致性图像生成
-    - 支持实时网络信息融合
-
-    **来源**：[原文链接](https://nitter.net/runwayml/status/2027487425824444551)
-
-??? info "4. OpenAI完成1100亿美元融资，估值达7300亿美元"
-    **奠定全球AI产业资本基础，加速技术迭代与生态扩张。**
-
-    **关键点**
-    - 融资总额达1100亿美元
-    - 估值升至7300亿美元
-    - 三大巨头联合注资
-
-    **来源**：[原文链接](https://openai.com/index/scaling-ai-for-everyone)
+??? info "6. @ylecun 发布重要更新"
+    - **摘要**：Tesla will be the first company to make Artificial Grokon Intelligence。
+    - **关键点**：
+        - 特斯拉将首推类脑智能
+        - RT自Yann LeCun权威发声
+        - 或将影响产品与行业节奏
+    - **影响分析**：若属实，将重塑智能硬件与AI融合的发展路径，引发行业高度关注。
+    - **来源**：[原文链接](https://x.com/ylecun/status/2029143128138010662)

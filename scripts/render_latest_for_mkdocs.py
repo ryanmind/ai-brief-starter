@@ -327,6 +327,16 @@ def group_items_by_category(items: list[BriefItem]) -> dict[str, list[BriefItem]
     return grouped
 
 
+def sort_items_by_index(items: list[BriefItem]) -> list[BriefItem]:
+    def _sort_key(item: BriefItem) -> tuple[int, str]:
+        try:
+            return (0, f"{int(item.index):08d}")
+        except (TypeError, ValueError):
+            return (1, item.index)
+
+    return sorted(items, key=_sort_key)
+
+
 def choose_item_preview(item: BriefItem, limit: int = 86) -> str:
     for candidate in (item.impact, item.summary):
         text = truncate_text(candidate, limit=limit)
@@ -372,6 +382,7 @@ def build_mkdocs_latest(markdown: str, updated_at_override: str = "") -> str:
     updated_at = updated_at_override.strip() or extract_updated_at(lines)
     summary = collect_summary(lines)
     items = parse_items(lines)
+    ordered_items = sort_items_by_index(items)
     grouped_items = group_items_by_category(items)
 
     output: list[str] = []
@@ -404,7 +415,7 @@ def build_mkdocs_latest(markdown: str, updated_at_override: str = "") -> str:
         else:
             output.append("    - 暂无条目")
         output.append("")
-    output.append("## 全部快讯（按分类折叠）")
+    output.append("## 全部快讯（按序号折叠）")
     output.append("")
 
     if not items:
@@ -412,16 +423,8 @@ def build_mkdocs_latest(markdown: str, updated_at_override: str = "") -> str:
         output.append("")
         return "\n".join(output).rstrip() + "\n"
 
-    for category in CATEGORY_ORDER:
-        category_items = grouped_items[category]
-        output.append(f"### {CATEGORY_LABELS[category]}（{len(category_items)}）")
-        output.append("")
-        if not category_items:
-            output.append("暂无条目。")
-            output.append("")
-            continue
-        for item in category_items:
-            append_item_block(output, item)
+    for item in ordered_items:
+        append_item_block(output, item)
 
     return "\n".join(output).rstrip() + "\n"
 

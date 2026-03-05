@@ -31,10 +31,10 @@ def test_build_mkdocs_latest_generates_collapsible_sections():
     assert "更新时间：2026年03月04日12:25:24" in rendered
     assert "1. 第一条摘要" in rendered
     assert "2. 第二条摘要" in rendered
+    assert "## 全部快讯（按序号折叠）" in rendered
     assert '??? info "1. 标题A"' in rendered
     assert '??? info "2. 标题B"' in rendered
-    assert "- **摘要**：摘要A" in rendered
-    assert "- **来源**：[原文链接](https://example.com/a)" in rendered
+    assert "    **来源**：[原文链接](https://example.com/a)" in rendered
 
 
 def test_build_mkdocs_latest_uses_override_updated_time():
@@ -62,8 +62,6 @@ def test_build_mkdocs_latest_handles_missing_sections():
     assert "## 本期摘要" in rendered
     assert "- 暂无摘要" in rendered
     assert '??? info "1. 只有标题"' in rendered
-    assert "- **关键点**：" in rendered
-    assert "        - 暂无" in rendered
 
 
 def test_build_mkdocs_latest_supports_legacy_report_shape():
@@ -92,7 +90,29 @@ def test_build_mkdocs_latest_supports_legacy_report_shape():
     assert "1. 第一条要点" in rendered
     assert '??? info "1. 旧格式标题"' in rendered
     assert "旧格式细节" not in rendered
-    assert "- **来源**：[原文链接](https://example.com/legacy)" in rendered
+    assert "    **来源**：[原文链接](https://example.com/legacy)" in rendered
+
+
+def test_build_mkdocs_latest_renders_all_news_without_category_subsections():
+    source = """## 📰 AI 早报 · 2026年03月04日12:25:24
+
+### 📌 本期摘要
+- 1. 摘要A
+- 2. 摘要B
+
+### 2. 第二条
+**摘要**：摘要B
+
+### 1. 第一条
+**摘要**：摘要A
+"""
+    rendered = render_latest_for_mkdocs.build_mkdocs_latest(source)
+
+    all_news = rendered.split("## 全部快讯（按序号折叠）", maxsplit=1)[1]
+    assert "### 🤖 模型进展" not in all_news
+    assert "### 🧪 论文研究" not in all_news
+    assert "### 🏢 产品与行业" not in all_news
+    assert all_news.index('??? info "1. 第一条"') < all_news.index('??? info "2. 第二条"')
 
 
 def test_classify_item_detects_paper_from_arxiv_source():

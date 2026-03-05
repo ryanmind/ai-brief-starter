@@ -60,3 +60,37 @@ def test_sync_reports_to_docs_updates_latest_and_history(tmp_path, monkeypatch):
     assert "历史细节A" not in history_page
     assert "- [2026-03-04](history/2026-03-04.md)" in history_index
     assert "- [2026-03-03](history/2026-03-03.md)" in history_index
+
+
+def test_sync_reports_to_docs_prefers_newer_docs_history_for_latest(tmp_path, monkeypatch):
+    reports_dir = tmp_path / "reports"
+    docs_dir = tmp_path / "docs"
+
+    stale_latest = """# AI 早报（2026-02-28）
+
+生成时间：2026-02-28 15:48:56
+
+## 今日要点
+- 1. 旧摘要
+"""
+    newer_history = """# AI 早报归档 · 2026-03-05
+
+> 更新时间：2026年03月05日09:39:04
+> 说明：该页面由 `ai-morning-brief` 自动生成并同步。
+
+## 本期摘要
+
+1. 新摘要
+"""
+
+    _write(reports_dir / "latest.md", stale_latest)
+    _write(reports_dir / "2026-02-28.md", stale_latest)
+    _write(docs_dir / "history" / "2026-03-05.md", newer_history)
+
+    monkeypatch.setattr(sync_reports_to_docs, "current_sync_time", lambda: "2026年03月05日23:59:59")
+    sync_reports_to_docs.sync_reports_to_docs(reports_dir=reports_dir, docs_dir=docs_dir)
+
+    latest_page = (docs_dir / "latest.md").read_text(encoding="utf-8")
+    assert latest_page.startswith("# 今日早报")
+    assert "1. 新摘要" in latest_page
+    assert "1. 旧摘要" not in latest_page

@@ -239,7 +239,24 @@
   position: relative;
   display: flex;
   align-items: center;
-  line-height: 1.6;
+  line-height: 1.5;
+  min-height: 48px;
+}
+
+/* 修复折叠图标与标题的垂直对齐 */
+.md-typeset details.info > summary {
+  list-style: none;
+  padding-left: calc(var(--brief-spacing-lg) + 1.4rem);
+  padding-right: calc(var(--brief-spacing-lg) + 1.4rem);
+}
+
+.md-typeset details.info summary::-webkit-details-marker {
+  display: none;
+}
+
+.md-typeset details.info > summary::before,
+.md-typeset details.info > summary::after {
+  top: calc(50% - 0.5rem);
 }
 
 .md-typeset details.info summary:hover {
@@ -247,7 +264,7 @@
 }
 
 .md-typeset details.info summary::marker {
-  color: var(--md-primary-fg-color);
+  display: none;
 }
 
 .md-typeset details.info[open] {
@@ -464,7 +481,7 @@
 
   /* 移动端触摸优化 */
   .md-typeset details.info summary {
-    padding: var(--brief-spacing-md);
+    padding: var(--brief-spacing-md) calc(var(--brief-spacing-md) + 1.3rem);
     min-height: 44px;
     display: flex;
     align-items: center;
