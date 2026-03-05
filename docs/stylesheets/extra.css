@@ -322,12 +322,16 @@
   text-underline-offset: 3px;
 }
 
-/* 外部链接图标 */
+/* 外部链接图标 - 排除折叠块内的链接避免视觉冗余 */
 .md-content a[href^="http"]::after {
   content: "↗";
   font-size: 0.8em;
   margin-left: 0.2em;
   opacity: 0.6;
+}
+
+.md-typeset details.info a[href^="http"]::after {
+  content: none;
 }
 
 /* ============================================
@@ -450,9 +454,9 @@
     white-space: nowrap;
   }
 
-  /* 移动端代码块 */
+  /* 移动端代码块 - 保持可读性 */
   .md-content pre {
-    font-size: 0.85em;
+    font-size: 0.9em;
   }
 
   /* 移动端触摸优化 */
@@ -461,6 +465,11 @@
     min-height: 44px;
     display: flex;
     align-items: center;
+  }
+
+  /* 增加折叠块内容区域的底部间距 */
+  .md-typeset details.info > :not(summary) {
+    padding-bottom: var(--brief-spacing-lg);
   }
 }
 
@@ -516,11 +525,7 @@
   }
 }
 
-.md-content__inner > * {
-  animation: fadeIn 0.4s ease-out;
-}
-
-/* 卡片加载动画 */
+/* 卡片加载动画 - 仅对关键元素应用，避免性能问题 */
 .md-typeset .brief-kpi-grid > ul > li,
 .md-typeset .brief-top-grid > ul > li {
   animation: fadeIn 0.5s ease-out backwards;
@@ -569,9 +574,9 @@
    辅助功能增强
    ============================================ */
 
-/* 焦点可见性 */
+/* 焦点可见性 - 确保足够的对比度 */
 *:focus-visible {
-  outline: 2px solid var(--md-primary-fg-color);
+  outline: 2px solid var(--md-accent-fg-color);
   outline-offset: 2px;
   border-radius: 2px;
 }
