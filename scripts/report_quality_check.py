@@ -19,10 +19,18 @@ from src.config import (  # noqa: E402
     DEFAULT_PRIMARY_X_HANDLES,
     DEFAULT_SECOND_HAND_DOMAINS,
     DETAIL_WEAK_PHRASES,
-    TITLE_INCOMPLETE_PREFIXES,
     X_HOSTS,
     float_env,
     parse_csv_env,
+)
+from src.text_utils import (  # noqa: E402
+    clean_text,
+    extract_account_from_url,
+    extract_first_url,
+    host_matches,
+    normalize_for_compare,
+    normalize_host,
+    title_looks_incomplete as shared_title_looks_incomplete,
 )
 
 SUMMARY_LINE_PATTERN = re.compile(
@@ -55,8 +63,6 @@ IMPACT_HEADER_PATTERN = re.compile(
     flags=re.IGNORECASE,
 )
 SOURCE_HEADER_PATTERN = re.compile(r"^(?:\*{0,2})?(?:来源|source)(?:\*{0,2})?\s*[：:]?$", flags=re.IGNORECASE)
-MARKDOWN_LINK_URL_PATTERN = re.compile(r"\[[^\]]+\]\((https?://[^)\s]+)\)")
-PLAIN_URL_PATTERN = re.compile(r"https?://[^\s\]\)]+")
 
 
 @dataclass
@@ -73,61 +79,20 @@ def is_enabled(value: str | None, default: bool = False) -> bool:
     return value.strip().lower() not in {"0", "false", "no", "off"}
 
 
-def clean_text(value: str) -> str:
-    return re.sub(r"\s+", " ", str(value or "")).strip()
-
-
-def extract_first_url(value: str) -> str:
-    text = str(value or "").strip()
-    if not text:
-        return ""
-    md_match = MARKDOWN_LINK_URL_PATTERN.search(text)
-    if md_match:
-        return md_match.group(1).strip()
-    plain_match = PLAIN_URL_PATTERN.search(text)
-    if plain_match:
-        return plain_match.group(0).strip().rstrip(".,;:)]")
-    return ""
-
-
-def normalize_host(url: str) -> str:
-    parsed_source = extract_first_url(url) or url
-    host = (urlparse(parsed_source).netloc or "").strip().lower()
-    if host.startswith("www."):
-        host = host[4:]
-    return host
-
-
-def host_matches(host: str, domains: set[str]) -> bool:
-    return any(host == d or host.endswith(f".{d}") for d in domains)
-
-
-def extract_account_from_url(url: str) -> str:
-    parsed_source = extract_first_url(url) or url
-    path = urlparse(parsed_source).path.strip("/")
-    if not path:
-        return ""
-    return path.split("/", 1)[0].strip().lower()
-
-
 def title_looks_incomplete(title: str) -> bool:
-    clean_title = re.sub(r"\s+", " ", title.strip())
-    if len(clean_title) < 4:
-        return True
-    lowered = clean_title.lower()
-    if any(lowered.startswith(prefix.lower()) for prefix in TITLE_INCOMPLETE_PREFIXES):
+    clean_title = clean_text(title)
+    if shared_title_looks_incomplete(clean_title):
         return True
     if TITLE_VERSION_ONLY_PATTERN.match(clean_title):
         return True
     if re.match(r"^v?\d+(?:\.\d+){1,3}\b", clean_title, flags=re.IGNORECASE):
         return True
-    if lowered.startswith(("release:", "chore:", "fix:", "feat:", "docs:", "ci:", "build:")):
-        return True
     return False
 
 
-def normalize_for_compare(text: str) -> str:
-    return re.sub(r"\W+", "", text.strip().lower(), flags=re.UNICODE)
+def source_host(value: str) -> str:
+    parsed_source = extract_first_url(value) or value
+    return normalize_host(urlparse(parsed_source).netloc or "")
 
 
 def split_key_point_candidates(text: str) -> list[str]:
@@ -500,11 +465,11 @@ def autofix_report(path: Path, key_points_min_count: int, key_points_max_count: 
 
 
 def is_primary_source(source: str, allowed_domains: set[str], allowed_x_handles: set[str]) -> bool:
-    host = normalize_host(source)
+    host = source_host(source)
     if not host:
         return False
     if host in X_HOSTS:
-        account = extract_account_from_url(source)
+        account = extract_account_from_url(extract_first_url(source) or source)
         if not account:
             return False
         if allowed_x_handles and account not in allowed_x_handles:
@@ -514,7 +479,7 @@ def is_primary_source(source: str, allowed_domains: set[str], allowed_x_handles:
 
 
 def source_category(source: str) -> str:
-    host = normalize_host(source)
+    host = source_host(source)
     if not host:
         return "other"
     if host in {"arxiv.org", "export.arxiv.org"}:
@@ -647,14 +612,14 @@ def evaluate_report(path: Path, strict_mode: bool) -> Evaluation:
             structure_issues.append(f"{idx}) {title}: 缺少摘要字段")
         if not source:
             missing_source_issues.append(f"{idx}) {title}: 缺少来源链接")
-        elif not normalize_host(source):
+        elif not source_host(source):
             missing_source_issues.append(f"{idx}) {title}: 来源链接无效")
         else:
             source_count += 1
             category_counts[source_category(source)] += 1
             if is_primary_source(source, allowed_domains, allowed_x_handles):
                 primary_source_count += 1
-            if host_matches(normalize_host(source), blocked_domains):
+            if host_matches(source_host(source), blocked_domains):
                 blocked_hits.append(source)
 
         if detail:

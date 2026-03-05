@@ -49,6 +49,7 @@ def test_fetch_items_timeout_is_graceful(monkeypatch):
 
 
 def test_fetch_items_timeout_shutdown_without_wait(monkeypatch):
+    from src import feed as feed_module
     created_executors = []
 
     class DummyFuture:
@@ -76,8 +77,8 @@ def test_fetch_items_timeout_shutdown_without_wait(monkeypatch):
     def timeout_as_completed(_futures, timeout):
         raise FuturesTimeoutError()
 
-    monkeypatch.setattr(main, "ThreadPoolExecutor", DummyExecutor)
-    monkeypatch.setattr(main, "as_completed", timeout_as_completed)
+    monkeypatch.setattr(feed_module, "ThreadPoolExecutor", DummyExecutor)
+    monkeypatch.setattr(feed_module, "as_completed", timeout_as_completed)
 
     items = main.fetch_items(sources=["https://example.com/rss"], hours=24, per_source=1, max_workers=1)
     assert items == []
@@ -86,13 +87,14 @@ def test_fetch_items_timeout_shutdown_without_wait(monkeypatch):
 
 
 def test_rank_and_summarize_fallback_on_llm_exception(monkeypatch):
+    from src.models import NewsItem
     source_items = [
-        {
-            "title": "OpenAI 发布新模型",
-            "link": "https://openai.com/news/model",
-            "summary": "OpenAI 发布新模型，提升推理能力。",
-            "published": "2026-03-03T00:00:00+00:00",
-        }
+        NewsItem(
+            title="OpenAI 发布新模型",
+            link="https://openai.com/news/model",
+            summary="OpenAI 发布新模型，提升推理能力。",
+            published="2026-03-03T00:00:00+00:00",
+        )
     ]
 
     def boom(**_kwargs):
@@ -108,9 +110,9 @@ def test_rank_and_summarize_fallback_on_llm_exception(monkeypatch):
     )
 
     assert len(result) == 1
-    assert result[0]["title"] == "OpenAI 发布新模型"
-    assert result[0]["impact"]
-    assert "建议查看原文" not in result[0]["impact"]
+    assert result[0].title == "OpenAI 发布新模型"
+    assert result[0].impact
+    assert "建议查看原文" not in result[0].impact
 
 
 def test_fetch_single_source_github_changelog_fallback(monkeypatch):
@@ -142,13 +144,16 @@ def test_fetch_single_source_github_changelog_fallback(monkeypatch):
     )
     assert error is None
     assert len(items) == 1
-    assert items[0]["link"].endswith("/releases/tag/v1.0.0")
+    assert items[0].link.endswith("/releases/tag/v1.0.0")
 
 
 def test_expand_source_urls_keeps_x_source_when_nitter_down_and_api_fallback_ready(monkeypatch):
     monkeypatch.setenv("TWITTERAPI_IO_ENABLED", "1")
     monkeypatch.setenv("TWITTERAPI_IO_KEY", "test-key")
-    monkeypatch.setattr(main, "probe_nitter_bases", lambda bases: [])
+
+    # Mock probe_nitter_bases in the feed module where it's actually called
+    from src import feed as feed_module
+    monkeypatch.setattr(feed_module, "probe_nitter_bases", lambda bases: [])
 
     urls = main.expand_source_urls("https://x.com/openai")
     assert urls == ["https://x.com/openai"]
@@ -196,7 +201,7 @@ def test_fetch_single_source_nitter_uses_twitterapi_io_fallback_with_cache(monke
     _, items, error = main._fetch_single_source(source=source, cutoff=cutoff, per_source=5)
     assert error is None
     assert len(items) == 1
-    assert items[0]["link"] == "https://x.com/openai/status/1888888"
+    assert items[0].link == "https://x.com/openai/status/1888888"
     assert request_calls and request_calls[0][2] == "openai"
 
     _, items_cached, error_cached = main._fetch_single_source(source=source, cutoff=cutoff, per_source=5)
@@ -206,15 +211,16 @@ def test_fetch_single_source_nitter_uses_twitterapi_io_fallback_with_cache(monke
 
 
 def test_history_dedupe_prefers_dedupe_link():
-    item = {
-        "title": "更新日志更新",
-        "link": "https://github.com/example/project/blob/main/CHANGELOG.md",
-        "dedupe_link": "https://github.com/example/project/commit/abcdef1",
-        "summary": "更新了 changelog",
-        "published": "",
-    }
-    blob_fp = f"l:{main.normalize_link_for_dedupe(item['link'])}"
-    commit_fp = f"l:{main.normalize_link_for_dedupe(item['dedupe_link'])}"
+    from src.models import NewsItem
+    item = NewsItem(
+        title="更新日志更新",
+        link="https://github.com/example/project/blob/main/CHANGELOG.md",
+        dedupe_link="https://github.com/example/project/commit/abcdef1",
+        summary="更新了 changelog",
+        published="",
+    )
+    blob_fp = f"l:{main.normalize_link_for_dedupe(item.link)}"
+    commit_fp = f"l:{main.normalize_link_for_dedupe(item.dedupe_link)}"
 
     kept, dropped = main.filter_items_by_history([item], {blob_fp})
     assert dropped == 0
@@ -290,16 +296,17 @@ def test_markdown_to_text_blocks_keeps_ordered_list_without_bullet():
 
 
 def test_render_markdown_hides_empty_field_lines():
+    from src.models import NewsItem
     markdown = main.render_markdown(
         [
-            {
-                "title": "测试条目",
-                "brief": "",
-                "details": "",
-                "impact": "",
-                "key_points": [],
-                "link": "",
-            }
+            NewsItem(
+                title="测试条目",
+                brief="",
+                details="",
+                impact="",
+                key_points=[],
+                link="",
+            )
         ]
     )
     assert "**摘要**：" not in markdown
@@ -310,17 +317,18 @@ def test_render_markdown_hides_empty_field_lines():
 
 
 def test_localize_items_to_chinese_ignores_placeholder_fields(monkeypatch):
+    from src.models import NewsItem
     items = [
-        {
-            "title": "OpenAI 发布新模型",
-            "brief": "原始细节，包含能力更新与发布时间。",
-            "details": "原始细节，包含能力更新与发布时间。",
-            "impact": "原始影响",
-            "summary": "原始细节，包含能力更新与发布时间。",
-            "key_points": ["原始要点一", "原始要点二"],
-            "link": "https://openai.com/news/model",
-            "published": "2026-03-03T00:00:00+00:00",
-        }
+        NewsItem(
+            title="OpenAI 发布新模型",
+            brief="原始细节，包含能力更新与发布时间。",
+            details="原始细节，包含能力更新与发布时间。",
+            impact="原始影响",
+            summary="原始细节，包含能力更新与发布时间。",
+            key_points=["原始要点一", "原始要点二"],
+            link="https://openai.com/news/model",
+            published="2026-03-03T00:00:00+00:00",
+        )
     ]
     monkeypatch.setattr(
         main,
@@ -347,24 +355,25 @@ def test_localize_items_to_chinese_ignores_placeholder_fields(monkeypatch):
         qwen_api_key="test-key",
         qwen_model="qwen-flash",
     )
-    assert localized[0]["title"] == "OpenAI 发布新模型"
-    assert "value" not in localized[0]["brief"].lower()
-    assert "原始细节" in localized[0]["brief"]
-    assert "原始细节" in localized[0]["details"]
-    assert localized[0]["impact"] == "原始影响"
+    assert localized[0].title == "OpenAI 发布新模型"
+    assert "value" not in localized[0].brief.lower()
+    assert "原始细节" in localized[0].brief
+    assert "原始细节" in localized[0].details
+    assert localized[0].impact == "原始影响"
 
 
 def test_render_markdown_compacts_field_spacing():
+    from src.models import NewsItem
     markdown = main.render_markdown(
         [
-            {
-                "title": "测试条目",
-                "brief": "这是摘要",
-                "details": "这是细节（内部字段，不应直接渲染）",
-                "impact": "这是影响",
-                "key_points": ["要点一", "要点二"],
-                "link": "https://example.com",
-            }
+            NewsItem(
+                title="测试条目",
+                brief="这是摘要",
+                details="这是细节（内部字段，不应直接渲染）",
+                impact="这是影响",
+                key_points=["要点一", "要点二"],
+                link="https://example.com",
+            )
         ]
     )
     assert "**细节**：" not in markdown
@@ -373,32 +382,34 @@ def test_render_markdown_compacts_field_spacing():
 
 
 def test_render_markdown_drops_empty_placeholder_summary_line():
+    from src.models import NewsItem
     markdown = main.render_markdown(
         [
-            {
-                "title": "测试条目",
-                "brief": "( )。",
-                "details": "内部细节",
-                "impact": "这是影响",
-                "key_points": ["要点一", "要点二"],
-                "link": "https://example.com",
-            }
+            NewsItem(
+                title="测试条目",
+                brief="( )。",
+                details="内部细节",
+                impact="这是影响",
+                key_points=["要点一", "要点二"],
+                link="https://example.com",
+            )
         ]
     )
     assert "**摘要**：" not in markdown
 
 
 def test_render_markdown_drops_placeholder_key_points_without_extra_blank_lines():
+    from src.models import NewsItem
     markdown = main.render_markdown(
         [
-            {
-                "title": "测试条目",
-                "brief": "这是摘要",
-                "details": "内部细节",
-                "impact": "这是影响",
-                "key_points": ["关键点：value", "要点：value", "value"],
-                "link": "https://example.com",
-            }
+            NewsItem(
+                title="测试条目",
+                brief="这是摘要",
+                details="内部细节",
+                impact="这是影响",
+                key_points=["关键点：value", "要点：value", "value"],
+                link="https://example.com",
+            )
         ]
     )
     assert "**关键点**" not in markdown
@@ -407,24 +418,25 @@ def test_render_markdown_drops_placeholder_key_points_without_extra_blank_lines(
 
 
 def test_render_markdown_removes_entry_separator_and_keeps_single_gap_between_items():
+    from src.models import NewsItem
     markdown = main.render_markdown(
         [
-            {
-                "title": "条目一",
-                "brief": "摘要一",
-                "details": "内部细节一",
-                "impact": "影响一",
-                "key_points": ["要点一", "要点二"],
-                "link": "https://example.com/1",
-            },
-            {
-                "title": "条目二",
-                "brief": "摘要二",
-                "details": "内部细节二",
-                "impact": "影响二",
-                "key_points": ["要点三", "要点四"],
-                "link": "https://example.com/2",
-            },
+            NewsItem(
+                title="条目一",
+                brief="摘要一",
+                details="内部细节一",
+                impact="影响一",
+                key_points=["要点一", "要点二"],
+                link="https://example.com/1",
+            ),
+            NewsItem(
+                title="条目二",
+                brief="摘要二",
+                details="内部细节二",
+                impact="影响二",
+                key_points=["要点三", "要点四"],
+                link="https://example.com/2",
+            ),
         ]
     )
     assert "---" not in markdown
@@ -433,6 +445,7 @@ def test_render_markdown_removes_entry_separator_and_keeps_single_gap_between_it
 
 
 def test_main_quality_check_fail_open_keeps_pipeline_running(monkeypatch, tmp_path):
+    from src.models import NewsItem
     monkeypatch.chdir(tmp_path)
     monkeypatch.setenv("QWEN_API_KEY", "test-key")
     monkeypatch.setenv("QUALITY_CHECK_FAIL_OPEN", "1")
@@ -440,20 +453,23 @@ def test_main_quality_check_fail_open_keeps_pipeline_running(monkeypatch, tmp_pa
     monkeypatch.setenv("TOP_N", "5")
     monkeypatch.setenv("MAX_ITEMS", "10")
 
-    item = {
-        "title": "OpenAI 发布新模型",
-        "link": "https://openai.com/news/new-model",
-        "summary": "官方发布新模型并更新能力说明。",
-        "published": "2026-03-03T00:00:00+00:00",
-    }
-    selected_item = {
-        **item,
-        "brief": "OpenAI 发布新模型并披露关键能力升级。",
-        "details": "官方说明包含模型能力更新与适用范围。",
-        "impact": "有助于开发者更快落地相关应用。",
-        "score": "100",
-        "key_points": ["官方已发布", "包含能力升级"],
-    }
+    item = NewsItem(
+        title="OpenAI 发布新模型",
+        link="https://openai.com/news/new-model",
+        summary="官方发布新模型并更新能力说明。",
+        published="2026-03-03T00:00:00+00:00",
+    )
+    selected_item = NewsItem(
+        title="OpenAI 发布新模型",
+        link="https://openai.com/news/new-model",
+        summary="官方发布新模型并更新能力说明。",
+        published="2026-03-03T00:00:00+00:00",
+        brief="OpenAI 发布新模型并披露关键能力升级。",
+        details="官方说明包含模型能力更新与适用范围。",
+        impact="有助于开发者更快落地相关应用。",
+        score="100",
+        key_points=["官方已发布", "包含能力升级"],
+    )
 
     monkeypatch.setattr(main, "load_sources", lambda path="sources.txt": ["https://openai.com/news/rss.xml"])
     monkeypatch.setattr(main, "fetch_items", lambda **kwargs: [item])
@@ -483,6 +499,7 @@ def test_main_quality_check_fail_open_keeps_pipeline_running(monkeypatch, tmp_pa
 
 
 def test_main_quality_check_fail_open_disabled_still_continues(monkeypatch, tmp_path):
+    from src.models import NewsItem
     monkeypatch.chdir(tmp_path)
     monkeypatch.setenv("QWEN_API_KEY", "test-key")
     monkeypatch.setenv("QUALITY_CHECK_FAIL_OPEN", "0")
@@ -490,20 +507,23 @@ def test_main_quality_check_fail_open_disabled_still_continues(monkeypatch, tmp_
     monkeypatch.setenv("TOP_N", "5")
     monkeypatch.setenv("MAX_ITEMS", "10")
 
-    item = {
-        "title": "OpenAI 发布新模型",
-        "link": "https://openai.com/news/new-model",
-        "summary": "官方发布新模型并更新能力说明。",
-        "published": "2026-03-03T00:00:00+00:00",
-    }
-    selected_item = {
-        **item,
-        "brief": "OpenAI 发布新模型并披露关键能力升级。",
-        "details": "官方说明包含模型能力更新与适用范围。",
-        "impact": "有助于开发者更快落地相关应用。",
-        "score": "100",
-        "key_points": ["官方已发布", "包含能力升级"],
-    }
+    item = NewsItem(
+        title="OpenAI 发布新模型",
+        link="https://openai.com/news/new-model",
+        summary="官方发布新模型并更新能力说明。",
+        published="2026-03-03T00:00:00+00:00",
+    )
+    selected_item = NewsItem(
+        title="OpenAI 发布新模型",
+        link="https://openai.com/news/new-model",
+        summary="官方发布新模型并更新能力说明。",
+        published="2026-03-03T00:00:00+00:00",
+        brief="OpenAI 发布新模型并披露关键能力升级。",
+        details="官方说明包含模型能力更新与适用范围。",
+        impact="有助于开发者更快落地相关应用。",
+        score="100",
+        key_points=["官方已发布", "包含能力升级"],
+    )
 
     monkeypatch.setattr(main, "load_sources", lambda path="sources.txt": ["https://openai.com/news/rss.xml"])
     monkeypatch.setattr(main, "fetch_items", lambda **kwargs: [item])
@@ -565,16 +585,17 @@ def test_build_subject_guaranteed_title_adds_subject_when_missing():
 
 
 def test_enforce_titles_with_subject_uses_deterministic_fallback(monkeypatch):
+    from src.models import NewsItem
     monkeypatch.setattr(main, "llm_chat", lambda **kwargs: (_ for _ in ()).throw(RuntimeError("upstream")))
     items = [
-        {
-            "title": "发布4.6.3版本",
-            "summary": "SDK 版本更新",
-            "link": "https://github.com/runwayml/sdk-python/blob/main/CHANGELOG.md",
-        }
+        NewsItem(
+            title="发布4.6.3版本",
+            summary="SDK 版本更新",
+            link="https://github.com/runwayml/sdk-python/blob/main/CHANGELOG.md",
+        )
     ]
     fixed = main.enforce_titles_with_subject(items=items, qwen_api_key="test-key", qwen_model="qwen-flash")
-    assert fixed[0]["title"].startswith("runwayml/sdk-python")
+    assert fixed[0].title.startswith("runwayml/sdk-python")
 
 
 def test_prepend_quality_review_banner_is_idempotent():

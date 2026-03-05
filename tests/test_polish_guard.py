@@ -95,6 +95,7 @@ def test_polish_markdown_with_llm_rejects_unsafe_output(monkeypatch):
 
 
 def test_polish_markdown_with_llm_accepts_safe_output(monkeypatch):
+    from src import llm as llm_module
     monkeypatch.setenv("FINAL_POLISH_ENABLED", "1")
     original = """## 📰 AI 早报 · 2026年03月03日12:00:00
 
@@ -116,7 +117,7 @@ def test_polish_markdown_with_llm_accepts_safe_output(monkeypatch):
 **影响分析**：影响句子，更清晰。
 **来源**：[原文链接](https://example.com/a)
 """
-    monkeypatch.setattr(main, "llm_chat", lambda **kwargs: f"```markdown\n{safe_polished}\n```")
+    monkeypatch.setattr(llm_module, "llm_chat", lambda **kwargs: f"```markdown\n{safe_polished}\n```")
 
     result = main.polish_markdown_with_llm(
         markdown=original,

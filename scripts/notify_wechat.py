@@ -39,7 +39,7 @@ def send_wechat_message(title: str, content: str, send_key: str) -> bool:
         else:
             print(f"微信推送失败: {result.get('message', '未知错误')}")
             return False
-    except Exception as e:
+    except requests.RequestException as e:
         print(f"微信推送异常: {e}")
         return False
 
@@ -48,7 +48,7 @@ def extract_brief_summary(report_path: Path) -> str:
     """从报告中提取简要摘要用于推送"""
     try:
         content = report_path.read_text(encoding="utf-8")
-    except Exception as e:
+    except (OSError, UnicodeDecodeError) as e:
         print(f"读取报告失败: {e}")
         return "报告生成完成，请查看详情。"
 
