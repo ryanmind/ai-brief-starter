@@ -104,16 +104,18 @@ plugins:
 # 导航结构
 nav:
   - 首页: index.md
-  - 今日早报: latest.md
-  - 历史归档: history.md
   - 快速开始: quick-start.md
-  - Agent 集群: agent-cluster.md
-  - 配置说明:
-      - 环境变量: configuration.md
+  - 早报内容:
+      - 今日早报: latest.md
+      - 历史归档: history.md
+  - 使用指南:
+      - 环境变量配置: configuration.md
       - 信息源配置: sources.md
-      - X 数据源 Fallback: twitterapi-io.md
-  - 飞书集成: feishu_docs_guide_zh.md
-  - 搭建教程: mkdocs-tutorial.md
+      - Twitter 数据源: twitterapi-io.md
+      - 飞书集成: feishu_docs_guide_zh.md
+  - 高级功能:
+      - Agent 集群: agent-cluster.md
+      - MkDocs 搭建: mkdocs-tutorial.md
 
 # 额外配置
 extra:
