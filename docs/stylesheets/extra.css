@@ -237,6 +237,9 @@
   user-select: none;
   transition: background-color var(--brief-transition-fast);
   position: relative;
+  display: flex;
+  align-items: center;
+  line-height: 1.6;
 }
 
 .md-typeset details.info summary:hover {
