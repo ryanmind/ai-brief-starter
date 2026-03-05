@@ -1,118 +1,98 @@
 # 今日早报
 
-> 更新时间：2026年03月05日07:54:17
+> 更新时间：2026年03月05日09:39:18
 > 说明：该页面由 `ai-morning-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. @elonmusk 发布特斯拉Model S Plaid更新：Important to order Model S or Model X before production stops to make way for the Optimus factory in a few months. X Freeze @XFreeze Sean Hannity just shared w。
-2. 谷歌与Andrew Ng推出JAX大模型训练课程：New course: Build and Train an LLM with JAX, built in partnership with @Google and taught by @chrisachard. JAX is the open-source library behind Google's Gemini。
-3. OpenAI发布GPT-5.2 Pro版本更新：A new preprint extends single-minus amplitudes to gravitons, with GPT-5.2 Pro helping derive and verify nonzero graviton tree amplitudes in quantum gravity。
-4. OpenAI发布教育影响评估套件：OpenAI introduces the Learning Outcomes Measurement Suite to assess AI's impact on student learning across diverse educational environments over time。
-5. OpenAI发布支持本地新闻报道的AI更新：Axios COO Allison Murphy explains how the company uses AI to support local reporters, streamline newsroom workflows, and deliver high-impact local journalism at。
+1. NotebookLM发布电影级视频概览功能：Still super underrated what the incredible。
+2. NVIDIA发布重要更新：Open models are at the center of one of th。
+3. Google推出JAX训练大模型实战课程：Wow Rob Wiblin @robertwiblin Huge reposito。
+4. Andrew Ng发布JAX训练LLM新课程：New course:Build and Train an LLM with JAX。
+5. Elon Musk发布Grok全球热度新高：Grok hits new high DogeDesigner @cb_doge B。
 
 ## 分类速览
 
-=== "🤖 模型进展（1）"
-    - **2. 谷歌与Andrew Ng推出JAX大模型训练课程**：降低大模型开发门槛，助力AI技术在学术与工业界普及
+=== "🤖 模型进展（3）"
+    - **3. Google推出JAX训练大模型实战课程**：降低大模型训练门槛，加速开发者对Gemini等系统底层技术的理解与应用
+    - **4. Andrew Ng发布JAX训练LLM新课程**：提升开发者对JAX框架的掌握能力，推动大模型训练技术普及
+    - **5. Elon Musk发布Grok全球热度新高**：反映马斯克AI产品正迅速获得市场关注，形成新的竞争格局
 
-=== "🧪 论文研究（2）"
-    - **3. OpenAI发布GPT-5.2 Pro版本更新**：AI正突破工具属性，进入基础科学原创研究阶段
-    - **9. arXiv发布罗马尼亚语音基准数据集RO-N3WS**：促进小语种语音技术发展，推动AI公平性与多样性
+=== "🧪 论文研究（1）"
+    - **7. OpenAI发布GPT-5.2 Pro预印本更新**：推动AI在基础科学领域的深度应用，拓展理论物理研究范式
 
-=== "🏢 产品与行业（6）"
-    - **1. @elonmusk 发布特斯拉Model S Plaid更新**：推动特斯拉战略重心向人形机器人转移，或重塑高端智能硬件竞争格局
-    - **4. OpenAI发布教育影响评估套件**：为AI+教育提供可量化的评估标准，推动技术真正融入教学体系
-    - **5. OpenAI发布支持本地新闻报道的AI更新**：AI助力媒体降本增效，推动高质量地方新闻可持续发展
-    - **6. @elonmusk 发布FSD技术进展更新**：凸显特斯拉在智能驾驶领域的领先优势，警示传统车企转型压力
-    - **7. @elonmusk 发布xAI人工智能发展更新**：展现AI企业社会责任导向，强调技术与能源协同发展的愿景
-    - **8. @ylecun 发布人工通用智能愿景更新**：引发对特斯拉智能架构前瞻性的关注，或影响后续产品节奏
+=== "🏢 产品与行业（3）"
+    - **1. NotebookLM发布电影级视频概览功能**：推动AI内容生成从文字向动态视觉演进，大幅提升信息传达效率与用户沉浸感
+    - **2. NVIDIA发布重要更新**：凸显开放模型成为AI产业核心驱动力，加速行业协同创新进程
+    - **6. @ylecun 发布重要更新**：若属实，将重塑智能硬件与AI融合的发展路径，引发行业高度关注
 
 ## 全部快讯（按分类折叠）
 
-### 🤖 模型进展（1）
+### 🤖 模型进展（3）
 
-??? info "2. 谷歌与Andrew Ng推出JAX大模型训练课程"
-    - **摘要**：New course: Build and Train an LLM with JAX, built in partnership with @Google and taught by @chrisachard. JAX is the open-source library behind Google's Gemini.
+??? info "3. Google推出JAX训练大模型实战课程"
+    - **摘要**：Wow Rob Wiblin @robertwiblin Huge repository of information about OpenAI and Altman just dropped—The OpenAI Files. There's so much crazy shit in there. He。
     - **关键点**：
-        - 谷歌与Andrew Ng合作推出课程
-        - 基于JAX框架训练LLM
+        - Google推出JAX训练LLM课程
+        - 支持从零训练2000万参数模型
+        - 基于Gemini核心技术框架
+    - **影响分析**：降低大模型训练门槛，加速开发者对Gemini等系统底层技术的理解与应用。
+    - **来源**：[原文链接](https://x.com/elonmusk/status/2029268083043688905)
+
+??? info "4. Andrew Ng发布JAX训练LLM新课程"
+    - **摘要**：New course: Build and Train an LLM with JAX, built in partnership with @Google and taught by @chrisachard. JAX is the open-source library behind Google's Gemini。
+    - **关键点**：
+        - JAX训练LLM课程上线
+        - 由Andrew Ng与Google联合推出
         - 支持2000万参数模型训练
-    - **影响分析**：降低大模型开发门槛，助力AI技术在学术与工业界普及。
+    - **影响分析**：提升开发者对JAX框架的掌握能力，推动大模型训练技术普及。
     - **来源**：[原文链接](https://x.com/AndrewYNg/status/2029266102178693378)
 
-### 🧪 论文研究（2）
-
-??? info "3. OpenAI发布GPT-5.2 Pro版本更新"
-    - **摘要**：A new preprint extends single-minus amplitudes to gravitons, with GPT-5.2 Pro helping derive and verify nonzero graviton tree amplitudes in quantum gravity.
+??? info "5. Elon Musk发布Grok全球热度新高"
+    - **摘要**：Grok hits new high DogeDesigner @cb_doge BREAKING: Grok hits a new high on Google Trends. Popularity and real world usage are skyrocketing globally. 🔥 - https。
     - **关键点**：
-        - GPT-5.2 Pro参与物理推导
+        - Grok谷歌趋势达新高
+        - 全球使用量持续攀升
+        - 马斯克AI产品受关注
+    - **影响分析**：反映马斯克AI产品正迅速获得市场关注，形成新的竞争格局。
+    - **来源**：[原文链接](https://x.com/elonmusk/status/2029212992571867548)
+
+### 🧪 论文研究（1）
+
+??? info "7. OpenAI发布GPT-5.2 Pro预印本更新"
+    - **摘要**：A new preprint extends single-minus amplitudes to gravitons, with GPT-5.2 Pro helping derive and verify nonzero graviton tree amplitudes in quantum gravity。
+    - **关键点**：
+        - GPT-5.2 Pro助力物理研究
         - 验证引力子树振幅
-        - 推动量子引力研究
-    - **影响分析**：AI正突破工具属性，进入基础科学原创研究阶段。
+        - 拓展量子引力理论边界
+    - **影响分析**：推动AI在基础科学领域的深度应用，拓展理论物理研究范式。
     - **来源**：[原文链接](https://openai.com/index/extending-single-minus-amplitudes-to-gravitons)
 
-??? info "9. arXiv发布罗马尼亚语音基准数据集RO-N3WS"
-    - **摘要**：arXiv:2603.02368v1 Announce Type: new Abstract: We introduce RO-N3WS, a benchmark Romanian speech dataset designed to improve generalization in automatic speech recognition for low-resource languages.
-    - **关键点**：
-        - arXiv发布罗马尼亚语音数据集
-        - 专攻低资源语音识别
-        - 提升小语种模型泛化能力
-    - **影响分析**：促进小语种语音技术发展，推动AI公平性与多样性。
-    - **来源**：[原文链接](https://arxiv.org/abs/2603.02368)
+### 🏢 产品与行业（3）
 
-### 🏢 产品与行业（6）
-
-??? info "1. @elonmusk 发布特斯拉Model S Plaid更新"
-    - **摘要**：Important to order Model S or Model X before production stops to make way for the Optimus factory in a few months. X Freeze @XFreeze Sean Hannity just shared with me that this decision reflects a strategic shift toward human-centric robotics.
+??? info "1. NotebookLM发布电影级视频概览功能"
+    - **摘要**：Still super underrated what the incredible @NotebookLM can do. Its magical—one of my favourite AI tools. NotebookLM @NotebookLM Introducing Cinematic Video。
     - **关键点**：
-        - Model S/X生产即将停止
-        - 腾出空间给Optimus工厂
-        - 特斯拉加速布局人形机器人
-    - **影响分析**：推动特斯拉战略重心向人形机器人转移，或重塑高端智能硬件竞争格局。
-    - **来源**：[原文链接](https://x.com/elonmusk/status/2029298128927764746)
+        - NotebookLM发布电影级视频功能
+        - 支持定制化视觉内容生成
+        - 适用于创作与演示场景
+    - **影响分析**：推动AI内容生成从文字向动态视觉演进，大幅提升信息传达效率与用户沉浸感。
+    - **来源**：[原文链接](https://x.com/demishassabis/status/2029369663210008835)
 
-??? info "4. OpenAI发布教育影响评估套件"
-    - **摘要**：OpenAI introduces the Learning Outcomes Measurement Suite to assess AI's impact on student learning across diverse educational environments over time.
+??? info "2. NVIDIA发布重要更新"
+    - **摘要**：Open models are at the center of one of the most important shifts in AI. At #NVIDIAGTC, NVIDIA founder and CEO Jensen Huang is bringing together leaders from s。
     - **关键点**：
-        - OpenAI发布教育评估工具
-        - 衡量AI对学生学习影响
-        - 支持多场景教育应用
-    - **影响分析**：为AI+教育提供可量化的评估标准，推动技术真正融入教学体系。
-    - **来源**：[原文链接](https://openai.com/index/understanding-ai-and-learning-outcomes)
+        - NVIDIA GTC聚焦开放模型
+        - 汇聚多家头部AI公司
+        - 推动生态协作发展
+    - **影响分析**：凸显开放模型成为AI产业核心驱动力，加速行业协同创新进程。
+    - **来源**：[原文链接](https://x.com/nvidia/status/2029363481598672934)
 
-??? info "5. OpenAI发布支持本地新闻报道的AI更新"
-    - **摘要**：Axios COO Allison Murphy explains how the company uses AI to support local reporters, streamline newsroom workflows, and deliver high-impact local journalism at scale.
+??? info "6. @ylecun 发布重要更新"
+    - **摘要**：Tesla will be the first company to make Artificial Grokon Intelligence。
     - **关键点**：
-        - Axios用AI辅助本地新闻
-        - 提升新闻生产效率
-        - 实现规模化报道
-    - **影响分析**：AI助力媒体降本增效，推动高质量地方新闻可持续发展。
-    - **来源**：[原文链接](https://openai.com/index/axios-allison-murphy)
-
-??? info "6. @elonmusk 发布FSD技术进展更新"
-    - **摘要**：RT @XFreeze: The greatest miscalculation the legacy auto industry ever made was doubting Elon's approach to Full Self-Driving. For years, we've seen traditional automakers underestimate the pace and potential of Tesla's FSD technology.
-    - **关键点**：
-        - FSD被视作核心战略
-        - 传统车企曾严重低估
-        - 技术路径具有颠覆性
-    - **影响分析**：凸显特斯拉在智能驾驶领域的领先优势，警示传统车企转型压力。
-    - **来源**：[原文链接](https://x.com/elonmusk/status/2029300188901458028)
-
-??? info "7. @elonmusk 发布xAI人工智能发展更新"
-    - **摘要**：RT @xai: xAI is committed to deploying artificial intelligence that makes the lives of people better as well as adding more power near our communities, ensuring equitable access to advanced computing resources.
-    - **关键点**：
-        - xAI承诺改善人类生活
-        - 推动AI与能源融合
-        - 增强本地算力支持
-    - **影响分析**：展现AI企业社会责任导向，强调技术与能源协同发展的愿景。
-    - **来源**：[原文链接](https://x.com/elonmusk/status/2029298859080565000)
-
-??? info "8. @ylecun 发布人工通用智能愿景更新"
-    - **摘要**：Tesla will be the first company to make Artificial Grokon Intelligence.
-    - **关键点**：
-        - 特斯拉将首推人工格罗孔智能
-        - LeCun预言其技术领先性
-        - 或改变通用智能发展方向
-    - **影响分析**：引发对特斯拉智能架构前瞻性的关注，或影响后续产品节奏。
+        - 特斯拉将首推类脑智能
+        - RT自Yann LeCun权威发声
+        - 或将影响产品与行业节奏
+    - **影响分析**：若属实，将重塑智能硬件与AI融合的发展路径，引发行业高度关注。
     - **来源**：[原文链接](https://x.com/ylecun/status/2029143128138010662)
