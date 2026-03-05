@@ -13,40 +13,58 @@ theme:
   name: material
   language: zh
   palette:
+    # 浅色模式 - 使用更现代的蓝紫色调
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: indigo
-      accent: indigo
+      primary: deep purple
+      accent: purple
       toggle:
         icon: material/brightness-7
         name: 切换到暗色模式
+    # 深色模式 - 使用深紫色调
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: indigo
-      accent: indigo
+      primary: deep purple
+      accent: purple
       toggle:
         icon: material/brightness-4
         name: 切换到亮色模式
   font:
     text: Noto Sans SC
     code: JetBrains Mono
+  icon:
+    repo: fontawesome/brands/github
+    logo: material/robot-excited
+  favicon: https://api.iconify.design/material-symbols/robot-2.svg
   features:
+    # 导航功能
     - navigation.instant
+    - navigation.instant.progress
     - navigation.tracking
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.sections
     - navigation.indexes
     - navigation.expand
     - navigation.top
     - navigation.footer
+    - navigation.path
+    # 目录功能
+    - toc.follow
     - toc.integrate
+    # 搜索功能
     - search.suggest
     - search.highlight
+    - search.share
+    # 内容功能
     - content.tooltips
     - content.tabs.link
     - content.code.copy
+    - content.code.annotate
     - content.action.edit
     - content.action.view
+    # 头部功能
+    - header.autohide
 
 # Markdown 扩展
 markdown_extensions:
@@ -102,6 +120,20 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/ryanmind/ai-brief-starter
+      name: GitHub 仓库
+  generator: false
+  analytics:
+    feedback:
+      title: 这个页面有帮助吗？
+      ratings:
+        - icon: material/thumb-up-outline
+          name: 有帮助
+          data: 1
+          note: 感谢你的反馈！
+        - icon: material/thumb-down-outline
+          name: 需要改进
+          data: 0
+          note: 感谢你的反馈，我们会持续改进！
 
 extra_css:
   - stylesheets/extra.css
