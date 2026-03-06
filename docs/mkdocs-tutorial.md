@@ -7,7 +7,7 @@
 本项目有两条工作流：
 
 - `ai-morning-brief`：生成早报，产出 `reports/latest.md`，并自动同步到 `docs/latest.md`
-- `docs`：检测 `docs/**` 与 `mkdocs.yml` 变更，构建并发布到 GitHub Pages
+- `docs`：支持 `push`、`workflow_run` 与手动触发，构建并发布到 GitHub Pages
 
 因此，GitHub Pages 展示的是 `docs/` 目录内容，不直接读取 `reports/`。
 
@@ -38,9 +38,9 @@ mkdocs serve
 
 `docs` 工作流会在以下场景触发：
 
-- 分支：`master` 或 `mkdocs`
-- 文件变更包含：`docs/**` 或 `mkdocs.yml`
-- 文件变更包含：`requirements.txt`（保证文档依赖变化也会重建）
+- 分支：`master`
+- 文件变更包含：`docs/**`、`reports/*.md`、同步脚本、`mkdocs.yml`、`sources.txt` 或 `requirements.txt`
+- `ai-morning-brief` 成功结束后，通过 `workflow_run` 直接触发
 - 或手动点击 `Run workflow`
 
 工作流构建命令：
@@ -59,12 +59,12 @@ mkdocs build --strict
 3. 将 `reports/YYYY-MM-DD.md` 渲染并写入 `docs/history/YYYY-MM-DD.md`
 4. 重建历史索引 `docs/history.md`
 5. 若内容有变化，自动提交并 push 到当前分支
-6. 通过 `push` 触发 `docs` 工作流重新部署站点
+6. `docs` 工作流在 `ai-morning-brief` 成功后通过 `workflow_run` 触发并重新部署站点
 
 所以“早报已生成但站点没更新”的排查顺序是：
 
 1. 看 `ai-morning-brief` 是否成功
-2. 看日志里是否执行了 `Sync latest brief to docs` 与 `Commit docs latest brief`
+2. 看日志里是否执行了 `Sync latest brief to docs` 与 `Commit docs and report outputs`
 3. 看 `docs` 工作流是否被触发并成功部署
 
 ## 6. 常见问题
@@ -75,11 +75,11 @@ mkdocs build --strict
 
 ### Q2: 站点首页更新了，但“今日早报”还是旧内容
 
-通常是每日流程没有提交 `docs/latest.md`：
+通常是每日流程没有生成或同步到最新内容：
 
 - 可能 `reports/latest.md` 未生成
 - 可能当次内容与上次完全一致（不会重复提交）
-- 可能 push 权限不足（检查 workflow 的 `permissions: contents: write`）
+- 可能回写权限不足（检查 `ai-morning-brief` 的 `permissions: contents: write`）
 
 ### Q3: 为什么部署成功但页面 404
 
@@ -93,7 +93,7 @@ mkdocs build --strict
 
 1. 改文档：编辑 `docs/*.md` 或 `mkdocs.yml`
 2. 本地检查：`mkdocs build --strict`
-3. 提交并推送到 `master` 或 `mkdocs`
+3. 提交并推送到 `master`
 4. 在 Actions 确认 `docs` 工作流为绿色
 
 ---

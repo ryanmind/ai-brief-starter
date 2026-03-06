@@ -122,12 +122,16 @@ jobs:
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Commit docs latest brief
-        if: success() && steps.sync_docs.outputs.changed == 'true'
+      - name: Commit docs and report outputs
+        if: success()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/latest.md docs/history.md docs/history
+          git add docs/latest.md docs/history.md docs/history reports/latest.md reports/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].md
+          if git diff --cached --quiet; then
+            echo "no docs/report changes, skip commit"
+            exit 0
+          fi
           git commit -m "docs(report): 同步每日早报与历史归档"
           git push origin HEAD:${{ github.ref_name }}
 

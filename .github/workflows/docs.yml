@@ -4,11 +4,22 @@ on:
   push:
     branches:
       - master
-      - mkdocs
     paths:
       - 'docs/**'
+      - 'reports/latest.md'
+      - 'reports/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].md'
+      - 'scripts/sync_reports_to_docs.py'
+      - 'scripts/render_latest_for_mkdocs.py'
       - 'mkdocs.yml'
+      - 'sources.txt'
       - 'requirements.txt'
+  workflow_run:
+    workflows:
+      - ai-morning-brief
+    types:
+      - completed
+    branches:
+      - master
   workflow_dispatch:
 
 permissions:
@@ -17,17 +28,18 @@ permissions:
   id-token: write
 
 concurrency:
-  group: docs-${{ github.ref_name }}
+  group: docs-${{ github.event.workflow_run.head_branch || github.ref }}
   cancel-in-progress: true
 
 jobs:
   build:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: ${{ github.ref_name }}
+          ref: ${{ github.event.workflow_run.head_branch || github.ref_name }}
 
       - uses: actions/setup-python@v5
         with:
@@ -36,6 +48,9 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
+
+      - name: Sync latest brief to docs
+        run: python scripts/sync_reports_to_docs.py --reports-dir reports --docs-dir docs
 
       - name: Build documentation
         run: mkdocs build --strict

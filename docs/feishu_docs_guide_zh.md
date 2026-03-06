@@ -30,7 +30,7 @@
 
 ## 生效步骤
 
-1. 确认本地代码已 `commit + push` 到远程 `master` 或 `mkdocs`。  
+1. 确认本地代码已 `commit + push` 到远程 `master`。
 2. 手动运行 GitHub Actions：`ai-morning-brief`。  
 3. 成功后你会看到：  
    - 飞书群通知里出现“今日完整文档（飞书）”链接  
