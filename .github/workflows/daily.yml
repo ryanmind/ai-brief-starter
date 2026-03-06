@@ -127,7 +127,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/latest.md docs/history.md docs/history reports/latest.md reports/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].md
+          git add docs/latest.md docs/history.md docs/history
+          git add -f reports/latest.md reports/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].md
           if git diff --cached --quiet; then
             echo "no docs/report changes, skip commit"
             exit 0
