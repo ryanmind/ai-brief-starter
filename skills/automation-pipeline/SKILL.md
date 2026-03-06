@@ -1,5 +1,5 @@
 ---
-name: auto-pipeline
+name: automation-pipeline
 description: "分析、维护和修复代码仓库中的自动化 pipeline、CI/CD 与定时任务。用于修改 GitHub Actions、cron、自动抓取/处理/生成/同步/通知流程，或排查未触发、执行失败、重复执行、时间窗口、幂等性、外部依赖和发布失败等自动化问题。"
 ---
 
