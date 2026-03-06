@@ -34,6 +34,9 @@ def test_build_mkdocs_latest_generates_collapsible_sections():
     assert "## 全部快讯" in rendered
     assert '??? info "1. 标题A"' in rendered
     assert '??? info "2. 标题B"' in rendered
+    assert "    **摘要**：摘要A" in rendered
+    assert "    **关键点**\n\n    - 要点A1" in rendered
+    assert "    **影响分析**：影响A" in rendered
     assert "    **来源**：[原文链接](https://example.com/a)" in rendered
 
 
@@ -90,6 +93,8 @@ def test_build_mkdocs_latest_supports_legacy_report_shape():
     assert "1. 第一条要点" in rendered
     assert '??? info "1. 旧格式标题"' in rendered
     assert "旧格式细节" not in rendered
+    assert "    **摘要**：旧格式摘要" in rendered
+    assert "    **影响分析**：旧格式影响" in rendered
     assert "    **来源**：[原文链接](https://example.com/legacy)" in rendered
 
 

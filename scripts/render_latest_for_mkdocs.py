@@ -354,17 +354,18 @@ def append_item_block(output: list[str], item: BriefItem) -> None:
     cleaned_summary = strip_manual_category_tags(item.summary)
     cleaned_impact = strip_manual_category_tags(item.impact)
 
-    # 使用影响分析作为主要描述（更简洁），如果没有则使用原摘要
-    display_summary = cleaned_impact if cleaned_impact and cleaned_impact != "暂无" else cleaned_summary
-
     output.append(f'??? info "{item.index}. {escape_admonition_title(cleaned_title)}"')
-    if display_summary:
-        output.append(f"    **{display_summary}**")
+    if cleaned_summary and cleaned_summary != "暂无":
+        output.append(f"    **摘要**：{cleaned_summary}")
         output.append("")
     if item.key_points:
         output.append("    **关键点**")
+        output.append("")
         for point in item.key_points:
             output.append(f"    - {strip_manual_category_tags(point)}")
+        output.append("")
+    if cleaned_impact and cleaned_impact != "暂无":
+        output.append(f"    **影响分析**：{cleaned_impact}")
         output.append("")
     source = to_safe_text(item.source)
     if source and source != "暂无":

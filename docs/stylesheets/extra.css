@@ -278,8 +278,19 @@
 }
 
 /* 详情内容区域 */
-.md-typeset details.info > :not(summary) {
-  padding: var(--brief-spacing-md) var(--brief-spacing-lg);
+.md-typeset details.info > *:not(summary) {
+  padding-left: var(--brief-spacing-lg);
+  padding-right: var(--brief-spacing-lg);
+}
+
+.md-typeset details.info > summary + * {
+  margin-top: 0;
+  padding-top: var(--brief-spacing-md);
+}
+
+.md-typeset details.info > *:last-child:not(summary) {
+  margin-bottom: 0;
+  padding-bottom: var(--brief-spacing-md);
 }
 
 /* ============================================
@@ -488,7 +499,7 @@
   }
 
   /* 增加折叠块内容区域的底部间距 */
-  .md-typeset details.info > :not(summary) {
+  .md-typeset details.info > *:last-child:not(summary) {
     padding-bottom: var(--brief-spacing-lg);
   }
 }
