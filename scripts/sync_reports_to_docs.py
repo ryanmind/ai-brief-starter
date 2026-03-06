@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import argparse
 import re
-from datetime import datetime
 from pathlib import Path
 
 try:
@@ -30,11 +29,6 @@ def render_report(report_path: Path, title: str) -> str:
     content = report_path.read_text(encoding="utf-8")
     rendered = build_mkdocs_latest(content)
     return with_page_title(rendered, title=title)
-
-
-def current_sync_time() -> str:
-    return datetime.now().strftime("%Y年%m月%d日%H:%M:%S")
-
 
 def find_latest_dated_report(directory: Path) -> tuple[str, Path] | None:
     if not directory.exists():
@@ -115,7 +109,7 @@ def update_latest_page(reports_dir: Path, docs_dir: Path) -> None:
             f"no source found for latest page: reports={reports_dir}, docs={docs_dir}"
         )
 
-    rendered = build_mkdocs_latest(content, updated_at_override=current_sync_time())
+    rendered = build_mkdocs_latest(content)
     latest_page.write_text(with_page_title(rendered, title="今日早报"), encoding="utf-8")
 
 

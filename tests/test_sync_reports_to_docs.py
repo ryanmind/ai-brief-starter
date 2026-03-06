@@ -10,7 +10,7 @@ def _write(path: Path, text: str) -> None:
     path.write_text(text, encoding="utf-8")
 
 
-def test_sync_reports_to_docs_updates_latest_and_history(tmp_path, monkeypatch):
+def test_sync_reports_to_docs_updates_latest_and_history(tmp_path):
     reports_dir = tmp_path / "reports"
     docs_dir = tmp_path / "docs"
 
@@ -46,7 +46,6 @@ def test_sync_reports_to_docs_updates_latest_and_history(tmp_path, monkeypatch):
     _write(reports_dir / "2026-03-04.md", archived_report)
     _write(docs_dir / "history" / "2026-03-03.md", "# 旧归档\n")
 
-    monkeypatch.setattr(sync_reports_to_docs, "current_sync_time", lambda: "2026年03月04日23:59:59")
     sync_reports_to_docs.sync_reports_to_docs(reports_dir=reports_dir, docs_dir=docs_dir)
 
     latest_page = (docs_dir / "latest.md").read_text(encoding="utf-8")
@@ -54,7 +53,7 @@ def test_sync_reports_to_docs_updates_latest_and_history(tmp_path, monkeypatch):
     history_index = (docs_dir / "history.md").read_text(encoding="utf-8")
 
     assert latest_page.startswith("# 今日早报")
-    assert "更新时间：2026年03月04日23:59:59" in latest_page
+    assert "更新时间：2026年03月04日12:25:24" in latest_page
     assert "1. 今日摘要A" in latest_page
     assert history_page.startswith("# AI 早报归档 · 2026-03-04")
     assert "历史细节A" not in history_page
@@ -62,7 +61,7 @@ def test_sync_reports_to_docs_updates_latest_and_history(tmp_path, monkeypatch):
     assert "- [2026-03-03](history/2026-03-03.md)" in history_index
 
 
-def test_sync_reports_to_docs_prefers_newer_docs_history_for_latest(tmp_path, monkeypatch):
+def test_sync_reports_to_docs_prefers_newer_docs_history_for_latest(tmp_path):
     reports_dir = tmp_path / "reports"
     docs_dir = tmp_path / "docs"
 
@@ -87,16 +86,16 @@ def test_sync_reports_to_docs_prefers_newer_docs_history_for_latest(tmp_path, mo
     _write(reports_dir / "2026-02-28.md", stale_latest)
     _write(docs_dir / "history" / "2026-03-05.md", newer_history)
 
-    monkeypatch.setattr(sync_reports_to_docs, "current_sync_time", lambda: "2026年03月05日23:59:59")
     sync_reports_to_docs.sync_reports_to_docs(reports_dir=reports_dir, docs_dir=docs_dir)
 
     latest_page = (docs_dir / "latest.md").read_text(encoding="utf-8")
     assert latest_page.startswith("# 今日早报")
+    assert "更新时间：2026年03月05日09:39:04" in latest_page
     assert "1. 新摘要" in latest_page
     assert "1. 旧摘要" not in latest_page
 
 
-def test_sync_reports_to_docs_prefers_newer_dated_report_over_stale_latest(tmp_path, monkeypatch):
+def test_sync_reports_to_docs_prefers_newer_dated_report_over_stale_latest(tmp_path):
     reports_dir = tmp_path / "reports"
     docs_dir = tmp_path / "docs"
 
@@ -120,10 +119,10 @@ def test_sync_reports_to_docs_prefers_newer_dated_report_over_stale_latest(tmp_p
     _write(reports_dir / "2026-03-06.md", newer_dated_report)
     _write(docs_dir / "history" / "2026-03-05.md", "# AI 早报归档 · 2026-03-05\n\n1. 历史摘要\n")
 
-    monkeypatch.setattr(sync_reports_to_docs, "current_sync_time", lambda: "2026年03月06日23:59:59")
     sync_reports_to_docs.sync_reports_to_docs(reports_dir=reports_dir, docs_dir=docs_dir)
 
     latest_page = (docs_dir / "latest.md").read_text(encoding="utf-8")
     assert latest_page.startswith("# 今日早报")
+    assert "更新时间：2026-03-06 08:00:00" in latest_page
     assert "1. 新摘要" in latest_page
     assert "1. 旧摘要" not in latest_page
