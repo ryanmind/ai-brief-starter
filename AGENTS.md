@@ -45,3 +45,9 @@
 ## Security & Configuration Tips
 - Never commit API keys or webhook URLs; use GitHub Actions Secrets or local environment variables.
 - `QWEN_API_KEY` is required for pipeline runs; Feishu and Kimi keys are optional integrations.
+
+## Local Skill Routing
+- Local project skill: `skills/ai-brief/SKILL.md`.
+- Use this local skill when tasks involve this repo's scheduled AI brief workflow, including source ingestion, filtering, summarization, report generation, quality checks, docs sync, notifications, or related GitHub Actions.
+- Read `skills/ai-brief/SKILL.md` before changing those areas, and follow its scope, guardrails, operating loop, and validation guidance.
+- Do not use this local skill as a generic scheduled-job template outside this repository.
