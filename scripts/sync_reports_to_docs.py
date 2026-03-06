@@ -13,6 +13,10 @@ except ModuleNotFoundError:  # pragma: no cover - CLI entrypoint fallback
 
 
 DATE_REPORT_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}\.md$")
+INLINE_REPORT_DATE_PATTERNS = (
+    re.compile(r"AI 早报[（(](\d{4}-\d{2}-\d{2})[)）]"),
+    re.compile(r"AI 早报\s*[·-]\s*(\d{4})年(\d{2})月(\d{2})日"),
+)
 
 
 def with_page_title(markdown: str, title: str) -> str:
@@ -46,15 +50,38 @@ def find_latest_dated_report(directory: Path) -> tuple[str, Path] | None:
     return latest.stem, latest
 
 
+def extract_inline_report_date(markdown: str) -> str | None:
+    for pattern in INLINE_REPORT_DATE_PATTERNS:
+        match = pattern.search(markdown)
+        if not match:
+            continue
+        if len(match.groups()) == 1:
+            return match.group(1)
+        year, month, day = match.groups()
+        return f"{year}-{month}-{day}"
+    return None
+
+
 def update_latest_page(reports_dir: Path, docs_dir: Path) -> None:
     latest_page = docs_dir / "latest.md"
     latest_report = reports_dir / "latest.md"
     latest_report_date = find_latest_dated_report(reports_dir)
     latest_history_date = find_latest_dated_report(docs_dir / "history")
+    latest_report_content = ""
+    latest_report_inline_date: str | None = None
+    if latest_report.exists():
+        latest_report_content = latest_report.read_text(encoding="utf-8")
+        latest_report_inline_date = extract_inline_report_date(latest_report_content)
+
+    reports_newest_date = latest_report_date[0] if latest_report_date else None
+    if latest_report_inline_date and (
+        reports_newest_date is None or latest_report_inline_date > reports_newest_date
+    ):
+        reports_newest_date = latest_report_inline_date
 
     # Avoid accidentally regressing docs/latest.md when local reports are stale.
     if latest_history_date and (
-        latest_report_date is None or latest_history_date[0] > latest_report_date[0]
+        reports_newest_date is None or latest_history_date[0] > reports_newest_date
     ):
         latest_page.write_text(
             with_page_title(
@@ -65,10 +92,15 @@ def update_latest_page(reports_dir: Path, docs_dir: Path) -> None:
         )
         return
 
-    if latest_report.exists():
-        source = latest_report
+    if latest_report.exists() and (
+        latest_report_inline_date
+        and (latest_report_date is None or latest_report_inline_date >= latest_report_date[0])
+    ):
+        content = latest_report_content
     elif latest_report_date:
-        source = latest_report_date[1]
+        content = latest_report_date[1].read_text(encoding="utf-8")
+    elif latest_report.exists():
+        content = latest_report_content
     elif latest_history_date:
         latest_page.write_text(
             with_page_title(
@@ -83,7 +115,6 @@ def update_latest_page(reports_dir: Path, docs_dir: Path) -> None:
             f"no source found for latest page: reports={reports_dir}, docs={docs_dir}"
         )
 
-    content = source.read_text(encoding="utf-8")
     rendered = build_mkdocs_latest(content, updated_at_override=current_sync_time())
     latest_page.write_text(with_page_title(rendered, title="今日早报"), encoding="utf-8")
 
