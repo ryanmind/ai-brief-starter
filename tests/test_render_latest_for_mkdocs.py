@@ -31,7 +31,7 @@ def test_build_mkdocs_latest_generates_collapsible_sections():
     assert "更新时间：2026年03月04日12:25:24" in rendered
     assert "1. 第一条摘要" in rendered
     assert "2. 第二条摘要" in rendered
-    assert "## 全部快讯（按序号折叠）" in rendered
+    assert "## 全部快讯" in rendered
     assert '??? info "1. 标题A"' in rendered
     assert '??? info "2. 标题B"' in rendered
     assert "    **来源**：[原文链接](https://example.com/a)" in rendered
@@ -108,7 +108,7 @@ def test_build_mkdocs_latest_renders_all_news_without_category_subsections():
 """
     rendered = render_latest_for_mkdocs.build_mkdocs_latest(source)
 
-    all_news = rendered.split("## 全部快讯（按序号折叠）", maxsplit=1)[1]
+    all_news = rendered.split("## 全部快讯", maxsplit=1)[1]
     assert "### 🤖 模型进展" not in all_news
     assert "### 🧪 论文研究" not in all_news
     assert "### 🏢 产品与行业" not in all_news

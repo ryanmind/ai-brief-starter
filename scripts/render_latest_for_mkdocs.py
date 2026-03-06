@@ -415,7 +415,7 @@ def build_mkdocs_latest(markdown: str, updated_at_override: str = "") -> str:
         else:
             output.append("    - 暂无条目")
         output.append("")
-    output.append("## 全部快讯（按序号折叠）")
+    output.append("## 全部快讯")
     output.append("")
 
     if not items:
