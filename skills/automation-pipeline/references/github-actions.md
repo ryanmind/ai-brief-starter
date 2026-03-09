@@ -5,8 +5,9 @@
 - Trigger routing
 - Permissions and trust
 - Orchestration
-- State and idempotency
+- State, Caching, and Idempotency
 - Security guardrails
+- Debugging and Diagnostics
 - Validation checklist
 
 ## Trigger routing
@@ -37,9 +38,10 @@
 - composite action 问题优先检查输入名、默认 shell、相对路径和工作目录。
 - runner 差异要显式核对：`ubuntu-latest`、`macos-latest`、`windows-latest` 的 shell、路径、工具链都可能不同。
 
-## State and idempotency
+## State, Caching, and Idempotency
 
-- cache 只用于加速，不要把旧 cache 当成新的事实来源。
+- cache 具有不可变性 (immutability)：一旦针对特定的 key 生成就不能覆盖。要合理设计 `restore-keys` 的 fallback 策略。
+- cache 只用于加速，不要把旧 cache 当成新的事实来源；排查依赖或包管理器缓存失效时要注意锁文件哈希。
 - artifact 是某次 run 的输出，不要把旧 artifact 当成本次输入，除非链路就是这么设计的。
 - checkpoint、cursor、dedup key、上次发布时间戳，是排查漏跑、重跑、重复通知的高频入口。
 - 发布和通知链路要有幂等键；仅靠“这次大概不会重复触发”不可靠。
@@ -48,11 +50,17 @@
 
 ## Security guardrails
 
-- 第三方 action 尽量固定到 commit SHA，而不是浮动 tag。
+- 第三方 action 尽量固定到 commit SHA，而不是浮动 tag，防止供应链攻击。
 - 不要把 secrets、webhook、token、cloud credentials 写入仓库、生成产物或日志。
 - 对 OIDC 场景，检查 `id-token: write`、云端 trust policy 与受众配置是否一致。
 - 不要为了临时修复而把 workflow 改成广域高权限。
 - 只在确有必要时使用 `pull_request_target`、self-hosted runner、repository-level write token。
+
+## Debugging and Diagnostics
+
+- **开启详细日志**：可以通过在 Repository Variables 或 Secrets 中设置 `ACTIONS_STEP_DEBUG=true` 和 `ACTIONS_RUNNER_DEBUG=true` 来获取底层执行指纹。
+- **本地复现**：提示或尝试使用 [nektos/act](https://github.com/nektos/act) 在本地容器中最小化复现故障，避免在云端频繁推送调试代码。
+- **SSH 调试**：可通过类似 `mxschmitt/action-tmate` 或 `tailscale/github-action` 的 action 中间插入 breakpoint 以进入 runner 环境查错。
 
 ## Validation checklist
 
