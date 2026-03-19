@@ -14,9 +14,6 @@ on:
       - 'sources.txt'
       - 'requirements.txt'
   workflow_run:
-
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
     workflows:
       - ai-morning-brief
     types:
@@ -24,6 +21,9 @@ env:
     branches:
       - master
   workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
 permissions:
   contents: read
