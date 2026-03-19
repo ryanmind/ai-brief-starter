@@ -173,6 +173,7 @@ localize_items_to_chinese = llm_module.localize_items_to_chinese
 enforce_titles_with_subject = llm_module.enforce_titles_with_subject
 classify_ai_topic_items_with_llm = llm_module.classify_ai_topic_items_with_llm
 polish_markdown_with_llm = llm_module.polish_markdown_with_llm
+review_items_with_multi_model = llm_module.review_items_with_multi_model
 
 check_category_balance = report_module.check_category_balance
 render_markdown = report_module.render_markdown
@@ -325,6 +326,13 @@ def main() -> None:
     selected = enforce_titles_with_subject_fn(items=selected, llm_api_key=llm_api_key, llm_model=llm_model)
     if not selected:
         raise RuntimeError("无内容：模型筛选后最终条目数为 0")
+
+    # 多模型审核：交叉验证真实性
+    selected, review_stats = review_items_with_multi_model(items=selected, llm_api_key=llm_api_key)
+    if not selected:
+        raise RuntimeError("无内容：多模型审核后条目数为 0")
+    if review_stats.get("rejected", 0) > 0:
+        logger.info("多模型审核统计: %s", json.dumps(review_stats, ensure_ascii=False))
 
     check_category_balance_fn(selected)
     draft_report_path = report_dir / "latest.draft.md"

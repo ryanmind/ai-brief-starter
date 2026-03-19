@@ -42,6 +42,17 @@
 - **论文关键词**：arxiv/论文/预印本/preprint，出现即归类为论文研究。
 - 其余按分数计算归类。
 
+## Multi-Model Review
+- **审核流程**：每条资讯生成后，使用多个模型交叉验证真实性。
+- **默认模型**：kimi-k2-0905, iflow-rome-30ba3b, kimi-k2。
+- **投票机制**：至少 2 个模型通过才发布（可通过 `REVIEW_PASS_THRESHOLD` 配置）。
+- **审核标准**：真实性（无幻觉）、完整性（标题有主体）、准确性（关键点是完整句子）、价值性（摘要有信息价值）。
+- **配置项**：
+  - `REVIEW_ENABLED=0`：禁用审核
+  - `REVIEW_MODELS=模型1,模型2`：自定义审核模型
+  - `REVIEW_PASS_THRESHOLD=2`：通过阈值
+- 实现在 `src/llm.py` 的 `review_items_with_multi_model()` 中。
+
 ## Data Cleaning Rules
 - Use LLM-based processing for data cleaning tasks.
 - Do not add or maintain Python 3 rule-based cleaning logic for new or updated cleaning flows.

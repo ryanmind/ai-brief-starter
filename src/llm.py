@@ -23,6 +23,9 @@ from src.config import (
     LLM_BASE_URL,
     get_llm_api_key,
     get_llm_model,
+    REVIEW_ENABLED,
+    REVIEW_PASS_THRESHOLD,
+    get_review_models,
 )
 from src.models import NewsItem
 from src.text_utils import (
@@ -690,3 +693,147 @@ def polish_markdown_with_llm(markdown: str, llm_api_key: str, llm_model: str) ->
 
     logger.warning("polish_markdown_with_llm: guard rejected polished markdown, keep original")
     return markdown
+
+
+def review_item_with_model(
+    client: OpenAI,
+    model: str,
+    item: NewsItem,
+) -> dict[str, Any]:
+    """用单个模型审核一条新闻的真实性。
+    
+    返回：
+    {
+        "passed": True/False,
+        "reason": "通过/不通过的原因",
+        "issues": ["问题1", "问题2"]  # 可选，列出具体问题
+    }
+    """
+    prompt = f"""请审核以下 AI 资讯的真实性和质量。
+
+**标题**: {item.title}
+**摘要**: {item.brief}
+**关键点**: {', '.join(item.key_points[:3]) if item.key_points else '无'}
+**影响分析**: {item.impact or '无'}
+**原文链接**: {item.link}
+
+审核标准：
+1. **真实性**：内容是否基于原文，有无编造或幻觉？
+2. **完整性**：标题是否包含明确主体（公司/产品/人物）？
+3. **准确性**：关键点是否是完整句子、包含具体事实？是否是原文截断片段？
+4. **价值性**：摘要是否解释了内容含义而非简单翻译？是否有信息价值？
+
+请输出 JSON 格式：
+{{"passed": true/false, "reason": "原因说明", "issues": ["具体问题1", "具体问题2"]}}
+
+注意：
+- passed 为 true 表示该条资讯可以发布
+- passed 为 false 表示该条资讯有问题需要剔除或修改
+- issues 列出具体问题（如果有）
+"""
+
+    try:
+        raw = llm_chat(
+            client=client,
+            model=model,
+            system_prompt="你是一个严谨的新闻审核员，负责判断资讯的真实性和质量。只输出 JSON。",
+            user_prompt=prompt,
+        )
+        result = extract_json(raw)
+        passed = result.get("passed", False)
+        # 确保 passed 是布尔值
+        if isinstance(passed, str):
+            passed = passed.lower().strip() in ("true", "yes", "1", "pass")
+        return {
+            "passed": bool(passed),
+            "reason": str(result.get("reason", "")),
+            "issues": result.get("issues", []) if isinstance(result.get("issues"), list) else [],
+        }
+    except Exception as exc:
+        logger.warning(
+            "review_item_with_model: model %s review failed: %s - %s",
+            model,
+            type(exc).__name__,
+            str(exc)[:200],
+        )
+        # 出错时默认通过（fail-open）
+        return {"passed": True, "reason": f"审核出错，默认通过: {type(exc).__name__}", "issues": []}
+
+
+def review_items_with_multi_model(
+    items: list[NewsItem],
+    llm_api_key: str,
+) -> tuple[list[NewsItem], dict[str, int]]:
+    """用多个模型交叉审核新闻列表。
+    
+    返回：(通过审核的条目列表, 统计信息)
+    统计信息包括：total(总数), passed(通过数), rejected(拒绝数), 各模型的审核结果
+    """
+    if not REVIEW_ENABLED:
+        logger.info("review_items_with_multi_model: 多模型审核已禁用")
+        return items, {"disabled": len(items)}
+    
+    if not items:
+        return items, {}
+    
+    review_models = get_review_models()
+    if not review_models:
+        logger.warning("review_items_with_multi_model: 未配置审核模型，跳过审核")
+        return items, {"no_models": len(items)}
+    
+    client = OpenAI(api_key=llm_api_key, base_url=LLM_BASE_URL)
+    
+    passed_items: list[NewsItem] = []
+    stats: dict[str, int] = {
+        "total": len(items),
+        "passed": 0,
+        "rejected": 0,
+    }
+    
+    # 记录每个模型的审核统计
+    model_stats = {model: {"passed": 0, "rejected": 0} for model in review_models}
+    
+    for item in items:
+        votes: list[bool] = []
+        item_issues: list[str] = []
+        
+        for model in review_models:
+            result = review_item_with_model(client, model, item)
+            votes.append(result["passed"])
+            if not result["passed"]:
+                model_stats[model]["rejected"] += 1
+                if result.get("issues"):
+                    item_issues.extend([f"[{model}] {issue}" for issue in result["issues"]])
+            else:
+                model_stats[model]["passed"] += 1
+        
+        # 投票：通过的票数 >= 阈值 则通过
+        pass_count = sum(votes)
+        if pass_count >= REVIEW_PASS_THRESHOLD:
+            passed_items.append(item)
+            stats["passed"] += 1
+        else:
+            stats["rejected"] += 1
+            logger.info(
+                "review_items_with_multi_model: 条目被拒绝 - %s (通过 %d/%d, 需 %d)",
+                item.title[:50],
+                pass_count,
+                len(votes),
+                REVIEW_PASS_THRESHOLD,
+            )
+            if item_issues:
+                logger.debug("review_issues: %s", "; ".join(item_issues[:3]))
+    
+    # 合并模型统计到 stats
+    for model, counts in model_stats.items():
+        stats[f"{model}_passed"] = counts["passed"]
+        stats[f"{model}_rejected"] = counts["rejected"]
+    
+    logger.info(
+        "review_items_with_multi_model: 审核 %d 条，通过 %d 条，拒绝 %d 条",
+        stats["total"],
+        stats["passed"],
+        stats["rejected"],
+    )
+    
+    return passed_items, stats

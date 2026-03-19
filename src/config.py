@@ -249,6 +249,21 @@ LLM_API_KEY_ENV = "IFLOW_API_KEY"  # 环境变量名
 LLM_MODEL_DEFAULT = "qwen3-coder-plus"  # 默认模型
 LLM_BASE_URL = "https://apis.iflow.cn/v1"  # API 端点
 
+# ---- Multi-Model Review Configuration ----
+# 多模型审核配置：用多个模型交叉验证生成结果的真实性
+
+REVIEW_MODELS_DEFAULT = ("kimi-k2-0905", "iflow-rome-30ba3b", "kimi-k2")
+REVIEW_ENABLED = os.getenv("REVIEW_ENABLED", "1").strip().lower() not in {"0", "false", "no", "off"}
+REVIEW_PASS_THRESHOLD = int_env("REVIEW_PASS_THRESHOLD", 2, min_value=1, max_value=5)  # 至少几个模型通过
+
+
+def get_review_models() -> list[str]:
+    """获取用于审核的模型列表。"""
+    raw = os.getenv("REVIEW_MODELS", "").strip()
+    if raw:
+        return [m.strip() for m in raw.split(",") if m.strip()]
+    return list(REVIEW_MODELS_DEFAULT)
+
 # LLM 辅助函数
 def get_llm_api_key() -> str:
     """获取 LLM API Key，未设置时抛出异常。"""
