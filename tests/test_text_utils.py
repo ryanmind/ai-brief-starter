@@ -32,10 +32,10 @@ def test_host_matches():
     assert host_matches("openai.com", domains)
     assert host_matches("api.openai.com", domains)
     assert not host_matches("google.com", domains)
-    # 注意：防止 openai.com.hack.com 这种后缀匹配在 host_matches 中并没有严格处理，
-    # 它是以 .endswith(".openai.com") 匹配的，所以 "fake.openai.com" 也会算通过。
-    # 这里只测代码现有逻辑。
+    # host_matches 使用 host == domain or host.endswith(".domain")
+    # 这是安全的：openai.com.hack.com 不匹配（因为不是 .openai.com 结尾）
     assert not host_matches("fakeopenai.com", domains)
+    assert not host_matches("openai.com.hack.com", domains)
 
 
 def test_ensure_sentence_end():
