@@ -28,7 +28,7 @@ pip install -r requirements.txt
 ### 4. 配置 API Key
 
 ```bash
-export QWEN_API_KEY="sk-xxxxxx"  # 阿里百炼 API Key
+export IFLOW_API_KEY="your-api-key"  # iFlow API Key
 ```
 
 ### 5. 运行
@@ -51,7 +51,7 @@ python main.py
 
 | Secret | 必需 | 说明 |
 |--------|------|------|
-| `QWEN_API_KEY` | ✅ | 阿里百炼 API Key，主流程必需 |
+| `IFLOW_API_KEY` | ✅ | iFlow API Key，主流程必需 |
 | `FEISHU_WEBHOOK_URL` | 条件必需 | 需要飞书通知时填写 |
 | `FEISHU_APP_ID` | 条件必需 | 当启用飞书通知时必需（当前默认强制文档同步） |
 | `FEISHU_APP_SECRET` | 条件必需 | 当启用飞书通知时必需（当前默认强制文档同步） |
@@ -89,9 +89,9 @@ schedule:
 
 ## 常见问题
 
-### Q: 运行失败提示缺少 QWEN_API_KEY
+### Q: 运行失败提示缺少 IFLOW_API_KEY
 
-确保已在 GitHub Secrets 中配置 `QWEN_API_KEY`。
+确保已在 GitHub Secrets 中配置 `IFLOW_API_KEY`。
 
 ### Q: 为什么没有飞书提醒？
 
@@ -108,12 +108,6 @@ schedule:
 ### Q: 在哪里查看历史早报？
 
 在文档站打开“历史归档”页面（`/history/`），可按日期访问 `history/YYYY-MM-DD.md`。
-
-### Q: 如何获取阿里百炼 API Key？
-
-1. 访问 [阿里百炼](https://bailian.console.aliyun.com/)
-2. 开通服务
-3. 创建 API Key
 
 ### Q: 如何添加新的信息源？
 

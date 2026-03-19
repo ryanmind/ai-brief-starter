@@ -88,8 +88,8 @@ def test_polish_markdown_with_llm_rejects_unsafe_output(monkeypatch):
 
     result = main.polish_markdown_with_llm(
         markdown=original,
-        qwen_api_key="test-key",
-        qwen_model="qwen-flash",
+        iflow_api_key="test-key",
+        iflow_model="qwen3-coder-plus",
     )
     assert result == original
 
@@ -121,7 +121,7 @@ def test_polish_markdown_with_llm_accepts_safe_output(monkeypatch):
 
     result = main.polish_markdown_with_llm(
         markdown=original,
-        qwen_api_key="test-key",
-        qwen_model="qwen-flash",
+        iflow_api_key="test-key",
+        iflow_model="qwen3-coder-plus",
     )
     assert result.strip() == safe_polished.strip()

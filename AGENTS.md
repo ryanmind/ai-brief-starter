@@ -44,7 +44,7 @@
 
 ## Security & Configuration Tips
 - Never commit API keys or webhook URLs; use GitHub Actions Secrets or local environment variables.
-- `QWEN_API_KEY` is required for pipeline runs; Feishu and Kimi keys are optional integrations.
+- `IFLOW_API_KEY` is required for pipeline runs; Feishu and Kimi keys are optional integrations.
 
 ## Local Skill Routing
 - Local project skill: `skills/ai-brief/SKILL.md`.

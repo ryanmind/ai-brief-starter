@@ -104,8 +104,8 @@ def test_rank_and_summarize_fallback_on_llm_exception(monkeypatch):
 
     result = main.rank_and_summarize(
         items=source_items,
-        qwen_api_key="test-key",
-        qwen_model="qwen-flash",
+        iflow_api_key="test-key",
+        iflow_model="qwen3-coder-plus",
         top_n=1,
     )
 
@@ -352,8 +352,8 @@ def test_localize_items_to_chinese_ignores_placeholder_fields(monkeypatch):
 
     localized = main.localize_items_to_chinese(
         items=items,
-        qwen_api_key="test-key",
-        qwen_model="qwen-flash",
+        iflow_api_key="test-key",
+        iflow_model="qwen3-coder-plus",
     )
     assert localized[0].title == "OpenAI 发布新模型"
     assert "value" not in localized[0].brief.lower()
@@ -447,7 +447,7 @@ def test_render_markdown_removes_entry_separator_and_keeps_single_gap_between_it
 def test_main_quality_check_fail_open_keeps_pipeline_running(monkeypatch, tmp_path):
     from src.models import NewsItem
     monkeypatch.chdir(tmp_path)
-    monkeypatch.setenv("QWEN_API_KEY", "test-key")
+    monkeypatch.setenv("IFLOW_API_KEY", "test-key")
     monkeypatch.setenv("QUALITY_CHECK_FAIL_OPEN", "1")
     monkeypatch.setenv("FINAL_POLISH_ENABLED", "0")
     monkeypatch.setenv("TOP_N", "5")
@@ -501,7 +501,7 @@ def test_main_quality_check_fail_open_keeps_pipeline_running(monkeypatch, tmp_pa
 def test_main_quality_check_fail_open_disabled_still_continues(monkeypatch, tmp_path):
     from src.models import NewsItem
     monkeypatch.chdir(tmp_path)
-    monkeypatch.setenv("QWEN_API_KEY", "test-key")
+    monkeypatch.setenv("IFLOW_API_KEY", "test-key")
     monkeypatch.setenv("QUALITY_CHECK_FAIL_OPEN", "0")
     monkeypatch.setenv("FINAL_POLISH_ENABLED", "0")
     monkeypatch.setenv("TOP_N", "5")
@@ -594,7 +594,7 @@ def test_enforce_titles_with_subject_uses_deterministic_fallback(monkeypatch):
             link="https://github.com/runwayml/sdk-python/blob/main/CHANGELOG.md",
         )
     ]
-    fixed = main.enforce_titles_with_subject(items=items, qwen_api_key="test-key", qwen_model="qwen-flash")
+    fixed = main.enforce_titles_with_subject(items=items, iflow_api_key="test-key", iflow_model="qwen3-coder-plus")
     assert fixed[0].title.startswith("runwayml/sdk-python")
 
 

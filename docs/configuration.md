@@ -7,7 +7,7 @@
 
 | 变量名 | 说明 | 示例 |
 |--------|------|------|
-| `QWEN_API_KEY` | 阿里百炼 API Key | `sk-xxxxxx` |
+| `IFLOW_API_KEY` | iFlow API Key | `your-api-key` |
 | `TWITTERAPI_IO_KEY` | （可选）TwitterAPI.io API Key，用于 X 源 fallback | `taio-xxxxxx` |
 
 ---
@@ -16,7 +16,7 @@
 
 | 变量名 | 默认值 | 说明 |
 |--------|--------|------|
-| `QWEN_MODEL` | `qwen-flash` | Qwen 模型名称 |
+| `IFLOW_MODEL` | `qwen3-coder-plus` | iFlow 模型名称 |
 | `MAX_ITEMS` | `120` | 最大抓取条数 |
 | `TOP_N` | `20` | 最终输出条数 |
 

@@ -6,7 +6,7 @@
 
 在 GitHub 仓库 `Settings -> Secrets and variables -> Actions` 中配置：
 
-- `QWEN_API_KEY`
+- `IFLOW_API_KEY`
 - `FEISHU_WEBHOOK_URL`
 - `FEISHU_APP_ID`
 - `FEISHU_APP_SECRET`

@@ -7,7 +7,7 @@ from src.models import NewsItem
 def test_filter_ai_topic_items_with_stats_keeps_only_ai(monkeypatch):
     from src import llm as llm_module
     monkeypatch.setenv("STRICT_AI_TOPIC_ONLY", "1")
-    monkeypatch.setenv("QWEN_API_KEY", "test-key")
+    monkeypatch.setenv("IFLOW_API_KEY", "test-key")
     items = [
         NewsItem(
             title="OpenAI 发布 GPT-5",
@@ -23,7 +23,7 @@ def test_filter_ai_topic_items_with_stats_keeps_only_ai(monkeypatch):
     monkeypatch.setattr(
         llm_module,
         "classify_ai_topic_items_with_llm",
-        lambda items, qwen_api_key, qwen_model, keywords: ([True, False], {}),
+        lambda items, iflow_api_key, iflow_model, keywords: ([True, False], {}),
     )
 
     kept, stats = main.filter_ai_topic_items_with_stats(items)
@@ -48,7 +48,7 @@ def test_filter_ai_topic_items_with_stats_can_be_disabled(monkeypatch):
 
 def test_filter_ai_topic_items_with_stats_keeps_all_when_llm_unavailable(monkeypatch):
     monkeypatch.setenv("STRICT_AI_TOPIC_ONLY", "1")
-    monkeypatch.delenv("QWEN_API_KEY", raising=False)
+    monkeypatch.delenv("IFLOW_API_KEY", raising=False)
     items = [
         NewsItem(
             title="公司周年庆直播活动",

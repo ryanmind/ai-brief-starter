@@ -297,8 +297,8 @@ def filter_primary_items_with_stats(items: list[NewsItem] | list[dict[str, str]]
 
 def filter_ai_topic_items_with_stats(
     items: list[NewsItem] | list[dict[str, str]],
-    qwen_api_key: str = "",
-    qwen_model: str = "",
+    iflow_api_key: str = "",
+    iflow_model: str = "",
 ) -> tuple[list[NewsItem], dict[str, int]]:
     from src.llm import classify_ai_topic_items_with_llm  # avoid circular import
 
@@ -316,17 +316,17 @@ def filter_ai_topic_items_with_stats(
     if items and isinstance(items[0], dict):
         items = [NewsItem.from_dict(item) for item in items]
 
-    api_key = qwen_api_key.strip() if qwen_api_key else os.getenv("QWEN_API_KEY", "").strip()
-    model = qwen_model.strip() if qwen_model else os.getenv("QWEN_MODEL", "qwen-flash").strip()
+    api_key = iflow_api_key.strip() if iflow_api_key else os.getenv("IFLOW_API_KEY", "").strip()
+    model = iflow_model.strip() if iflow_model else os.getenv("IFLOW_MODEL", "qwen3-coder-plus").strip()
     if not api_key:
-        logger.warning("STRICT_AI_TOPIC_ONLY=1 but QWEN_API_KEY missing, keep all items as fallback")
+        logger.warning("STRICT_AI_TOPIC_ONLY=1 but IFLOW_API_KEY missing, keep all items as fallback")
         return items, {"llm_unavailable_keep_all": len(items)}
 
     keywords = parse_csv_env("AI_TOPIC_KEYWORDS", DEFAULT_AI_TOPIC_KEYWORDS)
     decisions, llm_stats = classify_ai_topic_items_with_llm(
         items=items,
-        qwen_api_key=api_key,
-        qwen_model=model,
+        iflow_api_key=api_key,
+        iflow_model=model,
         keywords=keywords,
     )
     if len(decisions) != len(items):

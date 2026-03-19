@@ -458,7 +458,7 @@ def send_text_message(webhook_url: str, text: str) -> None:
 def build_failure_suggestions(failed_step: str) -> list[str]:
     step = failed_step.lower()
     if "secret" in step:
-        return ["检查 QWEN_API_KEY 等必填 Secrets 是否已配置且未过期。"]
+        return ["检查 IFLOW_API_KEY 等必填 Secrets 是否已配置且未过期。"]
     if "test" in step:
         return ["先在本地执行 `python -m pytest tests/ -v` 并修复失败用例。"]
     if "generate" in step or "brief" in step:

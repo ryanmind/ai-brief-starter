@@ -18,7 +18,7 @@ jobs:
     timeout-minutes: 20
     env:
       TZ: Asia/Shanghai
-      QWEN_MODEL: qwen-flash
+      IFLOW_MODEL: qwen3-coder-plus
       MAX_ITEMS: "120"
       TOP_N: "20"
       BRIEF_MAX_CHARS: "160"
@@ -45,7 +45,7 @@ jobs:
       NITTER_RSS_BASES: "https://nitter.net,https://nitter.poast.org,https://nitter.privacydev.net,https://nitter.d420.de,https://nitter.unixfox.eu"
       TWITTERAPI_IO_ENABLED: "1"
       TWITTERAPI_IO_TIMEOUT: "8"
-      QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
+      IFLOW_API_KEY: ${{ secrets.IFLOW_API_KEY }}
       TWITTERAPI_IO_KEY: ${{ secrets.TWITTERAPI_IO_KEY }}
       FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
       FEISHU_BOT_SECRET: ${{ secrets.FEISHU_BOT_SECRET }}
@@ -73,8 +73,8 @@ jobs:
       - name: Validate required secrets
         id: validate_secrets
         run: |
-          if [ -z "${QWEN_API_KEY}" ]; then
-            echo "::error::Missing required secret: QWEN_API_KEY"
+          if [ -z "${IFLOW_API_KEY}" ]; then
+            echo "::error::Missing required secret: IFLOW_API_KEY"
             exit 1
           fi
 
