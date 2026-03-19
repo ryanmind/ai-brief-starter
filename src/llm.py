@@ -70,20 +70,25 @@ def llm_chat(
             return (response.choices[0].message.content or "").strip()
         except Exception as exc:
             last_error = exc
+            # 细化异常类型记录
+            exc_name = type(exc).__name__
+            exc_msg = str(exc)[:200]
             if attempt == max_retries - 1:
                 logger.warning(
-                    "llm_chat: failed after %d attempts: %s",
+                    "llm_chat: failed after %d attempts: %s - %s",
                     max_retries,
-                    exc,
+                    exc_name,
+                    exc_msg,
                 )
                 raise
             wait = 2**attempt
             logger.warning(
-                "llm_chat: retry %d/%d after %ds: %s",
+                "llm_chat: retry %d/%d after %ds: %s - %s",
                 attempt + 1,
                 max_retries,
                 wait,
-                exc,
+                exc_name,
+                exc_msg,
             )
             time.sleep(wait)
 
@@ -250,7 +255,12 @@ def rank_and_summarize(
             last_error = exc
         except Exception as exc:
             last_error = exc
-            logger.warning("rank_and_summarize: LLM request failed on attempt %d: %s", attempt + 1, exc)
+            logger.warning(
+                "rank_and_summarize: LLM request failed on attempt %d: %s - %s",
+                attempt + 1,
+                type(exc).__name__,
+                str(exc)[:200],
+            )
 
     if data is None:
         logger.warning("rank_and_summarize: 模型输出无法解析，使用 fallback。error=%s", last_error)
@@ -381,7 +391,11 @@ def localize_items_to_chinese(
         )
         data = extract_json(raw)
     except Exception as exc:
-        logger.warning("localize_items_to_chinese: 本地化失败，回退原文。error=%s", exc)
+        logger.warning(
+            "localize_items_to_chinese: 本地化失败，回退原文。error=%s - %s",
+            type(exc).__name__,
+            str(exc)[:200],
+        )
         return items
 
     rows = data.get("items", [])
@@ -506,7 +520,11 @@ def enforce_titles_with_subject(
                 if rewritten:
                     rewritten_titles[row_id] = rewritten
     except Exception as exc:
-        logger.warning("enforce_titles_with_subject: llm rewrite failed, fallback to deterministic repair. error=%s", exc)
+        logger.warning(
+            "enforce_titles_with_subject: llm rewrite failed, fallback to deterministic repair. error=%s - %s",
+            type(exc).__name__,
+            str(exc)[:200],
+        )
 
     normalized: list[NewsItem] = []
     for idx, item in enumerate(items, 1):
@@ -579,10 +597,11 @@ def classify_ai_topic_items_with_llm(
         except Exception as exc:
             stats["llm_batch_failed_kept"] = stats.get("llm_batch_failed_kept", 0) + len(batch)
             logger.warning(
-                "ai-topic llm batch failed, keep batch as fallback. start=%s size=%s error=%s",
+                "ai-topic llm batch failed, keep batch as fallback. start=%s size=%s error=%s - %s",
                 batch_start,
                 len(batch),
-                exc,
+                type(exc).__name__,
+                str(exc)[:200],
             )
             continue
 
@@ -655,7 +674,11 @@ def polish_markdown_with_llm(markdown: str, llm_api_key: str, llm_model: str) ->
             user_prompt=user_prompt,
         )
     except Exception as exc:
-        logger.warning("polish_markdown_with_llm: LLM request failed, keep original markdown. error=%s", exc)
+        logger.warning(
+            "polish_markdown_with_llm: LLM request failed, keep original markdown. error=%s - %s",
+            type(exc).__name__,
+            str(exc)[:200],
+        )
         return markdown
 
     polished = strip_markdown_fence(polished)
