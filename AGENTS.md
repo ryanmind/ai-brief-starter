@@ -29,6 +29,19 @@
 - Prefer small, composable helpers in `main.py`; move shared thresholds and patterns to `src/config.py`.
 - Keep user-facing copy concise and Chinese-compatible (the brief output is Chinese-first).
 
+## Content Generation Quality
+- **关键点规则**：每条必须是完整句子，包含具体事实/数字/版本号/实体名称；不能是原文截断片段。
+- **影响分析规则**：回答对行业/用户/技术格局的具体影响；避免"建议查看原文"等套话。
+- **标题规则**：必须包含明确主体（公司/产品/人物）；版本号需写清"谁的什么版本"。
+- Prompt 定义在 `src/llm.py` 的 `rank_and_summarize()` 和 `localize_items_to_chinese()` 中。
+
+## Classification Rules
+- 分类逻辑在 `scripts/render_latest_for_mkdocs.py` 的 `classify_item()` 中。
+- 三类：模型进展（model）、论文研究（paper）、产品与行业（product）。
+- **模型强关键词**：grok/claude/gpt-/gemini/llama/deepseek/mistral/qwen/chatgpt 等，出现即归类为模型进展。
+- **论文关键词**：arxiv/论文/预印本/preprint，出现即归类为论文研究。
+- 其余按分数计算归类。
+
 ## Data Cleaning Rules
 - Use LLM-based processing for data cleaning tasks.
 - Do not add or maintain Python 3 rule-based cleaning logic for new or updated cleaning flows.
