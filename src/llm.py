@@ -20,6 +20,9 @@ from src.config import (
     int_env,
     parse_csv_env,
     DEFAULT_AI_TOPIC_KEYWORDS,
+    LLM_BASE_URL,
+    get_llm_api_key,
+    get_llm_model,
 )
 from src.models import NewsItem
 from src.text_utils import (
@@ -194,7 +197,7 @@ def rank_and_summarize(
     iflow_model: str,
     top_n: int = 20,
 ) -> list[NewsItem]:
-    client = OpenAI(api_key=iflow_api_key, base_url="https://apis.iflow.cn/v1")
+    client = OpenAI(api_key=iflow_api_key, base_url=LLM_BASE_URL)
 
     candidates: list[str] = []
     for idx, item in enumerate(items, 1):
@@ -341,7 +344,7 @@ def localize_items_to_chinese(
     if not items:
         return items
 
-    client = OpenAI(api_key=iflow_api_key, base_url="https://apis.iflow.cn/v1")
+    client = OpenAI(api_key=iflow_api_key, base_url=LLM_BASE_URL)
     payload = [
         {
             "id": idx + 1,
@@ -471,7 +474,7 @@ def enforce_titles_with_subject(
 
     rewritten_titles: dict[int, str] = {}
     try:
-        client = OpenAI(api_key=iflow_api_key, base_url="https://apis.iflow.cn/v1")
+        client = OpenAI(api_key=iflow_api_key, base_url=LLM_BASE_URL)
         user_prompt = (
             "你是AI资讯标题编辑。请重写每条标题，要求：\n"
             "1) 每一条标题都必须包含明确主语（公司/产品/机构/账号）。\n"
@@ -536,7 +539,7 @@ def classify_ai_topic_items_with_llm(
     keywords: set[str],
 ) -> tuple[list[bool | None], dict[str, int]]:
     batch_size = int_env("AI_TOPIC_LLM_BATCH_SIZE", 24, min_value=1, max_value=80)
-    client = OpenAI(api_key=iflow_api_key, base_url="https://apis.iflow.cn/v1")
+    client = OpenAI(api_key=iflow_api_key, base_url=LLM_BASE_URL)
     decisions: list[bool | None] = [None] * len(items)
     stats: dict[str, int] = {}
     keywords_hint = "、".join(sorted(keywords)) if keywords else "无"
@@ -632,7 +635,7 @@ def polish_markdown_with_llm(markdown: str, iflow_api_key: str, iflow_model: str
     if not source_markdown:
         return markdown
 
-    client = OpenAI(api_key=iflow_api_key, base_url="https://apis.iflow.cn/v1")
+    client = OpenAI(api_key=iflow_api_key, base_url=LLM_BASE_URL)
     user_prompt = (
         "请只做文案润色，提升可读性；必须保持 Markdown 结构、标题层级、编号、链接和数字不变。\n"
         "硬性约束：\n"

@@ -18,6 +18,8 @@ from src.config import (
     FACT_OVERLAP_MIN,
     STRICT_FACT_MODE,
     int_env,
+    get_llm_api_key,
+    get_llm_model,
 )
 from src import feed as feed_module
 from src import filters as filters_module
@@ -208,11 +210,8 @@ def main() -> None:
         format="%(asctime)s %(levelname)s %(message)s",
     )
 
-    iflow_api_key = os.getenv("IFLOW_API_KEY", "").strip()
-    if not iflow_api_key:
-        raise RuntimeError("IFLOW_API_KEY 未设置")
-
-    iflow_model = os.getenv("IFLOW_MODEL", "qwen3-coder-plus")
+    iflow_api_key = get_llm_api_key()
+    iflow_model = get_llm_model()
     max_items = int_env("MAX_ITEMS", 120, min_value=10, max_value=500)
     top_n = int_env("TOP_N", 20, min_value=5, max_value=100)
     fetch_hours = int_env("FETCH_HOURS", 24, min_value=1, max_value=168)

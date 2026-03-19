@@ -17,6 +17,8 @@ from src.config import (
     X_HOSTS,
     int_env,
     parse_csv_env,
+    LLM_API_KEY_ENV,
+    get_llm_model,
 )
 from src.models import NewsItem
 from src.text_utils import (
@@ -316,10 +318,10 @@ def filter_ai_topic_items_with_stats(
     if items and isinstance(items[0], dict):
         items = [NewsItem.from_dict(item) for item in items]
 
-    api_key = iflow_api_key.strip() if iflow_api_key else os.getenv("IFLOW_API_KEY", "").strip()
-    model = iflow_model.strip() if iflow_model else os.getenv("IFLOW_MODEL", "qwen3-coder-plus").strip()
+    api_key = iflow_api_key.strip() if iflow_api_key else os.getenv(LLM_API_KEY_ENV, "").strip()
+    model = iflow_model.strip() if iflow_model else get_llm_model()
     if not api_key:
-        logger.warning("STRICT_AI_TOPIC_ONLY=1 but IFLOW_API_KEY missing, keep all items as fallback")
+        logger.warning("STRICT_AI_TOPIC_ONLY=1 but %s missing, keep all items as fallback", LLM_API_KEY_ENV)
         return items, {"llm_unavailable_keep_all": len(items)}
 
     keywords = parse_csv_env("AI_TOPIC_KEYWORDS", DEFAULT_AI_TOPIC_KEYWORDS)

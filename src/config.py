@@ -242,6 +242,27 @@ X_HOSTS = {
     "nitter.unixfox.eu",
 }
 
+# ---- LLM API Configuration ----
+# 只需修改以下 3 个常量即可切换 LLM 提供商
+
+LLM_API_KEY_ENV = "IFLOW_API_KEY"  # 环境变量名
+LLM_MODEL_DEFAULT = "qwen3-coder-plus"  # 默认模型
+LLM_BASE_URL = "https://apis.iflow.cn/v1"  # API 端点
+
+# LLM 辅助函数
+def get_llm_api_key() -> str:
+    """获取 LLM API Key，未设置时抛出异常。"""
+    key = os.getenv(LLM_API_KEY_ENV, "").strip()
+    if not key:
+        raise RuntimeError(f"{LLM_API_KEY_ENV} 未设置")
+    return key
+
+
+def get_llm_model() -> str:
+    """获取 LLM 模型名称。"""
+    return os.getenv("LLM_MODEL", LLM_MODEL_DEFAULT).strip() or LLM_MODEL_DEFAULT
+
+
 # ---- Report parsing patterns ----
 
 REPORT_ITEM_TITLE_PATTERN = re.compile(r"^###\s+\d+[)\.、]\s+(.+)$")
