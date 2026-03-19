@@ -220,7 +220,7 @@ def rank_and_summarize(
         "严格输出JSON："
         '{"items":[{"id":1,"score":90,"title":"...","brief":"...","details":"...","impact":"...","key_points":["...","..."]}]}\n'
         f"最多返回{top_n}条；title<={TITLE_MAX_CHARS}字；brief<={BRIEF_MAX_CHARS}字；details<={DETAIL_MAX_CHARS}字；impact<={IMPACT_MAX_CHARS}字；必须基于输入，不编造；"
-        "brief和impact必须使用简体中文。"
+        "【摘要规则】必须是完整中文句子（主体+动作+结果）；英文内容需解释其含义而非直译；短推文（<50字）需结合账号主体推断实际产品/功能。"
         "details写1-2句具体事实，尽量包含实体名/数字/版本/时间等可核实信息。"
         "【关键点规则】返回2-3条，每条必须是完整句子，包含具体事实/数字/版本号/实体名称；不能是原文截断片段。"
         "【影响分析规则】回答对行业/用户/技术格局的具体影响；避免套话。"
