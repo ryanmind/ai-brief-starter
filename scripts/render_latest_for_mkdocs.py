@@ -45,6 +45,21 @@ MODEL_KEYWORDS = (
     "flash",
     "instant",
 )
+# 模型强关键词：出现即优先归类为模型进展
+MODEL_STRONG_KEYWORDS = (
+    "grok",
+    "claude",
+    "gpt-",
+    "gemini",
+    "llama",
+    "deepseek",
+    "mistral",
+    "qwen",
+    "chatgpt",
+    "模型发布",
+    "新模型",
+    "模型升级",
+)
 MODEL_WEAK_KEYWORDS = ("agent", "推理", "reasoning", "inference")
 PAPER_STRONG_KEYWORDS = ("arxiv", "论文", "预印本", "preprint")
 PRODUCT_KEYWORDS = (
@@ -297,6 +312,11 @@ def classify_item(item: BriefItem) -> str:
     if "arxiv.org" in source_url or any(keyword in paper_blob for keyword in PAPER_STRONG_KEYWORDS):
         return CATEGORY_PAPER
 
+    # 优先检查模型强关键词：出现即归类为模型进展
+    for keyword in MODEL_STRONG_KEYWORDS:
+        if keyword in text_blob:
+            return CATEGORY_MODEL
+
     model_score = 0
     product_score = 0
 
@@ -311,7 +331,8 @@ def classify_item(item: BriefItem) -> str:
     if "openai.com" in source_url and any(keyword in source_url for keyword in ("/gpt-", "/system-card")):
         model_score += 2
 
-    if model_score >= product_score + 1:
+    # 调整阈值：模型分数 >= 产品分数即可归类为模型进展
+    if model_score >= product_score:
         return CATEGORY_MODEL
     if product_score > 0:
         return CATEGORY_PRODUCT
