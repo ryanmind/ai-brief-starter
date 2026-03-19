@@ -210,8 +210,8 @@ def main() -> None:
         format="%(asctime)s %(levelname)s %(message)s",
     )
 
-    iflow_api_key = get_llm_api_key()
-    iflow_model = get_llm_model()
+    llm_api_key = get_llm_api_key()
+    llm_model = get_llm_model()
     max_items = int_env("MAX_ITEMS", 120, min_value=10, max_value=500)
     top_n = int_env("TOP_N", 20, min_value=5, max_value=100)
     fetch_hours = int_env("FETCH_HOURS", 24, min_value=1, max_value=168)
@@ -280,8 +280,8 @@ def main() -> None:
         filtered_items, rejected_stats = filter_primary_items_with_stats_fn(raw_items)
         ai_topic_items, ai_topic_stats = filter_ai_topic_items_with_stats_fn(
             filtered_items,
-            iflow_api_key=iflow_api_key,
-            iflow_model=iflow_model,
+            llm_api_key=llm_api_key,
+            llm_model=llm_model,
         )
         diversified_items, diversity_stats = apply_source_limits_fn(ai_topic_items)
         history_filtered_items, history_dropped = filter_items_by_history_fn(diversified_items, history_fingerprints)
@@ -320,9 +320,9 @@ def main() -> None:
     if not items:
         raise RuntimeError("未抓到一手资讯，请检查 sources.txt 或放宽 STRICT_PRIMARY_ONLY 配置")
 
-    selected = rank_and_summarize_fn(items=items, iflow_api_key=iflow_api_key, iflow_model=iflow_model, top_n=top_n)
-    selected = localize_items_to_chinese_fn(items=selected, iflow_api_key=iflow_api_key, iflow_model=iflow_model)
-    selected = enforce_titles_with_subject_fn(items=selected, iflow_api_key=iflow_api_key, iflow_model=iflow_model)
+    selected = rank_and_summarize_fn(items=items, llm_api_key=llm_api_key, llm_model=llm_model, top_n=top_n)
+    selected = localize_items_to_chinese_fn(items=selected, llm_api_key=llm_api_key, llm_model=llm_model)
+    selected = enforce_titles_with_subject_fn(items=selected, llm_api_key=llm_api_key, llm_model=llm_model)
     if not selected:
         raise RuntimeError("无内容：模型筛选后最终条目数为 0")
 
@@ -331,8 +331,8 @@ def main() -> None:
     markdown = render_markdown_fn(selected)
     markdown = polish_markdown_with_llm_fn(
         markdown=markdown,
-        iflow_api_key=iflow_api_key,
-        iflow_model=iflow_model,
+        llm_api_key=llm_api_key,
+        llm_model=llm_model,
     )
     draft_report_path.write_text(markdown, encoding="utf-8")
 

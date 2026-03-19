@@ -193,11 +193,11 @@ def backfill_selected_items(
 
 def rank_and_summarize(
     items: list[NewsItem],
-    iflow_api_key: str,
-    iflow_model: str,
+    llm_api_key: str,
+    llm_model: str,
     top_n: int = 20,
 ) -> list[NewsItem]:
-    client = OpenAI(api_key=iflow_api_key, base_url=LLM_BASE_URL)
+    client = OpenAI(api_key=llm_api_key, base_url=LLM_BASE_URL)
 
     candidates: list[str] = []
     for idx, item in enumerate(items, 1):
@@ -240,7 +240,7 @@ def rank_and_summarize(
         try:
             raw = llm_chat(
                 client=client,
-                model=iflow_model,
+                model=llm_model,
                 system_prompt=system_prompt,
                 user_prompt=user_prompt,
             )
@@ -338,13 +338,13 @@ def rank_and_summarize(
 
 def localize_items_to_chinese(
     items: list[NewsItem],
-    iflow_api_key: str,
-    iflow_model: str,
+    llm_api_key: str,
+    llm_model: str,
 ) -> list[NewsItem]:
     if not items:
         return items
 
-    client = OpenAI(api_key=iflow_api_key, base_url=LLM_BASE_URL)
+    client = OpenAI(api_key=llm_api_key, base_url=LLM_BASE_URL)
     payload = [
         {
             "id": idx + 1,
@@ -375,7 +375,7 @@ def localize_items_to_chinese(
     try:
         raw = llm_chat(
             client=client,
-            model=iflow_model,
+            model=llm_model,
             system_prompt="你是中文科技编辑，只输出合法JSON。",
             user_prompt=user_prompt,
         )
@@ -456,8 +456,8 @@ def localize_items_to_chinese(
 
 def enforce_titles_with_subject(
     items: list[NewsItem],
-    iflow_api_key: str,
-    iflow_model: str,
+    llm_api_key: str,
+    llm_model: str,
 ) -> list[NewsItem]:
     if not items:
         return items
@@ -474,7 +474,7 @@ def enforce_titles_with_subject(
 
     rewritten_titles: dict[int, str] = {}
     try:
-        client = OpenAI(api_key=iflow_api_key, base_url=LLM_BASE_URL)
+        client = OpenAI(api_key=llm_api_key, base_url=LLM_BASE_URL)
         user_prompt = (
             "你是AI资讯标题编辑。请重写每条标题，要求：\n"
             "1) 每一条标题都必须包含明确主语（公司/产品/机构/账号）。\n"
@@ -486,7 +486,7 @@ def enforce_titles_with_subject(
         )
         raw = llm_chat(
             client=client,
-            model=iflow_model,
+            model=llm_model,
             system_prompt="你是严谨的中文标题编辑，只输出合法JSON。",
             user_prompt=user_prompt,
         )
@@ -534,12 +534,12 @@ def enforce_titles_with_subject(
 
 def classify_ai_topic_items_with_llm(
     items: list[NewsItem],
-    iflow_api_key: str,
-    iflow_model: str,
+    llm_api_key: str,
+    llm_model: str,
     keywords: set[str],
 ) -> tuple[list[bool | None], dict[str, int]]:
     batch_size = int_env("AI_TOPIC_LLM_BATCH_SIZE", 24, min_value=1, max_value=80)
-    client = OpenAI(api_key=iflow_api_key, base_url=LLM_BASE_URL)
+    client = OpenAI(api_key=llm_api_key, base_url=LLM_BASE_URL)
     decisions: list[bool | None] = [None] * len(items)
     stats: dict[str, int] = {}
     keywords_hint = "、".join(sorted(keywords)) if keywords else "无"
@@ -571,7 +571,7 @@ def classify_ai_topic_items_with_llm(
         try:
             raw = llm_chat(
                 client=client,
-                model=iflow_model,
+                model=llm_model,
                 system_prompt="你是严谨的信息审核员，只输出合法JSON。",
                 user_prompt=user_prompt,
             )
@@ -626,7 +626,7 @@ def classify_ai_topic_items_with_llm(
     return decisions, stats
 
 
-def polish_markdown_with_llm(markdown: str, iflow_api_key: str, iflow_model: str) -> str:
+def polish_markdown_with_llm(markdown: str, llm_api_key: str, llm_model: str) -> str:
     enabled = os.getenv("FINAL_POLISH_ENABLED", "1").strip().lower() not in {"0", "false", "no", "off"}
     if not enabled:
         return markdown
@@ -635,7 +635,7 @@ def polish_markdown_with_llm(markdown: str, iflow_api_key: str, iflow_model: str
     if not source_markdown:
         return markdown
 
-    client = OpenAI(api_key=iflow_api_key, base_url=LLM_BASE_URL)
+    client = OpenAI(api_key=llm_api_key, base_url=LLM_BASE_URL)
     user_prompt = (
         "请只做文案润色，提升可读性；必须保持 Markdown 结构、标题层级、编号、链接和数字不变。\n"
         "硬性约束：\n"
@@ -650,7 +650,7 @@ def polish_markdown_with_llm(markdown: str, iflow_api_key: str, iflow_model: str
     try:
         polished = llm_chat(
             client=client,
-            model=iflow_model,
+            model=llm_model,
             system_prompt="你是严谨的中文科技编辑，只做润色改写，不改事实与结构。",
             user_prompt=user_prompt,
         )

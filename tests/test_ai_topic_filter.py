@@ -23,7 +23,7 @@ def test_filter_ai_topic_items_with_stats_keeps_only_ai(monkeypatch):
     monkeypatch.setattr(
         llm_module,
         "classify_ai_topic_items_with_llm",
-        lambda items, iflow_api_key, iflow_model, keywords: ([True, False], {}),
+        lambda items, llm_api_key, llm_model, keywords: ([True, False], {}),
     )
 
     kept, stats = main.filter_ai_topic_items_with_stats(items)

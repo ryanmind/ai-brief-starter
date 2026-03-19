@@ -299,8 +299,8 @@ def filter_primary_items_with_stats(items: list[NewsItem] | list[dict[str, str]]
 
 def filter_ai_topic_items_with_stats(
     items: list[NewsItem] | list[dict[str, str]],
-    iflow_api_key: str = "",
-    iflow_model: str = "",
+    llm_api_key: str = "",
+    llm_model: str = "",
 ) -> tuple[list[NewsItem], dict[str, int]]:
     from src.llm import classify_ai_topic_items_with_llm  # avoid circular import
 
@@ -318,8 +318,8 @@ def filter_ai_topic_items_with_stats(
     if items and isinstance(items[0], dict):
         items = [NewsItem.from_dict(item) for item in items]
 
-    api_key = iflow_api_key.strip() if iflow_api_key else os.getenv(LLM_API_KEY_ENV, "").strip()
-    model = iflow_model.strip() if iflow_model else get_llm_model()
+    api_key = llm_api_key.strip() if llm_api_key else os.getenv(LLM_API_KEY_ENV, "").strip()
+    model = llm_model.strip() if llm_model else get_llm_model()
     if not api_key:
         logger.warning("STRICT_AI_TOPIC_ONLY=1 but %s missing, keep all items as fallback", LLM_API_KEY_ENV)
         return items, {"llm_unavailable_keep_all": len(items)}
@@ -327,8 +327,8 @@ def filter_ai_topic_items_with_stats(
     keywords = parse_csv_env("AI_TOPIC_KEYWORDS", DEFAULT_AI_TOPIC_KEYWORDS)
     decisions, llm_stats = classify_ai_topic_items_with_llm(
         items=items,
-        iflow_api_key=api_key,
-        iflow_model=model,
+        llm_api_key=api_key,
+        llm_model=model,
         keywords=keywords,
     )
     if len(decisions) != len(items):

@@ -104,8 +104,8 @@ def test_rank_and_summarize_fallback_on_llm_exception(monkeypatch):
 
     result = main.rank_and_summarize(
         items=source_items,
-        iflow_api_key="test-key",
-        iflow_model="qwen3-coder-plus",
+        llm_api_key="test-key",
+        llm_model="qwen3-coder-plus",
         top_n=1,
     )
 
@@ -352,8 +352,8 @@ def test_localize_items_to_chinese_ignores_placeholder_fields(monkeypatch):
 
     localized = main.localize_items_to_chinese(
         items=items,
-        iflow_api_key="test-key",
-        iflow_model="qwen3-coder-plus",
+        llm_api_key="test-key",
+        llm_model="qwen3-coder-plus",
     )
     assert localized[0].title == "OpenAI 发布新模型"
     assert "value" not in localized[0].brief.lower()
@@ -594,7 +594,7 @@ def test_enforce_titles_with_subject_uses_deterministic_fallback(monkeypatch):
             link="https://github.com/runwayml/sdk-python/blob/main/CHANGELOG.md",
         )
     ]
-    fixed = main.enforce_titles_with_subject(items=items, iflow_api_key="test-key", iflow_model="qwen3-coder-plus")
+    fixed = main.enforce_titles_with_subject(items=items, llm_api_key="test-key", llm_model="qwen3-coder-plus")
     assert fixed[0].title.startswith("runwayml/sdk-python")
 
 
