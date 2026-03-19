@@ -137,6 +137,7 @@ jobs:
             exit 0
           fi
           git commit -m "docs(report): 同步每日早报与历史归档"
+          git pull --rebase origin ${{ github.ref_name }}
           git push origin HEAD:${{ github.ref_name }}
 
       - name: Upload reports artifact
