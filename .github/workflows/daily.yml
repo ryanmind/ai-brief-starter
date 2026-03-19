@@ -80,7 +80,7 @@ jobs:
 
       - name: Install dependencies
         id: install_deps
-        run: pip install -r requirements.txt
+        run: pip install -r requirements.txt -r requirements-dev.txt
 
       - name: Run tests
         id: run_tests

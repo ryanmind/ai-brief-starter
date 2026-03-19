@@ -47,7 +47,7 @@ jobs:
           cache: 'pip'
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r requirements.txt -r requirements-docs.txt
 
       - name: Sync latest brief to docs
         run: python scripts/sync_reports_to_docs.py --reports-dir reports --docs-dir docs

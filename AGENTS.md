@@ -13,7 +13,9 @@
 
 ## Build, Test, and Development Commands
 - `python -m venv .venv && source .venv/bin/activate`: create/activate local environment.
-- `pip install -r requirements.txt`: install runtime, test, and documentation dependencies.
+- `pip install -r requirements.txt`: install runtime dependencies only.
+- `pip install -r requirements.txt -r requirements-dev.txt`: install runtime + test dependencies.
+- `pip install -r requirements.txt -r requirements-docs.txt`: install runtime + docs dependencies.
 - `python main.py`: run the full brief pipeline locally and write outputs to `reports/`.
 - `python -m pytest tests/ -v`: run all unit tests.
 - `python scripts/report_quality_check.py reports/latest.md --autofix`: enforce/repair report format (summary/key points and related checks).
