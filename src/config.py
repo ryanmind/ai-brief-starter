@@ -273,13 +273,6 @@ def get_review_models() -> list[str]:
     return list(REVIEW_MODELS_DEFAULT)
 
 
-# ---- Schedule Configuration ----
-# 调度配置：支持自定义时间间隔
-
-SCHEDULE_START_HOUR = int_env("SCHEDULE_START_HOUR", 7, min_value=0, max_value=23)  # 开始时间（小时）
-SCHEDULE_END_HOUR = int_env("SCHEDULE_END_HOUR", 21, min_value=0, max_value=23)  # 结束时间（小时）
-SCHEDULE_INTERVAL_HOURS = int_env("SCHEDULE_INTERVAL_HOURS", 2, min_value=1, max_value=12)  # 间隔（小时）
-
 # LLM 辅助函数
 def get_llm_api_key() -> str:
     """获取 LLM API Key，未设置时抛出异常。"""
