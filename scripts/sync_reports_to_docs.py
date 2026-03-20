@@ -11,7 +11,7 @@ except ModuleNotFoundError:  # pragma: no cover - CLI entrypoint fallback
     from render_latest_for_mkdocs import build_mkdocs_latest
 
 
-DATE_REPORT_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}\.md$")
+DATE_REPORT_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}(_\d{2}-\d{2}-\d{2})?\.md$")
 INLINE_REPORT_DATE_PATTERNS = (
     re.compile(r"AI 早报[（(](\d{4}-\d{2}-\d{2})[)）]"),
     re.compile(r"AI 早报\s*[·-]\s*(\d{4})年(\d{2})月(\d{2})日"),
@@ -122,10 +122,11 @@ def update_history_pages(reports_dir: Path, docs_dir: Path) -> None:
             continue
         if not DATE_REPORT_PATTERN.match(report.name):
             continue
-        date = report.stem
-        target = history_dir / f"{date}.md"
+        # 保留完整时间戳文件名，支持一天多次执行
+        stem = report.stem  # 例如 "2026-03-20_09-30-15" 或 "2026-03-20"
+        target = history_dir / f"{stem}.md"
         target.write_text(
-            render_report(report, title=f"AI 早报归档 · {date}"),
+            render_report(report, title=f"AI 早报归档 · {stem}"),
             encoding="utf-8",
         )
 

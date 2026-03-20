@@ -374,9 +374,11 @@ def main() -> None:
     )
     save_history_state(path=history_state_path, state=history_state)
 
-    daily = report_dir / f"{datetime.now().strftime('%Y-%m-%d')}.md"
+    # 文件名包含时分秒，支持一天多次执行
+    now = datetime.now()
+    timestamp_file = report_dir / f"{now.strftime('%Y-%m-%d_%H-%M-%S')}.md"
     latest = report_dir / "latest.md"
-    daily.write_text(markdown, encoding="utf-8")
+    timestamp_file.write_text(markdown, encoding="utf-8")
     latest.write_text(markdown, encoding="utf-8")
     if draft_report_path.exists():
         draft_report_path.unlink()
@@ -419,7 +421,7 @@ def main() -> None:
     }
     quality_metrics_path.write_text(json.dumps(merged_metrics, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
-    print(f"done: {daily}")
+    print(f"done: {timestamp_file}")
 
 
 if __name__ == "__main__":
