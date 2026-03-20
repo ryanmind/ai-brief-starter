@@ -19,8 +19,12 @@ from dateutil import parser as dtparser
 from src.config import (
     X_HOSTS,
     int_env,
+    GITHUB_API_TIMEOUT,
 )
 from src.models import NewsItem
+
+# GitHub Trending 特殊标记
+GITHUB_TRENDING_MARKER = "github-trending://"
 from src.text_utils import (
     clean_text,
     extract_account_from_url,
@@ -344,6 +348,114 @@ def load_sources(path: str = "sources.txt") -> list[str]:
     return list(dict.fromkeys(expanded))
 
 
+def fetch_github_trending(
+    language: str = "",
+    since: str = "daily",
+    per_source: int = 30,
+) -> tuple[list[NewsItem], str | None]:
+    """抓取 GitHub 热门项目（最近创建的高 star 项目）。
+
+    注意：由于 GitHub API 限制，此实现获取的是"最近创建的高 star 项目"，
+    而非 GitHub Trending 页面的"近期获得最多 star 的项目"。
+    两者定位类似：发现新兴热门开源项目。
+
+    Args:
+        language: 编程语言过滤，如 "python", "javascript"，空字符串表示全语言
+        since: 时间范围，可选 "daily"(1天), "weekly"(7天), "monthly"(30天)
+        per_source: 最大返回条数
+
+    Returns:
+        (items, error_reason)
+    """
+    github_token = os.getenv("GITHUB_TOKEN", "").strip()
+    headers = {
+        "Accept": "application/vnd.github.v3+json",
+        "User-Agent": "ai-brief-starter/1.0",
+    }
+    if github_token:
+        headers["Authorization"] = f"token {github_token}"
+
+    # 使用 GitHub Search API 模拟 Trending
+    # 按创建时间和 stars 排序获取热门项目
+    now = datetime.now(timezone.utc)
+    if since == "weekly":
+        since_date = (now - timedelta(days=7)).strftime("%Y-%m-%d")
+    elif since == "monthly":
+        since_date = (now - timedelta(days=30)).strftime("%Y-%m-%d")
+    else:
+        since_date = (now - timedelta(days=1)).strftime("%Y-%m-%d")
+
+    # 构建搜索查询
+    query_parts = [f"created:>{since_date}"]
+    if language:
+        query_parts.append(f"language:{language}")
+
+    query = " ".join(query_parts)
+    url = "https://api.github.com/search/repositories"
+    params = {
+        "q": query,
+        "sort": "stars",
+        "order": "desc",
+        "per_page": min(per_source, 100),
+    }
+
+    timeout = GITHUB_API_TIMEOUT
+
+    try:
+        response = requests.get(url, headers=headers, params=params, timeout=timeout)
+        response.raise_for_status()
+        payload = response.json()
+    except requests.RequestException as exc:
+        return [], f"github api request failed: {exc}"
+    except ValueError as exc:
+        return [], f"github api invalid json: {exc}"
+
+    items = payload.get("items", [])
+    if not isinstance(items, list):
+        return [], "github api response missing items"
+
+    parsed_items: list[NewsItem] = []
+    for repo in items:
+        if len(parsed_items) >= per_source:
+            break
+
+        name = repo.get("full_name", "")  # owner/repo
+        html_url = repo.get("html_url", "")
+        description = repo.get("description", "") or ""
+        stars = repo.get("stargazers_count", 0)
+        language_repo = repo.get("language", "") or ""
+        created_at = repo.get("created_at", "")
+
+        if not name or not html_url:
+            continue
+
+        # 构建标题和摘要
+        title = f"{name}"
+        if description:
+            title = f"{name}: {description[:80]}"
+
+        summary = f"⭐ {stars} stars | {language_repo}\n{description}".strip()
+
+        parsed_at = None
+        if created_at:
+            try:
+                parsed_at = dtparser.parse(created_at)
+                if parsed_at.tzinfo is None:
+                    parsed_at = parsed_at.replace(tzinfo=timezone.utc)
+            except (TypeError, ValueError, OverflowError):
+                pass
+
+        parsed_items.append(NewsItem(
+            title=title[:200],
+            link=html_url,
+            dedupe_link=html_url,
+            summary=summary[:1000],
+            published=parsed_at.isoformat() if parsed_at else "",
+        ))
+
+    return parsed_items, None
+
+
 
 
 def probe_nitter_bases(bases: list[str], timeout: float = 5.0) -> list[str]:
@@ -468,6 +580,19 @@ def _fetch_single_source(
     source: str, cutoff: datetime, per_source: int,
 ) -> tuple[str, list[NewsItem], str | None]:
     """抓取单个 RSS 源，返回 (source_url, items, error_reason)。"""
+    # 处理 GitHub Trending 特殊源
+    if source.startswith(GITHUB_TRENDING_MARKER):
+        params = source[len(GITHUB_TRENDING_MARKER):]
+        parts = params.split("/") if params else []
+        language = parts[0] if len(parts) > 0 and parts[0] else ""
+        since = parts[1] if len(parts) > 1 and parts[1] in ("daily", "weekly", "monthly") else "daily"
+        trending_items, error = fetch_github_trending(
+            language=language,
+            since=since,
+            per_source=per_source,
+        )
+        return source, trending_items, error
+
     source_host = normalize_host(urlparse(source).netloc or "")
     source_handle = extract_x_handle_from_source(source)
 

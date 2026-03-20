@@ -1,6 +1,15 @@
 # AI资讯信息源（严格一手来源）
 # 说明：当前脚本读取的是 RSS/Atom。各厂商官网与 GitHub 地址写在注释里，真正抓取用 feed 链接。
 
+# ====================
+# GitHub Trending 热门项目
+# 格式：github-trending://[language]/[since]
+# language: python, javascript, go 等，留空表示全语言
+# since: daily, weekly, monthly
+# ====================
+github-trending://python/daily
+github-trending://weekly
+
 # OpenAI / Codex
 # 官网: https://openai.com/
 # Codex: https://chatgpt.com/codex

@@ -228,6 +228,9 @@ DEFAULT_AI_TOPIC_KEYWORDS = (
     "claude",
     "codex",
     "arxiv",
+    "github trending",
+    "open source",
+    "开源项目",
 )
 
 # ---- X/Twitter / Nitter hosts ----
@@ -241,6 +244,11 @@ X_HOSTS = {
     "nitter.d420.de",
     "nitter.unixfox.eu",
 }
+
+# ---- GitHub Trending ----
+# GITHUB_TOKEN 可选，用于提高 GitHub API 速率限制
+
+GITHUB_API_TIMEOUT = int_env("GITHUB_API_TIMEOUT", 10, min_value=5, max_value=30)
 
 # ---- LLM API Configuration ----
 # 只需修改以下 3 个常量即可切换 LLM 提供商
