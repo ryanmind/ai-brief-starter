@@ -48,17 +48,18 @@ def test_sync_reports_to_docs_updates_latest_and_history(tmp_path):
 
     sync_reports_to_docs.sync_reports_to_docs(reports_dir=reports_dir, docs_dir=docs_dir)
 
-    latest_page = (docs_dir / "latest.md").read_text(encoding="utf-8")
-    history_page = (docs_dir / "history" / "2026-03-04.md").read_text(encoding="utf-8")
+    # history.md 现在是主页面，顶部显示最新早报
     history_index = (docs_dir / "history.md").read_text(encoding="utf-8")
+    history_page = (docs_dir / "history" / "2026-03-04.md").read_text(encoding="utf-8")
 
-    assert latest_page.startswith("# 今日早报")
-    assert "更新时间：2026年03月04日12:25:24" in latest_page
-    assert "1. 今日摘要A" in latest_page
+    # 最新早报内容直接显示在 history.md 顶部
+    assert "今日摘要A" in history_index
+    assert "标题A" in history_index
+    # 历史归档链接（不包含最新的）
+    assert "- [2026-03-03](history/2026-03-03.md)" in history_index
+    # 历史文件正常生成
     assert history_page.startswith("# AI 早报归档 · 2026-03-04")
     assert "历史细节A" not in history_page
-    assert "- [2026-03-04](history/2026-03-04.md)" in history_index
-    assert "- [2026-03-03](history/2026-03-03.md)" in history_index
 
 
 def test_sync_reports_to_docs_prefers_newer_docs_history_for_latest(tmp_path):

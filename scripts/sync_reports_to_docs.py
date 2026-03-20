@@ -131,7 +131,7 @@ def update_history_pages(reports_dir: Path, docs_dir: Path) -> None:
         )
 
 
-def build_history_index(docs_dir: Path, max_items: int = 120) -> None:
+def build_history_index(docs_dir: Path, reports_dir: Path, max_items: int = 120) -> None:
     history_dir = docs_dir / "history"
     history_dir.mkdir(parents=True, exist_ok=True)
     history_files = sorted(
@@ -140,17 +140,48 @@ def build_history_index(docs_dir: Path, max_items: int = 120) -> None:
         reverse=True,
     )
 
-    lines: list[str] = [
-        "# 历史早报归档",
-        "",
-        "> 最新一期请查看 [今日早报](latest.md)。",
-        "",
-    ]
+    lines: list[str] = []
 
-    if not history_files:
-        lines.extend(["暂无历史归档。", ""])
+    # 优先从 reports/latest.md 获取最新内容
+    latest_report = reports_dir / "latest.md"
+    latest_content = ""
+    if latest_report.exists():
+        latest_content = latest_report.read_text(encoding="utf-8")
+
+    if latest_content:
+        # 渲染并添加最新早报内容
+        rendered = build_mkdocs_latest(latest_content)
+        # 移除原有的 # 标题
+        content_lines = rendered.splitlines()
+        if content_lines and content_lines[0].startswith("# "):
+            content_lines = content_lines[1:]
+            if content_lines and content_lines[0].strip() == "":
+                content_lines = content_lines[1:]
+        lines.extend(content_lines)
+        lines.append("")
+        lines.append("---")
+        lines.append("")
+    elif history_files:
+        # 回退到使用 history 目录的最新文件
+        latest_file = history_files[0]
+        latest_content = latest_file.read_text(encoding="utf-8")
+        content_lines = latest_content.splitlines()
+        if content_lines and content_lines[0].startswith("# "):
+            content_lines = content_lines[1:]
+            if content_lines and content_lines[0].strip() == "":
+                content_lines = content_lines[1:]
+        lines.extend(content_lines)
+        lines.append("")
+        lines.append("---")
+        lines.append("")
     else:
-        lines.append("## 按日期浏览")
+        lines.extend(["# AI 早报", "", "暂无早报。", ""])
+        (docs_dir / "history.md").write_text("\n".join(lines), encoding="utf-8")
+        return
+
+    # 历史归档链接
+    if history_files:
+        lines.append("## 历史归档")
         lines.append("")
         for path in history_files[:max_items]:
             date = path.stem
@@ -163,7 +194,7 @@ def build_history_index(docs_dir: Path, max_items: int = 120) -> None:
 def sync_reports_to_docs(reports_dir: Path, docs_dir: Path) -> None:
     update_latest_page(reports_dir=reports_dir, docs_dir=docs_dir)
     update_history_pages(reports_dir=reports_dir, docs_dir=docs_dir)
-    build_history_index(docs_dir=docs_dir)
+    build_history_index(docs_dir=docs_dir, reports_dir=reports_dir)
 
 
 def parse_args() -> argparse.Namespace:

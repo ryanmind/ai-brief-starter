@@ -103,8 +103,7 @@ plugins:
 
 # 导航结构
 nav:
-  - 今日早报: latest.md
-  - 历史归档: history.md
+  - 早报: history.md
 
 # 额外配置
 extra:
