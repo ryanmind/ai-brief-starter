@@ -534,10 +534,11 @@ def build_quality_warning_lines(report_path: Path) -> list[str]:
     return lines
 
 
-def notify_success(report_path: Path, webhook_url: str, run_url: str) -> None:
+def notify_success(report_path: Path, webhook_url: str, run_url: str) -> str:
+    """发送飞书通知并返回飞书文档 URL。"""
     if not report_path.exists():
         print(f"skip: report not found: {report_path}")
-        return
+        return ""
 
     markdown = report_path.read_text(encoding="utf-8")
     title = extract_title(markdown)
@@ -571,6 +572,7 @@ def notify_success(report_path: Path, webhook_url: str, run_url: str) -> None:
         text_lines.append("")
         text_lines.append(f"任务详情：{run_url}")
     send_text_message(webhook_url=webhook_url, text="\n".join(text_lines))
+    return synced_doc_url
 
 
 def parse_args() -> argparse.Namespace:
@@ -603,7 +605,11 @@ def main() -> int:
         print("failure notify sent")
         return 0
 
-    notify_success(report_path=Path(args.report), webhook_url=webhook_url, run_url=run_url)
+    feishu_doc_url = notify_success(report_path=Path(args.report), webhook_url=webhook_url, run_url=run_url)
+
+    # 输出飞书文档 URL（供 workflow 捕获）
+    if feishu_doc_url:
+        print(f"feishu_doc_url={feishu_doc_url}")
 
     print("notify success")
     return 0

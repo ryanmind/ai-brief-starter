@@ -2,8 +2,30 @@ name: ai-morning-brief
 
 on:
   workflow_dispatch:
+    inputs:
+      fetch_hours:
+        description: "获取最近 N 小时的内容"
+        required: false
+        default: "24"
+      top_n:
+        description: "筛选 Top N 条资讯"
+        required: false
+        default: "20"
+      skip_tests:
+        description: "跳过测试（用于紧急发布）"
+        required: false
+        default: "false"
+        type: boolean
   schedule:
-    - cron: "30 23 * * *" # UTC 23:30 = Beijing 07:30
+    # 北京时间 7:30 ~ 21:30 每两小时执行一次
+    - cron: "30 23 * * *"  # UTC 23:30 = 北京 07:30
+    - cron: "30 1 * * *"   # UTC 01:30 = 北京 09:30
+    - cron: "30 3 * * *"   # UTC 03:30 = 北京 11:30
+    - cron: "30 5 * * *"   # UTC 05:30 = 北京 13:30
+    - cron: "30 7 * * *"   # UTC 07:30 = 北京 15:30
+    - cron: "30 9 * * *"   # UTC 09:30 = 北京 17:30
+    - cron: "30 11 * * *"  # UTC 11:30 = 北京 19:30
+    - cron: "30 13 * * *"  # UTC 13:30 = 北京 21:30
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
@@ -23,14 +45,14 @@ jobs:
       TZ: Asia/Shanghai
       IFLOW_MODEL: qwen3-coder-plus
       MAX_ITEMS: "120"
-      TOP_N: "20"
+      TOP_N: ${{ github.event.inputs.top_n || '20' }}
       BRIEF_MAX_CHARS: "160"
       DETAIL_MAX_CHARS: "260"
       DETAIL_MIN_CHARS: "48"
       IMPACT_MAX_CHARS: "140"
       STRICT_FACT_MODE: "1"
       FACT_OVERLAP_MIN: "0.55"
-      FETCH_HOURS: "24"
+      FETCH_HOURS: ${{ github.event.inputs.fetch_hours || '24' }}
       PER_SOURCE_ITEMS: "30"
       HISTORY_DEDUP_DAYS: "2"
       HISTORY_STATE_PATH: "reports/history_index.json"
@@ -87,6 +109,7 @@ jobs:
 
       - name: Run tests
         id: run_tests
+        if: ${{ github.event.inputs.skip_tests != 'true' }}
         run: python -m pytest tests/ -v
 
       - name: Restore history dedupe cache
@@ -153,13 +176,24 @@ jobs:
         if: success() && env.FEISHU_WEBHOOK_URL != ''
         env:
           ACTIONS_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        run: python scripts/notify_feishu.py reports/latest.md
+        run: |
+          output=$(python scripts/notify_feishu.py reports/latest.md)
+          echo "$output"
+          # 提取飞书文档 URL
+          feishu_doc_url=$(echo "$output" | grep "^feishu_doc_url=" | cut -d'=' -f2-)
+          if [ -n "$feishu_doc_url" ]; then
+            echo "feishu_doc_url=$feishu_doc_url" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Notify WeChat
         id: notify_wechat
         continue-on-error: true
         if: success() && env.SERVERCHAN_SENDKEY != ''
-        run: python scripts/notify_wechat.py reports/latest.md --doc-url "${REPORT_PUBLIC_URL}"
+        env:
+          FEISHU_DOC_URL: ${{ steps.notify_feishu.outputs.feishu_doc_url }}
+        run: |
+          doc_url="${FEISHU_DOC_URL:-$REPORT_PUBLIC_URL}"
+          python scripts/notify_wechat.py reports/latest.md --doc-url "${doc_url}"
 
       - name: Summarize notification status
         id: notify_summary
