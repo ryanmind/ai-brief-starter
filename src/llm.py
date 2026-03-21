@@ -70,13 +70,35 @@ def llm_chat(
     user_prompt: str,
     max_tokens: int | None = None,
     max_retries: int = 3,
+    task_name: str = "unknown",
 ) -> str:
+    """Call LLM chat with caching and observability logging.
+
+    Args:
+        client: OpenAI-compatible client
+        model: Model name
+        system_prompt: System prompt content
+        user_prompt: User prompt content
+        max_tokens: Maximum tokens in response (optional)
+        max_retries: Maximum retry attempts on failure (default: 3)
+        task_name: Name of the task for logging (default: "unknown")
+
+    Returns:
+        Trimmed response text from LLM
+
+    Raises:
+        Exception: If all retry attempts fail
+    """
     # Check cache first
     cache = _get_cache()
     if cache is not None:
         cached = cache.get(system_prompt, user_prompt, model)
         if cached is not None:
-            logger.debug("llm_chat: cache hit for model=%s", model)
+            logger.debug(
+                "llm_call: cache_hit task=%s model=%s",
+                task_name,
+                model,
+            )
             return cached
 
     params: dict[str, Any] = {
@@ -91,6 +113,10 @@ def llm_chat(
     if max_tokens is not None and max_tokens > 0:
         params["max_tokens"] = max_tokens
 
+    # Estimate input tokens (rough estimate: ~4 chars per token for Chinese/English)
+    input_chars = len(system_prompt) + len(user_prompt)
+    estimated_input_tokens = (input_chars + 3) // 4  # Ceiling division
+
     last_error: Exception | None = None
     for attempt in range(max_retries):
         try:
@@ -99,12 +125,33 @@ def llm_chat(
             result = (response.choices[0].message.content or "").strip()
             elapsed_ms = int((time.time() - start_time) * 1000)
 
+            # Get actual usage from response if available
+            actual_input_tokens = None
+            actual_output_tokens = None
+            if hasattr(response, 'usage') and response.usage is not None:
+                actual_input_tokens = getattr(response.usage, 'prompt_tokens', None)
+                actual_output_tokens = getattr(response.usage, 'completion_tokens', None)
+
+            # Estimate output tokens if not available
+            output_tokens = actual_output_tokens or ((len(result) + 3) // 4)
+            input_tokens = actual_input_tokens or estimated_input_tokens
+            total_tokens = input_tokens + output_tokens
+
             # Cache the result if caching is enabled
             if cache is not None and result:
                 cache.set(system_prompt, user_prompt, model, result)
-                logger.debug("llm_chat: cached result for model=%s latency=%dms", model, elapsed_ms)
-            else:
-                logger.debug("llm_chat: uncached result model=%s latency=%dms", model, elapsed_ms)
+
+            # Log structured observability data
+            logger.info(
+                "llm_call: completed task=%s model=%s latency_ms=%d input_tokens=%d output_tokens=%d total_tokens=%d cached=%s",
+                task_name,
+                model,
+                elapsed_ms,
+                input_tokens,
+                output_tokens,
+                total_tokens,
+                cache is not None,
+            )
 
             return result
         except Exception as exc:
@@ -114,7 +161,9 @@ def llm_chat(
             exc_msg = str(exc)[:200]
             if attempt == max_retries - 1:
                 logger.warning(
-                    "llm_chat: failed after %d attempts: %s - %s",
+                    "llm_call: failed task=%s model=%s attempts=%d error=%s - %s",
+                    task_name,
+                    model,
                     max_retries,
                     exc_name,
                     exc_msg,
@@ -122,7 +171,9 @@ def llm_chat(
                 raise
             wait = 2**attempt
             logger.warning(
-                "llm_chat: retry %d/%d after %ds: %s - %s",
+                "llm_call: retry task=%s model=%s attempt=%d/%d wait=%ds error=%s - %s",
+                task_name,
+                model,
                 attempt + 1,
                 max_retries,
                 wait,
@@ -289,6 +340,7 @@ def rank_and_summarize(
                 model=llm_model,
                 system_prompt=system_prompt,
                 user_prompt=user_prompt,
+                task_name="rank_and_summarize",
             )
             data = extract_json(raw)
             break
@@ -429,6 +481,7 @@ def localize_items_to_chinese(
             model=llm_model,
             system_prompt="你是中文科技编辑，只输出合法JSON。",
             user_prompt=user_prompt,
+            task_name="localize_items_to_chinese",
         )
         data = extract_json(raw)
     except Exception as exc:
@@ -544,6 +597,7 @@ def enforce_titles_with_subject(
             model=llm_model,
             system_prompt="你是严谨的中文标题编辑，只输出合法JSON。",
             user_prompt=user_prompt,
+            task_name="enforce_titles_with_subject",
         )
         data = extract_json(raw)
         rows = data.get("items", [])
@@ -633,6 +687,7 @@ def classify_ai_topic_items_with_llm(
                 model=llm_model,
                 system_prompt="你是严谨的信息审核员，只输出合法JSON。",
                 user_prompt=user_prompt,
+                task_name="classify_ai_topic",
             )
             data = extract_json(raw)
         except Exception as exc:
@@ -713,6 +768,7 @@ def polish_markdown_with_llm(markdown: str, llm_api_key: str, llm_model: str) ->
             model=llm_model,
             system_prompt="你是严谨的中文科技编辑，只做润色改写，不改事实与结构。",
             user_prompt=user_prompt,
+            task_name="polish_markdown",
         )
     except Exception as exc:
         logger.warning(
@@ -775,6 +831,7 @@ def review_item_with_model(
             model=model,
             system_prompt="你是一个严谨的新闻审核员，负责判断资讯的真实性和质量。只输出 JSON。",
             user_prompt=prompt,
+            task_name="review_item",
         )
         result = extract_json(raw)
         passed = result.get("passed", False)
