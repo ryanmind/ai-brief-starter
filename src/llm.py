@@ -21,12 +21,16 @@ from src.config import (
     parse_csv_env,
     DEFAULT_AI_TOPIC_KEYWORDS,
     LLM_BASE_URL,
+    LLM_CACHE_ENABLED,
+    LLM_CACHE_PATH,
+    LLM_CACHE_TTL,
     get_llm_api_key,
     get_llm_model,
     REVIEW_ENABLED,
     REVIEW_PASS_THRESHOLD,
     get_review_models,
 )
+from src.llm.cache import LLMResponseCache
 from src.models import NewsItem
 from src.text_utils import (
     build_default_key_points,
@@ -45,6 +49,19 @@ from src.text_utils import (
 
 logger = logging.getLogger(__name__)
 
+# Global cache instance (lazy initialization)
+_cache_instance: LLMResponseCache | None = None
+
+
+def _get_cache() -> LLMResponseCache | None:
+    """Get or create the cache instance."""
+    global _cache_instance
+    if not LLM_CACHE_ENABLED:
+        return None
+    if _cache_instance is None:
+        _cache_instance = LLMResponseCache(LLM_CACHE_PATH, LLM_CACHE_TTL)
+    return _cache_instance
+
 
 def llm_chat(
     client: OpenAI,
@@ -54,6 +71,14 @@ def llm_chat(
     max_tokens: int | None = None,
     max_retries: int = 3,
 ) -> str:
+    # Check cache first
+    cache = _get_cache()
+    if cache is not None:
+        cached = cache.get(system_prompt, user_prompt, model)
+        if cached is not None:
+            logger.debug("llm_chat: cache hit for model=%s", model)
+            return cached
+
     params: dict[str, Any] = {
         "model": model,
         "messages": [
@@ -69,8 +94,19 @@ def llm_chat(
     last_error: Exception | None = None
     for attempt in range(max_retries):
         try:
+            start_time = time.time()
             response = client.chat.completions.create(**params)
-            return (response.choices[0].message.content or "").strip()
+            result = (response.choices[0].message.content or "").strip()
+            elapsed_ms = int((time.time() - start_time) * 1000)
+
+            # Cache the result if caching is enabled
+            if cache is not None and result:
+                cache.set(system_prompt, user_prompt, model, result)
+                logger.debug("llm_chat: cached result for model=%s latency=%dms", model, elapsed_ms)
+            else:
+                logger.debug("llm_chat: uncached result model=%s latency=%dms", model, elapsed_ms)
+
+            return result
         except Exception as exc:
             last_error = exc
             # 细化异常类型记录

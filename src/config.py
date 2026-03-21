@@ -264,6 +264,13 @@ REVIEW_MODELS_DEFAULT = ("kimi-k2-0905", "iflow-rome-30ba3b", "kimi-k2")
 REVIEW_ENABLED = os.getenv("REVIEW_ENABLED", "1").strip().lower() not in {"0", "false", "no", "off"}
 REVIEW_PASS_THRESHOLD = int_env("REVIEW_PASS_THRESHOLD", 2, min_value=1, max_value=5)  # 至少几个模型通过
 
+# ---- LLM Cache Configuration ----
+# LLM 响应缓存配置：避免重复调用相同请求，降低 token 消耗
+
+LLM_CACHE_ENABLED = os.getenv("LLM_CACHE_ENABLED", "1").strip().lower() not in {"0", "false", "no", "off"}
+LLM_CACHE_TTL = int_env("LLM_CACHE_TTL", 86400 * 7, min_value=3600, max_value=86400 * 30)  # 缓存过期时间（秒），默认7天
+LLM_CACHE_PATH = os.getenv("LLM_CACHE_PATH", "cache/llm_cache.json")  # 缓存文件路径
+
 
 def get_review_models() -> list[str]:
     """获取用于审核的模型列表。"""

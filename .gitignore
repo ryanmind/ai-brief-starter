@@ -13,3 +13,4 @@ reports/history_index.json
 site/
 .vscode/
 .claude/
+cache/
