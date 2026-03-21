@@ -25,6 +25,17 @@ from src.models import NewsItem
 
 # GitHub Trending 特殊标记
 GITHUB_TRENDING_MARKER = "github-trending://"
+
+# GitHub CHANGELOG 版本号正则模式
+CHANGELOG_VERSION_PATTERNS = [
+    # ## 2.1.81 或 ## v2.1.81
+    re.compile(r"^#{1,3}\s*v?(\d+\.\d+\.\d+(?:[-\w]*)?)\s*(?:\([^)]+\))?\s*$", re.MULTILINE),
+    # ## [2.1.81] 或 [2.1.81] - 2024-01-01
+    re.compile(r"^#{1,3}\s*\[(v?\d+\.\d+\.\d+(?:[-\w]*)?)\]", re.MULTILINE),
+    # ## [2.1.81] 或 [v2.1.81]
+    re.compile(r"^\[(v?\d+\.\d+\.\d+(?:[-\w]*)?)\]", re.MULTILINE),
+]
+
 from src.text_utils import (
     clean_text,
     extract_account_from_url,
@@ -528,6 +539,189 @@ def github_feed_fallback_urls(source_url: str) -> list[str]:
     ]
 
 
+def fetch_github_changelog_content(
+    owner: str,
+    repo: str,
+    branch: str,
+    file_path: str,
+    timeout: float | None = None,
+) -> tuple[str | None, str | None]:
+    """通过 GitHub API 获取文件原始内容。
+
+    Returns:
+        (content, error_reason)
+    """
+    import base64
+
+    if timeout is None:
+        timeout = GITHUB_API_TIMEOUT
+
+    github_token = os.getenv("GITHUB_TOKEN", "").strip()
+    headers = {
+        "Accept": "application/vnd.github.v3+json",
+        "User-Agent": "ai-brief-starter/1.0",
+    }
+    if github_token:
+        headers["Authorization"] = f"token {github_token}"
+
+    # 使用 GitHub Contents API 获取文件
+    api_url = f"https://api.github.com/repos/{owner}/{repo}/contents/{file_path}"
+    params = {"ref": branch}
+
+    try:
+        response = requests.get(api_url, headers=headers, params=params, timeout=timeout)
+        response.raise_for_status()
+        payload = response.json()
+    except requests.RequestException as exc:
+        return None, f"github contents api failed: {exc}"
+    except ValueError as exc:
+        return None, f"github contents api invalid json: {exc}"
+
+    if not isinstance(payload, dict):
+        return None, "github contents api unexpected response type"
+
+    content_b64 = payload.get("content", "")
+    if not content_b64:
+        return None, "github contents api missing content"
+
+    try:
+        content = base64.b64decode(content_b64).decode("utf-8")
+    except (ValueError, UnicodeDecodeError) as exc:
+        return None, f"github contents api decode failed: {exc}"
+
+    return content, None
+
+
+def parse_changelog_versions(
+    content: str,
+    max_versions: int = 10,
+    cutoff: datetime | None = None,
+) -> list[dict[str, str]]:
+    """从 CHANGELOG 内容中解析版本号和更新说明。
+
+    Args:
+        content: CHANGELOG 文件内容
+        max_versions: 最大解析版本数
+        cutoff: 时间截止点，早于此时间的版本会被过滤（需从内容中解析日期）
+
+    Returns:
+        List of {"version": str, "date": str, "changes": str, "link": str}
+    """
+    versions: list[dict[str, str]] = []
+
+    # 尝试所有版本号模式
+    for pattern in CHANGELOG_VERSION_PATTERNS:
+        matches = list(pattern.finditer(content))
+        if matches:
+            break
+    else:
+        return versions
+
+    for i, match in enumerate(matches):
+        if len(versions) >= max_versions:
+            break
+
+        version = match.group(1).strip()
+        start_pos = match.end()
+
+        # 获取下一个版本的位置作为结束位置
+        end_pos = matches[i + 1].start() if i + 1 < len(matches) else len(content)
+
+        # 提取变更内容
+        changes_raw = content[start_pos:end_pos].strip()
+
+        # 清理变更内容：取前几行有意义的
+        changes_lines: list[str] = []
+        for line in changes_raw.split("\n"):
+            line = line.strip()
+            if not line:
+                if changes_lines:
+                    break  # 遇到空行停止（假设主要内容在版本号后紧接着）
+                continue
+            # 跳过纯分隔线
+            if re.match(r"^[-=]{3,}$", line):
+                continue
+            # 跳过日期行
+            if re.match(r"^\d{4}[-/]\d{2}[-/]\d{2}", line):
+                continue
+            changes_lines.append(line)
+            if len(changes_lines) >= 5:  # 最多取5行
+                break
+
+        changes = "\n".join(changes_lines)
+        if not changes:
+            changes = f"版本 {version} 更新"
+
+        # 尝试从内容中解析日期
+        date_str = ""
+        date_match = re.search(r"(\d{4}[-/]\d{2}[-/]\d{2})", changes_raw[:200])
+        if date_match:
+            date_str = date_match.group(1).replace("/", "-")
+
+        versions.append({
+            "version": version,
+            "date": date_str,
+            "changes": changes[:500],  # 限制长度
+        })
+
+    return versions
+
+
+def fetch_github_changelog_items(
+    owner: str,
+    repo: str,
+    branch: str,
+    file_path: str,
+    cutoff: datetime,
+    per_source: int,
+) -> tuple[list[NewsItem], str | None]:
+    """获取 GitHub CHANGELOG 文件内容并解析为 NewsItem 列表。
+
+    Returns:
+        (items, error_reason)
+    """
+    content, error = fetch_github_changelog_content(owner, repo, branch, file_path)
+    if error:
+        return [], error
+
+    versions = parse_changelog_versions(content, max_versions=per_source)
+
+    if not versions:
+        return [], "no versions found in changelog"
+
+    items: list[NewsItem] = []
+    for v in versions:
+        version = v["version"]
+        changes = v["changes"]
+        date_str = v["date"]
+
+        # 解析日期
+        published_dt: datetime | None = None
+        if date_str:
+            try:
+                published_dt = datetime.strptime(date_str, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+            except ValueError:
+                pass
+
+        # 过滤早于 cutoff 的版本
+        if published_dt and published_dt < cutoff:
+            continue
+
+        # 构建标题和链接
+        title = f"{owner}/{repo} v{version}"
+        link = f"https://github.com/{owner}/{repo}/blob/{branch}/{file_path}"
+
+        items.append(NewsItem(
+            title=title[:200],
+            link=link,
+            dedupe_link=f"{link}#{version}",
+            summary=changes[:1000],
+            published=published_dt.isoformat() if published_dt else "",
+        ))
+
+    return items, None
+
+
 def normalize_link_for_source(source_url: str, link: str) -> str:
     feed_info = parse_github_changelog_feed(source_url)
     if not feed_info:
@@ -592,6 +786,31 @@ def _fetch_single_source(
             per_source=per_source,
         )
         return source, trending_items, error
+
+    # 处理 GitHub CHANGELOG commits feed - 尝试获取文件内容
+    feed_info = parse_github_changelog_feed(source)
+    if feed_info:
+        owner, repo, branch, tracked_file = feed_info
+        if tracked_file.lower().endswith("changelog.md"):
+            changelog_items, changelog_error = fetch_github_changelog_items(
+                owner=owner,
+                repo=repo,
+                branch=branch,
+                file_path=tracked_file,
+                cutoff=cutoff,
+                per_source=per_source,
+            )
+            if changelog_items:
+                logger.info(
+                    "github changelog content parsed: %s/%s items=%d",
+                    owner, repo, len(changelog_items),
+                )
+                return source, changelog_items, None
+            # 如果内容解析失败，继续使用 atom feed 作为 fallback
+            logger.warning(
+                "github changelog content failed, fallback to atom feed: %s/%s reason=%s",
+                owner, repo, changelog_error,
+            )
 
     source_host = normalize_host(urlparse(source).netloc or "")
     source_handle = extract_x_handle_from_source(source)
