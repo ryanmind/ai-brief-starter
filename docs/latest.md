@@ -1,49 +1,34 @@
 # 今日早报
 
-> 更新时间：2026年03月21日13:01:22
+> 更新时间：2026年03月21日19:54:03
 > 说明：该页面由 `ai-morning-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. ComfyUI发布v0.18.0版本更新日志：Whats Changed Revert Revert feat:Add Cache。
-2. Demis Hassabis发布Google DeepMind首席战略官任命更新：Thrilled to welcome Jas Sekhon to @GoogleD。
+1. Demis Hassabis宣布Google DeepMind迎来首席战略官：前Bridgewater首席科学家Jas Sekhon加入Google DeepMind。
 
 ## 分类速览
 
-=== "🤖 模型进展（0）"
-    - 暂无条目
+=== "🤖 模型进展（1）"
+    - **1. Demis Hassabis宣布Google DeepMind迎来首席战略官**：Jas Sekhon的加入为Google DeepMind的AGI发展带来战略层面的专业指导…
 
 === "🧪 论文研究（0）"
     - 暂无条目
 
-=== "🏢 产品与行业（2）"
-    - **1. ComfyUI发布v0.18.0版本更新日志**：提升ComfyUI缓存效率和云服务兼容性，优化AI图像生成工作流性能
-    - **2. Demis Hassabis发布Google DeepMind首席战略官任命更新**：加强DeepMind战略规划能力，为AGI发展提供更专业的战略指导
+=== "🏢 产品与行业（0）"
+    - 暂无条目
 
 ## 全部快讯
 
-??? info "1. ComfyUI发布v0.18.0版本更新日志"
-    **摘要**：Whats Changed Revert Revert feat:Add CacheProvider API for external distributed caching by @deepme987 in #12915 fixapi-nodes:Tencent TextToModel and Im。
+??? info "1. Demis Hassabis宣布Google DeepMind迎来首席战略官"
+    **摘要**：前Bridgewater首席科学家Jas Sekhon加入Google DeepMind担任首席战略官，协助AGI发展。
 
     **关键点**
 
-    - 重新引入缓存API
-    - 修复腾讯云节点问题
-    - 前端包升级至1.41.19
+    - Jas Sekhon曾任Bridgewater首席科学家
+    - 担任Google DeepMind首席战略官
+    - 协助AGI发展战略规划
 
-    **影响分析**：提升ComfyUI缓存效率和云服务兼容性，优化AI图像生成工作流性能。
-
-    **来源**：[原文链接](https://github.com/Comfy-Org/ComfyUI/releases/tag/v0.18.0)
-
-??? info "2. Demis Hassabis发布Google DeepMind首席战略官任命更新"
-    **摘要**：Thrilled to welcome Jas Sekhon to @GoogleDeepMind as Chief Strategy Officer。
-
-    **关键点**
-
-    - Jas Sekhon出任首席战略官
-    - 拥有布里奇沃特AI经验
-    - 助力AGI战略发展
-
-    **影响分析**：加强DeepMind战略规划能力，为AGI发展提供更专业的战略指导。
+    **影响分析**：Jas Sekhon的加入为Google DeepMind的AGI发展带来战略层面的专业指导，可能影响其AGI发展路径和战略规划。
 
     **来源**：[原文链接](https://x.com/demishassabis/status/2035157224893387035)
