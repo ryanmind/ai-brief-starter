@@ -251,7 +251,9 @@ X_HOSTS = {
 GITHUB_API_TIMEOUT = int_env("GITHUB_API_TIMEOUT", 10, min_value=5, max_value=30)
 
 # ---- LLM API Configuration ----
-# 只需修改以下 常量即可切换 LLM 提供商和配置故障转移
+# Use LLM_PROVIDER environment variable to select provider:
+# - "openai-compat" (default): OpenAI-compatible API (works with Qwen, OpenAI, Iflow, etc.)
+# Add new provider implementations in src/llm/providers/
 
 LLM_API_KEY_ENV = "IFLOW_API_KEY"  # 环境变量名
 LLM_MODEL_DEFAULT = "qwen3-coder-plus"  # 默认模型
