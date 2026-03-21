@@ -251,11 +251,22 @@ X_HOSTS = {
 GITHUB_API_TIMEOUT = int_env("GITHUB_API_TIMEOUT", 10, min_value=5, max_value=30)
 
 # ---- LLM API Configuration ----
-# 只需修改以下 3 个常量即可切换 LLM 提供商
+# 只需修改以下 常量即可切换 LLM 提供商和配置故障转移
 
 LLM_API_KEY_ENV = "IFLOW_API_KEY"  # 环境变量名
 LLM_MODEL_DEFAULT = "qwen3-coder-plus"  # 默认模型
 LLM_BASE_URL = "https://apis.iflow.cn/v1"  # API 端点
+
+# ---- LLM Failover Configuration ----
+# 备用模型列表，主模型失败时按顺序尝试（逗号分隔）
+# 例如: "qwen3-coder,qwen2-72b-instruct,gpt-4o-mini
+
+def get_fallback_llm_models() -> list[str]:
+    """获取故障转移备用模型列表。"""
+    raw = os.getenv("FALLBACK_LLM_MODELS", "").strip()
+    if raw:
+        return [m.strip() for m in raw.split(",") if m.strip()]
+    return []
 
 # ---- Multi-Model Review Configuration ----
 # 多模型审核配置：用多个模型交叉验证生成结果的真实性
