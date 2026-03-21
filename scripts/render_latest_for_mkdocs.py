@@ -119,7 +119,7 @@ class BriefItem:
 def extract_updated_at(lines: list[str]) -> str:
     for line in lines:
         stripped = line.strip()
-        if stripped.startswith("## 📰 AI 早报"):
+        if stripped.startswith("## 📰 AI 快讯"):
             parts = [part.strip() for part in stripped.split("·", maxsplit=1)]
             if len(parts) == 2 and parts[1]:
                 return parts[1]
@@ -408,13 +408,13 @@ def build_mkdocs_latest(markdown: str, updated_at_override: str = "") -> str:
     grouped_items = group_items_by_category(items)
 
     output: list[str] = []
-    output.append("# 今日早报")
+    output.append("# 今日快讯")
     output.append("")
     if updated_at:
         output.append(f"> 更新时间：{updated_at}")
     else:
         output.append("> 更新时间：未知")
-    output.append("> 说明：该页面由 `ai-morning-brief` 自动生成并同步。")
+    output.append("> 说明：该页面由 `ai-brief` 自动生成并同步。")
     output.append("")
     output.append("## 本期摘要")
     output.append("")

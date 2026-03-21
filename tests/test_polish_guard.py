@@ -5,7 +5,7 @@ from main import polish_result_is_safe
 
 
 def test_polish_result_is_safe_rejects_structure_drift():
-    original = """# AI 早报（2026-03-03）
+    original = """# AI 快讯（2026-03-03）
 
 ## 详细快讯
 
@@ -18,7 +18,7 @@ def test_polish_result_is_safe_rejects_structure_drift():
 - 影响：影响句子。
 - 来源：https://example.com/a
 """
-    polished = """# AI 早报（2026-03-03）
+    polished = """# AI 快讯（2026-03-03）
 
 ## 详细快讯
 
@@ -34,7 +34,7 @@ def test_polish_result_is_safe_rejects_structure_drift():
 
 
 def test_polish_result_is_safe_accepts_same_structure():
-    original = """# AI 早报（2026-03-03）
+    original = """# AI 快讯（2026-03-03）
 
 ## 详细快讯
 
@@ -47,7 +47,7 @@ def test_polish_result_is_safe_accepts_same_structure():
 - 影响：影响句子。
 - 来源：https://example.com/a
 """
-    polished = """# AI 早报（2026-03-03）
+    polished = """# AI 快讯（2026-03-03）
 
 ## 详细快讯
 
@@ -65,7 +65,7 @@ def test_polish_result_is_safe_accepts_same_structure():
 
 def test_polish_markdown_with_llm_rejects_unsafe_output(monkeypatch):
     monkeypatch.setenv("FINAL_POLISH_ENABLED", "1")
-    original = """## 📰 AI 早报 · 2026年03月03日12:00:00
+    original = """## 📰 AI 快讯 · 2026年03月03日12:00:00
 
 ### 1. 标题
 **摘要**：摘要句子。
@@ -75,7 +75,7 @@ def test_polish_markdown_with_llm_rejects_unsafe_output(monkeypatch):
 **影响分析**：影响句子。
 **来源**：[原文链接](https://example.com/a)
 """
-    unsafe_polished = """## 📰 AI 早报 · 2026年03月03日12:00:00
+    unsafe_polished = """## 📰 AI 快讯 · 2026年03月03日12:00:00
 
 ### 1. 标题
 **摘要**：摘要句子。
@@ -97,7 +97,7 @@ def test_polish_markdown_with_llm_rejects_unsafe_output(monkeypatch):
 def test_polish_markdown_with_llm_accepts_safe_output(monkeypatch):
     from src import llm as llm_module
     monkeypatch.setenv("FINAL_POLISH_ENABLED", "1")
-    original = """## 📰 AI 早报 · 2026年03月03日12:00:00
+    original = """## 📰 AI 快讯 · 2026年03月03日12:00:00
 
 ### 1. 标题
 **摘要**：摘要句子。
@@ -107,7 +107,7 @@ def test_polish_markdown_with_llm_accepts_safe_output(monkeypatch):
 **影响分析**：影响句子。
 **来源**：[原文链接](https://example.com/a)
 """
-    safe_polished = """## 📰 AI 早报 · 2026年03月03日12:00:00
+    safe_polished = """## 📰 AI 快讯 · 2026年03月03日12:00:00
 
 ### 1. 标题
 **摘要**：摘要句子，更凝练。

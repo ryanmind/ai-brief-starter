@@ -283,7 +283,7 @@ def test_is_public_readable_state_handles_v2_nested_shape():
 
 
 def test_markdown_to_text_blocks_keeps_ordered_list_without_bullet():
-    markdown = """# AI 早报
+    markdown = """# AI 快讯
 
 ## 30秒导读
 - 1. 第一条
@@ -541,7 +541,7 @@ def test_main_quality_check_fail_open_disabled_still_continues(monkeypatch, tmp_
 
 def test_build_quality_warning_lines_reads_merged_quality_metrics(tmp_path):
     report = tmp_path / "latest.md"
-    report.write_text("# AI 早报\n", encoding="utf-8")
+    report.write_text("# AI 快讯\n", encoding="utf-8")
     metrics = {
         "quality_check": {
             "passed": False,
@@ -599,7 +599,7 @@ def test_enforce_titles_with_subject_uses_deterministic_fallback(monkeypatch):
 
 
 def test_prepend_quality_review_banner_is_idempotent():
-    markdown = "# AI 早报\n\n## 本期摘要\n\n1. A\n"
+    markdown = "# AI 快讯\n\n## 本期摘要\n\n1. A\n"
     with_banner = main.prepend_quality_review_banner(markdown)
     assert "质量提示：本期内容在自动质检中发现缺陷" in with_banner
     twice = main.prepend_quality_review_banner(with_banner)

@@ -13,8 +13,8 @@ except ModuleNotFoundError:  # pragma: no cover - CLI entrypoint fallback
 
 DATE_REPORT_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}(_\d{2}-\d{2}-\d{2})?\.md$")
 INLINE_REPORT_DATE_PATTERNS = (
-    re.compile(r"AI 早报[（(](\d{4}-\d{2}-\d{2})[)）]"),
-    re.compile(r"AI 早报\s*[·-]\s*(\d{4})年(\d{2})月(\d{2})日"),
+    re.compile(r"AI 快讯[（(](\d{4}-\d{2}-\d{2})[)）]"),
+    re.compile(r"AI 快讯\s*[·-]\s*(\d{4})年(\d{2})月(\d{2})日"),
 )
 
 
@@ -80,7 +80,7 @@ def update_latest_page(reports_dir: Path, docs_dir: Path) -> None:
         latest_page.write_text(
             with_page_title(
                 latest_history_date[1].read_text(encoding="utf-8"),
-                title="今日早报",
+                title="今日快讯",
             ),
             encoding="utf-8",
         )
@@ -99,7 +99,7 @@ def update_latest_page(reports_dir: Path, docs_dir: Path) -> None:
         latest_page.write_text(
             with_page_title(
                 latest_history_date[1].read_text(encoding="utf-8"),
-                title="今日早报",
+                title="今日快讯",
             ),
             encoding="utf-8",
         )
@@ -110,7 +110,7 @@ def update_latest_page(reports_dir: Path, docs_dir: Path) -> None:
         )
 
     rendered = build_mkdocs_latest(content)
-    latest_page.write_text(with_page_title(rendered, title="今日早报"), encoding="utf-8")
+    latest_page.write_text(with_page_title(rendered, title="今日快讯"), encoding="utf-8")
 
 
 def update_history_pages(reports_dir: Path, docs_dir: Path) -> None:
@@ -126,7 +126,7 @@ def update_history_pages(reports_dir: Path, docs_dir: Path) -> None:
         stem = report.stem  # 例如 "2026-03-20_09-30-15" 或 "2026-03-20"
         target = history_dir / f"{stem}.md"
         target.write_text(
-            render_report(report, title=f"AI 早报归档 · {stem}"),
+            render_report(report, title=f"AI 快讯归档 · {stem}"),
             encoding="utf-8",
         )
 
@@ -149,7 +149,7 @@ def build_history_index(docs_dir: Path, reports_dir: Path, max_items: int = 120)
         latest_content = latest_report.read_text(encoding="utf-8")
 
     if latest_content:
-        # 渲染并添加最新早报内容
+        # 渲染并添加最新快讯内容
         rendered = build_mkdocs_latest(latest_content)
         # 移除原有的 # 标题
         content_lines = rendered.splitlines()
@@ -175,7 +175,7 @@ def build_history_index(docs_dir: Path, reports_dir: Path, max_items: int = 120)
         lines.append("---")
         lines.append("")
     else:
-        lines.extend(["# AI 早报", "", "暂无早报。", ""])
+        lines.extend(["# AI 快讯", "", "暂无快讯。", ""])
         (docs_dir / "history.md").write_text("\n".join(lines), encoding="utf-8")
         return
 

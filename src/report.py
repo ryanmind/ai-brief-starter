@@ -74,7 +74,7 @@ def render_markdown(items: list[NewsItem]) -> str:
     now = datetime.now()
     today_cn = now.strftime("%Y年%m月%d日%H:%M:%S")
     lines = [
-        f"## \U0001f4f0 AI 早报 · {today_cn}",
+        f"## \U0001f4f0 AI 快讯 · {today_cn}",
         "",
         "### \U0001f4cc 本期摘要",
     ]

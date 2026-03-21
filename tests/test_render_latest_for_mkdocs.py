@@ -4,7 +4,7 @@ from scripts import render_latest_for_mkdocs
 
 
 def test_build_mkdocs_latest_generates_collapsible_sections():
-    source = """## 📰 AI 早报 · 2026年03月04日12:25:24
+    source = """## 📰 AI 快讯 · 2026年03月04日12:25:24
 
 ### 📌 本期摘要
 - 1. 第一条摘要
@@ -27,7 +27,7 @@ def test_build_mkdocs_latest_generates_collapsible_sections():
 """
     rendered = render_latest_for_mkdocs.build_mkdocs_latest(source)
 
-    assert rendered.startswith("# 今日早报")
+    assert rendered.startswith("# 今日快讯")
     assert "更新时间：2026年03月04日12:25:24" in rendered
     assert "1. 第一条摘要" in rendered
     assert "2. 第二条摘要" in rendered
@@ -41,7 +41,7 @@ def test_build_mkdocs_latest_generates_collapsible_sections():
 
 
 def test_build_mkdocs_latest_uses_override_updated_time():
-    source = """## 📰 AI 早报 · 2026年03月04日12:25:24
+    source = """## 📰 AI 快讯 · 2026年03月04日12:25:24
 
 ### 📌 本期摘要
 - 1. 第一条摘要
@@ -56,7 +56,7 @@ def test_build_mkdocs_latest_uses_override_updated_time():
 
 
 def test_build_mkdocs_latest_handles_missing_sections():
-    source = """## 📰 AI 早报 · 2026年03月04日12:25:24
+    source = """## 📰 AI 快讯 · 2026年03月04日12:25:24
 
 ### 1. 只有标题
 """
@@ -68,7 +68,7 @@ def test_build_mkdocs_latest_handles_missing_sections():
 
 
 def test_build_mkdocs_latest_supports_legacy_report_shape():
-    source = """# AI 早报（2026-02-28）
+    source = """# AI 快讯（2026-02-28）
 
 生成时间：2026-02-28 15:48:56
 
@@ -99,7 +99,7 @@ def test_build_mkdocs_latest_supports_legacy_report_shape():
 
 
 def test_build_mkdocs_latest_renders_all_news_without_category_subsections():
-    source = """## 📰 AI 早报 · 2026年03月04日12:25:24
+    source = """## 📰 AI 快讯 · 2026年03月04日12:25:24
 
 ### 📌 本期摘要
 - 1. 摘要A
@@ -173,7 +173,7 @@ def test_classify_item_supports_manual_hashtag_override():
 
 
 def test_build_mkdocs_latest_hides_manual_category_tags():
-    source = """## 📰 AI 早报 · 2026年03月04日12:25:24
+    source = """## 📰 AI 快讯 · 2026年03月04日12:25:24
 
 ### 📌 本期摘要
 - 1. 新模型发布 #model

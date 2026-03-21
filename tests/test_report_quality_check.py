@@ -5,7 +5,7 @@ import json
 from scripts.report_quality_check import run_checks
 
 
-REPORT_WITH_KEY_POINT_ISSUE = """# AI 早报
+REPORT_WITH_KEY_POINT_ISSUE = """# AI 快讯
 
 ## 详细快讯
 
@@ -59,7 +59,7 @@ def test_quality_check_autofix_repairs_and_passes(tmp_path, monkeypatch):
 def test_quality_check_autofix_fills_missing_summary(tmp_path, monkeypatch):
     report = tmp_path / "report.md"
     report.write_text(
-        """# AI 早报
+        """# AI 快讯
 
 ## 详细快讯
 
@@ -81,7 +81,7 @@ def test_quality_check_autofix_fills_missing_summary(tmp_path, monkeypatch):
 def test_quality_check_missing_source_fails(tmp_path, monkeypatch):
     report = tmp_path / "report.md"
     report.write_text(
-        """# AI 早报
+        """# AI 快讯
 
 ## 详细快讯
 
@@ -100,7 +100,7 @@ def test_quality_check_missing_source_fails(tmp_path, monkeypatch):
 def test_quality_check_outputs_metrics_and_risk_list(tmp_path, monkeypatch):
     report = tmp_path / "report.md"
     report.write_text(
-        """# AI 早报
+        """# AI 快讯
 
 ## 详细快讯
 

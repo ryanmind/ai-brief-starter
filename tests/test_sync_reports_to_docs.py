@@ -14,7 +14,7 @@ def test_sync_reports_to_docs_updates_latest_and_history(tmp_path):
     reports_dir = tmp_path / "reports"
     docs_dir = tmp_path / "docs"
 
-    latest_report = """## 📰 AI 早报 · 2026年03月04日12:25:24
+    latest_report = """## 📰 AI 快讯 · 2026年03月04日12:25:24
 
 ### 📌 本期摘要
 - 1. 今日摘要A
@@ -25,7 +25,7 @@ def test_sync_reports_to_docs_updates_latest_and_history(tmp_path):
 **影响分析**：影响A
 **来源**：[原文链接](https://example.com/a)
 """
-    archived_report = """# AI 早报（2026-03-04）
+    archived_report = """# AI 快讯（2026-03-04）
 
 生成时间：2026-03-04 12:25:24
 
@@ -48,17 +48,17 @@ def test_sync_reports_to_docs_updates_latest_and_history(tmp_path):
 
     sync_reports_to_docs.sync_reports_to_docs(reports_dir=reports_dir, docs_dir=docs_dir)
 
-    # history.md 现在是主页面，顶部显示最新早报
+    # history.md 现在是主页面，顶部显示最新快讯
     history_index = (docs_dir / "history.md").read_text(encoding="utf-8")
     history_page = (docs_dir / "history" / "2026-03-04.md").read_text(encoding="utf-8")
 
-    # 最新早报内容直接显示在 history.md 顶部
+    # 最新快讯内容直接显示在 history.md 顶部
     assert "今日摘要A" in history_index
     assert "标题A" in history_index
     # 历史归档链接（不包含最新的）
     assert "- [2026-03-03](history/2026-03-03.md)" in history_index
     # 历史文件正常生成
-    assert history_page.startswith("# AI 早报归档 · 2026-03-04")
+    assert history_page.startswith("# AI 快讯归档 · 2026-03-04")
     assert "历史细节A" not in history_page
 
 
@@ -66,14 +66,14 @@ def test_sync_reports_to_docs_prefers_newer_docs_history_for_latest(tmp_path):
     reports_dir = tmp_path / "reports"
     docs_dir = tmp_path / "docs"
 
-    stale_latest = """# AI 早报（2026-02-28）
+    stale_latest = """# AI 快讯（2026-02-28）
 
 生成时间：2026-02-28 15:48:56
 
 ## 今日要点
 - 1. 旧摘要
 """
-    newer_history = """# AI 早报归档 · 2026-03-05
+    newer_history = """# AI 快讯归档 · 2026-03-05
 
 > 更新时间：2026年03月05日09:39:04
 > 说明：该页面由 `ai-morning-brief` 自动生成并同步。
@@ -90,7 +90,7 @@ def test_sync_reports_to_docs_prefers_newer_docs_history_for_latest(tmp_path):
     sync_reports_to_docs.sync_reports_to_docs(reports_dir=reports_dir, docs_dir=docs_dir)
 
     latest_page = (docs_dir / "latest.md").read_text(encoding="utf-8")
-    assert latest_page.startswith("# 今日早报")
+    assert latest_page.startswith("# 今日快讯")
     assert "更新时间：2026年03月05日09:39:04" in latest_page
     assert "1. 新摘要" in latest_page
     assert "1. 旧摘要" not in latest_page
@@ -100,14 +100,14 @@ def test_sync_reports_to_docs_prefers_newer_dated_report_over_stale_latest(tmp_p
     reports_dir = tmp_path / "reports"
     docs_dir = tmp_path / "docs"
 
-    stale_latest = """# AI 早报（2026-02-28）
+    stale_latest = """# AI 快讯（2026-02-28）
 
 生成时间：2026-02-28 15:48:56
 
 ## 今日要点
 - 1. 旧摘要
 """
-    newer_dated_report = """# AI 早报（2026-03-06）
+    newer_dated_report = """# AI 快讯（2026-03-06）
 
 生成时间：2026-03-06 08:00:00
 
@@ -118,12 +118,12 @@ def test_sync_reports_to_docs_prefers_newer_dated_report_over_stale_latest(tmp_p
     _write(reports_dir / "latest.md", stale_latest)
     _write(reports_dir / "2026-02-28.md", stale_latest)
     _write(reports_dir / "2026-03-06.md", newer_dated_report)
-    _write(docs_dir / "history" / "2026-03-05.md", "# AI 早报归档 · 2026-03-05\n\n1. 历史摘要\n")
+    _write(docs_dir / "history" / "2026-03-05.md", "# AI 快讯归档 · 2026-03-05\n\n1. 历史摘要\n")
 
     sync_reports_to_docs.sync_reports_to_docs(reports_dir=reports_dir, docs_dir=docs_dir)
 
     latest_page = (docs_dir / "latest.md").read_text(encoding="utf-8")
-    assert latest_page.startswith("# 今日早报")
+    assert latest_page.startswith("# 今日快讯")
     assert "更新时间：2026-03-06 08:00:00" in latest_page
     assert "1. 新摘要" in latest_page
     assert "1. 旧摘要" not in latest_page

@@ -1,6 +1,6 @@
 # AI Brief Starter
 
-AI 资讯自动早报生成器 —— 每天 07:30 自动生成 AI 行业早报，推送至飞书/微信，并自动发布到文档站。
+AI 资讯自动快讯生成器 —— 自动生成 AI 行业快讯，推送至飞书/微信，并自动发布到文档站。
 
 ## ✨ 核心特性
 
@@ -36,8 +36,8 @@ python main.py
 |------|------|
 | [快速开始](quick-start.md) | 本地运行与 GitHub Actions 配置 |
 | [Agent 集群](agent-cluster.md) | Agent 集群概念与 3-Agent 改造路线 |
-| [今日早报](latest.md) | 自动同步的最新一期早报 |
-| [历史归档](history.md) | 按日期浏览历史早报 |
+| [今日快讯](latest.md) | 自动同步的最新一期快讯 |
+| [历史归档](history.md) | 按日期浏览历史快讯 |
 | [环境变量](configuration.md) | 所有可配置参数详解 |
 | [信息源配置](sources.md) | RSS、Twitter、GitHub 源配置 |
 | [飞书集成](feishu_docs_guide_zh.md) | 飞书群通知与文档同步 |
