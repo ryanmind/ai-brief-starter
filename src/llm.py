@@ -31,6 +31,7 @@ from src.config import (
     get_review_models,
 )
 from src.llm.cache import LLMResponseCache
+from src.llm.prompts import load_prompt
 from src.models import NewsItem
 from src.text_utils import (
     build_default_key_points,
@@ -345,30 +346,24 @@ def rank_and_summarize(
             )
         )
 
-    user_prompt = (
-        "你是AI资讯编辑。请从候选中选出最值得做早报的内容并摘要。\n"
-        "严格输出JSON："
-        '{"items":[{"id":1,"score":90,"title":"...","brief":"...","details":"...","impact":"...","key_points":["...","..."]}]}\n'
-        f"最多返回{top_n}条；title<={TITLE_MAX_CHARS}字；brief<={BRIEF_MAX_CHARS}字；details<={DETAIL_MAX_CHARS}字；impact<={IMPACT_MAX_CHARS}字；必须基于输入，不编造；"
-        "【摘要规则】必须是完整中文句子（主体+动作+结果）；英文内容需解释其含义而非直译；短推文（<50字）需结合账号主体推断实际产品/功能。"
-        "details写1-2句具体事实，尽量包含实体名/数字/版本/时间等可核实信息。"
-        "【关键点规则】返回2-3条，每条必须是完整句子，包含具体事实/数字/版本号/实体名称；不能是原文截断片段。"
-        "【影响分析规则】回答对行业/用户/技术格局的具体影响；避免套话。"
-        "标题必须完整，包含主体名称（公司/产品/人物），不能省略主语。"
-        "若出现版本号，标题必须明确“哪个产品/仓库的哪个版本”，禁止仅写“release:4.6.3”或“5.4即将上线”。"
-        "写法要可直接用于朋友圈/公众号：先结论后细节、避免空话与套话。"
-        "brief只写1句，尽量包含“主体+动作+结果”；impact回答“为什么值得关注”。"
-        "仅可选择一手来源（官方公告、论文原文、作者/机构本人账号原帖）；"
-        "GitHub Trending 热门项目属于一手来源，可入选；"
-        "禁止媒体转述、二手解读、汇总搬运、未证实传闻。\n\n"
-        + "\n".join(candidates)
+    # Load prompt template from external file
+    prompt_data = load_prompt("rank_and_summarize")
+    user_template = prompt_data["user_template"]
+    user_prompt = user_template.format(
+        top_n=top_n,
+        title_max=TITLE_MAX_CHARS,
+        brief_max=BRIEF_MAX_CHARS,
+        detail_max=DETAIL_MAX_CHARS,
+        impact_max=IMPACT_MAX_CHARS,
+        candidates="\n".join(candidates),
     )
 
     last_error: Exception | None = None
     data: dict[str, Any] | None = None
     for attempt in range(2):
-        system_prompt = "你是严谨的科技新闻编辑，只输出JSON。"
-        if attempt > 0:
+        if attempt == 0:
+            system_prompt = prompt_data["system"]
+        else:
             system_prompt = (
                 "你是严谨的科技新闻编辑。"
                 "你上一次输出格式错误，这次必须仅输出一个合法JSON对象，不要输出任何说明文字。"
@@ -501,25 +496,24 @@ def localize_items_to_chinese(
         for idx, item in enumerate(items)
     ]
 
-    user_prompt = (
-        "请把下面资讯字段统一改写为简体中文，并完成数据清洗，必须保持事实不变。\n"
-        "严格输出JSON："
-        '{"items":[{"id":1,"title":"中文标题","brief":"中文摘要","details":"中文细节","impact":"中文影响","key_points":["要点1","要点2"]}]}\n'
-        f"要求：title<={TITLE_MAX_CHARS}字，brief<={BRIEF_MAX_CHARS}字，details<={DETAIL_MAX_CHARS}字，impact<={IMPACT_MAX_CHARS}字，"
-        f"key_points最多{KEY_POINTS_MAX_COUNT}条且每条<={KEY_POINT_MAX_CHARS}字。\n\n"
-        "清洗规则：删除占位词（如 value/null/none/n-a）、无意义噪声字符（如孤立 @、重复标点）、"
-        "空洞重复短语与无信息量内容；若字段无法清洗出有效信息则返回空字符串。\n\n"
-        "标题规则：标题必须包含明确主体；若含版本号，需明确产品/仓库名称，禁止仅保留“release:4.6.3”这类低信息标题。\n\n"
-        "文风要求：口语化但专业，信息密度高，像可直接发朋友圈/公众号的成稿。"
-        "避免机械重复开头（如连续使用“宣布/发布”）。\n\n"
-        + json.dumps(payload, ensure_ascii=False)
+    # Load prompt template from external file
+    prompt_data = load_prompt("localize_items_to_chinese")
+    user_template = prompt_data["user_template"]
+    user_prompt = user_template.format(
+        title_max=TITLE_MAX_CHARS,
+        brief_max=BRIEF_MAX_CHARS,
+        detail_max=DETAIL_MAX_CHARS,
+        impact_max=IMPACT_MAX_CHARS,
+        key_points_max=KEY_POINTS_MAX_COUNT,
+        key_point_max=KEY_POINT_MAX_CHARS,
+        payload_json=json.dumps(payload, ensure_ascii=False),
     )
 
     try:
         raw = llm_chat(
             client=client,
             model=llm_model,
-            system_prompt="你是中文科技编辑，只输出合法JSON。",
+            system_prompt=prompt_data["system"],
             user_prompt=user_prompt,
             task_name="localize_items_to_chinese",
         )
@@ -623,19 +617,17 @@ def enforce_titles_with_subject(
     rewritten_titles: dict[int, str] = {}
     try:
         client = OpenAI(api_key=llm_api_key, base_url=LLM_BASE_URL)
-        user_prompt = (
-            "你是AI资讯标题编辑。请重写每条标题，要求：\n"
-            "1) 每一条标题都必须包含明确主语（公司/产品/机构/账号）。\n"
-            "2) 若包含版本号，必须写清“谁的什么版本”，禁止无主语标题。\n"
-            "3) 保持事实不变，标题简洁，长度不超过40字。\n"
-            "严格输出JSON："
-            '{"items":[{"id":1,"title":"含明确主语的新标题"}]}\n\n'
-            + json.dumps(payload, ensure_ascii=False)
+        # Load prompt template from external file
+        prompt_data = load_prompt("enforce_titles_with_subject")
+        user_template = prompt_data["user_template"]
+        user_prompt = user_template.format(
+            title_max=TITLE_MAX_CHARS,
+            payload_json=json.dumps(payload, ensure_ascii=False),
         )
         raw = llm_chat(
             client=client,
             model=llm_model,
-            system_prompt="你是严谨的中文标题编辑，只输出合法JSON。",
+            system_prompt=prompt_data["system"],
             user_prompt=user_prompt,
             task_name="enforce_titles_with_subject",
         )
@@ -710,22 +702,19 @@ def classify_ai_topic_items_with_llm(
                 }
             )
 
-        user_prompt = (
-            "你是AI资讯审核编辑。请判断每条是否属于“AI相关内容”。\n"
-            "判定为 true 的条件：与AI模型/算法/论文/智能体/推理/训练/AI产品发布/AI基础设施直接相关。\n"
-            "判定为 false 的条件：社会新闻、泛政治评论、纯商业活动、无AI实质信息的内容。\n"
-            "严格输出JSON："
-            '{"items":[{"id":1,"is_ai_topic":true,"reason":"一句话理由"}]}\n'
-            "id 必须对应输入；禁止输出任何额外说明。\n"
-            f"可参考关键词（仅作辅助，不是硬规则）：{keywords_hint}\n\n"
-            + json.dumps(payload, ensure_ascii=False)
+        # Load prompt template from external file
+        prompt_data = load_prompt("classify_ai_topic")
+        user_template = prompt_data["user_template"]
+        user_prompt = user_template.format(
+            keywords_hint=keywords_hint,
+            payload_json=json.dumps(payload, ensure_ascii=False),
         )
 
         try:
             raw = llm_chat(
                 client=client,
                 model=llm_model,
-                system_prompt="你是严谨的信息审核员，只输出合法JSON。",
+                system_prompt=prompt_data["system"],
                 user_prompt=user_prompt,
                 task_name="classify_ai_topic",
             )
@@ -791,22 +780,18 @@ def polish_markdown_with_llm(markdown: str, llm_api_key: str, llm_model: str) ->
         return markdown
 
     client = OpenAI(api_key=llm_api_key, base_url=LLM_BASE_URL)
-    user_prompt = (
-        "请只做文案润色，提升可读性；必须保持 Markdown 结构、标题层级、编号、链接和数字不变。\n"
-        "硬性约束：\n"
-        "1) 不得新增或删除任何条目；\n"
-        "2) 所有 URL 必须原样保留；\n"
-        "3) 所有数字（含百分比/版本号）必须原样保留；\n"
-        "4) 字段标签“摘要/关键点/影响分析/来源”保持不变；\n"
-        "5) 仅输出润色后的完整 Markdown 正文，不要解释，不要代码块。\n\n"
-        + source_markdown
+    # Load prompt template from external file
+    prompt_data = load_prompt("polish_markdown")
+    user_template = prompt_data["user_template"]
+    user_prompt = user_template.format(
+        source_markdown=source_markdown,
     )
 
     try:
         polished = llm_chat(
             client=client,
             model=llm_model,
-            system_prompt="你是严谨的中文科技编辑，只做润色改写，不改事实与结构。",
+            system_prompt=prompt_data["system"],
             user_prompt=user_prompt,
             task_name="polish_markdown",
         )
@@ -834,7 +819,7 @@ def review_item_with_model(
     item: NewsItem,
 ) -> dict[str, Any]:
     """用单个模型审核一条新闻的真实性。
-    
+
     返回：
     {
         "passed": True/False,
@@ -842,34 +827,24 @@ def review_item_with_model(
         "issues": ["问题1", "问题2"]  # 可选，列出具体问题
     }
     """
-    prompt = f"""请审核以下 AI 资讯的真实性和质量。
-
-**标题**: {item.title}
-**摘要**: {item.brief}
-**关键点**: {', '.join(item.key_points[:3]) if item.key_points else '无'}
-**影响分析**: {item.impact or '无'}
-**原文链接**: {item.link}
-
-审核标准：
-1. **真实性**：内容是否基于原文，有无编造或幻觉？
-2. **完整性**：标题是否包含明确主体（公司/产品/人物）？
-3. **准确性**：关键点是否是完整句子、包含具体事实？是否是原文截断片段？
-4. **价值性**：摘要是否解释了内容含义而非简单翻译？是否有信息价值？
-
-请输出 JSON 格式：
-{{"passed": true/false, "reason": "原因说明", "issues": ["具体问题1", "具体问题2"]}}
-
-注意：
-- passed 为 true 表示该条资讯可以发布
-- passed 为 false 表示该条资讯有问题需要剔除或修改
-- issues 列出具体问题（如果有）
-"""
+    # Load prompt template from external file
+    prompt_data = load_prompt("review_item")
+    user_template = prompt_data["user_template"]
+    key_points_str = ', '.join(item.key_points[:3]) if item.key_points else '无'
+    impact_str = item.impact or '无'
+    prompt = user_template.format(
+        title=item.title,
+        brief=item.brief,
+        key_points=key_points_str,
+        impact=impact_str,
+        link=item.link,
+    )
 
     try:
         raw = llm_chat(
             client=client,
             model=model,
-            system_prompt="你是一个严谨的新闻审核员，负责判断资讯的真实性和质量。只输出 JSON。",
+            system_prompt=prompt_data["system"],
             user_prompt=prompt,
             task_name="review_item",
         )
@@ -899,38 +874,38 @@ def review_items_with_multi_model(
     llm_api_key: str,
 ) -> tuple[list[NewsItem], dict[str, int]]:
     """用多个模型交叉审核新闻列表。
-    
+
     返回：(通过审核的条目列表, 统计信息)
     统计信息包括：total(总数), passed(通过数), rejected(拒绝数), 各模型的审核结果
     """
     if not REVIEW_ENABLED:
         logger.info("review_items_with_multi_model: 多模型审核已禁用")
         return items, {"disabled": len(items)}
-    
+
     if not items:
         return items, {}
-    
+
     review_models = get_review_models()
     if not review_models:
         logger.warning("review_items_with_multi_model: 未配置审核模型，跳过审核")
         return items, {"no_models": len(items)}
-    
+
     client = OpenAI(api_key=llm_api_key, base_url=LLM_BASE_URL)
-    
+
     passed_items: list[NewsItem] = []
     stats: dict[str, int] = {
         "total": len(items),
         "passed": 0,
         "rejected": 0,
     }
-    
+
     # 记录每个模型的审核统计
     model_stats = {model: {"passed": 0, "rejected": 0} for model in review_models}
-    
+
     for item in items:
         votes: list[bool] = []
         item_issues: list[str] = []
-        
+
         for model in review_models:
             result = review_item_with_model(client, model, item)
             votes.append(result["passed"])
@@ -940,7 +915,7 @@ def review_items_with_multi_model(
                     item_issues.extend([f"[{model}] {issue}" for issue in result["issues"]])
             else:
                 model_stats[model]["passed"] += 1
-        
+
         # 投票：通过的票数 >= 阈值 则通过
         pass_count = sum(votes)
         if pass_count >= REVIEW_PASS_THRESHOLD:
@@ -957,17 +932,17 @@ def review_items_with_multi_model(
             )
             if item_issues:
                 logger.debug("review_issues: %s", "; ".join(item_issues[:3]))
-    
+
     # 合并模型统计到 stats
     for model, counts in model_stats.items():
         stats[f"{model}_passed"] = counts["passed"]
         stats[f"{model}_rejected"] = counts["rejected"]
-    
+
     logger.info(
         "review_items_with_multi_model: 审核 %d 条，通过 %d 条，拒绝 %d 条",
         stats["total"],
         stats["passed"],
         stats["rejected"],
     )
-    
+
     return passed_items, stats
