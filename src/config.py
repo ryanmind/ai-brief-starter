@@ -250,6 +250,10 @@ X_HOSTS = {
 
 GITHUB_API_TIMEOUT = int_env("GITHUB_API_TIMEOUT", 10, min_value=5, max_value=30)
 
+# ---- Pipeline Optimization Configuration ----
+# 启用优化管线（合并LLM调用，智能审核）
+USE_OPTIMIZED_PIPELINE = os.getenv("USE_OPTIMIZED_PIPELINE", "1").strip().lower() not in {"0", "false", "no", "off"}
+
 # ---- LLM API Configuration ----
 # Use LLM_PROVIDER environment variable to select provider:
 # - "openai-compat" (default): OpenAI-compatible API (works with Qwen, OpenAI, Iflow, etc.)

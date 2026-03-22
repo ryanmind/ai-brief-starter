@@ -174,6 +174,8 @@ enforce_titles_with_subject = llm_module.enforce_titles_with_subject
 classify_ai_topic_items_with_llm = llm_module.classify_ai_topic_items_with_llm
 polish_markdown_with_llm = llm_module.polish_markdown_with_llm
 review_items_with_multi_model = llm_module.review_items_with_multi_model
+intelligent_rank_and_summarize = llm_module.intelligent_rank_and_summarize
+intelligent_review_items = llm_module.intelligent_review_items
 
 check_category_balance = report_module.check_category_balance
 render_markdown = report_module.render_markdown
@@ -213,6 +215,8 @@ def main() -> None:
 
     llm_api_key = get_llm_api_key()
     llm_model = get_llm_model()
+    # 优化模式配置（默认启用）
+    use_optimized_pipeline = os.getenv("USE_OPTIMIZED_PIPELINE", "1").strip().lower() not in {"0", "false", "no", "off"}
     max_items = int_env("MAX_ITEMS", 120, min_value=10, max_value=500)
     top_n = int_env("TOP_N", 20, min_value=5, max_value=100)
     fetch_hours = int_env("FETCH_HOURS", 24, min_value=1, max_value=168)
@@ -321,28 +325,50 @@ def main() -> None:
     if not items:
         raise RuntimeError("未抓到一手资讯，请检查 sources.txt 或放宽 STRICT_PRIMARY_ONLY 配置")
 
-    selected = rank_and_summarize_fn(items=items, llm_api_key=llm_api_key, llm_model=llm_model, top_n=top_n)
-    selected = localize_items_to_chinese_fn(items=selected, llm_api_key=llm_api_key, llm_model=llm_model)
-    selected = enforce_titles_with_subject_fn(items=selected, llm_api_key=llm_api_key, llm_model=llm_model)
-    if not selected:
-        raise RuntimeError("无内容：模型筛选后最终条目数为 0")
+    if use_optimized_pipeline:
+        logger.info("使用优化管线：合并步骤 + 智能审核")
+        # 优化管线：一个步骤完成排名、摘要、本地化、质量检查
+        selected = intelligent_rank_and_summarize(items=items, llm_api_key=llm_api_key, llm_model=llm_model, top_n=top_n)
+        if not selected:
+            raise RuntimeError("无内容：智能筛选后最终条目数为 0")
 
-    # 多模型审核：交叉验证真实性
-    selected, review_stats = review_items_with_multi_model(items=selected, llm_api_key=llm_api_key)
-    if not selected:
-        raise RuntimeError("无内容：多模型审核后条目数为 0")
-    if review_stats.get("rejected", 0) > 0:
-        logger.info("多模型审核统计: %s", json.dumps(review_stats, ensure_ascii=False))
+        # 智能审核：低风险单模型，高风险多模型
+        selected, review_stats = intelligent_review_items(items=selected, llm_api_key=llm_api_key)
+        if not selected:
+            raise RuntimeError("无内容：智能审核后条目数为 0")
+        if review_stats.get("rejected", 0) > 0:
+            logger.info("智能审核统计: %s", json.dumps(review_stats, ensure_ascii=False))
 
-    check_category_balance_fn(selected)
-    draft_report_path = report_dir / "latest.draft.md"
-    markdown = render_markdown_fn(selected)
-    markdown = polish_markdown_with_llm_fn(
-        markdown=markdown,
-        llm_api_key=llm_api_key,
-        llm_model=llm_model,
-    )
-    draft_report_path.write_text(markdown, encoding="utf-8")
+        # 跳过最终润色（已在合并步骤中处理）
+        check_category_balance_fn(selected)
+        draft_report_path = report_dir / "latest.draft.md"
+        markdown = render_markdown_fn(selected)
+        draft_report_path.write_text(markdown, encoding="utf-8")
+    else:
+        logger.info("使用原始管线（向后兼容）")
+        # 原始管线（向后兼容）
+        selected = rank_and_summarize_fn(items=items, llm_api_key=llm_api_key, llm_model=llm_model, top_n=top_n)
+        selected = localize_items_to_chinese_fn(items=selected, llm_api_key=llm_api_key, llm_model=llm_model)
+        selected = enforce_titles_with_subject_fn(items=selected, llm_api_key=llm_api_key, llm_model=llm_model)
+        if not selected:
+            raise RuntimeError("无内容：模型筛选后最终条目数为 0")
+
+        # 多模型审核：交叉验证真实性
+        selected, review_stats = review_items_with_multi_model(items=selected, llm_api_key=llm_api_key)
+        if not selected:
+            raise RuntimeError("无内容：多模型审核后条目数为 0")
+        if review_stats.get("rejected", 0) > 0:
+            logger.info("多模型审核统计: %s", json.dumps(review_stats, ensure_ascii=False))
+
+        check_category_balance_fn(selected)
+        draft_report_path = report_dir / "latest.draft.md"
+        markdown = render_markdown_fn(selected)
+        markdown = polish_markdown_with_llm_fn(
+            markdown=markdown,
+            llm_api_key=llm_api_key,
+            llm_model=llm_model,
+        )
+        draft_report_path.write_text(markdown, encoding="utf-8")
 
     quality_gate_opened = False
     quality_code = run_quality_checks(

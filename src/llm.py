@@ -946,3 +946,265 @@ def review_items_with_multi_model(
     )
 
     return passed_items, stats
+
+
+def intelligent_rank_and_summarize(
+    items: list[NewsItem],
+    llm_api_key: str,
+    llm_model: str,
+    top_n: int = 20,
+) -> list[NewsItem]:
+    """合并版：智能筛选 + 排名 + 摘要 + 本地化 + 质量检查（替代原4个步骤）"""
+    client = OpenAI(api_key=llm_api_key, base_url=LLM_BASE_URL)
+
+    candidates: list[str] = []
+    for idx, item in enumerate(items, 1):
+        candidates.append(
+            (
+                f"{idx}. 标题: {item.title}\n"
+                f"链接: {item.link}\n"
+                f"内容: {item.summary[:350]}\n"
+                f"发布时间: {item.published}\n"
+            )
+        )
+
+    # Load prompt template from external file (使用新的合并提示)
+    prompt_data = load_prompt("intelligent_rank_and_summarize")
+    user_template = prompt_data["user_template"]
+    user_prompt = user_template.format(
+        top_n=top_n,
+        title_max=TITLE_MAX_CHARS,
+        brief_max=BRIEF_MAX_CHARS,
+        detail_max=DETAIL_MAX_CHARS,
+        impact_max=IMPACT_MAX_CHARS,
+        candidates="\n".join(candidates),
+    )
+
+    last_error: Exception | None = None
+    data: dict[str, Any] | None = None
+    for attempt in range(2):
+        if attempt == 0:
+            system_prompt = prompt_data["system"]
+        else:
+            system_prompt = (
+                "你是严谨的科技新闻编辑。"
+                "你上一次输出格式错误，这次必须仅输出一个合法JSON对象，不要输出任何说明文字。"
+            )
+
+        try:
+            raw = llm_chat(
+                client=client,
+                model=llm_model,
+                system_prompt=system_prompt,
+                user_prompt=user_prompt,
+                task_name="intelligent_rank_and_summarize",
+            )
+            data = extract_json(raw)
+            break
+        except ValueError as exc:
+            last_error = exc
+        except Exception as exc:
+            last_error = exc
+            logger.warning(
+                "intelligent_rank_and_summarize: LLM request failed on attempt %d: %s - %s",
+                attempt + 1,
+                type(exc).__name__,
+                str(exc)[:200],
+            )
+
+    if data is None:
+        logger.warning("intelligent_rank_and_summarize: 模型输出无法解析，使用 fallback。error=%s", last_error)
+        return fallback_selection(items=items, top_n=top_n)
+
+    selected: list[NewsItem] = []
+    used_item_ids: set[int] = set()
+    selected_fingerprints: set[str] = set()
+    rows = data.get("items", [])
+    if not isinstance(rows, list):
+        logger.warning("intelligent_rank_and_summarize: items 字段不是列表，使用 fallback。")
+        return fallback_selection(items=items, top_n=top_n)
+
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        try:
+            idx = int(row.get("id", 0))
+        except (TypeError, ValueError):
+            continue
+        if idx < 1 or idx > len(items):
+            continue
+        if idx in used_item_ids:
+            continue
+        source_item = items[idx - 1]
+        try:
+            score = int(row.get("score", 0))
+        except (TypeError, ValueError):
+            score = 0
+
+        title = pick_preferred_title(str(row.get("title", "")), source_item.title)
+        if title:
+            if title != clean_text(str(row.get("title", "")))[:TITLE_MAX_CHARS]:
+                logger.info("intelligent_rank_and_summarize: 标题疑似缺主语，回退为原始标题。")
+            title = build_subject_guaranteed_title(
+                title=title,
+                summary=source_item.summary,
+                link=source_item.link,
+            )
+
+        brief = clean_text(str(row.get("brief", "")))[:BRIEF_MAX_CHARS]
+        details = clean_text(str(row.get("details", "")))[:DETAIL_MAX_CHARS]
+        if not details:
+            details = clean_text(source_item.summary)[:DETAIL_MAX_CHARS]
+        if not details:
+            details = brief
+
+        impact = clean_text(str(row.get("impact", "")))[:IMPACT_MAX_CHARS]
+
+        result = NewsItem(
+            title=title,
+            link=source_item.link,
+            summary=source_item.summary,
+            published=source_item.published,
+            dedupe_link=source_item.dedupe_link,
+            score=str(score),
+            brief=brief,
+            details=details,
+            impact=impact,
+            key_points=[],
+        )
+
+        if not impact or "建议查看原文" in impact or "信息持续跟进" in impact:
+            result.impact = build_fallback_impact(result)
+
+        result.key_points = finalize_key_points(normalize_key_points(row.get("key_points")), result)
+
+        fingerprints = item_dedupe_fingerprints(result)
+        if fingerprints and selected_fingerprints.intersection(fingerprints):
+            continue
+        selected_fingerprints.update(fingerprints)
+        used_item_ids.add(idx)
+        selected.append(result)
+
+    selected.sort(key=lambda x: int(x.score), reverse=True)
+    if not selected:
+        logger.warning("intelligent_rank_and_summarize: 解析结果为空，使用 fallback。")
+        return fallback_selection(items=items, top_n=top_n)
+    selected = backfill_selected_items(selected=selected, items=items, top_n=top_n)
+    selected.sort(key=lambda x: int(x.score), reverse=True)
+    selected = selected[: min(top_n, len(items))]
+
+    return fix_items_detail(selected)
+
+
+def intelligent_review_items(
+    items: list[NewsItem],
+    llm_api_key: str,
+    high_risk_threshold: float = 0.3,
+) -> tuple[list[NewsItem], dict[str, int]]:
+    """智能审核：低风险内容单模型审核，高风险内容多模型审核（优化成本）"""
+    if not REVIEW_ENABLED:
+        logger.info("intelligent_review_items: 审核已禁用")
+        return items, {"disabled": len(items)}
+
+    if not items:
+        return items, {}
+
+    review_models = get_review_models()
+    if not review_models:
+        logger.warning("intelligent_review_items: 未配置审核模型，跳过审核")
+        return items, {"no_models": len(items)}
+
+    client = OpenAI(api_key=llm_api_key, base_url=LLM_BASE_URL)
+
+    passed_items: list[NewsItem] = []
+    stats: dict[str, int] = {
+        "total": len(items),
+        "passed": 0,
+        "rejected": 0,
+        "single_model_reviewed": 0,
+        "multi_model_reviewed": 0,
+    }
+
+    # 记录每个模型的审核统计
+    model_stats = {model: {"passed": 0, "rejected": 0} for model in review_models}
+
+    for item in items:
+        is_high_risk = is_high_risk_item(item)
+
+        if is_high_risk:
+            stats["multi_model_reviewed"] += 1
+            votes: list[bool] = []
+            item_issues: list[str] = []
+
+            for model in review_models:
+                result = review_item_with_model(client, model, item)
+                votes.append(result["passed"])
+                if not result["passed"]:
+                    model_stats[model]["rejected"] += 1
+                    if result.get("issues"):
+                        item_issues.extend([f"[{model}] {issue}" for issue in result["issues"]])
+                else:
+                    model_stats[model]["passed"] += 1
+
+            pass_count = sum(votes)
+            if pass_count >= REVIEW_PASS_THRESHOLD:
+                passed_items.append(item)
+                stats["passed"] += 1
+            else:
+                stats["rejected"] += 1
+                logger.info(
+                    "intelligent_review_items: 高风险条目被拒绝 - %s (通过 %d/%d, 需 %d)",
+                    item.title[:50],
+                    pass_count,
+                    len(votes),
+                    REVIEW_PASS_THRESHOLD,
+                )
+                if item_issues:
+                    logger.debug("review_issues: %s", "; ".join(item_issues[:3]))
+        else:
+            stats["single_model_reviewed"] += 1
+            result = review_item_with_model(client, review_models[0], item)
+
+            if result["passed"]:
+                passed_items.append(item)
+                stats["passed"] += 1
+                model_stats[review_models[0]]["passed"] += 1
+            else:
+                stats["rejected"] += 1
+                model_stats[review_models[0]]["rejected"] += 1
+                logger.info(
+                    "intelligent_review_items: 低风险条目被拒绝 - %s",
+                    item.title[:50],
+                )
+                if result.get("issues"):
+                    logger.debug("review_issues: %s", "; ".join(result["issues"][:3]))
+
+    for model, counts in model_stats.items():
+        stats[f"{model}_passed"] = counts["passed"]
+        stats[f"{model}_rejected"] = counts["rejected"]
+
+    logger.info(
+        "intelligent_review_items: 审核 %d 条，通过 %d 条，拒绝 %d 条 | "
+        "单模型审核 %d 条，多模型审核 %d 条",
+        stats["total"],
+        stats["passed"],
+        stats["rejected"],
+        stats["single_model_reviewed"],
+        stats["multi_model_reviewed"],
+    )
+
+    return passed_items, stats
+
+
+def is_high_risk_item(item: NewsItem) -> bool:
+    """判断条目是否为高风险内容（需多模型审核）"""
+    high_risk_keywords = [
+        "突破", "革命性", "秒杀", "颠覆", "全球首款", "1000倍", "99.9%",
+        "医疗", "金融", "国家安全", "军事", "核", "生物", "疫苗", "药品"
+    ]
+
+    combined_text = f"{item.title} {item.brief} {item.details} {item.impact}"
+    for keyword in high_risk_keywords:
+        if keyword in combined_text:
+            return True
+    return False
