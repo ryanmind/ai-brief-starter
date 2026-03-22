@@ -1,55 +1,41 @@
-> 更新时间：2026年03月22日12:06:21
+> 更新时间：2026年03月22日14:18:56
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. wrxck/agenttop 发布重要更新：⭐ 4 stars | TypeScript Real-time terminal。
-2. ComfyUI发布v0.18.1版本更新：ComfyUI v0.18.1。
+1. Anthropic Claude Code发布v2.1.79版本：Added `-console` flag to `claude auth logi。
 
 ## 分类速览
 
-=== "🤖 模型进展（0）"
-    - 暂无条目
+=== "🤖 模型进展（1）"
+    - **1. Anthropic Claude Code发布v2.1.79版本**：新版本增强了API认证功能和用户交互体验，修复的关键问题将提升Claude Code的稳定性和…
 
 === "🧪 论文研究（0）"
     - 暂无条目
 
-=== "🏢 产品与行业（2）"
-    - **1. wrxck/agenttop 发布重要更新**：为AI编程代理的监控和管理提供了可视化工具，帮助开发者更好地了解AI代理的工作状态和性能，提高…
-    - **2. ComfyUI发布v0.18.1版本更新**：提升了ComfyUI用户的使用体验，修复了已知问题，为AI图像生成工作流提供了更好的工具支持…
+=== "🏢 产品与行业（0）"
+    - 暂无条目
 
 ## 全部快讯
 
-??? info "1. wrxck/agenttop 发布重要更新"
-    **摘要**：⭐ 4 stars | TypeScript Real-time terminal dashboard for monitoring AI coding agent sessions-like htop for agents。
+??? info "1. Anthropic Claude Code发布v2.1.79版本"
+    **摘要**：Added `-console` flag to `claude auth login` for Anthropic Console API billing authentication-Added Show turn duration toggle to the `/config` menu-F。
 
     **关键点**
 
-    - 实时监控AI编程代理会话
-    - 类似htop的AI代理版本
-    - 使用TypeScript开发
+    - 新增-console标志用于API计费认证
+    - 添加显示回合时长切换功能
+    - 修复子进程调用挂起问题
 
-    **影响分析**：为AI编程代理的监控和管理提供了可视化工具，帮助开发者更好地了解AI代理的工作状态和性能，提高AI编程工作的可观察性和可控性。
+    **影响分析**：新版本增强了API认证功能和用户交互体验，修复的关键问题将提升Claude Code的稳定性和可用性，对开发者工作效率产生积极影响。
 
-    **来源**：[原文链接](https://github.com/wrxck/agenttop)
-
-??? info "2. ComfyUI发布v0.18.1版本更新"
-    **摘要**：ComfyUI v0.18.1。
-
-    **关键点**
-
-    - ComfyUI v0.18.1版本
-    - 基于节点的AI图像生成工具
-    - 包含功能改进和错误修复
-
-    **影响分析**：提升了ComfyUI用户的使用体验，修复了已知问题，为AI图像生成工作流提供了更好的工具支持，推动了AI创意工具的发展。
-
-    **来源**：[原文链接](https://github.com/Comfy-Org/ComfyUI/releases/tag/v0.18.1)
+    **来源**：[原文链接](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md)
 
 ---
 
 ## 历史归档
 
+- [2026-03-22_14-18-56](history/2026-03-22_14-18-56.md)
 - [2026-03-22_12-06-21](history/2026-03-22_12-06-21.md)
 - [2026-03-22_09-47-09](history/2026-03-22_09-47-09.md)
 - [2026-03-21_19-54-08](history/2026-03-21_19-54-08.md)
