@@ -3,3 +3,4 @@ openai>=1.51.0,<2.0.0
 feedparser>=6.0.11,<7.0.0
 python-dateutil>=2.9.0.post0,<3.0.0
 requests>=2.31,<3
+pyyaml>=6.0,<7.0
