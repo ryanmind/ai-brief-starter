@@ -174,6 +174,7 @@ enforce_titles_with_subject = llm_module.enforce_titles_with_subject
 classify_ai_topic_items_with_llm = llm_module.classify_ai_topic_items_with_llm
 polish_markdown_with_llm = llm_module.polish_markdown_with_llm
 review_items_with_multi_model = llm_module.review_items_with_multi_model
+dedupe_selected_items = llm_module.dedupe_selected_items
 intelligent_rank_and_summarize = llm_module.intelligent_rank_and_summarize
 intelligent_review_items = llm_module.intelligent_review_items
 
@@ -192,6 +193,7 @@ _LEGACY_PIPELINE_FUNCTIONS = {
     "rank_and_summarize": rank_and_summarize,
     "localize_items_to_chinese": localize_items_to_chinese,
     "enforce_titles_with_subject": enforce_titles_with_subject,
+    "dedupe_selected_items": dedupe_selected_items,
     "check_category_balance": check_category_balance,
     "render_markdown": render_markdown,
     "polish_markdown_with_llm": polish_markdown_with_llm,
@@ -256,6 +258,10 @@ def main() -> None:
     enforce_titles_with_subject_fn = _resolve_pipeline_callable(
         "enforce_titles_with_subject",
         llm_module.enforce_titles_with_subject,
+    )
+    dedupe_selected_items_fn = _resolve_pipeline_callable(
+        "dedupe_selected_items",
+        llm_module.dedupe_selected_items,
     )
     check_category_balance_fn = _resolve_pipeline_callable(
         "check_category_balance",
@@ -339,6 +345,10 @@ def main() -> None:
         if review_stats.get("rejected", 0) > 0:
             logger.info("智能审核统计: %s", json.dumps(review_stats, ensure_ascii=False))
 
+        selected = dedupe_selected_items_fn(items=selected, llm_api_key=llm_api_key, llm_model=llm_model)
+        if not selected:
+            raise RuntimeError("无内容：重复资讯去重后条目数为 0")
+
         # 跳过最终润色（已在合并步骤中处理）
         check_category_balance_fn(selected)
         draft_report_path = report_dir / "latest.draft.md"
@@ -359,6 +369,10 @@ def main() -> None:
             raise RuntimeError("无内容：多模型审核后条目数为 0")
         if review_stats.get("rejected", 0) > 0:
             logger.info("多模型审核统计: %s", json.dumps(review_stats, ensure_ascii=False))
+
+        selected = dedupe_selected_items_fn(items=selected, llm_api_key=llm_api_key, llm_model=llm_model)
+        if not selected:
+            raise RuntimeError("无内容：重复资讯去重后条目数为 0")
 
         check_category_balance_fn(selected)
         draft_report_path = report_dir / "latest.draft.md"

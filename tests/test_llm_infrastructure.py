@@ -103,7 +103,7 @@ def test_load_prompt_caching():
 
 
 def test_load_prompt_all_existing_prompts():
-    """Test that all six prompt templates can be loaded successfully."""
+    """Test that all prompt templates can be loaded successfully."""
     prompt_names = [
         "rank_and_summarize",
         "localize_items_to_chinese",
@@ -111,6 +111,7 @@ def test_load_prompt_all_existing_prompts():
         "classify_ai_topic",
         "polish_markdown",
         "review_item",
+        "dedupe_selected_items",
     ]
 
     for name in prompt_names:
@@ -146,6 +147,10 @@ def test_prompt_templates_have_correct_placeholders():
     assert "{impact}" in data["user_template"]
     assert "{link}" in data["user_template"]
 
+    # dedupe_selected_items
+    data = load_prompt("dedupe_selected_items")
+    assert "{payload_json}" in data["user_template"]
+
 
 def test_prompt_output_requirements_are_correct():
     """Test that prompts specify JSON output requirements."""
@@ -156,6 +161,7 @@ def test_prompt_output_requirements_are_correct():
         "enforce_titles_with_subject",
         "classify_ai_topic",
         "review_item",
+        "dedupe_selected_items",
     ]
 
     for name in json_prompts:
@@ -178,6 +184,7 @@ def test_prompt_output_requirements_are_correct():
         "classify_ai_topic",
         "polish_markdown",
         "review_item",
+        "dedupe_selected_items",
     ],
 )
 def test_prompt_no_trailing_newline_issues(task_name):

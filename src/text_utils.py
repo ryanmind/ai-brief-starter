@@ -15,6 +15,7 @@ from dateutil import parser as dtparser
 
 from src.config import (
     BRIEF_MAX_CHARS,
+    CONTENT_DEDUPE_MIN_CHARS,
     DETAIL_MAX_CHARS,
     DETAIL_MIN_CHARS,
     FACT_OVERLAP_MIN,
@@ -665,6 +666,53 @@ def item_dedupe_fingerprints(item: "NewsItem | dict[str, str]") -> set[str]:
     if title_key:
         fingerprints.add(f"t:{title_key}")
     return fingerprints
+
+
+def selected_item_content_fingerprints(item: "NewsItem | dict[str, Any]") -> set[str]:
+    fingerprints: set[str] = set()
+    if isinstance(item, dict):
+        title = str(item.get("title", ""))
+        brief = str(item.get("brief", ""))
+        key_points_raw = item.get("key_points", [])
+    else:
+        title = item.title
+        brief = item.brief
+        key_points_raw = item.key_points
+
+    title_key = normalize_title_for_dedupe(title)
+    brief_key = normalize_for_compare(brief)
+    if brief_key and len(brief_key) >= CONTENT_DEDUPE_MIN_CHARS:
+        fingerprints.add(f"b:{brief_key}")
+        if title_key:
+            fingerprints.add(f"tb:{title_key}|{brief_key}")
+
+    for point in normalize_key_points(key_points_raw)[:KEY_POINTS_MAX_COUNT]:
+        point_key = normalize_for_compare(point)
+        if point_key and len(point_key) >= CONTENT_DEDUPE_MIN_CHARS:
+            fingerprints.add(f"k:{point_key}")
+
+    return fingerprints
+
+
+def items_look_duplicate(item_a: "NewsItem | dict[str, Any]", item_b: "NewsItem | dict[str, Any]") -> bool:
+    hard_overlap = item_dedupe_fingerprints(item_a).intersection(item_dedupe_fingerprints(item_b))
+    if hard_overlap:
+        return True
+
+    content_overlap = selected_item_content_fingerprints(item_a).intersection(
+        selected_item_content_fingerprints(item_b)
+    )
+    if not content_overlap:
+        return False
+
+    if any(fingerprint.startswith("tb:") for fingerprint in content_overlap):
+        return True
+
+    soft_overlap = [
+        fingerprint for fingerprint in content_overlap
+        if fingerprint.startswith("b:") or fingerprint.startswith("k:")
+    ]
+    return len(soft_overlap) >= 2
 
 
 def source_bucket_key(link: str) -> str:

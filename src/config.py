@@ -48,6 +48,7 @@ KEY_POINTS_MAX_COUNT = 3
 KEY_POINTS_MIN_COUNT = 2
 KEY_POINT_MAX_CHARS = 28
 KEY_POINT_MIN_CHARS = 4
+CONTENT_DEDUPE_MIN_CHARS = int_env("CONTENT_DEDUPE_MIN_CHARS", 18, min_value=8, max_value=80)
 
 # ---- Fact-check settings ----
 

@@ -23,6 +23,7 @@ spec.loader.exec_module(src_llm)
 llm_chat = src_llm.llm_chat
 review_item_with_model = src_llm.review_item_with_model
 review_items_with_multi_model = src_llm.review_items_with_multi_model
+dedupe_selected_items = src_llm.dedupe_selected_items
 
 
 def test_llm_chat_primary_model_success(monkeypatch):
@@ -304,3 +305,104 @@ def test_review_items_with_multi_model_voting_below_threshold(monkeypatch):
     assert len(passed) == 0
     assert stats["passed"] == 0
     assert stats["rejected"] == 1
+
+
+def test_dedupe_selected_items_removes_llm_confirmed_duplicates(monkeypatch):
+    monkeypatch.setattr(
+        src_llm,
+        "llm_chat",
+        lambda **kwargs: json.dumps(
+            {
+                "duplicates": [
+                    {"keep_id": 1, "drop_ids": [2], "reason": "同一版本更新"}
+                ]
+            },
+            ensure_ascii=False,
+        ),
+    )
+
+    items = [
+        NewsItem(
+            title="Anthropic Claude Code v2.1.81版本更新",
+            link="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
+            summary="Anthropic 更新 Claude Code。",
+            published="2026-03-21",
+            brief="Anthropic 发布 Claude Code v2.1.81，新增持久代理与会话恢复。",
+            details="本次更新加入持久代理与会话恢复。",
+            impact="有助于提升长流程编码稳定性。",
+            key_points=["Claude Code v2.1.81 已发布。", "更新包含持久代理与会话恢复。"],
+            score="100",
+        ),
+        NewsItem(
+            title="Claude Code 2.1.81 更新发布",
+            link="https://github.com/anthropics/claude-code/releases/tag/v2.1.81",
+            summary="Claude Code 发布新版本。",
+            published="2026-03-21",
+            brief="Anthropic 发布 Claude Code v2.1.81，新增持久代理与会话恢复。",
+            details="发布说明同样提到持久代理与会话恢复。",
+            impact="有助于提升长流程编码稳定性。",
+            key_points=["Claude Code v2.1.81 已发布。", "更新包含持久代理与会话恢复。"],
+            score="95",
+        ),
+        NewsItem(
+            title="OpenAI 发布 Responses API 新能力",
+            link="https://openai.com/index/new-api",
+            summary="OpenAI 发布 API 更新。",
+            published="2026-03-21",
+            brief="OpenAI 扩展 Responses API，支持新的工具调用能力。",
+            details="更新涵盖新的工具调用能力。",
+            impact="有助于开发者构建更复杂的 agent 工作流。",
+            key_points=["Responses API 已扩展。", "新增工具调用能力。"],
+            score="90",
+        ),
+    ]
+
+    deduped = dedupe_selected_items(items=items, llm_api_key="test-key", llm_model="test-model")
+
+    assert len(deduped) == 2
+    assert deduped[0].title == items[0].title
+    assert deduped[1].title == items[2].title
+
+
+def test_dedupe_selected_items_ignores_unvalidated_drop(monkeypatch):
+    monkeypatch.setattr(
+        src_llm,
+        "llm_chat",
+        lambda **kwargs: json.dumps(
+            {
+                "duplicates": [
+                    {"keep_id": 1, "drop_ids": [2], "reason": "模型误判"}
+                ]
+            },
+            ensure_ascii=False,
+        ),
+    )
+
+    items = [
+        NewsItem(
+            title="OpenAI 发布 Responses API 更新",
+            link="https://openai.com/index/responses",
+            summary="OpenAI 发布 API 更新。",
+            published="2026-03-21",
+            brief="OpenAI 扩展 Responses API，支持新的工具调用能力。",
+            details="更新涵盖新的工具调用能力。",
+            impact="有助于开发者构建更复杂的 agent 工作流。",
+            key_points=["Responses API 已扩展。", "新增工具调用能力。"],
+            score="100",
+        ),
+        NewsItem(
+            title="Anthropic 推出 Claude Code 新能力",
+            link="https://www.anthropic.com/news/claude-code",
+            summary="Anthropic 推出产品更新。",
+            published="2026-03-21",
+            brief="Anthropic 为 Claude Code 增加新的代理编排能力。",
+            details="更新聚焦代理编排能力。",
+            impact="有助于提升复杂开发任务自动化程度。",
+            key_points=["Claude Code 获得新能力。", "更新聚焦代理编排。"],
+            score="95",
+        ),
+    ]
+
+    deduped = dedupe_selected_items(items=items, llm_api_key="test-key", llm_model="test-model")
+
+    assert len(deduped) == 2

@@ -41,6 +41,7 @@ from src.text_utils import (
     finalize_key_points,
     fix_items_detail,
     is_placeholder_text,
+    items_look_duplicate,
     item_dedupe_fingerprints,
     normalize_key_points,
     pick_preferred_title,
@@ -946,6 +947,100 @@ def review_items_with_multi_model(
     )
 
     return passed_items, stats
+
+
+def dedupe_selected_items(
+    items: list[NewsItem],
+    llm_api_key: str,
+    llm_model: str,
+) -> list[NewsItem]:
+    """Use the LLM to remove clearly duplicated selected news items conservatively."""
+    if len(items) <= 1:
+        return items
+
+    client = OpenAI(api_key=llm_api_key, base_url=LLM_BASE_URL)
+    payload = [
+        {
+            "id": idx + 1,
+            "score": item.score,
+            "title": item.title,
+            "brief": item.brief,
+            "details": item.details,
+            "impact": item.impact,
+            "key_points": item.key_points[:KEY_POINTS_MAX_COUNT],
+            "source_link": item.link,
+        }
+        for idx, item in enumerate(items)
+    ]
+
+    prompt_data = load_prompt("dedupe_selected_items")
+    user_prompt = prompt_data["user_template"].format(payload_json=json.dumps(payload, ensure_ascii=False))
+
+    try:
+        raw = llm_chat(
+            client=client,
+            model=llm_model,
+            system_prompt=prompt_data["system"],
+            user_prompt=user_prompt,
+            task_name="dedupe_selected_items",
+        )
+        data = extract_json(raw)
+    except Exception as exc:
+        logger.warning(
+            "dedupe_selected_items: 去重审查失败，保留原列表。error=%s - %s",
+            type(exc).__name__,
+            str(exc)[:200],
+        )
+        return items
+
+    rows = data.get("duplicates", [])
+    if not isinstance(rows, list):
+        return items
+
+    kept_ids: set[int] = set(range(1, len(items) + 1))
+    removed_ids: set[int] = set()
+
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        try:
+            keep_id = int(row.get("keep_id", 0))
+        except (TypeError, ValueError):
+            continue
+        if keep_id < 1 or keep_id > len(items):
+            continue
+
+        drop_ids = row.get("drop_ids", [])
+        if not isinstance(drop_ids, list):
+            continue
+
+        keeper = items[keep_id - 1]
+        for raw_drop_id in drop_ids:
+            try:
+                drop_id = int(raw_drop_id)
+            except (TypeError, ValueError):
+                continue
+            if drop_id == keep_id or drop_id < 1 or drop_id > len(items) or drop_id in removed_ids:
+                continue
+
+            candidate = items[drop_id - 1]
+            if not items_look_duplicate(keeper, candidate):
+                logger.info(
+                    "dedupe_selected_items: 忽略未通过校验的删除建议 keep=%s drop=%s",
+                    keep_id,
+                    drop_id,
+                )
+                continue
+
+            kept_ids.discard(drop_id)
+            removed_ids.add(drop_id)
+
+    if not removed_ids:
+        return items
+
+    deduped = [item for idx, item in enumerate(items, 1) if idx in kept_ids]
+    logger.info("dedupe_selected_items: 移除了 %d 条重复资讯", len(items) - len(deduped))
+    return deduped
 
 
 def intelligent_rank_and_summarize(
