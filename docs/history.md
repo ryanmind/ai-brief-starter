@@ -1,69 +1,41 @@
-> 更新时间：2026年03月22日17:59:33
+> 更新时间：2026年03月22日19:52:10
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. Anthropic Claude Code发布v2.1.79版本更新：Added `-console` flag to `claude auth logi。
-2. wrxck/agenttop 发布重要更新：⭐ 5 stars | TypeScript Real-time terminal。
-3. ComfyUI发布v0.18.1版本更新：ComfyUI发布v0.18.1版本，该版本是流行的AI图像生成工作流工具的更新。
+1. 0xSero/moe-compress 发布重要更新：⭐ 4 stars | Python Model-agnostic MoE comp。
 
 ## 分类速览
 
-=== "🤖 模型进展（1）"
-    - **1. Anthropic Claude Code发布v2.1.79版本更新**：API计费认证功能的改进将提升开发者使用体验，时长显示功能有助于性能监控。多个bug修复提升了…
+=== "🤖 模型进展（0）"
+    - 暂无条目
 
 === "🧪 论文研究（0）"
     - 暂无条目
 
-=== "🏢 产品与行业（2）"
-    - **2. wrxck/agenttop 发布重要更新**：AI代理监控工具的出现将提升AI辅助开发的可观察性，帮助开发者更好地管理和优化AI代理的使用…
-    - **3. ComfyUI发布v0.18.1版本更新**：ComfyUI的更新将影响AI图像生成社区的用户体验，可能带来新的创作可能性。作为重要的AI图…
+=== "🏢 产品与行业（1）"
+    - **1. 0xSero/moe-compress 发布重要更新**：MoE模型压缩自动化工具对大模型部署和优化具有重要意义，有助于降低模型计算和存储成本
 
 ## 全部快讯
 
-??? info "1. Anthropic Claude Code发布v2.1.79版本更新"
-    **摘要**：Added `-console` flag to `claude auth login` for Anthropic Console API billing authentication-Added Show turn duration toggle to the `/config` menu-F。
+??? info "1. 0xSero/moe-compress 发布重要更新"
+    **摘要**：⭐ 4 stars | Python Model-agnostic MoE compression automation:build calibration bundles,run REAP/quantization/benchmark/publish stages,and render auditable re。
 
     **关键点**
 
-    - 新增-console标志用于API计费认证
-    - 添加显示回合时长切换功能
-    - 修复子进程挂起问题
+    - Python编写
+    - 支持REAP/量化/基准测试
+    - 生成可审计报告
 
-    **影响分析**：API计费认证功能的改进将提升开发者使用体验，时长显示功能有助于性能监控。多个bug修复提升了工具的稳定性和可用性，对开发者工作效率有积极影响。
+    **影响分析**：MoE模型压缩自动化工具对大模型部署和优化具有重要意义，有助于降低模型计算和存储成本。
 
-    **来源**：[原文链接](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md)
-
-??? info "2. wrxck/agenttop 发布重要更新"
-    **摘要**：⭐ 5 stars | TypeScript Real-time terminal dashboard for monitoring AI coding agent sessions-like htop for agents。
-
-    **关键点**
-
-    - 实时终端仪表板监控AI编码代理
-    - 功能类似htop系统监控工具
-    - TypeScript开发
-
-    **影响分析**：AI代理监控工具的出现将提升AI辅助开发的可观察性，帮助开发者更好地管理和优化AI代理的使用。这类监控工具对于大规模AI代理部署具有重要意义。
-
-    **来源**：[原文链接](https://github.com/wrxck/agenttop)
-
-??? info "3. ComfyUI发布v0.18.1版本更新"
-    **摘要**：ComfyUI发布v0.18.1版本，该版本是流行的AI图像生成工作流工具的更新。
-
-    **关键点**
-
-    - ComfyUI v0.18.1版本更新
-    - AI图像生成工作流工具
-    - 基于节点的可视化工作流
-
-    **影响分析**：ComfyUI的更新将影响AI图像生成社区的用户体验，可能带来新的创作可能性。作为重要的AI图像生成工具，其更新对创意工作者和AI研究者具有重要意义。
-
-    **来源**：[原文链接](https://github.com/Comfy-Org/ComfyUI/releases/tag/v0.18.1)
+    **来源**：[原文链接](https://github.com/0xSero/moe-compress)
 
 ---
 
 ## 历史归档
 
+- [2026-03-22_19-52-10](history/2026-03-22_19-52-10.md)
 - [2026-03-22_17-59-33](history/2026-03-22_17-59-33.md)
 - [2026-03-22_16-01-39](history/2026-03-22_16-01-39.md)
 - [2026-03-22_14-18-56](history/2026-03-22_14-18-56.md)
