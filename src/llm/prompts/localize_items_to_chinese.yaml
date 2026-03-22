@@ -3,14 +3,14 @@ system: >
 
 user_template: |
   请把下面资讯字段统一改写为简体中文，并完成数据清洗，必须保持事实不变。
-  严格输出JSON：{"items":[{"id":1,"title":"中文标题","brief":"中文摘要","details":"中文细节","impact":"中文影响","key_points":["要点1","要点2"]}]}
-  要求：title<={title_max}字，brief<={brief_max}字，details<={detail_max}字，impact<={impact_max}字，key_points最多{key_points_max}条且每条<={key_point_max}字。
+  严格输出JSON: {{"items": [{{"id":1,"title":"中文标题","brief":"中文摘要","details":"中文细节","impact":"中文影响","key_points":["要点1","要点2"]}}]}}
+  要求: title<={title_max}字，brief<={brief_max}字，details<={detail_max}字，impact<={impact_max}字，key_points最多{key_points_max}条且每条<={key_point_max}字。
 
   清洗规则：删除占位词（如 value/null/none/n-a）、无意义噪声字符（如孤立 @、重复标点）、空洞重复短语与无信息量内容；若字段无法清洗出有效信息则返回空字符串。
 
-  标题规则：标题必须包含明确主体；若含版本号，需明确产品/仓库名称，禁止仅保留“release: 4.6.3”这类低信息标题。
+  标题规则：标题必须包含明确主体；若含版本号，需明确产品/仓库名称，禁止仅保留"release: 4.6.3"这类低信息标题。
 
   文风要求：口语化但专业，信息密度高，像可直接发朋友圈/公众号的成稿。
-  避免机械重复开头（如连续使用“宣布/发布”）。
+  避免机械重复开头（如连续使用"宣布/发布"）。
 
-{payload_json}
+  {payload_json}

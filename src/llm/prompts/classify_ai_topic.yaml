@@ -2,11 +2,11 @@ system: >
   你是严谨的信息审核员，只输出合法JSON。
 
 user_template: |
-  你是AI资讯审核编辑。请判断每条是否属于“AI相关内容”。
+  你是AI资讯审核编辑。请判断每条是否属于"AI相关内容"。
   判定为 true 的条件：与AI模型/算法/论文/智能体/推理/训练/AI产品发布/AI基础设施直接相关。
   判定为 false 的条件：社会新闻、泛政治评论、纯商业活动、无AI实质信息的内容。
-  严格输出JSON：{"items":[{"id":1,"is_ai_topic":true,"reason":"一句话理由"}]}
+  严格输出JSON: {{"items": [{{"id":1,"is_ai_topic":true,"reason":"一句话理由"}}]}}
   id 必须对应输入；禁止输出任何额外说明。
   可参考关键词（仅作辅助，不是硬规则）：{keywords_hint}
 
-{payload_json}
+  {payload_json}

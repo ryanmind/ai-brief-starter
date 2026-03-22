@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 import main
 from main import polish_result_is_safe
 
@@ -95,7 +96,16 @@ def test_polish_markdown_with_llm_rejects_unsafe_output(monkeypatch):
 
 
 def test_polish_markdown_with_llm_accepts_safe_output(monkeypatch):
-    from src import llm as llm_module
+    # src/llm.py is the actual module containing polish_markdown_with_llm, src.llm is the package
+    import importlib.util
+    import sys
+    spec = importlib.util.spec_from_file_location(
+        "src_llm_py",
+        os.path.join(os.path.dirname(__file__), "..", "src", "llm.py")
+    )
+    src_llm_py = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(src_llm_py)
+
     monkeypatch.setenv("FINAL_POLISH_ENABLED", "1")
     original = """## 📰 AI 快讯 · 2026年03月03日12:00:00
 
@@ -117,9 +127,11 @@ def test_polish_markdown_with_llm_accepts_safe_output(monkeypatch):
 **影响分析**：影响句子，更清晰。
 **来源**：[原文链接](https://example.com/a)
 """
-    monkeypatch.setattr(llm_module, "llm_chat", lambda **kwargs: f"```markdown\n{safe_polished}\n```")
+    # Monkeypatch the actual module that polish_markdown_with_llm uses
+    monkeypatch.setattr(src_llm_py, "llm_chat", lambda **kwargs: f"```markdown\n{safe_polished}\n```")
 
-    result = main.polish_markdown_with_llm(
+    # main.polish_markdown_with_llm is just a reference anyway, get it from the actual module
+    result = src_llm_py.polish_markdown_with_llm(
         markdown=original,
         llm_api_key="test-key",
         llm_model="qwen3-coder-plus",

@@ -17,7 +17,7 @@ user_template: |
   4. **价值性**：摘要是否解释了内容含义而非简单翻译？是否有信息价值？
 
   请输出 JSON 格式：
-  {"passed": true/false, "reason": "原因说明", "issues": ["具体问题1", "具体问题2"]}
+  {{"passed": true/false, "reason": "原因说明", "issues": ["具体问题1", "具体问题2"]}}
 
   注意：
   - passed 为 true 表示该条资讯可以发布
