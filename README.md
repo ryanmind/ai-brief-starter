@@ -1,74 +1,82 @@
 # AI Brief Starter
 
-AI 资讯自动早报生成器 —— 每天 07:30 自动生成 AI 行业早报，推送至飞书。
+自动抓取一手 AI 资讯，生成中文早报，并同步到文档站与通知渠道。
 
-📚 **[在线文档](https://ryanmind.github.io/ai-brief-starter/)**
+- 在线文档：https://ryanmind.github.io/ai-brief-starter/
+- 默认工作流：`ai-morning-brief`（`.github/workflows/daily.yml`）
+- 调度频率：北京时间 **07:30–21:30 每两小时一次**
+
+## 功能概览
+
+- 抓取官方 RSS / GitHub / X 信源
+- 过滤非一手内容与非 AI 主题内容
+- LLM 排名、摘要、中文化、标题补全
+- 多模型审核 + 跨天去重 + 同事件去重
+- 生成 `reports/latest.md`
+- 自动同步 `docs/latest.md` 与 `docs/history/`
+- 支持飞书 / 微信通知
 
 ## 快速开始
 
-1. 配置 GitHub Actions Secrets
-   - 必需：`IFLOW_API_KEY`
-   - 推送通知（二选一或同时配置）：
-     - 飞书：`FEISHU_WEBHOOK_URL`、`FEISHU_APP_ID`、`FEISHU_APP_SECRET`
-     - 微信：`SERVERCHAN_SENDKEY`
-2. 推送代码到 GitHub（建议 private 仓库）
-3. 在 Actions 里手动运行 `ai-morning-brief`
-4. 在飞书或微信查看通知，或在 Actions 下载 `ai-brief-reports` artifact
+### 本地运行
 
-## 微信推送配置（Server酱）
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt -r requirements-dev.txt
+export IFLOW_API_KEY=your_key
+python main.py
+```
 
-每天早报生成后自动推送到微信，方便转发朋友圈/小红书。
+运行后主要产物：
 
-### 获取 SendKey
+- `reports/latest.md`：最新早报
+- `reports/YYYY-MM-DD.md`：归档报告
+- `reports/quality_metrics.json`：质检结果
 
-1. 访问 https://sct.ftqq.com/
-2. 微信扫码登录
-3. 复制你的 **SendKey**
+### GitHub Actions
 
-### 配置 GitHub Secret
+必需 Secret：
 
-在仓库 `Settings` → `Secrets and variables` → `Actions` 添加：
+- `IFLOW_API_KEY`
 
-| Secret 名称 | 值 |
-|------------|-----|
-| `SERVERCHAN_SENDKEY` | 你的 SendKey |
+可选 Secret：
 
-配置后，每天早报生成完成会收到微信消息，可直接复制转发。
+- 飞书：`FEISHU_WEBHOOK_URL`、`FEISHU_BOT_SECRET`、`FEISHU_APP_ID`、`FEISHU_APP_SECRET`
+- 微信：`SERVERCHAN_SENDKEY`
+- X 回退抓取：`TWITTERAPI_IO_KEY`
 
-## 配置 IFLOW_API_KEY（6步）
+首次使用建议确认：
 
-1. 打开你的 GitHub 仓库页面。
-2. 进入 `Settings`。
-3. 左侧点击 `Secrets and variables` -> `Actions`。
-4. 点击 `New repository secret`。
-5. `Name` 填写 `IFLOW_API_KEY`。
-6. `Secret` 填入 iFlow API Key，点击 `Add secret`。
+- 默认分支设置正确
+- Actions 具有 `contents: write`
+- 在 Actions 手动运行一次 `ai-morning-brief`
 
-## 首次运行检查（避免常见坑）
+## 常用命令
 
-- 仓库默认分支要和你实际使用的分支一致（当前示例为 `master`），`schedule` 只会在默认分支触发。
-- 工作流会回写 `docs/latest.md`、`docs/history/**`，并提交最新的 `reports/*.md` 产物，因此 `ai-morning-brief` 需要 `contents: write`。
-- 必须配置 `IFLOW_API_KEY`，未配置会在工作流里直接报错并停止。
+```bash
+python -m pytest tests/ -v
+python scripts/report_quality_check.py reports/latest.md --autofix
+python scripts/source_health_check.py --output reports/source_health.md
+mkdocs serve
+mkdocs build --strict
+```
 
-## 目录
+## 项目结构
 
-- `main.py`：采集 + 摘要 + 生成早报
-- `sources.txt`：RSS 来源
-- `scripts/`：辅助脚本（飞书通知、质量检查、源健康检查）
-- `src/config.py`：配置常量
-- `tests/`：单元测试
-- `reports/`：运行时产物目录（CI 会提交最新 `latest.md` 与按日期归档报告）
-- `docs/`：MkDocs 文档源文件
-- `mkdocs.yml`：MkDocs 配置文件
-- `PRD.md`：需求文档
-- `TEMPLATE.md`：早报模板标准文件
+```text
+main.py                 主流程入口
+src/                    采集、过滤、LLM、报告逻辑
+scripts/                质检、通知、文档同步等脚本
+tests/                  pytest 测试
+reports/                运行产物
+docs/                   MkDocs 文档源文件
+.github/workflows/      自动化工作流
+```
 
-## 文档站点
+## 更多文档
 
-本项目使用 MkDocs + GitHub Pages 托管文档：
-
-- **在线文档**：https://ryanmind.github.io/ai-brief-starter/
-- **源文件**：`docs/` 目录
-- **本地预览**：`mkdocs serve`
-
-详见 `docs/mkdocs-tutorial.md` 搭建教程。
+- 快速开始：`docs/quick-start.md`
+- 配置说明：`docs/configuration.md`
+- 信源维护：`docs/sources.md`
+- MkDocs 发布：`docs/mkdocs-tutorial.md`
