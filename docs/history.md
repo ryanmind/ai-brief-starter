@@ -1,40 +1,41 @@
-> 更新时间：2026年03月23日20:09:44
+> 更新时间：2026年03月23日22:46:53
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. elevenlabs/elevenlabs-js 发布 v2.40 版本更新：ElevenLabs JavaScript SDK v2.40.0版本增加多模态消息。
+1. QwenLM/qwen-code v0.0.14：新增任务规划模式支持：Qwen Code v0.0.14版本新增任务规划模式支持。
 
 ## 分类速览
 
-=== "🤖 模型进展（0）"
-    - 暂无条目
+=== "🤖 模型进展（1）"
+    - **1. QwenLM/qwen-code v0.0.14：新增任务规划模式支持**：提升了Qwen Code的规划能力和视觉处理能力，增强了AI编程代理的任务处理效率
 
 === "🧪 论文研究（0）"
     - 暂无条目
 
-=== "🏢 产品与行业（1）"
-    - **1. elevenlabs/elevenlabs-js 发布 v2.40 版本更新**：增强ElevenLabs SDK的多模态通信能力，支持更丰富的交互体验
+=== "🏢 产品与行业（0）"
+    - 暂无条目
 
 ## 全部快讯
 
-??? info "1. elevenlabs/elevenlabs-js 发布 v2.40 版本更新"
-    **摘要**：ElevenLabs JavaScript SDK v2.40.0版本增加多模态消息WebSocket事件支持。
+??? info "1. QwenLM/qwen-code v0.0.14：新增任务规划模式支持"
+    **摘要**：Qwen Code v0.0.14版本新增任务规划模式支持，修复编辑校正器问题，增强Qwen3-VL-Plus支持。
 
     **关键点**
 
-    - 增加multimodal_message WebSock
-    - 版本号v2.40.0
-    - sedatcagdas首次贡献
+    - 新增任务规划模式支持
+    - 修复编辑校正器问题
+    - Qwen3-VL-Plus支持256K输入32K输出
 
-    **影响分析**：增强ElevenLabs SDK的多模态通信能力，支持更丰富的交互体验。
+    **影响分析**：提升了Qwen Code的规划能力和视觉处理能力，增强了AI编程代理的任务处理效率。
 
-    **来源**：[原文链接](https://github.com/elevenlabs/elevenlabs-js/releases/tag/v2.40.0)
+    **来源**：[原文链接](https://github.com/QwenLM/qwen-code/blob/main/CHANGELOG.md)
 
 ---
 
 ## 历史归档
 
+- [2026-03-23_22-46-53](history/2026-03-23_22-46-53.md)
 - [2026-03-23_20-09-44](history/2026-03-23_20-09-44.md)
 - [2026-03-23_13-29-33](history/2026-03-23_13-29-33.md)
 - [2026-03-23_11-51-03](history/2026-03-23_11-51-03.md)
