@@ -1,9 +1,9 @@
-> 更新时间：2026年03月23日13:29:33
+> 更新时间：2026年03月23日20:09:44
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. Archivist-MCP发布本地优先编码代理记忆服务器：Archivist MCP是一个为编码代理设计的本地优先记忆服务器。
+1. elevenlabs/elevenlabs-js 发布 v2.40 版本更新：ElevenLabs JavaScript SDK v2.40.0版本增加多模态消息。
 
 ## 分类速览
 
@@ -14,27 +14,28 @@
     - 暂无条目
 
 === "🏢 产品与行业（1）"
-    - **1. Archivist-MCP发布本地优先编码代理记忆服务器**：该工具解决了AI编码代理在多会话间保持上下文连续性的挑战，有助于提升编码代理的长期任务执行能力…
+    - **1. elevenlabs/elevenlabs-js 发布 v2.40 版本更新**：增强ElevenLabs SDK的多模态通信能力，支持更丰富的交互体验
 
 ## 全部快讯
 
-??? info "1. Archivist-MCP发布本地优先编码代理记忆服务器"
-    **摘要**：Archivist MCP是一个为编码代理设计的本地优先记忆服务器，使用SQLite持久化存储决策和关系，并通过MCP协议和WebUI提供服务。
+??? info "1. elevenlabs/elevenlabs-js 发布 v2.40 版本更新"
+    **摘要**：ElevenLabs JavaScript SDK v2.40.0版本增加多模态消息WebSocket事件支持。
 
     **关键点**
 
-    - 本地优先记忆服务器
-    - SQLite持久化存储
-    - 支持MCP协议和WebUI
+    - 增加multimodal_message WebSock
+    - 版本号v2.40.0
+    - sedatcagdas首次贡献
 
-    **影响分析**：该工具解决了AI编码代理在多会话间保持上下文连续性的挑战，有助于提升编码代理的长期任务执行能力和协作效率。
+    **影响分析**：增强ElevenLabs SDK的多模态通信能力，支持更丰富的交互体验。
 
-    **来源**：[原文链接](https://github.com/i3T4AN/Archivist-MCP)
+    **来源**：[原文链接](https://github.com/elevenlabs/elevenlabs-js/releases/tag/v2.40.0)
 
 ---
 
 ## 历史归档
 
+- [2026-03-23_20-09-44](history/2026-03-23_20-09-44.md)
 - [2026-03-23_13-29-33](history/2026-03-23_13-29-33.md)
 - [2026-03-23_11-51-03](history/2026-03-23_11-51-03.md)
 - [2026-03-22_22-07-52](history/2026-03-22_22-07-52.md)
