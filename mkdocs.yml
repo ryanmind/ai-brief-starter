@@ -103,6 +103,9 @@ plugins:
 
 # 导航结构
 nav:
+  - 快速开始: quick-start.md
+  - 配置: configuration.md
+  - 信源: sources.md
   - 快讯: latest.md
   - 历史: history.md
 

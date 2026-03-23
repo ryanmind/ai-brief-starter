@@ -4,8 +4,6 @@ from __future__ import annotations
 from datetime import datetime, timedelta, timezone
 from unittest.mock import patch, MagicMock
 
-import pytest
-
 from src.feed import (
     parse_changelog_versions,
     fetch_github_changelog_content,

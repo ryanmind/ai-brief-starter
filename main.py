@@ -8,8 +8,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from src.models import NewsItem
-
 import feedparser  # noqa: F401 - Backward compatibility for tests monkeypatching main.feedparser
 import requests  # noqa: F401 - Backward compatibility for tests monkeypatching main.requests
 

@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-import pytest
-
 from main import (
     fact_overlap_ratio,
     has_unseen_numbers,

@@ -98,7 +98,6 @@ def test_polish_markdown_with_llm_rejects_unsafe_output(monkeypatch):
 def test_polish_markdown_with_llm_accepts_safe_output(monkeypatch):
     # src/llm.py is the actual module containing polish_markdown_with_llm, src.llm is the package
     import importlib.util
-    import sys
     spec = importlib.util.spec_from_file_location(
         "src_llm_py",
         os.path.join(os.path.dirname(__file__), "..", "src", "llm.py")

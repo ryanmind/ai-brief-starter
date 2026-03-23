@@ -1,7 +1,6 @@
 """Tests for LLM infrastructure: caching, prompt loading, failover, provider abstraction."""
 from __future__ import annotations
 
-import json
 import tempfile
 import time
 from pathlib import Path

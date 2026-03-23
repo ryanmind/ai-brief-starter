@@ -38,10 +38,8 @@ CHANGELOG_VERSION_PATTERNS = [
 
 from src.text_utils import (
     clean_text,
-    extract_account_from_url,
     normalize_host,
     nitter_to_x_url,
-    normalize_link_for_dedupe,
     parse_time,
 )
 

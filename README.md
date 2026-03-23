@@ -79,4 +79,3 @@ docs/                   MkDocs 文档源文件
 - 快速开始：`docs/quick-start.md`
 - 配置说明：`docs/configuration.md`
 - 信源维护：`docs/sources.md`
-- MkDocs 发布：`docs/mkdocs-tutorial.md`

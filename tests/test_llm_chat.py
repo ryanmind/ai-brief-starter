@@ -2,13 +2,10 @@
 from __future__ import annotations
 
 import json
-from unittest.mock import Mock, MagicMock
+from unittest.mock import Mock
 
 import pytest
 from src.models import NewsItem
-from src.config import (
-    REVIEW_PASS_THRESHOLD,
-)
 # Import directly from the module file using importlib
 import importlib.util
 import os
