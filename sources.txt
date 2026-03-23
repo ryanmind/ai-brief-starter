@@ -137,10 +137,15 @@ https://github.com/zai-org/CogView4/commits/main/CHANGELOG.md.atom
 
 # MiniMax
 # 官网: https://www.minimax.io/
-# 文档入口: https://www.minimax.io/
+# 产品矩阵: MiniMax Agent / Hailuo AI / Talkie / MiniMax Audio
+# GitHub 仅覆盖已开源仓库；产品发布以官方 X 账号为主，不按单一版本区分
 # GitHub: https://github.com/MiniMax-AI
 https://github.com/MiniMax-AI/MiniMax-M2.1/commits/main/CHANGELOG.md.atom
 https://github.com/MiniMax-AI/MiniMax-M1/commits/main/CHANGELOG.md.atom
+https://x.com/MiniMax_AI
+https://x.com/MiniMaxAgent
+https://x.com/Hailuo_AI
+https://x.com/MiniMax_AIAgent
 
 # X profiles（由 main.py 自动转为 Nitter RSS）
 # AI 创始人/大佬
@@ -159,11 +164,39 @@ https://x.com/nvidia
 # 中国 AI 领军人物
 https://x.com/tszzq
 https://x.com/kaifulee
+https://x.com/ictclp
 # 官方账号
 https://x.com/OpenAI
 https://x.com/DeepMind
+https://x.com/GoogleDeepMind
 # 代码/视频/音频工具
+https://x.com/GitHubCopilot
 https://x.com/codeeditapp
+https://x.com/codeiumdev
 https://x.com/replit
 https://x.com/runwayml
+https://x.com/StabilityAI
+https://x.com/pika_labs
+https://x.com/LumaLabsAI
+https://x.com/midjourney
+https://x.com/ideogram_ai
+https://x.com/blklabsai
+https://x.com/LeonardoAi_
+https://x.com/AdobeFirefly
+https://x.com/suno_ai_
+https://x.com/udiomusic
 https://x.com/elevenlabsio
+https://x.com/MetaAI
+https://x.com/awscloud
+https://x.com/tabnine
+https://x.com/NotionHQ
+https://x.com/Grammarly
+https://x.com/jasper_ai
+https://x.com/copy_ai
+https://x.com/gammaapp
+https://x.com/perplexity_ai
+# 数字人与创意视频工具
+https://x.com/HeyGen_Official
+https://x.com/d_id_ai
+https://x.com/synthesiaAV
+https://x.com/Soul_Machines

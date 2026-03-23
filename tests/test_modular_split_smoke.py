@@ -21,6 +21,48 @@ def test_quality_check_primary_source_supports_markdown_x_link():
     assert is_primary_source(source, allowed_domains=allowed_domains, allowed_x_handles=allowed_handles)
 
 
+def test_minimax_umbrella_sources_are_treated_as_primary():
+    allowed_domains = set(DEFAULT_PRIMARY_SOURCE_DOMAINS)
+    allowed_handles = set(DEFAULT_PRIMARY_X_HANDLES)
+
+    assert is_primary_source(
+        "https://x.com/MiniMax_AI/status/123",
+        allowed_domains=allowed_domains,
+        allowed_x_handles=allowed_handles,
+    )
+    assert is_primary_source(
+        "https://x.com/Hailuo_AI/status/456",
+        allowed_domains=allowed_domains,
+        allowed_x_handles=allowed_handles,
+    )
+    assert is_primary_source(
+        "https://talkie-ai.com/",
+        allowed_domains=allowed_domains,
+        allowed_x_handles=allowed_handles,
+    )
+
+
+def test_product_line_sources_from_other_vendors_are_treated_as_primary():
+    allowed_domains = set(DEFAULT_PRIMARY_SOURCE_DOMAINS)
+    allowed_handles = set(DEFAULT_PRIMARY_X_HANDLES)
+
+    assert is_primary_source(
+        "https://x.com/pika_labs/status/123",
+        allowed_domains=allowed_domains,
+        allowed_x_handles=allowed_handles,
+    )
+    assert is_primary_source(
+        "https://x.com/perplexity_ai/status/456",
+        allowed_domains=allowed_domains,
+        allowed_x_handles=allowed_handles,
+    )
+    assert is_primary_source(
+        "https://cursor.com/features",
+        allowed_domains=allowed_domains,
+        allowed_x_handles=allowed_handles,
+    )
+
+
 @pytest.mark.skipif(importlib.util.find_spec("requests") is None, reason="main.py depends on requests")
 def test_main_exports_modular_functions():
     import main

@@ -50,6 +50,12 @@ https://github.com/owner/repo/blob/main/CHANGELOG.md
 - **社交媒体**：X/Twitter 账号
 - **开源项目**：主流 AI 框架 Releases
 
+### 覆盖策略
+
+- 优先按 **公司 / 产品线** 覆盖，而不是只跟踪单个模型版本仓库。
+- 对没有稳定 RSS/Atom 的产品，优先补 **官方 X 账号**。
+- 同一家公司如果同时有公司号、产品号、生态号，优先都纳入，例如：公司官方、视频产品、音频产品、Agent 产品。
+
 ---
 
 ## 推荐信息源分类
@@ -95,7 +101,7 @@ AI 视频生成领域正快速发展，以下是最值得关注的源：
 | Runway Gen-3 | Runway | https://runwayml.com | `@runwayml` | `runwayml/sdk-python` |
 | Pika | Pika Labs | https://pika.art | `@pika_labs` | - |
 | Kling (可灵) | 快手 | https://klingai.com | - | - |
-| Hailuo (海螺) | MiniMax | https://hailuoai.com/video | `@MiniMax_AIAgent` | `MiniMax-AI` |
+| Hailuo (海螺) | MiniMax | https://hailuoai.com/video | `@Hailuo_AI` / `@MiniMax_AIAgent` | `MiniMax-AI` |
 | Luma Dream Machine | Luma AI | https://lumalabs.ai/dream-machine | `@LumaLabsAI` | - |
 | Stable Video Diffusion | Stability AI | https://stability.ai | `@StabilityAI` | `Stability-AI/generative-models` |
 
@@ -113,7 +119,15 @@ https://openai.com/news/rss.xml
 
 # MiniMax 视频模型
 https://github.com/MiniMax-AI/MiniMax-M2.1/commits/main/CHANGELOG.md.atom
+
+# MiniMax 官方账号（覆盖全线产品，不按单一版本区分）
+https://x.com/MiniMax_AI
+https://x.com/MiniMaxAgent
+https://x.com/Hailuo_AI
+https://x.com/MiniMax_AIAgent
 ```
+
+> MiniMax 建议按“公司 / 产品线”覆盖，而不是只盯某个模型版本仓库。当前应至少覆盖：MiniMax 官方、MiniMax Agent、Hailuo（海螺）；Talkie 等无公开稳定 RSS 时，优先补官方 X 或官网新闻页。
 
 ---
 

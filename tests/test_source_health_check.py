@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from scripts import source_health_check
+from src.models import NewsItem
 
 
 def test_check_sources_uses_main_fetch_logic(monkeypatch):
@@ -33,3 +34,32 @@ def test_check_sources_uses_main_fetch_logic(monkeypatch):
     assert rows[0]["status"] == "OK"
     assert rows[0]["entries"] == "1"
     assert rows[1]["status"] == "FAIL"
+
+
+def test_check_sources_supports_newsitem_entries(monkeypatch):
+    github_source = "https://github.com/example/project/commits/main/CHANGELOG.md.atom"
+
+    monkeypatch.setattr(source_health_check.main, "load_sources", lambda _path: [github_source])
+
+    def fake_fetch(source, cutoff, per_source):
+        return (
+            source,
+            [
+                NewsItem(
+                    title="v1.2.3",
+                    link="https://github.com/example/project/releases/tag/v1.2.3",
+                    summary="release notes",
+                    published="2026-03-03T00:00:00+00:00",
+                )
+            ],
+            None,
+        )
+
+    monkeypatch.setattr(source_health_check.main, "_fetch_single_source", fake_fetch)
+
+    rows, failed = source_health_check.check_sources()
+    assert len(rows) == 1
+    assert failed == 0
+    assert rows[0]["status"] == "OK"
+    assert rows[0]["entries"] == "1"
+    assert rows[0]["latest"] == "2026-03-03 00:00 UTC"

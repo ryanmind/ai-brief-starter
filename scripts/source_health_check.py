@@ -25,6 +25,12 @@ def format_dt(dt: datetime | None) -> str:
     return dt.astimezone(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
 
 
+def extract_published(entry: object) -> str:
+    if isinstance(entry, dict):
+        return str(entry.get("published", "")).strip()
+    return str(getattr(entry, "published", "") or "").strip()
+
+
 def check_sources() -> tuple[list[dict[str, str]], int]:
     results: list[dict[str, str]] = []
     failed = 0
@@ -36,7 +42,7 @@ def check_sources() -> tuple[list[dict[str, str]], int]:
             _, entries, error = main._fetch_single_source(source=source, cutoff=cutoff, per_source=20)
             latest_dt = None
             for entry in entries[:20]:
-                published_raw = str(entry.get("published", "")).strip()
+                published_raw = extract_published(entry)
                 if not published_raw:
                     continue
                 try:

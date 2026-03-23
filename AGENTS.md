@@ -3,6 +3,14 @@
 ## Project Structure & Module Organization
 - `main.py`: entry point for feed fetching, summarization, ranking, and Markdown report generation.
 - `src/config.py`: shared constants and environment parsing helpers; keep pipeline knobs centralized here.
+- `src/llm.py`: LLM interaction (chat, JSON extraction, ranking, localization, multi-model review).
+- `src/llm/cache.py`: LLM response caching.
+- `src/llm/prompts.py`: external prompt template loader.
+- `src/models.py`: NewsItem dataclass and serialization.
+- `src/text_utils.py`: text cleaning, normalization, fact checking, deduplication utilities.
+- `src/feed.py`: RSS/Atom feed fetching, source management.
+- `src/filters.py`: AI topic filtering, source limits, history-based deduplication.
+- `src/report.py`: Markdown rendering, category balance checks.
 - `scripts/`: operational tools (`notify_feishu.py`, `report_quality_check.py`, `source_health_check.py`).
 - `tests/`: `pytest` suite for text utilities, fact checks, resilience, and script-level quality checks.
 - `reports/`: runtime outputs (for example `latest.md`, health reports); treat as generated artifacts.
@@ -18,6 +26,8 @@
 - `pip install -r requirements.txt -r requirements-docs.txt`: install runtime + docs dependencies.
 - `python main.py`: run the full brief pipeline locally and write outputs to `reports/`.
 - `python -m pytest tests/ -v`: run all unit tests.
+- `python -m pytest tests/test_xxx.py -v`: run a single test file.
+- `python -m pytest tests/test_xxx.py::test_func_name -v`: run a single test function.
 - `python scripts/report_quality_check.py reports/latest.md --autofix`: enforce/repair report format (summary/key points and related checks).
 - `python scripts/source_health_check.py --output reports/source_health.md`: audit source availability and diversity.
 - `mkdocs serve`: start local documentation server with hot reload (http://127.0.0.1:8000).
@@ -28,6 +38,12 @@
 - Use `snake_case` for functions/variables, `UPPER_SNAKE_CASE` for constants/env defaults, `test_*.py` for tests.
 - Prefer small, composable helpers in `main.py`; move shared thresholds and patterns to `src/config.py`.
 - Keep user-facing copy concise and Chinese-compatible (the brief output is Chinese-first).
+- **Import organization**: Use `from __future__ import annotations` at top, group imports: stdlib, third-party, local (with blank line between groups).
+- **Docstrings**: Use Google-style docstrings for public functions; include Args/Returns/Raises sections when applicable.
+- **Error handling**: Prefer specific exception types; use fail-open pattern for non-critical errors (log warning, return default value).
+- **Type hints**: Use `X | None` syntax (Python 3.10+) for nullable types, `list[X]` for generic containers.
+- **Constants**: Group related constants in dataclasses or named tuples; use descriptive names (`BRIEF_MAX_CHARS` not `MAX`).
+- **Logging**: Use `logger = logging.getLogger(__name__)` for each module; log structured data as `key=value` pairs.
 
 ## Content Generation Quality
 - **关键点规则**：每条必须是完整句子，包含具体事实/数字/版本号/实体名称；不能是原文截断片段。
@@ -61,6 +77,9 @@
 - Framework: `pytest`.
 - Add regression tests for every bug fix; keep tests deterministic (use `tmp_path` and `monkeypatch` for env/file behavior).
 - No hard coverage gate is configured; changed logic should be covered by focused unit tests before PR.
+- **Test patterns**: Import from `main` (e.g., `from main import clean_text`) for backward compatibility; use `pytest.raises()` for exception tests.
+- **Fixtures**: Use `tmp_path` for file operations; prefer `monkeypatch.setenv()` over `os.environ` manipulation.
+- **Test naming**: `test_<function>_<scenario>` for clarity (e.g., `test_clean_text_strips_html`).
 
 ## Commit & Pull Request Guidelines
 - Follow Conventional Commits used in history: `fix(scope): ...`, `feat(scope): ...`, `refactor: ...`, `test: ...`, `ci: ...`, `chore: ...`.
@@ -71,9 +90,61 @@
 ## Security & Configuration Tips
 - Never commit API keys or webhook URLs; use GitHub Actions Secrets or local environment variables.
 - `IFLOW_API_KEY` is required for pipeline runs; Feishu and Kimi keys are optional integrations.
+- Store secrets in `.env` (add to `.gitignore`) or GitHub Secrets; do not hardcode in source.
 
 ## Local Skill Routing
 - Local project skill: `skills/ai-brief/SKILL.md`.
 - Use this local skill when tasks involve this repo's scheduled AI brief workflow, including source ingestion, filtering, summarization, report generation, quality checks, docs sync, notifications, or related GitHub Actions.
 - Read `skills/ai-brief/SKILL.md` before changing those areas, and follow its scope, guardrails, operating loop, and validation guidance.
 - Do not use this local skill as a generic scheduled-job template outside this repository.
+
+## Pipeline Architecture
+- **Optimized pipeline** (default, `USE_OPTIMIZED_PIPELINE=1`): merges ranking/summarization into single LLM call, uses intelligent review (single-model for low-risk, multi-model for high-risk).
+- **Legacy pipeline**: separate `rank_and_summarize` → `localize_items_to_chinese` → `enforce_titles_with_subject` → `review_items_with_multi_model` → `dedupe_selected_items` → `polish_markdown_with_llm`.
+- Configurable via `USE_OPTIMIZED_PIPELINE` environment variable.
+
+## Environment Variables Reference
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `IFLOW_API_KEY` | (required) | LLM API key |
+| `LLM_MODEL` | `qwen3-coder-plus` | Model name |
+| `MAX_ITEMS` | 120 | Maximum items to process |
+| `TOP_N` | 20 | Final report item count |
+| `FETCH_HOURS` | 24 | Lookback window for feeds |
+| `USE_OPTIMIZED_PIPELINE` | 1 | Enable optimized pipeline |
+| `REVIEW_ENABLED` | 1 | Enable multi-model review |
+| `REVIEW_MODELS` | (see config) | Custom review models |
+| `STRICT_FACT_MODE` | 1 | Enable fact validation |
+| `LOG_LEVEL` | INFO | Logging verbosity |
+
+## Code Organization Patterns
+
+### Module Structure
+Each `src/*.py` module should:
+- Define `logger = logging.getLogger(__name__)` at module level
+- Use clear type hints on all public functions
+- Follow fail-open pattern for non-critical errors (log warning, return default)
+- Export core functions; keep helpers private with `_` prefix
+
+### main.py Re-exports
+`main.py` serves as a backward-compatible API layer:
+- Re-export all public functions from `src/*` modules
+- Add wrapper functions for dict-based API if needed
+- Keep `main.py` API stable; logic lives in `src/*`
+
+### Data Classes
+- Use `dataclasses` for structured data (see `src/models.py`)
+- Add `from_dict()` / `to_dict()` / `from_dict_list()` / `to_dict_list()` class methods for serialization
+- Keep serialization logic co-located with the model
+
+### LLM Integration
+- All LLM prompts stored externally in `src/llm/prompts/`
+- Use `load_prompt()` to load templates
+- Always implement fallback logic for LLM failures
+- Log structured observability data (`key=value` format)
+
+### Data Flow & Backward Compatibility
+- Pipeline: feed fetch → filter primary → filter AI topic → apply source limits → deduplicate history → rank/summarize → review → dedupe → render
+- `main.py` re-exports all `src/*` functions for backward compatibility
+- Tests import from `main` to ensure API stability
+- Environment variable parsing via `src/config.py` helpers (`int_env`, `float_env`, `parse_csv_env`)
