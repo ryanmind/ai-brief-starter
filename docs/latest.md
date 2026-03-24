@@ -1,34 +1,93 @@
 # 今日快讯
 
-> 更新时间：2026年03月24日14:50:20
+> 更新时间：2026年03月24日18:24:38
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. kcchien/claude-code-statusline：Claude Code状态栏增强：⭐ 10 stars | Shell A beautiful。
+1. OpenAI ChatGPT文件管理功能更新：新增库标签页和快速引用：OpenAI为ChatGPT推出新的文件管理功能。
+2. 腾讯混元SAGE-GRPO强化学习算法开源：用于视频生成中的流形感知探索：腾讯混元团队开源SAGE-GRPO算法。
+3. kcchien/claude-code-statusline：Claude Code的美观状态栏：⭐ 14 stars | Shell A beautiful。
+4. katiacoco/SmartLabeler 发布重要更新：katiacoco开发了SmartLabeler。
+5. ElevenLabs Python SDK v2.40.0更新：对话AI环境参数：ElevenLabs发布Python SDK v2.40.0版本。
 
 ## 分类速览
 
-=== "🤖 模型进展（1）"
-    - **1. kcchien/claude-code-statusline：Claude Code状态栏增强**：该工具将提升Claude Code用户的开发体验，通过增强状态栏功能提高开发效率和项目管理能力
+=== "🤖 模型进展（2）"
+    - **1. OpenAI ChatGPT文件管理功能更新：新增库标签页和快速引用**：新文件管理功能将显著提升用户在ChatGPT中的工作效率，特别是需要处理大量文档和文件的用户…
+    - **3. kcchien/claude-code-statusline：Claude Code的美观状态栏**：该工具提升了Claude Code的用户体验，为开发者提供了更直观的工作状态信息，可能推动更多…
 
 === "🧪 论文研究（0）"
     - 暂无条目
 
-=== "🏢 产品与行业（0）"
-    - 暂无条目
+=== "🏢 产品与行业（3）"
+    - **2. 腾讯混元SAGE-GRPO强化学习算法开源：用于视频生成中的流形感知探索**：该算法的开源将推动视频生成领域的技术发展，为研究人员和开发者提供新的强化学习方法，可能提升视频…
+    - **4. katiacoco/SmartLabeler 发布重要更新**：本地智能标注平台将降低AI数据标注的门槛和成本，为研究人员和开发者提供更便捷的标注工具，可能加…
+    - **5. ElevenLabs Python SDK v2.40.0更新：对话AI环境参数**：新版本增强了ElevenLabs SDK的对话AI功能，为开发者提供了更多环境配置选项，可能提…
 
 ## 全部快讯
 
-??? info "1. kcchien/claude-code-statusline：Claude Code状态栏增强"
-    **摘要**：⭐ 10 stars | Shell A beautiful,information-dense status line for Claude Code-gradient progress bar,smart hiding,git status,cost tracking,and more.。
+??? info "1. OpenAI ChatGPT文件管理功能更新：新增库标签页和快速引用"
+    **摘要**：OpenAI为ChatGPT推出新的文件管理功能，用户可以通过工具栏中的最近文件快速引用上传的文件，或在新的库标签页中浏览文件。该功能正在向Plus、Pro和Business用户全球推出。
 
     **关键点**
 
-    - Shell语言开发
-    - Claude Code状态栏增强
-    - 渐变进度条和成本跟踪
+    - 新增库标签页用于浏览文件
+    - 工具栏中可快速引用最近文件
+    - 支持询问ChatGPT已上传内容
 
-    **影响分析**：该工具将提升Claude Code用户的开发体验，通过增强状态栏功能提高开发效率和项目管理能力。
+    **影响分析**：新文件管理功能将显著提升用户在ChatGPT中的工作效率，特别是需要处理大量文档和文件的用户，有助于更好地组织和利用AI助手进行文件处理。
+
+    **来源**：[原文链接](https://x.com/OpenAI/status/2036183180219392103)
+
+??? info "2. 腾讯混元SAGE-GRPO强化学习算法开源：用于视频生成中的流形感知探索"
+    **摘要**：腾讯混元团队开源SAGE-GRPO算法，这是用于视频生成中强化学习的流形感知探索的官方实现。该算法专注于在视频生成任务中进行更有效的探索。
+
+    **关键点**
+
+    - 腾讯混元开源SAGE-GRPO算法
+    - 用于视频生成中的强化学习
+    - 流形感知探索技术
+
+    **影响分析**：该算法的开源将推动视频生成领域的技术发展，为研究人员和开发者提供新的强化学习方法，可能提升视频生成的质量和效率。
+
+    **来源**：[原文链接](https://github.com/Tencent-Hunyuan/SAGE-GRPO)
+
+??? info "3. kcchien/claude-code-statusline：Claude Code的美观状态栏"
+    **摘要**：⭐ 14 stars | Shell A beautiful,information-dense status line for Claude Code-gradient progress bar,smart hiding,git status,cost tracking,and more.。
+
+    **关键点**
+
+    - 包含渐变进度条功能
+    - 支持智能隐藏和Git状态
+    - 提供成本跟踪功能
+
+    **影响分析**：该工具提升了Claude Code的用户体验，为开发者提供了更直观的工作状态信息，可能推动更多针对AI编程工具的增强插件开发。
 
     **来源**：[原文链接](https://github.com/kcchien/claude-code-statusline)
+
+??? info "4. katiacoco/SmartLabeler 发布重要更新"
+    **摘要**：katiacoco开发了SmartLabeler，这是一个基于YOLOv8与SAM的本地智能标注平台。该工具使用Python开发，旨在提供本地化的AI辅助标注功能。
+
+    **关键点**
+
+    - 基于YOLOv8与SAM技术
+    - 本地智能标注平台
+    - 使用Python开发
+
+    **影响分析**：本地智能标注平台将降低AI数据标注的门槛和成本，为研究人员和开发者提供更便捷的标注工具，可能加速AI模型的训练数据准备过程。
+
+    **来源**：[原文链接](https://github.com/katiacoco/SmartLabeler)
+
+??? info "5. ElevenLabs Python SDK v2.40.0更新：对话AI环境参数"
+    **摘要**：ElevenLabs发布Python SDK v2.40.0版本，主要更新包括为对话AI添加环境参数，以及Fern再生项目更新。该版本是v2.39.1到v2.40.0的完整更新。
+
+    **关键点**
+
+    - 为对话AI添加环境参数
+    - Fern再生项目更新
+    - v2.39.1到v2.40.0完整更新
+
+    **影响分析**：新版本增强了ElevenLabs SDK的对话AI功能，为开发者提供了更多环境配置选项，可能提升语音AI应用的灵活性和性能。
+
+    **来源**：[原文链接](https://github.com/elevenlabs/elevenlabs-python/releases/tag/v2.40.0)
