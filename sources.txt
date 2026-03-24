@@ -58,6 +58,7 @@ https://github.com/QwenLM/Qwen3/commits/main/CHANGELOG.md.atom
 # Vercel AI SDK: https://sdk.vercel.ai/
 https://github.com/getcursor/cursor/commits/main/CHANGELOG.md.atom
 https://github.com/vercel/ai/commits/main/CHANGELOG.md.atom
+https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md
 
 # 视频/音频主流 AI 厂商
 # Runway（视频）
@@ -169,6 +170,7 @@ https://x.com/ictclp
 https://x.com/OpenAI
 https://x.com/DeepMind
 https://x.com/GoogleDeepMind
+https://x.com/openclaw
 # 代码/视频/音频工具
 https://x.com/GitHubCopilot
 https://x.com/codeeditapp

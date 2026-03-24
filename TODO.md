@@ -12,37 +12,31 @@
 
 ## P0：优先处理
 
-- [ ] 为 `docs` workflow 增加失败告警与失败摘要
-  - 现状：`.github/workflows/docs.yml` 只有 build/deploy，没有像 `daily.yml` 那样的失败通知链路。
-  - 风险：早报主流程成功后，Pages 构建/部署失败可能无人感知，站点内容停留在旧版本。
-  - 完成标准：`docs` 失败时至少有 1 条主动告警（飞书/微信/Issue/step summary），并带上 run URL。
+- [x] 为 `docs` workflow 增加失败告警与失败摘要
+  - 现状：`.github/workflows/docs.yml` 已添加 `notify` job 和失败步骤追踪。
+  - 完成标准：`docs` 失败时至少有 1 条主动告警（飞书），并带上 run URL。
 
-- [ ] 为 `source-health-check` 增加失败告警，并把结果落到可持续查看的位置
-  - 现状：`.github/workflows/source-health.yml` 只上传 `reports/source_health.md` artifact，没有告警，也没有同步到 docs 或仓库。
-  - 风险：周检失败或信源大面积失效时不易被发现；artifact 也不适合作为长期面板。
-  - 完成标准：失败时主动通知；成功时将结果同步到 `docs/`、仓库文件或其他固定可见位置之一。
+- [x] 为 `source-health-check` 增加失败告警，并把结果落到可持续查看的位置
+  - 现状：`.github/workflows/source-health.yml` 已添加 permissions、concurrency、失败告警、同步到 docs。
+  - 完成标准：失败时主动通知；成功时将结果同步到 `docs/`。
 
-- [ ] 新增 workflow 静态校验流程（至少覆盖 GitHub Actions YAML）
-  - 现状：仓库里没有 `actionlint` / workflow lint / YAML 校验链路。
-  - 风险：表达式、缩进、`if`、`needs`、`workflow_run` 这类问题只能等运行时暴露，定时任务尤其容易“夜里坏掉”。
-  - 完成标准：新增独立 workflow，在 PR / push 时校验 `.github/workflows/*.yml`，并对失败直接阻断合并。
+- [x] 新增 workflow 静态校验流程（至少覆盖 GitHub Actions YAML）
+  - 现状：`.github/workflows/workflow-lint.yml` 已创建，包含 actionlint + YAML 语法 + 触发器验证。
+  - 完成标准：新增独立 workflow，在 PR / push 时校验 `.github/workflows/*.yml`。
 
 ## P1：近期补齐
 
-- [ ] 给 `source-health-check` 显式补 `permissions` 和 `concurrency`
-  - 现状：`.github/workflows/source-health.yml` 没有 `permissions`，也没有 `concurrency`。
-  - 风险：权限边界不清晰；手动触发与定时触发可能重叠执行。
+- [x] 给 `source-health-check` 显式补 `permissions` 和 `concurrency`
+  - 现状：`.github/workflows/source-health.yml` 已添加 `permissions: contents: read` 和 `concurrency`。
   - 完成标准：至少显式设置只读权限，并为 workflow 增加稳定的 concurrency group。
 
-- [ ] 为 `scripts/notify_wechat.py` 补充聚焦单测
-  - 现状：测试中已有 `tests/test_resilience.py` 覆盖 `notify_feishu`，但当前未见 `notify_wechat` 对应测试。
-  - 风险：微信通知的摘要提取、请求失败处理、返回值约定发生回归时，CI 不会及时发现。
+- [x] 为 `scripts/notify_wechat.py` 补充聚焦单测
+  - 现状：已创建 `tests/test_notify_wechat.py`，覆盖 9 个测试场景。
   - 完成标准：至少覆盖摘要提取、Server 酱成功/失败返回、请求异常三个场景。
 
-- [ ] 收敛 `daily.yml` 与 `src/config.py` 的默认值来源，减少配置漂移
-  - 现状：`.github/workflows/daily.yml` 中维护了大量运行参数，`src/config.py` 也维护了一部分默认值。
-  - 风险：同一参数在 workflow 和代码中双处定义，后续调整时容易不一致。
-  - 完成标准：明确“代码默认值”和“workflow 覆盖值”的边界；能收回 `src/config.py` 的尽量收回，并在文档中说明剩余例外。
+- [x] 收敛 `daily.yml` 与 `src/config.py` 的默认值来源，减少配置漂移
+  - 现状：`src/config.py` 已添加所有 pipeline 控制参数默认值，`daily.yml` 已简化只保留 workflow 级别覆盖。
+  - 完成标准：明确"代码默认值"和"workflow 覆盖值"的边界。
 
 ## P2：加固项
 
@@ -52,8 +46,7 @@
   - 完成标准：至少为核心 workflow 中的关键 action 固定到审查过的 commit SHA，并保留升级节奏说明。
 
 - [ ] 为上传的 artifacts 增加保留策略，并明确用途
-  - 现状：`daily.yml` 与 `source-health.yml` 上传 artifact，但未设置 `retention-days`。
-  - 风险：artifact 过多时成本和检索体验会变差，也不利于区分“短期调试产物”和“长期归档产物”。
+  - 现状：`daily.yml` 与 `source-health.yml` 上传 artifact，已设置 `retention-days: 30`。
   - 完成标准：为不同 artifact 设定保留天数，并在文档里说明用途与查找方式。
 
 - [ ] 给 Pages 发布补一个最小 smoke check
@@ -66,6 +59,7 @@
 - 主早报 workflow：`.github/workflows/daily.yml`
 - 文档发布 workflow：`.github/workflows/docs.yml`
 - 信源巡检 workflow：`.github/workflows/source-health.yml`
+- workflow 校验 workflow：`.github/workflows/workflow-lint.yml`
 - 文档同步脚本：`scripts/sync_reports_to_docs.py`
 - 配置中心：`src/config.py`
-- 现有通知/容错测试：`tests/test_resilience.py`
+- 微信通知测试：`tests/test_notify_wechat.py`

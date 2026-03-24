@@ -43,33 +43,14 @@ jobs:
     timeout-minutes: 20
     env:
       TZ: Asia/Shanghai
+      # Pipeline control - workflow overrides
       IFLOW_MODEL: qwen3-coder-plus
       MAX_ITEMS: "120"
       TOP_N: ${{ github.event.inputs.top_n || '20' }}
-      BRIEF_MAX_CHARS: "160"
-      DETAIL_MAX_CHARS: "260"
-      DETAIL_MIN_CHARS: "48"
-      IMPACT_MAX_CHARS: "140"
-      STRICT_FACT_MODE: "1"
-      FACT_OVERLAP_MIN: "0.55"
       FETCH_HOURS: ${{ github.event.inputs.fetch_hours || '24' }}
-      PER_SOURCE_ITEMS: "30"
-      HISTORY_DEDUP_DAYS: "2"
+      # History dedupe state (custom path)
       HISTORY_STATE_PATH: "reports/history_index.json"
-      HISTORY_STATE_MAX_DAYS: "14"
-      PER_DOMAIN_LIMIT: "4"
-      ARXIV_MAX_ITEMS: "4"
-      TITLE_COMPLETE_RATIO_MIN: "0.90"
-      KEY_POINTS_MIN_COUNT: "2"
-      KEY_POINTS_MAX_COUNT: "3"
-      KEY_POINT_MAX_CHARS: "28"
-      STRICT_PRIMARY_ONLY: "1"
-      STRICT_AI_TOPIC_ONLY: "1"
-      QUALITY_CHECK_STRICT: "1"
-      QUALITY_CHECK_FAIL_OPEN: "1"
-      NITTER_RSS_BASES: "https://nitter.net,https://nitter.poast.org,https://nitter.privacydev.net,https://nitter.d420.de,https://nitter.unixfox.eu"
-      TWITTERAPI_IO_ENABLED: "1"
-      TWITTERAPI_IO_TIMEOUT: "8"
+      # Secrets
       IFLOW_API_KEY: ${{ secrets.IFLOW_API_KEY }}
       TWITTERAPI_IO_KEY: ${{ secrets.TWITTERAPI_IO_KEY }}
       FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}

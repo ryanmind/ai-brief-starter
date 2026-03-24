@@ -4,11 +4,12 @@ import base64
 import hashlib
 import hmac
 import json
-from pathlib import Path
 from concurrent.futures import TimeoutError as FuturesTimeoutError
+from pathlib import Path
 from types import SimpleNamespace
 
 import main
+import pytest
 from scripts import notify_feishu
 
 
@@ -537,6 +538,31 @@ def test_main_quality_check_fail_open_disabled_still_continues(monkeypatch, tmp_
     latest = tmp_path / "reports/latest.md"
     assert latest.exists()
     assert "质量提示：本期内容在自动质检中发现缺陷" in latest.read_text(encoding="utf-8")
+
+
+def test_main_empty_after_history_dedupe_uses_runtime_value(monkeypatch, tmp_path):
+    from src.models import NewsItem
+
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv("IFLOW_API_KEY", "test-key")
+    monkeypatch.setenv("HISTORY_DEDUP_DAYS", "7")
+
+    item = NewsItem(
+        title="OpenAI 发布新模型",
+        link="https://openai.com/news/new-model",
+        summary="官方发布新模型并更新能力说明。",
+        published="2026-03-03T00:00:00+00:00",
+    )
+
+    monkeypatch.setattr(main, "load_sources", lambda path="sources.txt": ["https://openai.com/news/rss.xml"])
+    monkeypatch.setattr(main, "fetch_items", lambda **kwargs: [item])
+    monkeypatch.setattr(main, "filter_primary_items_with_stats", lambda items: (items, {}))
+    monkeypatch.setattr(main, "filter_ai_topic_items_with_stats", lambda items, **kwargs: (items, {}))
+    monkeypatch.setattr(main, "apply_source_limits", lambda items: (items, {}))
+    monkeypatch.setattr(main, "filter_items_by_history", lambda items, history_fingerprints: ([], len(items)))
+
+    with pytest.raises(RuntimeError, match="当前去重窗口 7 天"):
+        main.main()
 
 
 def test_build_quality_warning_lines_reads_merged_quality_metrics(tmp_path):

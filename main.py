@@ -327,7 +327,42 @@ def main() -> None:
     if diversity_stats:
         logger.info("source limit dropped reasons=%s", json.dumps(diversity_stats, ensure_ascii=False))
     if not items:
-        raise RuntimeError("未抓到一手资讯，请检查 sources.txt 或放宽 STRICT_PRIMARY_ONLY 配置")
+        # 构建详细错误信息
+        error_lines = ["过滤后无剩余内容，请检查配置："]
+        error_lines.append(f"  - 原始抓取: {len(fetched_items)} 条")
+        error_lines.append(f"  - 一手源过滤后: {stage_stats['after_primary']} 条")
+        error_lines.append(f"  - AI主题过滤后: {stage_stats['after_ai_topic']} 条")
+        error_lines.append(f"  - 来源配额限制后: {stage_stats['after_source_limit']} 条")
+        error_lines.append(f"  - 历史去重后: {stage_stats['after_history_dedupe']} 条")
+        error_lines.append("")
+        error_lines.append("过滤统计（被丢弃原因）：")
+        all_reasons = []
+        for stats_name, stats in [
+            ("一手源", rejected_stats),
+            ("AI主题", ai_topic_stats),
+            ("来源配额", diversity_stats),
+        ]:
+            for reason, count in stats.items():
+                all_reasons.append(f"  - {stats_name}/{reason}: {count} 条")
+        if history_dropped > 0:
+            all_reasons.append(f"  - 历史去重: {history_dropped} 条")
+        error_lines.extend(all_reasons)
+        error_lines.append("")
+        error_lines.append("排查建议：")
+        if stage_stats["after_primary"] == 0:
+            error_lines.append("  → 所有内容都被一手源过滤，请检查：")
+            error_lines.append("    1. 新增源的域名是否已加入 DEFAULT_PRIMARY_SOURCE_DOMAINS 白名单")
+            error_lines.append("    2. X/Twitter 账号是否已加入 DEFAULT_PRIMARY_X_HANDLES 白名单")
+            error_lines.append("    3. 可设置 STRICT_PRIMARY_ONLY=0 临时关闭该过滤测试")
+        elif stage_stats["after_ai_topic"] == 0:
+            error_lines.append("  → 所有内容都被AI主题过滤，请检查：")
+            error_lines.append("    1. 相关关键词是否已加入 DEFAULT_AI_TOPIC_KEYWORDS")
+            error_lines.append("    2. 可设置 STRICT_AI_TOPIC_ONLY=0 临时关闭该过滤测试")
+        elif stage_stats["after_history_dedupe"] == 0:
+            error_lines.append("  → 所有内容都被历史去重过滤：")
+            error_lines.append("    1. 这些内容最近已经发布过")
+            error_lines.append(f"    2. 当前去重窗口 {history_dedupe_days} 天，可减小 HISTORY_DEDUP_DAYS 测试")
+        raise RuntimeError("\n".join(error_lines))
 
     if use_optimized_pipeline:
         logger.info("使用优化管线：合并步骤 + 智能审核")

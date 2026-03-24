@@ -56,6 +56,7 @@ jobs:
         run: python scripts/sync_reports_to_docs.py --reports-dir reports --docs-dir docs
 
       - name: Build documentation
+        id: build
         run: mkdocs build --strict
 
       - name: Upload artifact
@@ -73,3 +74,41 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  notify:
+    needs: [build, deploy]
+    if: failure()
+    runs-on: ubuntu-latest
+    env:
+      FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
+      ACTIONS_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Notify Feishu on failure
+        if: env.FEISHU_WEBHOOK_URL != ''
+        run: |
+          FAILED_STEP="Build"  # build 或 deploy 失败
+          if [ "${{ needs.build.result }}" != "success" ]; then
+            FAILED_STEP="Build"
+          else
+            FAILED_STEP="Deploy"
+          fi
+          python scripts/notify_feishu.py \
+            --failure \
+            --failed-step "Docs ${FAILED_STEP}" \
+            --error-reason "GitHub Pages 构建/部署失败，请查看日志。" \
+            --run-url "${ACTIONS_RUN_URL}"
+
+      - name: Failure summary
+        if: always()
+        run: |
+          echo "### Docs Workflow Failed" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Run URL: ${{ env.ACTIONS_RUN_URL }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Build: ${{ needs.build.result }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Deploy: ${{ needs.deploy.result }}" >> "$GITHUB_STEP_SUMMARY"
+          if [ "${{ needs.build.result }}" = "failure" ]; then
+            echo "::error::Docs build failed - 检查 mkdocs 配置和 docs/ 目录"
+          elif [ "${{ needs.deploy.result }}" = "failure" ]; then
+            echo "::error::Docs deployment failed - 检查 GitHub Pages 配置"
+          fi

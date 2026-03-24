@@ -8,6 +8,13 @@ on:
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
+permissions:
+  contents: write
+
+concurrency:
+  group: source-health-check-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -28,10 +35,41 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run source health check
+        id: health_check
         run: python scripts/source_health_check.py --output reports/source_health.md
 
-      - name: Upload health report
+      - name: Sync to docs
+        id: sync_docs
+        if: success()
+        run: |
+          if [ -f reports/source_health.md ]; then
+            mkdir -p docs/source-health
+            cp reports/source_health.md docs/source-health/latest.md
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add docs/source-health/latest.md
+            if git diff --cached --quiet; then
+              echo "No source-health docs changes to commit"
+              exit 0
+            fi
+            git commit -m "docs(source-health): 同步信源健康检查报告"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
+
+      - name: Upload health report artifact
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: source-health-report
           path: reports/source_health.md
+          retention-days: 30
+
+      - name: Notify on failure
+        if: failure()
+        env:
+          ACTIONS_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          echo "::warning::信源健康检查失败，请查看: ${ACTIONS_RUN_URL}"
+          echo "### Source Health Check Failed" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Run URL: ${ACTIONS_RUN_URL}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- 建议：检查 sources.txt 中失效的信源" >> "$GITHUB_STEP_SUMMARY"
