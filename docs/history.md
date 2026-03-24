@@ -1,40 +1,41 @@
-> 更新时间：2026年03月24日08:04:01
+> 更新时间：2026年03月24日11:54:17
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. Nous Research发布Hermes Agent资源列表：⭐ 99 stars | A curated list of awesome ski。
+1. kcchien/claude-code-statusline：为Claude Code设计的精美状态：⭐ 5 stars | Shell A beautiful。
 
 ## 分类速览
 
-=== "🤖 模型进展（0）"
-    - 暂无条目
+=== "🤖 模型进展（1）"
+    - **1. kcchien/claude-code-statusline：为Claude Code设计的精美状态**：开发者工具的改进有助于提升AI编程助手的实用性，推动AI在软件开发领域的更广泛应用
 
 === "🧪 论文研究（0）"
     - 暂无条目
 
-=== "🏢 产品与行业（1）"
-    - **1. Nous Research发布Hermes Agent资源列表**：该资源列表将促进Hermes Agent生态系统的建设，为开发者提供便利的资源导航，推动AI代…
+=== "🏢 产品与行业（0）"
+    - 暂无条目
 
 ## 全部快讯
 
-??? info "1. Nous Research发布Hermes Agent资源列表"
-    **摘要**：⭐ 99 stars | A curated list of awesome skills,tools,integrations,and resources for Hermes Agent by Nous Research。
+??? info "1. kcchien/claude-code-statusline：为Claude Code设计的精美状态"
+    **摘要**：⭐ 5 stars | Shell A beautiful,information-dense status line for Claude Code-gradient progress bar,smart hiding,git status,cost tracking,and more.。
 
     **关键点**
 
-    - 为Hermes Agent整理精选资源列表
-    - GitHub获得99颗星
-    - 包含技能、工具、集成资源
+    - claude-code-statusline状态栏工具
+    - 包含渐变进度条和成本跟踪
+    - 支持Git状态显示
 
-    **影响分析**：该资源列表将促进Hermes Agent生态系统的建设，为开发者提供便利的资源导航，推动AI代理技术的社区发展。
+    **影响分析**：开发者工具的改进有助于提升AI编程助手的实用性，推动AI在软件开发领域的更广泛应用。
 
-    **来源**：[原文链接](https://github.com/0xNyk/awesome-hermes-agent)
+    **来源**：[原文链接](https://github.com/kcchien/claude-code-statusline)
 
 ---
 
 ## 历史归档
 
+- [2026-03-24_11-54-17](history/2026-03-24_11-54-17.md)
 - [2026-03-24_08-04-01](history/2026-03-24_08-04-01.md)
 - [2026-03-23_22-46-53](history/2026-03-23_22-46-53.md)
 - [2026-03-23_20-09-44](history/2026-03-23_20-09-44.md)
