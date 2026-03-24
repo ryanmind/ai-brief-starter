@@ -1,40 +1,41 @@
-> 更新时间：2026年03月23日22:46:53
+> 更新时间：2026年03月24日08:04:01
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. QwenLM/qwen-code v0.0.14：新增任务规划模式支持：Qwen Code v0.0.14版本新增任务规划模式支持。
+1. Nous Research发布Hermes Agent资源列表：⭐ 99 stars | A curated list of awesome ski。
 
 ## 分类速览
 
-=== "🤖 模型进展（1）"
-    - **1. QwenLM/qwen-code v0.0.14：新增任务规划模式支持**：提升了Qwen Code的规划能力和视觉处理能力，增强了AI编程代理的任务处理效率
+=== "🤖 模型进展（0）"
+    - 暂无条目
 
 === "🧪 论文研究（0）"
     - 暂无条目
 
-=== "🏢 产品与行业（0）"
-    - 暂无条目
+=== "🏢 产品与行业（1）"
+    - **1. Nous Research发布Hermes Agent资源列表**：该资源列表将促进Hermes Agent生态系统的建设，为开发者提供便利的资源导航，推动AI代…
 
 ## 全部快讯
 
-??? info "1. QwenLM/qwen-code v0.0.14：新增任务规划模式支持"
-    **摘要**：Qwen Code v0.0.14版本新增任务规划模式支持，修复编辑校正器问题，增强Qwen3-VL-Plus支持。
+??? info "1. Nous Research发布Hermes Agent资源列表"
+    **摘要**：⭐ 99 stars | A curated list of awesome skills,tools,integrations,and resources for Hermes Agent by Nous Research。
 
     **关键点**
 
-    - 新增任务规划模式支持
-    - 修复编辑校正器问题
-    - Qwen3-VL-Plus支持256K输入32K输出
+    - 为Hermes Agent整理精选资源列表
+    - GitHub获得99颗星
+    - 包含技能、工具、集成资源
 
-    **影响分析**：提升了Qwen Code的规划能力和视觉处理能力，增强了AI编程代理的任务处理效率。
+    **影响分析**：该资源列表将促进Hermes Agent生态系统的建设，为开发者提供便利的资源导航，推动AI代理技术的社区发展。
 
-    **来源**：[原文链接](https://github.com/QwenLM/qwen-code/blob/main/CHANGELOG.md)
+    **来源**：[原文链接](https://github.com/0xNyk/awesome-hermes-agent)
 
 ---
 
 ## 历史归档
 
+- [2026-03-24_08-04-01](history/2026-03-24_08-04-01.md)
 - [2026-03-23_22-46-53](history/2026-03-23_22-46-53.md)
 - [2026-03-23_20-09-44](history/2026-03-23_20-09-44.md)
 - [2026-03-23_13-29-33](history/2026-03-23_13-29-33.md)
