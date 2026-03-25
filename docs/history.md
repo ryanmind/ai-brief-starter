@@ -1,16 +1,14 @@
-> 更新时间：2026年03月25日08:03:23
+> 更新时间：2026年03月25日13:23:18
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. Claude用量监控面板开源：统一跟踪tokens、配额和费用：GitHub项目CCDash开源Claude统一用量监控面板。
-2. ChatGPT推出沉浸式购物体验：支持产品发现和商家集成：OpenAI ChatGPT推出基于Agentic Commerce Protoco。
+1. OpenAI发布青少年安全政策帮助开发者构建安全AI体验：OpenAI发布基于提示的青少年安全政策gpt-oss-safeguard。
 
 ## 分类速览
 
-=== "🤖 模型进展（2）"
-    - **1. Claude用量监控面板开源：统一跟踪tokens、配额和费用**：为Claude用户提供了统一的用量管理工具，有助于成本控制和使用优化。推动AI服务透明化管理
-    - **2. ChatGPT推出沉浸式购物体验：支持产品发现和商家集成**：推动AI助手在电商领域的应用，提升用户购物体验。为AI商业化应用开辟新方向，促进AI与电商融合
+=== "🤖 模型进展（1）"
+    - **1. OpenAI发布青少年安全政策帮助开发者构建安全AI体验**：青少年安全政策的发布有助于推动AI产品在未成年人保护方面的发展，为开发者提供标准化的安全防护工…
 
 === "🧪 论文研究（0）"
     - 暂无条目
@@ -20,36 +18,24 @@
 
 ## 全部快讯
 
-??? info "1. Claude用量监控面板开源：统一跟踪tokens、配额和费用"
-    **摘要**：GitHub项目CCDash开源Claude统一用量监控面板，支持在单一面板中跟踪Claude Code、claude.ai和API的tokens、配额、费用数据，适用于Pro/Max订阅用户和开发者。
+??? info "1. OpenAI发布青少年安全政策帮助开发者构建安全AI体验"
+    **摘要**：OpenAI发布基于提示的青少年安全政策gpt-oss-safeguard，帮助开发者在AI系统中管理年龄特定风险，为青少年构建更安全的AI体验。
 
     **关键点**
 
-    - 统一跟踪Claude Code/claude.ai/AP
-    - tokens、配额、费用监控
-    - Pro/Max订阅用户适用
+    - 发布gpt-oss-safeguard安全政策
+    - 基于提示的青少年安全防护
+    - 管理年龄特定风险
 
-    **影响分析**：为Claude用户提供了统一的用量管理工具，有助于成本控制和使用优化。推动AI服务透明化管理。
+    **影响分析**：青少年安全政策的发布有助于推动AI产品在未成年人保护方面的发展，为开发者提供标准化的安全防护工具，提升AI产品的社会责任感。
 
-    **来源**：[原文链接](https://github.com/zihenghe04/CCDash)
-
-??? info "2. ChatGPT推出沉浸式购物体验：支持产品发现和商家集成"
-    **摘要**：OpenAI ChatGPT推出基于Agentic Commerce Protocol的沉浸式购物功能，支持产品发现、并排比较和商家集成，为用户提供更丰富的视觉购物体验。
-
-    **关键点**
-
-    - 基于Agentic Commerce Protocol
-    - 产品发现和并排比较
-    - 商家集成能力
-
-    **影响分析**：推动AI助手在电商领域的应用，提升用户购物体验。为AI商业化应用开辟新方向，促进AI与电商融合。
-
-    **来源**：[原文链接](https://openai.com/index/powering-product-discovery-in-chatgpt)
+    **来源**：[原文链接](https://openai.com/index/teen-safety-policies-gpt-oss-safeguard)
 
 ---
 
 ## 历史归档
 
+- [2026-03-25_13-23-18](history/2026-03-25_13-23-18.md)
 - [2026-03-25_08-03-23](history/2026-03-25_08-03-23.md)
 - [2026-03-24_22-49-48](history/2026-03-24_22-49-48.md)
 - [2026-03-24_20-11-29](history/2026-03-24_20-11-29.md)
