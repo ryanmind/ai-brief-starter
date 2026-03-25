@@ -1,34 +1,63 @@
 # 今日快讯
 
-> 更新时间：2026年03月25日13:23:18
+> 更新时间：2026年03月25日16:17:41
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. OpenAI发布青少年安全政策帮助开发者构建安全AI体验：OpenAI发布基于提示的青少年安全政策gpt-oss-safeguard。
+1. openai.com 发布重要更新：ChatGPT introduces richer。
+2. runesleo发布AI+Obsidian健康管理系统：runesleo发布AI+Obsidian私有化健康管理系统。
+3. MetapriseAI发布开源AI代理信任层：⭐ 3 stars | Python Open-source trust layer。
 
 ## 分类速览
 
 === "🤖 模型进展（1）"
-    - **1. OpenAI发布青少年安全政策帮助开发者构建安全AI体验**：青少年安全政策的发布有助于推动AI产品在未成年人保护方面的发展，为开发者提供标准化的安全防护工…
+    - **1. openai.com 发布重要更新**：这一更新将改变用户在AI助手中的购物体验，推动AI在电子商务领域的应用，可能影响整个AI商业服…
 
 === "🧪 论文研究（0）"
     - 暂无条目
 
-=== "🏢 产品与行业（0）"
-    - 暂无条目
+=== "🏢 产品与行业（2）"
+    - **2. runesleo发布AI+Obsidian健康管理系统**：该系统为个人和家庭健康管理提供了新的解决方案，推动了AI在个人健康领域的应用
+    - **3. MetapriseAI发布开源AI代理信任层**：该信任层为AI代理安全提供了重要基础，可能推动AI代理安全标准的发展和应用
 
 ## 全部快讯
 
-??? info "1. OpenAI发布青少年安全政策帮助开发者构建安全AI体验"
-    **摘要**：OpenAI发布基于提示的青少年安全政策gpt-oss-safeguard，帮助开发者在AI系统中管理年龄特定风险，为青少年构建更安全的AI体验。
+??? info "1. openai.com 发布重要更新"
+    **摘要**：ChatGPT introduces richer,visually immersive shopping powered by the Agentic Commerce Protocol,enabling product discovery,side-by-side comparisons,and merch。
 
     **关键点**
 
-    - 发布gpt-oss-safeguard安全政策
-    - 基于提示的青少年安全防护
-    - 管理年龄特定风险
+    - ChatGPT引入视觉沉浸式购物体验
+    - 由Agentic Commerce Protocol驱动
+    - 支持产品发现和并排比较
 
-    **影响分析**：青少年安全政策的发布有助于推动AI产品在未成年人保护方面的发展，为开发者提供标准化的安全防护工具，提升AI产品的社会责任感。
+    **影响分析**：这一更新将改变用户在AI助手中的购物体验，推动AI在电子商务领域的应用，可能影响整个AI商业服务市场。
 
-    **来源**：[原文链接](https://openai.com/index/teen-safety-policies-gpt-oss-safeguard)
+    **来源**：[原文链接](https://openai.com/index/powering-product-discovery-in-chatgpt)
+
+??? info "2. runesleo发布AI+Obsidian健康管理系统"
+    **摘要**：runesleo发布AI+Obsidian私有化健康管理系统，提供模板、Prompt和搭建指南。该系统允许用户为自己和家人搭建私有化的健康管理解决方案。
+
+    **关键点**
+
+    - AI+Obsidian私有化健康管理
+    - 包含模板和Prompt
+    - 提供搭建指南
+
+    **影响分析**：该系统为个人和家庭健康管理提供了新的解决方案，推动了AI在个人健康领域的应用。
+
+    **来源**：[原文链接](https://github.com/runesleo/ai-health-vault)
+
+??? info "3. MetapriseAI发布开源AI代理信任层"
+    **摘要**：⭐ 3 stars | Python Open-source trust layer for AI agents-cryptographic agent identity Ed25519,instance-scoped execution tokens,SHA-256 hash-chained audit。
+
+    **关键点**
+
+    - 提供AI代理信任层
+    - 包含Ed25519加密代理身份
+    - SHA-256哈希链审计日志
+
+    **影响分析**：该信任层为AI代理安全提供了重要基础，可能推动AI代理安全标准的发展和应用。
+
+    **来源**：[原文链接](https://github.com/MetapriseAI/OrgKernel)
