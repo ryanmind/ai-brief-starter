@@ -1,55 +1,56 @@
-> 更新时间：2026年03月24日22:49:48
+> 更新时间：2026年03月25日08:03:23
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. marswaveai推出开源隐私优先语音输入应用TypeNo：marswaveai发布TypeNo。
-2. remorses发布AI代理计算机自动化工具usecomputer：⭐ 50 stars | Zig Fast computer automation。
+1. Claude用量监控面板开源：统一跟踪tokens、配额和费用：GitHub项目CCDash开源Claude统一用量监控面板。
+2. ChatGPT推出沉浸式购物体验：支持产品发现和商家集成：OpenAI ChatGPT推出基于Agentic Commerce Protoco。
 
 ## 分类速览
 
-=== "🤖 模型进展（0）"
-    - 暂无条目
+=== "🤖 模型进展（2）"
+    - **1. Claude用量监控面板开源：统一跟踪tokens、配额和费用**：为Claude用户提供了统一的用量管理工具，有助于成本控制和使用优化。推动AI服务透明化管理
+    - **2. ChatGPT推出沉浸式购物体验：支持产品发现和商家集成**：推动AI助手在电商领域的应用，提升用户购物体验。为AI商业化应用开辟新方向，促进AI与电商融合
 
 === "🧪 论文研究（0）"
     - 暂无条目
 
-=== "🏢 产品与行业（2）"
-    - **1. marswaveai推出开源隐私优先语音输入应用TypeNo**：这一应用为用户提供了隐私保护的语音输入选择，推动了开源语音识别技术的发展，为用户数据安全提供更…
-    - **2. remorses发布AI代理计算机自动化工具usecomputer**：这一工具将增强AI代理的桌面自动化能力，为AI代理在实际工作场景中的应用提供更强大的系统交互能力
+=== "🏢 产品与行业（0）"
+    - 暂无条目
 
 ## 全部快讯
 
-??? info "1. marswaveai推出开源隐私优先语音输入应用TypeNo"
-    **摘要**：marswaveai发布TypeNo，一款免费开源的macOS隐私优先语音输入应用，已在GitHub获得216颗星，专注于保护用户隐私的语音识别功能。
+??? info "1. Claude用量监控面板开源：统一跟踪tokens、配额和费用"
+    **摘要**：GitHub项目CCDash开源Claude统一用量监控面板，支持在单一面板中跟踪Claude Code、claude.ai和API的tokens、配额、费用数据，适用于Pro/Max订阅用户和开发者。
 
     **关键点**
 
-    - 免费开源的macOS语音输入应用
-    - 专注于隐私保护
-    - GitHub获得216颗星
+    - 统一跟踪Claude Code/claude.ai/AP
+    - tokens、配额、费用监控
+    - Pro/Max订阅用户适用
 
-    **影响分析**：这一应用为用户提供了隐私保护的语音输入选择，推动了开源语音识别技术的发展，为用户数据安全提供更多保障。
+    **影响分析**：为Claude用户提供了统一的用量管理工具，有助于成本控制和使用优化。推动AI服务透明化管理。
 
-    **来源**：[原文链接](https://github.com/marswaveai/TypeNo)
+    **来源**：[原文链接](https://github.com/zihenghe04/CCDash)
 
-??? info "2. remorses发布AI代理计算机自动化工具usecomputer"
-    **摘要**：⭐ 50 stars | Zig Fast computer automation CLI for AI agents. Control any desktop with accessibility snapshots,clicks,typing,scrolling,and more.。
+??? info "2. ChatGPT推出沉浸式购物体验：支持产品发现和商家集成"
+    **摘要**：OpenAI ChatGPT推出基于Agentic Commerce Protocol的沉浸式购物功能，支持产品发现、并排比较和商家集成，为用户提供更丰富的视觉购物体验。
 
     **关键点**
 
-    - 使用Zig语言开发
-    - 支持桌面控制、截图、点击、输入、滚动
-    - GitHub获得50颗星
+    - 基于Agentic Commerce Protocol
+    - 产品发现和并排比较
+    - 商家集成能力
 
-    **影响分析**：这一工具将增强AI代理的桌面自动化能力，为AI代理在实际工作场景中的应用提供更强大的系统交互能力。
+    **影响分析**：推动AI助手在电商领域的应用，提升用户购物体验。为AI商业化应用开辟新方向，促进AI与电商融合。
 
-    **来源**：[原文链接](https://github.com/remorses/usecomputer)
+    **来源**：[原文链接](https://openai.com/index/powering-product-discovery-in-chatgpt)
 
 ---
 
 ## 历史归档
 
+- [2026-03-25_08-03-23](history/2026-03-25_08-03-23.md)
 - [2026-03-24_22-49-48](history/2026-03-24_22-49-48.md)
 - [2026-03-24_20-11-29](history/2026-03-24_20-11-29.md)
 - [2026-03-24_18-24-38](history/2026-03-24_18-24-38.md)
