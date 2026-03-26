@@ -1,40 +1,56 @@
-> 更新时间：2026年03月25日20:12:18
+> 更新时间：2026年03月26日08:07:46
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. chenyuwang2020/SnapTeX 发布重要更新：chenyuwang2020/SnapTeX项目提供本地离线Windows截图识别工。
+1. OpenAI发布Model Spec框架规范模型行为：Learn how OpenAI’s Model Spec serves as a。
+2. OpenAI推出AI安全漏洞赏金计划：OpenAI launches a Safety Bug Bounty progra。
 
 ## 分类速览
 
-=== "🤖 模型进展（0）"
-    - 暂无条目
+=== "🤖 模型进展（2）"
+    - **1. OpenAI发布Model Spec框架规范模型行为**：为AI模型行为建立标准化规范，有助于提升AI系统的安全性和可控性，为AI治理提供重要参考框架
+    - **2. OpenAI推出AI安全漏洞赏金计划**：提升AI系统安全性，通过社区参与发现潜在风险，推动AI安全标准的建立和完善
 
 === "🧪 论文研究（0）"
     - 暂无条目
 
-=== "🏢 产品与行业（1）"
-    - **1. chenyuwang2020/SnapTeX 发布重要更新**：该工具为学术研究和文档处理提供了便利，特别是数学公式处理方面，有助于提高学术工作效率
+=== "🏢 产品与行业（0）"
+    - 暂无条目
 
 ## 全部快讯
 
-??? info "1. chenyuwang2020/SnapTeX 发布重要更新"
-    **摘要**：chenyuwang2020/SnapTeX项目提供本地离线Windows截图识别工具，支持数学公式转LaTeX和中英文混排OCR。
+??? info "1. OpenAI发布Model Spec框架规范模型行为"
+    **摘要**：Learn how OpenAI’s Model Spec serves as a public framework for model behavior,balancing safety,user freedom,and accountability as AI systems advance.。
 
     **关键点**
 
-    - 本地离线Windows截图识别工具
-    - 支持数学公式转LaTeX
-    - 支持中英文混排OCR
+    - Model Spec是公共框架规范模型行为
+    - 平衡安全性、用户自由和问责制
+    - 包含解决冲突指令的指挥链机制
 
-    **影响分析**：该工具为学术研究和文档处理提供了便利，特别是数学公式处理方面，有助于提高学术工作效率。
+    **影响分析**：为AI模型行为建立标准化规范，有助于提升AI系统的安全性和可控性，为AI治理提供重要参考框架。
 
-    **来源**：[原文链接](https://github.com/chenyuwang2020/SnapTeX)
+    **来源**：[原文链接](https://openai.com/index/our-approach-to-the-model-spec)
+
+??? info "2. OpenAI推出AI安全漏洞赏金计划"
+    **摘要**：OpenAI launches a Safety Bug Bounty program to identify AI abuse and safety risks,including agentic vulnerabilities,prompt injection,and data exfiltration.。
+
+    **关键点**
+
+    - OpenAI安全漏洞赏金计划启动
+    - 涵盖代理漏洞、提示注入风险
+    - 包括数据泄露等安全风险
+
+    **影响分析**：提升AI系统安全性，通过社区参与发现潜在风险，推动AI安全标准的建立和完善。
+
+    **来源**：[原文链接](https://openai.com/index/safety-bug-bounty)
 
 ---
 
 ## 历史归档
 
+- [2026-03-26_08-07-46](history/2026-03-26_08-07-46.md)
 - [2026-03-25_20-12-18](history/2026-03-25_20-12-18.md)
 - [2026-03-25_16-17-41](history/2026-03-25_16-17-41.md)
 - [2026-03-25_13-23-18](history/2026-03-25_13-23-18.md)
