@@ -1,49 +1,93 @@
 # 今日快讯
 
-> 更新时间：2026年03月26日08:07:46
+> 更新时间：2026年03月26日13:34:52
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. OpenAI发布Model Spec框架规范模型行为：Learn how OpenAI’s Model Spec serves as a。
-2. OpenAI推出AI安全漏洞赏金计划：OpenAI launches a Safety Bug Bounty progra。
+1. OpenAI发布Model Spec公共框架定义模型行为规范：Learn how OpenAI’s Model Spec serves as a。
+2. Luma Labs推出Uni-1智能生成模型强调理解能力：Luma Labs推出Uni-1生成模型。
+3. JerryJerryL推出基于OCR的图片案例管理工具：JerryJerryL发布ImgLexicon工具。
+4. 蚂蚁研究发布AI生成图像视频检测资源合集：蚂蚁研究发布Awesome-AIGC-Image-Video-Detection项目。
+5. knaidu1-cell发布AI面试练习工具：knaidu1-cell发布基于Llama的AI面试练习工具。
 
 ## 分类速览
 
-=== "🤖 模型进展（2）"
-    - **1. OpenAI发布Model Spec框架规范模型行为**：为AI模型行为建立标准化规范，有助于提升AI系统的安全性和可控性，为AI治理提供重要参考框架
-    - **2. OpenAI推出AI安全漏洞赏金计划**：提升AI系统安全性，通过社区参与发现潜在风险，推动AI安全标准的建立和完善
+=== "🤖 模型进展（3）"
+    - **1. OpenAI发布Model Spec公共框架定义模型行为规范**：Model Spec的发布提高了AI模型行为的透明度和可预测性，为AI安全和伦理规范提供了重要…
+    - **2. Luma Labs推出Uni-1智能生成模型强调理解能力**：Uni-1的推出可能推动生成AI向更智能、更理解创意意图的方向发展，为创意工作者提供更自然的A…
+    - **5. knaidu1-cell发布AI面试练习工具**：该工具为求职者提供了智能化的面试准备方案，提高了面试准备的效率和质量，推动了AI在职业发展领域…
 
 === "🧪 论文研究（0）"
     - 暂无条目
 
-=== "🏢 产品与行业（0）"
-    - 暂无条目
+=== "🏢 产品与行业（2）"
+    - **3. JerryJerryL推出基于OCR的图片案例管理工具**：该工具为图片内容管理提供了新的解决方案，特别适用于需要处理大量图片案例的用户，提高了图片信息的…
+    - **4. 蚂蚁研究发布AI生成图像视频检测资源合集**：该资源合集为AI内容检测研究提供了重要参考，有助于应对深度伪造和虚假内容的挑战，推动内容安全技…
 
 ## 全部快讯
 
-??? info "1. OpenAI发布Model Spec框架规范模型行为"
+??? info "1. OpenAI发布Model Spec公共框架定义模型行为规范"
     **摘要**：Learn how OpenAI’s Model Spec serves as a public framework for model behavior,balancing safety,user freedom,and accountability as AI systems advance.。
 
     **关键点**
 
-    - Model Spec是公共框架规范模型行为
+    - Model Spec是公开的模型行为框架
     - 平衡安全性、用户自由和问责制
-    - 包含解决冲突指令的指挥链机制
+    - 包含冲突指令处理机制
 
-    **影响分析**：为AI模型行为建立标准化规范，有助于提升AI系统的安全性和可控性，为AI治理提供重要参考框架。
+    **影响分析**：Model Spec的发布提高了AI模型行为的透明度和可预测性，为AI安全和伦理规范提供了重要参考，可能成为行业标准制定的基准。
 
     **来源**：[原文链接](https://openai.com/index/our-approach-to-the-model-spec)
 
-??? info "2. OpenAI推出AI安全漏洞赏金计划"
-    **摘要**：OpenAI launches a Safety Bug Bounty program to identify AI abuse and safety risks,including agentic vulnerabilities,prompt injection,and data exfiltration.。
+??? info "2. Luma Labs推出Uni-1智能生成模型强调理解能力"
+    **摘要**：Luma Labs推出Uni-1生成模型，强调美学理解、视觉判断、创意协作和智能生成能力，用户可通过lumalabs.ai/uni-1试用。
 
     **关键点**
 
-    - OpenAI安全漏洞赏金计划启动
-    - 涵盖代理漏洞、提示注入风险
-    - 包括数据泄露等安全风险
+    - 具备美学理解和视觉判断能力
+    - 支持创意协作和意图理解
+    - 减少复杂提示词需求
 
-    **影响分析**：提升AI系统安全性，通过社区参与发现潜在风险，推动AI安全标准的建立和完善。
+    **影响分析**：Uni-1的推出可能推动生成AI向更智能、更理解创意意图的方向发展，为创意工作者提供更自然的AI协作工具。
 
-    **来源**：[原文链接](https://openai.com/index/safety-bug-bounty)
+    **来源**：[原文链接](https://x.com/LumaLabsAI/status/2036941196262543458)
+
+??? info "3. JerryJerryL推出基于OCR的图片案例管理工具"
+    **摘要**：JerryJerryL发布ImgLexicon工具，基于OCR技术实现本地图片文字提取、批量导入和关键词全文检索功能。
+
+    **关键点**
+
+    - 基于OCR技术的图片管理工具
+    - 支持图片文字提取和批量导入
+    - 提供关键词全文检索功能
+
+    **影响分析**：该工具为图片内容管理提供了新的解决方案，特别适用于需要处理大量图片案例的用户，提高了图片信息的可检索性。
+
+    **来源**：[原文链接](https://github.com/JerryJerryL/ImgLexicon)
+
+??? info "4. 蚂蚁研究发布AI生成图像视频检测资源合集"
+    **摘要**：蚂蚁研究发布Awesome-AIGC-Image-Video-Detection项目，整理了AI生成图像和视频检测领域的最新研究和资源。
+
+    **关键点**
+
+    - 蚂蚁研究发布AI生成内容检测合集
+    - 涵盖AI生成图像和视频检测
+    - 收集最新研究和资源
+
+    **影响分析**：该资源合集为AI内容检测研究提供了重要参考，有助于应对深度伪造和虚假内容的挑战，推动内容安全技术发展。
+
+    **来源**：[原文链接](https://github.com/ant-research/Awesome-AIGC-Image-Video-Detection)
+
+??? info "5. knaidu1-cell发布AI面试练习工具"
+    **摘要**：knaidu1-cell发布基于Llama的AI面试练习工具，自动生STAR/SOAR结构化面试回答，使用Streamlit、Docker和SQLite构建。
+
+    **关键点**
+
+    - 基于Llama模型的面试练习工具
+    - 自动生成STAR/SOAR结构化回答
+    - 使用Streamlit、Docker、SQLite技术栈
+
+    **影响分析**：该工具为求职者提供了智能化的面试准备方案，提高了面试准备的效率和质量，推动了AI在职业发展领域的应用。
+
+    **来源**：[原文链接](https://github.com/knaidu1-cell/Llama-AI-Behavioral-Interview-Tutor-STAR-Framework)
