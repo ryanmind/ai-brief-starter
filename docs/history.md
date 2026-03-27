@@ -1,70 +1,41 @@
-> 更新时间：2026年03月27日18:21:21
+> 更新时间：2026年03月27日22:42:23
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. @demishassabis 发布重要更新：Now it’s even easier to switch to the @Gem。
-2. tpj69发布视频转Claude工具：tpj69发布了video2claude工具。
-3. clockwise0215发布Claude成本追踪器：clockwise0215发布了Claude Code令牌使用量追踪和可视化工具。
+1. AI原生前端开发培训材料发布：AICode-Nexus发布了大模型时代前端开发的AI-Native技术栈与工作流培。
 
 ## 分类速览
 
-=== "🤖 模型进展（3）"
-    - **1. @demishassabis 发布重要更新**：跨平台数据迁移功能将降低用户切换AI应用的门槛，提升用户粘性和平台竞争力
-    - **2. tpj69发布视频转Claude工具**：视频转Claude工具将提升AI系统对视频内容的理解和处理能力，推动多模态AI应用的发展
-    - **3. clockwise0215发布Claude成本追踪器**：Claude成本追踪器将帮助用户更好地管理AI使用成本，提升AI工具的经济性管理
+=== "🤖 模型进展（0）"
+    - 暂无条目
 
 === "🧪 论文研究（0）"
     - 暂无条目
 
-=== "🏢 产品与行业（0）"
-    - 暂无条目
+=== "🏢 产品与行业（1）"
+    - **1. AI原生前端开发培训材料发布**：该培训材料将帮助前端开发者掌握AI原生技术栈，推动前端开发向AI-Native方向转型
 
 ## 全部快讯
 
-??? info "1. @demishassabis 发布重要更新"
-    **摘要**：Now it’s even easier to switch to the @GeminiApp。
+??? info "1. AI原生前端开发培训材料发布"
+    **摘要**：AICode-Nexus发布了大模型时代前端开发的AI-Native技术栈与工作流培训材料，包含12节课、494K字演讲稿、Demo项目和课后练习。
 
     **关键点**
 
-    - 支持从其他AI应用迁移数据到Gemini
-    - 可导入偏好设置和聊天历史
-    - 从桌面端开始推出该功能
+    - 包含12节课和494K字演讲稿
+    - 提供Demo项目和课后练习
+    - 专注AI-Native技术栈与工作流
 
-    **影响分析**：跨平台数据迁移功能将降低用户切换AI应用的门槛，提升用户粘性和平台竞争力。
+    **影响分析**：该培训材料将帮助前端开发者掌握AI原生技术栈，推动前端开发向AI-Native方向转型。
 
-    **来源**：[原文链接](https://x.com/demishassabis/status/2037348762138677735)
-
-??? info "2. tpj69发布视频转Claude工具"
-    **摘要**：tpj69发布了video2claude工具，将视频转换为紧凑的高信号帧集，用于Claude AI系统处理。
-
-    **关键点**
-
-    - 将视频转换为高信号帧集
-    - 结合场景变化检测和光流运动采样
-    - 为Claude生成API就绪的有效载荷
-
-    **影响分析**：视频转Claude工具将提升AI系统对视频内容的理解和处理能力，推动多模态AI应用的发展。
-
-    **来源**：[原文链接](https://github.com/tpj69/video2claude)
-
-??? info "3. clockwise0215发布Claude成本追踪器"
-    **摘要**：clockwise0215发布了Claude Code令牌使用量追踪和可视化工具，零依赖且零令牌成本。
-
-    **关键点**
-
-    - 追踪和可视化Claude Code令牌使用量
-    - 零依赖且零令牌成本
-    - 支持跨会话和项目监控
-
-    **影响分析**：Claude成本追踪器将帮助用户更好地管理AI使用成本，提升AI工具的经济性管理。
-
-    **来源**：[原文链接](https://github.com/clockwise0215/claude-cost-tracker)
+    **来源**：[原文链接](https://github.com/AICode-Nexus/ai-native-frontend-bootcamp)
 
 ---
 
 ## 历史归档
 
+- [2026-03-27_22-42-23](history/2026-03-27_22-42-23.md)
 - [2026-03-27_18-21-21](history/2026-03-27_18-21-21.md)
 - [2026-03-27_08-08-49](history/2026-03-27_08-08-49.md)
 - [2026-03-26_22-56-53](history/2026-03-26_22-56-53.md)
