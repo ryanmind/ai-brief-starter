@@ -1,54 +1,71 @@
-> 更新时间：2026年03月27日08:08:49
+> 更新时间：2026年03月27日18:21:21
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. Luma Labs发布Uni-1模型强调精确视觉指令执行：Uni-1 is directable. Executes explicit vis。
-2. Edinetdb发布日本股市AI研究代理dexter-jp：Edinetdb发布了dexter-jp。
+1. @demishassabis 发布重要更新：Now it’s even easier to switch to the @Gem。
+2. tpj69发布视频转Claude工具：tpj69发布了video2claude工具。
+3. clockwise0215发布Claude成本追踪器：clockwise0215发布了Claude Code令牌使用量追踪和可视化工具。
 
 ## 分类速览
 
-=== "🤖 模型进展（1）"
-    - **1. Luma Labs发布Uni-1模型强调精确视觉指令执行**：将提升AI图像编辑的精确度和可控性，使用户能够更精确地控制AI生成内容，减少编辑过程中的意外变化
+=== "🤖 模型进展（3）"
+    - **1. @demishassabis 发布重要更新**：跨平台数据迁移功能将降低用户切换AI应用的门槛，提升用户粘性和平台竞争力
+    - **2. tpj69发布视频转Claude工具**：视频转Claude工具将提升AI系统对视频内容的理解和处理能力，推动多模态AI应用的发展
+    - **3. clockwise0215发布Claude成本追踪器**：Claude成本追踪器将帮助用户更好地管理AI使用成本，提升AI工具的经济性管理
 
 === "🧪 论文研究（0）"
     - 暂无条目
 
-=== "🏢 产品与行业（1）"
-    - **2. Edinetdb发布日本股市AI研究代理dexter-jp**：将提升日本股市研究的自动化水平，为投资者和分析师提供更高效的财务分析工具，推动金融AI应用的发展
+=== "🏢 产品与行业（0）"
+    - 暂无条目
 
 ## 全部快讯
 
-??? info "1. Luma Labs发布Uni-1模型强调精确视觉指令执行"
-    **摘要**：Uni-1 is directable. Executes explicit visual instructions with precise,localized edits and minimal unintended changes. Try today → lumalabs.ai/uni-1。
+??? info "1. @demishassabis 发布重要更新"
+    **摘要**：Now it’s even easier to switch to the @GeminiApp。
 
     **关键点**
 
-    - Uni-1模型具备可指导性
-    - 执行明确视觉指令
-    - 精确局部编辑，最小化意外变化
+    - 支持从其他AI应用迁移数据到Gemini
+    - 可导入偏好设置和聊天历史
+    - 从桌面端开始推出该功能
 
-    **影响分析**：将提升AI图像编辑的精确度和可控性，使用户能够更精确地控制AI生成内容，减少编辑过程中的意外变化。
+    **影响分析**：跨平台数据迁移功能将降低用户切换AI应用的门槛，提升用户粘性和平台竞争力。
 
-    **来源**：[原文链接](https://x.com/LumaLabsAI/status/2037243186817470808)
+    **来源**：[原文链接](https://x.com/demishassabis/status/2037348762138677735)
 
-??? info "2. Edinetdb发布日本股市AI研究代理dexter-jp"
-    **摘要**：Edinetdb发布了dexter-jp，这是一个用于日本上市公司深度财务研究的自主AI代理，基于EDINET DB和J-Quants数据。
+??? info "2. tpj69发布视频转Claude工具"
+    **摘要**：tpj69发布了video2claude工具，将视频转换为紧凑的高信号帧集，用于Claude AI系统处理。
 
     **关键点**
 
-    - dexter-jp获得30颗星
-    - 日本上市公司深度财务研究AI代理
-    - 基于EDINET DB和J-Quants数据
+    - 将视频转换为高信号帧集
+    - 结合场景变化检测和光流运动采样
+    - 为Claude生成API就绪的有效载荷
 
-    **影响分析**：将提升日本股市研究的自动化水平，为投资者和分析师提供更高效的财务分析工具，推动金融AI应用的发展。
+    **影响分析**：视频转Claude工具将提升AI系统对视频内容的理解和处理能力，推动多模态AI应用的发展。
 
-    **来源**：[原文链接](https://github.com/edinetdb/dexter-jp)
+    **来源**：[原文链接](https://github.com/tpj69/video2claude)
+
+??? info "3. clockwise0215发布Claude成本追踪器"
+    **摘要**：clockwise0215发布了Claude Code令牌使用量追踪和可视化工具，零依赖且零令牌成本。
+
+    **关键点**
+
+    - 追踪和可视化Claude Code令牌使用量
+    - 零依赖且零令牌成本
+    - 支持跨会话和项目监控
+
+    **影响分析**：Claude成本追踪器将帮助用户更好地管理AI使用成本，提升AI工具的经济性管理。
+
+    **来源**：[原文链接](https://github.com/clockwise0215/claude-cost-tracker)
 
 ---
 
 ## 历史归档
 
+- [2026-03-27_18-21-21](history/2026-03-27_18-21-21.md)
 - [2026-03-27_08-08-49](history/2026-03-27_08-08-49.md)
 - [2026-03-26_22-56-53](history/2026-03-26_22-56-53.md)
 - [2026-03-26_20-18-05](history/2026-03-26_20-18-05.md)
