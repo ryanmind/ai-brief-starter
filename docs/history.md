@@ -1,55 +1,55 @@
-> 更新时间：2026年03月26日22:56:53
+> 更新时间：2026年03月27日08:08:49
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. Notion推出数据库智能体自动更新功能：Meet Database Agents. A team of li’l libra。
-2. 蚂蚁研究开源AI生成图像视频检测资源库：ant-research开源AI生成图像和视频检测的精选研究资源库。
+1. Luma Labs发布Uni-1模型强调精确视觉指令执行：Uni-1 is directable. Executes explicit vis。
+2. Edinetdb发布日本股市AI研究代理dexter-jp：Edinetdb发布了dexter-jp。
 
 ## 分类速览
 
-=== "🤖 模型进展（0）"
-    - 暂无条目
+=== "🤖 模型进展（1）"
+    - **1. Luma Labs发布Uni-1模型强调精确视觉指令执行**：将提升AI图像编辑的精确度和可控性，使用户能够更精确地控制AI生成内容，减少编辑过程中的意外变化
 
 === "🧪 论文研究（0）"
     - 暂无条目
 
-=== "🏢 产品与行业（2）"
-    - **1. Notion推出数据库智能体自动更新功能**：提升数据库管理的自动化水平，减少人工维护工作量，提高数据实时性
-    - **2. 蚂蚁研究开源AI生成图像视频检测资源库**：为AI生成内容检测提供重要资源，有助于维护数字内容的真实性
+=== "🏢 产品与行业（1）"
+    - **2. Edinetdb发布日本股市AI研究代理dexter-jp**：将提升日本股市研究的自动化水平，为投资者和分析师提供更高效的财务分析工具，推动金融AI应用的发展
 
 ## 全部快讯
 
-??? info "1. Notion推出数据库智能体自动更新功能"
-    **摘要**：Meet Database Agents. A team of li’l librarians in your database-keeping it up to date automatically using context from the page,your workspace,and the web.。
+??? info "1. Luma Labs发布Uni-1模型强调精确视觉指令执行"
+    **摘要**：Uni-1 is directable. Executes explicit visual instructions with precise,localized edits and minimal unintended changes. Try today → lumalabs.ai/uni-1。
 
     **关键点**
 
-    - 数据库智能体自动保持数据库更新
-    - 使用页面、工作区和网络上下文
-    - 解决稍后更新数据库问题
+    - Uni-1模型具备可指导性
+    - 执行明确视觉指令
+    - 精确局部编辑，最小化意外变化
 
-    **影响分析**：提升数据库管理的自动化水平，减少人工维护工作量，提高数据实时性。
+    **影响分析**：将提升AI图像编辑的精确度和可控性，使用户能够更精确地控制AI生成内容，减少编辑过程中的意外变化。
 
-    **来源**：[原文链接](https://x.com/NotionHQ/status/2036840811082776862)
+    **来源**：[原文链接](https://x.com/LumaLabsAI/status/2037243186817470808)
 
-??? info "2. 蚂蚁研究开源AI生成图像视频检测资源库"
-    **摘要**：ant-research开源AI生成图像和视频检测的精选研究资源库，汇集了最新的AI生成内容检测技术研究和资源。
+??? info "2. Edinetdb发布日本股市AI研究代理dexter-jp"
+    **摘要**：Edinetdb发布了dexter-jp，这是一个用于日本上市公司深度财务研究的自主AI代理，基于EDINET DB和J-Quants数据。
 
     **关键点**
 
-    - 蚂蚁研究开源AIGC检测资源库
-    - 汇集AI生成图像和视频检测研究
-    - 提供最新检测技术资源
+    - dexter-jp获得30颗星
+    - 日本上市公司深度财务研究AI代理
+    - 基于EDINET DB和J-Quants数据
 
-    **影响分析**：为AI生成内容检测提供重要资源，有助于维护数字内容的真实性。
+    **影响分析**：将提升日本股市研究的自动化水平，为投资者和分析师提供更高效的财务分析工具，推动金融AI应用的发展。
 
-    **来源**：[原文链接](https://github.com/ant-research/Awesome-AIGC-Image-Video-Detection)
+    **来源**：[原文链接](https://github.com/edinetdb/dexter-jp)
 
 ---
 
 ## 历史归档
 
+- [2026-03-27_08-08-49](history/2026-03-27_08-08-49.md)
 - [2026-03-26_22-56-53](history/2026-03-26_22-56-53.md)
 - [2026-03-26_20-18-05](history/2026-03-26_20-18-05.md)
 - [2026-03-26_16-24-23](history/2026-03-26_16-24-23.md)
