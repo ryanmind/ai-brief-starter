@@ -1,113 +1,55 @@
-> 更新时间：2026年03月28日14:43:05
+> 更新时间：2026年03月28日18:03:49
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. @perplexity_ai 发布重要更新：Perplexity now powers Samsung’s Browsing A。
-2. Runway推出广告概念生成应用，单提示创建广告创意：Runway推出Ad Concepter应用。
-3. Notion推出新小部件支持AI聊天、相机和语音输入：Notion推出新小部件功能，用户可从主屏幕一键打开AI聊天、相机或语音输入功能。
-4. Claude Code发布v2.1.86版本，新增会话ID头和文件排除功能：Claude Code发布v2.1.86版本。
-5. 通义千问代码版发布v0.0.14版本，支持计划模式和VL-Plus模型：通义千问代码版v0.0.14版本新增计划模式支持。
+1. openai.com 发布重要更新：Learn how STADLER uses ChatGPT to transfor。
+2. @perplexity_ai 发布重要更新：Perplexity now powers Samsung’s Browsing A。
 
 ## 分类速览
 
-=== "🤖 模型进展（2）"
-    - **4. Claude Code发布v2.1.86版本，新增会话ID头和文件排除功能**：提升Claude Code代理请求管理能力，优化文件搜索性能，增强版本控制系统集成体验
-    - **5. 通义千问代码版发布v0.0.14版本，支持计划模式和VL-Plus模型**：提升通义千问代码版任务规划能力，优化视觉模型性能，增强AI代码助手的多模态处理能力
+=== "🤖 模型进展（1）"
+    - **1. openai.com 发布重要更新**：为传统企业AI转型提供参考案例，证明AI在提升员工生产力方面的实际效果，可能推动更多传统企业采…
 
 === "🧪 论文研究（0）"
     - 暂无条目
 
-=== "🏢 产品与行业（4）"
-    - **1. @perplexity_ai 发布重要更新**：扩大Perplexity在移动和桌面浏览器市场的影响力，为三星设备用户提供AI搜索能力，推动A…
-    - **2. Runway推出广告概念生成应用，单提示创建广告创意**：降低广告创意制作门槛，通过AI生成能力提升广告制作效率，为营销人员提供快速创意探索工具
-    - **3. Notion推出新小部件支持AI聊天、相机和语音输入**：提升Notion移动用户体验，加速AI功能普及，增强用户在移动设备上的生产力工具使用效率
-    - **6. PALMYSTERY开源AI掌纹阅读应用带讽刺风格**：探索AI在娱乐领域的应用可能性，展示AI技术的多样化应用场景，推动AI与传统文化的结合
+=== "🏢 产品与行业（1）"
+    - **2. @perplexity_ai 发布重要更新**：扩大Perplexity在移动和桌面平台的市场覆盖，增强其在AI搜索领域的竞争力，为用户提供更…
 
 ## 全部快讯
 
-??? info "1. @perplexity_ai 发布重要更新"
+??? info "1. openai.com 发布重要更新"
+    **摘要**：Learn how STADLER uses ChatGPT to transform knowledge work,saving time and accelerating productivity across 650 employees.。
+
+    **关键点**
+
+    - STADLER公司使用ChatGPT转型知识工作
+    - 为650名员工节省时间并加速生产力
+    - 年历史的传统企业成功应用AI
+
+    **影响分析**：为传统企业AI转型提供参考案例，证明AI在提升员工生产力方面的实际效果，可能推动更多传统企业采用AI工具。
+
+    **来源**：[原文链接](https://openai.com/index/stadler)
+
+??? info "2. @perplexity_ai 发布重要更新"
     **摘要**：Perplexity now powers Samsung’s Browsing Assist in the Samsung Browser on Galaxy Android and Windows. Read more:perplexity.ai/hub/blog/perpl…。
 
     **关键点**
 
     - Perplexity为三星Browsing Assist
     - 覆盖Galaxy Android和Windows设备
-    - AI搜索服务扩展到三星生态系统
+    - AI API集成到三星浏览器中
 
-    **影响分析**：扩大Perplexity在移动和桌面浏览器市场的影响力，为三星设备用户提供AI搜索能力，推动AI浏览器助手普及。
+    **影响分析**：扩大Perplexity在移动和桌面平台的市场覆盖，增强其在AI搜索领域的竞争力，为用户提供更智能的浏览器内AI助手。
 
     **来源**：[原文链接](https://x.com/perplexity_ai/status/2037556796139921847)
-
-??? info "2. Runway推出广告概念生成应用，单提示创建广告创意"
-    **摘要**：Runway推出Ad Concepter应用，通过单个提示、参考图像和产品图片即可探索广告概念、构图和故事节拍。
-
-    **关键点**
-
-    - Ad Concepter应用已上线Web平台
-    - 单个提示即可探索广告概念
-    - 支持参考图像和产品图片输入
-
-    **影响分析**：降低广告创意制作门槛，通过AI生成能力提升广告制作效率，为营销人员提供快速创意探索工具。
-
-    **来源**：[原文链接](https://x.com/runwayml/status/2037533630491246685)
-
-??? info "3. Notion推出新小部件支持AI聊天、相机和语音输入"
-    **摘要**：Notion推出新小部件功能，用户可从主屏幕一键打开AI聊天、相机或语音输入功能。
-
-    **关键点**
-
-    - Notion推出新小部件功能
-    - 主屏幕一键访问AI聊天
-    - 支持相机和语音输入
-
-    **影响分析**：提升Notion移动用户体验，加速AI功能普及，增强用户在移动设备上的生产力工具使用效率。
-
-    **来源**：[原文链接](https://x.com/NotionHQ/status/2037593512385130868)
-
-??? info "4. Claude Code发布v2.1.86版本，新增会话ID头和文件排除功能"
-    **摘要**：Claude Code发布v2.1.86版本，新增X-Claude-Code-Session-Id请求头和Jujutsu/Sapling元数据排除功能。
-
-    **关键点**
-
-    - 新增X-Claude-Code-Session-Id请求
-    - 添加.jj和.sl到VCS排除列表
-    - 防止Grep搜索Jujutsu元数据
-
-    **影响分析**：提升Claude Code代理请求管理能力，优化文件搜索性能，增强版本控制系统集成体验。
-
-    **来源**：[原文链接](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md)
-
-??? info "5. 通义千问代码版发布v0.0.14版本，支持计划模式和VL-Plus模型"
-    **摘要**：通义千问代码版v0.0.14版本新增计划模式支持，修复编辑修正器问题，并支持Qwen3-VL-Plus模型规格。
-
-    **关键点**
-
-    - 新增计划模式支持
-    - 修复editCorrector可靠性问题
-    - 支持Qwen3-VL-Plus模型
-
-    **影响分析**：提升通义千问代码版任务规划能力，优化视觉模型性能，增强AI代码助手的多模态处理能力。
-
-    **来源**：[原文链接](https://github.com/QwenLM/qwen-code/blob/main/CHANGELOG.md)
-
-??? info "6. PALMYSTERY开源AI掌纹阅读应用带讽刺风格"
-    **摘要**：PALMYSTERY是开源AI掌纹阅读网络应用，提供带讽刺风格的掌纹解读服务。
-
-    **关键点**
-
-    - 开源AI掌纹阅读应用
-    - 带讽刺风格的解读
-    - JavaScript实现
-
-    **影响分析**：探索AI在娱乐领域的应用可能性，展示AI技术的多样化应用场景，推动AI与传统文化的结合。
-
-    **来源**：[原文链接](https://github.com/SairajTripathy-0077/PALMYSTERY)
 
 ---
 
 ## 历史归档
 
+- [2026-03-28_18-03-49](history/2026-03-28_18-03-49.md)
 - [2026-03-28_14-43-05](history/2026-03-28_14-43-05.md)
 - [2026-03-28_13-18-24](history/2026-03-28_13-18-24.md)
 - [2026-03-28_12-07-45](history/2026-03-28_12-07-45.md)
