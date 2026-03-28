@@ -1,40 +1,41 @@
-> 更新时间：2026年03月27日22:42:23
+> 更新时间：2026年03月28日08:01:02
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. AI原生前端开发培训材料发布：AICode-Nexus发布了大模型时代前端开发的AI-Native技术栈与工作流培。
+1. Luma AI发布Uni-1模型：Uni-1 is cultured. Adopts distinct artisti。
 
 ## 分类速览
 
-=== "🤖 模型进展（0）"
-    - 暂无条目
+=== "🤖 模型进展（1）"
+    - **1. Luma AI发布Uni-1模型**：推动AI图像生成技术发展，为创意产业提供新的工具选择，可能改变数字艺术创作的工作流程
 
 === "🧪 论文研究（0）"
     - 暂无条目
 
-=== "🏢 产品与行业（1）"
-    - **1. AI原生前端开发培训材料发布**：该培训材料将帮助前端开发者掌握AI原生技术栈，推动前端开发向AI-Native方向转型
+=== "🏢 产品与行业（0）"
+    - 暂无条目
 
 ## 全部快讯
 
-??? info "1. AI原生前端开发培训材料发布"
-    **摘要**：AICode-Nexus发布了大模型时代前端开发的AI-Native技术栈与工作流培训材料，包含12节课、494K字演讲稿、Demo项目和课后练习。
+??? info "1. Luma AI发布Uni-1模型"
+    **摘要**：Uni-1 is cultured. Adopts distinct artistic languages while preserving subject identity and composition across style variants. Try today → lumalabs.ai/uni-1。
 
     **关键点**
 
-    - 包含12节课和494K字演讲稿
-    - 提供Demo项目和课后练习
-    - 专注AI-Native技术栈与工作流
+    - Luma AI发布Uni-1模型
+    - 保持主体身份和构图一致性
+    - 采用独特艺术语言风格
 
-    **影响分析**：该培训材料将帮助前端开发者掌握AI原生技术栈，推动前端开发向AI-Native方向转型。
+    **影响分析**：推动AI图像生成技术发展，为创意产业提供新的工具选择，可能改变数字艺术创作的工作流程。
 
-    **来源**：[原文链接](https://github.com/AICode-Nexus/ai-native-frontend-bootcamp)
+    **来源**：[原文链接](https://x.com/LumaLabsAI/status/2037630595032142288)
 
 ---
 
 ## 历史归档
 
+- [2026-03-28_08-01-02](history/2026-03-28_08-01-02.md)
 - [2026-03-27_22-42-23](history/2026-03-27_22-42-23.md)
 - [2026-03-27_18-21-21](history/2026-03-27_18-21-21.md)
 - [2026-03-27_08-08-49](history/2026-03-27_08-08-49.md)
