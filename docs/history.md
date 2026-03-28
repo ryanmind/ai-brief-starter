@@ -1,40 +1,70 @@
-> 更新时间：2026年03月28日12:07:45
+> 更新时间：2026年03月28日13:18:24
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. Luma AI发布Uni-1模型，支持艺术风格转换：Uni-1 is cultured. Adopts distinct artisti。
+1. @perplexity_ai 发布重要更新：Perplexity now powers Samsung’s Browsing A。
+2. riaz-sana发布veritas多代理AI输出验证工具：开发者riaz-sana发布veritas多代理验证系统。
+3. Anthropic Claude Code发布v2.1.86版本更新：Anthropic Claude Code发布v2.1.86版本。
 
 ## 分类速览
 
 === "🤖 模型进展（1）"
-    - **1. Luma AI发布Uni-1模型，支持艺术风格转换**：推动AI艺术创作和个性化内容生成的发展，为个人用户和内容创作者提供新的创意工具，可能改变肖像艺…
+    - **3. Anthropic Claude Code发布v2.1.86版本更新**：提升Claude Code的API管理和版本控制功能，改善用户体验和开发效率
 
 === "🧪 论文研究（0）"
     - 暂无条目
 
-=== "🏢 产品与行业（0）"
-    - 暂无条目
+=== "🏢 产品与行业（2）"
+    - **1. @perplexity_ai 发布重要更新**：扩大Perplexity在移动端和桌面端的市场覆盖，通过与三星合作进入主流设备生态系统，提升A…
+    - **2. riaz-sana发布veritas多代理AI输出验证工具**：提升AI输出可靠性，通过多代理验证系统减少AI错误和偏见，为AI安全和可信度提供技术保障
 
 ## 全部快讯
 
-??? info "1. Luma AI发布Uni-1模型，支持艺术风格转换"
-    **摘要**：Uni-1 is cultured. Adopts distinct artistic languages while preserving subject identity and composition across style variants. Try today → lumalabs.ai/uni-1。
+??? info "1. @perplexity_ai 发布重要更新"
+    **摘要**：Perplexity now powers Samsung’s Browsing Assist in the Samsung Browser on Galaxy Android and Windows. Read more:perplexity.ai/hub/blog/perpl…。
 
     **关键点**
 
-    - Uni-1模型支持艺术风格转换
-    - 保持主体身份和构图一致性
-    - 可将单张面部照片转换为多种艺术风格
+    - Perplexity为三星Browsing Assist
+    - 覆盖Galaxy Android和Windows设备
+    - AI浏览辅助功能集成
 
-    **影响分析**：推动AI艺术创作和个性化内容生成的发展，为个人用户和内容创作者提供新的创意工具，可能改变肖像艺术和个性化内容制作的行业标准。
+    **影响分析**：扩大Perplexity在移动端和桌面端的市场覆盖，通过与三星合作进入主流设备生态系统，提升AI浏览服务的用户触达。
 
-    **来源**：[原文链接](https://x.com/LumaLabsAI/status/2037630595032142288)
+    **来源**：[原文链接](https://x.com/perplexity_ai/status/2037556796139921847)
+
+??? info "2. riaz-sana发布veritas多代理AI输出验证工具"
+    **摘要**：开发者riaz-sana发布veritas多代理验证系统，用于AI输出的声明验证、RAG诊断和代理AI的预操作验证。
+
+    **关键点**
+
+    - 多代理验证系统
+    - AI输出声明验证、RAG诊断
+    - 包含FaithBench基准测试
+
+    **影响分析**：提升AI输出可靠性，通过多代理验证系统减少AI错误和偏见，为AI安全和可信度提供技术保障。
+
+    **来源**：[原文链接](https://github.com/riaz-sana/veritas)
+
+??? info "3. Anthropic Claude Code发布v2.1.86版本更新"
+    **摘要**：Anthropic Claude Code发布v2.1.86版本，新增会话ID头、VCS目录排除列表更新和修复工具使用ID问题。
+
+    **关键点**
+
+    - Claude Code v2.1.86版本
+    - 新增X-Claude-Code-Session-Id头
+    - 添加.jj和.sl到VCS排除列表
+
+    **影响分析**：提升Claude Code的API管理和版本控制功能，改善用户体验和开发效率。
+
+    **来源**：[原文链接](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md)
 
 ---
 
 ## 历史归档
 
+- [2026-03-28_13-18-24](history/2026-03-28_13-18-24.md)
 - [2026-03-28_12-07-45](history/2026-03-28_12-07-45.md)
 - [2026-03-28_08-01-02](history/2026-03-28_08-01-02.md)
 - [2026-03-27_22-42-23](history/2026-03-27_22-42-23.md)
