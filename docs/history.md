@@ -1,14 +1,14 @@
-> 更新时间：2026年03月28日08:01:02
+> 更新时间：2026年03月28日12:07:45
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. Luma AI发布Uni-1模型：Uni-1 is cultured. Adopts distinct artisti。
+1. Luma AI发布Uni-1模型，支持艺术风格转换：Uni-1 is cultured. Adopts distinct artisti。
 
 ## 分类速览
 
 === "🤖 模型进展（1）"
-    - **1. Luma AI发布Uni-1模型**：推动AI图像生成技术发展，为创意产业提供新的工具选择，可能改变数字艺术创作的工作流程
+    - **1. Luma AI发布Uni-1模型，支持艺术风格转换**：推动AI艺术创作和个性化内容生成的发展，为个人用户和内容创作者提供新的创意工具，可能改变肖像艺…
 
 === "🧪 论文研究（0）"
     - 暂无条目
@@ -18,16 +18,16 @@
 
 ## 全部快讯
 
-??? info "1. Luma AI发布Uni-1模型"
+??? info "1. Luma AI发布Uni-1模型，支持艺术风格转换"
     **摘要**：Uni-1 is cultured. Adopts distinct artistic languages while preserving subject identity and composition across style variants. Try today → lumalabs.ai/uni-1。
 
     **关键点**
 
-    - Luma AI发布Uni-1模型
+    - Uni-1模型支持艺术风格转换
     - 保持主体身份和构图一致性
-    - 采用独特艺术语言风格
+    - 可将单张面部照片转换为多种艺术风格
 
-    **影响分析**：推动AI图像生成技术发展，为创意产业提供新的工具选择，可能改变数字艺术创作的工作流程。
+    **影响分析**：推动AI艺术创作和个性化内容生成的发展，为个人用户和内容创作者提供新的创意工具，可能改变肖像艺术和个性化内容制作的行业标准。
 
     **来源**：[原文链接](https://x.com/LumaLabsAI/status/2037630595032142288)
 
@@ -35,6 +35,7 @@
 
 ## 历史归档
 
+- [2026-03-28_12-07-45](history/2026-03-28_12-07-45.md)
 - [2026-03-28_08-01-02](history/2026-03-28_08-01-02.md)
 - [2026-03-27_22-42-23](history/2026-03-27_22-42-23.md)
 - [2026-03-27_18-21-21](history/2026-03-27_18-21-21.md)
