@@ -1,54 +1,71 @@
-> 更新时间：2026年03月28日18:03:49
+> 更新时间：2026年03月28日19:57:00
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. openai.com 发布重要更新：Learn how STADLER uses ChatGPT to transfor。
-2. @perplexity_ai 发布重要更新：Perplexity now powers Samsung’s Browsing A。
+1. @perplexity_ai 发布重要更新：Perplexity now powers Samsung’s Browsing A。
+2. Runway推出广告概念生成应用并举办10万美元竞赛：Bring your biggest ideas to life with the。
+3. SilentFleetKK/computecfo 发布重要更新：⭐ 4 stars | Python 🏦 ComputeCFO-Your AI Fi。
 
 ## 分类速览
 
-=== "🤖 模型进展（1）"
-    - **1. openai.com 发布重要更新**：为传统企业AI转型提供参考案例，证明AI在提升员工生产力方面的实际效果，可能推动更多传统企业采…
+=== "🤖 模型进展（0）"
+    - 暂无条目
 
 === "🧪 论文研究（0）"
     - 暂无条目
 
-=== "🏢 产品与行业（1）"
-    - **2. @perplexity_ai 发布重要更新**：扩大Perplexity在移动和桌面平台的市场覆盖，增强其在AI搜索领域的竞争力，为用户提供更…
+=== "🏢 产品与行业（3）"
+    - **1. @perplexity_ai 发布重要更新**：扩大了Perplexity在移动端和桌面端的市场覆盖，标志着AI搜索技术在主流设备厂商中的进一…
+    - **2. Runway推出广告概念生成应用并举办10万美元竞赛**：降低了广告创意制作门槛，使普通用户也能利用AI生成专业广告概念，推动了AI在创意产业的普及应用…
+    - **3. SilentFleetKK/computecfo 发布重要更新**：为AI应用的成本管理提供了专业工具，帮助企业优化AI投资回报率，推动了AI技术的经济可持续发展
 
 ## 全部快讯
 
-??? info "1. openai.com 发布重要更新"
-    **摘要**：Learn how STADLER uses ChatGPT to transform knowledge work,saving time and accelerating productivity across 650 employees.。
-
-    **关键点**
-
-    - STADLER公司使用ChatGPT转型知识工作
-    - 为650名员工节省时间并加速生产力
-    - 年历史的传统企业成功应用AI
-
-    **影响分析**：为传统企业AI转型提供参考案例，证明AI在提升员工生产力方面的实际效果，可能推动更多传统企业采用AI工具。
-
-    **来源**：[原文链接](https://openai.com/index/stadler)
-
-??? info "2. @perplexity_ai 发布重要更新"
+??? info "1. @perplexity_ai 发布重要更新"
     **摘要**：Perplexity now powers Samsung’s Browsing Assist in the Samsung Browser on Galaxy Android and Windows. Read more:perplexity.ai/hub/blog/perpl…。
 
     **关键点**
 
-    - Perplexity为三星Browsing Assist
+    - Perplexity API为三星Browsing As
     - 覆盖Galaxy Android和Windows设备
-    - AI API集成到三星浏览器中
+    - 提升智能浏览辅助功能
 
-    **影响分析**：扩大Perplexity在移动和桌面平台的市场覆盖，增强其在AI搜索领域的竞争力，为用户提供更智能的浏览器内AI助手。
+    **影响分析**：扩大了Perplexity在移动端和桌面端的市场覆盖，标志着AI搜索技术在主流设备厂商中的进一步渗透，增强了用户对AI驱动浏览体验的接受度。
 
     **来源**：[原文链接](https://x.com/perplexity_ai/status/2037556796139921847)
+
+??? info "2. Runway推出广告概念生成应用并举办10万美元竞赛"
+    **摘要**：Bring your biggest ideas to life with the Ad Concepter App and win up to $100K in cash prizes. Learn more and submit at runwayml.com/BigAdContest #RunwayBigAdCo。
+
+    **关键点**
+
+    - Ad Concepter应用支持单提示生成广告概念
+    - 包含参考图像和产品图片输入
+    - Runway BigAdContest竞赛最高奖金10万
+
+    **影响分析**：降低了广告创意制作门槛，使普通用户也能利用AI生成专业广告概念，推动了AI在创意产业的普及应用，同时刺激了创意社区的活跃度。
+
+    **来源**：[原文链接](https://x.com/runwayml/status/2037597325153993169)
+
+??? info "3. SilentFleetKK/computecfo 发布重要更新"
+    **摘要**：⭐ 4 stars | Python 🏦 ComputeCFO-Your AI Financial Officer. Track,analyze,and optimize LLM API spending. Budget controls,ROI analysis,cost prediction.。
+
+    **关键点**
+
+    - AI财务官跟踪LLM API支出
+    - 支持预算控制和ROI分析
+    - 提供成本预测功能
+
+    **影响分析**：为AI应用的成本管理提供了专业工具，帮助企业优化AI投资回报率，推动了AI技术的经济可持续发展。
+
+    **来源**：[原文链接](https://github.com/SilentFleetKK/computecfo)
 
 ---
 
 ## 历史归档
 
+- [2026-03-28_19-57-00](history/2026-03-28_19-57-00.md)
 - [2026-03-28_18-03-49](history/2026-03-28_18-03-49.md)
 - [2026-03-28_14-43-05](history/2026-03-28_14-43-05.md)
 - [2026-03-28_13-18-24](history/2026-03-28_13-18-24.md)
