@@ -1,293 +1,292 @@
 # 今日快讯
 
-> 更新时间：2026年03月29日16:05:10
+> 更新时间：2026年03月29日18:01:39
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. awhg23/HDU-words 发布重要更新：⭐ 2 stars | Python。
-2. fivetaku/content-pipeline:주제 하나로 리서치→카드뉴스→영상까지 자동：⭐ 6 stars | Python 주제 하나로 리서치→카드뉴스→영상까지 자동。
-3. SRILAKSHMI-8195/dengue-watch-AI 发布重要更新：⭐ 11 stars | JavaScript。
-4. Leo-luxy/GP_ANA:GP_ANA 是一款全流程量化投资与 AI 分析系统。支持 aks：⭐ 3 stars | Python GP_ANA 是一款全流程量化投资与 AI 分。
-5. SteelantCNF/Smartphone-power-consumption-predictio：⭐ 2 stars | Python。
+1. yetone/voice-input-src 发布重要更新：⭐ 5 stars |。
+2. hitmux/HitCC:Reverse-engineered knowledge base fo：⭐ 2 stars | Python Reverse-engineered know。
+3. news2-bit/format-converter 发布重要更新：⭐ 4 stars | HTML。
+4. drylikov/ES_CLI:Elasticsearch stats CLI .：⭐ 7 stars | Go Elasticsearch stats CLI .。
+5. XasanovITpark/Top10factsfirst:mening ilovam orqal：⭐ 5 stars | Java mening ilovam orqali sen。
 
 ## 分类速览
 
-=== "🤖 模型进展（3）"
-    - **2. fivetaku/content-pipeline:주제 하나로 리서치→카드뉴스→영상까지 자동**：fivetaku/content-pipeline:주제 하나로 리서치→카드뉴스→영상까지…
-    - **4. Leo-luxy/GP_ANA:GP_ANA 是一款全流程量化投资与 AI 分析系统。支持 aks**：⭐ 3 stars | Python GP_ANA 是一款全流程量化投资与 AI 分析系统
-    - **17. egerev/claude-status-line:Rich status bar for Cla**：egerev/claude-status-line:Rich status bar for C…
+=== "🤖 模型进展（1）"
+    - **2. hitmux/HitCC:Reverse-engineered knowledge base fo**：hitmux/HitCC:Reverse-engineered knowledge base…
 
 === "🧪 论文研究（0）"
     - 暂无条目
 
-=== "🏢 产品与行业（17）"
-    - **1. awhg23/HDU-words 发布重要更新**：awhg23/HDU-words相关进展已由一手来源披露，预计将影响后续产品与行业节奏
-    - **3. SRILAKSHMI-8195/dengue-watch-AI 发布重要更新**：SRILAKSHMI-8195/dengue-watch-AI相关进展已由一手来源披露，预计将…
-    - **5. SteelantCNF/Smartphone-power-consumption-predictio**：SteelantCNF/Smartphone-power-consumption-predic…
-    - **6. Hilbert777/TJU-OS-Lab-Report-Template 发布重要更新**：Hilbert777/TJU-OS-Lab-Report-Template相关进展已由一手来源…
-    - **7. tao20251688/v2rayclash-sub-houduan 发布重要更新**：tao20251688/v2rayclash-sub-houduan相关进展已由一手来源披露…
-    - **8. @elonmusk 发布 5.3 版本更新**：Tesla FSD Peter H. Diamandis,MD @PeterDiamandis…
-    - **9. @elonmusk 发布重要更新**：True The Rabbit Hole @TheRabbitHole The Left us…
-    - **10. @elonmusk 发布重要更新**：Tesla AI self-driving will be &gt
+=== "🏢 产品与行业（19）"
+    - **1. yetone/voice-input-src 发布重要更新**：yetone/voice-input-src相关进展已由一手来源披露，预计将影响后续产品与行业…
+    - **3. news2-bit/format-converter 发布重要更新**：news2-bit/format-converter相关进展已由一手来源披露，预计将影响后续产…
+    - **4. drylikov/ES_CLI:Elasticsearch stats CLI .**：drylikov/ES_CLI:Elasticsearch stats CLI .相关进展已由…
+    - **5. XasanovITpark/Top10factsfirst:mening ilovam orqal**：XasanovITpark/Top10factsfirst:mening ilovam orq…
+    - **6. XasanovITpark/Usefulforyou:follow bosib kuzat men**：XasanovITpark/Usefulforyou:follow bosib kuzat m…
+    - **7. Qforge-chen/yehang-mvp 发布重要更新**：Qforge-chen/yehang-mvp相关进展已由一手来源披露，预计将影响后续产品与行业…
+    - **8. XasanovITpark/motive5lesson:juda foydali follow b**：XasanovITpark/motive5lesson:juda foydali follow…
+    - **9. XasanovITpark/Motivation1:bu ilova juda yaxshi fu**：XasanovITpark/Motivation1:bu ilova juda yaxshi…
 
 ## 全部快讯
 
-??? info "1. awhg23/HDU-words 发布重要更新"
+??? info "1. yetone/voice-input-src 发布重要更新"
+    **摘要**：⭐ 5 stars |。
+
+    **关键点**
+
+    - ⭐ 5 stars |
+    - yetone/voice-input-src相关进展已由
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：yetone/voice-input-src相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/yetone/voice-input-src)
+
+??? info "2. hitmux/HitCC:Reverse-engineered knowledge base fo"
+    **摘要**：⭐ 2 stars | Python Reverse-engineered knowledge base for Claude Code CLI Node.js version v2.1.84。
+
+    **关键点**
+
+    - ⭐ 2 stars | Python Reverse-e
+    - hitmux/HitCC:Reverse-engine
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：hitmux/HitCC:Reverse-engineered knowledge base for Claude Code CLI Node.js version v2.1.84相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/hitmux/HitCC)
+
+??? info "3. news2-bit/format-converter 发布重要更新"
+    **摘要**：⭐ 4 stars | HTML。
+
+    **关键点**
+
+    - ⭐ 4 stars | HTML
+    - news2-bit/format-converter相关
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：news2-bit/format-converter相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/news2-bit/format-converter)
+
+??? info "4. drylikov/ES_CLI:Elasticsearch stats CLI ."
+    **摘要**：⭐ 7 stars | Go Elasticsearch stats CLI .。
+
+    **关键点**
+
+    - ⭐ 7 stars | Go Elasticsearch
+    - drylikov/ES_CLI:Elasticsear
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：drylikov/ES_CLI:Elasticsearch stats CLI .相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/drylikov/ES_CLI)
+
+??? info "5. XasanovITpark/Top10factsfirst:mening ilovam orqal"
+    **摘要**：⭐ 5 stars | Java mening ilovam orqali sen umringda eshitmagan faktlarni eshitishing mumkin follow bosib kuzat。
+
+    **关键点**
+
+    - ⭐ 5 stars | Java mening ilov
+    - XasanovITpark/Top10factsfirs
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：XasanovITpark/Top10factsfirst:mening ilovam orqali sen umringda eshitmagan faktlarni eshitishing mumkin follow相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/XasanovITpark/Top10factsfirst)
+
+??? info "6. XasanovITpark/Usefulforyou:follow bosib kuzat men"
+    **摘要**：⭐ 5 stars | Java follow bosib kuzat menda juda yaxshi ilovalar bor。
+
+    **关键点**
+
+    - ⭐ 5 stars | Java follow bosi
+    - XasanovITpark/Usefulforyou
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：XasanovITpark/Usefulforyou:follow bosib kuzat menda juda yaxshi ilovalar bor相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/XasanovITpark/Usefulforyou)
+
+??? info "7. Qforge-chen/yehang-mvp 发布重要更新"
     **摘要**：⭐ 2 stars | Python。
 
     **关键点**
 
     - ⭐ 2 stars | Python
-    - awhg23/HDU-words相关进展已由一手来源披露
+    - Qforge-chen/yehang-mvp相关进展已由
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：awhg23/HDU-words相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：Qforge-chen/yehang-mvp相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://github.com/awhg23/HDU-words)
+    **来源**：[原文链接](https://github.com/Qforge-chen/yehang-mvp)
 
-??? info "2. fivetaku/content-pipeline:주제 하나로 리서치→카드뉴스→영상까지 자동"
-    **摘要**：⭐ 6 stars | Python 주제 하나로 리서치→카드뉴스→영상까지 자동 생성하는 Claude Code 스킬。
+??? info "8. XasanovITpark/motive5lesson:juda foydali follow b"
+    **摘要**：⭐ 5 stars | Java juda foydali follow bosib kuzat。
 
     **关键点**
 
-    - ⭐ 6 stars | Python 주제 하나로 리서
-    - fivetaku/content-pipeline:주
+    - ⭐ 5 stars | Java juda foydal
+    - XasanovITpark/motive5lesson
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：fivetaku/content-pipeline:주제 하나로 리서치→카드뉴스→영상까지 자동 생성하는 Claude Code 스킬相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：XasanovITpark/motive5lesson:juda foydali follow bosib kuzat相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://github.com/fivetaku/content-pipeline)
+    **来源**：[原文链接](https://github.com/XasanovITpark/motive5lesson)
 
-??? info "3. SRILAKSHMI-8195/dengue-watch-AI 发布重要更新"
-    **摘要**：⭐ 11 stars | JavaScript。
+??? info "9. XasanovITpark/Motivation1:bu ilova juda yaxshi fu"
+    **摘要**：⭐ 5 stars | Java bu ilova juda yaxshi funksiyaga ega。
 
     **关键点**
 
-    - ⭐ 11 stars | JavaScript
-    - SRILAKSHMI-8195/dengue-watch
+    - ⭐ 5 stars | Java bu ilova ju
+    - XasanovITpark/Motivation1:b
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：SRILAKSHMI-8195/dengue-watch-AI相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：XasanovITpark/Motivation1:bu ilova juda yaxshi funksiyaga ega相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://github.com/SRILAKSHMI-8195/dengue-watch-AI)
+    **来源**：[原文链接](https://github.com/XasanovITpark/Motivation1)
 
-??? info "4. Leo-luxy/GP_ANA:GP_ANA 是一款全流程量化投资与 AI 分析系统。支持 aks"
-    **摘要**：⭐ 3 stars | Python GP_ANA 是一款全流程量化投资与 AI 分析系统。支持 akshare/yfinance 数据抓取、TA-Lib 指标计算、策略回测优化及可视化。核心集成机器学习与本地 Ollama AI 分析，支持多股票批量处理与自动化任务调度。是量化研究与 AI 辅助决策的理想实践平台。
-
-    **关键点**
-
-    - ⭐ 3 stars | Python GP_ANA 是一
-    - 支持 akshare/yfinance 数据抓取、TA
-    - 核心集成机器学习与本地 Ollama AI 分析
-
-    **影响分析**：⭐ 3 stars | Python GP_ANA 是一款全流程量化投资与 AI 分析系统。
-
-    **来源**：[原文链接](https://github.com/Leo-luxy/GP_ANA)
-
-??? info "5. SteelantCNF/Smartphone-power-consumption-predictio"
-    **摘要**：⭐ 2 stars | Python。
+??? info "10. XasanovITpark/motivation2lesson:bu ilova juda zor"
+    **摘要**：⭐ 5 stars | Java bu ilova juda zor。
 
     **关键点**
 
-    - ⭐ 2 stars | Python
-    - SteelantCNF/Smartphone-power
+    - ⭐ 5 stars | Java bu ilova ju
+    - XasanovITpark/motivation2les
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：SteelantCNF/Smartphone-power-consumption-prediction-model相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：XasanovITpark/motivation2lesson:bu ilova juda zor相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://github.com/SteelantCNF/Smartphone-power-consumption-prediction-model)
+    **来源**：[原文链接](https://github.com/XasanovITpark/motivation2lesson)
 
-??? info "6. Hilbert777/TJU-OS-Lab-Report-Template 发布重要更新"
-    **摘要**：⭐ 3 stars | TeX。
+??? info "11. XasanovITpark/Mock:men bu ilovani siz uchun bepul"
+    **摘要**：⭐ 5 stars | Java men bu ilovani siz uchun bepul qilib qoyibman ilovaga kirb roxatlananing。
 
     **关键点**
 
-    - ⭐ 3 stars | TeX
-    - Hilbert777/TJU-OS-Lab-Report
+    - ⭐ 5 stars | Java men bu ilov
+    - XasanovITpark/Mock:men bu i
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：Hilbert777/TJU-OS-Lab-Report-Template相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：XasanovITpark/Mock:men bu ilovani siz uchun bepul qilib qoyibman ilovaga kirb roxatlananing相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://github.com/Hilbert777/TJU-OS-Lab-Report-Template)
+    **来源**：[原文链接](https://github.com/XasanovITpark/Mock)
 
-??? info "7. tao20251688/v2rayclash-sub-houduan 发布重要更新"
-    **摘要**：⭐ 3 stars | JavaScript。
+??? info "12. XasanovITpark/Maths:sizuchun bu ilova mutlaqo teg"
+    **摘要**：⭐ 5 stars | Java sizuchun bu ilova mutlaqo tegin。
 
     **关键点**
 
-    - ⭐ 3 stars | JavaScript
-    - tao20251688/v2rayclash-sub-h
+    - ⭐ 5 stars | Java sizuchun bu
+    - XasanovITpark/Maths:sizuchu
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：tao20251688/v2rayclash-sub-houduan相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：XasanovITpark/Maths:sizuchun bu ilova mutlaqo tegin相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://github.com/tao20251688/v2rayclash-sub-houduan)
+    **来源**：[原文链接](https://github.com/XasanovITpark/Maths)
 
-??? info "8. @elonmusk 发布 5.3 版本更新"
-    **摘要**：Tesla FSD Peter H. Diamandis,MD @PeterDiamandis Teslas FSD:5.3 million miles between accidents. US driving average:660,000. Thats 9x safer. And its only。
-
-    **关键点**
-
-    - Tesla FSD Peter H. Diamandis
-    - MD @PeterDiamandis Teslas
-    - Thats 9x safer. And its on
-
-    **影响分析**：Tesla FSD Peter H. Diamandis,MD @PeterDiamandis Teslas FSD:5.3 million miles between accidents. US driving average:660,000. Thats 9x。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2038138194861166638)
-
-??? info "9. @elonmusk 发布重要更新"
-    **摘要**：True The Rabbit Hole @TheRabbitHole The Left used to worship Elon. Then they started calling him a Nazi over political disagreements. The message is clear:Ei。
+??? info "13. Rahularya01/wmc 发布重要更新"
+    **摘要**：⭐ 5 stars | Rust。
 
     **关键点**
 
-    - True The Rabbit Hole @TheRa
-    - True
-
-    **影响分析**：True The Rabbit Hole @TheRabbitHole The Left used to worship Elon. Then they started calling him a Nazi over political disagreements. The。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2038137043629592827)
-
-??? info "10. @elonmusk 发布重要更新"
-    **摘要**：Tesla AI self-driving will be &gt；10X safer than human driving Tesla @Tesla Instead of simply braking after the fact,FSD is able to anticipate intent before。
-
-    **关键点**
-
-    - Tesla AI self-driving will b
-    - X safer than human driving T
-    - FSD is able to anticipate in
-
-    **影响分析**：Tesla AI self-driving will be &gt。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2038135071836893440)
-
-??? info "11. gsd-build/context-packet:File-based context resol"
-    **摘要**：⭐ 9 stars | TypeScript File-based context resolution for AI agent DAG workflows. Three primitives,zero dependencies.。
-
-    **关键点**
-
-    - ⭐ 9 stars | TypeScript File
-    - zero dependencies.
-    - gsd-build/context-packet:Fi
-
-    **影响分析**：gsd-build/context-packet:File-based context resolution for AI agent DAG workflows. Three primitives,zero相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/gsd-build/context-packet)
-
-??? info "12. epcdiy/fileDeleter:美团删除用户照片复现程序"
-    **摘要**：⭐ 7 stars | Java 美团删除用户照片复现程序。
-
-    **关键点**
-
-    - ⭐ 7 stars | Java 美团删除用户照片复现程
-    - epcdiy/fileDeleter:美团删除用户照片
+    - ⭐ 5 stars | Rust
+    - Rahularya01/wmc相关进展已由一手来源披露
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：epcdiy/fileDeleter:美团删除用户照片复现程序相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：Rahularya01/wmc相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://github.com/epcdiy/fileDeleter)
+    **来源**：[原文链接](https://github.com/Rahularya01/wmc)
 
-??? info "13. Anson-Trio/BaiShou-Next:用纯白誓约，守护彼此一生"
-    **摘要**：⭐ 3 stars | 用纯白誓约，守护彼此一生。
-
-    **关键点**
-
-    - ⭐ 3 stars | 用纯白誓约，守护彼此一生
-    - Anson-Trio/BaiShou-Next:用纯白
-    - 守护彼此一生相关进展已由一手来源披露
-
-    **影响分析**：Anson-Trio/BaiShou-Next:用纯白誓约，守护彼此一生相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/Anson-Trio/BaiShou-Next)
-
-??? info "14. monyhzc/ssecli:agentic native cli for ssemarket"
-    **摘要**：⭐ 2 stars | JavaScript agentic native cli for ssemarket。
+??? info "14. XasanovITpark/lesson1motivation:bu ilovani ochib"
+    **摘要**：⭐ 5 stars | Java bu ilovani ochib korishingiz siz uchun bepul。
 
     **关键点**
 
-    - ⭐ 2 stars | JavaScript agent
-    - monyhzc/ssecli:agentic nati
+    - ⭐ 5 stars | Java bu ilovani
+    - XasanovITpark/lesson1motivat
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：monyhzc/ssecli:agentic native cli for ssemarket相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：XasanovITpark/lesson1motivation:bu ilovani ochib korishingiz siz uchun bepul相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://github.com/monyhzc/ssecli)
+    **来源**：[原文链接](https://github.com/XasanovITpark/lesson1motivation)
 
-??? info "15. pminhtaiii/btree-student-management 发布重要更新"
-    **摘要**：⭐ 3 stars | JavaScript。
+??? info "15. usmantareen/salary-slip-generator 发布重要更新"
+    **摘要**：⭐ 5 stars | TypeScript。
 
     **关键点**
 
-    - ⭐ 3 stars | JavaScript
-    - pminhtaiii/btree-student-man
+    - ⭐ 5 stars | TypeScript
+    - usmantareen/salary-slip-gene
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：pminhtaiii/btree-student-management相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：usmantareen/salary-slip-generator相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://github.com/pminhtaiii/btree-student-management)
+    **来源**：[原文链接](https://github.com/usmantareen/salary-slip-generator)
 
-??? info "16. drwoood/latexnav:LaTeX Navigator and Structure Su"
-    **摘要**：⭐ 3 stars | Python LaTeX Navigator and Structure Summariser。
-
-    **关键点**
-
-    - ⭐ 3 stars | Python LaTeX Nav
-    - Structure Summariser
-    - drwoood/latexnav:LaTeX Navi
-
-    **影响分析**：drwoood/latexnav:LaTeX Navigator and Structure Summariser相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/drwoood/latexnav)
-
-??? info "17. egerev/claude-status-line:Rich status bar for Cla"
-    **摘要**：⭐ 5 stars | Python Rich status bar for Claude Code-context,cache,rate limits,prompt estimates。
+??? info "16. XasanovITpark/Lesson:ilova juda foydali"
+    **摘要**：⭐ 5 stars | Java ilova juda foydali。
 
     **关键点**
 
-    - ⭐ 5 stars | Python Rich stat
-    - cache
-    - rate limits
+    - ⭐ 5 stars | Java ilova juda
+    - XasanovITpark/Lesson:ilova
+    - 预计将影响后续产品与行业节奏
 
-    **影响分析**：egerev/claude-status-line:Rich status bar for Claude Code-context,cache,rate limits,prompt estimates相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：XasanovITpark/Lesson:ilova juda foydali相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://github.com/egerev/claude-status-line)
+    **来源**：[原文链接](https://github.com/XasanovITpark/Lesson)
 
-??? info "18. brandonhimpfen/awesome-software-architecture:A cu"
-    **摘要**：⭐ 2 stars | Python A curated list of architectural patterns,frameworks,tools,and resources for designing scalable,maintainable,resilient,and understandabl。
-
-    **关键点**
-
-    - ⭐ 2 stars | Python A curated
-    - frameworks
-    - tools
-
-    **影响分析**：⭐ 2 stars | Python A curated list of architectural patterns,frameworks,tools,and resources for designing scalable,maintainable,resilien。
-
-    **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-software-architecture)
-
-??? info "19. Given-Dream/sciencedirect-live-session-fetcher:Re"
-    **摘要**：⭐ 2 stars | Python Reusable scripts and a Codex skill for serial ScienceDirect PDF fetching through a live authorized Edge session.。
+??? info "17. sT8CJ6bs9dU0x/AIAssistant:一个快捷ai助手，帮你处理简单任务，支持定时任"
+    **摘要**：⭐ 3 stars | Python 一个快捷ai助手，帮你处理简单任务，支持定时任务。
 
     **关键点**
 
-    - ⭐ 2 stars | Python Reusable
-    - a Codex skill for serial Sci
-    - Given-Dream/sciencedirect-li
+    - ⭐ 3 stars | Python 一个快捷ai助手
+    - 帮你处理简单任务
+    - 支持定时任务
 
-    **影响分析**：Given-Dream/sciencedirect-live-session-fetcher:Reusable scripts and a Codex skill for serial ScienceDirect PDF fetching through相关进展已由一手来源披露。
+    **影响分析**：sT8CJ6bs9dU0x/AIAssistant:一个快捷ai助手，帮你处理简单任务，支持定时任务相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://github.com/Given-Dream/sciencedirect-live-session-fetcher)
+    **来源**：[原文链接](https://github.com/sT8CJ6bs9dU0x/AIAssistant)
 
-??? info "20. Dr-Wahab/nonlinear-pushover-analysis-of-a-2-bay-2"
-    **摘要**：⭐ 2 stars | Python nonlinear pushover analysis of a 2-bay,2-story Steel Moment-Resisting Frame using OpenSeesPy。
+??? info "18. XasanovITpark/know:siz uchun juda foydali boladi"
+    **摘要**：⭐ 5 stars | Java siz uchun juda foydali boladi bu ilova。
 
     **关键点**
 
-    - ⭐ 2 stars | Python nonlinear
-    - story Steel Moment-Resisting
-    - Dr-Wahab/nonlinear-pushover
+    - ⭐ 5 stars | Java siz uchun j
+    - XasanovITpark/know:siz uchu
+    - 预计将影响后续产品与行业节奏
 
-    **影响分析**：Dr-Wahab/nonlinear-pushover-analysis-of-a-2-bay-2-story-Steel-Moment-Resisting-Frame-using-OpenSeesPy:nonlinear pushover analysis of a 2-ba。
+    **影响分析**：XasanovITpark/know:siz uchun juda foydali boladi bu ilova相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://github.com/Dr-Wahab/nonlinear-pushover-analysis-of-a-2-bay-2-story-Steel-Moment-Resisting-Frame-using-OpenSeesPy)
+    **来源**：[原文链接](https://github.com/XasanovITpark/know)
+
+??? info "19. XasanovITpark/interesting:siz bu ilova orqali qiz"
+    **摘要**：⭐ 5 stars | Java siz bu ilova orqali qiziqarli malumotga ega bolasiz。
+
+    **关键点**
+
+    - ⭐ 5 stars | Java siz bu ilov
+    - XasanovITpark/interesting:s
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：XasanovITpark/interesting:siz bu ilova orqali qiziqarli malumotga ega bolasiz相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/XasanovITpark/interesting)
+
+??? info "20. XasanovITpark/English:siz bunga kirishingiz bilan"
+    **摘要**：⭐ 5 stars | Java siz bunga kirishingiz bilan ingliz tiliga aloqador narsa korishingiz mumkin。
+
+    **关键点**
+
+    - ⭐ 5 stars | Java siz bunga k
+    - XasanovITpark/English:siz b
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：XasanovITpark/English:siz bunga kirishingiz bilan ingliz tiliga aloqador narsa korishingiz mumkin相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/XasanovITpark/English)
