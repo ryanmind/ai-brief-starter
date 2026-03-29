@@ -1,12 +1,12 @@
 # 今日快讯
 
-> 更新时间：2026年03月29日12:17:35
+> 更新时间：2026年03月29日13:27:22
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
 1. CindyChen125/ResumAI 发布产品更新：⭐ 2 stars | TypeScript a basic resume gene。
-2. HaishengLiang/xiaodu-skill:xiaodu-skill 小度智能设备控制技：⭐ 1 stars | Python xiaodu-skill 小度智能设备控制技能。
+2. brandonhimpfen/awesome-software-architecture:A cu：⭐ 2 stars | Python A curated list of archi。
 3. brandonhimpfen/awesome-mobile-app-architecture:A：⭐ 2 stars | Python A curated list of archi。
 4. brandonhimpfen/awesome-mobile-security:A curated：⭐ 2 stars | Python A curated list of tools。
 5. brandonhimpfen/awesome-android-development:A cura：⭐ 2 stars | Python A curated list of tools。
@@ -21,13 +21,13 @@
 
 === "🏢 产品与行业（20）"
     - **1. CindyChen125/ResumAI 发布产品更新**：CindyChen125/ResumAI:a basic resume generating…
-    - **2. HaishengLiang/xiaodu-skill:xiaodu-skill 小度智能设备控制技**：⭐ 1 stars | Python xiaodu-skill 小度智能设备控制技能
+    - **2. brandonhimpfen/awesome-software-architecture:A cu**：⭐ 2 stars | Python A curated list of architectu…
     - **3. brandonhimpfen/awesome-mobile-app-architecture:A**：⭐ 2 stars | Python A curated list of architectu…
     - **4. brandonhimpfen/awesome-mobile-security:A curated**：brandonhimpfen/awesome-mobile-security:A curate…
     - **5. brandonhimpfen/awesome-android-development:A cura**：brandonhimpfen/awesome-android-development:A cu…
-    - **6. brandonhimpfen/awesome-mobile-development:A curat**：brandonhimpfen/awesome-mobile-development:A cur…
-    - **7. brandonhimpfen/awesome-ios-development:A curated**：brandonhimpfen/awesome-ios-development:A curate…
-    - **8. brandonhimpfen/awesome-uav-simulation:A curated l**：brandonhimpfen/awesome-uav-simulation:A curated…
+    - **6. kedarshere/Docparsing:Automates downloading PDFs**：⭐ 1 stars | Python Automates downloading PDFs f…
+    - **7. brandonhimpfen/awesome-mobile-development:A curat**：brandonhimpfen/awesome-mobile-development:A cur…
+    - **8. brandonhimpfen/awesome-ios-development:A curated**：brandonhimpfen/awesome-ios-development:A curate…
 
 ## 全部快讯
 
@@ -44,18 +44,18 @@
 
     **来源**：[原文链接](https://github.com/CindyChen125/ResumAI)
 
-??? info "2. HaishengLiang/xiaodu-skill:xiaodu-skill 小度智能设备控制技"
-    **摘要**：⭐ 1 stars | Python xiaodu-skill 小度智能设备控制技能。通过 OAuth 2.0 授权连接百度小度智能设备，支持设备列表查询、语音控制、文字播报、拍照等功能。 详细说明请查看 SKILL.md。
+??? info "2. brandonhimpfen/awesome-software-architecture:A cu"
+    **摘要**：⭐ 2 stars | Python A curated list of architectural patterns,frameworks,tools,and resources for designing scalable,maintainable,resilient,and understandabl。
 
     **关键点**
 
-    - ⭐ 1 stars | Python xiaodu-sk
-    - 通过 OAuth 2.0 授权连接百度小度智能设备
-    - 支持设备列表查询、语音控制、文字播报、拍照等功能
+    - ⭐ 2 stars | Python A curated
+    - frameworks
+    - tools
 
-    **影响分析**：⭐ 1 stars | Python xiaodu-skill 小度智能设备控制技能。
+    **影响分析**：⭐ 2 stars | Python A curated list of architectural patterns,frameworks,tools,and resources for designing scalable,maintainable,resilien。
 
-    **来源**：[原文链接](https://github.com/HaishengLiang/xiaodu-skill)
+    **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-software-architecture)
 
 ??? info "3. brandonhimpfen/awesome-mobile-app-architecture:A"
     **摘要**：⭐ 2 stars | Python A curated list of architectural patterns,frameworks,tools,and resources for designing scalable,maintainable,and testable mobile applicat。
@@ -96,7 +96,20 @@
 
     **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-android-development)
 
-??? info "6. brandonhimpfen/awesome-mobile-development:A curat"
+??? info "6. kedarshere/Docparsing:Automates downloading PDFs"
+    **摘要**：⭐ 1 stars | Python Automates downloading PDFs from Excel URLs,extracting metadata,and updating structured document information. Ideal for bulk document proces。
+
+    **关键点**
+
+    - ⭐ 1 stars | Python Automates
+    - extracting metadata
+    - updating structured document
+
+    **影响分析**：⭐ 1 stars | Python Automates downloading PDFs from Excel URLs,extracting metadata,and updating structured document information. Ideal for。
+
+    **来源**：[原文链接](https://github.com/kedarshere/Docparsing)
+
+??? info "7. brandonhimpfen/awesome-mobile-development:A curat"
     **摘要**：⭐ 2 stars | Python A curated list of tools,frameworks,platforms,and resources for mobile development.。
 
     **关键点**
@@ -109,7 +122,7 @@
 
     **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-mobile-development)
 
-??? info "7. brandonhimpfen/awesome-ios-development:A curated"
+??? info "8. brandonhimpfen/awesome-ios-development:A curated"
     **摘要**：⭐ 2 stars | Python A curated list of tools,frameworks,libraries,and resources for iOS development.。
 
     **关键点**
@@ -122,7 +135,33 @@
 
     **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-ios-development)
 
-??? info "8. brandonhimpfen/awesome-uav-simulation:A curated l"
+??? info "9. davidngo1704/api_gateway 发布重要更新"
+    **摘要**：⭐ 2 stars | C#。
+
+    **关键点**
+
+    - ⭐ 2 stars | C#
+    - davidngo1704/api_gateway相关进展
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：davidngo1704/api_gateway相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/davidngo1704/api_gateway)
+
+??? info "10. davidngo1704/daint_studio 发布重要更新"
+    **摘要**：⭐ 2 stars | C#。
+
+    **关键点**
+
+    - ⭐ 2 stars | C#
+    - davidngo1704/daint_studio相关进
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：davidngo1704/daint_studio相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/davidngo1704/daint_studio)
+
+??? info "11. brandonhimpfen/awesome-uav-simulation:A curated l"
     **摘要**：⭐ 2 stars | Python A curated list of simulators,frameworks,tools,and resources for UAV simulation.。
 
     **关键点**
@@ -135,7 +174,33 @@
 
     **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-uav-simulation)
 
-??? info "9. ChuchiangData/SkillBible:绝佳skills的“永乐大典”"
+??? info "12. HenghanDong/auction-strategy-stimulation:A simula"
+    **摘要**：⭐ 2 stars | Python A simulation framework for analyzing bidding strategies across multiple auction mechanisms,including First-Price,Second-Price,and All-Pay。
+
+    **关键点**
+
+    - ⭐ 2 stars | Python A simulat
+    - including First-Price
+    - Second-Price
+
+    **影响分析**：⭐ 2 stars | Python A simulation framework for analyzing bidding strategies across multiple auction mechanisms,including First-Price,Second。
+
+    **来源**：[原文链接](https://github.com/HenghanDong/auction-strategy-stimulation)
+
+??? info "13. Jefferyened/InventoryIQ-RevolutionUC:This is a re"
+    **摘要**：⭐ 1 stars | Python This is a repo to document our progress through out the revolution uc hackaton!
+
+    **关键点**
+
+    - ⭐ 1 stars | Python This is a
+    - Jefferyened/InventoryIQ-Revo
+    - 相关进展已由一手来源披露，预计将影响后续产品与
+
+    **影响分析**：Jefferyened/InventoryIQ-RevolutionUC:This is a repo to document our progress through out the revolution uc hackaton!相关进展已由一手来源披露，预计将影响后续产品与。
+
+    **来源**：[原文链接](https://github.com/Jefferyened/InventoryIQ-RevolutionUC)
+
+??? info "14. ChuchiangData/SkillBible:绝佳skills的“永乐大典”"
     **摘要**：⭐ 2 stars | 绝佳skills的“永乐大典”。
 
     **关键点**
@@ -148,33 +213,7 @@
 
     **来源**：[原文链接](https://github.com/ChuchiangData/SkillBible)
 
-??? info "10. Tehlikeli107/py2tensor:Convert any Python functio"
-    **摘要**：⭐ 1 stars | Python Convert any Python function to GPU tensor operation. No training,exact results,527x speedup.。
-
-    **关键点**
-
-    - ⭐ 1 stars | Python Convert a
-    - exact results
-    - x speedup.
-
-    **影响分析**：Tehlikeli107/py2tensor:Convert any Python function to GPU tensor operation. No training,exact results,相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/Tehlikeli107/py2tensor)
-
-??? info "11. chipmuckcc-collab/Cici-Air:飞行棋游戏"
-    **摘要**：⭐ 2 stars | 飞行棋游戏。
-
-    **关键点**
-
-    - ⭐ 2 stars | 飞行棋游戏
-    - chipmuckcc-collab/Cici-Air
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：chipmuckcc-collab/Cici-Air:飞行棋游戏相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/chipmuckcc-collab/Cici-Air)
-
-??? info "12. brandonhimpfen/awesome-on-chain-analytics:A curat"
+??? info "15. brandonhimpfen/awesome-on-chain-analytics:A curat"
     **摘要**：⭐ 2 stars | Python A curated list of tools,platforms,datasets,and resources for on-chain analytics.。
 
     **关键点**
@@ -187,7 +226,7 @@
 
     **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-on-chain-analytics)
 
-??? info "13. brandonhimpfen/awesome-tokenomics:A curated list"
+??? info "16. brandonhimpfen/awesome-tokenomics:A curated list"
     **摘要**：⭐ 2 stars | Python A curated list of tools,frameworks,models,and resources for tokenomics.。
 
     **关键点**
@@ -200,20 +239,7 @@
 
     **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-tokenomics)
 
-??? info "14. mikema-rgb/civilization-os 发布重要更新"
-    **摘要**：⭐ 2 stars | JavaScript。
-
-    **关键点**
-
-    - ⭐ 2 stars | JavaScript
-    - mikema-rgb/civilization-os相关
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：mikema-rgb/civilization-os相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/mikema-rgb/civilization-os)
-
-??? info "15. brandonhimpfen/awesome-stablecoins:A curated list"
+??? info "17. brandonhimpfen/awesome-stablecoins:A curated list"
     **摘要**：⭐ 2 stars | Python A curated list of stablecoins,infrastructure,tools,and resources for understanding and building with price-stable digital assets across fi。
 
     **关键点**
@@ -226,7 +252,7 @@
 
     **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-stablecoins)
 
-??? info "16. brandonhimpfen/awesome-ai-memory-systems:A curate"
+??? info "18. brandonhimpfen/awesome-ai-memory-systems:A curate"
     **摘要**：⭐ 2 stars | Python A curated list of tools,frameworks,and resources for AI memory systems.。
 
     **关键点**
@@ -239,7 +265,7 @@
 
     **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-ai-memory-systems)
 
-??? info "17. brandonhimpfen/awesome-ai-native-applications:A c"
+??? info "19. brandonhimpfen/awesome-ai-native-applications:A c"
     **摘要**：⭐ 2 stars | Python A curated list of AI-native applications. Products and systems built with AI at their core.。
 
     **关键点**
@@ -252,7 +278,7 @@
 
     **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-ai-native-applications)
 
-??? info "18. brandonhimpfen/awesome-ai-content-pipelines:A cur"
+??? info "20. brandonhimpfen/awesome-ai-content-pipelines:A cur"
     **摘要**：⭐ 2 stars | Python A curated list of tools,frameworks,workflows,and resources for building AI-powered content pipelines.。
 
     **关键点**
@@ -264,29 +290,3 @@
     **影响分析**：brandonhimpfen/awesome-ai-content-pipelines:A curated list of tools,frameworks,workflows,and resources for building AI-po相关进展已由一手来源披露，预计。
 
     **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-ai-content-pipelines)
-
-??? info "19. brandonhimpfen/awesome-ai-coding-agents:A curated"
-    **摘要**：⭐ 2 stars | Python A curated list of frameworks,tools,platforms,and resources for AI coding agents.。
-
-    **关键点**
-
-    - ⭐ 2 stars | Python A curated
-    - tools
-    - platforms
-
-    **影响分析**：brandonhimpfen/awesome-ai-coding-agents:A curated list of frameworks,tools,platforms,and resources for AI coding agen相关进展已由一手来源披露，预计将影响后。
-
-    **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-ai-coding-agents)
-
-??? info "20. @openclaw 发布 2026.3.28 版本更新"
-    **摘要**：OpenClaw 2026.3.28 🦞 🛡️ Plugin approval hooks-any tool can pause for your OK ⚡ xAI Responses API + x_search 💬 ACP bind here:Discord/iMessage 🩹WhatsApp echo l。
-
-    **关键点**
-
-    - OpenClaw 2026.3.28 🦞 🛡️ Plug
-    - Telegram splitting
-    - Discord reconnect fixes Toky
-
-    **影响分析**：OpenClaw 2026.3.28 🦞 🛡️ Plugin approval hooks-any tool can pause for your OK ⚡ xAI Responses API + x_search 💬 ACP bind here:Discord/iMess。
-
-    **来源**：[原文链接](https://x.com/openclaw/status/2038084923517796839)
