@@ -1,13 +1,15 @@
 # 今日快讯
 
-> 更新时间：2026年03月28日19:57:00
+> 更新时间：2026年03月29日12:17:35
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. @perplexity_ai 发布重要更新：Perplexity now powers Samsung’s Browsing A。
-2. Runway推出广告概念生成应用并举办10万美元竞赛：Bring your biggest ideas to life with the。
-3. SilentFleetKK/computecfo 发布重要更新：⭐ 4 stars | Python 🏦 ComputeCFO-Your AI Fi。
+1. CindyChen125/ResumAI 发布产品更新：⭐ 2 stars | TypeScript a basic resume gene。
+2. HaishengLiang/xiaodu-skill:xiaodu-skill 小度智能设备控制技：⭐ 1 stars | Python xiaodu-skill 小度智能设备控制技能。
+3. brandonhimpfen/awesome-mobile-app-architecture:A：⭐ 2 stars | Python A curated list of archi。
+4. brandonhimpfen/awesome-mobile-security:A curated：⭐ 2 stars | Python A curated list of tools。
+5. brandonhimpfen/awesome-android-development:A cura：⭐ 2 stars | Python A curated list of tools。
 
 ## 分类速览
 
@@ -17,48 +19,274 @@
 === "🧪 论文研究（0）"
     - 暂无条目
 
-=== "🏢 产品与行业（3）"
-    - **1. @perplexity_ai 发布重要更新**：扩大了Perplexity在移动端和桌面端的市场覆盖，标志着AI搜索技术在主流设备厂商中的进一…
-    - **2. Runway推出广告概念生成应用并举办10万美元竞赛**：降低了广告创意制作门槛，使普通用户也能利用AI生成专业广告概念，推动了AI在创意产业的普及应用…
-    - **3. SilentFleetKK/computecfo 发布重要更新**：为AI应用的成本管理提供了专业工具，帮助企业优化AI投资回报率，推动了AI技术的经济可持续发展
+=== "🏢 产品与行业（20）"
+    - **1. CindyChen125/ResumAI 发布产品更新**：CindyChen125/ResumAI:a basic resume generating…
+    - **2. HaishengLiang/xiaodu-skill:xiaodu-skill 小度智能设备控制技**：⭐ 1 stars | Python xiaodu-skill 小度智能设备控制技能
+    - **3. brandonhimpfen/awesome-mobile-app-architecture:A**：⭐ 2 stars | Python A curated list of architectu…
+    - **4. brandonhimpfen/awesome-mobile-security:A curated**：brandonhimpfen/awesome-mobile-security:A curate…
+    - **5. brandonhimpfen/awesome-android-development:A cura**：brandonhimpfen/awesome-android-development:A cu…
+    - **6. brandonhimpfen/awesome-mobile-development:A curat**：brandonhimpfen/awesome-mobile-development:A cur…
+    - **7. brandonhimpfen/awesome-ios-development:A curated**：brandonhimpfen/awesome-ios-development:A curate…
+    - **8. brandonhimpfen/awesome-uav-simulation:A curated l**：brandonhimpfen/awesome-uav-simulation:A curated…
 
 ## 全部快讯
 
-??? info "1. @perplexity_ai 发布重要更新"
-    **摘要**：Perplexity now powers Samsung’s Browsing Assist in the Samsung Browser on Galaxy Android and Windows. Read more:perplexity.ai/hub/blog/perpl…。
+??? info "1. CindyChen125/ResumAI 发布产品更新"
+    **摘要**：⭐ 2 stars | TypeScript a basic resume generating app。
 
     **关键点**
 
-    - Perplexity API为三星Browsing As
-    - 覆盖Galaxy Android和Windows设备
-    - 提升智能浏览辅助功能
+    - ⭐ 2 stars | TypeScript a bas
+    - CindyChen125/ResumAI:a basi
+    - 预计将影响后续产品与行业节奏
 
-    **影响分析**：扩大了Perplexity在移动端和桌面端的市场覆盖，标志着AI搜索技术在主流设备厂商中的进一步渗透，增强了用户对AI驱动浏览体验的接受度。
+    **影响分析**：CindyChen125/ResumAI:a basic resume generating app相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://x.com/perplexity_ai/status/2037556796139921847)
+    **来源**：[原文链接](https://github.com/CindyChen125/ResumAI)
 
-??? info "2. Runway推出广告概念生成应用并举办10万美元竞赛"
-    **摘要**：Bring your biggest ideas to life with the Ad Concepter App and win up to $100K in cash prizes. Learn more and submit at runwayml.com/BigAdContest #RunwayBigAdCo。
-
-    **关键点**
-
-    - Ad Concepter应用支持单提示生成广告概念
-    - 包含参考图像和产品图片输入
-    - Runway BigAdContest竞赛最高奖金10万
-
-    **影响分析**：降低了广告创意制作门槛，使普通用户也能利用AI生成专业广告概念，推动了AI在创意产业的普及应用，同时刺激了创意社区的活跃度。
-
-    **来源**：[原文链接](https://x.com/runwayml/status/2037597325153993169)
-
-??? info "3. SilentFleetKK/computecfo 发布重要更新"
-    **摘要**：⭐ 4 stars | Python 🏦 ComputeCFO-Your AI Financial Officer. Track,analyze,and optimize LLM API spending. Budget controls,ROI analysis,cost prediction.。
+??? info "2. HaishengLiang/xiaodu-skill:xiaodu-skill 小度智能设备控制技"
+    **摘要**：⭐ 1 stars | Python xiaodu-skill 小度智能设备控制技能。通过 OAuth 2.0 授权连接百度小度智能设备，支持设备列表查询、语音控制、文字播报、拍照等功能。 详细说明请查看 SKILL.md。
 
     **关键点**
 
-    - AI财务官跟踪LLM API支出
-    - 支持预算控制和ROI分析
-    - 提供成本预测功能
+    - ⭐ 1 stars | Python xiaodu-sk
+    - 通过 OAuth 2.0 授权连接百度小度智能设备
+    - 支持设备列表查询、语音控制、文字播报、拍照等功能
 
-    **影响分析**：为AI应用的成本管理提供了专业工具，帮助企业优化AI投资回报率，推动了AI技术的经济可持续发展。
+    **影响分析**：⭐ 1 stars | Python xiaodu-skill 小度智能设备控制技能。
 
-    **来源**：[原文链接](https://github.com/SilentFleetKK/computecfo)
+    **来源**：[原文链接](https://github.com/HaishengLiang/xiaodu-skill)
+
+??? info "3. brandonhimpfen/awesome-mobile-app-architecture:A"
+    **摘要**：⭐ 2 stars | Python A curated list of architectural patterns,frameworks,tools,and resources for designing scalable,maintainable,and testable mobile applicat。
+
+    **关键点**
+
+    - ⭐ 2 stars | Python A curated
+    - frameworks
+    - tools
+
+    **影响分析**：⭐ 2 stars | Python A curated list of architectural patterns,frameworks,tools,and resources for designing scalable,maintainable,and test。
+
+    **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-mobile-app-architecture)
+
+??? info "4. brandonhimpfen/awesome-mobile-security:A curated"
+    **摘要**：⭐ 2 stars | Python A curated list of tools,frameworks,practices,and resources for mobile security.。
+
+    **关键点**
+
+    - ⭐ 2 stars | Python A curated
+    - frameworks
+    - practices
+
+    **影响分析**：brandonhimpfen/awesome-mobile-security:A curated list of tools,frameworks,practices,and resources for mobile securit相关进展已由一手来源披露，预计将影响后续。
+
+    **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-mobile-security)
+
+??? info "5. brandonhimpfen/awesome-android-development:A cura"
+    **摘要**：⭐ 2 stars | Python A curated list of tools,frameworks,libraries,and resources for Android development.。
+
+    **关键点**
+
+    - ⭐ 2 stars | Python A curated
+    - frameworks
+    - libraries
+
+    **影响分析**：brandonhimpfen/awesome-android-development:A curated list of tools,frameworks,libraries,and resources for Android develo相关进展已由一手来源披露，预计将。
+
+    **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-android-development)
+
+??? info "6. brandonhimpfen/awesome-mobile-development:A curat"
+    **摘要**：⭐ 2 stars | Python A curated list of tools,frameworks,platforms,and resources for mobile development.。
+
+    **关键点**
+
+    - ⭐ 2 stars | Python A curated
+    - frameworks
+    - platforms
+
+    **影响分析**：brandonhimpfen/awesome-mobile-development:A curated list of tools,frameworks,platforms,and resources for mobile develop相关进展已由一手来源披露，预计将影。
+
+    **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-mobile-development)
+
+??? info "7. brandonhimpfen/awesome-ios-development:A curated"
+    **摘要**：⭐ 2 stars | Python A curated list of tools,frameworks,libraries,and resources for iOS development.。
+
+    **关键点**
+
+    - ⭐ 2 stars | Python A curated
+    - frameworks
+    - libraries
+
+    **影响分析**：brandonhimpfen/awesome-ios-development:A curated list of tools,frameworks,libraries,and resources for iOS developmen相关进展已由一手来源披露，预计将影响后续。
+
+    **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-ios-development)
+
+??? info "8. brandonhimpfen/awesome-uav-simulation:A curated l"
+    **摘要**：⭐ 2 stars | Python A curated list of simulators,frameworks,tools,and resources for UAV simulation.。
+
+    **关键点**
+
+    - ⭐ 2 stars | Python A curated
+    - frameworks
+    - tools
+
+    **影响分析**：brandonhimpfen/awesome-uav-simulation:A curated list of simulators,frameworks,tools,and resources for UAV simulatio相关进展已由一手来源披露，预计将影响后续产。
+
+    **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-uav-simulation)
+
+??? info "9. ChuchiangData/SkillBible:绝佳skills的“永乐大典”"
+    **摘要**：⭐ 2 stars | 绝佳skills的“永乐大典”。
+
+    **关键点**
+
+    - ⭐ 2 stars | 绝佳skills的“永乐大典”
+    - ChuchiangData/SkillBible:绝佳
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：ChuchiangData/SkillBible:绝佳skills的“永乐大典”相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/ChuchiangData/SkillBible)
+
+??? info "10. Tehlikeli107/py2tensor:Convert any Python functio"
+    **摘要**：⭐ 1 stars | Python Convert any Python function to GPU tensor operation. No training,exact results,527x speedup.。
+
+    **关键点**
+
+    - ⭐ 1 stars | Python Convert a
+    - exact results
+    - x speedup.
+
+    **影响分析**：Tehlikeli107/py2tensor:Convert any Python function to GPU tensor operation. No training,exact results,相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/Tehlikeli107/py2tensor)
+
+??? info "11. chipmuckcc-collab/Cici-Air:飞行棋游戏"
+    **摘要**：⭐ 2 stars | 飞行棋游戏。
+
+    **关键点**
+
+    - ⭐ 2 stars | 飞行棋游戏
+    - chipmuckcc-collab/Cici-Air
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：chipmuckcc-collab/Cici-Air:飞行棋游戏相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/chipmuckcc-collab/Cici-Air)
+
+??? info "12. brandonhimpfen/awesome-on-chain-analytics:A curat"
+    **摘要**：⭐ 2 stars | Python A curated list of tools,platforms,datasets,and resources for on-chain analytics.。
+
+    **关键点**
+
+    - ⭐ 2 stars | Python A curated
+    - platforms
+    - datasets
+
+    **影响分析**：brandonhimpfen/awesome-on-chain-analytics:A curated list of tools,platforms,datasets,and resources for on-chain analyti相关进展已由一手来源披露，预计将影。
+
+    **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-on-chain-analytics)
+
+??? info "13. brandonhimpfen/awesome-tokenomics:A curated list"
+    **摘要**：⭐ 2 stars | Python A curated list of tools,frameworks,models,and resources for tokenomics.。
+
+    **关键点**
+
+    - ⭐ 2 stars | Python A curated
+    - frameworks
+    - models
+
+    **影响分析**：brandonhimpfen/awesome-tokenomics:A curated list of tools,frameworks,models,and resources for tokenomics.相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-tokenomics)
+
+??? info "14. mikema-rgb/civilization-os 发布重要更新"
+    **摘要**：⭐ 2 stars | JavaScript。
+
+    **关键点**
+
+    - ⭐ 2 stars | JavaScript
+    - mikema-rgb/civilization-os相关
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：mikema-rgb/civilization-os相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/mikema-rgb/civilization-os)
+
+??? info "15. brandonhimpfen/awesome-stablecoins:A curated list"
+    **摘要**：⭐ 2 stars | Python A curated list of stablecoins,infrastructure,tools,and resources for understanding and building with price-stable digital assets across fi。
+
+    **关键点**
+
+    - ⭐ 2 stars | Python A curated
+    - infrastructure
+    - tools
+
+    **影响分析**：⭐ 2 stars | Python A curated list of stablecoins,infrastructure,tools,and resources for understanding and building with price-stable digi。
+
+    **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-stablecoins)
+
+??? info "16. brandonhimpfen/awesome-ai-memory-systems:A curate"
+    **摘要**：⭐ 2 stars | Python A curated list of tools,frameworks,and resources for AI memory systems.。
+
+    **关键点**
+
+    - ⭐ 2 stars | Python A curated
+    - frameworks
+    - resources for AI memory syst
+
+    **影响分析**：brandonhimpfen/awesome-ai-memory-systems:A curated list of tools,frameworks,and resources for AI memory systems.相关进展已由一手来源披露，预计将影响后续产品与行业。
+
+    **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-ai-memory-systems)
+
+??? info "17. brandonhimpfen/awesome-ai-native-applications:A c"
+    **摘要**：⭐ 2 stars | Python A curated list of AI-native applications. Products and systems built with AI at their core.。
+
+    **关键点**
+
+    - ⭐ 2 stars | Python A curated
+    - systems built
+    - AI at their core.
+
+    **影响分析**：brandonhimpfen/awesome-ai-native-applications:A curated list of AI-native applications. Products and systems built with AI at相关进展已由一手来源披露，预。
+
+    **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-ai-native-applications)
+
+??? info "18. brandonhimpfen/awesome-ai-content-pipelines:A cur"
+    **摘要**：⭐ 2 stars | Python A curated list of tools,frameworks,workflows,and resources for building AI-powered content pipelines.。
+
+    **关键点**
+
+    - ⭐ 2 stars | Python A curated
+    - frameworks
+    - workflows
+
+    **影响分析**：brandonhimpfen/awesome-ai-content-pipelines:A curated list of tools,frameworks,workflows,and resources for building AI-po相关进展已由一手来源披露，预计。
+
+    **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-ai-content-pipelines)
+
+??? info "19. brandonhimpfen/awesome-ai-coding-agents:A curated"
+    **摘要**：⭐ 2 stars | Python A curated list of frameworks,tools,platforms,and resources for AI coding agents.。
+
+    **关键点**
+
+    - ⭐ 2 stars | Python A curated
+    - tools
+    - platforms
+
+    **影响分析**：brandonhimpfen/awesome-ai-coding-agents:A curated list of frameworks,tools,platforms,and resources for AI coding agen相关进展已由一手来源披露，预计将影响后。
+
+    **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-ai-coding-agents)
+
+??? info "20. @openclaw 发布 2026.3.28 版本更新"
+    **摘要**：OpenClaw 2026.3.28 🦞 🛡️ Plugin approval hooks-any tool can pause for your OK ⚡ xAI Responses API + x_search 💬 ACP bind here:Discord/iMessage 🩹WhatsApp echo l。
+
+    **关键点**
+
+    - OpenClaw 2026.3.28 🦞 🛡️ Plug
+    - Telegram splitting
+    - Discord reconnect fixes Toky
+
+    **影响分析**：OpenClaw 2026.3.28 🦞 🛡️ Plugin approval hooks-any tool can pause for your OK ⚡ xAI Responses API + x_search 💬 ACP bind here:Discord/iMess。
+
+    **来源**：[原文链接](https://x.com/openclaw/status/2038084923517796839)
