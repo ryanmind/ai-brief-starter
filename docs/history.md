@@ -1,35 +1,89 @@
-> 更新时间：2026年03月29日14:45:33
+> 更新时间：2026年03月29日16:05:10
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. SteelantCNF/Smartphone-power-consumption-predictio：⭐ 2 stars | Python。
-2. @elonmusk 发布 5.3 版本更新：Tesla FSD Peter H. Diamandis。
-3. @elonmusk 发布重要更新：True The Rabbit Hole @TheRabbitHole The Le。
-4. @elonmusk 发布重要更新：Tesla AI self-driving will be &gt。
-5. shanfishapp/ErisPulse-KookAdapter:Kook 开黑啦 平台机器：⭐ 1 stars | Python Kook 开黑啦 平台机器人适配器。
+1. awhg23/HDU-words 发布重要更新：⭐ 2 stars | Python。
+2. fivetaku/content-pipeline:주제 하나로 리서치→카드뉴스→영상까지 자동：⭐ 6 stars | Python 주제 하나로 리서치→카드뉴스→영상까지 자동。
+3. SRILAKSHMI-8195/dengue-watch-AI 发布重要更新：⭐ 11 stars | JavaScript。
+4. Leo-luxy/GP_ANA:GP_ANA 是一款全流程量化投资与 AI 分析系统。支持 aks：⭐ 3 stars | Python GP_ANA 是一款全流程量化投资与 AI 分。
+5. SteelantCNF/Smartphone-power-consumption-predictio：⭐ 2 stars | Python。
 
 ## 分类速览
 
-=== "🤖 模型进展（1）"
-    - **14. egerev/claude-status-line:Rich status bar for Cla**：egerev/claude-status-line:Rich status bar for C…
+=== "🤖 模型进展（3）"
+    - **2. fivetaku/content-pipeline:주제 하나로 리서치→카드뉴스→영상까지 자동**：fivetaku/content-pipeline:주제 하나로 리서치→카드뉴스→영상까지…
+    - **4. Leo-luxy/GP_ANA:GP_ANA 是一款全流程量化投资与 AI 分析系统。支持 aks**：⭐ 3 stars | Python GP_ANA 是一款全流程量化投资与 AI 分析系统
+    - **17. egerev/claude-status-line:Rich status bar for Cla**：egerev/claude-status-line:Rich status bar for C…
 
 === "🧪 论文研究（0）"
     - 暂无条目
 
-=== "🏢 产品与行业（19）"
-    - **1. SteelantCNF/Smartphone-power-consumption-predictio**：SteelantCNF/Smartphone-power-consumption-predic…
-    - **2. @elonmusk 发布 5.3 版本更新**：Tesla FSD Peter H. Diamandis,MD @PeterDiamandis…
-    - **3. @elonmusk 发布重要更新**：True The Rabbit Hole @TheRabbitHole The Left us…
-    - **4. @elonmusk 发布重要更新**：Tesla AI self-driving will be &gt
-    - **5. shanfishapp/ErisPulse-KookAdapter:Kook 开黑啦 平台机器**：shanfishapp/ErisPulse-KookAdapter:Kook 开黑啦 平台机器…
-    - **6. ArpitaPaul2004/Route_optimizer 发布重要更新**：ArpitaPaul2004/Route_optimizer相关进展已由一手来源披露，预计将影…
-    - **7. gsd-build/context-packet:File-based context resol**：gsd-build/context-packet:File-based context res…
-    - **8. qdore/application-use:A native,blazingly fast ma**：⭐ 2 stars | Go A native,blazingly fast macOS ap…
+=== "🏢 产品与行业（17）"
+    - **1. awhg23/HDU-words 发布重要更新**：awhg23/HDU-words相关进展已由一手来源披露，预计将影响后续产品与行业节奏
+    - **3. SRILAKSHMI-8195/dengue-watch-AI 发布重要更新**：SRILAKSHMI-8195/dengue-watch-AI相关进展已由一手来源披露，预计将…
+    - **5. SteelantCNF/Smartphone-power-consumption-predictio**：SteelantCNF/Smartphone-power-consumption-predic…
+    - **6. Hilbert777/TJU-OS-Lab-Report-Template 发布重要更新**：Hilbert777/TJU-OS-Lab-Report-Template相关进展已由一手来源…
+    - **7. tao20251688/v2rayclash-sub-houduan 发布重要更新**：tao20251688/v2rayclash-sub-houduan相关进展已由一手来源披露…
+    - **8. @elonmusk 发布 5.3 版本更新**：Tesla FSD Peter H. Diamandis,MD @PeterDiamandis…
+    - **9. @elonmusk 发布重要更新**：True The Rabbit Hole @TheRabbitHole The Left us…
+    - **10. @elonmusk 发布重要更新**：Tesla AI self-driving will be &gt
 
 ## 全部快讯
 
-??? info "1. SteelantCNF/Smartphone-power-consumption-predictio"
+??? info "1. awhg23/HDU-words 发布重要更新"
+    **摘要**：⭐ 2 stars | Python。
+
+    **关键点**
+
+    - ⭐ 2 stars | Python
+    - awhg23/HDU-words相关进展已由一手来源披露
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：awhg23/HDU-words相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/awhg23/HDU-words)
+
+??? info "2. fivetaku/content-pipeline:주제 하나로 리서치→카드뉴스→영상까지 자동"
+    **摘要**：⭐ 6 stars | Python 주제 하나로 리서치→카드뉴스→영상까지 자동 생성하는 Claude Code 스킬。
+
+    **关键点**
+
+    - ⭐ 6 stars | Python 주제 하나로 리서
+    - fivetaku/content-pipeline:주
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：fivetaku/content-pipeline:주제 하나로 리서치→카드뉴스→영상까지 자동 생성하는 Claude Code 스킬相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/fivetaku/content-pipeline)
+
+??? info "3. SRILAKSHMI-8195/dengue-watch-AI 发布重要更新"
+    **摘要**：⭐ 11 stars | JavaScript。
+
+    **关键点**
+
+    - ⭐ 11 stars | JavaScript
+    - SRILAKSHMI-8195/dengue-watch
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：SRILAKSHMI-8195/dengue-watch-AI相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/SRILAKSHMI-8195/dengue-watch-AI)
+
+??? info "4. Leo-luxy/GP_ANA:GP_ANA 是一款全流程量化投资与 AI 分析系统。支持 aks"
+    **摘要**：⭐ 3 stars | Python GP_ANA 是一款全流程量化投资与 AI 分析系统。支持 akshare/yfinance 数据抓取、TA-Lib 指标计算、策略回测优化及可视化。核心集成机器学习与本地 Ollama AI 分析，支持多股票批量处理与自动化任务调度。是量化研究与 AI 辅助决策的理想实践平台。
+
+    **关键点**
+
+    - ⭐ 3 stars | Python GP_ANA 是一
+    - 支持 akshare/yfinance 数据抓取、TA
+    - 核心集成机器学习与本地 Ollama AI 分析
+
+    **影响分析**：⭐ 3 stars | Python GP_ANA 是一款全流程量化投资与 AI 分析系统。
+
+    **来源**：[原文链接](https://github.com/Leo-luxy/GP_ANA)
+
+??? info "5. SteelantCNF/Smartphone-power-consumption-predictio"
     **摘要**：⭐ 2 stars | Python。
 
     **关键点**
@@ -42,7 +96,33 @@
 
     **来源**：[原文链接](https://github.com/SteelantCNF/Smartphone-power-consumption-prediction-model)
 
-??? info "2. @elonmusk 发布 5.3 版本更新"
+??? info "6. Hilbert777/TJU-OS-Lab-Report-Template 发布重要更新"
+    **摘要**：⭐ 3 stars | TeX。
+
+    **关键点**
+
+    - ⭐ 3 stars | TeX
+    - Hilbert777/TJU-OS-Lab-Report
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：Hilbert777/TJU-OS-Lab-Report-Template相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/Hilbert777/TJU-OS-Lab-Report-Template)
+
+??? info "7. tao20251688/v2rayclash-sub-houduan 发布重要更新"
+    **摘要**：⭐ 3 stars | JavaScript。
+
+    **关键点**
+
+    - ⭐ 3 stars | JavaScript
+    - tao20251688/v2rayclash-sub-h
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：tao20251688/v2rayclash-sub-houduan相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/tao20251688/v2rayclash-sub-houduan)
+
+??? info "8. @elonmusk 发布 5.3 版本更新"
     **摘要**：Tesla FSD Peter H. Diamandis,MD @PeterDiamandis Teslas FSD:5.3 million miles between accidents. US driving average:660,000. Thats 9x safer. And its only。
 
     **关键点**
@@ -55,7 +135,7 @@
 
     **来源**：[原文链接](https://x.com/elonmusk/status/2038138194861166638)
 
-??? info "3. @elonmusk 发布重要更新"
+??? info "9. @elonmusk 发布重要更新"
     **摘要**：True The Rabbit Hole @TheRabbitHole The Left used to worship Elon. Then they started calling him a Nazi over political disagreements. The message is clear:Ei。
 
     **关键点**
@@ -67,7 +147,7 @@
 
     **来源**：[原文链接](https://x.com/elonmusk/status/2038137043629592827)
 
-??? info "4. @elonmusk 发布重要更新"
+??? info "10. @elonmusk 发布重要更新"
     **摘要**：Tesla AI self-driving will be &gt；10X safer than human driving Tesla @Tesla Instead of simply braking after the fact,FSD is able to anticipate intent before。
 
     **关键点**
@@ -80,38 +160,12 @@
 
     **来源**：[原文链接](https://x.com/elonmusk/status/2038135071836893440)
 
-??? info "5. shanfishapp/ErisPulse-KookAdapter:Kook 开黑啦 平台机器"
-    **摘要**：⭐ 1 stars | Python Kook 开黑啦 平台机器人适配器。
+??? info "11. gsd-build/context-packet:File-based context resol"
+    **摘要**：⭐ 9 stars | TypeScript File-based context resolution for AI agent DAG workflows. Three primitives,zero dependencies.。
 
     **关键点**
 
-    - ⭐ 1 stars | Python Kook 开黑啦
-    - shanfishapp/ErisPulse-KookAd
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：shanfishapp/ErisPulse-KookAdapter:Kook 开黑啦 平台机器人适配器相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/shanfishapp/ErisPulse-KookAdapter)
-
-??? info "6. ArpitaPaul2004/Route_optimizer 发布重要更新"
-    **摘要**：⭐ 1 stars | Python。
-
-    **关键点**
-
-    - ⭐ 1 stars | Python
-    - ArpitaPaul2004/Route_optimiz
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：ArpitaPaul2004/Route_optimizer相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/ArpitaPaul2004/Route_optimizer)
-
-??? info "7. gsd-build/context-packet:File-based context resol"
-    **摘要**：⭐ 5 stars | TypeScript File-based context resolution for AI agent DAG workflows. Three primitives,zero dependencies.。
-
-    **关键点**
-
-    - ⭐ 5 stars | TypeScript File
+    - ⭐ 9 stars | TypeScript File
     - zero dependencies.
     - gsd-build/context-packet:Fi
 
@@ -119,20 +173,7 @@
 
     **来源**：[原文链接](https://github.com/gsd-build/context-packet)
 
-??? info "8. qdore/application-use:A native,blazingly fast ma"
-    **摘要**：⭐ 2 stars | Go A native,blazingly fast macOS application automation CLI designed specifically for AI agents. Similar to Anthropics Computer Use,application-u。
-
-    **关键点**
-
-    - ⭐ 2 stars | Go A native
-    - blazingly fast macOS applica
-    - application-use empowers AI
-
-    **影响分析**：⭐ 2 stars | Go A native,blazingly fast macOS application automation CLI designed specifically for AI agents. Similar to Anthropics Compute。
-
-    **来源**：[原文链接](https://github.com/qdore/application-use)
-
-??? info "9. epcdiy/fileDeleter:美团删除用户照片复现程序"
+??? info "12. epcdiy/fileDeleter:美团删除用户照片复现程序"
     **摘要**：⭐ 7 stars | Java 美团删除用户照片复现程序。
 
     **关键点**
@@ -145,7 +186,7 @@
 
     **来源**：[原文链接](https://github.com/epcdiy/fileDeleter)
 
-??? info "10. Anson-Trio/BaiShou-Next:用纯白誓约，守护彼此一生"
+??? info "13. Anson-Trio/BaiShou-Next:用纯白誓约，守护彼此一生"
     **摘要**：⭐ 3 stars | 用纯白誓约，守护彼此一生。
 
     **关键点**
@@ -158,7 +199,7 @@
 
     **来源**：[原文链接](https://github.com/Anson-Trio/BaiShou-Next)
 
-??? info "11. monyhzc/ssecli:agentic native cli for ssemarket"
+??? info "14. monyhzc/ssecli:agentic native cli for ssemarket"
     **摘要**：⭐ 2 stars | JavaScript agentic native cli for ssemarket。
 
     **关键点**
@@ -171,7 +212,7 @@
 
     **来源**：[原文链接](https://github.com/monyhzc/ssecli)
 
-??? info "12. pminhtaiii/btree-student-management 发布重要更新"
+??? info "15. pminhtaiii/btree-student-management 发布重要更新"
     **摘要**：⭐ 3 stars | JavaScript。
 
     **关键点**
@@ -184,12 +225,12 @@
 
     **来源**：[原文链接](https://github.com/pminhtaiii/btree-student-management)
 
-??? info "13. drwoood/latexnav:LaTeX Navigator and Structure Su"
-    **摘要**：⭐ 2 stars | Python LaTeX Navigator and Structure Summariser。
+??? info "16. drwoood/latexnav:LaTeX Navigator and Structure Su"
+    **摘要**：⭐ 3 stars | Python LaTeX Navigator and Structure Summariser。
 
     **关键点**
 
-    - ⭐ 2 stars | Python LaTeX Nav
+    - ⭐ 3 stars | Python LaTeX Nav
     - Structure Summariser
     - drwoood/latexnav:LaTeX Navi
 
@@ -197,7 +238,7 @@
 
     **来源**：[原文链接](https://github.com/drwoood/latexnav)
 
-??? info "14. egerev/claude-status-line:Rich status bar for Cla"
+??? info "17. egerev/claude-status-line:Rich status bar for Cla"
     **摘要**：⭐ 5 stars | Python Rich status bar for Claude Code-context,cache,rate limits,prompt estimates。
 
     **关键点**
@@ -210,20 +251,7 @@
 
     **来源**：[原文链接](https://github.com/egerev/claude-status-line)
 
-??? info "15. CindyChen125/ResumAI 发布产品更新"
-    **摘要**：⭐ 2 stars | TypeScript a basic resume generating app。
-
-    **关键点**
-
-    - ⭐ 2 stars | TypeScript a bas
-    - CindyChen125/ResumAI:a basi
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：CindyChen125/ResumAI:a basic resume generating app相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/CindyChen125/ResumAI)
-
-??? info "16. brandonhimpfen/awesome-software-architecture:A cu"
+??? info "18. brandonhimpfen/awesome-software-architecture:A cu"
     **摘要**：⭐ 2 stars | Python A curated list of architectural patterns,frameworks,tools,and resources for designing scalable,maintainable,resilient,and understandabl。
 
     **关键点**
@@ -236,7 +264,20 @@
 
     **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-software-architecture)
 
-??? info "17. Dr-Wahab/nonlinear-pushover-analysis-of-a-2-bay-2"
+??? info "19. Given-Dream/sciencedirect-live-session-fetcher:Re"
+    **摘要**：⭐ 2 stars | Python Reusable scripts and a Codex skill for serial ScienceDirect PDF fetching through a live authorized Edge session.。
+
+    **关键点**
+
+    - ⭐ 2 stars | Python Reusable
+    - a Codex skill for serial Sci
+    - Given-Dream/sciencedirect-li
+
+    **影响分析**：Given-Dream/sciencedirect-live-session-fetcher:Reusable scripts and a Codex skill for serial ScienceDirect PDF fetching through相关进展已由一手来源披露。
+
+    **来源**：[原文链接](https://github.com/Given-Dream/sciencedirect-live-session-fetcher)
+
+??? info "20. Dr-Wahab/nonlinear-pushover-analysis-of-a-2-bay-2"
     **摘要**：⭐ 2 stars | Python nonlinear pushover analysis of a 2-bay,2-story Steel Moment-Resisting Frame using OpenSeesPy。
 
     **关键点**
@@ -249,49 +290,11 @@
 
     **来源**：[原文链接](https://github.com/Dr-Wahab/nonlinear-pushover-analysis-of-a-2-bay-2-story-Steel-Moment-Resisting-Frame-using-OpenSeesPy)
 
-??? info "18. brandonhimpfen/awesome-mobile-app-architecture:A"
-    **摘要**：⭐ 2 stars | Python A curated list of architectural patterns,frameworks,tools,and resources for designing scalable,maintainable,and testable mobile applicat。
-
-    **关键点**
-
-    - ⭐ 2 stars | Python A curated
-    - frameworks
-    - tools
-
-    **影响分析**：⭐ 2 stars | Python A curated list of architectural patterns,frameworks,tools,and resources for designing scalable,maintainable,and test。
-
-    **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-mobile-app-architecture)
-
-??? info "19. brandonhimpfen/awesome-mobile-security:A curated"
-    **摘要**：⭐ 2 stars | Python A curated list of tools,frameworks,practices,and resources for mobile security.。
-
-    **关键点**
-
-    - ⭐ 2 stars | Python A curated
-    - frameworks
-    - practices
-
-    **影响分析**：brandonhimpfen/awesome-mobile-security:A curated list of tools,frameworks,practices,and resources for mobile securit相关进展已由一手来源披露，预计将影响后续。
-
-    **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-mobile-security)
-
-??? info "20. brandonhimpfen/awesome-android-development:A cura"
-    **摘要**：⭐ 2 stars | Python A curated list of tools,frameworks,libraries,and resources for Android development.。
-
-    **关键点**
-
-    - ⭐ 2 stars | Python A curated
-    - frameworks
-    - libraries
-
-    **影响分析**：brandonhimpfen/awesome-android-development:A curated list of tools,frameworks,libraries,and resources for Android develo相关进展已由一手来源披露，预计将。
-
-    **来源**：[原文链接](https://github.com/brandonhimpfen/awesome-android-development)
-
 ---
 
 ## 历史归档
 
+- [2026-03-29_16-05-10](history/2026-03-29_16-05-10.md)
 - [2026-03-29_14-45-33](history/2026-03-29_14-45-33.md)
 - [2026-03-29_13-27-22](history/2026-03-29_13-27-22.md)
 - [2026-03-29_12-17-35](history/2026-03-29_12-17-35.md)
