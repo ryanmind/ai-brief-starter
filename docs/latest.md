@@ -1,42 +1,82 @@
 # 今日快讯
 
-> 更新时间：2026年03月29日18:01:39
+> 更新时间：2026年03月29日19:53:33
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. yetone/voice-input-src 发布重要更新：⭐ 5 stars |。
-2. hitmux/HitCC:Reverse-engineered knowledge base fo：⭐ 2 stars | Python Reverse-engineered know。
-3. news2-bit/format-converter 发布重要更新：⭐ 4 stars | HTML。
-4. drylikov/ES_CLI:Elasticsearch stats CLI .：⭐ 7 stars | Go Elasticsearch stats CLI .。
-5. XasanovITpark/Top10factsfirst:mening ilovam orqal：⭐ 5 stars | Java mening ilovam orqali sen。
+1. DikshitRJ/cf-py-boilerplate:Optimized Python boil：⭐ 2 stars | Python Optimized Python boiler。
+2. ParthSikchi/odoo_hackssss 发布重要更新：⭐ 3 stars | Python。
+3. soldier-100f06z/MailFlow:Professional bulk email：⭐ 5 stars | Python Professional bulk email。
+4. yetone/voice-input-src 发布重要更新：⭐ 19 stars |。
+5. hitmux/HitCC:Complete reverse-engineering documen：⭐ 32 stars | Python Complete reverse-engin。
 
 ## 分类速览
 
-=== "🤖 模型进展（1）"
-    - **2. hitmux/HitCC:Reverse-engineered knowledge base fo**：hitmux/HitCC:Reverse-engineered knowledge base…
+=== "🤖 模型进展（2）"
+    - **5. hitmux/HitCC:Complete reverse-engineering documen**：hitmux/HitCC:Complete reverse-engineering docum…
+    - **8. Lunexaa/AutoLearning-Claude-Agent 发布重要更新**：Lunexaa/AutoLearning-Claude-Agent相关进展已由一手来源披露，预…
 
 === "🧪 论文研究（0）"
     - 暂无条目
 
-=== "🏢 产品与行业（19）"
-    - **1. yetone/voice-input-src 发布重要更新**：yetone/voice-input-src相关进展已由一手来源披露，预计将影响后续产品与行业…
-    - **3. news2-bit/format-converter 发布重要更新**：news2-bit/format-converter相关进展已由一手来源披露，预计将影响后续产…
-    - **4. drylikov/ES_CLI:Elasticsearch stats CLI .**：drylikov/ES_CLI:Elasticsearch stats CLI .相关进展已由…
-    - **5. XasanovITpark/Top10factsfirst:mening ilovam orqal**：XasanovITpark/Top10factsfirst:mening ilovam orq…
-    - **6. XasanovITpark/Usefulforyou:follow bosib kuzat men**：XasanovITpark/Usefulforyou:follow bosib kuzat m…
-    - **7. Qforge-chen/yehang-mvp 发布重要更新**：Qforge-chen/yehang-mvp相关进展已由一手来源披露，预计将影响后续产品与行业…
-    - **8. XasanovITpark/motive5lesson:juda foydali follow b**：XasanovITpark/motive5lesson:juda foydali follow…
-    - **9. XasanovITpark/Motivation1:bu ilova juda yaxshi fu**：XasanovITpark/Motivation1:bu ilova juda yaxshi…
+=== "🏢 产品与行业（18）"
+    - **1. DikshitRJ/cf-py-boilerplate:Optimized Python boil**：⭐ 2 stars | Python Optimized Python boilerplate…
+    - **2. ParthSikchi/odoo_hackssss 发布重要更新**：ParthSikchi/odoo_hackssss相关进展已由一手来源披露，预计将影响后续产品…
+    - **3. soldier-100f06z/MailFlow:Professional bulk email**：soldier-100f06z/MailFlow:Professional bulk emai…
+    - **4. yetone/voice-input-src 发布重要更新**：yetone/voice-input-src相关进展已由一手来源披露，预计将影响后续产品与行业…
+    - **6. drylikov/ES_CLI:Elasticsearch stats CLI .**：drylikov/ES_CLI:Elasticsearch stats CLI .相关进展已由…
+    - **7. XasanovITpark/Top10factsfirst:mening ilovam orqal**：XasanovITpark/Top10factsfirst:mening ilovam orq…
+    - **9. leemysw/skills:leemysw skills collection**：leemysw/skills:leemysw skills collection相关进展已由一…
+    - **10. XasanovITpark/Usefulforyou:follow bosib kuzat men**：XasanovITpark/Usefulforyou:follow bosib kuzat m…
 
 ## 全部快讯
 
-??? info "1. yetone/voice-input-src 发布重要更新"
-    **摘要**：⭐ 5 stars |。
+??? info "1. DikshitRJ/cf-py-boilerplate:Optimized Python boil"
+    **摘要**：⭐ 2 stars | Python Optimized Python boilerplate for competitive programming with fast I/O,type-safe input parsing,buffered output handling,and stderr-based d。
 
     **关键点**
 
-    - ⭐ 5 stars |
+    - ⭐ 2 stars | Python Optimized
+    - fast I/O
+    - type-safe input parsing
+
+    **影响分析**：⭐ 2 stars | Python Optimized Python boilerplate for competitive programming with fast I/O,type-safe input parsing,buffered output handling。
+
+    **来源**：[原文链接](https://github.com/DikshitRJ/cf-py-boilerplate)
+
+??? info "2. ParthSikchi/odoo_hackssss 发布重要更新"
+    **摘要**：⭐ 3 stars | Python。
+
+    **关键点**
+
+    - ⭐ 3 stars | Python
+    - ParthSikchi/odoo_hackssss相关进
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：ParthSikchi/odoo_hackssss相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/ParthSikchi/odoo_hackssss)
+
+??? info "3. soldier-100f06z/MailFlow:Professional bulk email"
+    **摘要**：⭐ 5 stars | Python Professional bulk email sending desktop application with ready Phishlets。
+
+    **关键点**
+
+    - ⭐ 5 stars | Python Professio
+    - ready Phishlets
+    - soldier-100f06z/MailFlow:Pr
+
+    **影响分析**：soldier-100f06z/MailFlow:Professional bulk email sending desktop application with ready Phishlets相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/soldier-100f06z/MailFlow)
+
+??? info "4. yetone/voice-input-src 发布重要更新"
+    **摘要**：⭐ 19 stars |。
+
+    **关键点**
+
+    - ⭐ 19 stars |
     - yetone/voice-input-src相关进展已由
     - 预计将影响后续产品与行业节奏
 
@@ -44,33 +84,20 @@
 
     **来源**：[原文链接](https://github.com/yetone/voice-input-src)
 
-??? info "2. hitmux/HitCC:Reverse-engineered knowledge base fo"
-    **摘要**：⭐ 2 stars | Python Reverse-engineered knowledge base for Claude Code CLI Node.js version v2.1.84。
+??? info "5. hitmux/HitCC:Complete reverse-engineering documen"
+    **摘要**：⭐ 32 stars | Python Complete reverse-engineering documentation of the full logic of Claude Code CLI Node.js version v2.1.84。
 
     **关键点**
 
-    - ⭐ 2 stars | Python Reverse-e
-    - hitmux/HitCC:Reverse-engine
+    - ⭐ 32 stars | Python Complete
+    - hitmux/HitCC:Complete rever
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：hitmux/HitCC:Reverse-engineered knowledge base for Claude Code CLI Node.js version v2.1.84相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：hitmux/HitCC:Complete reverse-engineering documentation of the full logic of Claude Code CLI相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
     **来源**：[原文链接](https://github.com/hitmux/HitCC)
 
-??? info "3. news2-bit/format-converter 发布重要更新"
-    **摘要**：⭐ 4 stars | HTML。
-
-    **关键点**
-
-    - ⭐ 4 stars | HTML
-    - news2-bit/format-converter相关
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：news2-bit/format-converter相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/news2-bit/format-converter)
-
-??? info "4. drylikov/ES_CLI:Elasticsearch stats CLI ."
+??? info "6. drylikov/ES_CLI:Elasticsearch stats CLI ."
     **摘要**：⭐ 7 stars | Go Elasticsearch stats CLI .。
 
     **关键点**
@@ -83,7 +110,7 @@
 
     **来源**：[原文链接](https://github.com/drylikov/ES_CLI)
 
-??? info "5. XasanovITpark/Top10factsfirst:mening ilovam orqal"
+??? info "7. XasanovITpark/Top10factsfirst:mening ilovam orqal"
     **摘要**：⭐ 5 stars | Java mening ilovam orqali sen umringda eshitmagan faktlarni eshitishing mumkin follow bosib kuzat。
 
     **关键点**
@@ -96,7 +123,33 @@
 
     **来源**：[原文链接](https://github.com/XasanovITpark/Top10factsfirst)
 
-??? info "6. XasanovITpark/Usefulforyou:follow bosib kuzat men"
+??? info "8. Lunexaa/AutoLearning-Claude-Agent 发布重要更新"
+    **摘要**：⭐ 2 stars | Python。
+
+    **关键点**
+
+    - ⭐ 2 stars | Python
+    - Lunexaa/AutoLearning-Claude
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：Lunexaa/AutoLearning-Claude-Agent相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/Lunexaa/AutoLearning-Claude-Agent)
+
+??? info "9. leemysw/skills:leemysw skills collection"
+    **摘要**：⭐ 3 stars | Python leemysw skills collection。
+
+    **关键点**
+
+    - ⭐ 3 stars | Python leemysw s
+    - leemysw/skills:leemysw skil
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：leemysw/skills:leemysw skills collection相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/leemysw/skills)
+
+??? info "10. XasanovITpark/Usefulforyou:follow bosib kuzat men"
     **摘要**：⭐ 5 stars | Java follow bosib kuzat menda juda yaxshi ilovalar bor。
 
     **关键点**
@@ -109,7 +162,7 @@
 
     **来源**：[原文链接](https://github.com/XasanovITpark/Usefulforyou)
 
-??? info "7. Qforge-chen/yehang-mvp 发布重要更新"
+??? info "11. Qforge-chen/yehang-mvp 发布重要更新"
     **摘要**：⭐ 2 stars | Python。
 
     **关键点**
@@ -122,7 +175,7 @@
 
     **来源**：[原文链接](https://github.com/Qforge-chen/yehang-mvp)
 
-??? info "8. XasanovITpark/motive5lesson:juda foydali follow b"
+??? info "12. XasanovITpark/motive5lesson:juda foydali follow b"
     **摘要**：⭐ 5 stars | Java juda foydali follow bosib kuzat。
 
     **关键点**
@@ -135,7 +188,7 @@
 
     **来源**：[原文链接](https://github.com/XasanovITpark/motive5lesson)
 
-??? info "9. XasanovITpark/Motivation1:bu ilova juda yaxshi fu"
+??? info "13. XasanovITpark/Motivation1:bu ilova juda yaxshi fu"
     **摘要**：⭐ 5 stars | Java bu ilova juda yaxshi funksiyaga ega。
 
     **关键点**
@@ -148,7 +201,7 @@
 
     **来源**：[原文链接](https://github.com/XasanovITpark/Motivation1)
 
-??? info "10. XasanovITpark/motivation2lesson:bu ilova juda zor"
+??? info "14. XasanovITpark/motivation2lesson:bu ilova juda zor"
     **摘要**：⭐ 5 stars | Java bu ilova juda zor。
 
     **关键点**
@@ -161,7 +214,7 @@
 
     **来源**：[原文链接](https://github.com/XasanovITpark/motivation2lesson)
 
-??? info "11. XasanovITpark/Mock:men bu ilovani siz uchun bepul"
+??? info "15. XasanovITpark/Mock:men bu ilovani siz uchun bepul"
     **摘要**：⭐ 5 stars | Java men bu ilovani siz uchun bepul qilib qoyibman ilovaga kirb roxatlananing。
 
     **关键点**
@@ -174,20 +227,7 @@
 
     **来源**：[原文链接](https://github.com/XasanovITpark/Mock)
 
-??? info "12. XasanovITpark/Maths:sizuchun bu ilova mutlaqo teg"
-    **摘要**：⭐ 5 stars | Java sizuchun bu ilova mutlaqo tegin。
-
-    **关键点**
-
-    - ⭐ 5 stars | Java sizuchun bu
-    - XasanovITpark/Maths:sizuchu
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：XasanovITpark/Maths:sizuchun bu ilova mutlaqo tegin相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/XasanovITpark/Maths)
-
-??? info "13. Rahularya01/wmc 发布重要更新"
+??? info "16. Rahularya01/wmc 发布重要更新"
     **摘要**：⭐ 5 stars | Rust。
 
     **关键点**
@@ -200,33 +240,7 @@
 
     **来源**：[原文链接](https://github.com/Rahularya01/wmc)
 
-??? info "14. XasanovITpark/lesson1motivation:bu ilovani ochib"
-    **摘要**：⭐ 5 stars | Java bu ilovani ochib korishingiz siz uchun bepul。
-
-    **关键点**
-
-    - ⭐ 5 stars | Java bu ilovani
-    - XasanovITpark/lesson1motivat
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：XasanovITpark/lesson1motivation:bu ilovani ochib korishingiz siz uchun bepul相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/XasanovITpark/lesson1motivation)
-
-??? info "15. usmantareen/salary-slip-generator 发布重要更新"
-    **摘要**：⭐ 5 stars | TypeScript。
-
-    **关键点**
-
-    - ⭐ 5 stars | TypeScript
-    - usmantareen/salary-slip-gene
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：usmantareen/salary-slip-generator相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/usmantareen/salary-slip-generator)
-
-??? info "16. XasanovITpark/Lesson:ilova juda foydali"
+??? info "17. XasanovITpark/Lesson:ilova juda foydali"
     **摘要**：⭐ 5 stars | Java ilova juda foydali。
 
     **关键点**
@@ -239,12 +253,12 @@
 
     **来源**：[原文链接](https://github.com/XasanovITpark/Lesson)
 
-??? info "17. sT8CJ6bs9dU0x/AIAssistant:一个快捷ai助手，帮你处理简单任务，支持定时任"
-    **摘要**：⭐ 3 stars | Python 一个快捷ai助手，帮你处理简单任务，支持定时任务。
+??? info "18. sT8CJ6bs9dU0x/AIAssistant:一个快捷ai助手，帮你处理简单任务，支持定时任"
+    **摘要**：⭐ 4 stars | Python 一个快捷ai助手，帮你处理简单任务，支持定时任务。
 
     **关键点**
 
-    - ⭐ 3 stars | Python 一个快捷ai助手
+    - ⭐ 4 stars | Python 一个快捷ai助手
     - 帮你处理简单任务
     - 支持定时任务
 
@@ -252,7 +266,7 @@
 
     **来源**：[原文链接](https://github.com/sT8CJ6bs9dU0x/AIAssistant)
 
-??? info "18. XasanovITpark/know:siz uchun juda foydali boladi"
+??? info "19. XasanovITpark/know:siz uchun juda foydali boladi"
     **摘要**：⭐ 5 stars | Java siz uchun juda foydali boladi bu ilova。
 
     **关键点**
@@ -265,28 +279,15 @@
 
     **来源**：[原文链接](https://github.com/XasanovITpark/know)
 
-??? info "19. XasanovITpark/interesting:siz bu ilova orqali qiz"
-    **摘要**：⭐ 5 stars | Java siz bu ilova orqali qiziqarli malumotga ega bolasiz。
+??? info "20. nutterplayer7093/Lossless-Scaling-Pro-2026:Lossle"
+    **摘要**：⭐ 9 stars | Lossless Scaling is a PC utility that enhances image quality and frame rates in games using upscaling and frame generation algorithms。
 
     **关键点**
 
-    - ⭐ 5 stars | Java siz bu ilov
-    - XasanovITpark/interesting:s
-    - 预计将影响后续产品与行业节奏
+    - ⭐ 9 stars | Lossless Scaling
+    - frame rates in games using u
+    - frame generation algorithms
 
-    **影响分析**：XasanovITpark/interesting:siz bu ilova orqali qiziqarli malumotga ega bolasiz相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：nutterplayer7093/Lossless-Scaling-Pro-2026:Lossless Scaling is a PC utility that enhances image quality and frame rates in相关进展已由一手来源披露，预计将影。
 
-    **来源**：[原文链接](https://github.com/XasanovITpark/interesting)
-
-??? info "20. XasanovITpark/English:siz bunga kirishingiz bilan"
-    **摘要**：⭐ 5 stars | Java siz bunga kirishingiz bilan ingliz tiliga aloqador narsa korishingiz mumkin。
-
-    **关键点**
-
-    - ⭐ 5 stars | Java siz bunga k
-    - XasanovITpark/English:siz b
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：XasanovITpark/English:siz bunga kirishingiz bilan ingliz tiliga aloqador narsa korishingiz mumkin相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/XasanovITpark/English)
+    **来源**：[原文链接](https://github.com/nutterplayer7093/Lossless-Scaling-Pro-2026)
