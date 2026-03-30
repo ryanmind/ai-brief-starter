@@ -1,134 +1,170 @@
 # 今日快讯
 
-> 更新时间：2026年03月30日12:24:42
+> 更新时间：2026年03月30日13:42:00
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. arxiv.org 发布重要更新：arXiv:2603.25834v1 Announce Type:new Abstr。
-2. arxiv.org 发布重要更新：arXiv:2603.25902v1 Announce Type:new Abstr。
-3. arxiv.org 发布重要更新：arXiv:2603.25937v1 Announce Type:new Abstr。
-4. arxiv.org 发布重要更新：arXiv:2603.25981v1 Announce Type:new Abstr。
-5. leobert-lan/MdToPdf:将单Md技术文档转换为单PDF，内嵌的Plantuml、M：⭐ 1 stars | Python 将单Md技术文档转换为单PDF。
+1. @elonmusk 发布重要更新：Try it out Mario Nawfal @MarioNawfal Grok。
+2. @elonmusk 发布产品更新：Yes Benji Taylor @benjitaylor ザ エブリワン アプリ-。
+3. @elonmusk 发布重要更新：Yup 😂 DogeDesigner @cb_doge Elon Musk in a。
+4. @hailuo_ai 发布重要更新：🇭🇰Hailuo AI × CUHK-AI Masterclass How AI i。
+5. @elonmusk 发布产品更新：😂💯 Brighams Burner @FiredUpCoug How the Ja。
 
 ## 分类速览
 
-=== "🤖 模型进展（4）"
-    - **6. daichanmark/claude-compact-setup:Claude Code hook**：daichanmark/claude-compact-setup:Claude Code ho…
-    - **14. sazed5055/llmtest-perf:Production-quality perform**：sazed5055/llmtest-perf:Production-quality perfo…
-    - **16. yudhaexe/claude-skill-job-resume-interview-prep 发布**：yudhaexe/claude-skill-job-resume-interview-prep…
-    - **17. wqyinterest/-SFT-RL:以西游记中唐僧的对话数据对Qwen2.5-0.5B模型进行**：wqyinterest/-SFT-RL:以西游记中唐僧的对话数据对Qwen2.5-0.5B模型…
+=== "🤖 模型进展（1）"
+    - **1. @elonmusk 发布重要更新**：Try it out Mario Nawfal @MarioNawfal Grok Imagi…
 
 === "🧪 论文研究（4）"
-    - **1. arxiv.org 发布重要更新**：arXiv:2603.25834v1 Announce Type:new Abstract:R…
-    - **2. arxiv.org 发布重要更新**：arXiv:2603.25902v1 Announce Type:new Abstract:H…
-    - **3. arxiv.org 发布重要更新**：arXiv:2603.25937v1 Announce Type:new Abstract:V…
-    - **4. arxiv.org 发布重要更新**：arXiv:2603.25981v1 Announce Type:new Abstract:N…
+    - **7. arxiv.org 发布重要更新**：arXiv:2603.25747v1 Announce Type:new Abstract:T…
+    - **8. arxiv.org 发布重要更新**：arXiv:2603.26005v1 Announce Type:new Abstract:T…
+    - **9. arxiv.org 发布重要更新**：arXiv:2603.26076v1 Announce Type:new Abstract:D…
+    - **10. arxiv.org 发布 71.8 版本更新**：arXiv:2603.26499v1 Announce Type:new Abstract:E…
 
-=== "🏢 产品与行业（12）"
-    - **5. leobert-lan/MdToPdf:将单Md技术文档转换为单PDF，内嵌的Plantuml、M**：leobert-lan/MdToPdf:将单Md技术文档转换为单PDF，内嵌的Plantuml…
-    - **7. ThanatosXingYu/Hikvision-iSecureFucker:iSecueFuck**：ThanatosXingYu/Hikvision-iSecureFucker:iSecueFu…
-    - **8. @hailuo_ai 发布重要更新**：Create with Hailuo Light Studio Join now for a…
-    - **9. maxlory/lets-go-rss-workflow-publish 发布重要更新**：maxlory/lets-go-rss-workflow-publish相关进展已由一手来源披…
-    - **10. shuaibird/mcpplex:Terminal UI for exploring MCP l**：shuaibird/mcpplex:Terminal UI for exploring MCP…
-    - **11. ggabo-bug/learningPython:LEARNING**：ggabo-bug/learningPython:LEARNING相关进展已由一手来源披露，预…
-    - **12. Nothing-dot-exe/Google-Chrome-Cache-Cleaners:A co**：⭐ 2 stars | Python A collection of lightweight…
-    - **13. maxlory/jobmatch:JobMatch V1/P0 job management we**：maxlory/jobmatch:JobMatch V1/P0 job management…
+=== "🏢 产品与行业（15）"
+    - **2. @elonmusk 发布产品更新**：Yes相关进展已由一手来源披露，预计将影响后续产品与行业节奏
+    - **3. @elonmusk 发布重要更新**：Yup 😂相关进展已由一手来源披露，预计将影响后续产品与行业节奏
+    - **4. @hailuo_ai 发布重要更新**：🇭🇰Hailuo AI × CUHK-AI Masterclass How AI is Sha…
+    - **5. @elonmusk 发布产品更新**：😂💯 Brighams Burner @FiredUpCoug How the Japanes…
+    - **6. @minimax_ai 发布 2.7 版本更新**：95% cheaper🫡 Same output,different game. Sherry…
+    - **11. @hailuo_ai 发布重要更新**：Create with Hailuo Light Studio Join now for a…
+    - **12. @minimax_ai 发布重要更新**：I’d love to hear how has your experience been u…
+    - **13. openai.com 发布重要更新**：Helping disaster response teams turn AI into ac…
 
 ## 全部快讯
 
-??? info "1. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2603.25834v1 Announce Type:new Abstract:Recent advances in parallel computing and GPU acceleration have created new opportunities for computation-intens。
+??? info "1. @elonmusk 发布重要更新"
+    **摘要**：Try it out Mario Nawfal @MarioNawfal Grok Imagine in anime mode is dangerously good. Type anything and it turns your wildest ideas into full anime scenes in s。
 
     **关键点**
 
-    - arXiv:2603.25834v1 Announce
-    - GPU acceleration have create
-    - improve joint mapping
+    - Try it out Mario Nawfal @Ma
+    - it turns your wildest ideas
+    - youre missing out
 
-    **影响分析**：arXiv:2603.25834v1 Announce Type:new Abstract:Recent advances in parallel computing and GPU acceleration have created new opportunities fo。
+    **影响分析**：Try it out Mario Nawfal @MarioNawfal Grok Imagine in anime mode is dangerously good. Type anything and it turns your wildest ideas into fu。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2603.25834)
+    **来源**：[原文链接](https://x.com/elonmusk/status/2038483496927465550)
 
-??? info "2. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2603.25902v1 Announce Type:new Abstract:Humanoid robots have the promise of locomoting like humans,including fast and dynamic running. Recently,reinfo。
-
-    **关键点**
-
-    - arXiv:2603.25902v1 Announce
-    - including fast
-    - dynamic running. Recently
-
-    **影响分析**：arXiv:2603.25902v1 Announce Type:new Abstract:Humanoid robots have the promise of locomoting like humans,including fast and dynamic runni。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2603.25902)
-
-??? info "3. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2603.25937v1 Announce Type:new Abstract:Visual Navigation Models VNMs promise generalizable,robot navigation by learning from large-scale visual demo。
+??? info "2. @elonmusk 发布产品更新"
+    **摘要**：Yes Benji Taylor @benjitaylor ザ エブリワン アプリ-https://nitter.net/benjitaylor/status/2038450184448082326#m。
 
     **关键点**
 
-    - arXiv:2603.25937v1 Announce
-    - robot navigation by learning
-    - existing evaluations rely al
+    - Yes Benji Taylor @benjitayl
+    - Yes相关进展已由一手来源披露
+    - 预计将影响后续产品与行业节奏
 
-    **影响分析**：arXiv:2603.25937v1 Announce Type:new Abstract:Visual Navigation Models VNMs promise generalizable,robot navigation by learning from lar。
+    **影响分析**：Yes相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2603.25937)
+    **来源**：[原文链接](https://x.com/elonmusk/status/2038482753042457059)
 
-??? info "4. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2603.25981v1 Announce Type:new Abstract:Navigating to a visually specified goal given natural language instructions remains a fundamental challenge in e。
-
-    **关键点**
-
-    - arXiv:2603.25981v1 Announce
-    - long-horizon planning
-    - or employ world models that
-
-    **影响分析**：arXiv:2603.25981v1 Announce Type:new Abstract:Navigating to a visually specified goal given natural language instructions remains a fundam。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2603.25981)
-
-??? info "5. leobert-lan/MdToPdf:将单Md技术文档转换为单PDF，内嵌的Plantuml、M"
-    **摘要**：⭐ 1 stars | Python 将单Md技术文档转换为单PDF，内嵌的Plantuml、Mermaid代码将变为可直接预览的图片。
+??? info "3. @elonmusk 发布重要更新"
+    **摘要**：Yup 😂 DogeDesigner @cb_doge Elon Musk in a Japanese game show in 2014 Video-https://nitter.net/cb_doge/status/2038396682149458382#m。
 
     **关键点**
 
-    - ⭐ 1 stars | Python 将单Md技术文档转
-    - 内嵌的Plantuml、Mermaid代码将变为可直接预
-    - leobert-lan/MdToPdf:将单Md技术文
+    - Yup 😂 DogeDesigner @cb_doge
+    - Yup 😂相关进展已由一手来源披露
+    - 预计将影响后续产品与行业节奏
 
-    **影响分析**：leobert-lan/MdToPdf:将单Md技术文档转换为单PDF，内嵌的Plantuml、Mermaid代码将变为可直接预览的图片相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：Yup 😂相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://github.com/leobert-lan/MdToPdf)
+    **来源**：[原文链接](https://x.com/elonmusk/status/2038481300378775637)
 
-??? info "6. daichanmark/claude-compact-setup:Claude Code hook"
-    **摘要**：⭐ 1 stars | Python Claude Code hooks,skills,and CLAUDE.md templates for team sharing。
-
-    **关键点**
-
-    - ⭐ 1 stars | Python Claude Co
-    - skills
-    - CLAUDE.md templates for team
-
-    **影响分析**：daichanmark/claude-compact-setup:Claude Code hooks,skills,and CLAUDE.md templates for team sharing相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/daichanmark/claude-compact-setup)
-
-??? info "7. ThanatosXingYu/Hikvision-iSecureFucker:iSecueFuck"
-    **摘要**：⭐ 2 stars | Python iSecueFucker 是一个面向 海康威视教育综合安防管理平台 iSecure Center 的 API 测试工具，目标是把 AK/SK 鉴权调试流程做成可视化、可复用、可持续迭代的工程化项目。
+??? info "4. @hailuo_ai 发布重要更新"
+    **摘要**：🇭🇰Hailuo AI × CUHK-AI Masterclass How AI is Shaping the Creative Industries Join us at The Chinese University of Hong Kong for an intensive masterclass on how。
 
     **关键点**
 
-    - ⭐ 2 stars | Python iSecueFuc
-    - 目标是把 AK/SK 鉴权调试流程做成可视化、可复用、可
-    - ThanatosXingYu/Hikvision-iSe
+    - 🇭🇰Hailuo AI × CUHK-AI Mast
+    - taking you from simple promp
+    - 🕒Wednesday
 
-    **影响分析**：ThanatosXingYu/Hikvision-iSecureFucker:iSecueFucker 是一个面向 海康威视教育综合安防管理平台 iSecure Center 的 API 测试工具，目标是把 AK/SK 鉴权调试流程做成可相关进展已由一手来源披露，预计将影响后续。
+    **影响分析**：🇭🇰Hailuo AI × CUHK-AI Masterclass How AI is Shaping the Creative Industries Join us at The Chinese University of Hong Kong for an intensiv。
 
-    **来源**：[原文链接](https://github.com/ThanatosXingYu/Hikvision-iSecureFucker)
+    **来源**：[原文链接](https://x.com/Hailuo_AI/status/2038480950099890457)
 
-??? info "8. @hailuo_ai 发布重要更新"
+??? info "5. @elonmusk 发布产品更新"
+    **摘要**：😂💯 Brighams Burner @FiredUpCoug How the Japanese timeline cleanse on X has felt to us Americans Video-https://nitter.net/FiredUpCoug/status/203826815448976。
+
+    **关键点**
+
+    - 😂💯 Brighams Burner @FiredU
+    - 😂💯 Brighams Burner @FiredUpC
+    - @elonmusk 发布产品更新
+
+    **影响分析**：😂💯 Brighams Burner @FiredUpCoug How the Japanese timeline cleanse on X has felt to us Americans Video-https://nitter.net/FiredUpCoug/st。
+
+    **来源**：[原文链接](https://x.com/elonmusk/status/2038480746315493642)
+
+??? info "6. @minimax_ai 发布 2.7 版本更新"
+    **摘要**：95% cheaper🫡 Same output,different game. Sherry Jiang @SherryYanJiang pretty impressed that @MiniMax_AI 2.7 can one-shot a linear clone in 10 mins at 95% che。
+
+    **关键点**
+
+    - % cheaper🫡 Same output
+    - different game. Sherry Jiang
+    - youre probably overpaying f
+
+    **影响分析**：95% cheaper🫡 Same output,different game. Sherry Jiang @SherryYanJiang pretty impressed that @MiniMax_AI 2.7 can one-shot a linear clone i。
+
+    **来源**：[原文链接](https://x.com/MiniMax_AI/status/2038479984910901751)
+
+??? info "7. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2603.25747v1 Announce Type:new Abstract:The rapid evolution of Large Multimodal Models LMMs has enabled agents to perform complex digital and physical。
+
+    **关键点**
+
+    - arXiv:2603.25747v1 Announce
+    - physical tasks
+    - yet their deployment as auto
+
+    **影响分析**：arXiv:2603.25747v1 Announce Type:new Abstract:The rapid evolution of Large Multimodal Models LMMs has enabled agents to perform complex。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2603.25747)
+
+??? info "8. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2603.26005v1 Announce Type:new Abstract:The growing availability of building operational data motivates the use of reinforcement learning RL,which ca。
+
+    **关键点**
+
+    - arXiv:2603.26005v1 Announce
+    - which can learn control poli
+    - cope
+
+    **影响分析**：arXiv:2603.26005v1 Announce Type:new Abstract:The growing availability of building operational data motivates the use of reinforcement lea。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2603.26005)
+
+??? info "9. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2603.26076v1 Announce Type:new Abstract:Documentation of airport operations is inherently complex due to extensive technical terminology,rigorous regul。
+
+    **关键点**
+
+    - arXiv:2603.26076v1 Announce
+    - rigorous regulations
+    - proprietary regional informa
+
+    **影响分析**：arXiv:2603.26076v1 Announce Type:new Abstract:Documentation of airport operations is inherently complex due to extensive technical termino。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2603.26076)
+
+??? info "10. arxiv.org 发布 71.8 版本更新"
+    **摘要**：arXiv:2603.26499v1 Announce Type:new Abstract:Existing research has identified three structural performance bottlenecks in AI research agents:1 synchronous。
+
+    **关键点**
+
+    - arXiv:2603.26499v1 Announce
+    - limiting the benefit of sear
+    - a generalization gap where v
+
+    **影响分析**：arXiv:2603.26499v1 Announce Type:new Abstract:Existing research has identified three structural performance bottlenecks in AI research age。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2603.26499)
+
+??? info "11. @hailuo_ai 发布重要更新"
     **摘要**：Create with Hailuo Light Studio Join now for a chance to win big prizes! Submit below and tag us!
 
     **关键点**
@@ -141,158 +177,118 @@
 
     **来源**：[原文链接](https://x.com/Hailuo_AI/status/2038459221302468953)
 
-??? info "9. maxlory/lets-go-rss-workflow-publish 发布重要更新"
-    **摘要**：⭐ 1 stars | Python。
+??? info "12. @minimax_ai 发布重要更新"
+    **摘要**：I’d love to hear how has your experience been using Notion with MiniMax?📝🫡 Ara @arafatkatze So @MiniMax_AI is the only open weight model in @NotionHQ Model se。
 
     **关键点**
 
-    - ⭐ 1 stars | Python
-    - maxlory/lets-go-rss-workflow
+    - I’d love to hear how has you
+    - MiniMax
+    - 📝🫡 Ara @arafatkatze So @Mi
+
+    **影响分析**：I’d love to hear how has your experience been using Notion with MiniMax。
+
+    **来源**：[原文链接](https://x.com/MiniMax_AI/status/2038431297526481224)
+
+??? info "13. openai.com 发布重要更新"
+    **摘要**：AI for Disaster Response in Asia:OpenAI Workshop with Gates Foundation。
+
+    **关键点**
+
+    - AI for Disaster Response in
+    - Gates Foundation
+    - Helping disaster response te
+
+    **影响分析**：Helping disaster response teams turn AI into action across Asia相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://openai.com/index/helping-disaster-response-teams-asia)
+
+??? info "14. @replit 发布重要更新"
+    **摘要**：A closer look at Replit x Alif Hackathon. Video。
+
+    **关键点**
+
+    - A closer look at Replit x Al
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：maxlory/lets-go-rss-workflow-publish相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：A closer look at Replit x Alif Hackathon.相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://github.com/maxlory/lets-go-rss-workflow-publish)
+    **来源**：[原文链接](https://x.com/Replit/status/2038319137328422968)
 
-??? info "10. shuaibird/mcpplex:Terminal UI for exploring MCP l"
-    **摘要**：⭐ 2 stars | Python Terminal UI for exploring MCP logs with pairing,search,and live tail.。
-
-    **关键点**
-
-    - ⭐ 2 stars | Python Terminal
-    - pairing
-    - search
-
-    **影响分析**：shuaibird/mcpplex:Terminal UI for exploring MCP logs with pairing,search,and live tail.相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/shuaibird/mcpplex)
-
-??? info "11. ggabo-bug/learningPython:LEARNING"
-    **摘要**：⭐ 2 stars | Python LEARNING。
+??? info "15. runwayml/sdk-python v4.9.0"
+    **摘要**：Full Changelog:v4.8.0...v4.9.0https://github.com/runwayml/sdk-python/compare/v4.8.0...v4.9.0。
 
     **关键点**
 
-    - ⭐ 2 stars | Python LEARNING
-    - ggabo-bug/learningPython:LE
+    - Full Changelog:v4.8.0...v4
+    - runwayml/sdk-python v4.9.0相关
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：ggabo-bug/learningPython:LEARNING相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：runwayml/sdk-python v4.9.0相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://github.com/ggabo-bug/learningPython)
+    **来源**：[原文链接](https://github.com/runwayml/sdk-python/blob/main/CHANGELOG.md)
 
-??? info "12. Nothing-dot-exe/Google-Chrome-Cache-Cleaners:A co"
-    **摘要**：⭐ 2 stars | Python A collection of lightweight,easy-to-use tools to completely clear your Google Chrome cache. Over time,browser caches can build up,consumin。
-
-    **关键点**
-
-    - ⭐ 2 stars | Python A collect
-    - easy-to-use tools to complet
-    - browser caches can build up
-
-    **影响分析**：⭐ 2 stars | Python A collection of lightweight,easy-to-use tools to completely clear your Google Chrome cache. Over time,browser caches ca。
-
-    **来源**：[原文链接](https://github.com/Nothing-dot-exe/Google-Chrome-Cache-Cleaners)
-
-??? info "13. maxlory/jobmatch:JobMatch V1/P0 job management we"
-    **摘要**：⭐ 1 stars | Python JobMatch V1/P0 job management web app for mainland China interns and new graduates。
+??? info "16. runwayml/sdk-python v4.8.0"
+    **摘要**：Full Changelog:v4.7.1...v4.8.0https://github.com/runwayml/sdk-python/compare/v4.7.1...v4.8.0。
 
     **关键点**
 
-    - ⭐ 1 stars | Python JobMatch
-    - new graduates
-    - maxlory/jobmatch:JobMatch V
-
-    **影响分析**：maxlory/jobmatch:JobMatch V1/P0 job management web app for mainland China interns and new graduat相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/maxlory/jobmatch)
-
-??? info "14. sazed5055/llmtest-perf:Production-quality perform"
-    **摘要**：⭐ 2 stars | Python Production-quality performance validation and regression testing for LLM inference systems。
-
-    **关键点**
-
-    - ⭐ 2 stars | Python Productio
-    - regression testing for LLM i
-    - sazed5055/llmtest-perf:Prod
-
-    **影响分析**：sazed5055/llmtest-perf:Production-quality performance validation and regression testing for LLM inferen相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/sazed5055/llmtest-perf)
-
-??? info "15. trinhtanphat/SLAPMAC 发布重要更新"
-    **摘要**：⭐ 9 stars | Swift。
-
-    **关键点**
-
-    - ⭐ 9 stars | Swift
-    - trinhtanphat/SLAPMAC相关进展已由一手
+    - Full Changelog:v4.7.1...v4
+    - runwayml/sdk-python v4.8.0相关
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：trinhtanphat/SLAPMAC相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：runwayml/sdk-python v4.8.0相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://github.com/trinhtanphat/SLAPMAC)
+    **来源**：[原文链接](https://github.com/runwayml/sdk-python/blob/main/CHANGELOG.md)
 
-??? info "16. yudhaexe/claude-skill-job-resume-interview-prep 发布"
-    **摘要**：⭐ 4 stars |。
+??? info "17. runwayml/sdk-python v4.7.1"
+    **摘要**：Full Changelog:v4.7.0...v4.7.1https://github.com/runwayml/sdk-python/compare/v4.7.0...v4.7.1。
 
     **关键点**
 
-    - ⭐ 4 stars |
-    - yudhaexe/claude-skill-job-re
+    - Full Changelog:v4.7.0...v4
+    - runwayml/sdk-python v4.7.1相关
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：yudhaexe/claude-skill-job-resume-interview-prep相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：runwayml/sdk-python v4.7.1相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://github.com/yudhaexe/claude-skill-job-resume-interview-prep)
+    **来源**：[原文链接](https://github.com/runwayml/sdk-python/blob/main/CHANGELOG.md)
 
-??? info "17. wqyinterest/-SFT-RL:以西游记中唐僧的对话数据对Qwen2.5-0.5B模型进行"
-    **摘要**：⭐ 1 stars | Python 以西游记中唐僧的对话数据对Qwen2.5-0.5B模型进行SFT微调和PPO、DPO强化学习。
+??? info "18. runwayml/sdk-python v4.7.0"
+    **摘要**：Full Changelog:v4.6.3...v4.7.0https://github.com/runwayml/sdk-python/compare/v4.6.3...v4.7.0。
 
     **关键点**
 
-    - ⭐ 1 stars | Python 以西游记中唐僧的对
-    - wqyinterest/-SFT-RL:以西游记中唐僧
+    - Full Changelog:v4.6.3...v4
+    - runwayml/sdk-python v4.7.0相关
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：wqyinterest/-SFT-RL:以西游记中唐僧的对话数据对Qwen2.5-0.5B模型进行SFT微调和PPO、DPO强化学习相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：runwayml/sdk-python v4.7.0相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://github.com/wqyinterest/-SFT-RL)
+    **来源**：[原文链接](https://github.com/runwayml/sdk-python/blob/main/CHANGELOG.md)
 
-??? info "18. lzjever/agentsmith-oss 发布重要更新"
-    **摘要**：⭐ 2 stars | TypeScript。
+??? info "19. runwayml/sdk-node v3.17.0"
+    **摘要**：Full Changelog:v3.16.0...v3.17.0https://github.com/runwayml/sdk-node/compare/v3.16.0...v3.17.0。
 
     **关键点**
 
-    - ⭐ 2 stars | TypeScript
-    - lzjever/agentsmith-oss相关进展已由
+    - Full Changelog:v3.16.0...v
+    - runwayml/sdk-node v3.17.0相关进
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：lzjever/agentsmith-oss相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：runwayml/sdk-node v3.17.0相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://github.com/lzjever/agentsmith-oss)
+    **来源**：[原文链接](https://github.com/runwayml/sdk-node/blob/main/CHANGELOG.md)
 
-??? info "19. even813/midi-track-splitter:MIDI Track Splitter &"
-    **摘要**：⭐ 1 stars | Python MIDI Track Splitter & Piano Extractor。
+??? info "20. runwayml/sdk-node v3.16.0"
+    **摘要**：Full Changelog:v3.15.1...v3.16.0https://github.com/runwayml/sdk-node/compare/v3.15.1...v3.16.0。
 
     **关键点**
 
-    - ⭐ 1 stars | Python MIDI Trac
-    - even813/midi-track-splitter
+    - Full Changelog:v3.15.1...v
+    - runwayml/sdk-node v3.16.0相关进
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：even813/midi-track-splitter:MIDI Track Splitter & Piano Extractor相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：runwayml/sdk-node v3.16.0相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://github.com/even813/midi-track-splitter)
-
-??? info "20. piwwing23/Pixel-Resolution-Premium-:Pixels Premiu"
-    **摘要**：⭐ 3 stars | Pixels Premium Unlocked adalah versi modifikasi mod Full Premium Access,dari aplikasi Pixels yang dirancang ulang untuk memberikan pengalaman des。
-
-    **关键点**
-
-    - ⭐ 3 stars | Pixels Premium U
-    - dari aplikasi Pixels yang di
-    - piwwing23/Pixel-Resolution-P
-
-    **影响分析**：⭐ 3 stars | Pixels Premium Unlocked adalah versi modifikasi mod Full Premium Access,dari aplikasi Pixels yang dirancang ulang untuk membe。
-
-    **来源**：[原文链接](https://github.com/piwwing23/Pixel-Resolution-Premium-)
+    **来源**：[原文链接](https://github.com/runwayml/sdk-node/blob/main/CHANGELOG.md)
