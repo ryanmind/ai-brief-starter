@@ -1,40 +1,145 @@
 # 今日快讯
 
-> 更新时间：2026年03月30日15:11:55
+> 更新时间：2026年03月30日16:57:16
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. sangwonme/ClaudeCode-Alert-Hook:Claude needs you.：⭐ 4 stars | Python Claude needs you. You n。
-2. Prijitha7/jalnetra-sih 发布重要更新：⭐ 5 stars | Dart。
-3. PhamHa96/ai-office 发布重要更新：⭐ 5 stars | TypeScript。
-4. mithra3003/ECommerce-Sales-Analysis:This project：⭐ 14 stars | Python This project explores。
-5. JusperLee/speech-paper-daily-skill 发布重要更新：⭐ 4 stars |。
+1. malaodi/MFSW-DETR 发布重要更新：⭐ 3 stars | Python。
+2. YukiKazahana/cadence:Cadence is a lightweight,st：⭐ 8 stars | Python Cadence is a lightweigh。
+3. Naveennaveentamil/ai-traffic-signal-optimization 发：⭐ 24 stars | Python。
+4. WillowHe/EvoOpt_oppangu_optimization_model:A set：⭐ 27 stars | Python A set of solutions is。
+5. Louis-zxLiu/ScholarPilot:ScholarPilot 是一个基于大语言模型：⭐ 3 stars | Python ScholarPilot 是一个基于大语言模型。
 
 ## 分类速览
 
-=== "🤖 模型进展（4）"
-    - **1. sangwonme/ClaudeCode-Alert-Hook:Claude needs you.**：sangwonme/ClaudeCode-Alert-Hook:Claude needs yo…
-    - **9. vladartym/always-fit-resume:A resume builder that**：⭐ 15 stars | JavaScript A resume builder that a…
-    - **15. chenli1373/build_small_LlaMA_model:从零搭建LlaMA模型，包括**：chenli1373/build_small_LlaMA_model:从零搭建LlaMA模型…
-    - **19. zawsstt/suno-prompt-audio-analyzer-skill:Audio an**：zawsstt/suno-prompt-audio-analyzer-skill:Audio…
+=== "🤖 模型进展（5）"
+    - **4. WillowHe/EvoOpt_oppangu_optimization_model:A set**：⭐ 27 stars | Python A set of solutions is provi…
+    - **7. apollosenvy/kernel-anvil:Profile-guided GPU kerne**：apollosenvy/kernel-anvil:Profile-guided GPU ker…
+    - **9. sangwonme/ClaudeCode-Alert-Hook:Claude needs you.**：sangwonme/ClaudeCode-Alert-Hook:Claude needs yo…
+    - **15. titanwings/colleague-skill:你们搞大模型的就是码奸，你们已经害死前端兄弟**：titanwings/colleague-skill:你们搞大模型的就是码奸，你们已经害死前端…
+    - **16. vladartym/always-fit-resume:A resume builder that**：⭐ 27 stars | JavaScript A resume builder that a…
 
-=== "🧪 论文研究（0）"
-    - 暂无条目
+=== "🧪 论文研究（1）"
+    - **5. Louis-zxLiu/ScholarPilot:ScholarPilot 是一个基于大语言模型**：⭐ 3 stars | Python ScholarPilot 是一个基于大语言模型 LLM…
 
-=== "🏢 产品与行业（16）"
-    - **2. Prijitha7/jalnetra-sih 发布重要更新**：Prijitha7/jalnetra-sih相关进展已由一手来源披露，预计将影响后续产品与行业…
-    - **3. PhamHa96/ai-office 发布重要更新**：PhamHa96/ai-office相关进展已由一手来源披露，预计将影响后续产品与行业节奏
-    - **4. mithra3003/ECommerce-Sales-Analysis:This project**：⭐ 14 stars | Python This project explores e-com…
-    - **5. JusperLee/speech-paper-daily-skill 发布重要更新**：JusperLee/speech-paper-daily-skill相关进展已由一手来源披露…
-    - **6. itsPremkumar/Automated-Video-Generator 发布重要更新**：itsPremkumar/Automated-Video-Generator相关进展已由一手来…
-    - **7. AdityaHebballe/Game-Icon-Fixer 发布重要更新**：AdityaHebballe/Game-Icon-Fixer相关进展已由一手来源披露，预计将影…
-    - **8. SakthiVarunishaa07/Expense-Tracker:Simple Python**：SakthiVarunishaa07/Expense-Tracker:Simple Pytho…
-    - **10. kepengxu/research-skills 发布重要更新**：kepengxu/research-skills相关进展已由一手来源披露，预计将影响后续产品与…
+=== "🏢 产品与行业（14）"
+    - **1. malaodi/MFSW-DETR 发布重要更新**：malaodi/MFSW-DETR相关进展已由一手来源披露，预计将影响后续产品与行业节奏
+    - **2. YukiKazahana/cadence:Cadence is a lightweight,st**：YukiKazahana/cadence:Cadence is a lightweight,s…
+    - **3. Naveennaveentamil/ai-traffic-signal-optimization 发**：Naveennaveentamil/ai-traffic-signal-optimizatio…
+    - **6. Codex-Pool/Codex-Pool:Self-hosted Codex/OpenAI co**：Codex-Pool/Codex-Pool:Self-hosted Codex/OpenAI…
+    - **8. linesoft2/tesla-fsd-can-mod-fork 发布重要更新**：linesoft2/tesla-fsd-can-mod-fork相关进展已由一手来源披露，预计…
+    - **10. Prijitha7/jalnetra-sih 发布重要更新**：Prijitha7/jalnetra-sih相关进展已由一手来源披露，预计将影响后续产品与行业…
+    - **11. mithra3003/ECommerce-Sales-Analysis:This project**：⭐ 14 stars | Python This project explores e-com…
+    - **12. itsPremkumar/Automated-Video-Generator 发布重要更新**：itsPremkumar/Automated-Video-Generator相关进展已由一手来…
 
 ## 全部快讯
 
-??? info "1. sangwonme/ClaudeCode-Alert-Hook:Claude needs you."
+??? info "1. malaodi/MFSW-DETR 发布重要更新"
+    **摘要**：⭐ 3 stars | Python。
+
+    **关键点**
+
+    - ⭐ 3 stars | Python
+    - malaodi/MFSW-DETR相关进展已由一手来源披
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：malaodi/MFSW-DETR相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/malaodi/MFSW-DETR)
+
+??? info "2. YukiKazahana/cadence:Cadence is a lightweight,st"
+    **摘要**：⭐ 8 stars | Python Cadence is a lightweight,stable,universal agent harness.。
+
+    **关键点**
+
+    - ⭐ 8 stars | Python Cadence i
+    - stable
+    - universal agent harness.
+
+    **影响分析**：YukiKazahana/cadence:Cadence is a lightweight,stable,universal agent harness.相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/YukiKazahana/cadence)
+
+??? info "3. Naveennaveentamil/ai-traffic-signal-optimization 发"
+    **摘要**：⭐ 24 stars | Python。
+
+    **关键点**
+
+    - ⭐ 24 stars | Python
+    - Naveennaveentamil/ai-traffic
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：Naveennaveentamil/ai-traffic-signal-optimization相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/Naveennaveentamil/ai-traffic-signal-optimization)
+
+??? info "4. WillowHe/EvoOpt_oppangu_optimization_model:A set"
+    **摘要**：⭐ 27 stars | Python A set of solutions is provided,leveraging Openpangu-7B as the base model for fine-tuning and application of large language models LLMs。
+
+    **关键点**
+
+    - ⭐ 27 stars | Python A set of
+    - leveraging Openpangu-7B as
+    - application of large languag
+
+    **影响分析**：⭐ 27 stars | Python A set of solutions is provided,leveraging Openpangu-7B as the base model for fine-tuning and application of large l。
+
+    **来源**：[原文链接](https://github.com/WillowHe/EvoOpt_oppangu_optimization_model)
+
+??? info "5. Louis-zxLiu/ScholarPilot:ScholarPilot 是一个基于大语言模型"
+    **摘要**：⭐ 3 stars | Python ScholarPilot 是一个基于大语言模型 LLM 和检索增强生成 RAG 技术的本地学术论文智能管理工具。它能够自动遍历指定目录下的所有 PDF 文件，智能甄别学术论文，提取核心结构化信息，自动生成结构清晰的 Markdown 汇总文件，并支持与您的个人论文库进行对话。
+
+    **关键点**
+
+    - ⭐ 3 stars | Python ScholarPi
+    - 它能够自动遍历指定目录下的所有 PDF 文件
+    - 智能甄别学术论文
+
+    **影响分析**：⭐ 3 stars | Python ScholarPilot 是一个基于大语言模型 LLM 和检索增强生成 RAG 技术的本地学术论文智能管理工具。
+
+    **来源**：[原文链接](https://github.com/Louis-zxLiu/ScholarPilot)
+
+??? info "6. Codex-Pool/Codex-Pool:Self-hosted Codex/OpenAI co"
+    **摘要**：⭐ 8 stars | Rust Self-hosted Codex/OpenAI compatible gateway and admin console with a stable personal edition.。
+
+    **关键点**
+
+    - ⭐ 8 stars | Rust Self-hosted
+    - admin console
+    - a stable personal edition.
+
+    **影响分析**：Codex-Pool/Codex-Pool:Self-hosted Codex/OpenAI compatible gateway and admin console with a stable pers相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/Codex-Pool/Codex-Pool)
+
+??? info "7. apollosenvy/kernel-anvil:Profile-guided GPU kerne"
+    **摘要**：⭐ 9 stars | Python Profile-guided GPU kernel optimizer for AMD/RDNA3. Auto-tunes llama.cpp MMVQ kernels per model shape. 2x decode speedup on 7900 XTX.。
+
+    **关键点**
+
+    - ⭐ 9 stars | Python Profile-g
+    - apollosenvy/kernel-anvil:Pr
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：apollosenvy/kernel-anvil:Profile-guided GPU kernel optimizer for AMD/RDNA3. Auto-tunes llama.cpp MMVQ ker相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/apollosenvy/kernel-anvil)
+
+??? info "8. linesoft2/tesla-fsd-can-mod-fork 发布重要更新"
+    **摘要**：⭐ 9 stars | C++。
+
+    **关键点**
+
+    - ⭐ 9 stars | C++
+    - linesoft2/tesla-fsd-can-mod
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：linesoft2/tesla-fsd-can-mod-fork相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/linesoft2/tesla-fsd-can-mod-fork)
+
+??? info "9. sangwonme/ClaudeCode-Alert-Hook:Claude needs you."
     **摘要**：⭐ 4 stars | Python Claude needs you. You need alert.。
 
     **关键点**
@@ -47,12 +152,12 @@
 
     **来源**：[原文链接](https://github.com/sangwonme/ClaudeCode-Alert-Hook)
 
-??? info "2. Prijitha7/jalnetra-sih 发布重要更新"
-    **摘要**：⭐ 5 stars | Dart。
+??? info "10. Prijitha7/jalnetra-sih 发布重要更新"
+    **摘要**：⭐ 10 stars | Dart。
 
     **关键点**
 
-    - ⭐ 5 stars | Dart
+    - ⭐ 10 stars | Dart
     - Prijitha7/jalnetra-sih相关进展已由
     - 预计将影响后续产品与行业节奏
 
@@ -60,20 +165,7 @@
 
     **来源**：[原文链接](https://github.com/Prijitha7/jalnetra-sih)
 
-??? info "3. PhamHa96/ai-office 发布重要更新"
-    **摘要**：⭐ 5 stars | TypeScript。
-
-    **关键点**
-
-    - ⭐ 5 stars | TypeScript
-    - PhamHa96/ai-office相关进展已由一手来源
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：PhamHa96/ai-office相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/PhamHa96/ai-office)
-
-??? info "4. mithra3003/ECommerce-Sales-Analysis:This project"
+??? info "11. mithra3003/ECommerce-Sales-Analysis:This project"
     **摘要**：⭐ 14 stars | Python This project explores e-commerce sales data using Python. It focuses on identifying top products,analyzing monthly sales patterns,and unde。
 
     **关键点**
@@ -86,20 +178,7 @@
 
     **来源**：[原文链接](https://github.com/mithra3003/ECommerce-Sales-Analysis)
 
-??? info "5. JusperLee/speech-paper-daily-skill 发布重要更新"
-    **摘要**：⭐ 4 stars |。
-
-    **关键点**
-
-    - ⭐ 4 stars |
-    - JusperLee/speech-paper-daily
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：JusperLee/speech-paper-daily-skill相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/JusperLee/speech-paper-daily-skill)
-
-??? info "6. itsPremkumar/Automated-Video-Generator 发布重要更新"
+??? info "12. itsPremkumar/Automated-Video-Generator 发布重要更新"
     **摘要**：⭐ 5 stars | TypeScript。
 
     **关键点**
@@ -112,12 +191,12 @@
 
     **来源**：[原文链接](https://github.com/itsPremkumar/Automated-Video-Generator)
 
-??? info "7. AdityaHebballe/Game-Icon-Fixer 发布重要更新"
-    **摘要**：⭐ 2 stars | Python。
+??? info "13. AdityaHebballe/Game-Icon-Fixer 发布重要更新"
+    **摘要**：⭐ 3 stars | Python。
 
     **关键点**
 
-    - ⭐ 2 stars | Python
+    - ⭐ 3 stars | Python
     - AdityaHebballe/Game-Icon-Fix
     - 预计将影响后续产品与行业节奏
 
@@ -125,12 +204,12 @@
 
     **来源**：[原文链接](https://github.com/AdityaHebballe/Game-Icon-Fixer)
 
-??? info "8. SakthiVarunishaa07/Expense-Tracker:Simple Python"
-    **摘要**：⭐ 18 stars | Python Simple Python Expenses Tracker。
+??? info "14. SakthiVarunishaa07/Expense-Tracker:Simple Python"
+    **摘要**：⭐ 20 stars | Python Simple Python Expenses Tracker。
 
     **关键点**
 
-    - ⭐ 18 stars | Python Simple P
+    - ⭐ 20 stars | Python Simple P
     - SakthiVarunishaa07/Expense-T
     - 预计将影响后续产品与行业节奏
 
@@ -138,25 +217,38 @@
 
     **来源**：[原文链接](https://github.com/SakthiVarunishaa07/Expense-Tracker)
 
-??? info "9. vladartym/always-fit-resume:A resume builder that"
-    **摘要**：⭐ 15 stars | JavaScript A resume builder that auto-scales font size and line spacing to always fit on one page. Powered by pretext for instant,DOM-free text me。
+??? info "15. titanwings/colleague-skill:你们搞大模型的就是码奸，你们已经害死前端兄弟"
+    **摘要**：⭐ 10 stars | Python 你们搞大模型的就是码奸，你们已经害死前端兄弟了，还要害死后端兄弟，测试兄弟，运维兄弟，害死网安兄弟，害死ic兄弟，最后害死自己害死全人类。
 
     **关键点**
 
-    - ⭐ 15 stars | JavaScript A re
+    - ⭐ 10 stars | Python 你们搞大模型的就
+    - 你们已经害死前端兄弟了
+    - 还要害死后端兄弟
+
+    **影响分析**：titanwings/colleague-skill:你们搞大模型的就是码奸，你们已经害死前端兄弟了，还要害死后端兄弟，测试兄弟，运维兄弟，害死网安兄弟，害死ic兄弟，最后害死自己害死全人类相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/titanwings/colleague-skill)
+
+??? info "16. vladartym/always-fit-resume:A resume builder that"
+    **摘要**：⭐ 27 stars | JavaScript A resume builder that auto-scales font size and line spacing to always fit on one page. Powered by pretext for instant,DOM-free text me。
+
+    **关键点**
+
+    - ⭐ 27 stars | JavaScript A re
     - line spacing to always fit o
     - DOM-free text measurement.
 
-    **影响分析**：⭐ 15 stars | JavaScript A resume builder that auto-scales font size and line spacing to always fit on one page. Powered by pretext for insta。
+    **影响分析**：⭐ 27 stars | JavaScript A resume builder that auto-scales font size and line spacing to always fit on one page. Powered by pretext for insta。
 
     **来源**：[原文链接](https://github.com/vladartym/always-fit-resume)
 
-??? info "10. kepengxu/research-skills 发布重要更新"
-    **摘要**：⭐ 2 stars | Python。
+??? info "17. kepengxu/research-skills 发布重要更新"
+    **摘要**：⭐ 3 stars | Python。
 
     **关键点**
 
-    - ⭐ 2 stars | Python
+    - ⭐ 3 stars | Python
     - kepengxu/research-skills相关进展
     - 预计将影响后续产品与行业节奏
 
@@ -164,12 +256,25 @@
 
     **来源**：[原文链接](https://github.com/kepengxu/research-skills)
 
-??? info "11. privatenumber/md-pen:Utilities for formatting Mar"
-    **摘要**：⭐ 10 stars | TypeScript Utilities for formatting Markdown。
+??? info "18. AquaOne/ClawGuard:针对 OpenClaw 插件生态的自动化安全审计与防御系统"
+    **摘要**：⭐ 3 stars | Python 针对 OpenClaw 插件生态的自动化安全审计与防御系统。
 
     **关键点**
 
-    - ⭐ 10 stars | TypeScript Util
+    - ⭐ 3 stars | Python 针对 OpenCl
+    - AquaOne/ClawGuard:针对 OpenCl
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：AquaOne/ClawGuard:针对 OpenClaw 插件生态的自动化安全审计与防御系统相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/AquaOne/ClawGuard)
+
+??? info "19. privatenumber/md-pen:Utilities for formatting Mar"
+    **摘要**：⭐ 14 stars | TypeScript Utilities for formatting Markdown。
+
+    **关键点**
+
+    - ⭐ 14 stars | TypeScript Util
     - privatenumber/md-pen:Utilit
     - 预计将影响后续产品与行业节奏
 
@@ -177,119 +282,15 @@
 
     **来源**：[原文链接](https://github.com/privatenumber/md-pen)
 
-??? info "12. @hailuo_ai 发布重要更新"
-    **摘要**：🇭🇰Hailuo AI × CUHK-AI Masterclass How AI is Shaping the Creative Industries Join us at The Chinese University of Hong Kong for an intensive masterclass on how。
+??? info "20. Gokuld102/ai-traffic-signal-optimization:AI-based"
+    **摘要**：⭐ 24 stars | Python AI-based smart traffic signal optimization using YOLO,OpenCV,and Machine Learning。
 
     **关键点**
 
-    - 🇭🇰Hailuo AI × CUHK-AI Mast
-    - taking you from simple promp
-    - 🕒Wednesday
+    - ⭐ 24 stars | Python AI-based
+    - OpenCV
+    - Machine Learning
 
-    **影响分析**：🇭🇰Hailuo AI × CUHK-AI Masterclass How AI is Shaping the Creative Industries Join us at The Chinese University of Hong Kong for an intensiv。
+    **影响分析**：Gokuld102/ai-traffic-signal-optimization:AI-based smart traffic signal optimization using YOLO,OpenCV,and Machine Learn相关进展已由一手来源披露，预计将影响。
 
-    **来源**：[原文链接](https://x.com/Hailuo_AI/status/2038480950099890457)
-
-??? info "13. yihong0618/lfn:life note cli"
-    **摘要**：⭐ 8 stars | Python life note cli。
-
-    **关键点**
-
-    - ⭐ 8 stars | Python life note
-    - yihong0618/lfn:life note cl
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：yihong0618/lfn:life note cli相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/yihong0618/lfn)
-
-??? info "14. @minimax_ai 发布 2.7 版本更新"
-    **摘要**：95% cheaper🫡 Same output,different game. Sherry Jiang @SherryYanJiang pretty impressed that @MiniMax_AI 2.7 can one-shot a linear clone in 10 mins at 95% che。
-
-    **关键点**
-
-    - % cheaper🫡 Same output
-    - different game. Sherry Jiang
-    - youre probably overpaying f
-
-    **影响分析**：95% cheaper🫡 Same output,different game. Sherry Jiang @SherryYanJiang pretty impressed that @MiniMax_AI 2.7 can one-shot a linear clone i。
-
-    **来源**：[原文链接](https://x.com/MiniMax_AI/status/2038479984910901751)
-
-??? info "15. chenli1373/build_small_LlaMA_model:从零搭建LlaMA模型，包括"
-    **摘要**：⭐ 3 stars | Python 从零搭建LlaMA模型，包括KV cache，GQA，RoPE等优化机制。
-
-    **关键点**
-
-    - ⭐ 3 stars | Python 从零搭建LlaMA
-    - 包括KV cache
-    - RoPE等优化机制
-
-    **影响分析**：chenli1373/build_small_LlaMA_model:从零搭建LlaMA模型，包括KV cache，GQA，RoPE等优化机制相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/chenli1373/build_small_LlaMA_model)
-
-??? info "16. toby-bridges/api-relay-audit:Security audit tool"
-    **摘要**：⭐ 16 stars | Python Security audit tool for third-party AI API relay/proxy services. Detects hidden prompt injection,prompt leakage,instruction override,and。
-
-    **关键点**
-
-    - ⭐ 16 stars | Python Security
-    - prompt leakage
-    - instruction override
-
-    **影响分析**：⭐ 16 stars | Python Security audit tool for third-party AI API relay/proxy services. Detects hidden prompt injection,prompt leakage,instru。
-
-    **来源**：[原文链接](https://github.com/toby-bridges/api-relay-audit)
-
-??? info "17. iam-joel-j/pentastic-ueba:Pentastic is a UEBA-bas"
-    **摘要**：⭐ 2 stars | Python Pentastic is a UEBA-based insider threat detection system that uses behavioral analysis,risk scoring,and deception techniques to detect and。
-
-    **关键点**
-
-    - ⭐ 2 stars | Python Pentastic
-    - risk scoring
-    - deception techniques to dete
-
-    **影响分析**：⭐ 2 stars | Python Pentastic is a UEBA-based insider threat detection system that uses behavioral analysis,risk scoring,and deception tech。
-
-    **来源**：[原文链接](https://github.com/iam-joel-j/pentastic-ueba)
-
-??? info "18. Gingiris/growth-tools:🚀 精选 100+ 出海增长工具 | Curated"
-    **摘要**：⭐ 6 stars | HTML 🚀 精选 100+ 出海增长工具 | Curated global growth tools for startups. KOL管理、SEO分析、社媒触达、Reddit增长、UGC管理一站式工具库。
-
-    **关键点**
-
-    - ⭐ 6 stars | HTML 🚀 精选 100+ 出
-    - Gingiris/growth-tools:🚀 精选
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：Gingiris/growth-tools:🚀 精选 100+ 出海增长工具 | Curated global growth tools for startups. KOL管理、SEO分析、社媒触达、Re相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/Gingiris/growth-tools)
-
-??? info "19. zawsstt/suno-prompt-audio-analyzer-skill:Audio an"
-    **摘要**：⭐ 2 stars | Python Audio analysis + lyrics transcription + LLM music producer synthesis + original song creation for Suno AI。
-
-    **关键点**
-
-    - ⭐ 2 stars | Python Audio ana
-    - zawsstt/suno-prompt-audio-an
-    - 预计将影响后
-
-    **影响分析**：zawsstt/suno-prompt-audio-analyzer-skill:Audio analysis + lyrics transcription + LLM music producer synthesis + original相关进展已由一手来源披露，预计将影响后。
-
-    **来源**：[原文链接](https://github.com/zawsstt/suno-prompt-audio-analyzer-skill)
-
-??? info "20. DK625/OneHammer 发布重要更新"
-    **摘要**：⭐ 4 stars | HTML。
-
-    **关键点**
-
-    - ⭐ 4 stars | HTML
-    - DK625/OneHammer相关进展已由一手来源披露
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：DK625/OneHammer相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/DK625/OneHammer)
+    **来源**：[原文链接](https://github.com/Gokuld102/ai-traffic-signal-optimization)
