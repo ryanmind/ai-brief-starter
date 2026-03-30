@@ -1,43 +1,108 @@
 # 今日快讯
 
-> 更新时间：2026年03月30日20:15:39
+> 更新时间：2026年03月30日22:52:31
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. leiyaocui/MHR_Hand:MHR-Hand is an edited version：⭐ 8 stars | Python MHR-Hand is an edited v。
-2. Rajarjking/ai-traffic-signal-optimization 发布重要更新：⭐ 4 stars | Python。
-3. hqhq1025/skill-optimizer:Diagnose and optimize yo：⭐ 14 stars | Diagnose and optimize your Ag。
-4. @elonmusk 发布重要更新：Grok gives great advice X Freeze @XFreeze。
-5. salt-ffish/Obstacle-Avoidance-Robot-:Based on Sta：⭐ 5 stars | Python Based on State Machine。
+1. @runwayml 发布重要更新：Learn more:runwayml.com/bigadcontest。
+2. @runwayml 发布重要更新：Sometimes all you need is a little taste o。
+3. yetone/metaclaw-dist:Skill-first LLM agent platfo：⭐ 5 stars | Python Skill-first LLM agent p。
+4. AzizX-coder/Alp-Claw-Autonomous-Agent:✨ AlpClaw：⭐ 4 stars | Python ✨ AlpClaw:A production-。
+5. programmersd21/rubui:🧊 3D Rubik’s Cube in your te：⭐ 7 stars | Python 🧊 3D Rubik’s Cube in yo。
 
 ## 分类速览
 
 === "🤖 模型进展（7）"
-    - **3. hqhq1025/skill-optimizer:Diagnose and optimize yo**：⭐ 14 stars | Diagnose and optimize your Agent S…
-    - **4. @elonmusk 发布重要更新**：Grok gives great advice X Freeze @XFreeze Start…
-    - **6. fuergaosi233/cc-usage-elink:Claude Code usage das**：fuergaosi233/cc-usage-elink:Claude Code usage d…
-    - **10. @elonmusk 发布重要更新**：Try Grok Imagine Déborah @dvorahfr 50 seconds e…
-    - **15. WillowHe/EvoOpt_oppangu_optimization_model:A set**：⭐ 44 stars | Python A set of solutions is provi…
-    - **18. apollosenvy/kernel-anvil:Profile-guided GPU kerne**：apollosenvy/kernel-anvil:Profile-guided GPU ker…
-    - **19. lhfer/claude-howto-zh-cn:Claude Code 中文全面上手指南。基于**：⭐ 4 stars | Python Claude Code 中文全面上手指南
+    - **3. yetone/metaclaw-dist:Skill-first LLM agent platfo**：yetone/metaclaw-dist:Skill-first LLM agent plat…
+    - **4. AzizX-coder/Alp-Claw-Autonomous-Agent:✨ AlpClaw**：⭐ 4 stars | Python ✨ AlpClaw:A production-grade…
+    - **8. hqhq1025/skill-optimizer:Diagnose and optimize yo**：⭐ 20 stars | Diagnose and optimize your Agent S…
+    - **9. @elonmusk 发布重要更新**：Grok gives great advice X Freeze @XFreeze Start…
+    - **11. fuergaosi233/cc-usage-elink:Claude Code usage das**：fuergaosi233/cc-usage-elink:Claude Code usage d…
+    - **16. @elonmusk 发布重要更新**：Try Grok Imagine Déborah @dvorahfr 50 seconds e…
+    - **19. WillowHe/EvoOpt_oppangu_optimization_model:A set**：⭐ 47 stars | Python A set of solutions is provi…
 
-=== "🧪 论文研究（1）"
-    - **16. Louis-zxLiu/ScholarPilot:ScholarPilot 是一个基于大语言模型**：⭐ 3 stars | Python ScholarPilot 是一个基于大语言模型 LLM…
+=== "🧪 论文研究（0）"
+    - 暂无条目
 
-=== "🏢 产品与行业（12）"
-    - **1. leiyaocui/MHR_Hand:MHR-Hand is an edited version**：⭐ 8 stars | Python MHR-Hand is an edited versio…
-    - **2. Rajarjking/ai-traffic-signal-optimization 发布重要更新**：Rajarjking/ai-traffic-signal-optimization相关进展已由…
-    - **5. salt-ffish/Obstacle-Avoidance-Robot-:Based on Sta**：⭐ 5 stars | Python Based on State Machine and A…
-    - **7. zz-air/AI-Conversational-Application-Service-Platf**：zz-air/AI-Conversational-Application-Service-Pl…
-    - **8. @elonmusk 发布重要更新**：Here you go相关进展已由一手来源披露，预计将影响后续产品与行业节奏
-    - **9. @elonmusk 发布重要更新**：Video相关进展已由一手来源披露，预计将影响后续产品与行业节奏
-    - **11. YukiKazahana/cadence:Cadence is a lightweight,st**：YukiKazahana/cadence:Cadence is a lightweight,s…
-    - **12. aduskelebe/adus 发布重要更新**：aduskelebe/adus相关进展已由一手来源披露，预计将影响后续产品与行业节奏
+=== "🏢 产品与行业（13）"
+    - **1. @runwayml 发布重要更新**：R to @runwayml:Learn more:https://runwayml.com/…
+    - **2. @runwayml 发布重要更新**：Sometimes all you need is a little taste of par…
+    - **5. programmersd21/rubui:🧊 3D Rubik’s Cube in your te**：programmersd21/rubui:🧊 3D Rubik’s Cube in your…
+    - **6. leiyaocui/MHR_Hand:MHR-Hand is an edited version**：⭐ 8 stars | Python MHR-Hand is an edited versio…
+    - **7. Rajarjking/ai-traffic-signal-optimization 发布重要更新**：Rajarjking/ai-traffic-signal-optimization相关进展已由…
+    - **10. salt-ffish/Obstacle-Avoidance-Robot-:Based on Sta**：⭐ 5 stars | Python Based on State Machine and A…
+    - **12. iam567/FLJopen:Open source Twitter/X account veri**：iam567/FLJopen:Open source Twitter/X account ve…
+    - **13. zz-air/AI-Conversational-Application-Service-Platf**：zz-air/AI-Conversational-Application-Service-Pl…
 
 ## 全部快讯
 
-??? info "1. leiyaocui/MHR_Hand:MHR-Hand is an edited version"
+??? info "1. @runwayml 发布重要更新"
+    **摘要**：Learn more:runwayml.com/bigadcontest。
+
+    **关键点**
+
+    - Learn more:runwayml.com/big
+    - R to @runwayml:Learn more
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：R to @runwayml:Learn more:https://runwayml.com/bigadcontest相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/runwayml/status/2038618066469200031)
+
+??? info "2. @runwayml 发布重要更新"
+    **摘要**：Sometimes all you need is a little taste of paradise to get away from it all. The Coconut Crunch brief. Enter your #RunwayBigAdContest spot today,submissions c。
+
+    **关键点**
+
+    - Sometimes all you need is a
+    - submissions close April 1. U
+    - submissions c
+
+    **影响分析**：Sometimes all you need is a little taste of paradise to get away from it all. The Coconut Crunch brief. Enter your #RunwayBigAdContest spot。
+
+    **来源**：[原文链接](https://x.com/runwayml/status/2038618064745345243)
+
+??? info "3. yetone/metaclaw-dist:Skill-first LLM agent platfo"
+    **摘要**：⭐ 5 stars | Python Skill-first LLM agent platform with multi-channel bridging。
+
+    **关键点**
+
+    - ⭐ 5 stars | Python Skill-fir
+    - multi-channel bridging
+    - yetone/metaclaw-dist:Skill
+
+    **影响分析**：yetone/metaclaw-dist:Skill-first LLM agent platform with multi-channel bridging相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/yetone/metaclaw-dist)
+
+??? info "4. AzizX-coder/Alp-Claw-Autonomous-Agent:✨ AlpClaw"
+    **摘要**：⭐ 4 stars | Python ✨ AlpClaw:A production-grade,autonomous AI agent platform with true agentic looping,multi-provider LLM support Ollama by default,24+ bu。
+
+    **关键点**
+
+    - ⭐ 4 stars | Python ✨ AlpClaw
+    - autonomous AI agent platform
+    - true agentic looping
+
+    **影响分析**：⭐ 4 stars | Python ✨ AlpClaw:A production-grade,autonomous AI agent platform with true agentic looping,multi-provider LLM support Ollama。
+
+    **来源**：[原文链接](https://github.com/AzizX-coder/Alp-Claw-Autonomous-Agent)
+
+??? info "5. programmersd21/rubui:🧊 3D Rubik’s Cube in your te"
+    **摘要**：⭐ 7 stars | Python 🧊 3D Rubik’s Cube in your terminal-manual & auto modes,smooth animations,ANSI colors,and playable magic!
+
+    **关键点**
+
+    - ⭐ 7 stars | Python 🧊 3D Rubi
+    - smooth animations
+    - ANSI colors
+
+    **影响分析**：programmersd21/rubui:🧊 3D Rubik’s Cube in your terminal-manual & auto modes,smooth animations,ANS相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/programmersd21/rubui)
+
+??? info "6. leiyaocui/MHR_Hand:MHR-Hand is an edited version"
     **摘要**：⭐ 8 stars | Python MHR-Hand is an edited version of the original MHR Momentum Human Rig model,extracting only the hand-related components to simplify the mod。
 
     **关键点**
@@ -50,12 +115,12 @@
 
     **来源**：[原文链接](https://github.com/leiyaocui/MHR_Hand)
 
-??? info "2. Rajarjking/ai-traffic-signal-optimization 发布重要更新"
-    **摘要**：⭐ 4 stars | Python。
+??? info "7. Rajarjking/ai-traffic-signal-optimization 发布重要更新"
+    **摘要**：⭐ 7 stars | Python。
 
     **关键点**
 
-    - ⭐ 4 stars | Python
+    - ⭐ 7 stars | Python
     - Rajarjking/ai-traffic-signal
     - 预计将影响后续产品与行业节奏
 
@@ -63,20 +128,20 @@
 
     **来源**：[原文链接](https://github.com/Rajarjking/ai-traffic-signal-optimization)
 
-??? info "3. hqhq1025/skill-optimizer:Diagnose and optimize yo"
-    **摘要**：⭐ 14 stars | Diagnose and optimize your Agent Skills SKILL.md with real session data + research-backed static analysis. Works with Claude Code,Codex,and any。
+??? info "8. hqhq1025/skill-optimizer:Diagnose and optimize yo"
+    **摘要**：⭐ 20 stars | Diagnose and optimize your Agent Skills SKILL.md with real session data + research-backed static analysis. Works with Claude Code,Codex,and any。
 
     **关键点**
 
-    - ⭐ 14 stars | Diagnose
+    - ⭐ 20 stars | Diagnose
     - optimize your Agent Skills
     - real session data + research
 
-    **影响分析**：⭐ 14 stars | Diagnose and optimize your Agent Skills SKILL.md with real session data + research-backed static analysis. Works with Claude。
+    **影响分析**：⭐ 20 stars | Diagnose and optimize your Agent Skills SKILL.md with real session data + research-backed static analysis. Works with Claude。
 
     **来源**：[原文链接](https://github.com/hqhq1025/skill-optimizer)
 
-??? info "4. @elonmusk 发布重要更新"
+??? info "9. @elonmusk 发布重要更新"
     **摘要**：Grok gives great advice X Freeze @XFreeze Start using Grok for literally everything You’ll be surprised how insanely helpful Grok is Try it once and you’ll ne。
 
     **关键点**
@@ -89,7 +154,7 @@
 
     **来源**：[原文链接](https://x.com/elonmusk/status/2038543165049991618)
 
-??? info "5. salt-ffish/Obstacle-Avoidance-Robot-:Based on Sta"
+??? info "10. salt-ffish/Obstacle-Avoidance-Robot-:Based on Sta"
     **摘要**：⭐ 5 stars | Python Based on State Machine and Artificial Potential Field Algorithm and PR2 robot,using ROS2 to simulate in the Gazebo11 environment,this is an。
 
     **关键点**
@@ -102,12 +167,12 @@
 
     **来源**：[原文链接](https://github.com/salt-ffish/Obstacle-Avoidance-Robot-)
 
-??? info "6. fuergaosi233/cc-usage-elink:Claude Code usage das"
-    **摘要**：⭐ 22 stars | Python Claude Code usage dashboard on a BLE tri-color e-ink display 蓝签 EDP-42000DDF。
+??? info "11. fuergaosi233/cc-usage-elink:Claude Code usage das"
+    **摘要**：⭐ 26 stars | Python Claude Code usage dashboard on a BLE tri-color e-ink display 蓝签 EDP-42000DDF。
 
     **关键点**
 
-    - ⭐ 22 stars | Python Claude C
+    - ⭐ 26 stars | Python Claude C
     - fuergaosi233/cc-usage-elink
     - 预计将影响后续产品与行业节奏
 
@@ -115,12 +180,25 @@
 
     **来源**：[原文链接](https://github.com/fuergaosi233/cc-usage-elink)
 
-??? info "7. zz-air/AI-Conversational-Application-Service-Platf"
-    **摘要**：⭐ 13 stars | Go Supports AI dialogue and allows secondary development。
+??? info "12. iam567/FLJopen:Open source Twitter/X account veri"
+    **摘要**：⭐ 18 stars | TypeScript Open source Twitter/X account verification and community expose platform。
 
     **关键点**
 
-    - ⭐ 13 stars | Go Supports AI
+    - ⭐ 18 stars | TypeScript Open
+    - community expose platform
+    - iam567/FLJopen:Open source
+
+    **影响分析**：iam567/FLJopen:Open source Twitter/X account verification and community expose platform相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/iam567/FLJopen)
+
+??? info "13. zz-air/AI-Conversational-Application-Service-Platf"
+    **摘要**：⭐ 15 stars | Go Supports AI dialogue and allows secondary development。
+
+    **关键点**
+
+    - ⭐ 15 stars | Go Supports AI
     - allows secondary development
     - zz-air/AI-Conversational-App
 
@@ -128,7 +206,7 @@
 
     **来源**：[原文链接](https://github.com/zz-air/AI-Conversational-Application-Service-Platform)
 
-??? info "8. @elonmusk 发布重要更新"
+??? info "14. @elonmusk 发布重要更新"
     **摘要**：Here you go Elon Musk @elonmusk Video-https://nitter.net/elonmusk/status/2038532491422937449#m。
 
     **关键点**
@@ -141,7 +219,7 @@
 
     **来源**：[原文链接](https://x.com/elonmusk/status/2038532601569481205)
 
-??? info "9. @elonmusk 发布重要更新"
+??? info "15. @elonmusk 发布重要更新"
     **摘要**：Video。
 
     **关键点**
@@ -154,7 +232,7 @@
 
     **来源**：[原文链接](https://x.com/elonmusk/status/2038531319496667561)
 
-??? info "10. @elonmusk 发布重要更新"
+??? info "16. @elonmusk 发布重要更新"
     **摘要**：Try Grok Imagine Déborah @dvorahfr 50 seconds entirely created using Grok Imagines tools. Grok can create scenes that could be featured in a film. Video-ht。
 
     **关键点**
@@ -166,12 +244,12 @@
 
     **来源**：[原文链接](https://x.com/elonmusk/status/2038530285743260155)
 
-??? info "11. YukiKazahana/cadence:Cadence is a lightweight,st"
-    **摘要**：⭐ 14 stars | Python Cadence is a lightweight,stable,universal agent harness.。
+??? info "17. YukiKazahana/cadence:Cadence is a lightweight,st"
+    **摘要**：⭐ 15 stars | Python Cadence is a lightweight,stable,universal agent harness.。
 
     **关键点**
 
-    - ⭐ 14 stars | Python Cadence
+    - ⭐ 15 stars | Python Cadence
     - stable
     - universal agent harness.
 
@@ -179,38 +257,12 @@
 
     **来源**：[原文链接](https://github.com/YukiKazahana/cadence)
 
-??? info "12. aduskelebe/adus 发布重要更新"
-    **摘要**：⭐ 12 stars |。
+??? info "18. Naveennaveentamil/ai-traffic-signal-optimization 发"
+    **摘要**：⭐ 30 stars | Python。
 
     **关键点**
 
-    - ⭐ 12 stars |
-    - aduskelebe/adus相关进展已由一手来源披露
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：aduskelebe/adus相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/aduskelebe/adus)
-
-??? info "13. aduskelebe/aduskelebe 发布重要更新"
-    **摘要**：⭐ 12 stars |。
-
-    **关键点**
-
-    - ⭐ 12 stars |
-    - aduskelebe/aduskelebe相关进展已由一
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：aduskelebe/aduskelebe相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/aduskelebe/aduskelebe)
-
-??? info "14. Naveennaveentamil/ai-traffic-signal-optimization 发"
-    **摘要**：⭐ 27 stars | Python。
-
-    **关键点**
-
-    - ⭐ 27 stars | Python
+    - ⭐ 30 stars | Python
     - Naveennaveentamil/ai-traffic
     - 预计将影响后续产品与行业节奏
 
@@ -218,33 +270,20 @@
 
     **来源**：[原文链接](https://github.com/Naveennaveentamil/ai-traffic-signal-optimization)
 
-??? info "15. WillowHe/EvoOpt_oppangu_optimization_model:A set"
-    **摘要**：⭐ 44 stars | Python A set of solutions is provided,leveraging Openpangu-7B as the base model for fine-tuning and application of large language models LLMs。
+??? info "19. WillowHe/EvoOpt_oppangu_optimization_model:A set"
+    **摘要**：⭐ 47 stars | Python A set of solutions is provided,leveraging Openpangu-7B as the base model for fine-tuning and application of large language models LLMs。
 
     **关键点**
 
-    - ⭐ 44 stars | Python A set of
+    - ⭐ 47 stars | Python A set of
     - leveraging Openpangu-7B as
     - application of large languag
 
-    **影响分析**：⭐ 44 stars | Python A set of solutions is provided,leveraging Openpangu-7B as the base model for fine-tuning and application of large l。
+    **影响分析**：⭐ 47 stars | Python A set of solutions is provided,leveraging Openpangu-7B as the base model for fine-tuning and application of large l。
 
     **来源**：[原文链接](https://github.com/WillowHe/EvoOpt_oppangu_optimization_model)
 
-??? info "16. Louis-zxLiu/ScholarPilot:ScholarPilot 是一个基于大语言模型"
-    **摘要**：⭐ 3 stars | Python ScholarPilot 是一个基于大语言模型 LLM 和检索增强生成 RAG 技术的本地学术论文智能管理工具。它能够自动遍历指定目录下的所有 PDF 文件，智能甄别学术论文，提取核心结构化信息，自动生成结构清晰的 Markdown 汇总文件，并支持与您的个人论文库进行对话。
-
-    **关键点**
-
-    - ⭐ 3 stars | Python ScholarPi
-    - 它能够自动遍历指定目录下的所有 PDF 文件
-    - 智能甄别学术论文
-
-    **影响分析**：⭐ 3 stars | Python ScholarPilot 是一个基于大语言模型 LLM 和检索增强生成 RAG 技术的本地学术论文智能管理工具。
-
-    **来源**：[原文链接](https://github.com/Louis-zxLiu/ScholarPilot)
-
-??? info "17. LimaRachell/Log-Analyser:Cybersecurity Attack Det"
+??? info "20. LimaRachell/Log-Analyser:Cybersecurity Attack Det"
     **摘要**：⭐ 4 stars | Python Cybersecurity Attack Detection Dataset including dataset Total Logs:1000 Normal Traffic:720 Cyber Attacks:280 Brute Force SSH/FTP/RDP:60。
 
     **关键点**
@@ -255,42 +294,3 @@
     **影响分析**：⭐ 4 stars | Python Cybersecurity Attack Detection Dataset including dataset Total Logs:1000 Normal Traffic:720 Cyber Attacks:280 Brute For。
 
     **来源**：[原文链接](https://github.com/LimaRachell/Log-Analyser)
-
-??? info "18. apollosenvy/kernel-anvil:Profile-guided GPU kerne"
-    **摘要**：⭐ 23 stars | Python Profile-guided GPU kernel optimizer for AMD/RDNA3. Auto-tunes llama.cpp MMVQ kernels per model shape. 2x decode speedup on 7900 XTX.。
-
-    **关键点**
-
-    - ⭐ 23 stars | Python Profile
-    - apollosenvy/kernel-anvil:Pr
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：apollosenvy/kernel-anvil:Profile-guided GPU kernel optimizer for AMD/RDNA3. Auto-tunes llama.cpp MMVQ ker相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/apollosenvy/kernel-anvil)
-
-??? info "19. lhfer/claude-howto-zh-cn:Claude Code 中文全面上手指南。基于"
-    **摘要**：⭐ 4 stars | Python Claude Code 中文全面上手指南。基于 luongnv89/claude-howto 本土化重写，面向中国小白用户，保留命令与配置兼容性，并附学习路径与本地化校验护栏。
-
-    **关键点**
-
-    - ⭐ 4 stars | Python Claude Co
-    - 基于 luongnv89/claude-howto 本土
-    - 面向中国小白用户
-
-    **影响分析**：⭐ 4 stars | Python Claude Code 中文全面上手指南。
-
-    **来源**：[原文链接](https://github.com/lhfer/claude-howto-zh-cn)
-
-??? info "20. alibaba/anolisa 发布重要更新"
-    **摘要**：⭐ 11 stars | TypeScript。
-
-    **关键点**
-
-    - ⭐ 11 stars | TypeScript
-    - alibaba/anolisa相关进展已由一手来源披露
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：alibaba/anolisa相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/alibaba/anolisa)
