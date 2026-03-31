@@ -18,6 +18,7 @@ from src.config import (
     int_env,
     get_llm_api_key,
     get_llm_model,
+    path_env,
 )
 from src import feed as feed_module
 from src import filters as filters_module
@@ -275,7 +276,7 @@ def main() -> None:
     report_dir.mkdir(parents=True, exist_ok=True)
     quality_metrics_path = report_dir / "quality_metrics.json"
     high_risk_path = report_dir / "high_risk_items.md"
-    history_state_path = Path(os.getenv("HISTORY_STATE_PATH", str(report_dir / "history_index.json")))
+    history_state_path = report_dir / path_env("HISTORY_STATE_PATH", "history_index.json")
     history_state = load_history_state(history_state_path)
     history_fingerprints = load_recent_history_fingerprints(report_dir=report_dir, lookback_days=history_dedupe_days)
     history_fingerprints.update(history_state_fingerprints(history_state, lookback_days=history_dedupe_days))
