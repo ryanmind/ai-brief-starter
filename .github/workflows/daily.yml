@@ -44,14 +44,13 @@ jobs:
     env:
       TZ: Asia/Shanghai
       # Pipeline control - workflow overrides
-      IFLOW_MODEL: qwen3-coder-plus
       MAX_ITEMS: "120"
       TOP_N: ${{ github.event.inputs.top_n || '20' }}
       FETCH_HOURS: ${{ github.event.inputs.fetch_hours || '24' }}
       # History dedupe state (custom path)
       HISTORY_STATE_PATH: "reports/history_index.json"
       # Secrets
-      IFLOW_API_KEY: ${{ secrets.IFLOW_API_KEY }}
+      LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
       TWITTERAPI_IO_KEY: ${{ secrets.TWITTERAPI_IO_KEY }}
       FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
       FEISHU_BOT_SECRET: ${{ secrets.FEISHU_BOT_SECRET }}
@@ -79,8 +78,8 @@ jobs:
       - name: Validate required secrets
         id: validate_secrets
         run: |
-          if [ -z "${IFLOW_API_KEY}" ]; then
-            echo "::error::Missing required secret: IFLOW_API_KEY"
+          if [ -z "${LLM_API_KEY}" ]; then
+            echo "::error::Missing required secret: LLM_API_KEY"
             exit 1
           fi
 

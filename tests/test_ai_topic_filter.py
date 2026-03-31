@@ -7,7 +7,7 @@ from src.models import NewsItem
 def test_filter_ai_topic_items_with_stats_keeps_only_ai(monkeypatch):
     from src import llm as llm_module
     monkeypatch.setenv("STRICT_AI_TOPIC_ONLY", "1")
-    monkeypatch.setenv("IFLOW_API_KEY", "test-key")  # 使用 LLM_API_KEY_ENV 的值
+    monkeypatch.setenv("LLM_API_KEY", "test-key")  # 使用 LLM_API_KEY_ENV 的值
     items = [
         NewsItem(
             title="OpenAI 发布 GPT-5",
@@ -48,7 +48,7 @@ def test_filter_ai_topic_items_with_stats_can_be_disabled(monkeypatch):
 
 def test_filter_ai_topic_items_with_stats_keeps_all_when_llm_unavailable(monkeypatch):
     monkeypatch.setenv("STRICT_AI_TOPIC_ONLY", "1")
-    monkeypatch.delenv("IFLOW_API_KEY", raising=False)
+    monkeypatch.delenv("LLM_API_KEY", raising=False)
     items = [
         NewsItem(
             title="公司周年庆直播活动",

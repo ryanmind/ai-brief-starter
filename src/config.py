@@ -399,7 +399,7 @@ USE_OPTIMIZED_PIPELINE = os.getenv(
 # - "openai-compat" (default): OpenAI-compatible API (works with Qwen, OpenAI, Iflow, etc.)
 # Add new provider implementations in src/llm/providers/
 
-LLM_API_KEY_ENV = "MINIMAX_API_KEY"  # 环境变量名
+LLM_API_KEY_ENV = "LLM_API_KEY"  # 环境变量名
 LLM_MODEL_DEFAULT = "MiniMax-M2.7"  # 默认模型
 LLM_BASE_URL = "https://api.minimaxi.com/anthropic"  # API 端点
 

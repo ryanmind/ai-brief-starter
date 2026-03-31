@@ -448,7 +448,7 @@ def test_render_markdown_removes_entry_separator_and_keeps_single_gap_between_it
 def test_main_quality_check_fail_open_keeps_pipeline_running(monkeypatch, tmp_path):
     from src.models import NewsItem
     monkeypatch.chdir(tmp_path)
-    monkeypatch.setenv("IFLOW_API_KEY", "test-key")
+    monkeypatch.setenv("LLM_API_KEY", "test-key")
     monkeypatch.setenv("QUALITY_CHECK_FAIL_OPEN", "1")
     monkeypatch.setenv("FINAL_POLISH_ENABLED", "0")
     monkeypatch.setenv("TOP_N", "5")
@@ -502,7 +502,7 @@ def test_main_quality_check_fail_open_keeps_pipeline_running(monkeypatch, tmp_pa
 def test_main_quality_check_fail_open_disabled_still_continues(monkeypatch, tmp_path):
     from src.models import NewsItem
     monkeypatch.chdir(tmp_path)
-    monkeypatch.setenv("IFLOW_API_KEY", "test-key")
+    monkeypatch.setenv("LLM_API_KEY", "test-key")
     monkeypatch.setenv("QUALITY_CHECK_FAIL_OPEN", "0")
     monkeypatch.setenv("FINAL_POLISH_ENABLED", "0")
     monkeypatch.setenv("TOP_N", "5")
@@ -544,7 +544,7 @@ def test_main_empty_after_history_dedupe_uses_runtime_value(monkeypatch, tmp_pat
     from src.models import NewsItem
 
     monkeypatch.chdir(tmp_path)
-    monkeypatch.setenv("IFLOW_API_KEY", "test-key")
+    monkeypatch.setenv("LLM_API_KEY", "test-key")
     monkeypatch.setenv("HISTORY_DEDUP_DAYS", "7")
 
     item = NewsItem(
