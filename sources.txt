@@ -51,14 +51,31 @@ https://github.com/QwenLM/Qwen3/commits/main/CHANGELOG.md.atom
 # 文档: https://docs.augmentcode.com/
 # GitHub: https://github.com/augmentcode
 
+# xAI (Elon Musk)
+# 官网: https://x.ai/
+# API: https://docs.x.ai/
+# GitHub: https://github.com/xai-org
+https://github.com/xai-org/xai-sdk-python/commits/main/CHANGELOG.md.atom
+https://github.com/xai-org/xai-proto/commits/main/CHANGELOG.md.atom
+
+# Google Vertex AI
+# 官网: https://cloud.google.com/vertex-ai
+# API: https://cloud.google.com/vertex-ai/docs
+# GitHub: https://github.com/googleapis
+https://github.com/googleapis/python-aiplatform/commits/main/CHANGELOG.md.atom
+
 # 代码工具生态
 # Cursor: https://www.cursor.com/
 # Windsurf: https://windsurf.com/
 # Replit: https://replit.com/
 # Vercel AI SDK: https://sdk.vercel.ai/
+# LlamaIndex: https://llamaindex.ai/
+# Gradio: https://gradio.app/
 https://github.com/getcursor/cursor/commits/main/CHANGELOG.md.atom
 https://github.com/vercel/ai/commits/main/CHANGELOG.md.atom
 https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md
+https://github.com/run-llama/llama_index/commits/main/CHANGELOG.md.atom
+https://github.com/gradio-app/gradio/commits/main/CHANGELOG.md.atom
 
 # 视频/音频主流 AI 厂商
 # Runway（视频）
@@ -94,6 +111,18 @@ https://github.com/facebookresearch/audiocraft/commits/main/CHANGELOG.md.atom
 # Pika 官网: https://pika.art/
 # Luma 官网: https://luma.ai/
 # Udio 官网: https://udio.com/
+
+# Jina AI（多模态 AI 服务）
+# 官网: https://jina.ai/
+# API: https://doc.jina.ai/
+# GitHub: https://github.com/jina-ai
+https://github.com/jina-ai/serve/commits/master/CHANGELOG.md.atom
+
+# Nomic AI（嵌入 API）
+# 官网: https://nomic.ai/
+# API: https://docs.nomic.ai/
+# GitHub: https://github.com/nomic-ai
+https://github.com/nomic-ai/nomic/commits/main/CHANGELOG.md.atom
 
 # AI 生图工具
 # ComfyUI（Stable Diffusion 工作流）
