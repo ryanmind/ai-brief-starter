@@ -132,8 +132,6 @@ def sanitize_items_factuality(items: list[dict[str, str]]) -> list[dict[str, str
 
 
 _X_RESERVED_HANDLES = feed_module._X_RESERVED_HANDLES
-_twitterapi_io_cache = feed_module._global_twitter_cache._twitterapi_io_cache
-_twitterapi_io_cache_lock = feed_module._global_twitter_cache._twitterapi_io_cache_lock
 clear_twitter_caches = feed_module.clear_twitter_caches
 is_twitterapi_io_enabled = feed_module.is_twitterapi_io_enabled
 twitterapi_io_fallback_ready = feed_module.twitterapi_io_fallback_ready
