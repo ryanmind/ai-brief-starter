@@ -21,6 +21,17 @@ def int_env(name: str, default: int, min_value: int = 1, max_value: int = 1000) 
     return max(min_value, min(max_value, value))
 
 
+def path_env(name: str, default: str) -> str:
+    """Read a path from environment variable with traversal sanitization.
+
+    Rejects absolute paths and paths containing '..' to prevent path traversal.
+    """
+    raw = os.getenv(name, default)
+    if os.path.isabs(raw) or ".." in raw:
+        raise ValueError(f"{name} must be a relative path without traversal, got: {raw}")
+    return raw
+
+
 def float_env(
     name: str, default: float, min_value: float = 0.0, max_value: float = 1.0
 ) -> float:
@@ -442,7 +453,7 @@ LLM_CACHE_ENABLED = os.getenv("LLM_CACHE_ENABLED", "1").strip().lower() not in {
 LLM_CACHE_TTL = int_env(
     "LLM_CACHE_TTL", 86400 * 7, min_value=3600, max_value=86400 * 30
 )  # 缓存过期时间（秒），默认7天
-LLM_CACHE_PATH = os.getenv("LLM_CACHE_PATH", "cache/llm_cache.json")  # 缓存文件路径
+LLM_CACHE_PATH = path_env("LLM_CACHE_PATH", "cache/llm_cache.json")  # 缓存文件路径
 
 
 def get_review_models() -> list[str]:
