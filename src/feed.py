@@ -78,10 +78,6 @@ class TwitterFeedCache:
 # Global instance
 _global_twitter_cache = TwitterFeedCache()
 
-# Backward compatibility: expose as module-level variables for existing code
-_twitterapi_io_cache = _global_twitter_cache._twitterapi_io_cache
-_twitterapi_io_cache_lock = _global_twitter_cache._twitterapi_io_cache_lock
-
 
 def clear_twitter_caches() -> None:
     """Clear all Twitter/Nitter caches. Useful for testing."""
@@ -265,7 +261,7 @@ def fetch_from_twitterapi_io(
     endpoint = f"{base_url}/twitter/user/last_tweets"
     cache_key = (normalized_handle, cutoff.isoformat(), per_source)
 
-    cached = _twitterapi_io_cache.get(cache_key)
+    cached = _global_twitter_cache.get_twitterapi_io_cache(cache_key)
     if cached is not None:
         cached_items, cached_error = cached
         return [NewsItem.from_dict(item) for item in _clone_items(cached_items)], cached_error
@@ -285,21 +281,18 @@ def fetch_from_twitterapi_io(
         payload: Any = response.json()
     except requests.RequestException as exc:
         reason = f"twitterapi.io request failed: {exc}"
-        with _twitterapi_io_cache_lock:
-            _twitterapi_io_cache[cache_key] = ([], reason)
+        _global_twitter_cache.set_twitterapi_io_cache(cache_key, ([], reason))
         return [], reason
     except ValueError as exc:
         reason = f"twitterapi.io invalid json: {exc}"
-        with _twitterapi_io_cache_lock:
-            _twitterapi_io_cache[cache_key] = ([], reason)
+        _global_twitter_cache.set_twitterapi_io_cache(cache_key, ([], reason))
         return [], reason
 
     tweets = _extract_twitterapi_io_tweets(payload)
     if not tweets:
         payload_error = _extract_twitterapi_io_error(payload)
         reason = f"twitterapi.io response error: {payload_error}" if payload_error else None
-        with _twitterapi_io_cache_lock:
-            _twitterapi_io_cache[cache_key] = ([], reason)
+        _global_twitter_cache.set_twitterapi_io_cache(cache_key, ([], reason))
         return [], reason
 
     parsed_items: list[dict[str, str]] = []
@@ -334,8 +327,7 @@ def fetch_from_twitterapi_io(
             }
         )
 
-    with _twitterapi_io_cache_lock:
-        _twitterapi_io_cache[cache_key] = (_clone_items(parsed_items), None)
+    _global_twitter_cache.set_twitterapi_io_cache(cache_key, (_clone_items(parsed_items), None))
 
     if source_hint:
         logger.info(

@@ -399,9 +399,9 @@ USE_OPTIMIZED_PIPELINE = os.getenv(
 # - "openai-compat" (default): OpenAI-compatible API (works with Qwen, OpenAI, Iflow, etc.)
 # Add new provider implementations in src/llm/providers/
 
-LLM_API_KEY_ENV = "IFLOW_API_KEY"  # 环境变量名
-LLM_MODEL_DEFAULT = "qwen3-coder-plus"  # 默认模型
-LLM_BASE_URL = "https://apis.iflow.cn/v1"  # API 端点
+LLM_API_KEY_ENV = "MINIMAX_API_KEY"  # 环境变量名
+LLM_MODEL_DEFAULT = "MiniMax-M2.7"  # 默认模型
+LLM_BASE_URL = "https://api.minimaxi.com/anthropic"  # API 端点
 
 # ---- LLM Failover Configuration ----
 # 备用模型列表，主模型失败时按顺序尝试（逗号分隔）
@@ -419,7 +419,7 @@ def get_fallback_llm_models() -> list[str]:
 # ---- Multi-Model Review Configuration ----
 # 多模型审核配置：用多个模型交叉验证生成结果的真实性
 
-REVIEW_MODELS_DEFAULT = ("kimi-k2-0905", "iflow-rome-30ba3b", "kimi-k2")
+REVIEW_MODELS_DEFAULT = ("MiniMax-M2.7",)
 REVIEW_ENABLED = os.getenv("REVIEW_ENABLED", "1").strip().lower() not in {
     "0",
     "false",
