@@ -494,6 +494,9 @@ def main() -> None:
     }
     quality_metrics_path.write_text(json.dumps(merged_metrics, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
+    # Flush LLM cache to disk at end of pipeline
+    llm_module.flush_cache()
+
     print(f"done: {timestamp_file}")
 
 

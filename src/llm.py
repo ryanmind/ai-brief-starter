@@ -61,6 +61,13 @@ def _get_cache() -> LLMResponseCache | None:
     return _cache_instance
 
 
+def flush_cache() -> None:
+    """Flush any pending cache writes to disk."""
+    cache = _get_cache()
+    if cache is not None:
+        cache.flush()
+
+
 def llm_chat(
     client: OpenAI,
     model: str,
