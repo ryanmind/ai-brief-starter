@@ -8,7 +8,7 @@ from datetime import datetime
 from pathlib import Path
 from urllib.parse import urlparse
 
-from src.config import X_HOSTS
+from src.config import BRIEF_NAME, X_HOSTS
 from src.models import NewsItem
 from src.text_utils import (
     clean_generated_text,
@@ -72,7 +72,7 @@ def render_markdown(items: list[NewsItem]) -> str:
     now = datetime.now()
     today_cn = now.strftime("%Y年%m月%d日%H:%M:%S")
     lines = [
-        f"## \U0001f4f0 AI 快讯 · {today_cn}",
+        f"## \U0001f4f0 {BRIEF_NAME} · {today_cn}",
         "",
         "### \U0001f4cc 本期摘要",
     ]

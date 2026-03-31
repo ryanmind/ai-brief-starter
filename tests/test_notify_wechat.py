@@ -6,6 +6,8 @@ from unittest.mock import patch
 import pytest
 from scripts import notify_wechat
 
+from src.config import BRIEF_NAME
+
 
 class FakeResponse:
     def __init__(self, json_data: dict, status_code: int = 200):
@@ -58,7 +60,7 @@ class TestExtractBriefSummary:
     def test_extract_summary_from_bullet_points(self, tmp_path):
         report = tmp_path / "report.md"
         report.write_text(
-            """# AI 早报
+            f"""# {BRIEF_NAME}
 
 ## 本期摘要
 - 第一条重要新闻
@@ -74,7 +76,7 @@ class TestExtractBriefSummary:
     def test_extract_summary_from_titles(self, tmp_path):
         report = tmp_path / "report.md"
         report.write_text(
-            """# AI 早报
+            f"""# {BRIEF_NAME}
 
 ### 1. OpenAI 发布新模型 ·
 ### 2. Claude 代码能力更新 ·
@@ -87,9 +89,9 @@ class TestExtractBriefSummary:
 
     def test_extract_summary_fallback_when_no_content(self, tmp_path):
         report = tmp_path / "empty.md"
-        report.write_text("# AI 早报\n", encoding="utf-8")
+        report.write_text(f"# {BRIEF_NAME}\n", encoding="utf-8")
         summary = notify_wechat.extract_brief_summary(report)
-        assert "AI 早报已生成" in summary
+        assert f"{BRIEF_NAME}已生成" in summary
 
     def test_extract_summary_handles_file_read_error(self, tmp_path):
         report = tmp_path / "nonexistent.md"
@@ -101,7 +103,7 @@ class TestNotifyNewBrief:
     def test_notify_new_brief_with_doc_url(self, tmp_path):
         report = tmp_path / "report.md"
         report.write_text(
-            """# AI 早报
+            f"""# {BRIEF_NAME}
 
 ## 本期摘要
 - 测试新闻
@@ -117,13 +119,13 @@ class TestNotifyNewBrief:
             )
             assert result is True
             call_args = mock_send.call_args
-            assert "AI 早报已更新" in call_args.kwargs["title"]
+            assert f"{BRIEF_NAME}已更新" in call_args.kwargs["title"]
             assert "https://example.com/doc" in call_args.kwargs["content"]
 
     def test_notify_new_brief_without_doc_url(self, tmp_path):
         report = tmp_path / "report.md"
         report.write_text(
-            """# AI 早报
+            f"""# {BRIEF_NAME}
 
 ## 本期摘要
 - 测试新闻

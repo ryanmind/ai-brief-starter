@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 微信推送通知脚本（Server酱）
-用于推送早报摘要和新文档更新通知到微信
+用于推送简报摘要和新文档更新通知到微信
 """
 
 import os
@@ -89,7 +89,7 @@ def extract_brief_summary(report_path: Path) -> str:
     if titles:
         return "今日要点：\n" + "\n".join(titles)
 
-    return "AI 早报已生成，请查看完整内容。"
+    return "AI 资讯简报已生成，请查看完整内容。"
 
 
 def notify_new_brief(report_path: Path, send_key: str, doc_url: str = "") -> bool:
@@ -107,7 +107,7 @@ def notify_new_brief(report_path: Path, send_key: str, doc_url: str = "") -> boo
     summary = extract_brief_summary(report_path)
 
     # 构建消息内容
-    content = f"## 📰 AI 早报已更新\n\n"
+    content = f"## 📰 AI 资讯简报已更新\n\n"
     content += f"{summary}\n\n"
 
     if doc_url:
@@ -117,7 +117,7 @@ def notify_new_brief(report_path: Path, send_key: str, doc_url: str = "") -> boo
     content += "💡 可直接复制转发到朋友圈或小红书"
 
     return send_wechat_message(
-        title="📰 AI 早报已更新",
+        title="📰 AI 资讯简报已更新",
         content=content,
         send_key=send_key,
     )

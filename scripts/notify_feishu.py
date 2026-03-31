@@ -64,7 +64,7 @@ def build_feishu_sign(secret: str) -> tuple[str, str]:
 def extract_title(markdown: str) -> str:
     match = re.search(r"^#\s+(.+)$", markdown, flags=re.M)
     if not match:
-        return "AI 早报"
+        return "AI 资讯简报"
     return match.group(1).strip()
 
 
@@ -472,7 +472,7 @@ def build_failure_suggestions(failed_step: str) -> list[str]:
 def notify_failure(webhook_url: str, failed_step: str, error_reason: str, run_url: str) -> None:
     suggestions = build_failure_suggestions(failed_step)
     lines = [
-        "AI早报任务失败告警",
+        "AI资讯简报任务失败告警",
         f"失败步骤：{failed_step or '未知步骤'}",
         f"错误原因：{error_reason or '请查看任务日志中的 ERROR 输出。'}",
         "",
@@ -553,7 +553,7 @@ def notify_success(report_path: Path, webhook_url: str, run_url: str) -> str:
     except Exception as exc:
         raise RuntimeError(f"sync report to feishu doc failed: {exc}") from exc
 
-    text_lines = [f"AI早报已生成：{title}"]
+    text_lines = [f"AI资讯简报已生成：{title}"]
     if highlights:
         text_lines.append("")
         for idx, item in enumerate(highlights, 1):

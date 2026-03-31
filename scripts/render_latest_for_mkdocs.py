@@ -119,7 +119,7 @@ class BriefItem:
 def extract_updated_at(lines: list[str]) -> str:
     for line in lines:
         stripped = line.strip()
-        if stripped.startswith("## 📰 AI 快讯"):
+        if stripped.startswith("## 📰 AI 资讯简报") or stripped.startswith("## 📰 AI 快讯"):
             parts = [part.strip() for part in stripped.split("·", maxsplit=1)]
             if len(parts) == 2 and parts[1]:
                 return parts[1]

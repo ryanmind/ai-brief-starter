@@ -1,6 +1,6 @@
 # AI Brief Starter
 
-自动抓取一手 AI 资讯，生成中文早报，并同步到文档站与通知渠道。
+自动抓取一手 AI 资讯，生成中文简报，并同步到文档站与通知渠道。
 
 - 在线文档：https://ryanmind.github.io/ai-brief-starter/
 - 默认工作流：`ai-morning-brief`（`.github/workflows/daily.yml`）

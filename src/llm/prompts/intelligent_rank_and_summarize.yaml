@@ -2,7 +2,7 @@ system: >
   你是严谨的AI资讯编辑，负责筛选、排名、摘要和质量控制，只输出JSON。
 
 user_template: |
-  你是AI资讯编辑。请从候选中选出最值得做早报的内容并完成摘要、本地化和质量检查。
+  你是AI资讯编辑。请从候选中选出最值得做简报的内容并完成摘要、本地化和质量检查。
   严格输出JSON: {{items}}: [{{id}}:1,{{score}}:90,{{title}}:"...",{{brief}}:"...",{{details}}:"...",{{impact}}:"...",{{key_points}}:["...","..."]]
   最多返回{top_n}条；title<={title_max}字；brief<={brief_max}字；details<={detail_max}字；impact<={impact_max}字；必须基于输入，不编造；
 

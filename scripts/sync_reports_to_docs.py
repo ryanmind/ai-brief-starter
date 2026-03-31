@@ -13,8 +13,8 @@ except ModuleNotFoundError:  # pragma: no cover - CLI entrypoint fallback
 
 DATE_REPORT_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}(_\d{2}-\d{2}-\d{2})?\.md$")
 INLINE_REPORT_DATE_PATTERNS = (
-    re.compile(r"AI 快讯[（(](\d{4}-\d{2}-\d{2})[)）]"),
-    re.compile(r"AI 快讯\s*[·-]\s*(\d{4})年(\d{2})月(\d{2})日"),
+    re.compile(r"AI 资讯?简报[（(](\d{4}-\d{2}-\d{2})[)）]"),
+    re.compile(r"AI 资讯?简报\s*[·-]\s*(\d{4})年(\d{2})月(\d{2})日"),
 )
 
 
@@ -126,7 +126,7 @@ def update_history_pages(reports_dir: Path, docs_dir: Path) -> None:
         stem = report.stem  # 例如 "2026-03-20_09-30-15" 或 "2026-03-20"
         target = history_dir / f"{stem}.md"
         target.write_text(
-            render_report(report, title=f"AI 快讯归档 · {stem}"),
+            render_report(report, title=f"AI 资讯简报归档 · {stem}"),
             encoding="utf-8",
         )
 
@@ -175,7 +175,7 @@ def build_history_index(docs_dir: Path, reports_dir: Path, max_items: int = 120)
         lines.append("---")
         lines.append("")
     else:
-        lines.extend(["# AI 快讯", "", "暂无快讯。", ""])
+        lines.extend(["# AI 资讯简报", "", "暂无内容。", ""])
         (docs_dir / "history.md").write_text("\n".join(lines), encoding="utf-8")
         return
 

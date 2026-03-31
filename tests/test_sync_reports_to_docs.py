@@ -4,6 +4,8 @@ from pathlib import Path
 
 from scripts import sync_reports_to_docs
 
+from src.config import BRIEF_NAME
+
 
 def _write(path: Path, text: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -58,7 +60,7 @@ def test_sync_reports_to_docs_updates_latest_and_history(tmp_path):
     # 历史归档链接（不包含最新的）
     assert "- [2026-03-03](history/2026-03-03.md)" in history_index
     # 历史文件正常生成
-    assert history_page.startswith("# AI 快讯归档 · 2026-03-04")
+    assert history_page.startswith("# AI 资讯简报归档 · 2026-03-04")
     assert "历史细节A" not in history_page
 
 
@@ -66,14 +68,14 @@ def test_sync_reports_to_docs_prefers_newer_docs_history_for_latest(tmp_path):
     reports_dir = tmp_path / "reports"
     docs_dir = tmp_path / "docs"
 
-    stale_latest = """# AI 快讯（2026-02-28）
+    stale_latest = f"""# {BRIEF_NAME}（2026-02-28）
 
 生成时间：2026-02-28 15:48:56
 
 ## 今日要点
 - 1. 旧摘要
 """
-    newer_history = """# AI 快讯归档 · 2026-03-05
+    newer_history = """# AI 资讯简报归档 · 2026-03-05
 
 > 更新时间：2026年03月05日09:39:04
 > 说明：该页面由 `ai-morning-brief` 自动生成并同步。
@@ -100,7 +102,7 @@ def test_sync_reports_to_docs_prefers_newer_dated_report_over_stale_latest(tmp_p
     reports_dir = tmp_path / "reports"
     docs_dir = tmp_path / "docs"
 
-    stale_latest = """# AI 快讯（2026-02-28）
+    stale_latest = f"""# {BRIEF_NAME}（2026-02-28）
 
 生成时间：2026-02-28 15:48:56
 

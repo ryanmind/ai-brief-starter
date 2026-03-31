@@ -1,5 +1,5 @@
-site_name: AI Brief Starter
-site_description: AI 资讯自动快讯生成器
+site_name: AI 资讯简报
+site_description: AI 资讯自动简报生成器
 site_author: Ryan
 site_url: https://ryanmind.github.io/ai-brief-starter/
 
@@ -107,7 +107,7 @@ nav:
   - 快速开始: quick-start.md
   - 配置: configuration.md
   - 信源: sources.md
-  - 快讯: latest.md
+  - 简报: latest.md
   - 历史: history.md
 
 # 额外配置
