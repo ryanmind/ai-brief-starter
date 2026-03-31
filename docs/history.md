@@ -1,38 +1,221 @@
-> 更新时间：2026年03月31日12:17:33
+> 更新时间：2026年03月31日13:29:52
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. arxiv.org 发布重要更新：arXiv:2603.26675v1 Announce Type:new Abstr。
-2. arxiv.org 发布重要更新：arXiv:2603.26680v1 Announce Type:new Abstr。
-3. arxiv.org 发布 0.59 版本更新：arXiv:2603.26707v1 Announce Type:new Abstr。
-4. arxiv.org 发布 2.0 版本更新：arXiv:2603.26742v1 Announce Type:new Abstr。
-5. div6079-code/packet-tracer-network-project:Basic：⭐ 7 stars | Basic network configuration us。
+1. ANSHIT175/nl-to-sparql-dbpedia:Natural Language t：⭐ 1 stars | Python Natural Language to SPA。
+2. rsamwilson2323-cloud/auto-multi-zip-extractor:A s：⭐ 1 stars | Python A simple Python tool to。
+3. cakashramana-ship-it/Embedded:Hardware Project：⭐ 10 stars | C++ Hardware Project。
+4. gangakarikalan16/dress-shopping-website 发布重要更新：⭐ 12 stars | HTML。
+5. tqtuan1201/TTBDebugPlus:A professional-grade macO：⭐ 3 stars | Swift A professional-grade mac。
 
 ## 分类速览
 
-=== "🤖 模型进展（1）"
-    - **13. zhaoy-dev/cc-richstatus:A rich status bar for Cla**：zhaoy-dev/cc-richstatus:A rich status bar for C…
+=== "🤖 模型进展（2）"
+    - **1. ANSHIT175/nl-to-sparql-dbpedia:Natural Language t**：ANSHIT175/nl-to-sparql-dbpedia:Natural Language…
+    - **9. ryantlee25-droid/spectrum-protocol:A coordination**：⭐ 2 stars | Python A coordination protocol for…
 
 === "🧪 论文研究（4）"
-    - **1. arxiv.org 发布重要更新**：arXiv:2603.26675v1 Announce Type:new Abstract:B…
-    - **2. arxiv.org 发布重要更新**：arXiv:2603.26680v1 Announce Type:new Abstract:A…
-    - **3. arxiv.org 发布 0.59 版本更新**：arXiv:2603.26707v1 Announce Type:new Abstract:T…
-    - **4. arxiv.org 发布 2.0 版本更新**：arXiv:2603.26742v1 Announce Type:new Abstract:V…
+    - **15. arxiv.org 发布重要更新**：arXiv:2603.26675v1 Announce Type:new Abstract:B…
+    - **16. arxiv.org 发布重要更新**：arXiv:2603.26680v1 Announce Type:new Abstract:A…
+    - **17. arxiv.org 发布 0.59 版本更新**：arXiv:2603.26707v1 Announce Type:new Abstract:T…
+    - **18. arxiv.org 发布 2.0 版本更新**：arXiv:2603.26742v1 Announce Type:new Abstract:V…
 
-=== "🏢 产品与行业（15）"
-    - **5. div6079-code/packet-tracer-network-project:Basic**：div6079-code/packet-tracer-network-project:Basi…
-    - **6. Straxc/HFUT_login:合肥工业大学翡翠湖校区校园网自动登录认证脚本**：Straxc/HFUT_login:合肥工业大学翡翠湖校区校园网自动登录认证脚本相关进展已由一…
-    - **7. queenslyjayasingh/TaskManager:Terminal-Based Ta**：queenslyjayasingh/TaskManager:Terminal-Based Ta…
-    - **8. ziinset/caklis:pemesanan transportasi online untu**：ziinset/caklis:pemesanan transportasi online un…
-    - **9. Stewartsson/Smart-Healing-System:Smart Healing sy**：Stewartsson/Smart-Healing-System:Smart Healing…
-    - **10. jjoshuamiracle7057/3-bit-counter:A 3-bit synchron**：⭐ 3 stars | A 3-bit synchronous counter is a se…
-    - **11. FaultLine-labs/robotrace-sdk:OTel-native Python S**：FaultLine-labs/robotrace-sdk:OTel-native Python…
-    - **12. queenz5/harmony_miniprogram_uiTest:在 HarmonyOS 系统**：⭐ 1 stars | Python 在 HarmonyOS 系统上，使用 Hypium 框架…
+=== "🏢 产品与行业（14）"
+    - **2. rsamwilson2323-cloud/auto-multi-zip-extractor:A s**：⭐ 1 stars | Python A simple Python tool to extr…
+    - **3. cakashramana-ship-it/Embedded:Hardware Project**：cakashramana-ship-it/Embedded:Hardware Project相…
+    - **4. gangakarikalan16/dress-shopping-website 发布重要更新**：gangakarikalan16/dress-shopping-website相关进展已由一手…
+    - **5. tqtuan1201/TTBDebugPlus:A professional-grade macO**：⭐ 3 stars | Swift A professional-grade macOS co…
+    - **6. lovelesslionheart/Machine-learning:Machine learni**：lovelesslionheart/Machine-learning:Machine lear…
+    - **7. kaname-madoka18/TinySplat:This repository contain**：⭐ 2 stars | Python This repository contains the…
+    - **8. Buvanesh-3/Terra_Dashboard 发布重要更新**：Buvanesh-3/Terra_Dashboard相关进展已由一手来源披露，预计将影响后续产…
+    - **10. Pavithra-Jayapal/review-rating-predictor:Machine**：Pavithra-Jayapal/review-rating-predictor:Machin…
 
 ## 全部快讯
 
-??? info "1. arxiv.org 发布重要更新"
+??? info "1. ANSHIT175/nl-to-sparql-dbpedia:Natural Language t"
+    **摘要**：⭐ 1 stars | Python Natural Language to SPARQL Query System using NLP and LLMs for DBpedia。
+
+    **关键点**
+
+    - ⭐ 1 stars | Python Natural L
+    - LLMs for DBpedia
+    - ANSHIT175/nl-to-sparql-dbped
+
+    **影响分析**：ANSHIT175/nl-to-sparql-dbpedia:Natural Language to SPARQL Query System using NLP and LLMs for DBpedia相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/ANSHIT175/nl-to-sparql-dbpedia)
+
+??? info "2. rsamwilson2323-cloud/auto-multi-zip-extractor:A s"
+    **摘要**：⭐ 1 stars | Python A simple Python tool to extract multiple ZIP files at once using a clean GUI file selector. Each archive is unpacked into its own folder with。
+
+    **关键点**
+
+    - ⭐ 1 stars | Python A simple
+    - error handling
+    - clear console output. Lightw
+
+    **影响分析**：⭐ 1 stars | Python A simple Python tool to extract multiple ZIP files at once using a clean GUI file selector. Each archive is unpacked into。
+
+    **来源**：[原文链接](https://github.com/rsamwilson2323-cloud/auto-multi-zip-extractor)
+
+??? info "3. cakashramana-ship-it/Embedded:Hardware Project"
+    **摘要**：⭐ 10 stars | C++ Hardware Project。
+
+    **关键点**
+
+    - ⭐ 10 stars | C++ Hardware Pr
+    - cakashramana-ship-it/Embedde
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：cakashramana-ship-it/Embedded:Hardware Project相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/cakashramana-ship-it/Embedded)
+
+??? info "4. gangakarikalan16/dress-shopping-website 发布重要更新"
+    **摘要**：⭐ 12 stars | HTML。
+
+    **关键点**
+
+    - ⭐ 12 stars | HTML
+    - gangakarikalan16/dress-shopp
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：gangakarikalan16/dress-shopping-website相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/gangakarikalan16/dress-shopping-website)
+
+??? info "5. tqtuan1201/TTBDebugPlus:A professional-grade macO"
+    **摘要**：⭐ 3 stars | Swift A professional-grade macOS companion app for debugging iOS applications in real-time. View logs,inspect network requests,export to Postman。
+
+    **关键点**
+
+    - ⭐ 3 stars | Swift A professi
+    - inspect network requests
+    - export to Postman
+
+    **影响分析**：⭐ 3 stars | Swift A professional-grade macOS companion app for debugging iOS applications in real-time. View logs,inspect network requests。
+
+    **来源**：[原文链接](https://github.com/tqtuan1201/TTBDebugPlus)
+
+??? info "6. lovelesslionheart/Machine-learning:Machine learni"
+    **摘要**：⭐ 1 stars | Python Machine learning lessons。
+
+    **关键点**
+
+    - ⭐ 1 stars | Python Machine l
+    - lovelesslionheart/Machine-le
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：lovelesslionheart/Machine-learning:Machine learning lessons相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/lovelesslionheart/Machine-learning)
+
+??? info "7. kaname-madoka18/TinySplat:This repository contain"
+    **摘要**：⭐ 2 stars | Python This repository contains the official reference implementation for **TinySplat**,a framework designed for the highly efficient compression o。
+
+    **关键点**
+
+    - ⭐ 2 stars | Python This repo
+    - a framework designed for the
+    - kaname-madoka18/TinySplat:T
+
+    **影响分析**：⭐ 2 stars | Python This repository contains the official reference implementation for **TinySplat**,a framework designed for the highly eff。
+
+    **来源**：[原文链接](https://github.com/kaname-madoka18/TinySplat)
+
+??? info "8. Buvanesh-3/Terra_Dashboard 发布重要更新"
+    **摘要**：⭐ 14 stars | JavaScript。
+
+    **关键点**
+
+    - ⭐ 14 stars | JavaScript
+    - Buvanesh-3/Terra_Dashboard相关
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：Buvanesh-3/Terra_Dashboard相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/Buvanesh-3/Terra_Dashboard)
+
+??? info "9. ryantlee25-droid/spectrum-protocol:A coordination"
+    **摘要**：⭐ 2 stars | Python A coordination protocol for parallel AI agents in Claude Code. 14 Color-coded agents. Frozen contracts. File ownership. Adversarial review. N。
+
+    **关键点**
+
+    - ⭐ 2 stars | Python A coordin
+    - run.
+    - ryantlee25-droid/spectrum-pr
+
+    **影响分析**：⭐ 2 stars | Python A coordination protocol for parallel AI agents in Claude Code. 14 Color-coded agents. Frozen contracts. File ownership. A。
+
+    **来源**：[原文链接](https://github.com/ryantlee25-droid/spectrum-protocol)
+
+??? info "10. Pavithra-Jayapal/review-rating-predictor:Machine"
+    **摘要**：⭐ 10 stars | Python Machine Learning project that predicts product review ratings using TF-IDF and Naive Bayes with a Streamlit web app interface.。
+
+    **关键点**
+
+    - ⭐ 10 stars | Python Machine
+    - Naive Bayes
+    - a Streamlit web app interfac
+
+    **影响分析**：Pavithra-Jayapal/review-rating-predictor:Machine Learning project that predicts product review ratings using TF-IDF and N相关进展已由一手来源披露，预计将影响。
+
+    **来源**：[原文链接](https://github.com/Pavithra-Jayapal/review-rating-predictor)
+
+??? info "11. phamvantienkiz/agent_setup:Set up for Agent codin"
+    **摘要**：⭐ 5 stars | Shell Set up for Agent coding。
+
+    **关键点**
+
+    - ⭐ 5 stars | Shell Set up for
+    - phamvantienkiz/agent_setup
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：phamvantienkiz/agent_setup:Set up for Agent coding相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/phamvantienkiz/agent_setup)
+
+??? info "12. henesh5225/fastvideosegmenter:⚡ Fast desktop tool"
+    **摘要**：⭐ 13 stars | Python ⚡ Fast desktop tool to split videos into segments using ffmpeg stream copy-parallel processing,dark mode,no re-encoding。
+
+    **关键点**
+
+    - ⭐ 13 stars | Python ⚡ Fast d
+    - dark mode
+    - no re-encoding
+
+    **影响分析**：henesh5225/fastvideosegmenter:⚡ Fast desktop tool to split videos into segments using ffmpeg stream copy-par相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/henesh5225/fastvideosegmenter)
+
+??? info "13. yihong0618/bbtag:blue tag show"
+    **摘要**：⭐ 8 stars | Python blue tag show。
+
+    **关键点**
+
+    - ⭐ 8 stars | Python blue tag
+    - yihong0618/bbtag:blue tag s
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：yihong0618/bbtag:blue tag show相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/yihong0618/bbtag)
+
+??? info "14. AJAYAGNIHOTRI1234/PDF-BASED-CHATBOT 发布重要更新"
+    **摘要**：⭐ 1 stars | Python。
+
+    **关键点**
+
+    - ⭐ 1 stars | Python
+    - AJAYAGNIHOTRI1234/PDF-BASED
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：AJAYAGNIHOTRI1234/PDF-BASED-CHATBOT相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/AJAYAGNIHOTRI1234/PDF-BASED-CHATBOT)
+
+??? info "15. arxiv.org 发布重要更新"
     **摘要**：arXiv:2603.26675v1 Announce Type:new Abstract:Block diffusion enables efficient parallel refinement in diffusion language models,but its decoding behavior de。
 
     **关键点**
@@ -45,7 +228,7 @@
 
     **来源**：[原文链接](https://arxiv.org/abs/2603.26675)
 
-??? info "2. arxiv.org 发布重要更新"
+??? info "16. arxiv.org 发布重要更新"
     **摘要**：arXiv:2603.26680v1 Announce Type:new Abstract:As Large Language Models LLMs evolve into lifelong AI assistants,LLM personalization has become a critical fr。
 
     **关键点**
@@ -58,7 +241,7 @@
 
     **来源**：[原文链接](https://arxiv.org/abs/2603.26680)
 
-??? info "3. arxiv.org 发布 0.59 版本更新"
+??? info "17. arxiv.org 发布 0.59 版本更新"
     **摘要**：arXiv:2603.26707v1 Announce Type:new Abstract:This paper documents and theorises a self-reinforcing dynamic between two measurable trends:the exponential exp。
 
     **关键点**
@@ -71,7 +254,7 @@
 
     **来源**：[原文链接](https://arxiv.org/abs/2603.26707)
 
-??? info "4. arxiv.org 发布 2.0 版本更新"
+??? info "18. arxiv.org 发布 2.0 版本更新"
     **摘要**：arXiv:2603.26742v1 Announce Type:new Abstract:Vision-language models score well on mathematical,scientific,and spatial reasoning benchmarks,yet these evalu。
 
     **关键点**
@@ -84,218 +267,37 @@
 
     **来源**：[原文链接](https://arxiv.org/abs/2603.26742)
 
-??? info "5. div6079-code/packet-tracer-network-project:Basic"
-    **摘要**：⭐ 7 stars | Basic network configuration using Cisco Packet Tracer including router and switch setup,IP addressing,and connectivity testing between devices.。
+??? info "19. gayathripc2006-cpu/Network-project-packet-tracer"
+    **摘要**：⭐ 26 stars | Simulation of a basic network in Cisco Packet Tracer with router and switch configuration,IP addressing,and successful communication using ping.。
 
     **关键点**
 
-    - ⭐ 7 stars | Basic network co
-    - switch setup
-    - IP addressing
+    - ⭐ 26 stars | Simulation of a
+    - router
+    - switch configuration
 
-    **影响分析**：div6079-code/packet-tracer-network-project:Basic network configuration using Cisco Packet Tracer including router and switc相关进展已由一手来源披露，预计将。
+    **影响分析**：gayathripc2006-cpu/Network-project-packet-tracer-:Simulation of a basic network in Cisco Packet Tracer with router and switch conf相关进展已由一手来。
 
-    **来源**：[原文链接](https://github.com/div6079-code/packet-tracer-network-project)
+    **来源**：[原文链接](https://github.com/gayathripc2006-cpu/Network-project-packet-tracer-)
 
-??? info "6. Straxc/HFUT_login:合肥工业大学翡翠湖校区校园网自动登录认证脚本"
-    **摘要**：⭐ 1 stars | Python 合肥工业大学翡翠湖校区校园网自动登录认证脚本。
-
-    **关键点**
-
-    - ⭐ 1 stars | Python 合肥工业大学翡翠
-    - Straxc/HFUT_login:合肥工业大学翡翠
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：Straxc/HFUT_login:合肥工业大学翡翠湖校区校园网自动登录认证脚本相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/Straxc/HFUT_login)
-
-??? info "7. queenslyjayasingh/TaskManager:Terminal-Based Ta"
-    **摘要**：⭐ 3 stars | Terminal-Based Task Manager。
+??? info "20. canyingshc/Kira-world-book:基于Kira AI的插件，合理化配置必须记忆"
+    **摘要**：⭐ 2 stars | Python 基于Kira AI的插件，合理化配置必须记忆。
 
     **关键点**
 
-    - ⭐ 3 stars | Terminal-Based
-    - queenslyjayasingh/TaskManage
-    - 预计将影响后续产品与行业节奏
+    - ⭐ 2 stars | Python 基于Kira AI
+    - 合理化配置必须记忆
+    - canyingshc/Kira-world-book
 
-    **影响分析**：queenslyjayasingh/TaskManager:Terminal-Based Task Manager相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：canyingshc/Kira-world-book:基于Kira AI的插件，合理化配置必须记忆相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://github.com/queenslyjayasingh/TaskManager)
-
-??? info "8. ziinset/caklis:pemesanan transportasi online untu"
-    **摘要**：⭐ 2 stars | Go pemesanan transportasi online untuk becak listrik。
-
-    **关键点**
-
-    - ⭐ 2 stars | Go pemesanan tra
-    - ziinset/caklis:pemesanan tr
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：ziinset/caklis:pemesanan transportasi online untuk becak listrik相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/ziinset/caklis)
-
-??? info "9. Stewartsson/Smart-Healing-System:Smart Healing sy"
-    **摘要**：⭐ 3 stars | Smart Healing system。
-
-    **关键点**
-
-    - ⭐ 3 stars | Smart Healing sy
-    - Stewartsson/Smart-Healing-Sy
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：Stewartsson/Smart-Healing-System:Smart Healing system相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/Stewartsson/Smart-Healing-System)
-
-??? info "10. jjoshuamiracle7057/3-bit-counter:A 3-bit synchron"
-    **摘要**：⭐ 3 stars | A 3-bit synchronous counter is a sequential circuit using three T flip-flops to cycle through 8 binary states 000 to 111. It increments on every c。
-
-    **关键点**
-
-    - ⭐ 3 stars | A 3-bit synchron
-    - resets to 000 after reaching
-    - digital clocks
-
-    **影响分析**：⭐ 3 stars | A 3-bit synchronous counter is a sequential circuit using three T flip-flops to cycle through 8 binary states 000 to 111. It i。
-
-    **来源**：[原文链接](https://github.com/jjoshuamiracle7057/3-bit-counter)
-
-??? info "11. FaultLine-labs/robotrace-sdk:OTel-native Python S"
-    **摘要**：⭐ 1 stars | Python OTel-native Python SDK for robot observability-mission tracing,sensor telemetry,and evaluation。
-
-    **关键点**
-
-    - ⭐ 1 stars | Python OTel-nati
-    - sensor telemetry
-    - evaluation
-
-    **影响分析**：FaultLine-labs/robotrace-sdk:OTel-native Python SDK for robot observability-mission tracing,sensor telemet相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/FaultLine-labs/robotrace-sdk)
-
-??? info "12. queenz5/harmony_miniprogram_uiTest:在 HarmonyOS 系统"
-    **摘要**：⭐ 1 stars | Python 在 HarmonyOS 系统上，使用 Hypium 框架进行 APP 自动化测试，这个项目偏向小程序端的测试，用来测试 FinClip 和 微信小程序。也可以通过改造，测试原生APP。
-
-    **关键点**
-
-    - ⭐ 1 stars | Python 在 Harmony
-    - 使用 Hypium 框架进行 APP 自动化测试
-    - 这个项目偏向小程序端的测试
-
-    **影响分析**：⭐ 1 stars | Python 在 HarmonyOS 系统上，使用 Hypium 框架进行 APP 自动化测试，这个项目偏向小程序端的测试，用来测试 FinClip 和 微信小程序。
-
-    **来源**：[原文链接](https://github.com/queenz5/harmony_miniprogram_uiTest)
-
-??? info "13. zhaoy-dev/cc-richstatus:A rich status bar for Cla"
-    **摘要**：⭐ 1 stars | Python A rich status bar for Claude Code。
-
-    **关键点**
-
-    - ⭐ 1 stars | Python A rich st
-    - zhaoy-dev/cc-richstatus:A r
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：zhaoy-dev/cc-richstatus:A rich status bar for Claude Code相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/zhaoy-dev/cc-richstatus)
-
-??? info "14. tzhtaylor/modern-sjtu-thesis-milestones:上海交通大学研究生"
-    **摘要**：⭐ 2 stars | Typst 上海交通大学研究生阶段性报告 Typst 模板 SJTU Graduate Milestones Typst Template。
-
-    **关键点**
-
-    - ⭐ 2 stars | Typst 上海交通大学研究生阶
-    - tzhtaylor/modern-sjtu-thesis
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：tzhtaylor/modern-sjtu-thesis-milestones:上海交通大学研究生阶段性报告 Typst 模板 SJTU Graduate Milestones Typst Template相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/tzhtaylor/modern-sjtu-thesis-milestones)
-
-??? info "15. ClawPlays/ospec 发布重要更新"
-    **摘要**：⭐ 2 stars | JavaScript。
-
-    **关键点**
-
-    - ⭐ 2 stars | JavaScript
-    - ClawPlays/ospec相关进展已由一手来源披露
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：ClawPlays/ospec相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/ClawPlays/ospec)
-
-??? info "16. stockcloudinventorysystem-afk/StockCloud-App:Sist"
-    **摘要**：⭐ 1 stars | Python Sistema integral de gestión de inventarios y punto de venta POS diseñado con Python y Streamlit para el control eficiente de stock,registr。
-
-    **关键点**
-
-    - ⭐ 1 stars | Python Sistema i
-    - registro de ventas en tiempo
-    - registr
-
-    **影响分析**：⭐ 1 stars | Python Sistema integral de gestión de inventarios y punto de venta POS diseñado con Python y Streamlit para el control eficien。
-
-    **来源**：[原文链接](https://github.com/stockcloudinventorysystem-afk/StockCloud-App)
-
-??? info "17. GurnoorSSD/Birthday-card_for_dad 发布重要更新"
-    **摘要**：⭐ 1 stars | Python。
-
-    **关键点**
-
-    - ⭐ 1 stars | Python
-    - GurnoorSSD/Birthday-card_for
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：GurnoorSSD/Birthday-card_for_dad相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/GurnoorSSD/Birthday-card_for_dad)
-
-??? info "18. GurnoorSSD/find-the-word 发布重要更新"
-    **摘要**：⭐ 1 stars | Python。
-
-    **关键点**
-
-    - ⭐ 1 stars | Python
-    - GurnoorSSD/find-the-word相关进展
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：GurnoorSSD/find-the-word相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/GurnoorSSD/find-the-word)
-
-??? info "19. Sanjay2731/Todolist 发布重要更新"
-    **摘要**：⭐ 17 stars | Python。
-
-    **关键点**
-
-    - ⭐ 17 stars | Python
-    - Sanjay2731/Todolist相关进展已由一手来
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：Sanjay2731/Todolist相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/Sanjay2731/Todolist)
-
-??? info "20. GsWebSoluciones/yolo_badge 发布重要更新"
-    **摘要**：⭐ 6 stars | Python。
-
-    **关键点**
-
-    - ⭐ 6 stars | Python
-    - GsWebSoluciones/yolo_badge相关
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：GsWebSoluciones/yolo_badge相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/GsWebSoluciones/yolo_badge)
+    **来源**：[原文链接](https://github.com/canyingshc/Kira-world-book)
 
 ---
 
 ## 历史归档
 
+- [2026-03-31_13-29-52](history/2026-03-31_13-29-52.md)
 - [2026-03-31_12-17-33](history/2026-03-31_12-17-33.md)
 - [2026-03-31_08-03-16](history/2026-03-31_08-03-16.md)
 - [2026-03-30_22-52-31](history/2026-03-30_22-52-31.md)
