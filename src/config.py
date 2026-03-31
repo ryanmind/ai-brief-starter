@@ -419,7 +419,7 @@ def get_fallback_llm_models() -> list[str]:
 # ---- Multi-Model Review Configuration ----
 # 多模型审核配置：用多个模型交叉验证生成结果的真实性
 
-REVIEW_MODELS_DEFAULT = ("MiniMax-M2.7",)
+REVIEW_MODELS_DEFAULT = (LLM_MODEL_DEFAULT,)
 REVIEW_ENABLED = os.getenv("REVIEW_ENABLED", "1").strip().lower() not in {
     "0",
     "false",

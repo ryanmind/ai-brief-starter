@@ -3,6 +3,7 @@ from __future__ import annotations
 import os
 import main
 from main import polish_result_is_safe
+from src.config import LLM_MODEL_DEFAULT
 
 
 def test_polish_result_is_safe_rejects_structure_drift():
@@ -90,7 +91,7 @@ def test_polish_markdown_with_llm_rejects_unsafe_output(monkeypatch):
     result = main.polish_markdown_with_llm(
         markdown=original,
         llm_api_key="test-key",
-        llm_model="qwen3-coder-plus",
+        llm_model=LLM_MODEL_DEFAULT,
     )
     assert result == original
 
@@ -133,6 +134,6 @@ def test_polish_markdown_with_llm_accepts_safe_output(monkeypatch):
     result = src_llm_py.polish_markdown_with_llm(
         markdown=original,
         llm_api_key="test-key",
-        llm_model="qwen3-coder-plus",
+        llm_model=LLM_MODEL_DEFAULT,
     )
     assert result.strip() == safe_polished.strip()

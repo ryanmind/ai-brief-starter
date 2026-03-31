@@ -11,6 +11,7 @@ from types import SimpleNamespace
 import main
 import pytest
 from scripts import notify_feishu
+from src.config import LLM_MODEL_DEFAULT
 
 
 def test_build_feishu_sign_matches_official_formula(monkeypatch):
@@ -106,7 +107,7 @@ def test_rank_and_summarize_fallback_on_llm_exception(monkeypatch):
     result = main.rank_and_summarize(
         items=source_items,
         llm_api_key="test-key",
-        llm_model="qwen3-coder-plus",
+        llm_model=LLM_MODEL_DEFAULT,
         top_n=1,
     )
 
@@ -354,7 +355,7 @@ def test_localize_items_to_chinese_ignores_placeholder_fields(monkeypatch):
     localized = main.localize_items_to_chinese(
         items=items,
         llm_api_key="test-key",
-        llm_model="qwen3-coder-plus",
+        llm_model=LLM_MODEL_DEFAULT,
     )
     assert localized[0].title == "OpenAI 发布新模型"
     assert "value" not in localized[0].brief.lower()
@@ -620,7 +621,7 @@ def test_enforce_titles_with_subject_uses_deterministic_fallback(monkeypatch):
             link="https://github.com/runwayml/sdk-python/blob/main/CHANGELOG.md",
         )
     ]
-    fixed = main.enforce_titles_with_subject(items=items, llm_api_key="test-key", llm_model="qwen3-coder-plus")
+    fixed = main.enforce_titles_with_subject(items=items, llm_api_key="test-key", llm_model=LLM_MODEL_DEFAULT)
     assert fixed[0].title.startswith("runwayml/sdk-python")
 
 
