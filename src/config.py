@@ -427,7 +427,7 @@ REVIEW_ENABLED = os.getenv("REVIEW_ENABLED", "1").strip().lower() not in {
     "off",
 }
 REVIEW_PASS_THRESHOLD = int_env(
-    "REVIEW_PASS_THRESHOLD", 2, min_value=1, max_value=5
+    "REVIEW_PASS_THRESHOLD", 1, min_value=1, max_value=5
 )  # 至少几个模型通过
 
 # ---- LLM Cache Configuration ----
