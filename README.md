@@ -30,7 +30,7 @@ python main.py
 
 运行后主要产物：
 
-- `reports/latest.md`：最新早报
+- `reports/latest.md`：最新简报
 - `reports/YYYY-MM-DD.md`：归档报告
 - `reports/quality_metrics.json`：质检结果
 
