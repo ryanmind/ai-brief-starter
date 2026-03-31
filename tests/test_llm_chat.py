@@ -273,7 +273,7 @@ def test_review_items_with_multi_model_voting_meets_threshold(monkeypatch):
 
 def test_review_items_with_multi_model_voting_below_threshold(monkeypatch):
     """Test multi-model review when not enough models pass."""
-    monkeypatch.setattr("src.config.REVIEW_PASS_THRESHOLD", 2)
+    monkeypatch.setattr(src_llm, "REVIEW_PASS_THRESHOLD", 2)
 
     mock_client = Mock()
 
