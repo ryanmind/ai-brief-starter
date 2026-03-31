@@ -5,6 +5,7 @@ import json
 import logging
 import os
 import re
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urlparse
@@ -82,13 +83,20 @@ def load_recent_history_fingerprints(report_dir: Path, lookback_days: int) -> se
     if lookback_days <= 0 or not report_dir.exists():
         return set()
 
-    history_keys: set[str] = set()
     today = datetime.now().date()
-    for offset in range(1, lookback_days + 1):
-        target = today - timedelta(days=offset)
-        report_path = report_dir / f"{target.strftime('%Y-%m-%d')}.md"
-        if report_path.exists():
-            history_keys.update(collect_report_history_fingerprints(report_path))
+    report_paths = [
+        report_dir / f"{(today - timedelta(days=offset)).strftime('%Y-%m-%d')}.md"
+        for offset in range(1, lookback_days + 1)
+    ]
+    existing_paths = [p for p in report_paths if p.exists()]
+    if not existing_paths:
+        return set()
+
+    history_keys: set[str] = set()
+    with ThreadPoolExecutor(max_workers=len(existing_paths)) as executor:
+        futures = {executor.submit(collect_report_history_fingerprints, p): p for p in existing_paths}
+        for future in as_completed(futures):
+            history_keys.update(future.result())
     return history_keys
 
 
