@@ -1,72 +1,211 @@
 # 今日快讯
 
-> 更新时间：2026年03月31日13:29:52
+> 更新时间：2026年03月31日14:55:11
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. ANSHIT175/nl-to-sparql-dbpedia:Natural Language t：⭐ 1 stars | Python Natural Language to SPA。
-2. rsamwilson2323-cloud/auto-multi-zip-extractor:A s：⭐ 1 stars | Python A simple Python tool to。
-3. cakashramana-ship-it/Embedded:Hardware Project：⭐ 10 stars | C++ Hardware Project。
-4. gangakarikalan16/dress-shopping-website 发布重要更新：⭐ 12 stars | HTML。
-5. tqtuan1201/TTBDebugPlus:A professional-grade macO：⭐ 3 stars | Swift A professional-grade mac。
+1. bhusingh/morpheus-ai:Stop your AI coding assistan：⭐ 2 stars | Python Stop your AI coding ass。
+2. llmaddcom/SandboxHub 发布重要更新：⭐ 1 stars | Python。
+3. ashikaboobacker/operations-automation:Automation：⭐ 1 stars | Python Automation tools for op。
+4. Prasanth-ADS/hybrid-rag-pipeline 发布重要更新：⭐ 2 stars | Python。
+5. mr-bala-kavi/bank-frauds-analysis 发布重要更新：⭐ 2 stars | Python。
 
 ## 分类速览
 
-=== "🤖 模型进展（2）"
-    - **1. ANSHIT175/nl-to-sparql-dbpedia:Natural Language t**：ANSHIT175/nl-to-sparql-dbpedia:Natural Language…
-    - **9. ryantlee25-droid/spectrum-protocol:A coordination**：⭐ 2 stars | Python A coordination protocol for…
+=== "🤖 模型进展（0）"
+    - 暂无条目
 
-=== "🧪 论文研究（4）"
-    - **15. arxiv.org 发布重要更新**：arXiv:2603.26675v1 Announce Type:new Abstract:B…
-    - **16. arxiv.org 发布重要更新**：arXiv:2603.26680v1 Announce Type:new Abstract:A…
-    - **17. arxiv.org 发布 0.59 版本更新**：arXiv:2603.26707v1 Announce Type:new Abstract:T…
-    - **18. arxiv.org 发布 2.0 版本更新**：arXiv:2603.26742v1 Announce Type:new Abstract:V…
+=== "🧪 论文研究（0）"
+    - 暂无条目
 
-=== "🏢 产品与行业（14）"
-    - **2. rsamwilson2323-cloud/auto-multi-zip-extractor:A s**：⭐ 1 stars | Python A simple Python tool to extr…
-    - **3. cakashramana-ship-it/Embedded:Hardware Project**：cakashramana-ship-it/Embedded:Hardware Project相…
-    - **4. gangakarikalan16/dress-shopping-website 发布重要更新**：gangakarikalan16/dress-shopping-website相关进展已由一手…
-    - **5. tqtuan1201/TTBDebugPlus:A professional-grade macO**：⭐ 3 stars | Swift A professional-grade macOS co…
-    - **6. lovelesslionheart/Machine-learning:Machine learni**：lovelesslionheart/Machine-learning:Machine lear…
-    - **7. kaname-madoka18/TinySplat:This repository contain**：⭐ 2 stars | Python This repository contains the…
-    - **8. Buvanesh-3/Terra_Dashboard 发布重要更新**：Buvanesh-3/Terra_Dashboard相关进展已由一手来源披露，预计将影响后续产…
-    - **10. Pavithra-Jayapal/review-rating-predictor:Machine**：Pavithra-Jayapal/review-rating-predictor:Machin…
+=== "🏢 产品与行业（20）"
+    - **1. bhusingh/morpheus-ai:Stop your AI coding assistan**：bhusingh/morpheus-ai:Stop your AI coding assist…
+    - **2. llmaddcom/SandboxHub 发布重要更新**：llmaddcom/SandboxHub相关进展已由一手来源披露，预计将影响后续产品与行业节奏
+    - **3. ashikaboobacker/operations-automation:Automation**：ashikaboobacker/operations-automation:Automatio…
+    - **4. Prasanth-ADS/hybrid-rag-pipeline 发布重要更新**：Prasanth-ADS/hybrid-rag-pipeline相关进展已由一手来源披露，预计…
+    - **5. mr-bala-kavi/bank-frauds-analysis 发布重要更新**：mr-bala-kavi/bank-frauds-analysis相关进展已由一手来源披露，预…
+    - **6. grapeot/health-quantification:AI-first personal h**：grapeot/health-quantification:AI-first personal…
+    - **7. govarthinigajendran-gggp/Emergency-Power-Cut-Detec**：⭐ 17 stars | An automated emergency response sy…
+    - **8. abhivk1511-dev/Emergency-Power-Cut-Detection-with**：⭐ 15 stars | A smart elevator safety system tha…
 
 ## 全部快讯
 
-??? info "1. ANSHIT175/nl-to-sparql-dbpedia:Natural Language t"
-    **摘要**：⭐ 1 stars | Python Natural Language to SPARQL Query System using NLP and LLMs for DBpedia。
+??? info "1. bhusingh/morpheus-ai:Stop your AI coding assistan"
+    **摘要**：⭐ 2 stars | Python Stop your AI coding assistant from being lazy. Catches scope reduction,option offering,deferral,and instruction violations in real-time.。
 
     **关键点**
 
-    - ⭐ 1 stars | Python Natural L
-    - LLMs for DBpedia
-    - ANSHIT175/nl-to-sparql-dbped
+    - ⭐ 2 stars | Python Stop your
+    - option offering
+    - deferral
 
-    **影响分析**：ANSHIT175/nl-to-sparql-dbpedia:Natural Language to SPARQL Query System using NLP and LLMs for DBpedia相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：bhusingh/morpheus-ai:Stop your AI coding assistant from being lazy. Catches scope reduction,option o相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://github.com/ANSHIT175/nl-to-sparql-dbpedia)
+    **来源**：[原文链接](https://github.com/bhusingh/morpheus-ai)
 
-??? info "2. rsamwilson2323-cloud/auto-multi-zip-extractor:A s"
-    **摘要**：⭐ 1 stars | Python A simple Python tool to extract multiple ZIP files at once using a clean GUI file selector. Each archive is unpacked into its own folder with。
-
-    **关键点**
-
-    - ⭐ 1 stars | Python A simple
-    - error handling
-    - clear console output. Lightw
-
-    **影响分析**：⭐ 1 stars | Python A simple Python tool to extract multiple ZIP files at once using a clean GUI file selector. Each archive is unpacked into。
-
-    **来源**：[原文链接](https://github.com/rsamwilson2323-cloud/auto-multi-zip-extractor)
-
-??? info "3. cakashramana-ship-it/Embedded:Hardware Project"
-    **摘要**：⭐ 10 stars | C++ Hardware Project。
+??? info "2. llmaddcom/SandboxHub 发布重要更新"
+    **摘要**：⭐ 1 stars | Python。
 
     **关键点**
 
-    - ⭐ 10 stars | C++ Hardware Pr
+    - ⭐ 1 stars | Python
+    - llmaddcom/SandboxHub相关进展已由一手
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：llmaddcom/SandboxHub相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/llmaddcom/SandboxHub)
+
+??? info "3. ashikaboobacker/operations-automation:Automation"
+    **摘要**：⭐ 1 stars | Python Automation tools for operational workflows and property management systems。
+
+    **关键点**
+
+    - ⭐ 1 stars | Python Automatio
+    - property management systems
+    - ashikaboobacker/operations-a
+
+    **影响分析**：ashikaboobacker/operations-automation:Automation tools for operational workflows and property management systems相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/ashikaboobacker/operations-automation)
+
+??? info "4. Prasanth-ADS/hybrid-rag-pipeline 发布重要更新"
+    **摘要**：⭐ 2 stars | Python。
+
+    **关键点**
+
+    - ⭐ 2 stars | Python
+    - Prasanth-ADS/hybrid-rag-pipe
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：Prasanth-ADS/hybrid-rag-pipeline相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/Prasanth-ADS/hybrid-rag-pipeline)
+
+??? info "5. mr-bala-kavi/bank-frauds-analysis 发布重要更新"
+    **摘要**：⭐ 2 stars | Python。
+
+    **关键点**
+
+    - ⭐ 2 stars | Python
+    - mr-bala-kavi/bank-frauds-ana
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：mr-bala-kavi/bank-frauds-analysis相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/mr-bala-kavi/bank-frauds-analysis)
+
+??? info "6. grapeot/health-quantification:AI-first personal h"
+    **摘要**：⭐ 2 stars | Python AI-first personal health quantification:Apple Health → SQLite → CLI → AI analysis。
+
+    **关键点**
+
+    - ⭐ 2 stars | Python AI-first
+    - grapeot/health-quantificatio
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：grapeot/health-quantification:AI-first personal health quantification:Apple Health → SQLite → CLI → AI analys相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/grapeot/health-quantification)
+
+??? info "7. govarthinigajendran-gggp/Emergency-Power-Cut-Detec"
+    **摘要**：⭐ 17 stars | An automated emergency response system for elevators that detects power interruptions and safely directs the lift to the nearest floor. Focuses on。
+
+    **关键点**
+
+    - ⭐ 17 stars | An automated em
+    - safely directs the lift to t
+    - reducing risk
+
+    **影响分析**：⭐ 17 stars | An automated emergency response system for elevators that detects power interruptions and safely directs the lift to the neares。
+
+    **来源**：[原文链接](https://github.com/govarthinigajendran-gggp/Emergency-Power-Cut-Detection-with-Automatic-Nearest-Floor-Rescue)
+
+??? info "8. abhivk1511-dev/Emergency-Power-Cut-Detection-with"
+    **摘要**：⭐ 15 stars | A smart elevator safety system that detects emergency power failures and automatically moves the lift to the nearest floor for safe evacuation. Enh。
+
+    **关键点**
+
+    - ⭐ 15 stars | A smart elevato
+    - automatically moves the lift
+    - automated rescue mechanisms.
+
+    **影响分析**：⭐ 15 stars | A smart elevator safety system that detects emergency power failures and automatically moves the lift to the nearest floor for。
+
+    **来源**：[原文链接](https://github.com/abhivk1511-dev/Emergency-Power-Cut-Detection-with-Automatic-Nearest-Floor-Rescue)
+
+??? info "9. Akshaya285/Emergency-Power-Cut-Detection-with-Auto"
+    **摘要**：⭐ 19 stars | A reliable elevator safety solution that identifies sudden power failures and triggers an automatic nearest-floor landing. Designed to prevent pass。
+
+    **关键点**
+
+    - ⭐ 19 stars | A reliable elev
+    - triggers an automatic neares
+    - ensuring quick
+
+    **影响分析**：⭐ 19 stars | A reliable elevator safety solution that identifies sudden power failures and triggers an automatic nearest-floor landing. Desi。
+
+    **来源**：[原文链接](https://github.com/Akshaya285/Emergency-Power-Cut-Detection-with-Automatic-Nearest-Floor-Rescue)
+
+??? info "10. Dharshanaa-R/Emergency-Power-Cut-Detection-with-Au"
+    **摘要**：⭐ 17 stars | An intelligent system for detecting power cuts in elevators and ensuring automatic nearest-floor rescue. Uses sensors and control logic to safely b。
+
+    **关键点**
+
+    - ⭐ 17 stars | An intelligent
+    - ensuring automatic nearest-f
+    - control logic to safely brin
+
+    **影响分析**：⭐ 17 stars | An intelligent system for detecting power cuts in elevators and ensuring automatic nearest-floor rescue. Uses sensors and contr。
+
+    **来源**：[原文链接](https://github.com/Dharshanaa-R/Emergency-Power-Cut-Detection-with-Automatic-Nearest-Floor-Rescue)
+
+??? info "11. prakhar1605/test-remote-mcp-server 发布重要更新"
+    **摘要**：⭐ 2 stars | Python。
+
+    **关键点**
+
+    - ⭐ 2 stars | Python
+    - prakhar1605/test-remote-mcp
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：prakhar1605/test-remote-mcp-server相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/prakhar1605/test-remote-mcp-server)
+
+??? info "12. Mehrozsheikh/aso-appstore-listing-skill:Generate"
+    **摘要**：⭐ 4 stars | Generate high-converting App Store listings name,subtitle,keywords,and description using AI-powered ASO best practices in one command.。
+
+    **关键点**
+
+    - ⭐ 4 stars | Generate high-co
+    - subtitle
+    - keywords
+
+    **影响分析**：Mehrozsheikh/aso-appstore-listing-skill:Generate high-converting App Store listings name,subtitle,keywords,and descr相关进展已由一手来源披露，预计将影响后。
+
+    **来源**：[原文链接](https://github.com/Mehrozsheikh/aso-appstore-listing-skill)
+
+??? info "13. Srivardhini-S/quantum-noise-signal-classifier:Qua"
+    **摘要**：⭐ 19 stars | Python Quantum Machine Learning project with noise filtering and signal classification。
+
+    **关键点**
+
+    - ⭐ 19 stars | Python Quantum
+    - noise filtering
+    - signal classification
+
+    **影响分析**：Srivardhini-S/quantum-noise-signal-classifier:Quantum Machine Learning project with noise filtering and signal classification相关进展已由一手来源披露，预。
+
+    **来源**：[原文链接](https://github.com/Srivardhini-S/quantum-noise-signal-classifier)
+
+??? info "14. cakashramana-ship-it/Embedded:Hardware Project"
+    **摘要**：⭐ 14 stars | C++ Hardware Project。
+
+    **关键点**
+
+    - ⭐ 14 stars | C++ Hardware Pr
     - cakashramana-ship-it/Embedde
     - 预计将影响后续产品与行业节奏
 
@@ -74,12 +213,25 @@
 
     **来源**：[原文链接](https://github.com/cakashramana-ship-it/Embedded)
 
-??? info "4. gangakarikalan16/dress-shopping-website 发布重要更新"
-    **摘要**：⭐ 12 stars | HTML。
+??? info "15. Dhanush835/DHT11 发布重要更新"
+    **摘要**：⭐ 23 stars | C++。
 
     **关键点**
 
-    - ⭐ 12 stars | HTML
+    - ⭐ 23 stars | C++
+    - Dhanush835/DHT11相关进展已由一手来源披露
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：Dhanush835/DHT11相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/Dhanush835/DHT11)
+
+??? info "16. gangakarikalan16/dress-shopping-website 发布重要更新"
+    **摘要**：⭐ 13 stars | HTML。
+
+    **关键点**
+
+    - ⭐ 13 stars | HTML
     - gangakarikalan16/dress-shopp
     - 预计将影响后续产品与行业节奏
 
@@ -87,33 +239,7 @@
 
     **来源**：[原文链接](https://github.com/gangakarikalan16/dress-shopping-website)
 
-??? info "5. tqtuan1201/TTBDebugPlus:A professional-grade macO"
-    **摘要**：⭐ 3 stars | Swift A professional-grade macOS companion app for debugging iOS applications in real-time. View logs,inspect network requests,export to Postman。
-
-    **关键点**
-
-    - ⭐ 3 stars | Swift A professi
-    - inspect network requests
-    - export to Postman
-
-    **影响分析**：⭐ 3 stars | Swift A professional-grade macOS companion app for debugging iOS applications in real-time. View logs,inspect network requests。
-
-    **来源**：[原文链接](https://github.com/tqtuan1201/TTBDebugPlus)
-
-??? info "6. lovelesslionheart/Machine-learning:Machine learni"
-    **摘要**：⭐ 1 stars | Python Machine learning lessons。
-
-    **关键点**
-
-    - ⭐ 1 stars | Python Machine l
-    - lovelesslionheart/Machine-le
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：lovelesslionheart/Machine-learning:Machine learning lessons相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/lovelesslionheart/Machine-learning)
-
-??? info "7. kaname-madoka18/TinySplat:This repository contain"
+??? info "17. kaname-madoka18/TinySplat:This repository contain"
     **摘要**：⭐ 2 stars | Python This repository contains the official reference implementation for **TinySplat**,a framework designed for the highly efficient compression o。
 
     **关键点**
@@ -126,171 +252,41 @@
 
     **来源**：[原文链接](https://github.com/kaname-madoka18/TinySplat)
 
-??? info "8. Buvanesh-3/Terra_Dashboard 发布重要更新"
-    **摘要**：⭐ 14 stars | JavaScript。
+??? info "18. Praveenraj-Kumar/Coffee-Ordering-Web-App 发布重要更新"
+    **摘要**：⭐ 8 stars | CSS。
 
     **关键点**
 
-    - ⭐ 14 stars | JavaScript
+    - ⭐ 8 stars | CSS
+    - Praveenraj-Kumar/Coffee-Orde
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：Praveenraj-Kumar/Coffee-Ordering-Web-App相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/Praveenraj-Kumar/Coffee-Ordering-Web-App)
+
+??? info "19. averygan/reclip:Download videos from almost any w"
+    **摘要**：⭐ 8 stars | HTML Download videos from almost any website. Lightweight,self-hosted media downloader with a clean web UI.。
+
+    **关键点**
+
+    - ⭐ 8 stars | HTML Download vi
+    - self-hosted media downloader
+    - a clean web UI.
+
+    **影响分析**：averygan/reclip:Download videos from almost any website. Lightweight,self-hosted media download相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/averygan/reclip)
+
+??? info "20. Buvanesh-3/Terra_Dashboard 发布重要更新"
+    **摘要**：⭐ 17 stars | JavaScript。
+
+    **关键点**
+
+    - ⭐ 17 stars | JavaScript
     - Buvanesh-3/Terra_Dashboard相关
     - 预计将影响后续产品与行业节奏
 
     **影响分析**：Buvanesh-3/Terra_Dashboard相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
     **来源**：[原文链接](https://github.com/Buvanesh-3/Terra_Dashboard)
-
-??? info "9. ryantlee25-droid/spectrum-protocol:A coordination"
-    **摘要**：⭐ 2 stars | Python A coordination protocol for parallel AI agents in Claude Code. 14 Color-coded agents. Frozen contracts. File ownership. Adversarial review. N。
-
-    **关键点**
-
-    - ⭐ 2 stars | Python A coordin
-    - run.
-    - ryantlee25-droid/spectrum-pr
-
-    **影响分析**：⭐ 2 stars | Python A coordination protocol for parallel AI agents in Claude Code. 14 Color-coded agents. Frozen contracts. File ownership. A。
-
-    **来源**：[原文链接](https://github.com/ryantlee25-droid/spectrum-protocol)
-
-??? info "10. Pavithra-Jayapal/review-rating-predictor:Machine"
-    **摘要**：⭐ 10 stars | Python Machine Learning project that predicts product review ratings using TF-IDF and Naive Bayes with a Streamlit web app interface.。
-
-    **关键点**
-
-    - ⭐ 10 stars | Python Machine
-    - Naive Bayes
-    - a Streamlit web app interfac
-
-    **影响分析**：Pavithra-Jayapal/review-rating-predictor:Machine Learning project that predicts product review ratings using TF-IDF and N相关进展已由一手来源披露，预计将影响。
-
-    **来源**：[原文链接](https://github.com/Pavithra-Jayapal/review-rating-predictor)
-
-??? info "11. phamvantienkiz/agent_setup:Set up for Agent codin"
-    **摘要**：⭐ 5 stars | Shell Set up for Agent coding。
-
-    **关键点**
-
-    - ⭐ 5 stars | Shell Set up for
-    - phamvantienkiz/agent_setup
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：phamvantienkiz/agent_setup:Set up for Agent coding相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/phamvantienkiz/agent_setup)
-
-??? info "12. henesh5225/fastvideosegmenter:⚡ Fast desktop tool"
-    **摘要**：⭐ 13 stars | Python ⚡ Fast desktop tool to split videos into segments using ffmpeg stream copy-parallel processing,dark mode,no re-encoding。
-
-    **关键点**
-
-    - ⭐ 13 stars | Python ⚡ Fast d
-    - dark mode
-    - no re-encoding
-
-    **影响分析**：henesh5225/fastvideosegmenter:⚡ Fast desktop tool to split videos into segments using ffmpeg stream copy-par相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/henesh5225/fastvideosegmenter)
-
-??? info "13. yihong0618/bbtag:blue tag show"
-    **摘要**：⭐ 8 stars | Python blue tag show。
-
-    **关键点**
-
-    - ⭐ 8 stars | Python blue tag
-    - yihong0618/bbtag:blue tag s
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：yihong0618/bbtag:blue tag show相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/yihong0618/bbtag)
-
-??? info "14. AJAYAGNIHOTRI1234/PDF-BASED-CHATBOT 发布重要更新"
-    **摘要**：⭐ 1 stars | Python。
-
-    **关键点**
-
-    - ⭐ 1 stars | Python
-    - AJAYAGNIHOTRI1234/PDF-BASED
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：AJAYAGNIHOTRI1234/PDF-BASED-CHATBOT相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/AJAYAGNIHOTRI1234/PDF-BASED-CHATBOT)
-
-??? info "15. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2603.26675v1 Announce Type:new Abstract:Block diffusion enables efficient parallel refinement in diffusion language models,but its decoding behavior de。
-
-    **关键点**
-
-    - arXiv:2603.26675v1 Announce
-    - but its decoding behavior de
-    - do not account for the depen
-
-    **影响分析**：arXiv:2603.26675v1 Announce Type:new Abstract:Block diffusion enables efficient parallel refinement in diffusion language models,but its。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2603.26675)
-
-??? info "16. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2603.26680v1 Announce Type:new Abstract:As Large Language Models LLMs evolve into lifelong AI assistants,LLM personalization has become a critical fr。
-
-    **关键点**
-
-    - arXiv:2603.26680v1 Announce
-    - LLM personalization has beco
-    - progress is currently bottle
-
-    **影响分析**：arXiv:2603.26680v1 Announce Type:new Abstract:As Large Language Models LLMs evolve into lifelong AI assistants,LLM personalization has。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2603.26680)
-
-??? info "17. arxiv.org 发布 0.59 版本更新"
-    **摘要**：arXiv:2603.26707v1 Announce Type:new Abstract:This paper documents and theorises a self-reinforcing dynamic between two measurable trends:the exponential exp。
-
-    **关键点**
-
-    - arXiv:2603.26707v1 Announce
-    - theorises a self-reinforcing
-    - the secular contraction of h
-
-    **影响分析**：arXiv:2603.26707v1 Announce Type:new Abstract:This paper documents and theorises a self-reinforcing dynamic between two measurable trends。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2603.26707)
-
-??? info "18. arxiv.org 发布 2.0 版本更新"
-    **摘要**：arXiv:2603.26742v1 Announce Type:new Abstract:Vision-language models score well on mathematical,scientific,and spatial reasoning benchmarks,yet these evalu。
-
-    **关键点**
-
-    - arXiv:2603.26742v1 Announce
-    - scientific
-    - spatial reasoning benchmarks
-
-    **影响分析**：arXiv:2603.26742v1 Announce Type:new Abstract:Vision-language models score well on mathematical,scientific,and spatial reasoning benchma。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2603.26742)
-
-??? info "19. gayathripc2006-cpu/Network-project-packet-tracer"
-    **摘要**：⭐ 26 stars | Simulation of a basic network in Cisco Packet Tracer with router and switch configuration,IP addressing,and successful communication using ping.。
-
-    **关键点**
-
-    - ⭐ 26 stars | Simulation of a
-    - router
-    - switch configuration
-
-    **影响分析**：gayathripc2006-cpu/Network-project-packet-tracer-:Simulation of a basic network in Cisco Packet Tracer with router and switch conf相关进展已由一手来。
-
-    **来源**：[原文链接](https://github.com/gayathripc2006-cpu/Network-project-packet-tracer-)
-
-??? info "20. canyingshc/Kira-world-book:基于Kira AI的插件，合理化配置必须记忆"
-    **摘要**：⭐ 2 stars | Python 基于Kira AI的插件，合理化配置必须记忆。
-
-    **关键点**
-
-    - ⭐ 2 stars | Python 基于Kira AI
-    - 合理化配置必须记忆
-    - canyingshc/Kira-world-book
-
-    **影响分析**：canyingshc/Kira-world-book:基于Kira AI的插件，合理化配置必须记忆相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/canyingshc/Kira-world-book)
