@@ -1,298 +1,299 @@
-> 更新时间：2026年03月31日14:55:11
+> 更新时间：2026年03月31日21:04:13
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. bhusingh/morpheus-ai:Stop your AI coding assistan：⭐ 2 stars | Python Stop your AI coding ass。
-2. llmaddcom/SandboxHub 发布重要更新：⭐ 1 stars | Python。
-3. ashikaboobacker/operations-automation:Automation：⭐ 1 stars | Python Automation tools for op。
-4. Prasanth-ADS/hybrid-rag-pipeline 发布重要更新：⭐ 2 stars | Python。
-5. mr-bala-kavi/bank-frauds-analysis 发布重要更新：⭐ 2 stars | Python。
+1. @elonmusk 发布重要更新：Video。
+2. @elonmusk 发布重要更新：On the plus side。
+3. @elonmusk 发布重要更新：Stainless Steel Starship X Freeze @XFreeze。
+4. @elonmusk 发布重要更新：Tap the Grok logo on the upper right of an。
+5. @hailuo_ai 发布重要更新：Hailuo’s biggest discount ends in 15 hours。
 
 ## 分类速览
 
-=== "🤖 模型进展（0）"
-    - 暂无条目
+=== "🤖 模型进展（2）"
+    - **2. @elonmusk 发布重要更新**：RT by @elonmusk:On the plus side,if you forgot…
+    - **4. @elonmusk 发布重要更新**：Tap the Grok logo on the upper right of any pos…
 
-=== "🧪 论文研究（0）"
-    - 暂无条目
+=== "🧪 论文研究（4）"
+    - **6. arxiv.org 发布重要更新**：arXiv:2603.26675v1 Announce Type:new Abstract:B…
+    - **7. arxiv.org 发布重要更新**：arXiv:2603.26680v1 Announce Type:new Abstract:A…
+    - **8. arxiv.org 发布 0.59 版本更新**：arXiv:2603.26707v1 Announce Type:new Abstract:T…
+    - **9. arxiv.org 发布 2.0 版本更新**：arXiv:2603.26742v1 Announce Type:new Abstract:V…
 
-=== "🏢 产品与行业（20）"
-    - **1. bhusingh/morpheus-ai:Stop your AI coding assistan**：bhusingh/morpheus-ai:Stop your AI coding assist…
-    - **2. llmaddcom/SandboxHub 发布重要更新**：llmaddcom/SandboxHub相关进展已由一手来源披露，预计将影响后续产品与行业节奏
-    - **3. ashikaboobacker/operations-automation:Automation**：ashikaboobacker/operations-automation:Automatio…
-    - **4. Prasanth-ADS/hybrid-rag-pipeline 发布重要更新**：Prasanth-ADS/hybrid-rag-pipeline相关进展已由一手来源披露，预计…
-    - **5. mr-bala-kavi/bank-frauds-analysis 发布重要更新**：mr-bala-kavi/bank-frauds-analysis相关进展已由一手来源披露，预…
-    - **6. grapeot/health-quantification:AI-first personal h**：grapeot/health-quantification:AI-first personal…
-    - **7. govarthinigajendran-gggp/Emergency-Power-Cut-Detec**：⭐ 17 stars | An automated emergency response sy…
-    - **8. abhivk1511-dev/Emergency-Power-Cut-Detection-with**：⭐ 15 stars | A smart elevator safety system tha…
+=== "🏢 产品与行业（14）"
+    - **1. @elonmusk 发布重要更新**：Video相关进展已由一手来源披露，预计将影响后续产品与行业节奏
+    - **3. @elonmusk 发布重要更新**：Stainless Steel Starship X Freeze @XFreeze Ever…
+    - **5. @hailuo_ai 发布重要更新**：Hailuo’s biggest discount ends in 15 hours... E…
+    - **10. @notionhq 发布重要更新**：notion.com相关进展已由一手来源披露，预计将影响后续产品与行业节奏
+    - **11. @notionhq 发布重要更新**：Think Together. Ivan Zhao @ivanhzhao The loudes…
+    - **12. @replit 发布重要更新**：R to @Replit:Read the full breakdown on our blo…
+    - **13. @replit 发布重要更新**：Agent 4 didnt replace what worked. It rethought…
+    - **14. elevenlabs/elevenlabs-js 发布 v2.41.0 版本更新**：Whats Changed add multimodal_message WebSocket…
 
 ## 全部快讯
 
-??? info "1. bhusingh/morpheus-ai:Stop your AI coding assistan"
-    **摘要**：⭐ 2 stars | Python Stop your AI coding assistant from being lazy. Catches scope reduction,option offering,deferral,and instruction violations in real-time.。
+??? info "1. @elonmusk 发布重要更新"
+    **摘要**：Video。
 
     **关键点**
 
-    - ⭐ 2 stars | Python Stop your
-    - option offering
-    - deferral
-
-    **影响分析**：bhusingh/morpheus-ai:Stop your AI coding assistant from being lazy. Catches scope reduction,option o相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/bhusingh/morpheus-ai)
-
-??? info "2. llmaddcom/SandboxHub 发布重要更新"
-    **摘要**：⭐ 1 stars | Python。
-
-    **关键点**
-
-    - ⭐ 1 stars | Python
-    - llmaddcom/SandboxHub相关进展已由一手
+    - Video
+    - Video相关进展已由一手来源披露
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：llmaddcom/SandboxHub相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：Video相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://github.com/llmaddcom/SandboxHub)
+    **来源**：[原文链接](https://x.com/elonmusk/status/2038923221702185078)
 
-??? info "3. ashikaboobacker/operations-automation:Automation"
-    **摘要**：⭐ 1 stars | Python Automation tools for operational workflows and property management systems。
-
-    **关键点**
-
-    - ⭐ 1 stars | Python Automatio
-    - property management systems
-    - ashikaboobacker/operations-a
-
-    **影响分析**：ashikaboobacker/operations-automation:Automation tools for operational workflows and property management systems相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/ashikaboobacker/operations-automation)
-
-??? info "4. Prasanth-ADS/hybrid-rag-pipeline 发布重要更新"
-    **摘要**：⭐ 2 stars | Python。
+??? info "2. @elonmusk 发布重要更新"
+    **摘要**：On the plus side,if you forgot the password to your wallet,it will be accessible in the future nitter.net/i/grok/share/ad0b425eb…。
 
     **关键点**
 
-    - ⭐ 2 stars | Python
-    - Prasanth-ADS/hybrid-rag-pipe
+    - On the plus side
+    - if you forgot the password t
+    - it will be accessible in the
+
+    **影响分析**：RT by @elonmusk:On the plus side,if you forgot the password to your wallet,it will be accessible in the future https://x.com/i/grok/share。
+
+    **来源**：[原文链接](https://x.com/elonmusk/status/2038922841849295062)
+
+??? info "3. @elonmusk 发布重要更新"
+    **摘要**：Stainless Steel Starship X Freeze @XFreeze Everyone thought the future was carbon fiber Elon Musk looked at the physics and chose stainless steel for Starship。
+
+    **关键点**
+
+    - Stainless Steel Starship X F
+    - chose stainless steel for St
+    - handles reentry heat better
+
+    **影响分析**：Stainless Steel Starship X Freeze @XFreeze Everyone thought the future was carbon fiber Elon Musk looked at the physics and chose stainles。
+
+    **来源**：[原文链接](https://x.com/elonmusk/status/2038908411816153587)
+
+??? info "4. @elonmusk 发布重要更新"
+    **摘要**：Tap the Grok logo on the upper right of any post for analysis DogeDesigner @cb_doge “Grok Analysis” is one of the most useful features on 𝕏. Tap the Grok icon。
+
+    **关键点**
+
+    - Tap the Grok logo on the upp
+    - you’ll get an instant Grok a
+
+    **影响分析**：Tap the Grok logo on the upper right of any post for analysis DogeDesigner @cb_doge “Grok Analysis” is one of the most useful features on。
+
+    **来源**：[原文链接](https://x.com/elonmusk/status/2038899186373194032)
+
+??? info "5. @hailuo_ai 发布重要更新"
+    **摘要**：Hailuo’s biggest discount ends in 15 hours... Exciting features and models are on the way. Your best chance to unlock unlimited access for all. 👉 hailuoai.video。
+
+    **关键点**
+
+    - Hailuo’s biggest discount en
+    - models are on the way. Your
+
+    **影响分析**：Hailuo’s biggest discount ends in 15 hours... Exciting features and models are on the way. Your best chance to unlock unlimited access for a。
+
+    **来源**：[原文链接](https://x.com/Hailuo_AI/status/2038889234850099390)
+
+??? info "6. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2603.26675v1 Announce Type:new Abstract:Block diffusion enables efficient parallel refinement in diffusion language models,but its decoding behavior de。
+
+    **关键点**
+
+    - arXiv:2603.26675v1 Announce
+    - but its decoding behavior de
+    - do not account for the depen
+
+    **影响分析**：arXiv:2603.26675v1 Announce Type:new Abstract:Block diffusion enables efficient parallel refinement in diffusion language models,but its。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2603.26675)
+
+??? info "7. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2603.26680v1 Announce Type:new Abstract:As Large Language Models LLMs evolve into lifelong AI assistants,LLM personalization has become a critical fr。
+
+    **关键点**
+
+    - arXiv:2603.26680v1 Announce
+    - LLM personalization has beco
+    - progress is currently bottle
+
+    **影响分析**：arXiv:2603.26680v1 Announce Type:new Abstract:As Large Language Models LLMs evolve into lifelong AI assistants,LLM personalization has。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2603.26680)
+
+??? info "8. arxiv.org 发布 0.59 版本更新"
+    **摘要**：arXiv:2603.26707v1 Announce Type:new Abstract:This paper documents and theorises a self-reinforcing dynamic between two measurable trends:the exponential exp。
+
+    **关键点**
+
+    - arXiv:2603.26707v1 Announce
+    - theorises a self-reinforcing
+    - the secular contraction of h
+
+    **影响分析**：arXiv:2603.26707v1 Announce Type:new Abstract:This paper documents and theorises a self-reinforcing dynamic between two measurable trends。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2603.26707)
+
+??? info "9. arxiv.org 发布 2.0 版本更新"
+    **摘要**：arXiv:2603.26742v1 Announce Type:new Abstract:Vision-language models score well on mathematical,scientific,and spatial reasoning benchmarks,yet these evalu。
+
+    **关键点**
+
+    - arXiv:2603.26742v1 Announce
+    - scientific
+    - spatial reasoning benchmarks
+
+    **影响分析**：arXiv:2603.26742v1 Announce Type:new Abstract:Vision-language models score well on mathematical,scientific,and spatial reasoning benchma。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2603.26742)
+
+??? info "10. @notionhq 发布重要更新"
+    **摘要**：notion.com Video。
+
+    **关键点**
+
+    - notion.com Video
+    - notion.com相关进展已由一手来源披露
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：Prasanth-ADS/hybrid-rag-pipeline相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：notion.com相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://github.com/Prasanth-ADS/hybrid-rag-pipeline)
+    **来源**：[原文链接](https://x.com/NotionHQ/status/2038772791705841926)
 
-??? info "5. mr-bala-kavi/bank-frauds-analysis 发布重要更新"
-    **摘要**：⭐ 2 stars | Python。
+??? info "11. @notionhq 发布重要更新"
+    **摘要**：Think Together. Ivan Zhao @ivanhzhao The loudest story about AI is a lonely one. One person with an army of chatbots. Other humans are friction. That gets the。
 
     **关键点**
 
-    - ⭐ 2 stars | Python
-    - mr-bala-kavi/bank-frauds-ana
+    - Think Together. Ivan Zhao
+    - an army of chatbots. Other h
+    - we want to remind the world
+
+    **影响分析**：Think Together. Ivan Zhao @ivanhzhao The loudest story about AI is a lonely one. One person with an army of chatbots. Other humans are fri。
+
+    **来源**：[原文链接](https://x.com/NotionHQ/status/2038748774408028174)
+
+??? info "12. @replit 发布重要更新"
+    **摘要**：Read the full breakdown on our blog:blog.replit.com/whats-change…。
+
+    **关键点**
+
+    - Read the full breakdown on o
+    - R to @Replit:Read the full
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：mr-bala-kavi/bank-frauds-analysis相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：R to @Replit:Read the full breakdown on our blog:https://blog.replit.com/whats-changed-agent3-to-agent4相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://github.com/mr-bala-kavi/bank-frauds-analysis)
+    **来源**：[原文链接](https://x.com/Replit/status/2038738073832300935)
 
-??? info "6. grapeot/health-quantification:AI-first personal h"
-    **摘要**：⭐ 2 stars | Python AI-first personal health quantification:Apple Health → SQLite → CLI → AI analysis。
-
-    **关键点**
-
-    - ⭐ 2 stars | Python AI-first
-    - grapeot/health-quantificatio
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：grapeot/health-quantification:AI-first personal health quantification:Apple Health → SQLite → CLI → AI analys相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/grapeot/health-quantification)
-
-??? info "7. govarthinigajendran-gggp/Emergency-Power-Cut-Detec"
-    **摘要**：⭐ 17 stars | An automated emergency response system for elevators that detects power interruptions and safely directs the lift to the nearest floor. Focuses on。
+??? info "13. @replit 发布重要更新"
+    **摘要**：Agent 4 didnt replace what worked. It rethought it. The building experience is fundamentally better. The Design Canvas now works across every artifact type. Co。
 
     **关键点**
 
-    - ⭐ 17 stars | An automated em
-    - safely directs the lift to t
-    - reducing risk
+    - Agent 4 didnt replace what
+    - Agent 4 didnt replace what w
+    - @replit 发布重要更新
 
-    **影响分析**：⭐ 17 stars | An automated emergency response system for elevators that detects power interruptions and safely directs the lift to the neares。
+    **影响分析**：Agent 4 didnt replace what worked. It rethought it. The building experience is fundamentally better. The Design Canvas now works across eve。
 
-    **来源**：[原文链接](https://github.com/govarthinigajendran-gggp/Emergency-Power-Cut-Detection-with-Automatic-Nearest-Floor-Rescue)
+    **来源**：[原文链接](https://x.com/Replit/status/2038738072758518224)
 
-??? info "8. abhivk1511-dev/Emergency-Power-Cut-Detection-with"
-    **摘要**：⭐ 15 stars | A smart elevator safety system that detects emergency power failures and automatically moves the lift to the nearest floor for safe evacuation. Enh。
-
-    **关键点**
-
-    - ⭐ 15 stars | A smart elevato
-    - automatically moves the lift
-    - automated rescue mechanisms.
-
-    **影响分析**：⭐ 15 stars | A smart elevator safety system that detects emergency power failures and automatically moves the lift to the nearest floor for。
-
-    **来源**：[原文链接](https://github.com/abhivk1511-dev/Emergency-Power-Cut-Detection-with-Automatic-Nearest-Floor-Rescue)
-
-??? info "9. Akshaya285/Emergency-Power-Cut-Detection-with-Auto"
-    **摘要**：⭐ 19 stars | A reliable elevator safety solution that identifies sudden power failures and triggers an automatic nearest-floor landing. Designed to prevent pass。
+??? info "14. elevenlabs/elevenlabs-js 发布 v2.41.0 版本更新"
+    **摘要**：Whats Changed add multimodal_message WebSocket event by @sedatcagdas in #353 🌿 Fern Regeneration-March 23,2026 by @fern-api bot in #358 🌿 Fern Regenerati。
 
     **关键点**
 
-    - ⭐ 19 stars | A reliable elev
-    - triggers an automatic neares
-    - ensuring quick
+    - Whats Changed add multimoda
+    - by @fern-api bot in #358 🌿
+    - by @fern-api bot in #359 N
 
-    **影响分析**：⭐ 19 stars | A reliable elevator safety solution that identifies sudden power failures and triggers an automatic nearest-floor landing. Desi。
+    **影响分析**：Whats Changed add multimodal_message WebSocket event by @sedatcagdas in #353 🌿 Fern Regeneration-March 23,2026 by @fern-api bot in #3。
 
-    **来源**：[原文链接](https://github.com/Akshaya285/Emergency-Power-Cut-Detection-with-Automatic-Nearest-Floor-Rescue)
+    **来源**：[原文链接](https://github.com/elevenlabs/elevenlabs-js/releases/tag/v2.41.0)
 
-??? info "10. Dharshanaa-R/Emergency-Power-Cut-Detection-with-Au"
-    **摘要**：⭐ 17 stars | An intelligent system for detecting power cuts in elevators and ensuring automatic nearest-floor rescue. Uses sensors and control logic to safely b。
-
-    **关键点**
-
-    - ⭐ 17 stars | An intelligent
-    - ensuring automatic nearest-f
-    - control logic to safely brin
-
-    **影响分析**：⭐ 17 stars | An intelligent system for detecting power cuts in elevators and ensuring automatic nearest-floor rescue. Uses sensors and contr。
-
-    **来源**：[原文链接](https://github.com/Dharshanaa-R/Emergency-Power-Cut-Detection-with-Automatic-Nearest-Floor-Rescue)
-
-??? info "11. prakhar1605/test-remote-mcp-server 发布重要更新"
-    **摘要**：⭐ 2 stars | Python。
+??? info "15. @replit 发布重要更新"
+    **摘要**：From app idea to App Store revenue. Lets go. 🚀 Manny Bernabe @MannyBernabe Replit made it easy to build your app. @RevenueCat makes it easy to make money fro。
 
     **关键点**
 
-    - ⭐ 2 stars | Python
-    - prakhar1605/test-remote-mcp
-    - 预计将影响后续产品与行业节奏
+    - From app idea to App Store r
+    - So we built a tight integr
+    - RevenueCat to make going fro
 
-    **影响分析**：prakhar1605/test-remote-mcp-server相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：From app idea to App Store revenue. Lets go. 🚀 Manny Bernabe @MannyBernabe Replit made it easy to build your app. @RevenueCat makes it ea。
 
-    **来源**：[原文链接](https://github.com/prakhar1605/test-remote-mcp-server)
+    **来源**：[原文链接](https://x.com/Replit/status/2038684380948762662)
 
-??? info "12. Mehrozsheikh/aso-appstore-listing-skill:Generate"
-    **摘要**：⭐ 4 stars | Generate high-converting App Store listings name,subtitle,keywords,and description using AI-powered ASO best practices in one command.。
-
-    **关键点**
-
-    - ⭐ 4 stars | Generate high-co
-    - subtitle
-    - keywords
-
-    **影响分析**：Mehrozsheikh/aso-appstore-listing-skill:Generate high-converting App Store listings name,subtitle,keywords,and descr相关进展已由一手来源披露，预计将影响后。
-
-    **来源**：[原文链接](https://github.com/Mehrozsheikh/aso-appstore-listing-skill)
-
-??? info "13. Srivardhini-S/quantum-noise-signal-classifier:Qua"
-    **摘要**：⭐ 19 stars | Python Quantum Machine Learning project with noise filtering and signal classification。
+??? info "16. @replit 发布重要更新"
+    **摘要**：Sometimes you dont have a marketing team. Or the $$. Replits AI Ad Creator skill turns one prompt into an ad. Ship the idea first. Refine it later. Samuel Spi。
 
     **关键点**
 
-    - ⭐ 19 stars | Python Quantum
-    - noise filtering
-    - signal classification
+    - Sometimes you dont have a m
+    - AI Video-https://nitter.ne
 
-    **影响分析**：Srivardhini-S/quantum-noise-signal-classifier:Quantum Machine Learning project with noise filtering and signal classification相关进展已由一手来源披露，预。
+    **影响分析**：Sometimes you dont have a marketing team. Or the $$. Replits AI Ad Creator skill turns one prompt into an ad. Ship the idea first. Refine。
 
-    **来源**：[原文链接](https://github.com/Srivardhini-S/quantum-noise-signal-classifier)
+    **来源**：[原文链接](https://x.com/Replit/status/2038666846229164399)
 
-??? info "14. cakashramana-ship-it/Embedded:Hardware Project"
-    **摘要**：⭐ 14 stars | C++ Hardware Project。
-
-    **关键点**
-
-    - ⭐ 14 stars | C++ Hardware Pr
-    - cakashramana-ship-it/Embedde
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：cakashramana-ship-it/Embedded:Hardware Project相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/cakashramana-ship-it/Embedded)
-
-??? info "15. Dhanush835/DHT11 发布重要更新"
-    **摘要**：⭐ 23 stars | C++。
+??? info "17. @awscloud 发布重要更新"
+    **摘要**：Discover how AWS Migration &amp；Modernization with agentic AI can accelerate your digital transformation. go.aws/3PBCpZ6。
 
     **关键点**
 
-    - ⭐ 23 stars | C++
-    - Dhanush835/DHT11相关进展已由一手来源披露
-    - 预计将影响后续产品与行业节奏
+    - Discover how AWS Migration &
+    - Modernization
+    - agentic AI can accelerate yo
 
-    **影响分析**：Dhanush835/DHT11相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：Discover how AWS Migration &amp。
 
-    **来源**：[原文链接](https://github.com/Dhanush835/DHT11)
+    **来源**：[原文链接](https://x.com/awscloud/status/2038659556218155096)
 
-??? info "16. gangakarikalan16/dress-shopping-website 发布重要更新"
-    **摘要**：⭐ 13 stars | HTML。
-
-    **关键点**
-
-    - ⭐ 13 stars | HTML
-    - gangakarikalan16/dress-shopp
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：gangakarikalan16/dress-shopping-website相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/gangakarikalan16/dress-shopping-website)
-
-??? info "17. kaname-madoka18/TinySplat:This repository contain"
-    **摘要**：⭐ 2 stars | Python This repository contains the official reference implementation for **TinySplat**,a framework designed for the highly efficient compression o。
+??? info "18. @awscloud 发布重要更新"
+    **摘要**：Reverse engineer 45 years of mainframe code in one day? @Toyota did-using Amazon Q Developer to scan hundreds of COBOL modules,generating documentation that no。
 
     **关键点**
 
-    - ⭐ 2 stars | Python This repo
-    - a framework designed for the
-    - kaname-madoka18/TinySplat:T
+    - Reverse engineer 45 years of
+    - @Toyota did-using Amazon Q D
+    - generating documentation tha
 
-    **影响分析**：⭐ 2 stars | Python This repository contains the official reference implementation for **TinySplat**,a framework designed for the highly eff。
+    **影响分析**：Reverse engineer 45 years of mainframe code in one day。
 
-    **来源**：[原文链接](https://github.com/kaname-madoka18/TinySplat)
+    **来源**：[原文链接](https://x.com/awscloud/status/2038659548714594787)
 
-??? info "18. Praveenraj-Kumar/Coffee-Ordering-Web-App 发布重要更新"
-    **摘要**：⭐ 8 stars | CSS。
-
-    **关键点**
-
-    - ⭐ 8 stars | CSS
-    - Praveenraj-Kumar/Coffee-Orde
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：Praveenraj-Kumar/Coffee-Ordering-Web-App相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/Praveenraj-Kumar/Coffee-Ordering-Web-App)
-
-??? info "19. averygan/reclip:Download videos from almost any w"
-    **摘要**：⭐ 8 stars | HTML Download videos from almost any website. Lightweight,self-hosted media downloader with a clean web UI.。
+??? info "19. @sama 发布重要更新"
+    **摘要**：This is a very good post:Boaz Barak @boazbaraktcs New blog post:the state of AI safety in four fake graphs.-https://nitter.net/boazbaraktcs/status/2038606。
 
     **关键点**
 
-    - ⭐ 8 stars | HTML Download vi
-    - self-hosted media downloader
-    - a clean web UI.
+    - This is a very good post:Bo
+    - This is a very good post
 
-    **影响分析**：averygan/reclip:Download videos from almost any website. Lightweight,self-hosted media download相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：This is a very good post:Boaz Barak @boazbaraktcs New blog post:the state of AI safety in four fake graphs.-https://nitter.net/boazbar。
 
-    **来源**：[原文链接](https://github.com/averygan/reclip)
+    **来源**：[原文链接](https://x.com/sama/status/2038640963036626971)
 
-??? info "20. Buvanesh-3/Terra_Dashboard 发布重要更新"
-    **摘要**：⭐ 17 stars | JavaScript。
+??? info "20. @gammaapp 发布重要更新"
+    **摘要**：Describe Gamma as a person at this party... We went around to our users in Seoul during our world tour and asked why they chose Gamma. Video。
 
     **关键点**
 
-    - ⭐ 17 stars | JavaScript
-    - Buvanesh-3/Terra_Dashboard相关
-    - 预计将影响后续产品与行业节奏
+    - Describe Gamma as a person
+    - asked why they chose Gamma.
+    - asked why they chose Gamma.相
 
-    **影响分析**：Buvanesh-3/Terra_Dashboard相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：Describe Gamma as a person at this party... We went around to our users in Seoul during our world tour and asked why they chose Gamma.相关进展。
 
-    **来源**：[原文链接](https://github.com/Buvanesh-3/Terra_Dashboard)
+    **来源**：[原文链接](https://x.com/GammaApp/status/2038636113926238305)
 
 ---
 
 ## 历史归档
 
+- [2026-03-31_21-04-13](history/2026-03-31_21-04-13.md)
 - [2026-03-31_14-55-11](history/2026-03-31_14-55-11.md)
 - [2026-03-31_13-29-52](history/2026-03-31_13-29-52.md)
 - [2026-03-31_12-17-33](history/2026-03-31_12-17-33.md)
