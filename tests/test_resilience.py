@@ -164,8 +164,7 @@ def test_expand_source_urls_keeps_x_source_when_nitter_down_and_api_fallback_rea
 def test_fetch_single_source_nitter_uses_twitterapi_io_fallback_with_cache(monkeypatch):
     monkeypatch.setenv("TWITTERAPI_IO_ENABLED", "1")
     monkeypatch.setenv("TWITTERAPI_IO_KEY", "test-key")
-    with main._twitterapi_io_cache_lock:
-        main._twitterapi_io_cache.clear()
+    main.clear_twitter_caches()
 
     monkeypatch.setattr(
         main.feedparser,
