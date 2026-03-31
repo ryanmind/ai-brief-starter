@@ -239,6 +239,7 @@ def test_review_item_with_model_fail_open_on_exception(monkeypatch):
 def test_review_items_with_multi_model_voting_meets_threshold(monkeypatch):
     """Test multi-model review when enough models pass."""
     monkeypatch.setattr("src.config.REVIEW_PASS_THRESHOLD", 2)
+    monkeypatch.setattr("src.config.get_review_models", lambda: ["model1", "model2"])
 
     mock_client = Mock()
 
