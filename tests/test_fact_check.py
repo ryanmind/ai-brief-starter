@@ -48,7 +48,7 @@ def test_extractive_brief():
     assert extractive_brief({"title": "标题", "summary": ""}) == "标题"
 
 
-def test_sanitize_item_factuality():
+def test_sanitize_item_factuality(monkeypatch):
     item = {
         "title": "测试证据标题",
         "summary": "这是原始摘要的第一句。这是第二句。",
@@ -58,16 +58,11 @@ def test_sanitize_item_factuality():
     
     # brief 重合度低，应该被降级为抽取式
     # 抽取式结果应该是 "这是原始摘要的第一句。"
-    # brief 重合度低，应该被降级为抽取式
-    # 抽取式结果应该是 "这是原始摘要的第一句。"
-    # NOTE: Since FACT_OVERLAP_MIN is fetched from env, we patch it for the test
     import main
-    old_min = main.FACT_OVERLAP_MIN
-    main.FACT_OVERLAP_MIN = 0.8
-    try:
-        sanitized = sanitize_item_factuality(item)
-    finally:
-        main.FACT_OVERLAP_MIN = old_min
+    import src.text_utils
+    monkeypatch.setattr(main, "FACT_OVERLAP_MIN", 0.8)
+    monkeypatch.setattr(src.text_utils, "FACT_OVERLAP_MIN", 0.8)
+    sanitized = sanitize_item_factuality(item)
     assert sanitized["brief"] == "这是原始摘要的第一句"
     
     # 此时 details 也会被重置为抽取式的第二句或等于 brief
