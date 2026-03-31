@@ -340,11 +340,38 @@ def fetch_from_twitterapi_io(
     return [NewsItem.from_dict(item) for item in parsed_items], None
 
 
+_BLOCKED_SSRF_HOSTS = {
+    "localhost",
+    "127.0.0.1",
+    "169.254.169.254",
+    "metadata.google.internal",
+    "metadata.internal",
+}
+
+
+def _is_safe_source_url(url: str) -> bool:
+    """Check if a source URL is safe from SSRF attacks."""
+    parsed = urlparse(url)
+    scheme = parsed.scheme.lower()
+    if scheme not in ("http", "https"):
+        return False
+    host = (parsed.netloc or "").lower()
+    if not host or host in _BLOCKED_SSRF_HOSTS:
+        return False
+    # Block obvious private IP ranges (simplified check)
+    if host.startswith(("10.", "192.168.", "172.")):
+        return False
+    return True
+
+
 def load_sources(path: str = "sources.txt") -> list[str]:
     lines = Path(path).read_text(encoding="utf-8").splitlines()
     raw_sources = [line.strip() for line in lines if line.strip() and not line.strip().startswith("#")]
     expanded: list[str] = []
     for source in raw_sources:
+        if not _is_safe_source_url(source):
+            logger.warning("load_sources: skipping blocked SSRF-risk source: %s", source)
+            continue
         expanded.extend(expand_source_urls(source))
     return list(dict.fromkeys(expanded))
 
