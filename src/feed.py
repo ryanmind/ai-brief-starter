@@ -459,37 +459,46 @@ def fetch_github_trending(
 
 
 
+def _probe_single_nitter(base: str, timeout: float) -> tuple[str, bool]:
+    """探测单个 Nitter 实例是否存活。返回 (base, is_alive)。"""
+    from urllib import error as urlerror, request as urlrequest
+
+    for method in ("HEAD", "GET"):
+        try:
+            req = urlrequest.Request(
+                f"{base}/",
+                method=method,
+                headers={"User-Agent": "ai-brief-starter/1.0"},
+            )
+            with urlrequest.urlopen(req, timeout=timeout):
+                return (base, True)
+        except urlerror.HTTPError as exc:
+            if 400 <= exc.code < 500:
+                return (base, True)
+        except (urlerror.URLError, OSError, TimeoutError):
+            continue
+    return (base, False)
+
+
 def probe_nitter_bases(bases: list[str], timeout: float = 5.0) -> list[str]:
     """探测哪些 Nitter 实例可用，返回存活列表（结果缓存）。"""
     cached = _global_twitter_cache.get_nitter_alive_cache()
     if cached is not None:
         return cached
 
-    from urllib import error as urlerror, request as urlrequest
+    if not bases:
+        return []
 
     alive: list[str] = []
-    for base in bases:
-        is_alive = False
-        for method in ("HEAD", "GET"):
-            try:
-                req = urlrequest.Request(
-                    f"{base}/",
-                    method=method,
-                    headers={"User-Agent": "ai-brief-starter/1.0"},
-                )
-                with urlrequest.urlopen(req, timeout=timeout):
-                    is_alive = True
-                    break
-            except urlerror.HTTPError as exc:
-                if 400 <= exc.code < 500:
-                    is_alive = True
-                    break
-            except (urlerror.URLError, OSError, TimeoutError):
-                continue
-        if is_alive:
-            alive.append(base)
-        else:
-            logger.warning("nitter instance down: %s", base)
+    with ThreadPoolExecutor(max_workers=len(bases)) as executor:
+        futures = {executor.submit(_probe_single_nitter, base, timeout): base for base in bases}
+        for future in as_completed(futures):
+            base, is_alive = future.result()
+            if is_alive:
+                alive.append(base)
+            else:
+                logger.warning("nitter instance down: %s", base)
+
     if not alive:
         logger.error("all nitter instances are down, X/Twitter sources will be unavailable")
     else:
