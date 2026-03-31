@@ -30,6 +30,7 @@ from src.text_utils import (  # noqa: E402
     host_matches,
     normalize_for_compare,
     normalize_host,
+    split_key_point_candidates,
     title_looks_incomplete as shared_title_looks_incomplete,
 )
 
@@ -93,23 +94,6 @@ def title_looks_incomplete(title: str) -> bool:
 def source_host(value: str) -> str:
     parsed_source = extract_first_url(value) or value
     return normalize_host(urlparse(parsed_source).netloc or "")
-
-
-def split_key_point_candidates(text: str) -> list[str]:
-    cleaned = clean_text(text)
-    if not cleaned:
-        return []
-
-    chunks: list[str] = []
-    for sentence in re.split(r"[。！？!?；;]+", cleaned):
-        sentence = sentence.strip()
-        if not sentence:
-            continue
-        parts = [sentence]
-        if len(sentence) > 28:
-            parts = [part.strip() for part in re.split(r"[，,]", sentence) if part.strip()]
-        chunks.extend(parts)
-    return chunks
 
 
 def normalize_key_point_text(text: str, max_chars: int) -> str:
