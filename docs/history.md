@@ -1,4 +1,4 @@
-> 更新时间：2026年03月31日22:37:12
+> 更新时间：2026年03月31日22:50:17
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
@@ -7,28 +7,29 @@
 2. @runwayml 发布重要更新：Today were also introducing the Runway Fun。
 3. @runwayml 发布重要更新：Apply at runwayml.com/product/builder…。
 4. @runwayml 发布重要更新：Runway Builders is already live with a fou。
-5. @hailuo_ai 发布重要更新：Hailuo’s biggest discount ends in 15 hours。
+5. @elonmusk 发布重要更新：Video。
 
 ## 分类速览
 
-=== "🤖 模型进展（0）"
-    - 暂无条目
+=== "🤖 模型进展（2）"
+    - **6. @elonmusk 发布重要更新**：RT by @elonmusk:On the plus side,if you forgot…
+    - **8. @elonmusk 发布重要更新**：Tap the Grok logo on the upper right of any pos…
 
 === "🧪 论文研究（4）"
-    - **6. arxiv.org 发布重要更新**：arXiv:2603.26765v1 Announce Type:new Abstract:T…
-    - **7. arxiv.org 发布重要更新**：arXiv:2603.26838v1 Announce Type:new Abstract:T…
-    - **8. arxiv.org 发布重要更新**：arXiv:2603.26948v1 Announce Type:new Abstract:E…
-    - **9. arxiv.org 发布重要更新**：arXiv:2603.26983v1 Announce Type:new Abstract:A…
+    - **10. arxiv.org 发布重要更新**：arXiv:2603.26765v1 Announce Type:new Abstract:T…
+    - **11. arxiv.org 发布重要更新**：arXiv:2603.26838v1 Announce Type:new Abstract:T…
+    - **12. arxiv.org 发布重要更新**：arXiv:2603.26948v1 Announce Type:new Abstract:E…
+    - **13. arxiv.org 发布重要更新**：arXiv:2603.26983v1 Announce Type:new Abstract:A…
 
-=== "🏢 产品与行业（16）"
+=== "🏢 产品与行业（14）"
     - **1. @runwayml 发布重要更新**：Were excited to formalize this work as part of…
     - **2. @runwayml 发布重要更新**：Today were also introducing the Runway Fund,an…
     - **3. @runwayml 发布重要更新**：R to @runwayml:Apply at http://runwayml.com/pro…
     - **4. @runwayml 发布重要更新**：Runway Builders is already live with a founding…
-    - **5. @hailuo_ai 发布重要更新**：Hailuo’s biggest discount ends in 15 hours... E…
-    - **10. @notionhq 发布重要更新**：notion.com相关进展已由一手来源披露，预计将影响后续产品与行业节奏
-    - **11. @notionhq 发布重要更新**：Think Together. Ivan Zhao @ivanhzhao The loudes…
-    - **12. @replit 发布重要更新**：R to @Replit:Read the full breakdown on our blo…
+    - **5. @elonmusk 发布重要更新**：Video相关进展已由一手来源披露，预计将影响后续产品与行业节奏
+    - **7. @elonmusk 发布重要更新**：Stainless Steel Starship X Freeze @XFreeze Ever…
+    - **9. @hailuo_ai 发布重要更新**：Hailuo’s biggest discount ends in 15 hours... E…
+    - **14. @notionhq 发布重要更新**：notion.com相关进展已由一手来源披露，预计将影响后续产品与行业节奏
 
 ## 全部快讯
 
@@ -84,7 +85,58 @@
 
     **来源**：[原文链接](https://x.com/runwayml/status/2038983404683759859)
 
-??? info "5. @hailuo_ai 发布重要更新"
+??? info "5. @elonmusk 发布重要更新"
+    **摘要**：Video。
+
+    **关键点**
+
+    - Video
+    - Video相关进展已由一手来源披露
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：Video相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/elonmusk/status/2038923221702185078)
+
+??? info "6. @elonmusk 发布重要更新"
+    **摘要**：On the plus side,if you forgot the password to your wallet,it will be accessible in the future nitter.net/i/grok/share/ad0b425eb…。
+
+    **关键点**
+
+    - On the plus side
+    - if you forgot the password t
+    - it will be accessible in the
+
+    **影响分析**：RT by @elonmusk:On the plus side,if you forgot the password to your wallet,it will be accessible in the future https://x.com/i/grok/share。
+
+    **来源**：[原文链接](https://x.com/elonmusk/status/2038922841849295062)
+
+??? info "7. @elonmusk 发布重要更新"
+    **摘要**：Stainless Steel Starship X Freeze @XFreeze Everyone thought the future was carbon fiber Elon Musk looked at the physics and chose stainless steel for Starship。
+
+    **关键点**
+
+    - Stainless Steel Starship X F
+    - chose stainless steel for St
+    - handles reentry heat better
+
+    **影响分析**：Stainless Steel Starship X Freeze @XFreeze Everyone thought the future was carbon fiber Elon Musk looked at the physics and chose stainles。
+
+    **来源**：[原文链接](https://x.com/elonmusk/status/2038908411816153587)
+
+??? info "8. @elonmusk 发布重要更新"
+    **摘要**：Tap the Grok logo on the upper right of any post for analysis DogeDesigner @cb_doge “Grok Analysis” is one of the most useful features on 𝕏. Tap the Grok icon。
+
+    **关键点**
+
+    - Tap the Grok logo on the upp
+    - you’ll get an instant Grok a
+
+    **影响分析**：Tap the Grok logo on the upper right of any post for analysis DogeDesigner @cb_doge “Grok Analysis” is one of the most useful features on。
+
+    **来源**：[原文链接](https://x.com/elonmusk/status/2038899186373194032)
+
+??? info "9. @hailuo_ai 发布重要更新"
     **摘要**：Hailuo’s biggest discount ends in 15 hours... Exciting features and models are on the way. Your best chance to unlock unlimited access for all. 👉 hailuoai.video。
 
     **关键点**
@@ -96,7 +148,7 @@
 
     **来源**：[原文链接](https://x.com/Hailuo_AI/status/2038889234850099390)
 
-??? info "6. arxiv.org 发布重要更新"
+??? info "10. arxiv.org 发布重要更新"
     **摘要**：arXiv:2603.26765v1 Announce Type:new Abstract:The efficiency of game engines and policy optimization algorithms is crucial for training reinforcement learning。
 
     **关键点**
@@ -109,7 +161,7 @@
 
     **来源**：[原文链接](https://arxiv.org/abs/2603.26765)
 
-??? info "7. arxiv.org 发布重要更新"
+??? info "11. arxiv.org 发布重要更新"
     **摘要**：arXiv:2603.26838v1 Announce Type:new Abstract:This paper surveys uncertainty-aware explainable artificial intelligence UAXAI,examining how uncertainty is i。
 
     **关键点**
@@ -122,7 +174,7 @@
 
     **来源**：[原文链接](https://arxiv.org/abs/2603.26838)
 
-??? info "8. arxiv.org 发布重要更新"
+??? info "12. arxiv.org 发布重要更新"
     **摘要**：arXiv:2603.26948v1 Announce Type:new Abstract:Existing approaches for predictive process monitoring are sub-symbolic,meaning that they learn correlations bet。
 
     **关键点**
@@ -135,7 +187,7 @@
 
     **来源**：[原文链接](https://arxiv.org/abs/2603.26948)
 
-??? info "9. arxiv.org 发布重要更新"
+??? info "13. arxiv.org 发布重要更新"
     **摘要**：arXiv:2603.26983v1 Announce Type:new Abstract:Art. 50 II of the EU Artificial Intelligence Act mandates dual transparency for AI-generated content:outputs mu。
 
     **关键点**
@@ -148,7 +200,7 @@
 
     **来源**：[原文链接](https://arxiv.org/abs/2603.26983)
 
-??? info "10. @notionhq 发布重要更新"
+??? info "14. @notionhq 发布重要更新"
     **摘要**：notion.com Video。
 
     **关键点**
@@ -161,7 +213,7 @@
 
     **来源**：[原文链接](https://x.com/NotionHQ/status/2038772791705841926)
 
-??? info "11. @notionhq 发布重要更新"
+??? info "15. @notionhq 发布重要更新"
     **摘要**：Think Together. Ivan Zhao @ivanhzhao The loudest story about AI is a lonely one. One person with an army of chatbots. Other humans are friction. That gets the。
 
     **关键点**
@@ -174,7 +226,7 @@
 
     **来源**：[原文链接](https://x.com/NotionHQ/status/2038748774408028174)
 
-??? info "12. @replit 发布重要更新"
+??? info "16. @replit 发布重要更新"
     **摘要**：Read the full breakdown on our blog:blog.replit.com/whats-change…。
 
     **关键点**
@@ -187,7 +239,7 @@
 
     **来源**：[原文链接](https://x.com/Replit/status/2038738073832300935)
 
-??? info "13. @replit 发布重要更新"
+??? info "17. @replit 发布重要更新"
     **摘要**：Agent 4 didnt replace what worked. It rethought it. The building experience is fundamentally better. The Design Canvas now works across every artifact type. Co。
 
     **关键点**
@@ -200,7 +252,7 @@
 
     **来源**：[原文链接](https://x.com/Replit/status/2038738072758518224)
 
-??? info "14. elevenlabs/elevenlabs-js 发布 v2.41.0 版本更新"
+??? info "18. elevenlabs/elevenlabs-js 发布 v2.41.0 版本更新"
     **摘要**：Whats Changed add multimodal_message WebSocket event by @sedatcagdas in #353 🌿 Fern Regeneration-March 23,2026 by @fern-api bot in #358 🌿 Fern Regenerati。
 
     **关键点**
@@ -213,7 +265,7 @@
 
     **来源**：[原文链接](https://github.com/elevenlabs/elevenlabs-js/releases/tag/v2.41.0)
 
-??? info "15. @replit 发布重要更新"
+??? info "19. @replit 发布重要更新"
     **摘要**：From app idea to App Store revenue. Lets go. 🚀 Manny Bernabe @MannyBernabe Replit made it easy to build your app. @RevenueCat makes it easy to make money fro。
 
     **关键点**
@@ -226,7 +278,7 @@
 
     **来源**：[原文链接](https://x.com/Replit/status/2038684380948762662)
 
-??? info "16. @replit 发布重要更新"
+??? info "20. @replit 发布重要更新"
     **摘要**：Sometimes you dont have a marketing team. Or the $$. Replits AI Ad Creator skill turns one prompt into an ad. Ship the idea first. Refine it later. Samuel Spi。
 
     **关键点**
@@ -238,61 +290,11 @@
 
     **来源**：[原文链接](https://x.com/Replit/status/2038666846229164399)
 
-??? info "17. @awscloud 发布重要更新"
-    **摘要**：Discover how AWS Migration &amp；Modernization with agentic AI can accelerate your digital transformation. go.aws/3PBCpZ6。
-
-    **关键点**
-
-    - Discover how AWS Migration &
-    - Modernization
-    - agentic AI can accelerate yo
-
-    **影响分析**：Discover how AWS Migration &amp。
-
-    **来源**：[原文链接](https://x.com/awscloud/status/2038659556218155096)
-
-??? info "18. @awscloud 发布重要更新"
-    **摘要**：Reverse engineer 45 years of mainframe code in one day? @Toyota did-using Amazon Q Developer to scan hundreds of COBOL modules,generating documentation that no。
-
-    **关键点**
-
-    - Reverse engineer 45 years of
-    - @Toyota did-using Amazon Q D
-    - generating documentation tha
-
-    **影响分析**：Reverse engineer 45 years of mainframe code in one day。
-
-    **来源**：[原文链接](https://x.com/awscloud/status/2038659548714594787)
-
-??? info "19. @sama 发布重要更新"
-    **摘要**：This is a very good post:Boaz Barak @boazbaraktcs New blog post:the state of AI safety in four fake graphs.-https://nitter.net/boazbaraktcs/status/2038606。
-
-    **关键点**
-
-    - This is a very good post:Bo
-    - This is a very good post
-
-    **影响分析**：This is a very good post:Boaz Barak @boazbaraktcs New blog post:the state of AI safety in four fake graphs.-https://nitter.net/boazbar。
-
-    **来源**：[原文链接](https://x.com/sama/status/2038640963036626971)
-
-??? info "20. @gammaapp 发布重要更新"
-    **摘要**：Describe Gamma as a person at this party... We went around to our users in Seoul during our world tour and asked why they chose Gamma. Video。
-
-    **关键点**
-
-    - Describe Gamma as a person
-    - asked why they chose Gamma.
-    - asked why they chose Gamma.相
-
-    **影响分析**：Describe Gamma as a person at this party... We went around to our users in Seoul during our world tour and asked why they chose Gamma.相关进展。
-
-    **来源**：[原文链接](https://x.com/GammaApp/status/2038636113926238305)
-
 ---
 
 ## 历史归档
 
+- [2026-03-31_22-50-17](history/2026-03-31_22-50-17.md)
 - [2026-03-31_22-37-12](history/2026-03-31_22-37-12.md)
 - [2026-03-31_21-04-13](history/2026-03-31_21-04-13.md)
 - [2026-03-31_14-55-11](history/2026-03-31_14-55-11.md)
