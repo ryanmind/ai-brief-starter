@@ -854,6 +854,8 @@ def _fetch_single_source(
     try:
         feed = feedparser.parse(active_source)
     except (OSError, ValueError, TypeError) as exc:
+        # OSError covers I/O errors (network unavailable, DNS failure).
+        # ValueError covers malformed source URLs. TypeError covers type errors.
         if source_handle and source_host in X_HOSTS and twitterapi_io_fallback_ready():
             fallback_items, fallback_error = fetch_from_twitterapi_io(
                 handle=source_handle,
