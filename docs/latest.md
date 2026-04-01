@@ -1,15 +1,15 @@
 # 今日快讯
 
-> 更新时间：2026年04月01日12:28:53
+> 更新时间：2026年04月01日13:38:57
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. arxiv.org 发布重要更新：arXiv:2603.28913v1 Announce Type:new Abstr。
-2. arxiv.org 发布重要更新：arXiv:2603.28925v1 Announce Type:new Abstr。
-3. arxiv.org 发布 95.7 版本更新：arXiv:2603.28929v1 Announce Type:new Abstr。
-4. arxiv.org 发布重要更新：arXiv:2603.29023v1 Announce Type:new Abstr。
-5. @kaifulee 发布重要更新：China and Open Claw-My Interview on Bloomb。
+1. @elonmusk 发布重要更新：Custom orders of the Tesla Model S &amp。
+2. @elonmusk 发布重要更新：Sentient machines ΛI DRIVR @AIDRIVR I was。
+3. arxiv.org 发布重要更新：arXiv:2603.28902v1 Announce Type:new Abstr。
+4. arxiv.org 发布重要更新：arXiv:2603.28906v1 Announce Type:new Abstr。
+5. arxiv.org 发布重要更新：arXiv:2603.28928v1 Announce Type:new Abstr。
 
 ## 分类速览
 
@@ -17,76 +17,101 @@
     - 暂无条目
 
 === "🧪 论文研究（4）"
-    - **1. arxiv.org 发布重要更新**：arXiv:2603.28913v1 Announce Type:new Abstract:P…
-    - **2. arxiv.org 发布重要更新**：arXiv:2603.28925v1 Announce Type:new Abstract:S…
-    - **3. arxiv.org 发布 95.7 版本更新**：arXiv:2603.28929v1 Announce Type:new Abstract:M…
-    - **4. arxiv.org 发布重要更新**：arXiv:2603.29023v1 Announce Type:new Abstract:L…
+    - **3. arxiv.org 发布重要更新**：arXiv:2603.28902v1 Announce Type:new Abstract:C…
+    - **4. arxiv.org 发布重要更新**：arXiv:2603.28906v1 Announce Type:new Abstract:A…
+    - **5. arxiv.org 发布重要更新**：arXiv:2603.28928v1 Announce Type:new Abstract:W…
+    - **6. arxiv.org 发布 0.001 版本更新**：arXiv:2603.28990v1 Announce Type:new Abstract:H…
 
 === "🏢 产品与行业（16）"
-    - **5. @kaifulee 发布重要更新**：China and Open Claw-My Interview on Bloomberg y…
-    - **6. @anthropicai 发布重要更新**：Weve signed an MOU with the Australian Governme…
-    - **7. @replit 发布重要更新**：R to @Replit:Give it a try by clicking the + bu…
-    - **8. @openclaw 发布重要更新**：Huge thanks to @NVIDIAAI for supporting full-ti…
-    - **9. @openclaw 发布 2026.3.31 版本更新**：OpenClaw 2026.3.31 🦞 🇨🇳 Bundled QQ Bot-private…
-    - **10. @awscloud 发布重要更新**：R to @awscloud:go.aws/4dUbphi相关进展已由一手来源披露，预计将影响…
-    - **11. @awscloud 发布重要更新**：AWS DevOps Agent is now generally available. Yo…
-    - **12. @openai 发布重要更新**：Today,we closed our latest funding round with $…
+    - **1. @elonmusk 发布重要更新**：Custom orders of the Tesla Model S &amp
+    - **2. @elonmusk 发布重要更新**：Sentient machines ΛI DRIVR @AIDRIVR I was using…
+    - **7. @kaifulee 发布重要更新**：China and Open Claw-My Interview on Bloomberg y…
+    - **8. @anthropicai 发布重要更新**：Weve signed an MOU with the Australian Governme…
+    - **9. @replit 发布重要更新**：R to @Replit:Give it a try by clicking the + bu…
+    - **10. @openclaw 发布重要更新**：Huge thanks to @NVIDIAAI for supporting full-ti…
+    - **11. @openclaw 发布 2026.3.31 版本更新**：OpenClaw 2026.3.31 🦞 🇨🇳 Bundled QQ Bot-private…
+    - **12. @elonmusk 发布重要更新**：The Model 3 is such a fun car相关进展已由一手来源披露，预计将影响…
 
 ## 全部快讯
 
-??? info "1. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2603.28913v1 Announce Type:new Abstract:Polarity detection becomes substantially more challenging under domain shift,particularly in heterogeneous,lon。
+??? info "1. @elonmusk 发布重要更新"
+    **摘要**：Custom orders of the Tesla Model S &amp；X have come to an end. All that’s left are some in inventory. We will have an official ceremony to mark the ending of a。
 
     **关键点**
 
-    - arXiv:2603.28913v1 Announce
-    - particularly in heterogeneou
-    - long-form narratives
+    - Custom orders of the Tesla M
+    - X have come to an end. All t
 
-    **影响分析**：arXiv:2603.28913v1 Announce Type:new Abstract:Polarity detection becomes substantially more challenging under domain shift,particularly i。
+    **影响分析**：Custom orders of the Tesla Model S &amp。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2603.28913)
+    **来源**：[原文链接](https://x.com/elonmusk/status/2039202381683110191)
 
-??? info "2. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2603.28925v1 Announce Type:new Abstract:Safety fine-tuning in Large Language Models LLMs seeks to suppress potentially harmful forms of mind-attributi。
-
-    **关键点**
-
-    - arXiv:2603.28925v1 Announce
-    - mechanistic analyses of repr
-    - we demonstrate that LLM attr
-
-    **影响分析**：arXiv:2603.28925v1 Announce Type:new Abstract:Safety fine-tuning in Large Language Models LLMs seeks to suppress potentially harmful for。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2603.28925)
-
-??? info "3. arxiv.org 发布 95.7 版本更新"
-    **摘要**：arXiv:2603.28929v1 Announce Type:new Abstract:Multi-intent detection papers usually ask whether a model can recover multiple intents from one utterance. We as。
+??? info "2. @elonmusk 发布重要更新"
+    **摘要**：Sentient machines ΛI DRIVR @AIDRIVR I was using FSD leaving San Francisco when the power outage froze the Waymos my family was with me telling me the navigati。
 
     **关键点**
 
-    - arXiv:2603.28929v1 Announce
-    - for deployment
-    - more useful question:can it
+    - Sentient machines ΛI DRIVR
+    - me telling me the navigation
+    - made no sense
 
-    **影响分析**：arXiv:2603.28929v1 Announce Type:new Abstract:Multi-intent detection papers usually ask whether a model can recover multiple intents from。
+    **影响分析**：Sentient machines ΛI DRIVR @AIDRIVR I was using FSD leaving San Francisco when the power outage froze the Waymos my family was with me tel。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2603.28929)
+    **来源**：[原文链接](https://x.com/elonmusk/status/2039199192288231835)
+
+??? info "3. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2603.28902v1 Announce Type:new Abstract:Charts are central to analytical reasoning,yet existing benchmarks for chart understanding focus almost exclusi。
+
+    **关键点**
+
+    - arXiv:2603.28902v1 Announce
+    - yet existing benchmarks for
+    - we introduce ChartDiff
+
+    **影响分析**：arXiv:2603.28902v1 Announce Type:new Abstract:Charts are central to analytical reasoning,yet existing benchmarks for chart understanding。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2603.28902)
 
 ??? info "4. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2603.29023v1 Announce Type:new Abstract:Large language models lack persistent,structured memory for long-term interaction and context-sensitive retriev。
+    **摘要**：arXiv:2603.28906v1 Announce Type:new Abstract:AGI has become the Holly Grail of AI with the promise of level intelligence and the major Tech companies around。
 
     **关键点**
 
-    - arXiv:2603.29023v1 Announce
-    - structured memory for long-t
-    - context-sensitive retrieval.
+    - arXiv:2603.28906v1 Announce
+    - the promise of level intelli
+    - the major Tech companies aro
 
-    **影响分析**：arXiv:2603.29023v1 Announce Type:new Abstract:Large language models lack persistent,structured memory for long-term interaction and conte。
+    **影响分析**：arXiv:2603.28906v1 Announce Type:new Abstract:AGI has become the Holly Grail of AI with the promise of level intelligence and the major Te。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2603.29023)
+    **来源**：[原文链接](https://arxiv.org/abs/2603.28906)
 
-??? info "5. @kaifulee 发布重要更新"
+??? info "5. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2603.28928v1 Announce Type:new Abstract:We present the first comprehensive study of emergent social organization among AI agents in hierarchical multi-a。
+
+    **关键点**
+
+    - arXiv:2603.28928v1 Announce
+    - documenting the spontaneous
+    - criminal syndicates
+
+    **影响分析**：arXiv:2603.28928v1 Announce Type:new Abstract:We present the first comprehensive study of emergent social organization among AI agents in。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2603.28928)
+
+??? info "6. arxiv.org 发布 0.001 版本更新"
+    **摘要**：arXiv:2603.28990v1 Announce Type:new Abstract:How much autonomy can multi-agent LLM systems sustain-and what enables it? We present a 25,000-task computati。
+
+    **关键点**
+
+    - arXiv:2603.28990v1 Announce
+    - what enables it
+    - We present a 25
+
+    **影响分析**：arXiv:2603.28990v1 Announce Type:new Abstract:How much autonomy can multi-agent LLM systems sustain-and what enables it。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2603.28990)
+
+??? info "7. @kaifulee 发布重要更新"
     **摘要**：China and Open Claw-My Interview on Bloomberg yesterday. bloomberg.com/news/videos/20…。
 
     **关键点**
@@ -98,7 +123,7 @@
 
     **来源**：[原文链接](https://x.com/kaifulee/status/2039167886359703905)
 
-??? info "6. @anthropicai 发布重要更新"
+??? info "8. @anthropicai 发布重要更新"
     **摘要**：Weve signed an MOU with the Australian Government to collaborate on AI safety research and support Australias National AI Plan. Read more:anthropic.com/news/。
 
     **关键点**
@@ -111,7 +136,7 @@
 
     **来源**：[原文链接](https://x.com/AnthropicAI/status/2039137425214353555)
 
-??? info "7. @replit 发布重要更新"
+??? info "9. @replit 发布重要更新"
     **摘要**：Give it a try by clicking the + button in the input box,and then select the AI.。
 
     **关键点**
@@ -124,7 +149,7 @@
 
     **来源**：[原文链接](https://x.com/Replit/status/2039117636467134759)
 
-??? info "8. @openclaw 发布重要更新"
+??? info "10. @openclaw 发布重要更新"
     **摘要**：Huge thanks to @NVIDIAAI for supporting full-time engineering work on OpenClaw hardening. A lot of careful security and reliability improvements landed over the。
 
     **关键点**
@@ -137,7 +162,7 @@
 
     **来源**：[原文链接](https://x.com/openclaw/status/2039100191324979580)
 
-??? info "9. @openclaw 发布 2026.3.31 版本更新"
+??? info "11. @openclaw 发布 2026.3.31 版本更新"
     **摘要**：OpenClaw 2026.3.31 🦞 🇨🇳 Bundled QQ Bot-private,group,and guild chat + media 📹 LINE now sends images,video,and audio 🧵 Real background task flows:list,sh。
 
     **关键点**
@@ -150,7 +175,19 @@
 
     **来源**：[原文链接](https://x.com/openclaw/status/2039095081215672584)
 
-??? info "10. @awscloud 发布重要更新"
+??? info "12. @elonmusk 发布重要更新"
+    **摘要**：The Model 3 is such a fun car Tesla @Tesla 10 years of Model 3 The car that started the EV revolution-https://nitter.net/Tesla/status/2039082075333255656#m。
+
+    **关键点**
+
+    - The Model 3 is such a fun ca
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：The Model 3 is such a fun car相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/elonmusk/status/2039091131540209745)
+
+??? info "13. @awscloud 发布重要更新"
     **摘要**：go.aws/4dUbphi。
 
     **关键点**
@@ -163,7 +200,7 @@
 
     **来源**：[原文链接](https://x.com/awscloud/status/2039089664687034717)
 
-??? info "11. @awscloud 发布重要更新"
+??? info "14. @awscloud 发布重要更新"
     **摘要**：AWS DevOps Agent is now generally available. Your always-available operations teammate that autonomously investigates incidents the moment an alert comes in,re。
 
     **关键点**
@@ -176,7 +213,7 @@
 
     **来源**：[原文链接](https://x.com/awscloud/status/2039089661453255106)
 
-??? info "12. @openai 发布重要更新"
+??? info "15. @openai 发布重要更新"
     **摘要**：Today,we closed our latest funding round with $122 billion in committed capital at an $852B post-money valuation. The fastest way to expand AI’s benefits is to。
 
     **关键点**
@@ -189,7 +226,7 @@
 
     **来源**：[原文链接](https://x.com/OpenAI/status/2039085161971896807)
 
-??? info "13. @awscloud 发布重要更新"
+??? info "16. @awscloud 发布重要更新"
     **摘要**：Discover more. go.aws/4m2Prux。
 
     **关键点**
@@ -202,7 +239,7 @@
 
     **来源**：[原文链接](https://x.com/awscloud/status/2039057390176227527)
 
-??? info "14. @awscloud 发布重要更新"
+??? info "17. @awscloud 发布重要更新"
     **摘要**：Meet the new AWS Sustainability console,a dedicated service built for your environmental data. Independent access controls,improved visualizations,API access。
 
     **关键点**
@@ -215,7 +252,7 @@
 
     **来源**：[原文链接](https://x.com/awscloud/status/2039057387965890616)
 
-??? info "15. @minimax_ai 发布重要更新"
+??? info "18. @minimax_ai 发布重要更新"
     **摘要**：One week until #HumanX2026 ! 🚀 Come find us at Booth #1227 Lets chat about what MiniMax is building. 📅 April 6-9 📍 Moscone Center,SF。
 
     **关键点**
@@ -227,7 +264,7 @@
 
     **来源**：[原文链接](https://x.com/MiniMax_AI/status/2039054370998997460)
 
-??? info "16. @replit 发布重要更新"
+??? info "19. @replit 发布重要更新"
     **摘要**：Finding the hottest talent for your startup got super easy 👀 Samuel Spitz @samuel_spitz Introducing Replit AI Recruiter:-Find targeted candidates in minutes。
 
     **关键点**
@@ -239,7 +276,7 @@
 
     **来源**：[原文链接](https://x.com/Replit/status/2039054268725186629)
 
-??? info "17. @replit 发布重要更新"
+??? info "20. @replit 发布重要更新"
     **摘要**：Hackathon stories from Replit x Alif. Video。
 
     **关键点**
@@ -250,41 +287,3 @@
     **影响分析**：Hackathon stories from Replit x Alif.相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
     **来源**：[原文链接](https://x.com/Replit/status/2039051908275437781)
-
-??? info "18. @andrewyng 发布重要更新"
-    **摘要**：The anti-AI coalition continues to maneuver to find arguments to slow down AI progress. If someone has a sincere concern about a specific effect of AI,for inst。
-
-    **关键点**
-
-    - The anti-AI coalition contin
-    - for instance that it may lea
-    - I respect their intellectual
-
-    **影响分析**：The anti-AI coalition continues to maneuver to find arguments to slow down AI progress. If someone has a sincere concern about a specific ef。
-
-    **来源**：[原文链接](https://x.com/AndrewYNg/status/2039051446084153834)
-
-??? info "19. @pika_labs 发布重要更新"
-    **摘要**：Try it out at Pika dot me or our new iphone app apps.apple.com/us/app/pika-a…。
-
-    **关键点**
-
-    - Try it out at Pika dot me or
-    - R to @pika_labs:Try it out
-
-    **影响分析**：R to @pika_labs:Try it out at Pika dot me or our new iphone app https://apps.apple.com/us/app/pika-ai-self-agent/id6758411447相关进展已由一手来源披露，预。
-
-    **来源**：[原文链接](https://x.com/pika_labs/status/2039031412993691771)
-
-??? info "20. @pika_labs 发布重要更新"
-    **摘要**：Time to fire your agent 🤖 👋 Pika AI Selves have all the agentic connections and skills,plus actual personalities. Have them put your taste to work with Pika Po。
-
-    **关键点**
-
-    - Time to fire your agent 🤖 👋
-    - skills
-    - plus actual personalities. H
-
-    **影响分析**：Time to fire your agent 🤖 👋 Pika AI Selves have all the agentic connections and skills,plus actual personalities. Have them put your taste。
-
-    **来源**：[原文链接](https://x.com/pika_labs/status/2039031411345441259)
