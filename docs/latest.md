@@ -1,15 +1,15 @@
 # 今日快讯
 
-> 更新时间：2026年04月01日15:03:46
+> 更新时间：2026年04月01日16:48:04
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. @elonmusk 发布重要更新：Try out self-driving in a Tesla. It will g。
-2. @elonmusk 发布产品更新：💯 Jesse Peltan @JessePeltan Japan needs el。
-3. @elonmusk 发布重要更新：Accurate Ray @ray4tesla Chinese influencer。
-4. @elonmusk 发布重要更新：Banger 😂。
-5. arxiv.org 发布 40.5 版本更新：arXiv:2603.28803v1 Announce Type:new Abstr。
+1. @openclaw 发布重要更新：ClawHub now has an official China mirror 🇨。
+2. @hailuo_ai 发布 2.0 版本更新：Nice work! Got a better idea? Submit your。
+3. @elonmusk 发布 14.3 版本更新：FSD 14.3 is in Tesla employee beta now and。
+4. @elonmusk 发布重要更新：Try out self-driving in a Tesla. It will g。
+5. @elonmusk 发布产品更新：💯 Jesse Peltan @JessePeltan Japan needs el。
 
 ## 分类速览
 
@@ -17,24 +17,62 @@
     - 暂无条目
 
 === "🧪 论文研究（4）"
-    - **5. arxiv.org 发布 40.5 版本更新**：arXiv:2603.28803v1 Announce Type:new Abstract:D…
-    - **6. arxiv.org 发布重要更新**：arXiv:2603.28831v1 Announce Type:new Abstract:C…
-    - **7. arxiv.org 发布 10.6 版本更新**：arXiv:2603.28888v1 Announce Type:new Abstract:S…
-    - **8. arxiv.org 发布重要更新**：arXiv:2603.28890v1 Announce Type:new Abstract:W…
+    - **7. arxiv.org 发布重要更新**：arXiv:2603.28902v1 Announce Type:new Abstract:C…
+    - **8. arxiv.org 发布重要更新**：arXiv:2603.28906v1 Announce Type:new Abstract:A…
+    - **9. arxiv.org 发布重要更新**：arXiv:2603.28928v1 Announce Type:new Abstract:W…
+    - **10. arxiv.org 发布 0.001 版本更新**：arXiv:2603.28990v1 Announce Type:new Abstract:H…
 
 === "🏢 产品与行业（16）"
-    - **1. @elonmusk 发布重要更新**：Try out self-driving in a Tesla. It will greatl…
-    - **2. @elonmusk 发布产品更新**：💯 Jesse Peltan @JessePeltan Japan needs electri…
-    - **3. @elonmusk 发布重要更新**：Accurate Ray @ray4tesla Chinese influencer Li C…
-    - **4. @elonmusk 发布重要更新**：Banger 😂相关进展已由一手来源披露，预计将影响后续产品与行业节奏
-    - **9. @kaifulee 发布重要更新**：China and Open Claw-My Interview on Bloomberg y…
-    - **10. @anthropicai 发布重要更新**：Weve signed an MOU with the Australian Governme…
-    - **11. @openclaw 发布重要更新**：Huge thanks to @NVIDIAAI for supporting full-ti…
-    - **12. @openclaw 发布 2026.3.31 版本更新**：OpenClaw 2026.3.31 🦞 🇨🇳 Bundled QQ Bot-private…
+    - **1. @openclaw 发布重要更新**：ClawHub now has an official China mirror 🇨🇳🦞 mi…
+    - **2. @hailuo_ai 发布 2.0 版本更新**：Got a better idea
+    - **3. @elonmusk 发布 14.3 版本更新**：FSD 14.3 is in Tesla employee beta now and will…
+    - **4. @elonmusk 发布重要更新**：Try out self-driving in a Tesla. It will greatl…
+    - **5. @elonmusk 发布产品更新**：💯 Jesse Peltan @JessePeltan Japan needs electri…
+    - **6. @elonmusk 发布重要更新**：Accurate Ray @ray4tesla Chinese influencer Li C…
+    - **11. @kaifulee 发布重要更新**：China and Open Claw-My Interview on Bloomberg y…
+    - **12. @anthropicai 发布重要更新**：Weve signed an MOU with the Australian Governme…
 
 ## 全部快讯
 
-??? info "1. @elonmusk 发布重要更新"
+??? info "1. @openclaw 发布重要更新"
+    **摘要**：ClawHub now has an official China mirror 🇨🇳🦞 mirror-cn.clawhub.com Just tell your agent:Find skills on ClawHub using mirror-cn.clawhub.com/ Thanks @BytePlus。
+
+    **关键点**
+
+    - ClawHub now has an official
+    - PRs welcome.
+
+    **影响分析**：ClawHub now has an official China mirror 🇨🇳🦞 mirror-cn.clawhub.com Just tell your agent:Find skills on ClawHub using mirror-cn.clawhub.com。
+
+    **来源**：[原文链接](https://x.com/openclaw/status/2039240359197438229)
+
+??? info "2. @hailuo_ai 发布 2.0 版本更新"
+    **摘要**：Nice work! Got a better idea? Submit your relighting post for a shot at $1000. 👉 mk4s8co9elmd.space.minimax.i… More exciting tools and features are coming-and。
+
+    **关键点**
+
+    - Nice work
+    - Got a better idea
+    - Submit your relighting post
+
+    **影响分析**：Got a better idea。
+
+    **来源**：[原文链接](https://x.com/Hailuo_AI/status/2039239129297453227)
+
+??? info "3. @elonmusk 发布 14.3 版本更新"
+    **摘要**：FSD 14.3 is in Tesla employee beta now and will probably go to wide release end of week。
+
+    **关键点**
+
+    - FSD 14.3 is in Tesla employe
+    - will probably go to wide rel
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：FSD 14.3 is in Tesla employee beta now and will probably go to wide release end of week相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/elonmusk/status/2039237601182572796)
+
+??? info "4. @elonmusk 发布重要更新"
     **摘要**：Try out self-driving in a Tesla. It will greatly improve your quality of life and may save your life. Robert Scoble @Scobleizer I was on @wholemars space this。
 
     **关键点**
@@ -47,7 +85,7 @@
 
     **来源**：[原文链接](https://x.com/elonmusk/status/2039234648644198590)
 
-??? info "2. @elonmusk 发布产品更新"
+??? info "5. @elonmusk 发布产品更新"
     **摘要**：💯 Jesse Peltan @JessePeltan Japan needs electrification more than anyone. Japanese industry with cheap domestic energy would be untouchable.-https://nitter.。
 
     **关键点**
@@ -59,7 +97,7 @@
 
     **来源**：[原文链接](https://x.com/elonmusk/status/2039220441123013104)
 
-??? info "3. @elonmusk 发布重要更新"
+??? info "6. @elonmusk 发布重要更新"
     **摘要**：Accurate Ray @ray4tesla Chinese influencer Li Chi flew from China to California for the sole purpose of experiencing Tesla FSD firsthand. Here are his impress。
 
     **关键点**
@@ -72,72 +110,59 @@
 
     **来源**：[原文链接](https://x.com/elonmusk/status/2039217539537084461)
 
-??? info "4. @elonmusk 发布重要更新"
-    **摘要**：Banger 😂。
+??? info "7. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2603.28902v1 Announce Type:new Abstract:Charts are central to analytical reasoning,yet existing benchmarks for chart understanding focus almost exclusi。
 
     **关键点**
 
-    - Banger 😂
-    - Banger 😂相关进展已由一手来源披露
-    - 预计将影响后续产品与行业节奏
+    - arXiv:2603.28902v1 Announce
+    - yet existing benchmarks for
+    - we introduce ChartDiff
 
-    **影响分析**：Banger 😂相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：arXiv:2603.28902v1 Announce Type:new Abstract:Charts are central to analytical reasoning,yet existing benchmarks for chart understanding。
 
-    **来源**：[原文链接](https://x.com/elonmusk/status/2039215894854041883)
-
-??? info "5. arxiv.org 发布 40.5 版本更新"
-    **摘要**：arXiv:2603.28803v1 Announce Type:new Abstract:Double-Deck Multi-Agent Pickup and Delivery DD-MAPD models the multi-robot shelf rearrangement problem in auto。
-
-    **关键点**
-
-    - arXiv:2603.28803v1 Announce
-    - Delivery DD-MAPD models th
-    - a MAPF solver
-
-    **影响分析**：arXiv:2603.28803v1 Announce Type:new Abstract:Double-Deck Multi-Agent Pickup and Delivery DD-MAPD models the multi-robot shelf rearrange。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2603.28803)
-
-??? info "6. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2603.28831v1 Announce Type:new Abstract:Combining different types of agents in uncrewed vehicle UV swarms has emerged as an approach to enhance missio。
-
-    **关键点**
-
-    - arXiv:2603.28831v1 Announce
-    - operational capabilities acr
-    - function
-
-    **影响分析**：arXiv:2603.28831v1 Announce Type:new Abstract:Combining different types of agents in uncrewed vehicle UV swarms has emerged as an approa。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2603.28831)
-
-??? info "7. arxiv.org 发布 10.6 版本更新"
-    **摘要**：arXiv:2603.28888v1 Announce Type:new Abstract:Semantic anomalies-context-dependent hazards that pixel-level detectors cannot reason about-pose a critical safe。
-
-    **关键点**
-
-    - arXiv:2603.28888v1 Announce
-    - Hz alongside the primary AV
-    - monitoring for semantic edge
-
-    **影响分析**：arXiv:2603.28888v1 Announce Type:new Abstract:Semantic anomalies-context-dependent hazards that pixel-level detectors cannot reason about。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2603.28888)
+    **来源**：[原文链接](https://arxiv.org/abs/2603.28902)
 
 ??? info "8. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2603.28890v1 Announce Type:new Abstract:We present a bootstrap perception system for indoor robot navigation under hardware depth failure. In our corrid。
+    **摘要**：arXiv:2603.28906v1 Announce Type:new Abstract:AGI has become the Holly Grail of AI with the promise of level intelligence and the major Tech companies around。
 
     **关键点**
 
-    - arXiv:2603.28890v1 Announce
-    - the time-of-flight camera lo
-    - yet a 2D LiDAR alone cannot
+    - arXiv:2603.28906v1 Announce
+    - the promise of level intelli
+    - the major Tech companies aro
 
-    **影响分析**：arXiv:2603.28890v1 Announce Type:new Abstract:We present a bootstrap perception system for indoor robot navigation under hardware depth fa。
+    **影响分析**：arXiv:2603.28906v1 Announce Type:new Abstract:AGI has become the Holly Grail of AI with the promise of level intelligence and the major Te。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2603.28890)
+    **来源**：[原文链接](https://arxiv.org/abs/2603.28906)
 
-??? info "9. @kaifulee 发布重要更新"
+??? info "9. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2603.28928v1 Announce Type:new Abstract:We present the first comprehensive study of emergent social organization among AI agents in hierarchical multi-a。
+
+    **关键点**
+
+    - arXiv:2603.28928v1 Announce
+    - documenting the spontaneous
+    - criminal syndicates
+
+    **影响分析**：arXiv:2603.28928v1 Announce Type:new Abstract:We present the first comprehensive study of emergent social organization among AI agents in。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2603.28928)
+
+??? info "10. arxiv.org 发布 0.001 版本更新"
+    **摘要**：arXiv:2603.28990v1 Announce Type:new Abstract:How much autonomy can multi-agent LLM systems sustain-and what enables it? We present a 25,000-task computati。
+
+    **关键点**
+
+    - arXiv:2603.28990v1 Announce
+    - what enables it
+    - We present a 25
+
+    **影响分析**：arXiv:2603.28990v1 Announce Type:new Abstract:How much autonomy can multi-agent LLM systems sustain-and what enables it。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2603.28990)
+
+??? info "11. @kaifulee 发布重要更新"
     **摘要**：China and Open Claw-My Interview on Bloomberg yesterday. bloomberg.com/news/videos/20…。
 
     **关键点**
@@ -149,7 +174,7 @@
 
     **来源**：[原文链接](https://x.com/kaifulee/status/2039167886359703905)
 
-??? info "10. @anthropicai 发布重要更新"
+??? info "12. @anthropicai 发布重要更新"
     **摘要**：Weve signed an MOU with the Australian Government to collaborate on AI safety research and support Australias National AI Plan. Read more:anthropic.com/news/。
 
     **关键点**
@@ -162,7 +187,20 @@
 
     **来源**：[原文链接](https://x.com/AnthropicAI/status/2039137425214353555)
 
-??? info "11. @openclaw 发布重要更新"
+??? info "13. @replit 发布重要更新"
+    **摘要**：Give it a try by clicking the + button in the input box,and then select the AI.。
+
+    **关键点**
+
+    - Give it a try by clicking th
+    - then select the AI.
+    - R to @Replit:Give it a try
+
+    **影响分析**：R to @Replit:Give it a try by clicking the + button in the input box,and then select the AI.相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/Replit/status/2039117636467134759)
+
+??? info "14. @openclaw 发布重要更新"
     **摘要**：Huge thanks to @NVIDIAAI for supporting full-time engineering work on OpenClaw hardening. A lot of careful security and reliability improvements landed over the。
 
     **关键点**
@@ -175,7 +213,7 @@
 
     **来源**：[原文链接](https://x.com/openclaw/status/2039100191324979580)
 
-??? info "12. @openclaw 发布 2026.3.31 版本更新"
+??? info "15. @openclaw 发布 2026.3.31 版本更新"
     **摘要**：OpenClaw 2026.3.31 🦞 🇨🇳 Bundled QQ Bot-private,group,and guild chat + media 📹 LINE now sends images,video,and audio 🧵 Real background task flows:list,sh。
 
     **关键点**
@@ -188,7 +226,7 @@
 
     **来源**：[原文链接](https://x.com/openclaw/status/2039095081215672584)
 
-??? info "13. @awscloud 发布重要更新"
+??? info "16. @awscloud 发布重要更新"
     **摘要**：go.aws/4dUbphi。
 
     **关键点**
@@ -201,7 +239,7 @@
 
     **来源**：[原文链接](https://x.com/awscloud/status/2039089664687034717)
 
-??? info "14. @awscloud 发布重要更新"
+??? info "17. @awscloud 发布重要更新"
     **摘要**：AWS DevOps Agent is now generally available. Your always-available operations teammate that autonomously investigates incidents the moment an alert comes in,re。
 
     **关键点**
@@ -214,7 +252,7 @@
 
     **来源**：[原文链接](https://x.com/awscloud/status/2039089661453255106)
 
-??? info "15. @openai 发布重要更新"
+??? info "18. @openai 发布重要更新"
     **摘要**：Today,we closed our latest funding round with $122 billion in committed capital at an $852B post-money valuation. The fastest way to expand AI’s benefits is to。
 
     **关键点**
@@ -227,7 +265,7 @@
 
     **来源**：[原文链接](https://x.com/OpenAI/status/2039085161971896807)
 
-??? info "16. @awscloud 发布重要更新"
+??? info "19. @awscloud 发布重要更新"
     **摘要**：Discover more. go.aws/4m2Prux。
 
     **关键点**
@@ -240,7 +278,7 @@
 
     **来源**：[原文链接](https://x.com/awscloud/status/2039057390176227527)
 
-??? info "17. @awscloud 发布重要更新"
+??? info "20. @awscloud 发布重要更新"
     **摘要**：Meet the new AWS Sustainability console,a dedicated service built for your environmental data. Independent access controls,improved visualizations,API access。
 
     **关键点**
@@ -252,40 +290,3 @@
     **影响分析**：Meet the new AWS Sustainability console,a dedicated service built for your environmental data. Independent access controls,improved visual。
 
     **来源**：[原文链接](https://x.com/awscloud/status/2039057387965890616)
-
-??? info "18. @minimax_ai 发布重要更新"
-    **摘要**：One week until #HumanX2026 ! 🚀 Come find us at Booth #1227 Lets chat about what MiniMax is building. 📅 April 6-9 📍 Moscone Center,SF。
-
-    **关键点**
-
-    - One week until #HumanX2026
-    - 🚀 Come find us at Booth #122
-
-    **影响分析**：One week until #HumanX2026。
-
-    **来源**：[原文链接](https://x.com/MiniMax_AI/status/2039054370998997460)
-
-??? info "19. @andrewyng 发布重要更新"
-    **摘要**：The anti-AI coalition continues to maneuver to find arguments to slow down AI progress. If someone has a sincere concern about a specific effect of AI,for inst。
-
-    **关键点**
-
-    - The anti-AI coalition contin
-    - for instance that it may lea
-    - I respect their intellectual
-
-    **影响分析**：The anti-AI coalition continues to maneuver to find arguments to slow down AI progress. If someone has a sincere concern about a specific ef。
-
-    **来源**：[原文链接](https://x.com/AndrewYNg/status/2039051446084153834)
-
-??? info "20. @pika_labs 发布重要更新"
-    **摘要**：Try it out at Pika dot me or our new iphone app apps.apple.com/us/app/pika-a…。
-
-    **关键点**
-
-    - Try it out at Pika dot me or
-    - R to @pika_labs:Try it out
-
-    **影响分析**：R to @pika_labs:Try it out at Pika dot me or our new iphone app https://apps.apple.com/us/app/pika-ai-self-agent/id6758411447相关进展已由一手来源披露，预。
-
-    **来源**：[原文链接](https://x.com/pika_labs/status/2039031412993691771)
