@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-AI Brief Starter is an automated AI news briefing generator that runs daily via GitHub Actions. It fetches RSS feeds, filters for primary AI-related content, uses LLM (Qwen) for ranking/summarization, performs quality checks, and publishes to Feishu/WeChat with MkDocs documentation archival.
+AI Brief Starter is an automated AI news briefing generator that runs daily via GitHub Actions. It fetches RSS feeds, filters for primary AI-related content, uses LLM for ranking/summarization, performs quality checks, and publishes to Feishu/WeChat with MkDocs documentation archival.
 
 **Core Pipeline**: RSS Fetch → Primary Source Filter → AI Topic Filter → LLM Ranking/Summary → Chinese Localization → Quality Check → Markdown Report → Notification → Docs Archive
 
@@ -39,7 +39,7 @@ pip install -r requirements.txt
 
 ### Running Locally
 ```bash
-# Full pipeline (requires QWEN_API_KEY)
+# Full pipeline (requires LLM_API_KEY)
 python main.py
 
 # Quality check with auto-fix
@@ -73,7 +73,7 @@ mkdocs build --strict
 ## Configuration
 
 ### Required Secrets (GitHub Actions)
-- `QWEN_API_KEY`: Alibaba DashScope API key (required)
+- `LLM_API_KEY`: LLM API key (required, for Volcengine Ark)
 
 ### Optional Secrets
 - `TWITTERAPI_IO_KEY`: TwitterAPI.io key for X/Twitter feed fallback
@@ -157,7 +157,7 @@ LLM prompts are embedded in `src/llm.py`. Changes to prompts can significantly a
 ## GitHub Actions Workflow
 
 The daily workflow (`.github/workflows/daily.yml`) runs at 07:30 Beijing time (23:30 UTC) and:
-1. Validates required secrets (fails fast if `QWEN_API_KEY` missing)
+1. Validates required secrets (fails fast if `LLM_API_KEY` missing)
 2. Installs dependencies
 3. **Runs tests first** (safety gate before generation)
 4. Restores deduplication cache from previous runs (GitHub Actions cache)

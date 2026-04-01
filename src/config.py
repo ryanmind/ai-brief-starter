@@ -408,12 +408,12 @@ USE_OPTIMIZED_PIPELINE = os.getenv(
 
 # ---- LLM API Configuration ----
 # Use LLM_PROVIDER environment variable to select provider:
-# - "openai-compat" (default): OpenAI-compatible API (works with Qwen, OpenAI, Iflow, etc.)
+# - "openai-compat" (default): OpenAI-compatible API (works with Qwen, OpenAI, Iflow, Volcengine Ark, etc.)
 # Add new provider implementations in src/llm/providers/
 
-LLM_API_KEY_ENV = "LLM_API_KEY"  # 环境变量名
-LLM_MODEL_DEFAULT = "MiniMax-M2.7"  # 默认模型
-LLM_BASE_URL = "https://api.minimaxi.com/anthropic"  # API 端点
+LLM_API_KEY_ENV = "LLM_API_KEY"  # 环境变量名 (火山方舟 API KEY 配置在这里)
+LLM_MODEL_DEFAULT = "ark-code-latest"  # 默认模型 (火山模型 ID)
+LLM_BASE_URL = "https://ark.cn-beijing.volces.com/api/coding"  # 火山方舟 API 端点
 
 # ---- LLM Failover Configuration ----
 # 备用模型列表，主模型失败时按顺序尝试（逗号分隔）
