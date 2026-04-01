@@ -1,293 +1,286 @@
 # 今日快讯
 
-> 更新时间：2026年03月31日22:50:17
+> 更新时间：2026年04月01日08:01:58
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. @runwayml 发布重要更新：Were excited to formalize this work as par。
-2. @runwayml 发布重要更新：Today were also introducing the Runway Fun。
-3. @runwayml 发布重要更新：Apply at runwayml.com/product/builder…。
-4. @runwayml 发布重要更新：Runway Builders is already live with a fou。
-5. @elonmusk 发布重要更新：Video。
+1. @replit 发布重要更新：Give it a try by clicking the + button in。
+2. @openclaw 发布重要更新：Huge thanks to @NVIDIAAI for supporting fu。
+3. @openclaw 发布 2026.3.31 版本更新：OpenClaw 2026.3.31 🦞 🇨🇳 Bundled QQ Bot-pri。
+4. @elonmusk 发布重要更新：The Model 3 is such a fun car Tesla @Tesla。
+5. @awscloud 发布重要更新：go.aws/4dUbphi。
 
 ## 分类速览
 
-=== "🤖 模型进展（2）"
-    - **6. @elonmusk 发布重要更新**：RT by @elonmusk:On the plus side,if you forgot…
-    - **8. @elonmusk 发布重要更新**：Tap the Grok logo on the upper right of any pos…
+=== "🤖 模型进展（1）"
+    - **16. @elonmusk 发布重要更新**：Am referring to this Alex Volkov @altryne If yo…
 
-=== "🧪 论文研究（4）"
-    - **10. arxiv.org 发布重要更新**：arXiv:2603.26765v1 Announce Type:new Abstract:T…
-    - **11. arxiv.org 发布重要更新**：arXiv:2603.26838v1 Announce Type:new Abstract:T…
-    - **12. arxiv.org 发布重要更新**：arXiv:2603.26948v1 Announce Type:new Abstract:E…
-    - **13. arxiv.org 发布重要更新**：arXiv:2603.26983v1 Announce Type:new Abstract:A…
+=== "🧪 论文研究（1）"
+    - **19. @perplexity_ai 发布 2603.12230 版本更新**：The first paper from the Secure Intelligence In…
 
-=== "🏢 产品与行业（14）"
-    - **1. @runwayml 发布重要更新**：Were excited to formalize this work as part of…
-    - **2. @runwayml 发布重要更新**：Today were also introducing the Runway Fund,an…
-    - **3. @runwayml 发布重要更新**：R to @runwayml:Apply at http://runwayml.com/pro…
-    - **4. @runwayml 发布重要更新**：Runway Builders is already live with a founding…
-    - **5. @elonmusk 发布重要更新**：Video相关进展已由一手来源披露，预计将影响后续产品与行业节奏
-    - **7. @elonmusk 发布重要更新**：Stainless Steel Starship X Freeze @XFreeze Ever…
-    - **9. @hailuo_ai 发布重要更新**：Hailuo’s biggest discount ends in 15 hours... E…
-    - **14. @notionhq 发布重要更新**：notion.com相关进展已由一手来源披露，预计将影响后续产品与行业节奏
+=== "🏢 产品与行业（18）"
+    - **1. @replit 发布重要更新**：R to @Replit:Give it a try by clicking the + bu…
+    - **2. @openclaw 发布重要更新**：Huge thanks to @NVIDIAAI for supporting full-ti…
+    - **3. @openclaw 发布 2026.3.31 版本更新**：OpenClaw 2026.3.31 🦞 🇨🇳 Bundled QQ Bot-private…
+    - **4. @elonmusk 发布重要更新**：The Model 3 is such a fun car相关进展已由一手来源披露，预计将影响…
+    - **5. @awscloud 发布重要更新**：R to @awscloud:go.aws/4dUbphi相关进展已由一手来源披露，预计将影响…
+    - **6. @awscloud 发布重要更新**：AWS DevOps Agent is now generally available. Yo…
+    - **7. @openai 发布重要更新**：Today,we closed our latest funding round with $…
+    - **8. @awscloud 发布重要更新**：R to @awscloud:Discover more. https://go.aws/4m…
 
 ## 全部快讯
 
-??? info "1. @runwayml 发布重要更新"
-    **摘要**：Were excited to formalize this work as part of our commitment to early-stage startups. If youre building something in this space,we want to hear from you. Le。
+??? info "1. @replit 发布重要更新"
+    **摘要**：Give it a try by clicking the + button in the input box,and then select the AI.。
 
     **关键点**
 
-    - Were excited to formalize t
-    - we want to hear from you. Le
-    - we want
+    - Give it a try by clicking th
+    - then select the AI.
+    - R to @Replit:Give it a try
 
-    **影响分析**：Were excited to formalize this work as part of our commitment to early-stage startups. If youre building something in this space,we want。
+    **影响分析**：R to @Replit:Give it a try by clicking the + button in the input box,and then select the AI.相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://x.com/runwayml/status/2038984563716747711)
+    **来源**：[原文链接](https://x.com/Replit/status/2039117636467134759)
 
-??? info "2. @runwayml 发布重要更新"
-    **摘要**：Today were also introducing the Runway Fund,an investment vehicle dedicated to backing the next generation of companies building across AI,media and world si。
-
-    **关键点**
-
-    - Today were also introducing
-    - an investment vehicle dedica
-    - media
-
-    **影响分析**：Today were also introducing the Runway Fund,an investment vehicle dedicated to backing the next generation of companies building across AI。
-
-    **来源**：[原文链接](https://x.com/runwayml/status/2038984561132990836)
-
-??? info "3. @runwayml 发布重要更新"
-    **摘要**：Apply at runwayml.com/product/builder…,and learn more at runwayml.com/news/introducin…。
+??? info "2. @openclaw 发布重要更新"
+    **摘要**：Huge thanks to @NVIDIAAI for supporting full-time engineering work on OpenClaw hardening. A lot of careful security and reliability improvements landed over the。
 
     **关键点**
 
-    - Apply at runwayml.com/produc
-    - learn more at runwayml.com/n
-    - R to @runwayml:Apply at htt
+    - Huge thanks to @NVIDIAAI for
+    - reliability improvements lan
+    - that investment is paying of
 
-    **影响分析**：R to @runwayml:Apply at http://runwayml.com/product/builders,and learn more at https://runwayml.com/news/introducing-runway-builders相关进展已由。
+    **影响分析**：Huge thanks to @NVIDIAAI for supporting full-time engineering work on OpenClaw hardening. A lot of careful security and reliability improvem。
 
-    **来源**：[原文链接](https://x.com/runwayml/status/2038983407934287974)
+    **来源**：[原文链接](https://x.com/openclaw/status/2039100191324979580)
 
-??? info "4. @runwayml 发布重要更新"
-    **摘要**：Runway Builders is already live with a founding cohort of startups-including @cartesia,@mschf,Spara,Subject and Supersonik-building across customer exp。
-
-    **关键点**
-
-    - Runway Builders is already l
-    - a founding cohort of startup
-    - @mschf
-
-    **影响分析**：Runway Builders is already live with a founding cohort of startups-including @cartesia,@mschf,Spara,Subject and Supersonik-building。
-
-    **来源**：[原文链接](https://x.com/runwayml/status/2038983404683759859)
-
-??? info "5. @elonmusk 发布重要更新"
-    **摘要**：Video。
+??? info "3. @openclaw 发布 2026.3.31 版本更新"
+    **摘要**：OpenClaw 2026.3.31 🦞 🇨🇳 Bundled QQ Bot-private,group,and guild chat + media 📹 LINE now sends images,video,and audio 🧵 Real background task flows:list,sh。
 
     **关键点**
 
-    - Video
-    - Video相关进展已由一手来源披露
+    - OpenClaw 2026.3.31 🦞 🇨🇳 Bund
+    - group
+    - guild chat + media 📹 LINE no
+
+    **影响分析**：OpenClaw 2026.3.31 🦞 🇨🇳 Bundled QQ Bot-private,group,and guild chat + media 📹 LINE now sends images,video,and audio 🧵 Real background。
+
+    **来源**：[原文链接](https://x.com/openclaw/status/2039095081215672584)
+
+??? info "4. @elonmusk 发布重要更新"
+    **摘要**：The Model 3 is such a fun car Tesla @Tesla 10 years of Model 3 The car that started the EV revolution-https://nitter.net/Tesla/status/2039082075333255656#m。
+
+    **关键点**
+
+    - The Model 3 is such a fun ca
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：Video相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：The Model 3 is such a fun car相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://x.com/elonmusk/status/2038923221702185078)
+    **来源**：[原文链接](https://x.com/elonmusk/status/2039091131540209745)
 
-??? info "6. @elonmusk 发布重要更新"
-    **摘要**：On the plus side,if you forgot the password to your wallet,it will be accessible in the future nitter.net/i/grok/share/ad0b425eb…。
-
-    **关键点**
-
-    - On the plus side
-    - if you forgot the password t
-    - it will be accessible in the
-
-    **影响分析**：RT by @elonmusk:On the plus side,if you forgot the password to your wallet,it will be accessible in the future https://x.com/i/grok/share。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2038922841849295062)
-
-??? info "7. @elonmusk 发布重要更新"
-    **摘要**：Stainless Steel Starship X Freeze @XFreeze Everyone thought the future was carbon fiber Elon Musk looked at the physics and chose stainless steel for Starship。
+??? info "5. @awscloud 发布重要更新"
+    **摘要**：go.aws/4dUbphi。
 
     **关键点**
 
-    - Stainless Steel Starship X F
-    - chose stainless steel for St
-    - handles reentry heat better
-
-    **影响分析**：Stainless Steel Starship X Freeze @XFreeze Everyone thought the future was carbon fiber Elon Musk looked at the physics and chose stainles。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2038908411816153587)
-
-??? info "8. @elonmusk 发布重要更新"
-    **摘要**：Tap the Grok logo on the upper right of any post for analysis DogeDesigner @cb_doge “Grok Analysis” is one of the most useful features on 𝕏. Tap the Grok icon。
-
-    **关键点**
-
-    - Tap the Grok logo on the upp
-    - you’ll get an instant Grok a
-
-    **影响分析**：Tap the Grok logo on the upper right of any post for analysis DogeDesigner @cb_doge “Grok Analysis” is one of the most useful features on。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2038899186373194032)
-
-??? info "9. @hailuo_ai 发布重要更新"
-    **摘要**：Hailuo’s biggest discount ends in 15 hours... Exciting features and models are on the way. Your best chance to unlock unlimited access for all. 👉 hailuoai.video。
-
-    **关键点**
-
-    - Hailuo’s biggest discount en
-    - models are on the way. Your
-
-    **影响分析**：Hailuo’s biggest discount ends in 15 hours... Exciting features and models are on the way. Your best chance to unlock unlimited access for a。
-
-    **来源**：[原文链接](https://x.com/Hailuo_AI/status/2038889234850099390)
-
-??? info "10. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2603.26765v1 Announce Type:new Abstract:The efficiency of game engines and policy optimization algorithms is crucial for training reinforcement learning。
-
-    **关键点**
-
-    - arXiv:2603.26765v1 Announce
-    - policy optimization algorith
-    - such as Tetris. Existing Tet
-
-    **影响分析**：arXiv:2603.26765v1 Announce Type:new Abstract:The efficiency of game engines and policy optimization algorithms is crucial for training re。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2603.26765)
-
-??? info "11. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2603.26838v1 Announce Type:new Abstract:This paper surveys uncertainty-aware explainable artificial intelligence UAXAI,examining how uncertainty is i。
-
-    **关键点**
-
-    - arXiv:2603.26838v1 Announce
-    - examining how uncertainty is
-    - how such methods are evaluat
-
-    **影响分析**：arXiv:2603.26838v1 Announce Type:new Abstract:This paper surveys uncertainty-aware explainable artificial intelligence UAXAI,examining。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2603.26838)
-
-??? info "12. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2603.26948v1 Announce Type:new Abstract:Existing approaches for predictive process monitoring are sub-symbolic,meaning that they learn correlations bet。
-
-    **关键点**
-
-    - arXiv:2603.26948v1 Announce
-    - meaning that they learn corr
-    - a target feature fully based
-
-    **影响分析**：arXiv:2603.26948v1 Announce Type:new Abstract:Existing approaches for predictive process monitoring are sub-symbolic,meaning that they le。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2603.26948)
-
-??? info "13. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2603.26983v1 Announce Type:new Abstract:Art. 50 II of the EU Artificial Intelligence Act mandates dual transparency for AI-generated content:outputs mu。
-
-    **关键点**
-
-    - arXiv:2603.26983v1 Announce
-    - machine-readable form for au
-    - entering into force in Augus
-
-    **影响分析**：arXiv:2603.26983v1 Announce Type:new Abstract:Art. 50 II of the EU Artificial Intelligence Act mandates dual transparency for AI-generated。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2603.26983)
-
-??? info "14. @notionhq 发布重要更新"
-    **摘要**：notion.com Video。
-
-    **关键点**
-
-    - notion.com Video
-    - notion.com相关进展已由一手来源披露
+    - go.aws/4dUbphi
+    - R to @awscloud:go.aws/4dUbp
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：notion.com相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：R to @awscloud:go.aws/4dUbphi相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://x.com/NotionHQ/status/2038772791705841926)
+    **来源**：[原文链接](https://x.com/awscloud/status/2039089664687034717)
 
-??? info "15. @notionhq 发布重要更新"
-    **摘要**：Think Together. Ivan Zhao @ivanhzhao The loudest story about AI is a lonely one. One person with an army of chatbots. Other humans are friction. That gets the。
-
-    **关键点**
-
-    - Think Together. Ivan Zhao
-    - an army of chatbots. Other h
-    - we want to remind the world
-
-    **影响分析**：Think Together. Ivan Zhao @ivanhzhao The loudest story about AI is a lonely one. One person with an army of chatbots. Other humans are fri。
-
-    **来源**：[原文链接](https://x.com/NotionHQ/status/2038748774408028174)
-
-??? info "16. @replit 发布重要更新"
-    **摘要**：Read the full breakdown on our blog:blog.replit.com/whats-change…。
+??? info "6. @awscloud 发布重要更新"
+    **摘要**：AWS DevOps Agent is now generally available. Your always-available operations teammate that autonomously investigates incidents the moment an alert comes in,re。
 
     **关键点**
 
-    - Read the full breakdown on o
-    - R to @Replit:Read the full
+    - AWS DevOps Agent is now gene
+    - reducing mean time to resolu
+    - multicloud
+
+    **影响分析**：AWS DevOps Agent is now generally available. Your always-available operations teammate that autonomously investigates incidents the moment a。
+
+    **来源**：[原文链接](https://x.com/awscloud/status/2039089661453255106)
+
+??? info "7. @openai 发布重要更新"
+    **摘要**：Today,we closed our latest funding round with $122 billion in committed capital at an $852B post-money valuation. The fastest way to expand AI’s benefits is to。
+
+    **关键点**
+
+    - Today
+    - we closed our latest funding
+    - $122 billion in committed ca
+
+    **影响分析**：Today,we closed our latest funding round with $122 billion in committed capital at an $852B post-money valuation. The fastest way to expand。
+
+    **来源**：[原文链接](https://x.com/OpenAI/status/2039085161971896807)
+
+??? info "8. @awscloud 发布重要更新"
+    **摘要**：Discover more. go.aws/4m2Prux。
+
+    **关键点**
+
+    - Discover more. go.aws/4m2Pru
+    - R to @awscloud:Discover mor
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：R to @Replit:Read the full breakdown on our blog:https://blog.replit.com/whats-changed-agent3-to-agent4相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：R to @awscloud:Discover more. https://go.aws/4m2Prux相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://x.com/Replit/status/2038738073832300935)
+    **来源**：[原文链接](https://x.com/awscloud/status/2039057390176227527)
 
-??? info "17. @replit 发布重要更新"
-    **摘要**：Agent 4 didnt replace what worked. It rethought it. The building experience is fundamentally better. The Design Canvas now works across every artifact type. Co。
+??? info "9. @awscloud 发布重要更新"
+    **摘要**：Meet the new AWS Sustainability console,a dedicated service built for your environmental data. Independent access controls,improved visualizations,API access。
 
     **关键点**
 
-    - Agent 4 didnt replace what
-    - Agent 4 didnt replace what w
+    - Meet the new AWS Sustainabil
+    - a dedicated service built fo
+    - improved visualizations
+
+    **影响分析**：Meet the new AWS Sustainability console,a dedicated service built for your environmental data. Independent access controls,improved visual。
+
+    **来源**：[原文链接](https://x.com/awscloud/status/2039057387965890616)
+
+??? info "10. @minimax_ai 发布重要更新"
+    **摘要**：One week until #HumanX2026 ! 🚀 Come find us at Booth #1227 Lets chat about what MiniMax is building. 📅 April 6-9 📍 Moscone Center,SF。
+
+    **关键点**
+
+    - One week until #HumanX2026
+    - 🚀 Come find us at Booth #122
+
+    **影响分析**：One week until #HumanX2026。
+
+    **来源**：[原文链接](https://x.com/MiniMax_AI/status/2039054370998997460)
+
+??? info "11. @replit 发布重要更新"
+    **摘要**：Finding the hottest talent for your startup got super easy 👀 Samuel Spitz @samuel_spitz Introducing Replit AI Recruiter:-Find targeted candidates in minutes。
+
+    **关键点**
+
+    - Finding the hottest talent f
     - @replit 发布重要更新
 
-    **影响分析**：Agent 4 didnt replace what worked. It rethought it. The building experience is fundamentally better. The Design Canvas now works across eve。
+    **影响分析**：Finding the hottest talent for your startup got super easy 👀 Samuel Spitz @samuel_spitz Introducing Replit AI Recruiter:-Find targeted ca。
 
-    **来源**：[原文链接](https://x.com/Replit/status/2038738072758518224)
+    **来源**：[原文链接](https://x.com/Replit/status/2039054268725186629)
 
-??? info "18. elevenlabs/elevenlabs-js 发布 v2.41.0 版本更新"
-    **摘要**：Whats Changed add multimodal_message WebSocket event by @sedatcagdas in #353 🌿 Fern Regeneration-March 23,2026 by @fern-api bot in #358 🌿 Fern Regenerati。
-
-    **关键点**
-
-    - Whats Changed add multimoda
-    - by @fern-api bot in #358 🌿
-    - by @fern-api bot in #359 N
-
-    **影响分析**：Whats Changed add multimodal_message WebSocket event by @sedatcagdas in #353 🌿 Fern Regeneration-March 23,2026 by @fern-api bot in #3。
-
-    **来源**：[原文链接](https://github.com/elevenlabs/elevenlabs-js/releases/tag/v2.41.0)
-
-??? info "19. @replit 发布重要更新"
-    **摘要**：From app idea to App Store revenue. Lets go. 🚀 Manny Bernabe @MannyBernabe Replit made it easy to build your app. @RevenueCat makes it easy to make money fro。
+??? info "12. @replit 发布重要更新"
+    **摘要**：Hackathon stories from Replit x Alif. Video。
 
     **关键点**
 
-    - From app idea to App Store r
-    - So we built a tight integr
-    - RevenueCat to make going fro
+    - Hackathon stories from Repli
+    - 预计将影响后续产品与行业节奏
 
-    **影响分析**：From app idea to App Store revenue. Lets go. 🚀 Manny Bernabe @MannyBernabe Replit made it easy to build your app. @RevenueCat makes it ea。
+    **影响分析**：Hackathon stories from Replit x Alif.相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://x.com/Replit/status/2038684380948762662)
+    **来源**：[原文链接](https://x.com/Replit/status/2039051908275437781)
 
-??? info "20. @replit 发布重要更新"
-    **摘要**：Sometimes you dont have a marketing team. Or the $$. Replits AI Ad Creator skill turns one prompt into an ad. Ship the idea first. Refine it later. Samuel Spi。
+??? info "13. @andrewyng 发布重要更新"
+    **摘要**：The anti-AI coalition continues to maneuver to find arguments to slow down AI progress. If someone has a sincere concern about a specific effect of AI,for inst。
 
     **关键点**
 
-    - Sometimes you dont have a m
-    - AI Video-https://nitter.ne
+    - The anti-AI coalition contin
+    - for instance that it may lea
+    - I respect their intellectual
 
-    **影响分析**：Sometimes you dont have a marketing team. Or the $$. Replits AI Ad Creator skill turns one prompt into an ad. Ship the idea first. Refine。
+    **影响分析**：The anti-AI coalition continues to maneuver to find arguments to slow down AI progress. If someone has a sincere concern about a specific ef。
 
-    **来源**：[原文链接](https://x.com/Replit/status/2038666846229164399)
+    **来源**：[原文链接](https://x.com/AndrewYNg/status/2039051446084153834)
+
+??? info "14. @elonmusk 发布重要更新"
+    **摘要**：Stand By Me。
+
+    **关键点**
+
+    - Stand By Me
+    - Stand By Me相关进展已由一手来源披露
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：Stand By Me相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/elonmusk/status/2039046398566625501)
+
+??? info "15. @elonmusk 发布重要更新"
+    **摘要**：Neuralink enables people with ALS to speak again Neuralink @neuralink “When you haven’t heard someone talk for four years,the thought that they might be able。
+
+    **关键点**
+
+    - Neuralink enables people
+    - ALS to speak again Neuralink
+    - the thought that they might
+
+    **影响分析**：Neuralink enables people with ALS to speak again Neuralink @neuralink “When you haven’t heard someone talk for four years,the thought tha。
+
+    **来源**：[原文链接](https://x.com/elonmusk/status/2039038898811343008)
+
+??? info "16. @elonmusk 发布重要更新"
+    **摘要**：Am referring to this Alex Volkov @altryne If you,like me,just woke up,let me catch you up on the Claude Code Leak I know nothing,all conjecture:&gt；So。
+
+    **关键点**
+
+    - Am referring to this Alex Vo
+    - like me
+    - just woke up
+
+    **影响分析**：Am referring to this Alex Volkov @altryne If you,like me,just woke up,let me catch you up on the Claude Code Leak I know nothing,all。
+
+    **来源**：[原文链接](https://x.com/elonmusk/status/2039038115046961285)
+
+??? info "17. @pika_labs 发布重要更新"
+    **摘要**：Time to fire your agent 🤖 👋 Pika AI Selves have all the agentic connections and skills,plus actual personalities. Have them put your taste to work with Pika Po。
+
+    **关键点**
+
+    - Time to fire your agent 🤖 👋
+    - skills
+    - plus actual personalities. H
+
+    **影响分析**：Time to fire your agent 🤖 👋 Pika AI Selves have all the agentic connections and skills,plus actual personalities. Have them put your taste。
+
+    **来源**：[原文链接](https://x.com/pika_labs/status/2039031411345441259)
+
+??? info "18. @pika_labs 发布重要更新"
+    **摘要**：Try it out at Pika dot me or our new iphone app apps.apple.com/us/app/pika-a…。
+
+    **关键点**
+
+    - Try it out at Pika dot me or
+    - R to @pika_labs:Try it out
+
+    **影响分析**：R to @pika_labs:Try it out at Pika dot me or our new iphone app https://apps.apple.com/us/app/pika-ai-self-agent/id6758411447相关进展已由一手来源披露，预。
+
+    **来源**：[原文链接](https://x.com/pika_labs/status/2039031412993691771)
+
+??? info "19. @perplexity_ai 发布 2603.12230 版本更新"
+    **摘要**：The first paper from the Secure Intelligence Institute responds to NIST’s request for information on securing autonomous agents. Read the paper on arXiv:arxiv.。
+
+    **关键点**
+
+    - The first paper from the Sec
+    - R to @perplexity_ai:The fir
+
+    **影响分析**：The first paper from the Secure Intelligence Institute responds to NIST’s request for information on securing autonomous agents. Read the pa。
+
+    **来源**：[原文链接](https://x.com/perplexity_ai/status/2039029152880480260)
+
+??? info "20. @perplexity_ai 发布重要更新"
+    **摘要**：Today,were launching the Secure Intelligence Institute. SII partners with top cryptography,security,and ML teams to advance security research and industry c。
+
+    **关键点**
+
+    - Today
+    - were launching the Secure I
+    - top cryptography
+
+    **影响分析**：Today,were launching the Secure Intelligence Institute. SII partners with top cryptography,security,and ML teams to advance security res。
+
+    **来源**：[原文链接](https://x.com/perplexity_ai/status/2039029140758864314)
