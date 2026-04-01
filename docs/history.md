@@ -1,13 +1,13 @@
-> 更新时间：2026年04月01日18:35:55
+> 更新时间：2026年04月01日20:10:36
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. @openclaw 发布重要更新：ClawHub now has an official China mirror 🇨。
-2. @hailuo_ai 发布 2.0 版本更新：Nice work! Got a better idea? Submit your。
-3. @elonmusk 发布 14.3 版本更新：FSD 14.3 is in Tesla employee beta now and。
-4. @elonmusk 发布重要更新：Try out self-driving in a Tesla. It will g。
-5. @elonmusk 发布产品更新：💯 Jesse Peltan @JessePeltan Japan needs el。
+1. @elonmusk 发布重要更新：If you want to know what’s really safe or。
+2. @elonmusk 发布重要更新：Some might call this a cunning move 😉 Star。
+3. @openclaw 发布重要更新：ClawHub now has an official China mirror 🇨。
+4. @hailuo_ai 发布 2.0 版本更新：Nice work! Got a better idea? Submit your。
+5. @elonmusk 发布 14.3 版本更新：FSD 14.3 is in Tesla employee beta now and。
 
 ## 分类速览
 
@@ -21,18 +21,43 @@
     - **10. arxiv.org 发布重要更新**：arXiv:2603.29023v1 Announce Type:new Abstract:L…
 
 === "🏢 产品与行业（15）"
-    - **1. @openclaw 发布重要更新**：ClawHub now has an official China mirror 🇨🇳🦞 mi…
-    - **2. @hailuo_ai 发布 2.0 版本更新**：Got a better idea
-    - **3. @elonmusk 发布 14.3 版本更新**：FSD 14.3 is in Tesla employee beta now and will…
-    - **4. @elonmusk 发布重要更新**：Try out self-driving in a Tesla. It will greatl…
-    - **5. @elonmusk 发布产品更新**：💯 Jesse Peltan @JessePeltan Japan needs electri…
-    - **6. @elonmusk 发布重要更新**：Accurate Ray @ray4tesla Chinese influencer Li C…
+    - **1. @elonmusk 发布重要更新**：If you want to know what’s really safe or what’…
+    - **2. @elonmusk 发布重要更新**：Some might call this a cunning move 😉相关进展已由一手来源…
+    - **3. @openclaw 发布重要更新**：ClawHub now has an official China mirror 🇨🇳🦞 mi…
+    - **4. @hailuo_ai 发布 2.0 版本更新**：Got a better idea
+    - **5. @elonmusk 发布 14.3 版本更新**：FSD 14.3 is in Tesla employee beta now and will…
+    - **6. @elonmusk 发布重要更新**：Try out self-driving in a Tesla. It will greatl…
     - **11. @kaifulee 发布重要更新**：China and Open Claw-My Interview on Bloomberg y…
     - **13. @anthropicai 发布重要更新**：Weve signed an MOU with the Australian Governme…
 
 ## 全部快讯
 
-??? info "1. @openclaw 发布重要更新"
+??? info "1. @elonmusk 发布重要更新"
+    **摘要**：If you want to know what’s really safe or what’s not,just try buying insurance for it X Freeze @XFreeze Teslas Full Self-Driving FSD is currently ~9x safe。
+
+    **关键点**
+
+    - If you want to know what’s r
+    - just try buying insurance fo
+    - auto insurance providers lik
+
+    **影响分析**：If you want to know what’s really safe or what’s not,just try buying insurance for it X Freeze @XFreeze Teslas Full Self-Driving FSD i。
+
+    **来源**：[原文链接](https://x.com/elonmusk/status/2039294972973957455)
+
+??? info "2. @elonmusk 发布重要更新"
+    **摘要**：Some might call this a cunning move 😉 Starlink @Starlink Starlink is now onboard @AerLingus 🛰️❤️✈️-https://nitter.net/Starlink/status/2039122492892352615#m。
+
+    **关键点**
+
+    - Some might call this a cunni
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：Some might call this a cunning move 😉相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/elonmusk/status/2039293503428231598)
+
+??? info "3. @openclaw 发布重要更新"
     **摘要**：ClawHub now has an official China mirror 🇨🇳🦞 mirror-cn.clawhub.com Just tell your agent:Find skills on ClawHub using mirror-cn.clawhub.com/ Thanks @BytePlus。
 
     **关键点**
@@ -44,7 +69,7 @@
 
     **来源**：[原文链接](https://x.com/openclaw/status/2039240359197438229)
 
-??? info "2. @hailuo_ai 发布 2.0 版本更新"
+??? info "4. @hailuo_ai 发布 2.0 版本更新"
     **摘要**：Nice work! Got a better idea? Submit your relighting post for a shot at $1000. 👉 mk4s8co9elmd.space.minimax.i… More exciting tools and features are coming-and。
 
     **关键点**
@@ -57,7 +82,7 @@
 
     **来源**：[原文链接](https://x.com/Hailuo_AI/status/2039239129297453227)
 
-??? info "3. @elonmusk 发布 14.3 版本更新"
+??? info "5. @elonmusk 发布 14.3 版本更新"
     **摘要**：FSD 14.3 is in Tesla employee beta now and will probably go to wide release end of week。
 
     **关键点**
@@ -70,7 +95,7 @@
 
     **来源**：[原文链接](https://x.com/elonmusk/status/2039237601182572796)
 
-??? info "4. @elonmusk 发布重要更新"
+??? info "6. @elonmusk 发布重要更新"
     **摘要**：Try out self-driving in a Tesla. It will greatly improve your quality of life and may save your life. Robert Scoble @Scobleizer I was on @wholemars space this。
 
     **关键点**
@@ -82,31 +107,6 @@
     **影响分析**：Try out self-driving in a Tesla. It will greatly improve your quality of life and may save your life. Robert Scoble @Scobleizer I was on。
 
     **来源**：[原文链接](https://x.com/elonmusk/status/2039234648644198590)
-
-??? info "5. @elonmusk 发布产品更新"
-    **摘要**：💯 Jesse Peltan @JessePeltan Japan needs electrification more than anyone. Japanese industry with cheap domestic energy would be untouchable.-https://nitter.。
-
-    **关键点**
-
-    - 💯 Jesse Peltan @JessePeltan
-    - cheap domestic energy would
-
-    **影响分析**：💯 Jesse Peltan @JessePeltan Japan needs electrification more than anyone. Japanese industry with cheap domestic energy would be untouchabl。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2039220441123013104)
-
-??? info "6. @elonmusk 发布重要更新"
-    **摘要**：Accurate Ray @ray4tesla Chinese influencer Li Chi flew from China to California for the sole purpose of experiencing Tesla FSD firsthand. Here are his impress。
-
-    **关键点**
-
-    - Accurate Ray @ray4tesla Ch
-    - km-half the globe-just t
-    - compare it
-
-    **影响分析**：Accurate Ray @ray4tesla Chinese influencer Li Chi flew from China to California for the sole purpose of experiencing Tesla FSD firsthand.。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2039217539537084461)
 
 ??? info "7. arxiv.org 发布重要更新"
     **摘要**：arXiv:2603.28913v1 Announce Type:new Abstract:Polarity detection becomes substantially more challenging under domain shift,particularly in heterogeneous,lon。
@@ -293,6 +293,7 @@
 
 ## 历史归档
 
+- [2026-04-01_20-10-36](history/2026-04-01_20-10-36.md)
 - [2026-04-01_18-35-55](history/2026-04-01_18-35-55.md)
 - [2026-04-01_16-48-04](history/2026-04-01_16-48-04.md)
 - [2026-04-01_15-03-46](history/2026-04-01_15-03-46.md)
