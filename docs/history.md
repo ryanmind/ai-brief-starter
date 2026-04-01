@@ -1,13 +1,13 @@
-> 更新时间：2026年04月01日13:38:57
+> 更新时间：2026年04月01日15:03:46
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. @elonmusk 发布重要更新：Custom orders of the Tesla Model S &amp。
-2. @elonmusk 发布重要更新：Sentient machines ΛI DRIVR @AIDRIVR I was。
-3. arxiv.org 发布重要更新：arXiv:2603.28902v1 Announce Type:new Abstr。
-4. arxiv.org 发布重要更新：arXiv:2603.28906v1 Announce Type:new Abstr。
-5. arxiv.org 发布重要更新：arXiv:2603.28928v1 Announce Type:new Abstr。
+1. @elonmusk 发布重要更新：Try out self-driving in a Tesla. It will g。
+2. @elonmusk 发布产品更新：💯 Jesse Peltan @JessePeltan Japan needs el。
+3. @elonmusk 发布重要更新：Accurate Ray @ray4tesla Chinese influencer。
+4. @elonmusk 发布重要更新：Banger 😂。
+5. arxiv.org 发布 40.5 版本更新：arXiv:2603.28803v1 Announce Type:new Abstr。
 
 ## 分类速览
 
@@ -15,101 +15,127 @@
     - 暂无条目
 
 === "🧪 论文研究（4）"
-    - **3. arxiv.org 发布重要更新**：arXiv:2603.28902v1 Announce Type:new Abstract:C…
-    - **4. arxiv.org 发布重要更新**：arXiv:2603.28906v1 Announce Type:new Abstract:A…
-    - **5. arxiv.org 发布重要更新**：arXiv:2603.28928v1 Announce Type:new Abstract:W…
-    - **6. arxiv.org 发布 0.001 版本更新**：arXiv:2603.28990v1 Announce Type:new Abstract:H…
+    - **5. arxiv.org 发布 40.5 版本更新**：arXiv:2603.28803v1 Announce Type:new Abstract:D…
+    - **6. arxiv.org 发布重要更新**：arXiv:2603.28831v1 Announce Type:new Abstract:C…
+    - **7. arxiv.org 发布 10.6 版本更新**：arXiv:2603.28888v1 Announce Type:new Abstract:S…
+    - **8. arxiv.org 发布重要更新**：arXiv:2603.28890v1 Announce Type:new Abstract:W…
 
 === "🏢 产品与行业（16）"
-    - **1. @elonmusk 发布重要更新**：Custom orders of the Tesla Model S &amp
-    - **2. @elonmusk 发布重要更新**：Sentient machines ΛI DRIVR @AIDRIVR I was using…
-    - **7. @kaifulee 发布重要更新**：China and Open Claw-My Interview on Bloomberg y…
-    - **8. @anthropicai 发布重要更新**：Weve signed an MOU with the Australian Governme…
-    - **9. @replit 发布重要更新**：R to @Replit:Give it a try by clicking the + bu…
-    - **10. @openclaw 发布重要更新**：Huge thanks to @NVIDIAAI for supporting full-ti…
-    - **11. @openclaw 发布 2026.3.31 版本更新**：OpenClaw 2026.3.31 🦞 🇨🇳 Bundled QQ Bot-private…
-    - **12. @elonmusk 发布重要更新**：The Model 3 is such a fun car相关进展已由一手来源披露，预计将影响…
+    - **1. @elonmusk 发布重要更新**：Try out self-driving in a Tesla. It will greatl…
+    - **2. @elonmusk 发布产品更新**：💯 Jesse Peltan @JessePeltan Japan needs electri…
+    - **3. @elonmusk 发布重要更新**：Accurate Ray @ray4tesla Chinese influencer Li C…
+    - **4. @elonmusk 发布重要更新**：Banger 😂相关进展已由一手来源披露，预计将影响后续产品与行业节奏
+    - **9. @kaifulee 发布重要更新**：China and Open Claw-My Interview on Bloomberg y…
+    - **10. @anthropicai 发布重要更新**：Weve signed an MOU with the Australian Governme…
+    - **11. @openclaw 发布重要更新**：Huge thanks to @NVIDIAAI for supporting full-ti…
+    - **12. @openclaw 发布 2026.3.31 版本更新**：OpenClaw 2026.3.31 🦞 🇨🇳 Bundled QQ Bot-private…
 
 ## 全部快讯
 
 ??? info "1. @elonmusk 发布重要更新"
-    **摘要**：Custom orders of the Tesla Model S &amp；X have come to an end. All that’s left are some in inventory. We will have an official ceremony to mark the ending of a。
+    **摘要**：Try out self-driving in a Tesla. It will greatly improve your quality of life and may save your life. Robert Scoble @Scobleizer I was on @wholemars space this。
 
     **关键点**
 
-    - Custom orders of the Tesla M
-    - X have come to an end. All t
+    - Try out self-driving in a Te
+    - may save your life. Robert S
+    - bringing children into the w
 
-    **影响分析**：Custom orders of the Tesla Model S &amp。
+    **影响分析**：Try out self-driving in a Tesla. It will greatly improve your quality of life and may save your life. Robert Scoble @Scobleizer I was on。
 
-    **来源**：[原文链接](https://x.com/elonmusk/status/2039202381683110191)
+    **来源**：[原文链接](https://x.com/elonmusk/status/2039234648644198590)
 
-??? info "2. @elonmusk 发布重要更新"
-    **摘要**：Sentient machines ΛI DRIVR @AIDRIVR I was using FSD leaving San Francisco when the power outage froze the Waymos my family was with me telling me the navigati。
-
-    **关键点**
-
-    - Sentient machines ΛI DRIVR
-    - me telling me the navigation
-    - made no sense
-
-    **影响分析**：Sentient machines ΛI DRIVR @AIDRIVR I was using FSD leaving San Francisco when the power outage froze the Waymos my family was with me tel。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2039199192288231835)
-
-??? info "3. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2603.28902v1 Announce Type:new Abstract:Charts are central to analytical reasoning,yet existing benchmarks for chart understanding focus almost exclusi。
+??? info "2. @elonmusk 发布产品更新"
+    **摘要**：💯 Jesse Peltan @JessePeltan Japan needs electrification more than anyone. Japanese industry with cheap domestic energy would be untouchable.-https://nitter.。
 
     **关键点**
 
-    - arXiv:2603.28902v1 Announce
-    - yet existing benchmarks for
-    - we introduce ChartDiff
+    - 💯 Jesse Peltan @JessePeltan
+    - cheap domestic energy would
 
-    **影响分析**：arXiv:2603.28902v1 Announce Type:new Abstract:Charts are central to analytical reasoning,yet existing benchmarks for chart understanding。
+    **影响分析**：💯 Jesse Peltan @JessePeltan Japan needs electrification more than anyone. Japanese industry with cheap domestic energy would be untouchabl。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2603.28902)
+    **来源**：[原文链接](https://x.com/elonmusk/status/2039220441123013104)
 
-??? info "4. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2603.28906v1 Announce Type:new Abstract:AGI has become the Holly Grail of AI with the promise of level intelligence and the major Tech companies around。
-
-    **关键点**
-
-    - arXiv:2603.28906v1 Announce
-    - the promise of level intelli
-    - the major Tech companies aro
-
-    **影响分析**：arXiv:2603.28906v1 Announce Type:new Abstract:AGI has become the Holly Grail of AI with the promise of level intelligence and the major Te。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2603.28906)
-
-??? info "5. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2603.28928v1 Announce Type:new Abstract:We present the first comprehensive study of emergent social organization among AI agents in hierarchical multi-a。
+??? info "3. @elonmusk 发布重要更新"
+    **摘要**：Accurate Ray @ray4tesla Chinese influencer Li Chi flew from China to California for the sole purpose of experiencing Tesla FSD firsthand. Here are his impress。
 
     **关键点**
 
-    - arXiv:2603.28928v1 Announce
-    - documenting the spontaneous
-    - criminal syndicates
+    - Accurate Ray @ray4tesla Ch
+    - km-half the globe-just t
+    - compare it
 
-    **影响分析**：arXiv:2603.28928v1 Announce Type:new Abstract:We present the first comprehensive study of emergent social organization among AI agents in。
+    **影响分析**：Accurate Ray @ray4tesla Chinese influencer Li Chi flew from China to California for the sole purpose of experiencing Tesla FSD firsthand.。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2603.28928)
+    **来源**：[原文链接](https://x.com/elonmusk/status/2039217539537084461)
 
-??? info "6. arxiv.org 发布 0.001 版本更新"
-    **摘要**：arXiv:2603.28990v1 Announce Type:new Abstract:How much autonomy can multi-agent LLM systems sustain-and what enables it? We present a 25,000-task computati。
+??? info "4. @elonmusk 发布重要更新"
+    **摘要**：Banger 😂。
 
     **关键点**
 
-    - arXiv:2603.28990v1 Announce
-    - what enables it
-    - We present a 25
+    - Banger 😂
+    - Banger 😂相关进展已由一手来源披露
+    - 预计将影响后续产品与行业节奏
 
-    **影响分析**：arXiv:2603.28990v1 Announce Type:new Abstract:How much autonomy can multi-agent LLM systems sustain-and what enables it。
+    **影响分析**：Banger 😂相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2603.28990)
+    **来源**：[原文链接](https://x.com/elonmusk/status/2039215894854041883)
 
-??? info "7. @kaifulee 发布重要更新"
+??? info "5. arxiv.org 发布 40.5 版本更新"
+    **摘要**：arXiv:2603.28803v1 Announce Type:new Abstract:Double-Deck Multi-Agent Pickup and Delivery DD-MAPD models the multi-robot shelf rearrangement problem in auto。
+
+    **关键点**
+
+    - arXiv:2603.28803v1 Announce
+    - Delivery DD-MAPD models th
+    - a MAPF solver
+
+    **影响分析**：arXiv:2603.28803v1 Announce Type:new Abstract:Double-Deck Multi-Agent Pickup and Delivery DD-MAPD models the multi-robot shelf rearrange。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2603.28803)
+
+??? info "6. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2603.28831v1 Announce Type:new Abstract:Combining different types of agents in uncrewed vehicle UV swarms has emerged as an approach to enhance missio。
+
+    **关键点**
+
+    - arXiv:2603.28831v1 Announce
+    - operational capabilities acr
+    - function
+
+    **影响分析**：arXiv:2603.28831v1 Announce Type:new Abstract:Combining different types of agents in uncrewed vehicle UV swarms has emerged as an approa。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2603.28831)
+
+??? info "7. arxiv.org 发布 10.6 版本更新"
+    **摘要**：arXiv:2603.28888v1 Announce Type:new Abstract:Semantic anomalies-context-dependent hazards that pixel-level detectors cannot reason about-pose a critical safe。
+
+    **关键点**
+
+    - arXiv:2603.28888v1 Announce
+    - Hz alongside the primary AV
+    - monitoring for semantic edge
+
+    **影响分析**：arXiv:2603.28888v1 Announce Type:new Abstract:Semantic anomalies-context-dependent hazards that pixel-level detectors cannot reason about。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2603.28888)
+
+??? info "8. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2603.28890v1 Announce Type:new Abstract:We present a bootstrap perception system for indoor robot navigation under hardware depth failure. In our corrid。
+
+    **关键点**
+
+    - arXiv:2603.28890v1 Announce
+    - the time-of-flight camera lo
+    - yet a 2D LiDAR alone cannot
+
+    **影响分析**：arXiv:2603.28890v1 Announce Type:new Abstract:We present a bootstrap perception system for indoor robot navigation under hardware depth fa。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2603.28890)
+
+??? info "9. @kaifulee 发布重要更新"
     **摘要**：China and Open Claw-My Interview on Bloomberg yesterday. bloomberg.com/news/videos/20…。
 
     **关键点**
@@ -121,7 +147,7 @@
 
     **来源**：[原文链接](https://x.com/kaifulee/status/2039167886359703905)
 
-??? info "8. @anthropicai 发布重要更新"
+??? info "10. @anthropicai 发布重要更新"
     **摘要**：Weve signed an MOU with the Australian Government to collaborate on AI safety research and support Australias National AI Plan. Read more:anthropic.com/news/。
 
     **关键点**
@@ -134,20 +160,7 @@
 
     **来源**：[原文链接](https://x.com/AnthropicAI/status/2039137425214353555)
 
-??? info "9. @replit 发布重要更新"
-    **摘要**：Give it a try by clicking the + button in the input box,and then select the AI.。
-
-    **关键点**
-
-    - Give it a try by clicking th
-    - then select the AI.
-    - R to @Replit:Give it a try
-
-    **影响分析**：R to @Replit:Give it a try by clicking the + button in the input box,and then select the AI.相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://x.com/Replit/status/2039117636467134759)
-
-??? info "10. @openclaw 发布重要更新"
+??? info "11. @openclaw 发布重要更新"
     **摘要**：Huge thanks to @NVIDIAAI for supporting full-time engineering work on OpenClaw hardening. A lot of careful security and reliability improvements landed over the。
 
     **关键点**
@@ -160,7 +173,7 @@
 
     **来源**：[原文链接](https://x.com/openclaw/status/2039100191324979580)
 
-??? info "11. @openclaw 发布 2026.3.31 版本更新"
+??? info "12. @openclaw 发布 2026.3.31 版本更新"
     **摘要**：OpenClaw 2026.3.31 🦞 🇨🇳 Bundled QQ Bot-private,group,and guild chat + media 📹 LINE now sends images,video,and audio 🧵 Real background task flows:list,sh。
 
     **关键点**
@@ -172,18 +185,6 @@
     **影响分析**：OpenClaw 2026.3.31 🦞 🇨🇳 Bundled QQ Bot-private,group,and guild chat + media 📹 LINE now sends images,video,and audio 🧵 Real background。
 
     **来源**：[原文链接](https://x.com/openclaw/status/2039095081215672584)
-
-??? info "12. @elonmusk 发布重要更新"
-    **摘要**：The Model 3 is such a fun car Tesla @Tesla 10 years of Model 3 The car that started the EV revolution-https://nitter.net/Tesla/status/2039082075333255656#m。
-
-    **关键点**
-
-    - The Model 3 is such a fun ca
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：The Model 3 is such a fun car相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2039091131540209745)
 
 ??? info "13. @awscloud 发布重要更新"
     **摘要**：go.aws/4dUbphi。
@@ -262,34 +263,36 @@
 
     **来源**：[原文链接](https://x.com/MiniMax_AI/status/2039054370998997460)
 
-??? info "19. @replit 发布重要更新"
-    **摘要**：Finding the hottest talent for your startup got super easy 👀 Samuel Spitz @samuel_spitz Introducing Replit AI Recruiter:-Find targeted candidates in minutes。
+??? info "19. @andrewyng 发布重要更新"
+    **摘要**：The anti-AI coalition continues to maneuver to find arguments to slow down AI progress. If someone has a sincere concern about a specific effect of AI,for inst。
 
     **关键点**
 
-    - Finding the hottest talent f
-    - @replit 发布重要更新
+    - The anti-AI coalition contin
+    - for instance that it may lea
+    - I respect their intellectual
 
-    **影响分析**：Finding the hottest talent for your startup got super easy 👀 Samuel Spitz @samuel_spitz Introducing Replit AI Recruiter:-Find targeted ca。
+    **影响分析**：The anti-AI coalition continues to maneuver to find arguments to slow down AI progress. If someone has a sincere concern about a specific ef。
 
-    **来源**：[原文链接](https://x.com/Replit/status/2039054268725186629)
+    **来源**：[原文链接](https://x.com/AndrewYNg/status/2039051446084153834)
 
-??? info "20. @replit 发布重要更新"
-    **摘要**：Hackathon stories from Replit x Alif. Video。
+??? info "20. @pika_labs 发布重要更新"
+    **摘要**：Try it out at Pika dot me or our new iphone app apps.apple.com/us/app/pika-a…。
 
     **关键点**
 
-    - Hackathon stories from Repli
-    - 预计将影响后续产品与行业节奏
+    - Try it out at Pika dot me or
+    - R to @pika_labs:Try it out
 
-    **影响分析**：Hackathon stories from Replit x Alif.相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：R to @pika_labs:Try it out at Pika dot me or our new iphone app https://apps.apple.com/us/app/pika-ai-self-agent/id6758411447相关进展已由一手来源披露，预。
 
-    **来源**：[原文链接](https://x.com/Replit/status/2039051908275437781)
+    **来源**：[原文链接](https://x.com/pika_labs/status/2039031412993691771)
 
 ---
 
 ## 历史归档
 
+- [2026-04-01_15-03-46](history/2026-04-01_15-03-46.md)
 - [2026-04-01_13-38-57](history/2026-04-01_13-38-57.md)
 - [2026-04-01_12-28-53](history/2026-04-01_12-28-53.md)
 - [2026-04-01_08-01-58](history/2026-04-01_08-01-58.md)
