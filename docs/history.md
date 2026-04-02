@@ -1,24 +1,24 @@
-> 更新时间：2026年04月02日12:07:11
+> 更新时间：2026年04月02日13:23:38
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. arxiv.org 发布重要更新：arXiv:2604.00059v1 Announce Type:new Abstr。
-2. arxiv.org 发布重要更新：arXiv:2604.00168v1 Announce Type:new Abstr。
-3. arxiv.org 发布重要更新：arXiv:2604.00300v1 Announce Type:new Abstr。
-4. arxiv.org 发布重要更新：arXiv:2604.00343v1 Announce Type:new Abstr。
+1. arxiv.org 发布 2.4 版本更新：arXiv:2604.00002v1 Announce Type:new Abstr。
+2. arxiv.org 发布 2.5 版本更新：arXiv:2604.00003v1 Announce Type:new Abstr。
+3. arxiv.org 发布重要更新：arXiv:2604.00004v1 Announce Type:new Abstr。
+4. arxiv.org 发布 0.76 版本更新：arXiv:2604.00006v1 Announce Type:new Abstr。
 5. @demishassabis 发布重要更新：💎💎💎💎。
 
 ## 分类速览
 
 === "🤖 模型进展（1）"
-    - **19. @replit 发布重要更新**：Add in-app purchases with Replit × @RevenueCat-…
+    - **18. @replit 发布重要更新**：Add in-app purchases with Replit × @RevenueCat-…
 
 === "🧪 论文研究（4）"
-    - **1. arxiv.org 发布重要更新**：arXiv:2604.00059v1 Announce Type:new Abstract:A…
-    - **2. arxiv.org 发布重要更新**：arXiv:2604.00168v1 Announce Type:new Abstract:A…
-    - **3. arxiv.org 发布重要更新**：arXiv:2604.00300v1 Announce Type:new Abstract:T…
-    - **4. arxiv.org 发布重要更新**：arXiv:2604.00343v1 Announce Type:new Abstract:T…
+    - **1. arxiv.org 发布 2.4 版本更新**：arXiv:2604.00002v1 Announce Type:new Abstract:H…
+    - **2. arxiv.org 发布 2.5 版本更新**：arXiv:2604.00003v1 Announce Type:new Abstract:T…
+    - **3. arxiv.org 发布重要更新**：arXiv:2604.00004v1 Announce Type:new Abstract:T…
+    - **4. arxiv.org 发布 0.76 版本更新**：arXiv:2604.00006v1 Announce Type:new Abstract:A…
 
 === "🏢 产品与行业（15）"
     - **5. @demishassabis 发布重要更新**：Pinned:💎💎💎💎相关进展已由一手来源披露，预计将影响后续产品与行业节奏
@@ -32,57 +32,57 @@
 
 ## 全部快讯
 
-??? info "1. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.00059v1 Announce Type:new Abstract:Autonomous mobile robots operating in human-shared indoor environments often require paths that reflect human sp。
+??? info "1. arxiv.org 发布 2.4 版本更新"
+    **摘要**：arXiv:2604.00002v1 Announce Type:new Abstract:Here we introduce the Olfactory Perception OP benchmark,designed to assess the capability of large language m。
 
     **关键点**
 
-    - arXiv:2604.00059v1 Announce
-    - such as avoiding interferenc
-    - pedestrian flow or maintaini
+    - arXiv:2604.00002v1 Announce
+    - designed to assess the capab
+    - questions across eight task
 
-    **影响分析**：arXiv:2604.00059v1 Announce Type:new Abstract:Autonomous mobile robots operating in human-shared indoor environments often require paths t。
+    **影响分析**：arXiv:2604.00002v1 Announce Type:new Abstract:Here we introduce the Olfactory Perception OP benchmark,designed to assess the capability。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.00059)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.00002)
 
-??? info "2. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.00168v1 Announce Type:new Abstract:Autonomous platforms operating in the oceans require accurate navigation to successfully complete their mission.。
+??? info "2. arxiv.org 发布 2.5 版本更新"
+    **摘要**：arXiv:2604.00003v1 Announce Type:new Abstract:This study evaluates the reliability of information extraction approaches from KRS documents using three strateg。
 
     **关键点**
 
-    - arXiv:2604.00168v1 Announce
-    - the initial heading estimati
-    - the time required to achieve
+    - arXiv:2604.00003v1 Announce
+    - Hybrid Deterministic-LLM
+    - a Camelot based pipeline
 
-    **影响分析**：arXiv:2604.00168v1 Announce Type:new Abstract:Autonomous platforms operating in the oceans require accurate navigation to successfully com。
+    **影响分析**：arXiv:2604.00003v1 Announce Type:new Abstract:This study evaluates the reliability of information extraction approaches from KRS documents。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.00168)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.00003)
 
 ??? info "3. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.00300v1 Announce Type:new Abstract:This paper presents REMind,an innovative educational robot-mediated role-play game designed to support anti-bul。
+    **摘要**：arXiv:2604.00004v1 Announce Type:new Abstract:The extension of context windows in Large Language Models is typically facilitated by scaling positional encodin。
 
     **关键点**
 
-    - arXiv:2604.00300v1 Announce
-    - an innovative educational ro
-    - reflect on the perspectives
+    - arXiv:2604.00004v1 Announce
+    - this paradigm often disrupts
+    - leading to performance degra
 
-    **影响分析**：arXiv:2604.00300v1 Announce Type:new Abstract:This paper presents REMind,an innovative educational robot-mediated role-play game designed。
+    **影响分析**：arXiv:2604.00004v1 Announce Type:new Abstract:The extension of context windows in Large Language Models is typically facilitated by scalin。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.00300)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.00004)
 
-??? info "4. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.00343v1 Announce Type:new Abstract:This thesis presents a solution that enables aerial robots to reason about surrounding wind flow fields in real。
+??? info "4. arxiv.org 发布 0.76 版本更新"
+    **摘要**：arXiv:2604.00006v1 Announce Type:new Abstract:AI-powered recruitment tools are increasingly adopted in personnel selection,yet they struggle to capture the r。
 
     **关键点**
 
-    - arXiv:2604.00343v1 Announce
-    - embedded flight hardware. Th
-    - sparse in situ wind measurem
+    - arXiv:2604.00006v1 Announce
+    - yet they struggle to capture
+    - prioritize req-specific PCs
 
-    **影响分析**：arXiv:2604.00343v1 Announce Type:new Abstract:This thesis presents a solution that enables aerial robots to reason about surrounding wind。
+    **影响分析**：arXiv:2604.00006v1 Announce Type:new Abstract:AI-powered recruitment tools are increasingly adopted in personnel selection,yet they strug。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.00343)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.00006)
 
 ??? info "5. @demishassabis 发布重要更新"
     **摘要**：💎💎💎💎。
@@ -235,20 +235,7 @@
 
     **来源**：[原文链接](https://x.com/nvidia/status/2039401779717128479)
 
-??? info "17. @elonmusk 发布产品更新"
-    **摘要**：Wow Christopher F. Rufo ⚔️ @christopherrufo EXCLUSIVE:Multiple senior HHS officials estimate that,under Gavin Newsom,Californias state Medicaid program ha。
-
-    **关键点**
-
-    - Wow Christopher F. Rufo ⚔️
-    - under Gavin Newsom
-    - Californias state Medicaid
-
-    **影响分析**：Wow Christopher F. Rufo ⚔️ @christopherrufo EXCLUSIVE:Multiple senior HHS officials estimate that,under Gavin Newsom,Californias state。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2039395363690541176)
-
-??? info "18. @replit 发布重要更新"
+??? info "17. @replit 发布重要更新"
     **摘要**：Learn more at:replit.com/partners/revenuec…。
 
     **关键点**
@@ -261,7 +248,7 @@
 
     **来源**：[原文链接](https://x.com/Replit/status/2039388824753799187)
 
-??? info "19. @replit 发布重要更新"
+??? info "18. @replit 发布重要更新"
     **摘要**：Add in-app purchases with Replit × @RevenueCat-Build a mobile app on Replit-Add payments instantly-Publish directly onto the App Store Try out RevenueCat。
 
     **关键点**
@@ -274,7 +261,7 @@
 
     **来源**：[原文链接](https://x.com/Replit/status/2039388822920900929)
 
-??? info "20. @gammaapp 发布重要更新"
+??? info "19. @gammaapp 发布重要更新"
     **摘要**：Try out 100+ template library here:gamma.app/templates。
 
     **关键点**
@@ -287,10 +274,24 @@
 
     **来源**：[原文链接](https://x.com/GammaApp/status/2039380519159570647)
 
+??? info "20. @gammaapp 发布重要更新"
+    **摘要**：AI-Native Templates are here! Weve completely rebuilt how templates work in Gamma. You can now reuse any of your best presentations and adapt them for a new pu。
+
+    **关键点**
+
+    - AI-Native Templates are here
+    - Weve completely rebuilt how
+    - adapt them for a new purpose
+
+    **影响分析**：AI-Native Templates are here。
+
+    **来源**：[原文链接](https://x.com/GammaApp/status/2039380515707621443)
+
 ---
 
 ## 历史归档
 
+- [2026-04-02_13-23-38](history/2026-04-02_13-23-38.md)
 - [2026-04-02_12-07-11](history/2026-04-02_12-07-11.md)
 - [2026-04-02_08-00-34](history/2026-04-02_08-00-34.md)
 - [2026-04-01_22-53-27](history/2026-04-01_22-53-27.md)
