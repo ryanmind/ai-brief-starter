@@ -1,6 +1,6 @@
 # 今日快讯
 
-> 更新时间：2026年04月02日16:36:53
+> 更新时间：2026年04月02日18:19:47
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
@@ -9,7 +9,7 @@
 2. @elonmusk 发布重要更新：As sure as night follows day。
 3. @elonmusk 发布重要更新：True Arthur MacWaters @ArthurMacwaters the。
 4. @elonmusk 发布 32.6 版本更新：Wow Haywood Talcove @HaywoodTalcove At one。
-5. arxiv.org 发布重要更新：arXiv:2604.00059v1 Announce Type:new Abstr。
+5. arxiv.org 发布 2.4 版本更新：arXiv:2604.00002v1 Announce Type:new Abstr。
 
 ## 分类速览
 
@@ -17,10 +17,10 @@
     - 暂无条目
 
 === "🧪 论文研究（4）"
-    - **5. arxiv.org 发布重要更新**：arXiv:2604.00059v1 Announce Type:new Abstract:A…
-    - **6. arxiv.org 发布重要更新**：arXiv:2604.00168v1 Announce Type:new Abstract:A…
-    - **7. arxiv.org 发布重要更新**：arXiv:2604.00300v1 Announce Type:new Abstract:T…
-    - **8. arxiv.org 发布重要更新**：arXiv:2604.00343v1 Announce Type:new Abstract:T…
+    - **5. arxiv.org 发布 2.4 版本更新**：arXiv:2604.00002v1 Announce Type:new Abstract:H…
+    - **6. arxiv.org 发布 2.5 版本更新**：arXiv:2604.00003v1 Announce Type:new Abstract:T…
+    - **7. arxiv.org 发布重要更新**：arXiv:2604.00004v1 Announce Type:new Abstract:T…
+    - **8. arxiv.org 发布 0.76 版本更新**：arXiv:2604.00006v1 Announce Type:new Abstract:A…
 
 === "🏢 产品与行业（16）"
     - **1. @elonmusk 发布重要更新**：Visual intelligence beyond the human paradigm相关…
@@ -85,57 +85,57 @@
 
     **来源**：[原文链接](https://x.com/elonmusk/status/2039596268578799884)
 
-??? info "5. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.00059v1 Announce Type:new Abstract:Autonomous mobile robots operating in human-shared indoor environments often require paths that reflect human sp。
+??? info "5. arxiv.org 发布 2.4 版本更新"
+    **摘要**：arXiv:2604.00002v1 Announce Type:new Abstract:Here we introduce the Olfactory Perception OP benchmark,designed to assess the capability of large language m。
 
     **关键点**
 
-    - arXiv:2604.00059v1 Announce
-    - such as avoiding interferenc
-    - pedestrian flow or maintaini
+    - arXiv:2604.00002v1 Announce
+    - designed to assess the capab
+    - questions across eight task
 
-    **影响分析**：arXiv:2604.00059v1 Announce Type:new Abstract:Autonomous mobile robots operating in human-shared indoor environments often require paths t。
+    **影响分析**：arXiv:2604.00002v1 Announce Type:new Abstract:Here we introduce the Olfactory Perception OP benchmark,designed to assess the capability。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.00059)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.00002)
 
-??? info "6. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.00168v1 Announce Type:new Abstract:Autonomous platforms operating in the oceans require accurate navigation to successfully complete their mission.。
+??? info "6. arxiv.org 发布 2.5 版本更新"
+    **摘要**：arXiv:2604.00003v1 Announce Type:new Abstract:This study evaluates the reliability of information extraction approaches from KRS documents using three strateg。
 
     **关键点**
 
-    - arXiv:2604.00168v1 Announce
-    - the initial heading estimati
-    - the time required to achieve
+    - arXiv:2604.00003v1 Announce
+    - Hybrid Deterministic-LLM
+    - a Camelot based pipeline
 
-    **影响分析**：arXiv:2604.00168v1 Announce Type:new Abstract:Autonomous platforms operating in the oceans require accurate navigation to successfully com。
+    **影响分析**：arXiv:2604.00003v1 Announce Type:new Abstract:This study evaluates the reliability of information extraction approaches from KRS documents。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.00168)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.00003)
 
 ??? info "7. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.00300v1 Announce Type:new Abstract:This paper presents REMind,an innovative educational robot-mediated role-play game designed to support anti-bul。
+    **摘要**：arXiv:2604.00004v1 Announce Type:new Abstract:The extension of context windows in Large Language Models is typically facilitated by scaling positional encodin。
 
     **关键点**
 
-    - arXiv:2604.00300v1 Announce
-    - an innovative educational ro
-    - reflect on the perspectives
+    - arXiv:2604.00004v1 Announce
+    - this paradigm often disrupts
+    - leading to performance degra
 
-    **影响分析**：arXiv:2604.00300v1 Announce Type:new Abstract:This paper presents REMind,an innovative educational robot-mediated role-play game designed。
+    **影响分析**：arXiv:2604.00004v1 Announce Type:new Abstract:The extension of context windows in Large Language Models is typically facilitated by scalin。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.00300)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.00004)
 
-??? info "8. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.00343v1 Announce Type:new Abstract:This thesis presents a solution that enables aerial robots to reason about surrounding wind flow fields in real。
+??? info "8. arxiv.org 发布 0.76 版本更新"
+    **摘要**：arXiv:2604.00006v1 Announce Type:new Abstract:AI-powered recruitment tools are increasingly adopted in personnel selection,yet they struggle to capture the r。
 
     **关键点**
 
-    - arXiv:2604.00343v1 Announce
-    - embedded flight hardware. Th
-    - sparse in situ wind measurem
+    - arXiv:2604.00006v1 Announce
+    - yet they struggle to capture
+    - prioritize req-specific PCs
 
-    **影响分析**：arXiv:2604.00343v1 Announce Type:new Abstract:This thesis presents a solution that enables aerial robots to reason about surrounding wind。
+    **影响分析**：arXiv:2604.00006v1 Announce Type:new Abstract:AI-powered recruitment tools are increasingly adopted in personnel selection,yet they strug。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.00343)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.00006)
 
 ??? info "9. @demishassabis 发布重要更新"
     **摘要**：💎💎💎💎。
@@ -214,20 +214,7 @@
 
     **来源**：[原文链接](https://x.com/runwayml/status/2039425737350873371)
 
-??? info "15. @midjourney 发布重要更新"
-    **摘要**：midjourneyofficehours.onrend…。
-
-    **关键点**
-
-    - midjourneyofficehours.onrend
-    - R to @midjourney:midjourney
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：R to @midjourney:midjourneyofficehours.onrend…相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://x.com/midjourney/status/2039422066508943494)
-
-??? info "16. @nvidia 发布 v6.0 版本更新"
+??? info "15. @nvidia 发布 v6.0 版本更新"
     **摘要**：Delivered performance,not peak chip specifications,drives AI factory productivity. Rigorous benchmarks are the only way to see past the noise. In MLPerf Infer。
 
     **关键点**
@@ -240,7 +227,7 @@
 
     **来源**：[原文链接](https://x.com/nvidia/status/2039419585254875191)
 
-??? info "17. @midjourney 发布重要更新"
+??? info "16. @midjourney 发布重要更新"
     **摘要**：Midjourney Office Hours-April 1 nitter.net/i/spaces/1RKZzjyeoaNKB。
 
     **关键点**
@@ -252,7 +239,7 @@
 
     **来源**：[原文链接](https://x.com/midjourney/status/2039419463800619072)
 
-??? info "18. @awscloud 发布重要更新"
+??? info "17. @awscloud 发布重要更新"
     **摘要**：Not every bucket is an Amazon S3 bucket. But some of them wish they were. Video。
 
     **关键点**
@@ -264,7 +251,7 @@
 
     **来源**：[原文链接](https://x.com/awscloud/status/2039411826983641172)
 
-??? info "19. @openclaw 发布 2026.4.1 版本更新"
+??? info "18. @openclaw 发布 2026.4.1 版本更新"
     **摘要**：OpenClaw 2026.4.1 🦞 🤖 GLM 5.1 + failover that doesnt loop 🛡️ AWS Bedrock Guardrails 📋 /tasks-your agent keeps receipts ⏱️ Cron per-job tool allowlists 🔧 40+。
 
     **关键点**
@@ -276,7 +263,7 @@
 
     **来源**：[原文链接](https://x.com/openclaw/status/2039409616950542351)
 
-??? info "20. @nvidia 发布重要更新"
+??? info "19. @nvidia 发布重要更新"
     **摘要**：NVIDIA ranked No. 6 on the list of Fortune’s 100 Best Companies to Work For. Thank you to our employees and the impact they make while doing their life’s work.。
 
     **关键点**
@@ -287,3 +274,16 @@
     **影响分析**：NVIDIA ranked No. 6 on the list of Fortune’s 100 Best Companies to Work For. Thank you to our employees and the impact they make while doing。
 
     **来源**：[原文链接](https://x.com/nvidia/status/2039401779717128479)
+
+??? info "20. @replit 发布重要更新"
+    **摘要**：Learn more at:replit.com/partners/revenuec…。
+
+    **关键点**
+
+    - Learn more at:replit.com/pa
+    - R to @Replit:Learn more at
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：R to @Replit:Learn more at:https://replit.com/partners/revenuecat相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/Replit/status/2039388824753799187)
