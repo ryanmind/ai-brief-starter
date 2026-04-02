@@ -1,300 +1,292 @@
-> 更新时间：2026年04月01日22:53:27
+> 更新时间：2026年04月02日08:00:34
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. @awscloud 发布重要更新：Buckets is kicking their feet up after sup。
-2. @elonmusk 发布重要更新：Crazy Mike Lee @BasedMikeLee Biden badly m。
-3. @elonmusk 发布重要更新：Grok Imagine makes it easy and fast to cre。
-4. elevenlabs/elevenlabs-python 发布 v2.41.0 版本更新：Whats Changed fix:make audio_interface opt。
-5. elevenlabs/elevenlabs-js 发布 v2.41.1 版本更新：Whats Changed 🌿 Fern Regeneration-April 1。
+1. @demishassabis 发布重要更新：💎💎💎💎。
+2. @lumalabsai 发布重要更新：Your best work has always been a team effo。
+3. @notionhq 发布重要更新：Jake 🎉 @jitl uh oh..….-https://nitter.net/。
+4. @demishassabis 发布重要更新：Thanks for the great chat @HarryStebbings-。
+5. @replit 发布重要更新：This could make the difference in landing。
 
 ## 分类速览
 
-=== "🤖 模型进展（3）"
-    - **3. @elonmusk 发布重要更新**：Grok Imagine makes it easy and fast to create f…
-    - **6. @elonmusk 发布重要更新**：True Bill Melugin @BillMelugin_ The CBP One app…
-    - **15. openai.com 发布 4.1 版本更新**：Gradient Labs gives every bank customer an AI a…
+=== "🤖 模型进展（1）"
+    - **14. @replit 发布重要更新**：Add in-app purchases with Replit × @RevenueCat-…
 
-=== "🧪 论文研究（4）"
-    - **10. arxiv.org 发布重要更新**：arXiv:2603.28913v1 Announce Type:new Abstract:P…
-    - **11. arxiv.org 发布重要更新**：arXiv:2603.28925v1 Announce Type:new Abstract:S…
-    - **12. arxiv.org 发布 95.7 版本更新**：arXiv:2603.28929v1 Announce Type:new Abstract:M…
-    - **13. arxiv.org 发布重要更新**：arXiv:2603.29023v1 Announce Type:new Abstract:L…
+=== "🧪 论文研究（0）"
+    - 暂无条目
 
-=== "🏢 产品与行业（13）"
-    - **1. @awscloud 发布重要更新**：Buckets is kicking their feet up after supporti…
-    - **2. @elonmusk 发布重要更新**：Crazy Mike Lee @BasedMikeLee Biden badly misuse…
-    - **4. elevenlabs/elevenlabs-python 发布 v2.41.0 版本更新**：Whats Changed fix:make audio_interface optional…
-    - **5. elevenlabs/elevenlabs-js 发布 v2.41.1 版本更新**：v2.41.1相关进展已由一手来源披露，预计将影响后续产品与行业节奏
-    - **7. @elonmusk 发布重要更新**：Suicidal empathy Gad Saad @GadSaad I discuss in…
-    - **8. @openclaw 发布重要更新**：ClawHub now has an official China mirror 🇨🇳🦞 mi…
-    - **9. @hailuo_ai 发布 2.0 版本更新**：Got a better idea
-    - **14. @kaifulee 发布重要更新**：China and Open Claw-My Interview on Bloomberg y…
+=== "🏢 产品与行业（19）"
+    - **1. @demishassabis 发布重要更新**：Pinned:💎💎💎💎相关进展已由一手来源披露，预计将影响后续产品与行业节奏
+    - **2. @lumalabsai 发布重要更新**：Your best work has always been a team effort. N…
+    - **3. @notionhq 发布重要更新**：Image相关进展已由一手来源披露，预计将影响后续产品与行业节奏
+    - **4. @demishassabis 发布重要更新**：Thanks for the great chat @HarryStebbings-and c…
+    - **5. @replit 发布重要更新**：This could make the difference in landing that…
+    - **6. @runwayml 发布重要更新**：The submission deadline for the #RunwayBigAdCon…
+    - **7. @midjourney 发布重要更新**：R to @midjourney:midjourneyofficehours.onrend…相…
+    - **8. @nvidia 发布 v6.0 版本更新**：Delivered performance,not peak chip specificati…
 
 ## 全部快讯
 
-??? info "1. @awscloud 发布重要更新"
-    **摘要**：Buckets is kicking their feet up after supporting your storage needs for so long. Lets wish them a nice vacation!
+??? info "1. @demishassabis 发布重要更新"
+    **摘要**：💎💎💎💎。
 
     **关键点**
 
-    - Buckets is kicking their fee
-    - 相关进展已由一手来源披露，预计将影响后续产品与行业节
+    - Pinned:💎💎💎💎相关进展已由一手来源披露
+    - 预计将影响后续产品与行业节奏
+    - Pinned:💎💎💎💎
 
-    **影响分析**：Buckets is kicking their feet up after supporting your storage needs for so long. Lets wish them a nice vacation!相关进展已由一手来源披露，预计将影响后续产品与行业节。
+    **影响分析**：Pinned:💎💎💎💎相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://x.com/awscloud/status/2039331955548803466)
+    **来源**：[原文链接](https://x.com/demishassabis/status/2039489134465614068)
 
-??? info "2. @elonmusk 发布重要更新"
-    **摘要**：Crazy Mike Lee @BasedMikeLee Biden badly misused immigration parole,using it unlawfully to bring millions of migrants into the U.S. A federal judge has now t。
-
-    **关键点**
-
-    - Crazy Mike Lee @BasedMikeLe
-    - using it unlawfully to bring
-    - Crazy
-
-    **影响分析**：Crazy Mike Lee @BasedMikeLee Biden badly misused immigration parole,using it unlawfully to bring millions of migrants into the U.S. A fed。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2039317879762653259)
-
-??? info "3. @elonmusk 发布重要更新"
-    **摘要**：Grok Imagine makes it easy and fast to create fun videos! Young kids especially love doing image &amp；video generation using voice mode press the speak button。
+??? info "2. @lumalabsai 发布重要更新"
+    **摘要**：Your best work has always been a team effort. Now Luma is too. Add team members and admins. One account,real roles,total control. Learn more → lumalabs.ai/new。
 
     **关键点**
 
-    - Grok Imagine makes it easy
-    - fast to create fun videos
-    - Young kids especially love d
+    - Your best work has always be
+    - admins. One account
+    - real roles
 
-    **影响分析**：Grok Imagine makes it easy and fast to create fun videos。
+    **影响分析**：Your best work has always been a team effort. Now Luma is too. Add team members and admins. One account,real roles,total control. Learn mo。
 
-    **来源**：[原文链接](https://x.com/elonmusk/status/2039317389280760233)
+    **来源**：[原文链接](https://x.com/LumaLabsAI/status/2039462723403366596)
 
-??? info "4. elevenlabs/elevenlabs-python 发布 v2.41.0 版本更新"
-    **摘要**：Whats Changed fix:make audio_interface optional for text-only chat mode by @mvanhorn in #749 🌿 Fern Regeneration-April 1,2026 by @fern-api bot in #756 N。
-
-    **关键点**
-
-    - Whats Changed fix:make aud
-    - by @fern-api bot in #756 N
-    - by @fern
-
-    **影响分析**：Whats Changed fix:make audio_interface optional for text-only chat mode by @mvanhorn in #749 🌿 Fern Regeneration-April 1,2026 by @fern。
-
-    **来源**：[原文链接](https://github.com/elevenlabs/elevenlabs-python/releases/tag/v2.41.0)
-
-??? info "5. elevenlabs/elevenlabs-js 发布 v2.41.1 版本更新"
-    **摘要**：Whats Changed 🌿 Fern Regeneration-April 1,2026 by @fern-api bot in #364 Full Changelog:v2.41.0...v2.41.1。
+??? info "3. @notionhq 发布重要更新"
+    **摘要**：Jake 🎉 @jitl uh oh..….-https://nitter.net/jitl/status/2039349924781809930#m。
 
     **关键点**
 
-    - Whats Changed 🌿 Fern Regene
-    - by @fern-api bot in #364 F
-    - v2.41.1相关进展已由一手来源披露
-
-    **影响分析**：v2.41.1相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/elevenlabs/elevenlabs-js/releases/tag/v2.41.1)
-
-??? info "6. @elonmusk 发布重要更新"
-    **摘要**：True Bill Melugin @BillMelugin_ The CBP One app was originally created to streamline trucking cargo for vehicles crossing the border. The Biden admin altered。
-
-    **关键点**
-
-    - True Bill Melugin @BillMelu
-    - otherwise inadmissible alien
-    - True
-
-    **影响分析**：True Bill Melugin @BillMelugin_ The CBP One app was originally created to streamline trucking cargo for vehicles crossing the border. The。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2039314315036303476)
-
-??? info "7. @elonmusk 发布重要更新"
-    **摘要**：Suicidal empathy Gad Saad @GadSaad I discuss innumerable such cases in Suicidal Empathy. Once you read the cases contiguously,you will be left speechless.。
-
-    **关键点**
-
-    - Suicidal empathy Gad Saad
-    - you will be left speechless.
-    - you will be
-
-    **影响分析**：Suicidal empathy Gad Saad @GadSaad I discuss innumerable such cases in Suicidal Empathy. Once you read the cases contiguously,you will be。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2039314044981858464)
-
-??? info "8. @openclaw 发布重要更新"
-    **摘要**：ClawHub now has an official China mirror 🇨🇳🦞 mirror-cn.clawhub.com Just tell your agent:Find skills on ClawHub using mirror-cn.clawhub.com/ Thanks @BytePlus。
-
-    **关键点**
-
-    - ClawHub now has an official
-    - PRs welcome.
-
-    **影响分析**：ClawHub now has an official China mirror 🇨🇳🦞 mirror-cn.clawhub.com Just tell your agent:Find skills on ClawHub using mirror-cn.clawhub.com。
-
-    **来源**：[原文链接](https://x.com/openclaw/status/2039240359197438229)
-
-??? info "9. @hailuo_ai 发布 2.0 版本更新"
-    **摘要**：Nice work! Got a better idea? Submit your relighting post for a shot at $1000. 👉 mk4s8co9elmd.space.minimax.i… More exciting tools and features are coming-and。
-
-    **关键点**
-
-    - Nice work
-    - Got a better idea
-    - Submit your relighting post
-
-    **影响分析**：Got a better idea。
-
-    **来源**：[原文链接](https://x.com/Hailuo_AI/status/2039239129297453227)
-
-??? info "10. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2603.28913v1 Announce Type:new Abstract:Polarity detection becomes substantially more challenging under domain shift,particularly in heterogeneous,lon。
-
-    **关键点**
-
-    - arXiv:2603.28913v1 Announce
-    - particularly in heterogeneou
-    - long-form narratives
-
-    **影响分析**：arXiv:2603.28913v1 Announce Type:new Abstract:Polarity detection becomes substantially more challenging under domain shift,particularly i。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2603.28913)
-
-??? info "11. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2603.28925v1 Announce Type:new Abstract:Safety fine-tuning in Large Language Models LLMs seeks to suppress potentially harmful forms of mind-attributi。
-
-    **关键点**
-
-    - arXiv:2603.28925v1 Announce
-    - mechanistic analyses of repr
-    - we demonstrate that LLM attr
-
-    **影响分析**：arXiv:2603.28925v1 Announce Type:new Abstract:Safety fine-tuning in Large Language Models LLMs seeks to suppress potentially harmful for。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2603.28925)
-
-??? info "12. arxiv.org 发布 95.7 版本更新"
-    **摘要**：arXiv:2603.28929v1 Announce Type:new Abstract:Multi-intent detection papers usually ask whether a model can recover multiple intents from one utterance. We as。
-
-    **关键点**
-
-    - arXiv:2603.28929v1 Announce
-    - for deployment
-    - more useful question:can it
-
-    **影响分析**：arXiv:2603.28929v1 Announce Type:new Abstract:Multi-intent detection papers usually ask whether a model can recover multiple intents from。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2603.28929)
-
-??? info "13. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2603.29023v1 Announce Type:new Abstract:Large language models lack persistent,structured memory for long-term interaction and context-sensitive retriev。
-
-    **关键点**
-
-    - arXiv:2603.29023v1 Announce
-    - structured memory for long-t
-    - context-sensitive retrieval.
-
-    **影响分析**：arXiv:2603.29023v1 Announce Type:new Abstract:Large language models lack persistent,structured memory for long-term interaction and conte。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2603.29023)
-
-??? info "14. @kaifulee 发布重要更新"
-    **摘要**：China and Open Claw-My Interview on Bloomberg yesterday. bloomberg.com/news/videos/20…。
-
-    **关键点**
-
-    - China
-    - Open Claw-My Interview on
-
-    **影响分析**：China and Open Claw-My Interview on Bloomberg yesterday. https://www.bloomberg.com/news/videos/2026-03-31/01-ai-s-kai-fu-lee-on-openclaw。
-
-    **来源**：[原文链接](https://x.com/kaifulee/status/2039167886359703905)
-
-??? info "15. openai.com 发布 4.1 版本更新"
-    **摘要**：Gradient Labs uses GPT-4.1 and GPT-5.4 mini and nano to power AI agents that automate banking support workflows with low latency and high reliability.。
-
-    **关键点**
-
-    - Gradient Labs uses GPT-4.1
-    - GPT-5.4 mini
-    - nano to power AI agents that
-
-    **影响分析**：Gradient Labs gives every bank customer an AI account manager相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://openai.com/index/gradient-labs)
-
-??? info "16. @anthropicai 发布重要更新"
-    **摘要**：Weve signed an MOU with the Australian Government to collaborate on AI safety research and support Australias National AI Plan. Read more:anthropic.com/news/。
-
-    **关键点**
-
-    - Weve signed an MOU
-    - the Australian Government to
-    - support Australias National
-
-    **影响分析**：Weve signed an MOU with the Australian Government to collaborate on AI safety research and support Australias National AI Plan. Read more。
-
-    **来源**：[原文链接](https://x.com/AnthropicAI/status/2039137425214353555)
-
-??? info "17. @replit 发布重要更新"
-    **摘要**：Give it a try by clicking the + button in the input box,and then select the AI.。
-
-    **关键点**
-
-    - Give it a try by clicking th
-    - then select the AI.
-    - R to @Replit:Give it a try
-
-    **影响分析**：R to @Replit:Give it a try by clicking the + button in the input box,and then select the AI.相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://x.com/Replit/status/2039117636467134759)
-
-??? info "18. @openclaw 发布重要更新"
-    **摘要**：Huge thanks to @NVIDIAAI for supporting full-time engineering work on OpenClaw hardening. A lot of careful security and reliability improvements landed over the。
-
-    **关键点**
-
-    - Huge thanks to @NVIDIAAI for
-    - reliability improvements lan
-    - that investment is paying of
-
-    **影响分析**：Huge thanks to @NVIDIAAI for supporting full-time engineering work on OpenClaw hardening. A lot of careful security and reliability improvem。
-
-    **来源**：[原文链接](https://x.com/openclaw/status/2039100191324979580)
-
-??? info "19. @openclaw 发布 2026.3.31 版本更新"
-    **摘要**：OpenClaw 2026.3.31 🦞 🇨🇳 Bundled QQ Bot-private,group,and guild chat + media 📹 LINE now sends images,video,and audio 🧵 Real background task flows:list,sh。
-
-    **关键点**
-
-    - OpenClaw 2026.3.31 🦞 🇨🇳 Bund
-    - group
-    - guild chat + media 📹 LINE no
-
-    **影响分析**：OpenClaw 2026.3.31 🦞 🇨🇳 Bundled QQ Bot-private,group,and guild chat + media 📹 LINE now sends images,video,and audio 🧵 Real background。
-
-    **来源**：[原文链接](https://x.com/openclaw/status/2039095081215672584)
-
-??? info "20. @awscloud 发布重要更新"
-    **摘要**：go.aws/4dUbphi。
-
-    **关键点**
-
-    - go.aws/4dUbphi
-    - R to @awscloud:go.aws/4dUbp
+    - Jake 🎉 @jitl uh oh..….-h
+    - Image相关进展已由一手来源披露
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：R to @awscloud:go.aws/4dUbphi相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：Image相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://x.com/awscloud/status/2039089664687034717)
+    **来源**：[原文链接](https://x.com/NotionHQ/status/2039461000471367797)
+
+??? info "4. @demishassabis 发布重要更新"
+    **摘要**：Thanks for the great chat @HarryStebbings-and congrats on all your amazing successes! Harry Stebbings @HarryStebbings I am forever grateful to learn from th。
+
+    **关键点**
+
+    - Thanks for the great chat @H
+    - congrats on all your amazing
+    - Harry Stebbings @HarryStebb
+
+    **影响分析**：Thanks for the great chat @HarryStebbings-and congrats on all your amazing successes。
+
+    **来源**：[原文链接](https://x.com/demishassabis/status/2039438720022065632)
+
+??? info "5. @replit 发布重要更新"
+    **摘要**：This could make the difference in landing that interview vs. getting your resume auto-rejected. Samuel Spitz @samuel_spitz Introducing Replit Resume Maker Gen。
+
+    **关键点**
+
+    - This could make the differen
+    - AI Video-https://nitter.ne
+
+    **影响分析**：This could make the difference in landing that interview vs. getting your resume auto-rejected. Samuel Spitz @samuel_spitz Introducing Rep。
+
+    **来源**：[原文链接](https://x.com/Replit/status/2039436271022690565)
+
+??? info "6. @runwayml 发布重要更新"
+    **摘要**：The submission deadline for the #RunwayBigAdContest has been extended to 9 am ET,April 2nd. Good luck to all. Runway @runwayml Two weeks. Seven briefs. Up to。
+
+    **关键点**
+
+    - The submission deadline for
+    - April 2nd. Good luck to all.
+    - most ambitious ideas to life
+
+    **影响分析**：The submission deadline for the #RunwayBigAdContest has been extended to 9 am ET,April 2nd. Good luck to all. Runway @runwayml Two weeks.。
+
+    **来源**：[原文链接](https://x.com/runwayml/status/2039425737350873371)
+
+??? info "7. @midjourney 发布重要更新"
+    **摘要**：midjourneyofficehours.onrend…。
+
+    **关键点**
+
+    - midjourneyofficehours.onrend
+    - R to @midjourney:midjourney
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：R to @midjourney:midjourneyofficehours.onrend…相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/midjourney/status/2039422066508943494)
+
+??? info "8. @nvidia 发布 v6.0 版本更新"
+    **摘要**：Delivered performance,not peak chip specifications,drives AI factory productivity. Rigorous benchmarks are the only way to see past the noise. In MLPerf Infer。
+
+    **关键点**
+
+    - Delivered performance
+    - not peak chip specifications
+    - drives AI factory productivi
+
+    **影响分析**：Delivered performance,not peak chip specifications,drives AI factory productivity. Rigorous benchmarks are the only way to see past the no。
+
+    **来源**：[原文链接](https://x.com/nvidia/status/2039419585254875191)
+
+??? info "9. @midjourney 发布重要更新"
+    **摘要**：Midjourney Office Hours-April 1 nitter.net/i/spaces/1RKZzjyeoaNKB。
+
+    **关键点**
+
+    - Midjourney Office Hours-Ap
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：Midjourney Office Hours-April 1 https://x.com/i/spaces/1RKZzjyeoaNKB相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/midjourney/status/2039419463800619072)
+
+??? info "10. @awscloud 发布重要更新"
+    **摘要**：Not every bucket is an Amazon S3 bucket. But some of them wish they were. Video。
+
+    **关键点**
+
+    - Not every bucket is an Ama
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：Not every bucket is an Amazon S3 bucket. But some of them wish they were.相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/awscloud/status/2039411826983641172)
+
+??? info "11. @openclaw 发布 2026.4.1 版本更新"
+    **摘要**：OpenClaw 2026.4.1 🦞 🤖 GLM 5.1 + failover that doesnt loop 🛡️ AWS Bedrock Guardrails 📋 /tasks-your agent keeps receipts ⏱️ Cron per-job tool allowlists 🔧 40+。
+
+    **关键点**
+
+    - OpenClaw 2026.4.1 🦞 🤖 GLM 5.
+    - exec fixes Were renaming to
+
+    **影响分析**：OpenClaw 2026.4.1 🦞 🤖 GLM 5.1 + failover that doesnt loop 🛡️ AWS Bedrock Guardrails 📋 /tasks-your agent keeps receipts ⏱️ Cron per-job to。
+
+    **来源**：[原文链接](https://x.com/openclaw/status/2039409616950542351)
+
+??? info "12. @nvidia 发布重要更新"
+    **摘要**：NVIDIA ranked No. 6 on the list of Fortune’s 100 Best Companies to Work For. Thank you to our employees and the impact they make while doing their life’s work.。
+
+    **关键点**
+
+    - NVIDIA ranked No. 6 on the l
+    - the impact they make while d
+
+    **影响分析**：NVIDIA ranked No. 6 on the list of Fortune’s 100 Best Companies to Work For. Thank you to our employees and the impact they make while doing。
+
+    **来源**：[原文链接](https://x.com/nvidia/status/2039401779717128479)
+
+??? info "13. @replit 发布重要更新"
+    **摘要**：Learn more at:replit.com/partners/revenuec…。
+
+    **关键点**
+
+    - Learn more at:replit.com/pa
+    - R to @Replit:Learn more at
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：R to @Replit:Learn more at:https://replit.com/partners/revenuecat相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/Replit/status/2039388824753799187)
+
+??? info "14. @replit 发布重要更新"
+    **摘要**：Add in-app purchases with Replit × @RevenueCat-Build a mobile app on Replit-Add payments instantly-Publish directly onto the App Store Try out RevenueCat。
+
+    **关键点**
+
+    - Add in-app purchases
+    - Replit × @RevenueCat-Build
+    - Not an April fools joke
+
+    **影响分析**：Add in-app purchases with Replit × @RevenueCat-Build a mobile app on Replit-Add payments instantly-Publish directly onto the App Store。
+
+    **来源**：[原文链接](https://x.com/Replit/status/2039388822920900929)
+
+??? info "15. @gammaapp 发布重要更新"
+    **摘要**：Try out 100+ template library here:gamma.app/templates。
+
+    **关键点**
+
+    - Try out 100+ template librar
+    - R to @GammaApp:Try out 100+
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：R to @GammaApp:Try out 100+ template library here:https://gamma.app/templates相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/GammaApp/status/2039380519159570647)
+
+??? info "16. @gammaapp 发布重要更新"
+    **摘要**：AI-Native Templates are here! Weve completely rebuilt how templates work in Gamma. You can now reuse any of your best presentations and adapt them for a new pu。
+
+    **关键点**
+
+    - AI-Native Templates are here
+    - Weve completely rebuilt how
+    - adapt them for a new purpose
+
+    **影响分析**：AI-Native Templates are here。
+
+    **来源**：[原文链接](https://x.com/GammaApp/status/2039380515707621443)
+
+??? info "17. @replit 发布重要更新"
+    **摘要**：Make Your First Dollar in the App Store | Replit x RevenueCat nitter.net/i/broadcasts/1qGoNenaM…。
+
+    **关键点**
+
+    - Make Your First Dollar in th
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：Make Your First Dollar in the App Store | Replit x RevenueCat https://x.com/i/broadcasts/1qGoNenaMYkKv相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/Replit/status/2039372293936431287)
+
+??? info "18. @hailuo_ai 发布重要更新"
+    **摘要**：😯 This is incredibly smooth. Amazing visuals. Aleena Amir @aleenaamiir This isn’t the future… this is already happening. And it’s only getting better from her。
+
+    **关键点**
+
+    - 😯 This is incredibly smooth.
+    - @Hailuo_AI Video-https://n
+
+    **影响分析**：😯 This is incredibly smooth. Amazing visuals. Aleena Amir @aleenaamiir This isn’t the future… this is already happening. And it’s only get。
+
+    **来源**：[原文链接](https://x.com/Hailuo_AI/status/2039370673831981507)
+
+??? info "19. @minimax_ai 发布重要更新"
+    **摘要**：AI-powered classrooms,powered by MiniMax 🎙️Thrilled to collaborate with @yujifan_0326 and the OpenMAIC team. Richer voices,more expressive teaching,and a who。
+
+    **关键点**
+
+    - AI-powered classrooms
+    - powered by MiniMax 🎙️Thrille
+    - @yujifan_0326
+
+    **影响分析**：AI-powered classrooms,powered by MiniMax 🎙️Thrilled to collaborate with @yujifan_0326 and the OpenMAIC team. Richer voices,more expressive。
+
+    **来源**：[原文链接](https://x.com/MiniMax_AI/status/2039369719611105679)
+
+??? info "20. @drjimfan 发布重要更新"
+    **摘要**：Please check out lead author @letian_fu s deep dive thread! nitter.net/letian_fu/status/20393… Max Fu @letian_fu Robotics:coding agents’ next frontier. So h。
+
+    **关键点**
+
+    - Please check out lead author
+    - nitter.net/letian_fu/status/
+    - We introduce CaP-X:an open
+
+    **影响分析**：Please check out lead author @letian_fu s deep dive thread。
+
+    **来源**：[原文链接](https://x.com/DrJimFan/status/2039360927653614004)
 
 ---
 
 ## 历史归档
 
+- [2026-04-02_08-00-34](history/2026-04-02_08-00-34.md)
 - [2026-04-01_22-53-27](history/2026-04-01_22-53-27.md)
 - [2026-04-01_20-10-36](history/2026-04-01_20-10-36.md)
 - [2026-04-01_18-35-55](history/2026-04-01_18-35-55.md)
