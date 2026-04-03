@@ -1,31 +1,31 @@
-> 更新时间：2026年04月03日16:14:34
+> 更新时间：2026年04月03日18:10:48
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. @elonmusk 发布重要更新：Grok video games are going to be incredibl。
-2. @elonmusk 发布重要更新：Grok Imagine。
-3. @elonmusk 发布重要更新：Try it out! Dogan Ural @doganuraldesign Gr。
-4. Comfy-Org/ComfyUI 发布 v0.18.5 版本更新：ComfyUi v0.18.5。
-5. Comfy-Org/ComfyUI 发布 v0.18.4 版本更新：This reverts commit 4504ee7 .。
+1. @elonmusk 发布重要更新：Quality over quantity Art Muse @art_muse N。
+2. @elonmusk 发布重要更新：True The Conservative Alternative @OldeWor。
+3. @elonmusk 发布 4.20 版本更新：Try Grok Mark Kretschmann @mark_k Grok 4.2。
+4. @elonmusk 发布重要更新：Grok Imagine Pro mode for 1080P images &am。
+5. Comfy-Org/ComfyUI 发布 v0.18.5 版本更新：ComfyUi v0.18.5。
 
 ## 分类速览
 
 === "🤖 模型进展（3）"
-    - **1. @elonmusk 发布重要更新**：Grok video games are going to be incredible Kir…
-    - **2. @elonmusk 发布重要更新**：Grok Imagine相关进展已由一手来源披露，预计将影响后续产品与行业节奏
-    - **3. @elonmusk 发布重要更新**：Dogan Ural @doganuraldesign Grok Imagine Qualit…
+    - **1. @elonmusk 发布重要更新**：Quality over quantity Art Muse @art_muse New “Q…
+    - **3. @elonmusk 发布 4.20 版本更新**：Try Grok Mark Kretschmann @mark_k Grok 4.20 is…
+    - **4. @elonmusk 发布重要更新**：Grok Imagine Pro mode for 1080P images &amp
 
 === "🧪 论文研究（4）"
-    - **7. arxiv.org 发布重要更新**：arXiv:2604.00005v1 Announce Type:new Abstract:E…
-    - **8. arxiv.org 发布重要更新**：arXiv:2604.00249v1 Announce Type:new Abstract:S…
-    - **9. arxiv.org 发布重要更新**：arXiv:2604.00281v1 Announce Type:new Abstract:L…
-    - **10. arxiv.org 发布重要更新**：arXiv:2604.00284v1 Announce Type:new Abstract:W…
+    - **7. arxiv.org 发布 2.4 版本更新**：arXiv:2604.00002v1 Announce Type:new Abstract:H…
+    - **8. arxiv.org 发布 2.5 版本更新**：arXiv:2604.00003v1 Announce Type:new Abstract:T…
+    - **9. arxiv.org 发布重要更新**：arXiv:2604.00004v1 Announce Type:new Abstract:T…
+    - **10. arxiv.org 发布 0.76 版本更新**：arXiv:2604.00006v1 Announce Type:new Abstract:A…
 
 === "🏢 产品与行业（13）"
-    - **4. Comfy-Org/ComfyUI 发布 v0.18.5 版本更新**：v0.18.5相关进展已由一手来源披露，预计将影响后续产品与行业节奏
-    - **5. Comfy-Org/ComfyUI 发布 v0.18.4 版本更新**：v0.18.4:Revert Fix some fp8 scaled checkpoints…
-    - **6. @elonmusk 发布重要更新**：The same people Nick Knipe @kniborg Straight fr…
+    - **2. @elonmusk 发布重要更新**：True The Conservative Alternative @OldeWorldOrd…
+    - **5. Comfy-Org/ComfyUI 发布 v0.18.5 版本更新**：v0.18.5相关进展已由一手来源披露，预计将影响后续产品与行业节奏
+    - **6. Comfy-Org/ComfyUI 发布 v0.18.4 版本更新**：v0.18.4:Revert Fix some fp8 scaled checkpoints…
     - **11. @pika_labs 发布重要更新**：R to @pika_labs:P.P.S. if you dont have a Pika…
     - **12. @notionhq 发布产品更新**：☕️相关进展已由一手来源披露，预计将影响后续产品与行业节奏
     - **13. @lumalabsai 发布重要更新**：Branded content lives and dies on character. Di…
@@ -35,45 +35,57 @@
 ## 全部快讯
 
 ??? info "1. @elonmusk 发布重要更新"
-    **摘要**：Grok video games are going to be incredible Kiri @Kyrannio Be sure to update your Grok app,the new Imagine Quality mode is absolutely insane. It really res。
+    **摘要**：Quality over quantity Art Muse @art_muse New “Quality Mode” in Grok Imagine is absolutely stunning! The crispness and clarity are beautiful. Video-https://n。
 
     **关键点**
 
-    - Grok video games are going t
-    - the new Imagine Quality mo
-    - feels far more stylized. I l
+    - Quality over quantity Art Mu
+    - The crispness
+    - clarity are beautiful. Video
 
-    **影响分析**：Grok video games are going to be incredible Kiri @Kyrannio Be sure to update your Grok app,the new Imagine Quality mode is absolutely i。
+    **影响分析**：Quality over quantity Art Muse @art_muse New “Quality Mode” in Grok Imagine is absolutely stunning。
 
-    **来源**：[原文链接](https://x.com/elonmusk/status/2039978147803001187)
+    **来源**：[原文链接](https://x.com/elonmusk/status/2039999701966360770)
 
 ??? info "2. @elonmusk 发布重要更新"
-    **摘要**：Grok Imagine。
+    **摘要**：True The Conservative Alternative @OldeWorldOrder ELON MUSK:Infiltration of the judiciary throughout the West is the greatest long con of the left.-https。
 
     **关键点**
 
-    - Grok Imagine
-    - Grok Imagine相关进展已由一手来源披露
-    - 预计将影响后续产品与行业节奏
+    - True The Conservative Altern
+    - True
 
-    **影响分析**：Grok Imagine相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：True The Conservative Alternative @OldeWorldOrder ELON MUSK:Infiltration of the judiciary throughout the West is the greatest long con o。
 
-    **来源**：[原文链接](https://x.com/elonmusk/status/2039974819333300439)
+    **来源**：[原文链接](https://x.com/elonmusk/status/2039997956271849696)
 
-??? info "3. @elonmusk 发布重要更新"
-    **摘要**：Try it out! Dogan Ural @doganuraldesign Grok Imagine Quality Mode is here! A massively improved new image model. Try it for realistic cinematics. I’ll share m。
+??? info "3. @elonmusk 发布 4.20 版本更新"
+    **摘要**：Try Grok Mark Kretschmann @mark_k Grok 4.20 is criminally underrated. Dont let the haters distract you,try it for yourself. @xai was seriously cooking with。
 
     **关键点**
 
-    - Try it out
-    - Dogan Ural @doganuraldesign
-    - A massively improved new ima
+    - Try Grok Mark Kretschmann
+    - try it for yourself. @xai wa
+    - this model. And its just th
 
-    **影响分析**：Dogan Ural @doganuraldesign Grok Imagine Quality Mode is here。
+    **影响分析**：Try Grok Mark Kretschmann @mark_k Grok 4.20 is criminally underrated. Dont let the haters distract you,try it for yourself. @xai was ser。
 
-    **来源**：[原文链接](https://x.com/elonmusk/status/2039970079211913488)
+    **来源**：[原文链接](https://x.com/elonmusk/status/2039997686250951164)
 
-??? info "4. Comfy-Org/ComfyUI 发布 v0.18.5 版本更新"
+??? info "4. @elonmusk 发布重要更新"
+    **摘要**：Grok Imagine Pro mode for 1080P images &amp；video later this month SFCwrench🍋 @SFCWrench Grok imagine fast on the left,Quality on the Right-https://nitter。
+
+    **关键点**
+
+    - Grok Imagine Pro mode for 10
+    - video later this month SFCwr
+    - Quality on the Right-https
+
+    **影响分析**：Grok Imagine Pro mode for 1080P images &amp。
+
+    **来源**：[原文链接](https://x.com/elonmusk/status/2039979553440121093)
+
+??? info "5. Comfy-Org/ComfyUI 发布 v0.18.5 版本更新"
     **摘要**：ComfyUi v0.18.5。
 
     **关键点**
@@ -86,7 +98,7 @@
 
     **来源**：[原文链接](https://github.com/Comfy-Org/ComfyUI/releases/tag/v0.18.5)
 
-??? info "5. Comfy-Org/ComfyUI 发布 v0.18.4 版本更新"
+??? info "6. Comfy-Org/ComfyUI 发布 v0.18.4 版本更新"
     **摘要**：This reverts commit 4504ee7 .。
 
     **关键点**
@@ -99,70 +111,57 @@
 
     **来源**：[原文链接](https://github.com/Comfy-Org/ComfyUI/releases/tag/v0.18.4)
 
-??? info "6. @elonmusk 发布重要更新"
-    **摘要**：The same people Nick Knipe @kniborg Straight from Hayeks road to serfdom. If you want big gov b/c you dont like the sociopaths running big corporations,jus。
+??? info "7. arxiv.org 发布 2.4 版本更新"
+    **摘要**：arXiv:2604.00002v1 Announce Type:new Abstract:Here we introduce the Olfactory Perception OP benchmark,designed to assess the capability of large language m。
 
     **关键点**
 
-    - The same people Nick Knipe
-    - just wait until you centrali
-    - discover who gravitates ther
+    - arXiv:2604.00002v1 Announce
+    - designed to assess the capab
+    - questions across eight task
 
-    **影响分析**：The same people Nick Knipe @kniborg Straight from Hayeks road to serfdom. If you want big gov b/c you dont like the sociopaths running b。
+    **影响分析**：arXiv:2604.00002v1 Announce Type:new Abstract:Here we introduce the Olfactory Perception OP benchmark,designed to assess the capability。
 
-    **来源**：[原文链接](https://x.com/elonmusk/status/2039961771461718059)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.00002)
 
-??? info "7. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.00005v1 Announce Type:new Abstract:Emotion plays an important role in human cognition and performance. Motivated by this,we investigate whether an。
-
-    **关键点**
-
-    - arXiv:2604.00005v1 Announce
-    - performance. Motivated by th
-    - we investigate whether analo
-
-    **影响分析**：arXiv:2604.00005v1 Announce Type:new Abstract:Emotion plays an important role in human cognition and performance. Motivated by this,we in。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2604.00005)
-
-??? info "8. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.00249v1 Announce Type:new Abstract:Single-agent large language model LLM systems struggle to simultaneously support diverse conversational functi。
+??? info "8. arxiv.org 发布 2.5 版本更新"
+    **摘要**：arXiv:2604.00003v1 Announce Type:new Abstract:This study evaluates the reliability of information extraction approaches from KRS documents using three strateg。
 
     **关键点**
 
-    - arXiv:2604.00249v1 Announce
-    - maintain safety in behaviora
-    - role-orchestrated multi-agen
+    - arXiv:2604.00003v1 Announce
+    - Hybrid Deterministic-LLM
+    - a Camelot based pipeline
 
-    **影响分析**：arXiv:2604.00249v1 Announce Type:new Abstract:Single-agent large language model LLM systems struggle to simultaneously support diverse c。
+    **影响分析**：arXiv:2604.00003v1 Announce Type:new Abstract:This study evaluates the reliability of information extraction approaches from KRS documents。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.00249)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.00003)
 
 ??? info "9. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.00281v1 Announce Type:new Abstract:Large language models LLMs are increasingly embedded in computer science education through AI-assisted program。
+    **摘要**：arXiv:2604.00004v1 Announce Type:new Abstract:The extension of context windows in Large Language Models is typically facilitated by scaling positional encodin。
 
     **关键点**
 
-    - arXiv:2604.00281v1 Announce
-    - yet such workflows often exh
-    - in which locally plausible o
+    - arXiv:2604.00004v1 Announce
+    - this paradigm often disrupts
+    - leading to performance degra
 
-    **影响分析**：arXiv:2604.00281v1 Announce Type:new Abstract:Large language models LLMs are increasingly embedded in computer science education through。
+    **影响分析**：arXiv:2604.00004v1 Announce Type:new Abstract:The extension of context windows in Large Language Models is typically facilitated by scalin。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.00281)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.00004)
 
-??? info "10. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.00284v1 Announce Type:new Abstract:We formally introduce a improvisational wordplay game called Connections to explore reasoning capabilities of AI。
+??? info "10. arxiv.org 发布 0.76 版本更新"
+    **摘要**：arXiv:2604.00006v1 Announce Type:new Abstract:AI-powered recruitment tools are increasingly adopted in personnel selection,yet they struggle to capture the r。
 
     **关键点**
 
-    - arXiv:2604.00284v1 Announce
-    - summarization
-    - awareness of cognitive state
+    - arXiv:2604.00006v1 Announce
+    - yet they struggle to capture
+    - prioritize req-specific PCs
 
-    **影响分析**：arXiv:2604.00284v1 Announce Type:new Abstract:We formally introduce a improvisational wordplay game called Connections to explore reasonin。
+    **影响分析**：arXiv:2604.00006v1 Announce Type:new Abstract:AI-powered recruitment tools are increasingly adopted in personnel selection,yet they strug。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.00284)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.00006)
 
 ??? info "11. @pika_labs 发布重要更新"
     **摘要**：P.P.S. if you dont have a Pika AI Self yet,give birth to yours at Pika.me。
@@ -295,6 +294,7 @@
 
 ## 历史归档
 
+- [2026-04-03_18-10-48](history/2026-04-03_18-10-48.md)
 - [2026-04-03_16-14-34](history/2026-04-03_16-14-34.md)
 - [2026-04-03_14-51-53](history/2026-04-03_14-51-53.md)
 - [2026-04-03_13-25-33](history/2026-04-03_13-25-33.md)
