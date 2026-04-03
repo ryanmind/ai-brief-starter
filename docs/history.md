@@ -1,144 +1,170 @@
-> 更新时间：2026年04月03日14:51:53
+> 更新时间：2026年04月03日16:14:34
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. @elonmusk 发布重要更新：South Africa has extremely racist laws Vis。
-2. @elonmusk 发布重要更新：Inevitable The Rabbit Hole @TheRabbitHole。
-3. @elonmusk 发布重要更新：That’s how bad it was 🇦🇪 HGS @Sajwani Do y。
-4. @elonmusk 发布重要更新：Grok Christopher Stanley @cstanley If you。
-5. arxiv.org 发布 2.4 版本更新：arXiv:2604.00002v1 Announce Type:new Abstr。
+1. @elonmusk 发布重要更新：Grok video games are going to be incredibl。
+2. @elonmusk 发布重要更新：Grok Imagine。
+3. @elonmusk 发布重要更新：Try it out! Dogan Ural @doganuraldesign Gr。
+4. Comfy-Org/ComfyUI 发布 v0.18.5 版本更新：ComfyUi v0.18.5。
+5. Comfy-Org/ComfyUI 发布 v0.18.4 版本更新：This reverts commit 4504ee7 .。
 
 ## 分类速览
 
 === "🤖 模型进展（3）"
-    - **4. @elonmusk 发布重要更新**：Grok Christopher Stanley @cstanley If you want…
-    - **19. @karpathy 发布重要更新**：Oh and in the natural extrapolation,you could i…
-    - **20. @karpathy 发布重要更新**：LLM Knowledge Bases Something Im finding very u…
+    - **1. @elonmusk 发布重要更新**：Grok video games are going to be incredible Kir…
+    - **2. @elonmusk 发布重要更新**：Grok Imagine相关进展已由一手来源披露，预计将影响后续产品与行业节奏
+    - **3. @elonmusk 发布重要更新**：Dogan Ural @doganuraldesign Grok Imagine Qualit…
 
 === "🧪 论文研究（4）"
-    - **5. arxiv.org 发布 2.4 版本更新**：arXiv:2604.00002v1 Announce Type:new Abstract:H…
-    - **6. arxiv.org 发布 2.5 版本更新**：arXiv:2604.00003v1 Announce Type:new Abstract:T…
-    - **7. arxiv.org 发布重要更新**：arXiv:2604.00004v1 Announce Type:new Abstract:T…
-    - **8. arxiv.org 发布 0.76 版本更新**：arXiv:2604.00006v1 Announce Type:new Abstract:A…
+    - **7. arxiv.org 发布重要更新**：arXiv:2604.00005v1 Announce Type:new Abstract:E…
+    - **8. arxiv.org 发布重要更新**：arXiv:2604.00249v1 Announce Type:new Abstract:S…
+    - **9. arxiv.org 发布重要更新**：arXiv:2604.00281v1 Announce Type:new Abstract:L…
+    - **10. arxiv.org 发布重要更新**：arXiv:2604.00284v1 Announce Type:new Abstract:W…
 
 === "🏢 产品与行业（13）"
-    - **1. @elonmusk 发布重要更新**：South Africa has extremely racist laws Visegrád…
-    - **2. @elonmusk 发布重要更新**：Inevitable相关进展已由一手来源披露，预计将影响后续产品与行业节奏
-    - **3. @elonmusk 发布重要更新**：That’s how bad it was 🇦🇪 HGS @Sajwani Do you kn…
-    - **9. @pika_labs 发布重要更新**：R to @pika_labs:P.P.S. if you dont have a Pika…
-    - **10. @notionhq 发布产品更新**：☕️相关进展已由一手来源披露，预计将影响后续产品与行业节奏
-    - **11. @lumalabsai 发布重要更新**：Branded content lives and dies on character. Di…
-    - **12. @notionhq 发布重要更新**：Agency is a muscle. Tools can strengthen it-or…
-    - **13. @replit 发布重要更新**：From concept to demo at Replit x Alif.相关进展已由一手来…
+    - **4. Comfy-Org/ComfyUI 发布 v0.18.5 版本更新**：v0.18.5相关进展已由一手来源披露，预计将影响后续产品与行业节奏
+    - **5. Comfy-Org/ComfyUI 发布 v0.18.4 版本更新**：v0.18.4:Revert Fix some fp8 scaled checkpoints…
+    - **6. @elonmusk 发布重要更新**：The same people Nick Knipe @kniborg Straight fr…
+    - **11. @pika_labs 发布重要更新**：R to @pika_labs:P.P.S. if you dont have a Pika…
+    - **12. @notionhq 发布产品更新**：☕️相关进展已由一手来源披露，预计将影响后续产品与行业节奏
+    - **13. @lumalabsai 发布重要更新**：Branded content lives and dies on character. Di…
+    - **14. @notionhq 发布重要更新**：Agency is a muscle. Tools can strengthen it-or…
+    - **15. @replit 发布重要更新**：From concept to demo at Replit x Alif.相关进展已由一手来…
 
 ## 全部快讯
 
 ??? info "1. @elonmusk 发布重要更新"
-    **摘要**：South Africa has extremely racist laws Visegrád 24 @visegrad24 🇿🇦 South African President Cyril Ramaphosa says that the country will not abandon its DEI polic。
+    **摘要**：Grok video games are going to be incredible Kiri @Kyrannio Be sure to update your Grok app,the new Imagine Quality mode is absolutely insane. It really res。
 
     **关键点**
 
-    - South Africa has extremely r
-    - known as “Black Economic Emp
-    - affirmative action must stop
+    - Grok video games are going t
+    - the new Imagine Quality mo
+    - feels far more stylized. I l
 
-    **影响分析**：South Africa has extremely racist laws Visegrád 24 @visegrad24 🇿🇦 South African President Cyril Ramaphosa says that the country will not a。
+    **影响分析**：Grok video games are going to be incredible Kiri @Kyrannio Be sure to update your Grok app,the new Imagine Quality mode is absolutely i。
 
-    **来源**：[原文链接](https://x.com/elonmusk/status/2039950634661937185)
+    **来源**：[原文链接](https://x.com/elonmusk/status/2039978147803001187)
 
 ??? info "2. @elonmusk 发布重要更新"
-    **摘要**：Inevitable The Rabbit Hole @TheRabbitHole Hollywood went Woke. Now it’s going broke.-https://nitter.net/TheRabbitHole/status/2039761001982386382#m。
+    **摘要**：Grok Imagine。
 
     **关键点**
 
-    - Inevitable The Rabbit Hole
-    - Inevitable相关进展已由一手来源披露
+    - Grok Imagine
+    - Grok Imagine相关进展已由一手来源披露
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：Inevitable相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：Grok Imagine相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://x.com/elonmusk/status/2039935466443788402)
+    **来源**：[原文链接](https://x.com/elonmusk/status/2039974819333300439)
 
 ??? info "3. @elonmusk 发布重要更新"
-    **摘要**：That’s how bad it was 🇦🇪 HGS @Sajwani Do you know why Zuby was banned by Twitter ? Because he wrote to someone “Ok Dude …” 🤣-https://nitter.net/Sajwani/stat。
+    **摘要**：Try it out! Dogan Ural @doganuraldesign Grok Imagine Quality Mode is here! A massively improved new image model. Try it for realistic cinematics. I’ll share m。
 
     **关键点**
 
-    - That’s how bad it was 🇦🇪 HGS
-    - Because he wrote to someone
-    - That’s how bad it was
+    - Try it out
+    - Dogan Ural @doganuraldesign
+    - A massively improved new ima
 
-    **影响分析**：That’s how bad it was 🇦🇪 HGS @Sajwani Do you know why Zuby was banned by Twitter。
+    **影响分析**：Dogan Ural @doganuraldesign Grok Imagine Quality Mode is here。
 
-    **来源**：[原文链接](https://x.com/elonmusk/status/2039932726741197303)
+    **来源**：[原文链接](https://x.com/elonmusk/status/2039970079211913488)
 
-??? info "4. @elonmusk 发布重要更新"
-    **摘要**：Grok Christopher Stanley @cstanley If you want the latest,correct,real time l information,use Grok.-https://nitter.net/cstanley/status/203991170395823340。
-
-    **关键点**
-
-    - Grok Christopher Stanley @c
-    - correct
-    - real time l information
-
-    **影响分析**：Grok Christopher Stanley @cstanley If you want the latest,correct,real time l information,use Grok.-https://nitter.net/cstanley/statu。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2039923476648349996)
-
-??? info "5. arxiv.org 发布 2.4 版本更新"
-    **摘要**：arXiv:2604.00002v1 Announce Type:new Abstract:Here we introduce the Olfactory Perception OP benchmark,designed to assess the capability of large language m。
+??? info "4. Comfy-Org/ComfyUI 发布 v0.18.5 版本更新"
+    **摘要**：ComfyUi v0.18.5。
 
     **关键点**
 
-    - arXiv:2604.00002v1 Announce
-    - designed to assess the capab
-    - questions across eight task
+    - ComfyUi v0.18.5
+    - v0.18.5相关进展已由一手来源披露
+    - 预计将影响后续产品与行业节奏
 
-    **影响分析**：arXiv:2604.00002v1 Announce Type:new Abstract:Here we introduce the Olfactory Perception OP benchmark,designed to assess the capability。
+    **影响分析**：v0.18.5相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.00002)
+    **来源**：[原文链接](https://github.com/Comfy-Org/ComfyUI/releases/tag/v0.18.5)
 
-??? info "6. arxiv.org 发布 2.5 版本更新"
-    **摘要**：arXiv:2604.00003v1 Announce Type:new Abstract:This study evaluates the reliability of information extraction approaches from KRS documents using three strateg。
+??? info "5. Comfy-Org/ComfyUI 发布 v0.18.4 版本更新"
+    **摘要**：This reverts commit 4504ee7 .。
 
     **关键点**
 
-    - arXiv:2604.00003v1 Announce
-    - Hybrid Deterministic-LLM
-    - a Camelot based pipeline
+    - This reverts commit 4504ee7
+    - v0.18.4:Revert Fix some fp
+    - 预计将影响后续产品与行业节奏
 
-    **影响分析**：arXiv:2604.00003v1 Announce Type:new Abstract:This study evaluates the reliability of information extraction approaches from KRS documents。
+    **影响分析**：v0.18.4:Revert Fix some fp8 scaled checkpoints no longer working. #13239相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.00003)
+    **来源**：[原文链接](https://github.com/Comfy-Org/ComfyUI/releases/tag/v0.18.4)
+
+??? info "6. @elonmusk 发布重要更新"
+    **摘要**：The same people Nick Knipe @kniborg Straight from Hayeks road to serfdom. If you want big gov b/c you dont like the sociopaths running big corporations,jus。
+
+    **关键点**
+
+    - The same people Nick Knipe
+    - just wait until you centrali
+    - discover who gravitates ther
+
+    **影响分析**：The same people Nick Knipe @kniborg Straight from Hayeks road to serfdom. If you want big gov b/c you dont like the sociopaths running b。
+
+    **来源**：[原文链接](https://x.com/elonmusk/status/2039961771461718059)
 
 ??? info "7. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.00004v1 Announce Type:new Abstract:The extension of context windows in Large Language Models is typically facilitated by scaling positional encodin。
+    **摘要**：arXiv:2604.00005v1 Announce Type:new Abstract:Emotion plays an important role in human cognition and performance. Motivated by this,we investigate whether an。
 
     **关键点**
 
-    - arXiv:2604.00004v1 Announce
-    - this paradigm often disrupts
-    - leading to performance degra
+    - arXiv:2604.00005v1 Announce
+    - performance. Motivated by th
+    - we investigate whether analo
 
-    **影响分析**：arXiv:2604.00004v1 Announce Type:new Abstract:The extension of context windows in Large Language Models is typically facilitated by scalin。
+    **影响分析**：arXiv:2604.00005v1 Announce Type:new Abstract:Emotion plays an important role in human cognition and performance. Motivated by this,we in。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.00004)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.00005)
 
-??? info "8. arxiv.org 发布 0.76 版本更新"
-    **摘要**：arXiv:2604.00006v1 Announce Type:new Abstract:AI-powered recruitment tools are increasingly adopted in personnel selection,yet they struggle to capture the r。
+??? info "8. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2604.00249v1 Announce Type:new Abstract:Single-agent large language model LLM systems struggle to simultaneously support diverse conversational functi。
 
     **关键点**
 
-    - arXiv:2604.00006v1 Announce
-    - yet they struggle to capture
-    - prioritize req-specific PCs
+    - arXiv:2604.00249v1 Announce
+    - maintain safety in behaviora
+    - role-orchestrated multi-agen
 
-    **影响分析**：arXiv:2604.00006v1 Announce Type:new Abstract:AI-powered recruitment tools are increasingly adopted in personnel selection,yet they strug。
+    **影响分析**：arXiv:2604.00249v1 Announce Type:new Abstract:Single-agent large language model LLM systems struggle to simultaneously support diverse c。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.00006)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.00249)
 
-??? info "9. @pika_labs 发布重要更新"
+??? info "9. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2604.00281v1 Announce Type:new Abstract:Large language models LLMs are increasingly embedded in computer science education through AI-assisted program。
+
+    **关键点**
+
+    - arXiv:2604.00281v1 Announce
+    - yet such workflows often exh
+    - in which locally plausible o
+
+    **影响分析**：arXiv:2604.00281v1 Announce Type:new Abstract:Large language models LLMs are increasingly embedded in computer science education through。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2604.00281)
+
+??? info "10. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2604.00284v1 Announce Type:new Abstract:We formally introduce a improvisational wordplay game called Connections to explore reasoning capabilities of AI。
+
+    **关键点**
+
+    - arXiv:2604.00284v1 Announce
+    - summarization
+    - awareness of cognitive state
+
+    **影响分析**：arXiv:2604.00284v1 Announce Type:new Abstract:We formally introduce a improvisational wordplay game called Connections to explore reasonin。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2604.00284)
+
+??? info "11. @pika_labs 发布重要更新"
     **摘要**：P.P.S. if you dont have a Pika AI Self yet,give birth to yours at Pika.me。
 
     **关键点**
@@ -151,7 +177,7 @@
 
     **来源**：[原文链接](https://x.com/pika_labs/status/2039913516266823771)
 
-??? info "10. @notionhq 发布产品更新"
+??? info "12. @notionhq 发布产品更新"
     **摘要**：☕️ keshav @keshavchan notion hq has the most adorable lego set-https://nitter.net/keshavchan/status/2039897060045119660#m。
 
     **关键点**
@@ -164,7 +190,7 @@
 
     **来源**：[原文链接](https://x.com/NotionHQ/status/2039911857583243656)
 
-??? info "11. @lumalabsai 发布重要更新"
+??? info "13. @lumalabsai 发布重要更新"
     **摘要**：Branded content lives and dies on character. Direct an lazy aliens unlikely comeback fueled by Nebula Juice,with consistent world-building and character ident。
 
     **关键点**
@@ -177,7 +203,7 @@
 
     **来源**：[原文链接](https://x.com/LumaLabsAI/status/2039870678577373260)
 
-??? info "12. @notionhq 发布重要更新"
+??? info "14. @notionhq 发布重要更新"
     **摘要**：Agency is a muscle. Tools can strengthen it-or let it atrophy. @ivanhzhao Video。
 
     **关键点**
@@ -189,7 +215,7 @@
 
     **来源**：[原文链接](https://x.com/NotionHQ/status/2039868041073393822)
 
-??? info "13. @replit 发布重要更新"
+??? info "15. @replit 发布重要更新"
     **摘要**：From concept to demo at Replit x Alif. Video。
 
     **关键点**
@@ -201,7 +227,7 @@
 
     **来源**：[原文链接](https://x.com/Replit/status/2039850672602964105)
 
-??? info "14. @replit 发布重要更新"
+??? info "16. @replit 发布重要更新"
     **摘要**：Week 1 winner of the Agent 4 Content Challenge:🏆 @rahvsid @baceaukim Built a Duolingo for the Central Asia diaspora Incredible use of Agent 4 👏 Video。
 
     **关键点**
@@ -213,20 +239,7 @@
 
     **来源**：[原文链接](https://x.com/Replit/status/2039840821030379951)
 
-??? info "15. @replit 发布重要更新"
-    **摘要**：Replit Agent can now perform SEO audits on your site,helping boost traffic,ranking,and performance. Samuel Spitz @samuel_spitz Your websites SEO is costin。
-
-    **关键点**
-
-    - Replit Agent can now perform
-    - helping boost traffic
-    - ranking
-
-    **影响分析**：Replit Agent can now perform SEO audits on your site,helping boost traffic,ranking,and performance. Samuel Spitz @samuel_spitz Your web。
-
-    **来源**：[原文链接](https://x.com/Replit/status/2039838336622502184)
-
-??? info "16. @replit 发布重要更新"
+??? info "17. @replit 发布重要更新"
     **摘要**：Select the Skill from the plus icon a the prompt window.。
 
     **关键点**
@@ -239,7 +252,20 @@
 
     **来源**：[原文链接](https://x.com/Replit/status/2039838338115661850)
 
-??? info "17. @stabilityai 发布重要更新"
+??? info "18. @replit 发布重要更新"
+    **摘要**：Replit Agent can now perform SEO audits on your site,helping boost traffic,ranking,and performance. Samuel Spitz @samuel_spitz Your websites SEO is costin。
+
+    **关键点**
+
+    - Replit Agent can now perform
+    - helping boost traffic
+    - ranking
+
+    **影响分析**：Replit Agent can now perform SEO audits on your site,helping boost traffic,ranking,and performance. Samuel Spitz @samuel_spitz Your web。
+
+    **来源**：[原文链接](https://x.com/Replit/status/2039838336622502184)
+
+??? info "19. @stabilityai 发布重要更新"
     **摘要**：The Storyteller’s Gap is a black hole that eats every narrative that never sees the light of day. It’s been there since the beginning of time. Until now. Our CE。
 
     **关键点**
@@ -252,7 +278,7 @@
 
     **来源**：[原文链接](https://x.com/StabilityAI/status/2039822748042551598)
 
-??? info "18. @notionhq 发布 99.9 版本更新"
+??? info "20. @notionhq 发布 99.9 版本更新"
     **摘要**：Duplication recently got a long overdue update! One framework now powers every copy flow in Notion:pages,templates,marketplace installs,moves,recurrence。
 
     **关键点**
@@ -265,36 +291,11 @@
 
     **来源**：[原文链接](https://x.com/NotionHQ/status/2039811653420888100)
 
-??? info "19. @karpathy 发布重要更新"
-    **摘要**：Oh and in the natural extrapolation,you could imagine that every question to a frontier grade LLM spawns a team of LLMs to automate the whole thing:iterativel。
-
-    **关键点**
-
-    - in the natural extrapolation
-    - you could imagine that every
-    - lint it
-
-    **影响分析**：Oh and in the natural extrapolation,you could imagine that every question to a frontier grade LLM spawns a team of LLMs to automate the who。
-
-    **来源**：[原文链接](https://x.com/karpathy/status/2039808711452246261)
-
-??? info "20. @karpathy 发布重要更新"
-    **摘要**：LLM Knowledge Bases Something Im finding very useful recently:using LLMs to build personal knowledge bases for various topics of research interest. In this wa。
-
-    **关键点**
-
-    - LLM Knowledge Bases Somethin
-    - a large fraction of my recen
-    - more into manipulating knowl
-
-    **影响分析**：LLM Knowledge Bases Something Im finding very useful recently:using LLMs to build personal knowledge bases for various topics of research。
-
-    **来源**：[原文链接](https://x.com/karpathy/status/2039805659525644595)
-
 ---
 
 ## 历史归档
 
+- [2026-04-03_16-14-34](history/2026-04-03_16-14-34.md)
 - [2026-04-03_14-51-53](history/2026-04-03_14-51-53.md)
 - [2026-04-03_13-25-33](history/2026-04-03_13-25-33.md)
 - [2026-04-03_12-08-06](history/2026-04-03_12-08-06.md)
