@@ -1,38 +1,196 @@
 # 今日快讯
 
-> 更新时间：2026年04月03日08:01:09
+> 更新时间：2026年04月03日12:08:06
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. @replit 发布重要更新：From concept to demo at Replit x Alif. Vid。
-2. @replit 发布重要更新：Week 1 winner of the Agent 4 Content Chall。
-3. @replit 发布重要更新：Select the Skill from the plus icon a the。
-4. @replit 发布重要更新：Replit Agent can now perform SEO audits on。
-5. @stabilityai 发布重要更新：The Storyteller’s Gap is a black hole that。
+1. arxiv.org 发布 2.4 版本更新：arXiv:2604.00002v1 Announce Type:new Abstr。
+2. arxiv.org 发布 2.5 版本更新：arXiv:2604.00003v1 Announce Type:new Abstr。
+3. arxiv.org 发布重要更新：arXiv:2604.00004v1 Announce Type:new Abstr。
+4. arxiv.org 发布 0.76 版本更新：arXiv:2604.00006v1 Announce Type:new Abstr。
+5. @pika_labs 发布重要更新：P.P.S. if you dont have a Pika AI Self yet。
 
 ## 分类速览
 
-=== "🤖 模型进展（2）"
-    - **7. @karpathy 发布重要更新**：Oh and in the natural extrapolation,you could i…
-    - **8. @karpathy 发布重要更新**：LLM Knowledge Bases Something Im finding very u…
+=== "🤖 模型进展（3）"
+    - **7. @elonmusk 发布重要更新**：Tesla Cernovich @Cernovich Last time I was in a…
+    - **19. @karpathy 发布重要更新**：Oh and in the natural extrapolation,you could i…
+    - **20. @karpathy 发布重要更新**：LLM Knowledge Bases Something Im finding very u…
 
-=== "🧪 论文研究（0）"
-    - 暂无条目
+=== "🧪 论文研究（4）"
+    - **1. arxiv.org 发布 2.4 版本更新**：arXiv:2604.00002v1 Announce Type:new Abstract:H…
+    - **2. arxiv.org 发布 2.5 版本更新**：arXiv:2604.00003v1 Announce Type:new Abstract:T…
+    - **3. arxiv.org 发布重要更新**：arXiv:2604.00004v1 Announce Type:new Abstract:T…
+    - **4. arxiv.org 发布 0.76 版本更新**：arXiv:2604.00006v1 Announce Type:new Abstract:A…
 
-=== "🏢 产品与行业（18）"
-    - **1. @replit 发布重要更新**：From concept to demo at Replit x Alif.相关进展已由一手来…
-    - **2. @replit 发布重要更新**：Week 1 winner of the Agent 4 Content Challenge…
-    - **3. @replit 发布重要更新**：R to @Replit:Select the Skill from the plus ico…
-    - **4. @replit 发布重要更新**：Replit Agent can now perform SEO audits on your…
-    - **5. @stabilityai 发布重要更新**：The Storyteller’s Gap is a black hole that eats…
-    - **6. @notionhq 发布 99.9 版本更新**：Duplication recently got a long overdue update
-    - **9. @pika_labs 发布重要更新**：Conversations tend to go better with a face and…
-    - **10. @pika_labs 发布重要更新**：Ask your Pika AI Self to join a Google Meet and…
+=== "🏢 产品与行业（13）"
+    - **5. @pika_labs 发布重要更新**：R to @pika_labs:P.P.S. if you dont have a Pika…
+    - **6. @notionhq 发布产品更新**：☕️相关进展已由一手来源披露，预计将影响后续产品与行业节奏
+    - **8. @elonmusk 发布产品更新**：😮相关进展已由一手来源披露，预计将影响后续产品与行业节奏
+    - **9. @elonmusk 发布重要更新**：True Viv 🪩 @battleangelviv when Teslas become b…
+    - **10. @elonmusk 发布 0.4 版本更新**：Wow Maria Davidson @MariaDavidson Californias p…
+    - **11. @lumalabsai 发布重要更新**：Branded content lives and dies on character. Di…
+    - **12. @notionhq 发布重要更新**：Agency is a muscle. Tools can strengthen it-or…
+    - **13. @replit 发布重要更新**：From concept to demo at Replit x Alif.相关进展已由一手来…
 
 ## 全部快讯
 
-??? info "1. @replit 发布重要更新"
+??? info "1. arxiv.org 发布 2.4 版本更新"
+    **摘要**：arXiv:2604.00002v1 Announce Type:new Abstract:Here we introduce the Olfactory Perception OP benchmark,designed to assess the capability of large language m。
+
+    **关键点**
+
+    - arXiv:2604.00002v1 Announce
+    - designed to assess the capab
+    - questions across eight task
+
+    **影响分析**：arXiv:2604.00002v1 Announce Type:new Abstract:Here we introduce the Olfactory Perception OP benchmark,designed to assess the capability。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2604.00002)
+
+??? info "2. arxiv.org 发布 2.5 版本更新"
+    **摘要**：arXiv:2604.00003v1 Announce Type:new Abstract:This study evaluates the reliability of information extraction approaches from KRS documents using three strateg。
+
+    **关键点**
+
+    - arXiv:2604.00003v1 Announce
+    - Hybrid Deterministic-LLM
+    - a Camelot based pipeline
+
+    **影响分析**：arXiv:2604.00003v1 Announce Type:new Abstract:This study evaluates the reliability of information extraction approaches from KRS documents。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2604.00003)
+
+??? info "3. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2604.00004v1 Announce Type:new Abstract:The extension of context windows in Large Language Models is typically facilitated by scaling positional encodin。
+
+    **关键点**
+
+    - arXiv:2604.00004v1 Announce
+    - this paradigm often disrupts
+    - leading to performance degra
+
+    **影响分析**：arXiv:2604.00004v1 Announce Type:new Abstract:The extension of context windows in Large Language Models is typically facilitated by scalin。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2604.00004)
+
+??? info "4. arxiv.org 发布 0.76 版本更新"
+    **摘要**：arXiv:2604.00006v1 Announce Type:new Abstract:AI-powered recruitment tools are increasingly adopted in personnel selection,yet they struggle to capture the r。
+
+    **关键点**
+
+    - arXiv:2604.00006v1 Announce
+    - yet they struggle to capture
+    - prioritize req-specific PCs
+
+    **影响分析**：arXiv:2604.00006v1 Announce Type:new Abstract:AI-powered recruitment tools are increasingly adopted in personnel selection,yet they strug。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2604.00006)
+
+??? info "5. @pika_labs 发布重要更新"
+    **摘要**：P.P.S. if you dont have a Pika AI Self yet,give birth to yours at Pika.me。
+
+    **关键点**
+
+    - P.P.S. if you dont have a P
+    - give birth to yours at Pika.
+    - R to @pika_labs:P.P.S. if y
+
+    **影响分析**：R to @pika_labs:P.P.S. if you dont have a Pika AI Self yet,give birth to yours at http://Pika.me相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/pika_labs/status/2039913516266823771)
+
+??? info "6. @notionhq 发布产品更新"
+    **摘要**：☕️ keshav @keshavchan notion hq has the most adorable lego set-https://nitter.net/keshavchan/status/2039897060045119660#m。
+
+    **关键点**
+
+    - ☕️ keshav @keshavchan noti
+    - ☕️相关进展已由一手来源披露
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：☕️相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/NotionHQ/status/2039911857583243656)
+
+??? info "7. @elonmusk 发布重要更新"
+    **摘要**：Tesla Cernovich @Cernovich Last time I was in a Tesla,FSD was so-so and no Grok. Feel like I time traveled.-https://nitter.net/Cernovich/status/20398986043。
+
+    **关键点**
+
+    - Tesla Cernovich @Cernovich
+    - FSD was so-so
+    - no Grok. Feel like I time tr
+
+    **影响分析**：Tesla Cernovich @Cernovich Last time I was in a Tesla,FSD was so-so and no Grok. Feel like I time traveled.-https://nitter.net/Cernovic。
+
+    **来源**：[原文链接](https://x.com/elonmusk/status/2039902890777796981)
+
+??? info "8. @elonmusk 发布产品更新"
+    **摘要**：😮 Logan Hall @loganclarkhall 10% of all US births are foreign anchor babies-https://nitter.net/loganclarkhall/status/2039770870340579526#m。
+
+    **关键点**
+
+    - 😮 Logan Hall @loganclarkhal
+    - 😮相关进展已由一手来源披露，预计将影响后续产品与行业节奏
+
+    **影响分析**：😮相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/elonmusk/status/2039900603552596036)
+
+??? info "9. @elonmusk 发布重要更新"
+    **摘要**：True Viv 🪩 @battleangelviv when Teslas become basically sentient,the Cars movies will be real-https://nitter.net/battleangelviv/status/2039893020842303539#。
+
+    **关键点**
+
+    - True Viv 🪩 @battleangelviv
+    - the Cars movies will be real
+    - True
+
+    **影响分析**：True Viv 🪩 @battleangelviv when Teslas become basically sentient,the Cars movies will be real-https://nitter.net/battleangelviv/status/。
+
+    **来源**：[原文链接](https://x.com/elonmusk/status/2039898607474897142)
+
+??? info "10. @elonmusk 发布 0.4 版本更新"
+    **摘要**：Wow Maria Davidson @MariaDavidson Californias population grew 0.4% in the last decade. The number of state employees grew 24.5%. Total state spending grew 48。
+
+    **关键点**
+
+    - Wow Maria Davidson @MariaDa
+    - inflation adjusted. You have
+    - https://nitter.net/MariaDa
+
+    **影响分析**：Wow Maria Davidson @MariaDavidson Californias population grew 0.4% in the last decade. The number of state employees grew 24.5%. Total st。
+
+    **来源**：[原文链接](https://x.com/elonmusk/status/2039884666493415891)
+
+??? info "11. @lumalabsai 发布重要更新"
+    **摘要**：Branded content lives and dies on character. Direct an lazy aliens unlikely comeback fueled by Nebula Juice,with consistent world-building and character ident。
+
+    **关键点**
+
+    - Branded content lives
+    - dies on character. Direct an
+    - consistent world-building
+
+    **影响分析**：Branded content lives and dies on character. Direct an lazy aliens unlikely comeback fueled by Nebula Juice,with consistent world-building。
+
+    **来源**：[原文链接](https://x.com/LumaLabsAI/status/2039870678577373260)
+
+??? info "12. @notionhq 发布重要更新"
+    **摘要**：Agency is a muscle. Tools can strengthen it-or let it atrophy. @ivanhzhao Video。
+
+    **关键点**
+
+    - Agency is a muscle. Tools ca
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：Agency is a muscle. Tools can strengthen it-or let it atrophy. @ivanhzhao相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/NotionHQ/status/2039868041073393822)
+
+??? info "13. @replit 发布重要更新"
     **摘要**：From concept to demo at Replit x Alif. Video。
 
     **关键点**
@@ -44,7 +202,7 @@
 
     **来源**：[原文链接](https://x.com/Replit/status/2039850672602964105)
 
-??? info "2. @replit 发布重要更新"
+??? info "14. @replit 发布重要更新"
     **摘要**：Week 1 winner of the Agent 4 Content Challenge:🏆 @rahvsid @baceaukim Built a Duolingo for the Central Asia diaspora Incredible use of Agent 4 👏 Video。
 
     **关键点**
@@ -56,20 +214,7 @@
 
     **来源**：[原文链接](https://x.com/Replit/status/2039840821030379951)
 
-??? info "3. @replit 发布重要更新"
-    **摘要**：Select the Skill from the plus icon a the prompt window.。
-
-    **关键点**
-
-    - Select the Skill from the pl
-    - R to @Replit:Select the Ski
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：R to @Replit:Select the Skill from the plus icon a the prompt window.相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://x.com/Replit/status/2039838338115661850)
-
-??? info "4. @replit 发布重要更新"
+??? info "15. @replit 发布重要更新"
     **摘要**：Replit Agent can now perform SEO audits on your site,helping boost traffic,ranking,and performance. Samuel Spitz @samuel_spitz Your websites SEO is costin。
 
     **关键点**
@@ -82,7 +227,20 @@
 
     **来源**：[原文链接](https://x.com/Replit/status/2039838336622502184)
 
-??? info "5. @stabilityai 发布重要更新"
+??? info "16. @replit 发布重要更新"
+    **摘要**：Select the Skill from the plus icon a the prompt window.。
+
+    **关键点**
+
+    - Select the Skill from the pl
+    - R to @Replit:Select the Ski
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：R to @Replit:Select the Skill from the plus icon a the prompt window.相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/Replit/status/2039838338115661850)
+
+??? info "17. @stabilityai 发布重要更新"
     **摘要**：The Storyteller’s Gap is a black hole that eats every narrative that never sees the light of day. It’s been there since the beginning of time. Until now. Our CE。
 
     **关键点**
@@ -95,7 +253,7 @@
 
     **来源**：[原文链接](https://x.com/StabilityAI/status/2039822748042551598)
 
-??? info "6. @notionhq 发布 99.9 版本更新"
+??? info "18. @notionhq 发布 99.9 版本更新"
     **摘要**：Duplication recently got a long overdue update! One framework now powers every copy flow in Notion:pages,templates,marketplace installs,moves,recurrence。
 
     **关键点**
@@ -108,7 +266,7 @@
 
     **来源**：[原文链接](https://x.com/NotionHQ/status/2039811653420888100)
 
-??? info "7. @karpathy 发布重要更新"
+??? info "19. @karpathy 发布重要更新"
     **摘要**：Oh and in the natural extrapolation,you could imagine that every question to a frontier grade LLM spawns a team of LLMs to automate the whole thing:iterativel。
 
     **关键点**
@@ -121,7 +279,7 @@
 
     **来源**：[原文链接](https://x.com/karpathy/status/2039808711452246261)
 
-??? info "8. @karpathy 发布重要更新"
+??? info "20. @karpathy 发布重要更新"
     **摘要**：LLM Knowledge Bases Something Im finding very useful recently:using LLMs to build personal knowledge bases for various topics of research interest. In this wa。
 
     **关键点**
@@ -133,158 +291,3 @@
     **影响分析**：LLM Knowledge Bases Something Im finding very useful recently:using LLMs to build personal knowledge bases for various topics of research。
 
     **来源**：[原文链接](https://x.com/karpathy/status/2039805659525644595)
-
-??? info "9. @pika_labs 发布重要更新"
-    **摘要**：Conversations tend to go better with a face and a voice. That’s why we’re thrilled to release the beta version of the first video chat skill for ANY agent,powe。
-
-    **关键点**
-
-    - Conversations tend to go bet
-    - a face
-    - a voice. That’s why we’re th
-
-    **影响分析**：Conversations tend to go better with a face and a voice. That’s why we’re thrilled to release the beta version of the first video chat skill。
-
-    **来源**：[原文链接](https://x.com/pika_labs/status/2039804583862796345)
-
-??? info "10. @pika_labs 发布重要更新"
-    **摘要**：Ask your Pika AI Self to join a Google Meet and let the magic happen. For all other agents,you can download the Skill on Github here:github.com/Pika-Labs/Pika。
-
-    **关键点**
-
-    - Ask your Pika AI Self to joi
-    - let the magic happen. For al
-    - you can download the Skill o
-
-    **影响分析**：Ask your Pika AI Self to join a Google Meet and let the magic happen. For all other agents,you can download the Skill on Github here:githu。
-
-    **来源**：[原文链接](https://x.com/pika_labs/status/2039804585855070256)
-
-??? info "11. @pika_labs 发布重要更新"
-    **摘要**：P.S. Beta = fun glitches sometimes. We’re working on it! But we’d love your feedback,too. Join our new discord community to share your thoughts! discord.gg/t9B。
-
-    **关键点**
-
-    - P.S. Beta = fun glitches som
-    - But we’d love your feedback
-    - too. Join our new discord co
-
-    **影响分析**：P.S. Beta = fun glitches sometimes. We’re working on it。
-
-    **来源**：[原文链接](https://x.com/pika_labs/status/2039804587214000592)
-
-??? info "12. @openclaw 发布 2026.4.2 版本更新"
-    **摘要**：OpenClaw 2026.4.2 🦞 🔄 Durable Task Flow orchestration 🔓 Better native exec defaults + approvals 🤖 Copilot + Kimi + provider hardening 🔌 Tighter plugin activatio。
-
-    **关键点**
-
-    - OpenClaw 2026.4.2 🦞 🔄 Durabl
-    - @openclaw 发布 2026.4.2 版本更新
-
-    **影响分析**：OpenClaw 2026.4.2 🦞 🔄 Durable Task Flow orchestration 🔓 Better native exec defaults + approvals 🤖 Copilot + Kimi + provider hardening 🔌 Tigh。
-
-    **来源**：[原文链接](https://x.com/openclaw/status/2039789061154685323)
-
-??? info "13. @gammaapp 发布重要更新"
-    **摘要**：Gamma 🤝 HeyGen You can now build a presentation,add your own avatar,and get a polished video for any meeting or pitch! Now available directly in HeyGen. HeyGe。
-
-    **关键点**
-
-    - Gamma 🤝 HeyGen You can now b
-    - add your own avatar
-    - get a polished video for any
-
-    **影响分析**：Gamma 🤝 HeyGen You can now build a presentation,add your own avatar,and get a polished video for any meeting or pitch。
-
-    **来源**：[原文链接](https://x.com/GammaApp/status/2039775750396809611)
-
-??? info "14. @sama 发布重要更新"
-    **摘要**：TBPN is my favorite tech show. We want them to keep that going and for them to do what they do so well. I dont expect them to go any easier on us,am sure Ill。
-
-    **关键点**
-
-    - TBPN is my favorite tech sho
-    - for them to do what they do
-    - am sure Ill do my part to h
-
-    **影响分析**：TBPN is my favorite tech show. We want them to keep that going and for them to do what they do so well. I dont expect them to go any easier。
-
-    **来源**：[原文链接](https://x.com/sama/status/2039773740586918137)
-
-??? info "15. @notionhq 发布重要更新"
-    **摘要**：Tip:Set custom instructions for your AI Meeting Notes! Choose what you want summarized,how to structure it,and what to skip. Every meeting summary,just the。
-
-    **关键点**
-
-    - Tip:Set custom instructions
-    - Choose what you want summari
-    - how to structure it
-
-    **影响分析**：Tip:Set custom instructions for your AI Meeting Notes。
-
-    **来源**：[原文链接](https://x.com/NotionHQ/status/2039773004213993644)
-
-??? info "16. @nvidia 发布重要更新"
-    **摘要**：🔗 nvda.ws/4tK5H6H。
-
-    **关键点**
-
-    - 🔗 nvda.ws/4tK5H6H
-    - R to @nvidia:🔗 https://nvda
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：R to @nvidia:🔗 https://nvda.ws/4tK5H6H相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://x.com/nvidia/status/2039767185254384120)
-
-??? info "17. @nvidia 发布重要更新"
-    **摘要**：The inflection point for inference has arrived.-Jensen Huang,Founder & CEO of NVIDIA We’ve officially crossed a new milestone in the inference era-where。
-
-    **关键点**
-
-    - The inflection point for in
-    - Founder & CEO of NVIDIA We’v
-    - software driving down cost p
-
-    **影响分析**：The inflection point for inference has arrived.-Jensen Huang,Founder & CEO of NVIDIA We’ve officially crossed a new milestone in the in。
-
-    **来源**：[原文链接](https://x.com/nvidia/status/2039767180158406961)
-
-??? info "18. @minimax_ai 发布重要更新"
-    **摘要**：In town for HumanX next week? Come grab drinks with us and the @TelnyxDevs team 🍹 🗓 Monday,April 6 🕕 6:00-8:00 PM 📍 Southside Spirit House,SF No panels. No sl。
-
-    **关键点**
-
-    - In town for HumanX next week
-    - Come grab drinks
-    - the @TelnyxDevs team 🍹 🗓 Mon
-
-    **影响分析**：In town for HumanX next week。
-
-    **来源**：[原文链接](https://x.com/MiniMax_AI/status/2039755437206319557)
-
-??? info "19. @awscloud 发布重要更新"
-    **摘要**：Data vs. feel:What really drives the shot? ⛳️ In Episode 4,Amanda and Bones break down how players and caddies balance launch monitor insights with on-course。
-
-    **关键点**
-
-    - Data vs. feel:What really d
-    - ⛳️ In Episode 4
-    - Amanda
-
-    **影响分析**：Data vs. feel:What really drives the shot。
-
-    **来源**：[原文链接](https://x.com/awscloud/status/2039750515869860215)
-
-??? info "20. @perplexity_ai 发布重要更新"
-    **摘要**：Read more about Computer for Taxes:perplexity.ai/hub/blog/intro…。
-
-    **关键点**
-
-    - Read more about Computer for
-    - R to @perplexity_ai:Read mo
-    - 预计将影响
-
-    **影响分析**：R to @perplexity_ai:Read more about Computer for Taxes:https://www.perplexity.ai/hub/blog/introducing-computer-for-taxes相关进展已由一手来源披露，预计将影响。
-
-    **来源**：[原文链接](https://x.com/perplexity_ai/status/2039750344373125547)
