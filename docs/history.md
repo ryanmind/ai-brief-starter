@@ -1,33 +1,33 @@
-> 更新时间：2026年04月04日16:05:28
+> 更新时间：2026年04月04日18:01:43
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. arxiv.org 发布重要更新：arXiv:2604.01268v1 Announce Type:new Abstr。
-2. arxiv.org 发布 85.8 版本更新：arXiv:2604.01306v1 Announce Type:new Abstr。
-3. arxiv.org 发布 0.74 版本更新：arXiv:2604.01312v1 Announce Type:new Abstr。
-4. arxiv.org 发布重要更新：arXiv:2604.01348v1 Announce Type:new Abstr。
-5. @replit 发布重要更新：Theres no longer an obstacle to creating S。
+1. @elonmusk 发布重要更新：Try Grok Eric Jiang @veggie_eric After the。
+2. arxiv.org 发布重要更新：arXiv:2604.01268v1 Announce Type:new Abstr。
+3. arxiv.org 发布 85.8 版本更新：arXiv:2604.01306v1 Announce Type:new Abstr。
+4. arxiv.org 发布 0.74 版本更新：arXiv:2604.01312v1 Announce Type:new Abstr。
+5. arxiv.org 发布重要更新：arXiv:2604.01348v1 Announce Type:new Abstr。
 
 ## 分类速览
 
 === "🤖 模型进展（4）"
-    - **8. @elonmusk 发布重要更新**：Grok can help you come up with great prompts fo…
-    - **9. @elonmusk 发布重要更新**：Grok Imagine相关进展已由一手来源披露，预计将影响后续产品与行业节奏
+    - **1. @elonmusk 发布重要更新**：Try Grok Eric Jiang @veggie_eric After the Sora…
+    - **9. @elonmusk 发布重要更新**：Grok can help you come up with great prompts fo…
     - **12. @anthropicai 发布重要更新**：For example,when we compared Alibabas Qwen to M…
     - **14. run-llama/llama_index 发布 0.14.20 版本更新**：Release 0.14.20 #21290相关进展已由一手来源披露，预计将影响后续产品与行业…
 
 === "🧪 论文研究（5）"
-    - **1. arxiv.org 发布重要更新**：arXiv:2604.01268v1 Announce Type:new Abstract:I…
-    - **2. arxiv.org 发布 85.8 版本更新**：arXiv:2604.01306v1 Announce Type:new Abstract:E…
-    - **3. arxiv.org 发布 0.74 版本更新**：arXiv:2604.01312v1 Announce Type:new Abstract:L…
-    - **4. arxiv.org 发布重要更新**：arXiv:2604.01348v1 Announce Type:new Abstract:T…
+    - **2. arxiv.org 发布重要更新**：arXiv:2604.01268v1 Announce Type:new Abstract:I…
+    - **3. arxiv.org 发布 85.8 版本更新**：arXiv:2604.01306v1 Announce Type:new Abstract:E…
+    - **4. arxiv.org 发布 0.74 版本更新**：arXiv:2604.01312v1 Announce Type:new Abstract:L…
+    - **5. arxiv.org 发布重要更新**：arXiv:2604.01348v1 Announce Type:new Abstract:T…
     - **10. @anthropicai 发布 2602.11729 版本更新**：This research is a product of our Anthropic Fel…
 
 === "🏢 产品与行业（11）"
-    - **5. @replit 发布重要更新**：Theres no longer an obstacle to creating SEO-op…
-    - **6. @elonmusk 发布重要更新**：Using voice for Imagine is a great feature for…
-    - **7. @elonmusk 发布产品更新**：Wow DataRepublican small r @DataRepublican Been…
+    - **6. @replit 发布重要更新**：Theres no longer an obstacle to creating SEO-op…
+    - **7. @elonmusk 发布重要更新**：Using voice for Imagine is a great feature for…
+    - **8. @elonmusk 发布产品更新**：Wow DataRepublican small r @DataRepublican Been…
     - **11. @anthropicai 发布重要更新**：This technique isnt perfect-it can be oversensi…
     - **13. @anthropicai 发布重要更新**：If a new model shares a feature with a trusted…
     - **15. @gammaapp 发布重要更新**：R to @GammaApp:Check out open roles at:https://…
@@ -36,7 +36,20 @@
 
 ## 全部快讯
 
-??? info "1. arxiv.org 发布重要更新"
+??? info "1. @elonmusk 发布重要更新"
+    **摘要**：Try Grok Eric Jiang @veggie_eric After the Sora API was deprecated last week,this was the forcing function for some of my startup friends to finally try the。
+
+    **关键点**
+
+    - Try Grok Eric Jiang @veggie
+    - this was the forcing functio
+    - were surprised that it was c
+
+    **影响分析**：Try Grok Eric Jiang @veggie_eric After the Sora API was deprecated last week,this was the forcing function for some of my startup friends。
+
+    **来源**：[原文链接](https://x.com/elonmusk/status/2040360740167815570)
+
+??? info "2. arxiv.org 发布重要更新"
     **摘要**：arXiv:2604.01268v1 Announce Type:new Abstract:Individuals engaging in online communication frequently express personal opinions with informal styles e.g.,me。
 
     **关键点**
@@ -49,7 +62,7 @@
 
     **来源**：[原文链接](https://arxiv.org/abs/2604.01268)
 
-??? info "2. arxiv.org 发布 85.8 版本更新"
+??? info "3. arxiv.org 发布 85.8 版本更新"
     **摘要**：arXiv:2604.01306v1 Announce Type:new Abstract:Evaluating scientific arguments requires assessing the strict consistency between a claim and its underlying mul。
 
     **关键点**
@@ -62,7 +75,7 @@
 
     **来源**：[原文链接](https://arxiv.org/abs/2604.01306)
 
-??? info "3. arxiv.org 发布 0.74 版本更新"
+??? info "4. arxiv.org 发布 0.74 版本更新"
     **摘要**：arXiv:2604.01312v1 Announce Type:new Abstract:Learning human preferences in language models remains fundamentally challenging,as reward modeling relies on su。
 
     **关键点**
@@ -75,7 +88,7 @@
 
     **来源**：[原文链接](https://arxiv.org/abs/2604.01312)
 
-??? info "4. arxiv.org 发布重要更新"
+??? info "5. arxiv.org 发布重要更新"
     **摘要**：arXiv:2604.01348v1 Announce Type:new Abstract:Test-time scaling has emerged as an effective way to improve language models on challenging reasoning tasks. How。
 
     **关键点**
@@ -88,7 +101,7 @@
 
     **来源**：[原文链接](https://arxiv.org/abs/2604.01348)
 
-??? info "5. @replit 发布重要更新"
+??? info "6. @replit 发布重要更新"
     **摘要**：Theres no longer an obstacle to creating SEO-optimized content at scale. Samuel Spitz @samuel_spitz SEO can get you thousands of customers for free. The catc。
 
     **关键点**
@@ -101,7 +114,7 @@
 
     **来源**：[原文链接](https://x.com/Replit/status/2040223492407500850)
 
-??? info "6. @elonmusk 发布重要更新"
+??? info "7. @elonmusk 发布重要更新"
     **摘要**：Using voice for Imagine is a great feature for young kids who can talk and have amazing imagination,but are too young to write complex prompts Aaron Burnett。
 
     **关键点**
@@ -114,7 +127,7 @@
 
     **来源**：[原文链接](https://x.com/elonmusk/status/2040210963862110646)
 
-??? info "7. @elonmusk 发布产品更新"
+??? info "8. @elonmusk 发布产品更新"
     **摘要**：Wow DataRepublican small r @DataRepublican Been researching DC juries this morning. Did you know that DC has a specific school curriculum which is mandatory。
 
     **关键点**
@@ -127,7 +140,7 @@
 
     **来源**：[原文链接](https://x.com/elonmusk/status/2040209127562248598)
 
-??? info "8. @elonmusk 发布重要更新"
+??? info "9. @elonmusk 发布重要更新"
     **摘要**：Grok can help you come up with great prompts for images and videos Justine Moore @venturetwins The new Grok Imagine model is particularly good when you use th。
 
     **关键点**
@@ -139,19 +152,6 @@
     **影响分析**：Grok can help you come up with great prompts for images and videos Justine Moore @venturetwins The new Grok Imagine model is particularly。
 
     **来源**：[原文链接](https://x.com/elonmusk/status/2040208784682012818)
-
-??? info "9. @elonmusk 发布重要更新"
-    **摘要**：Grok Imagine Video。
-
-    **关键点**
-
-    - Grok Imagine Video
-    - Grok Imagine相关进展已由一手来源披露
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：Grok Imagine相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2040202569520455722)
 
 ??? info "10. @anthropicai 发布 2602.11729 版本更新"
     **摘要**：This research is a product of our Anthropic Fellows program,led by @tomjiralerspong and supervised by @TrentonBricken . See the full paper here:arxiv.org/abs/。
@@ -300,6 +300,7 @@
 
 ## 历史归档
 
+- [2026-04-04_18-01-43](history/2026-04-04_18-01-43.md)
 - [2026-04-04_16-05-28](history/2026-04-04_16-05-28.md)
 - [2026-04-04_14-40-50](history/2026-04-04_14-40-50.md)
 - [2026-04-04_13-12-58](history/2026-04-04_13-12-58.md)
