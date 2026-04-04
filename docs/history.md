@@ -1,53 +1,218 @@
-> 更新时间：2026年04月03日22:15:49
+> 更新时间：2026年04月04日08:01:36
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. @demishassabis 发布重要更新：Gemma 4 has incredible capabilities for su。
-2. @demishassabis 发布重要更新：Gemma 4 outperforms models over 10x their。
-3. @adobefirefly 发布重要更新：There are always new faces around here. In。
-4. @elonmusk 发布重要更新：Grok Imagine Video。
-5. @elonmusk 发布重要更新：Upgrades。
+1. @anthropicai 发布 2602.11729 版本更新：This research is a product of our Anthropi。
+2. @anthropicai 发布重要更新：This technique isnt perfect-it can be over。
+3. @anthropicai 发布重要更新：For example。
+4. @anthropicai 发布重要更新：If a new model shares a feature with a tru。
+5. run-llama/llama_index 发布 0.14.20 版本更新：Release 0.14.20 #21290。
 
 ## 分类速览
 
-=== "🤖 模型进展（4）"
-    - **4. @elonmusk 发布重要更新**：Grok Imagine相关进展已由一手来源披露，预计将影响后续产品与行业节奏
-    - **5. @elonmusk 发布重要更新**：Upgrades,upgrades … tetsuo @tetsuoai Goodnight…
-    - **6. @elonmusk 发布重要更新**：Grok相关进展已由一手来源披露，预计将影响后续产品与行业节奏
-    - **7. @elonmusk 发布重要更新**：Quality over quantity Art Muse @art_muse New “Q…
+=== "🤖 模型进展（2）"
+    - **3. @anthropicai 发布重要更新**：For example,when we compared Alibabas Qwen to M…
+    - **5. run-llama/llama_index 发布 0.14.20 版本更新**：Release 0.14.20 #21290相关进展已由一手来源披露，预计将影响后续产品与行业…
 
-=== "🧪 论文研究（4）"
-    - **10. arxiv.org 发布重要更新**：arXiv:2604.01254v1 Announce Type:new Abstract:A…
-    - **11. arxiv.org 发布重要更新**：arXiv:2604.01414v1 Announce Type:new Abstract:V…
-    - **12. arxiv.org 发布重要更新**：arXiv:2604.01463v1 Announce Type:new Abstract:P…
-    - **13. arxiv.org 发布重要更新**：arXiv:2604.01466v1 Announce Type:new Abstract:A…
+=== "🧪 论文研究（3）"
+    - **1. @anthropicai 发布 2602.11729 版本更新**：This research is a product of our Anthropic Fel…
+    - **19. arxiv.org 发布重要更新**：arXiv:2604.00005v1 Announce Type:new Abstract:E…
+    - **20. arxiv.org 发布重要更新**：arXiv:2604.00249v1 Announce Type:new Abstract:S…
 
-=== "🏢 产品与行业（12）"
-    - **1. @demishassabis 发布重要更新**：R to @demishassabis:Gemma 4 has incredible capa…
-    - **2. @demishassabis 发布重要更新**：Gemma 4 outperforms models over 10x their size
-    - **3. @adobefirefly 发布重要更新**：There are always new faces around here. In case…
-    - **8. Comfy-Org/ComfyUI 发布 v0.18.5 版本更新**：v0.18.5相关进展已由一手来源披露，预计将影响后续产品与行业节奏
-    - **9. Comfy-Org/ComfyUI 发布 v0.18.4 版本更新**：v0.18.4:Revert Fix some fp8 scaled checkpoints…
-    - **14. @pika_labs 发布重要更新**：R to @pika_labs:P.P.S. if you dont have a Pika…
-    - **15. @notionhq 发布产品更新**：☕️相关进展已由一手来源披露，预计将影响后续产品与行业节奏
-    - **16. @lumalabsai 发布重要更新**：Branded content lives and dies on character. Di…
+=== "🏢 产品与行业（15）"
+    - **2. @anthropicai 发布重要更新**：This technique isnt perfect-it can be oversensi…
+    - **4. @anthropicai 发布重要更新**：If a new model shares a feature with a trusted…
+    - **6. @gammaapp 发布重要更新**：R to @GammaApp:Check out open roles at:https://…
+    - **7. @gammaapp 发布重要更新**：At Gamma,were big about raising the bar for eng…
+    - **8. @nvidia 发布重要更新**：“NVIDIA’s cost per token is the lowest in the w…
+    - **9. @replit 发布重要更新**：Week 2 winner of the Agent 4 Content Challenge…
+    - **10. @runwayml 发布重要更新**：R to @runwayml:Learn more:https://dev.runwayml.…
+    - **11. @runwayml 发布重要更新**：Last night,Senior Director of Applications,@yin…
 
 ## 全部快讯
 
-??? info "1. @demishassabis 发布重要更新"
-    **摘要**：Gemma 4 has incredible capabilities for such small models. Follow @googlegemma for the latest information.。
+??? info "1. @anthropicai 发布 2602.11729 版本更新"
+    **摘要**：This research is a product of our Anthropic Fellows program,led by @tomjiralerspong and supervised by @TrentonBricken . See the full paper here:arxiv.org/abs/。
 
     **关键点**
 
-    - Gemma 4 has incredible capab
-    - R to @demishassabis:Gemma 4
+    - This research is a product o
+    - led by @tomjiralerspong
+    - supervised by @TrentonBricke
 
-    **影响分析**：R to @demishassabis:Gemma 4 has incredible capabilities for such small models. Follow @googlegemma for the latest information.相关进展已由一手来源披露。
+    **影响分析**：This research is a product of our Anthropic Fellows program,led by @tomjiralerspong and supervised by @TrentonBricken . See the full paper。
 
-    **来源**：[原文链接](https://x.com/demishassabis/status/2040067247146770714)
+    **来源**：[原文链接](https://x.com/AnthropicAI/status/2040179546729873794)
 
-??? info "2. @demishassabis 发布重要更新"
+??? info "2. @anthropicai 发布重要更新"
+    **摘要**：This technique isnt perfect-it can be oversensitive,sometimes flagging analogous features as distinct. But by focusing only on differences,it allows us to au。
+
+    **关键点**
+
+    - This technique isnt perfect
+    - sometimes flagging analogous
+    - it allows us to audit AI mod
+
+    **影响分析**：This technique isnt perfect-it can be oversensitive,sometimes flagging analogous features as distinct. But by focusing only on differences。
+
+    **来源**：[原文链接](https://x.com/AnthropicAI/status/2040179545572278529)
+
+??? info "3. @anthropicai 发布重要更新"
+    **摘要**：For example,when we compared Alibabas Qwen to Metas Llama,we found a CCP alignment feature unique to Qwen and an American exceptionalism feature unique。
+
+    **关键点**
+
+    - For example
+    - when we compared Alibabas Q
+    - we found a CCP alignment f
+
+    **影响分析**：For example,when we compared Alibabas Qwen to Metas Llama,we found a CCP alignment feature unique to Qwen and an American exceptional。
+
+    **来源**：[原文链接](https://x.com/AnthropicAI/status/2040179543387124172)
+
+??? info "4. @anthropicai 发布重要更新"
+    **摘要**：If a new model shares a feature with a trusted model,that area probably doesnt need scrutiny. Model diffing isolates the features unique to the new model-wher。
+
+    **关键点**
+
+    - If a new model shares a feat
+    - a trusted model
+    - that area probably doesnt n
+
+    **影响分析**：If a new model shares a feature with a trusted model,that area probably doesnt need scrutiny. Model diffing isolates the features unique t。
+
+    **来源**：[原文链接](https://x.com/AnthropicAI/status/2040179542028112222)
+
+??? info "5. run-llama/llama_index 发布 0.14.20 版本更新"
+    **摘要**：Release 0.14.20 #21290。
+
+    **关键点**
+
+    - Release 0.14.20 #21290
+    - Release 0.14.20 #21290相关进展
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：Release 0.14.20 #21290相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/run-llama/llama_index/blob/main/CHANGELOG.md)
+
+??? info "6. @gammaapp 发布重要更新"
+    **摘要**：Check out open roles at:careers.gamma.app/。
+
+    **关键点**
+
+    - Check out open roles at:car
+    - R to @GammaApp:Check out op
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：R to @GammaApp:Check out open roles at:https://careers.gamma.app/相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/GammaApp/status/2040150466382971357)
+
+??? info "7. @gammaapp 发布重要更新"
+    **摘要**：At Gamma,were big about raising the bar for engineering. And it starts with the people building it. Jordan Garcia Head of AI Engineering just spoke at @Open。
+
+    **关键点**
+
+    - At Gamma
+    - were big about raising the
+    - the people building it. Jord
+
+    **影响分析**：At Gamma,were big about raising the bar for engineering. And it starts with the people building it. Jordan Garcia Head of AI Engineering。
+
+    **来源**：[原文链接](https://x.com/GammaApp/status/2040150463296033194)
+
+??? info "8. @nvidia 发布重要更新"
+    **摘要**：“NVIDIA’s cost per token is the lowest in the world.”-Jensen Huang,Founder & CEO of NVIDIA Token generation cost is a direct result of architecture excellenc。
+
+    **关键点**
+
+    - “NVIDIA’s cost per token is
+    - Founder & CEO of NVIDIA Toke
+    - extreme co-design
+
+    **影响分析**：“NVIDIA’s cost per token is the lowest in the world.”-Jensen Huang,Founder & CEO of NVIDIA Token generation cost is a direct result of ar。
+
+    **来源**：[原文链接](https://x.com/nvidia/status/2040148759410081939)
+
+??? info "9. @replit 发布重要更新"
+    **摘要**：Week 2 winner of the Agent 4 Content Challenge:Marcos Leal 🎉 Built:birdie.news A Daily Newsletter built entirely around you Replit ⠕ @Replit $20,000 up for。
+
+    **关键点**
+
+    - Week 2 winner of the Agent 4
+    - up for grabs. 4 weeks. 4 win
+    - up for
+
+    **影响分析**：Week 2 winner of the Agent 4 Content Challenge:Marcos Leal 🎉 Built:birdie.news A Daily Newsletter built entirely around you Replit ⠕ @Rep。
+
+    **来源**：[原文链接](https://x.com/Replit/status/2040132609515413699)
+
+??? info "10. @runwayml 发布重要更新"
+    **摘要**：Learn more:dev.runwayml.com/characters。
+
+    **关键点**
+
+    - Learn more:dev.runwayml.com
+    - R to @runwayml:Learn more
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：R to @runwayml:Learn more:https://dev.runwayml.com/characters相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/runwayml/status/2040114845140365822)
+
+??? info "11. @runwayml 发布重要更新"
+    **摘要**：Last night,Senior Director of Applications,@yining_shi led a Runway Characters Hackathon where attendees learned to build intelligent real-time video agents d。
+
+    **关键点**
+
+    - Last night
+    - Senior Director of Applicati
+    - @yining_shi led a Runway Cha
+
+    **影响分析**：Last night,Senior Director of Applications,@yining_shi led a Runway Characters Hackathon where attendees learned to build intelligent real。
+
+    **来源**：[原文链接](https://x.com/runwayml/status/2040114843215188127)
+
+??? info "12. @replit 发布重要更新"
+    **摘要**：Something big is coming. Join the waitlist → vibecon.ai。
+
+    **关键点**
+
+    - Something big is coming. Joi
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：Something big is coming. Join the waitlist → http://vibecon.ai相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/Replit/status/2040102123938156700)
+
+??? info "13. @replit 发布重要更新"
+    **摘要**：How to Make Your App Go Viral | Agent 4 Buildathon nitter.net/i/broadcasts/1DGLdvwBW…。
+
+    **关键点**
+
+    - How to Make Your App Go Vira
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：How to Make Your App Go Viral | Agent 4 Buildathon https://x.com/i/broadcasts/1DGLdvwBWVPGm相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/Replit/status/2040097416993706249)
+
+??? info "14. @replit 发布重要更新"
+    **摘要**：Were excited to have partnered with @tldraw to bring Replit canvas to life-built on their best-in-class infrastructure. With Replit canvas you can:• Generate。
+
+    **关键点**
+
+    - Were excited to have partne
+    - @tldraw to bring Replit canv
+    - AI • Collaborate in real tim
+
+    **影响分析**：Were excited to have partnered with @tldraw to bring Replit canvas to life-built on their best-in-class infrastructure. With Replit canvas。
+
+    **来源**：[原文链接](https://x.com/Replit/status/2040073400505569610)
+
+??? info "15. @demishassabis 发布重要更新"
     **摘要**：Gemma 4 outperforms models over 10x their size! note the x-axis is log scale!
 
     **关键点**
@@ -59,72 +224,19 @@
 
     **来源**：[原文链接](https://x.com/demishassabis/status/2040067244349063326)
 
-??? info "3. @adobefirefly 发布重要更新"
-    **摘要**：There are always new faces around here. In case youre finding us for the first time,were Adobe Firefly,your all-in-one AI creative space. 😁 To introduce you。
+??? info "16. @demishassabis 发布重要更新"
+    **摘要**：Gemma 4 has incredible capabilities for such small models. Follow @googlegemma for the latest information.。
 
     **关键点**
 
-    - There are always new faces a
-    - were Adobe Firefly
-    - your all-in-one AI creative
+    - Gemma 4 has incredible capab
+    - R to @demishassabis:Gemma 4
 
-    **影响分析**：There are always new faces around here. In case youre finding us for the first time,were Adobe Firefly,your all-in-one AI creative space。
+    **影响分析**：R to @demishassabis:Gemma 4 has incredible capabilities for such small models. Follow @googlegemma for the latest information.相关进展已由一手来源披露。
 
-    **来源**：[原文链接](https://x.com/AdobeFirefly/status/2040066796036747328)
+    **来源**：[原文链接](https://x.com/demishassabis/status/2040067247146770714)
 
-??? info "4. @elonmusk 发布重要更新"
-    **摘要**：Grok Imagine Video。
-
-    **关键点**
-
-    - Grok Imagine Video
-    - Grok Imagine相关进展已由一手来源披露
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：Grok Imagine相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2040048952792547345)
-
-??? info "5. @elonmusk 发布重要更新"
-    **摘要**：Upgrades,upgrades … tetsuo @tetsuoai Goodnight,𝕏..·˚ ༘ ☾ ⋆｡˚ ☄︎ Quality Mode in Grok Imagine is god-tier. Update your app.-https://nitter.net/tetsuoai/sta。
-
-    **关键点**
-
-    - Upgrades
-    - upgrades … tetsuo @tetsuoai
-    - 𝕏..·˚ ༘ ☾ ⋆｡˚ ☄︎ Quality Mod
-
-    **影响分析**：Upgrades,upgrades … tetsuo @tetsuoai Goodnight,𝕏..·˚ ༘ ☾ ⋆｡˚ ☄︎ Quality Mode in Grok Imagine is god-tier. Update your app.-https://nit。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2040044771511849147)
-
-??? info "6. @elonmusk 发布重要更新"
-    **摘要**：Grok Art Muse @art_muse The Little Robot’s Secret Garden🤖 Short story by Grok Imagine Video-https://nitter.net/art_muse/status/2040022535568597223#m。
-
-    **关键点**
-
-    - Grok Art Muse @art_muse Th
-    - Grok相关进展已由一手来源披露
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：Grok相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2040044667841270231)
-
-??? info "7. @elonmusk 发布重要更新"
-    **摘要**：Quality over quantity Art Muse @art_muse New “Quality Mode” in Grok Imagine is absolutely stunning! The crispness and clarity are beautiful. Video-https://n。
-
-    **关键点**
-
-    - Quality over quantity Art Mu
-    - The crispness
-    - clarity are beautiful. Video
-
-    **影响分析**：Quality over quantity Art Muse @art_muse New “Quality Mode” in Grok Imagine is absolutely stunning。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2039999701966360770)
-
-??? info "8. Comfy-Org/ComfyUI 发布 v0.18.5 版本更新"
+??? info "17. Comfy-Org/ComfyUI 发布 v0.18.5 版本更新"
     **摘要**：ComfyUi v0.18.5。
 
     **关键点**
@@ -137,7 +249,7 @@
 
     **来源**：[原文链接](https://github.com/Comfy-Org/ComfyUI/releases/tag/v0.18.5)
 
-??? info "9. Comfy-Org/ComfyUI 发布 v0.18.4 版本更新"
+??? info "18. Comfy-Org/ComfyUI 发布 v0.18.4 版本更新"
     **摘要**：This reverts commit 4504ee7 .。
 
     **关键点**
@@ -150,150 +262,37 @@
 
     **来源**：[原文链接](https://github.com/Comfy-Org/ComfyUI/releases/tag/v0.18.4)
 
-??? info "10. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.01254v1 Announce Type:new Abstract:Accurate LiDAR simulation is crucial for autonomous driving,especially under adverse weather conditions. Existi。
+??? info "19. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2604.00005v1 Announce Type:new Abstract:Emotion plays an important role in human cognition and performance. Motivated by this,we investigate whether an。
 
     **关键点**
 
-    - arXiv:2604.01254v1 Announce
-    - especially under adverse wea
-    - atmospheric phenomena
+    - arXiv:2604.00005v1 Announce
+    - performance. Motivated by th
+    - we investigate whether analo
 
-    **影响分析**：arXiv:2604.01254v1 Announce Type:new Abstract:Accurate LiDAR simulation is crucial for autonomous driving,especially under adverse weathe。
+    **影响分析**：arXiv:2604.00005v1 Announce Type:new Abstract:Emotion plays an important role in human cognition and performance. Motivated by this,we in。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.01254)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.00005)
 
-??? info "11. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.01414v1 Announce Type:new Abstract:Vision-based policies have achieved a good performance in robotic manipulation due to the accessibility and rich。
-
-    **关键点**
-
-    - arXiv:2604.01414v1 Announce
-    - richness of visual observati
-    - purely visual sensing become
-
-    **影响分析**：arXiv:2604.01414v1 Announce Type:new Abstract:Vision-based policies have achieved a good performance in robotic manipulation due to the ac。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2604.01414)
-
-??? info "12. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.01463v1 Announce Type:new Abstract:Physically Assistive Robots PARs require personalized behaviors to ensure user safety and comfort. However,tr。
+??? info "20. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2604.00249v1 Announce Type:new Abstract:Single-agent large language model LLM systems struggle to simultaneously support diverse conversational functi。
 
     **关键点**
 
-    - arXiv:2604.01463v1 Announce
-    - comfort. However
-    - traditional preference learn
+    - arXiv:2604.00249v1 Announce
+    - maintain safety in behaviora
+    - role-orchestrated multi-agen
 
-    **影响分析**：arXiv:2604.01463v1 Announce Type:new Abstract:Physically Assistive Robots PARs require personalized behaviors to ensure user safety and。
+    **影响分析**：arXiv:2604.00249v1 Announce Type:new Abstract:Single-agent large language model LLM systems struggle to simultaneously support diverse c。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.01463)
-
-??? info "13. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.01466v1 Announce Type:new Abstract:Accurately modeling agent behaviors is an important task in self-driving. It is also a task with many symmetries。
-
-    **关键点**
-
-    - arXiv:2604.01466v1 Announce
-    - many symmetries
-    - such as equivariance to the
-
-    **影响分析**：arXiv:2604.01466v1 Announce Type:new Abstract:Accurately modeling agent behaviors is an important task in self-driving. It is also a task。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2604.01466)
-
-??? info "14. @pika_labs 发布重要更新"
-    **摘要**：P.P.S. if you dont have a Pika AI Self yet,give birth to yours at Pika.me。
-
-    **关键点**
-
-    - P.P.S. if you dont have a P
-    - give birth to yours at Pika.
-    - R to @pika_labs:P.P.S. if y
-
-    **影响分析**：R to @pika_labs:P.P.S. if you dont have a Pika AI Self yet,give birth to yours at http://Pika.me相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://x.com/pika_labs/status/2039913516266823771)
-
-??? info "15. @notionhq 发布产品更新"
-    **摘要**：☕️ keshav @keshavchan notion hq has the most adorable lego set-https://nitter.net/keshavchan/status/2039897060045119660#m。
-
-    **关键点**
-
-    - ☕️ keshav @keshavchan noti
-    - ☕️相关进展已由一手来源披露
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：☕️相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://x.com/NotionHQ/status/2039911857583243656)
-
-??? info "16. @lumalabsai 发布重要更新"
-    **摘要**：Branded content lives and dies on character. Direct an lazy aliens unlikely comeback fueled by Nebula Juice,with consistent world-building and character ident。
-
-    **关键点**
-
-    - Branded content lives
-    - dies on character. Direct an
-    - consistent world-building
-
-    **影响分析**：Branded content lives and dies on character. Direct an lazy aliens unlikely comeback fueled by Nebula Juice,with consistent world-building。
-
-    **来源**：[原文链接](https://x.com/LumaLabsAI/status/2039870678577373260)
-
-??? info "17. @notionhq 发布重要更新"
-    **摘要**：Agency is a muscle. Tools can strengthen it-or let it atrophy. @ivanhzhao Video。
-
-    **关键点**
-
-    - Agency is a muscle. Tools ca
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：Agency is a muscle. Tools can strengthen it-or let it atrophy. @ivanhzhao相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://x.com/NotionHQ/status/2039868041073393822)
-
-??? info "18. @replit 发布重要更新"
-    **摘要**：From concept to demo at Replit x Alif. Video。
-
-    **关键点**
-
-    - From concept to demo at Repl
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：From concept to demo at Replit x Alif.相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://x.com/Replit/status/2039850672602964105)
-
-??? info "19. @replit 发布重要更新"
-    **摘要**：Week 1 winner of the Agent 4 Content Challenge:🏆 @rahvsid @baceaukim Built a Duolingo for the Central Asia diaspora Incredible use of Agent 4 👏 Video。
-
-    **关键点**
-
-    - Week 1 winner of the Agent 4
-    - @replit 发布重要更新
-
-    **影响分析**：Week 1 winner of the Agent 4 Content Challenge:🏆 @rahvsid @baceaukim Built a Duolingo for the Central Asia diaspora Incredible use of Agent。
-
-    **来源**：[原文链接](https://x.com/Replit/status/2039840821030379951)
-
-??? info "20. @replit 发布重要更新"
-    **摘要**：Select the Skill from the plus icon a the prompt window.。
-
-    **关键点**
-
-    - Select the Skill from the pl
-    - R to @Replit:Select the Ski
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：R to @Replit:Select the Skill from the plus icon a the prompt window.相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://x.com/Replit/status/2039838338115661850)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.00249)
 
 ---
 
 ## 历史归档
 
+- [2026-04-04_08-01-36](history/2026-04-04_08-01-36.md)
 - [2026-04-03_22-15-49](history/2026-04-03_22-15-49.md)
 - [2026-04-03_20-01-47](history/2026-04-03_20-01-47.md)
 - [2026-04-03_18-10-48](history/2026-04-03_18-10-48.md)
