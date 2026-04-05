@@ -1,6 +1,6 @@
 # 今日快讯
 
-> 更新时间：2026年04月05日07:58:56
+> 更新时间：2026年04月05日12:16:14
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
@@ -13,20 +13,20 @@
 
 ## 分类速览
 
-=== "🤖 模型进展（5）"
+=== "🤖 模型进展（10）"
     - **1. @karpathy 发布重要更新**：Farzapedia,personal wikipedia of Farza,good exa…
     - **2. @elonmusk 发布重要更新**：This is accurate https://x.com/i/grok/share/cbd…
-    - **18. QwenLM/qwen-code v0.0.14**：Added plan mode support for task planning-Fixed…
-    - **19. QwenLM/qwen-code v0.0.13**：Added YOLO mode support for automatic vision mo…
-    - **20. QwenLM/qwen-code v0.0.12**：Added vision model support for Qwen-OAuth authe…
+    - **13. QwenLM/qwen-code v0.0.14**：Added plan mode support for task planning-Fixed…
+    - **14. QwenLM/qwen-code v0.0.13**：Added YOLO mode support for automatic vision mo…
+    - **15. QwenLM/qwen-code v0.0.12**：Added vision model support for Qwen-OAuth authe…
+    - **16. QwenLM/qwen-code v0.0.11**：Added subagents feature with file-based configu…
+    - **17. anthropics/claude-code v2.1.92**：Added `forceRemoteSettingsRefresh` policy setti…
+    - **18. anthropics/claude-code v2.1.90**：Added `/powerup`-interactive lessons teaching C…
 
-=== "🧪 论文研究（4）"
-    - **13. arxiv.org 发布重要更新**：arXiv:2604.01268v1 Announce Type:new Abstract:I…
-    - **14. arxiv.org 发布 85.8 版本更新**：arXiv:2604.01306v1 Announce Type:new Abstract:E…
-    - **15. arxiv.org 发布 0.74 版本更新**：arXiv:2604.01312v1 Announce Type:new Abstract:L…
-    - **16. arxiv.org 发布重要更新**：arXiv:2604.01348v1 Announce Type:new Abstract:T…
+=== "🧪 论文研究（0）"
+    - 暂无条目
 
-=== "🏢 产品与行业（11）"
+=== "🏢 产品与行业（10）"
     - **3. @karpathy 发布重要更新**：Something Ive been thinking about-I am bullish…
     - **4. @elonmusk 发布重要更新**：True Mario Nawfal @MarioNawfal Gwynne Shotwell…
     - **5. @elonmusk 发布重要更新**：Absolutely Luis Batalha @luismbat In 2029,Apoph…
@@ -193,72 +193,7 @@
 
     **来源**：[原文链接](https://x.com/MiniMax_AI/status/2040431340961542460)
 
-??? info "13. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.01268v1 Announce Type:new Abstract:Individuals engaging in online communication frequently express personal opinions with informal styles e.g.,me。
-
-    **关键点**
-
-    - arXiv:2604.01268v1 Announce
-    - informal styles e.g.
-    - memes
-
-    **影响分析**：arXiv:2604.01268v1 Announce Type:new Abstract:Individuals engaging in online communication frequently express personal opinions with infor。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2604.01268)
-
-??? info "14. arxiv.org 发布 85.8 版本更新"
-    **摘要**：arXiv:2604.01306v1 Announce Type:new Abstract:Evaluating scientific arguments requires assessing the strict consistency between a claim and its underlying mul。
-
-    **关键点**
-
-    - arXiv:2604.01306v1 Announce
-    - its underlying multimodal ev
-    - existing benchmarks lack the
-
-    **影响分析**：arXiv:2604.01306v1 Announce Type:new Abstract:Evaluating scientific arguments requires assessing the strict consistency between a claim an。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2604.01306)
-
-??? info "15. arxiv.org 发布 0.74 版本更新"
-    **摘要**：arXiv:2604.01312v1 Announce Type:new Abstract:Learning human preferences in language models remains fundamentally challenging,as reward modeling relies on su。
-
-    **关键点**
-
-    - arXiv:2604.01312v1 Announce
-    - as reward modeling relies on
-    - subjective comparisons or sh
-
-    **影响分析**：arXiv:2604.01312v1 Announce Type:new Abstract:Learning human preferences in language models remains fundamentally challenging,as reward m。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2604.01312)
-
-??? info "16. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.01348v1 Announce Type:new Abstract:Test-time scaling has emerged as an effective way to improve language models on challenging reasoning tasks. How。
-
-    **关键点**
-
-    - arXiv:2604.01348v1 Announce
-    - most existing methods treat
-    - do not systematically reuse
-
-    **影响分析**：arXiv:2604.01348v1 Announce Type:new Abstract:Test-time scaling has emerged as an effective way to improve language models on challenging。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2604.01348)
-
-??? info "17. @replit 发布重要更新"
-    **摘要**：Theres no longer an obstacle to creating SEO-optimized content at scale. Samuel Spitz @samuel_spitz SEO can get you thousands of customers for free. The catc。
-
-    **关键点**
-
-    - Theres no longer an obstacl
-    - You need to write dozens or
-    - AI. Video-https://nitter.n
-
-    **影响分析**：Theres no longer an obstacle to creating SEO-optimized content at scale. Samuel Spitz @samuel_spitz SEO can get you thousands of customer。
-
-    **来源**：[原文链接](https://x.com/Replit/status/2040223492407500850)
-
-??? info "18. QwenLM/qwen-code v0.0.14"
+??? info "13. QwenLM/qwen-code v0.0.14"
     **摘要**：Added plan mode support for task planning-Fixed unreliable editCorrector that injects extra escape characters-Fixed task tool dynamic updates-Added Qwen。
 
     **关键点**
@@ -271,7 +206,7 @@
 
     **来源**：[原文链接](https://github.com/QwenLM/qwen-code/blob/main/CHANGELOG.md)
 
-??? info "19. QwenLM/qwen-code v0.0.13"
+??? info "14. QwenLM/qwen-code v0.0.13"
     **摘要**：Added YOLO mode support for automatic vision model switching with CLI arguments and environment variables.-Fixed ripgrep lazy loading to resolve VS Code IDE。
 
     **关键点**
@@ -284,7 +219,7 @@
 
     **来源**：[原文链接](https://github.com/QwenLM/qwen-code/blob/main/CHANGELOG.md)
 
-??? info "20. QwenLM/qwen-code v0.0.12"
+??? info "15. QwenLM/qwen-code v0.0.12"
     **摘要**：Added vision model support for Qwen-OAuth authentication.-Synced upstream `gemini-cli` to v0.3.4 with numerous improvements and bug fixes.-Enhanced subage。
 
     **关键点**
@@ -296,3 +231,68 @@
     **影响分析**：Added vision model support for Qwen-OAuth authentication.-Synced upstream `gemini-cli` to v0.3.4 with numerous improvements and bug fixe。
 
     **来源**：[原文链接](https://github.com/QwenLM/qwen-code/blob/main/CHANGELOG.md)
+
+??? info "16. QwenLM/qwen-code v0.0.11"
+    **摘要**：Added subagents feature with file-based configuration system for specialized AI assistants.-Added Welcome Back Dialog with project summary and enhanced quit。
+
+    **关键点**
+
+    - Added subagents feature
+    - file-based configuration sys
+    - project summary
+
+    **影响分析**：Added subagents feature with file-based configuration system for specialized AI assistants.-Added Welcome Back Dialog with project summa。
+
+    **来源**：[原文链接](https://github.com/QwenLM/qwen-code/blob/main/CHANGELOG.md)
+
+??? info "17. anthropics/claude-code v2.1.92"
+    **摘要**：Added `forceRemoteSettingsRefresh` policy setting:when set,the CLI blocks startup until remote managed settings are freshly fetched,and exits if the fetch。
+
+    **关键点**
+
+    - Added `forceRemoteSettingsRe
+    - the CLI blocks startup until
+    - exits if the fetch fails fa
+
+    **影响分析**：Added `forceRemoteSettingsRefresh` policy setting:when set,the CLI blocks startup until remote managed settings are freshly fetched,and。
+
+    **来源**：[原文链接](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md)
+
+??? info "18. anthropics/claude-code v2.1.90"
+    **摘要**：Added `/powerup`-interactive lessons teaching Claude Code features with animated demos-Added `CLAUDE_CODE_PLUGIN_KEEP_MARKETPLACE_ON_FAILURE` env var to k。
+
+    **关键点**
+
+    - Added `/powerup`-interacti
+    - animated demos-Added `CLAU
+    - useful in offline environmen
+
+    **影响分析**：Added `/powerup`-interactive lessons teaching Claude Code features with animated demos-Added `CLAUDE_CODE_PLUGIN_KEEP_MARKETPLACE_ON_F。
+
+    **来源**：[原文链接](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md)
+
+??? info "19. anthropics/claude-code v2.1.89"
+    **摘要**：Added `defer` permission decision to `PreToolUse` hooks-headless sessions can pause at a tool call and resume with `-p-resume` to have the hook re-evalu。
+
+    **关键点**
+
+    - Added `defer` permission d
+    - resume
+    - `-p-resume` to have the ho
+
+    **影响分析**：Added `defer` permission decision to `PreToolUse` hooks-headless sessions can pause at a tool call and resume with `-p-resume` to ha。
+
+    **来源**：[原文链接](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md)
+
+??? info "20. anthropics/claude-code v2.1.87"
+    **摘要**：Fixed messages in Cowork Dispatch not getting delivered。
+
+    **关键点**
+
+    - Fixed messages in Cowork Dis
+    - anthropics/claude-code v2.1.
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：anthropics/claude-code v2.1.87相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md)
