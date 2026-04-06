@@ -1,18 +1,19 @@
-> 更新时间：2026年04月06日15:13:14
+> 更新时间：2026年04月06日16:54:36
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. @openclaw 发布重要更新：Give your agent the Molty spicy SOUL upgra。
-2. arxiv.org 发布重要更新：arXiv:2604.02359v1 Announce Type:new Abstr。
-3. arxiv.org 发布 0.671 版本更新：arXiv:2604.02362v1 Announce Type:new Abstr。
-4. arxiv.org 发布重要更新：arXiv:2604.02423v1 Announce Type:new Abstr。
-5. arxiv.org 发布重要更新：arXiv:2604.02451v1 Announce Type:new Abstr。
+1. @elonmusk 发布重要更新：Incentives drive behavior Grok @grok Hunga。
+2. @openclaw 发布重要更新：Give your agent the Molty spicy SOUL upgra。
+3. arxiv.org 发布重要更新：arXiv:2604.02387v1 Announce Type:new Abstr。
+4. arxiv.org 发布重要更新：arXiv:2604.02401v1 Announce Type:new Abstr。
+5. arxiv.org 发布重要更新：arXiv:2604.02408v1 Announce Type:new Abstr。
 
 ## 分类速览
 
-=== "🤖 模型进展（7）"
-    - **6. @openclaw 发布重要更新**：Anthropic moved the goalposts:Claude subscripti…
+=== "🤖 模型进展（8）"
+    - **1. @elonmusk 发布重要更新**：Incentives drive behavior Grok @grok Hungary di…
+    - **7. @openclaw 发布重要更新**：Anthropic moved the goalposts:Claude subscripti…
     - **15. QwenLM/qwen-code v0.0.14**：Added plan mode support for task planning-Fixed…
     - **16. QwenLM/qwen-code v0.0.13**：Added YOLO mode support for automatic vision mo…
     - **17. QwenLM/qwen-code v0.0.12**：Added vision model support for Qwen-OAuth authe…
@@ -21,24 +22,37 @@
     - **20. anthropics/claude-code v2.1.90**：Added `/powerup`-interactive lessons teaching C…
 
 === "🧪 论文研究（4）"
-    - **2. arxiv.org 发布重要更新**：arXiv:2604.02359v1 Announce Type:new Abstract:G…
-    - **3. arxiv.org 发布 0.671 版本更新**：arXiv:2604.02362v1 Announce Type:new Abstract:D…
-    - **4. arxiv.org 发布重要更新**：arXiv:2604.02423v1 Announce Type:new Abstract:L…
-    - **5. arxiv.org 发布重要更新**：arXiv:2604.02451v1 Announce Type:new Abstract:M…
+    - **3. arxiv.org 发布重要更新**：arXiv:2604.02387v1 Announce Type:new Abstract:P…
+    - **4. arxiv.org 发布重要更新**：arXiv:2604.02401v1 Announce Type:new Abstract:T…
+    - **5. arxiv.org 发布重要更新**：arXiv:2604.02408v1 Announce Type:new Abstract:A…
+    - **6. arxiv.org 发布重要更新**：arXiv:2604.02441v1 Announce Type:new Abstract:H…
 
-=== "🏢 产品与行业（9）"
-    - **1. @openclaw 发布重要更新**：Give your agent the Molty spicy SOUL upgrade:st…
-    - **7. @elonmusk 发布重要更新**：Incentives drive outcomes Tesla Owners Silicon…
-    - **8. @openclaw 发布重要更新**：Dreaming is OpenClaw’s experimental,opt-in memo…
-    - **9. @openclaw 发布重要更新**：R to @openclaw:Clawtributors:slightly chaotic,d…
-    - **10. @elonmusk 发布重要更新**：Enough is enough X Freeze @XFreeze The left has…
-    - **11. @elonmusk 发布产品更新**：🎯 Greg Autry🚀 @GregWAutry To be fair,Hiram Maxi…
-    - **12. @elonmusk 发布产品更新**：💯相关进展已由一手来源披露，预计将影响后续产品与行业节奏
+=== "🏢 产品与行业（8）"
+    - **2. @openclaw 发布重要更新**：Give your agent the Molty spicy SOUL upgrade:st…
+    - **8. @elonmusk 发布重要更新**：Incentives drive outcomes Tesla Owners Silicon…
+    - **9. @openclaw 发布重要更新**：Dreaming is OpenClaw’s experimental,opt-in memo…
+    - **10. @openclaw 发布重要更新**：R to @openclaw:Clawtributors:slightly chaotic,d…
+    - **11. @elonmusk 发布重要更新**：Enough is enough X Freeze @XFreeze The left has…
+    - **12. @elonmusk 发布产品更新**：🎯 Greg Autry🚀 @GregWAutry To be fair,Hiram Maxi…
     - **13. @karpathy 发布重要更新**：Surprised with how good the comments on github…
+    - **14. @ylecun 发布重要更新**：Thinking in language has limited applications,l…
 
 ## 全部快讯
 
-??? info "1. @openclaw 发布重要更新"
+??? info "1. @elonmusk 发布重要更新"
+    **摘要**：Incentives drive behavior Grok @grok Hungary did slash benefits for asylum seekers and refugees in 2016:April cuts ended pocket money and work rights；June e。
+
+    **关键点**
+
+    - Incentives drive behavior Gr
+    - refugees in 2016:April cuts
+    - work rights
+
+    **影响分析**：Incentives drive behavior Grok @grok Hungary did slash benefits for asylum seekers and refugees in 2016:April cuts ended pocket money and。
+
+    **来源**：[原文链接](https://x.com/elonmusk/status/2041073780752359531)
+
+??? info "2. @openclaw 发布重要更新"
     **摘要**：Give your agent the Molty spicy SOUL upgrade:stronger opinions,less corporate sludge,better instincts,and replies that might finally sound like someone wort。
 
     **关键点**
@@ -51,59 +65,59 @@
 
     **来源**：[原文链接](https://x.com/openclaw/status/2041003999856406714)
 
-??? info "2. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.02359v1 Announce Type:new Abstract:General-purpose Large Language Models LLMs are becoming widely adopted by people for mental health support. Ye。
+??? info "3. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2604.02387v1 Announce Type:new Abstract:Precision reducers are critical components in robotic systems,directly affecting the motion accuracy and dynami。
 
     **关键点**
 
-    - arXiv:2604.02359v1 Announce
-    - high-frequency use
-    - particularly for individuals
+    - arXiv:2604.02387v1 Announce
+    - directly affecting the motio
+    - dynamic performance of human
 
-    **影响分析**：arXiv:2604.02359v1 Announce Type:new Abstract:General-purpose Large Language Models LLMs are becoming widely adopted by people for menta。
+    **影响分析**：arXiv:2604.02387v1 Announce Type:new Abstract:Precision reducers are critical components in robotic systems,directly affecting the motion。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.02359)
-
-??? info "3. arxiv.org 发布 0.671 版本更新"
-    **摘要**：arXiv:2604.02362v1 Announce Type:new Abstract:Decoding speech information from scalp EEG remains difficult due to low SNR and spatial blurring. We present CIP。
-
-    **关键点**
-
-    - arXiv:2604.02362v1 Announce
-    - spatial blurring. We present
-    - a dual-pathway model using
-
-    **影响分析**：arXiv:2604.02362v1 Announce Type:new Abstract:Decoding speech information from scalp EEG remains difficult due to low SNR and spatial blur。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2604.02362)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.02387)
 
 ??? info "4. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.02423v1 Announce Type:new Abstract:Large language models exhibit sycophancy:the tendency to shift outputs toward user-expressed stances,regardles。
+    **摘要**：arXiv:2604.02401v1 Announce Type:new Abstract:This paper revisits three backup-based safety filters-Backup Control Barrier Functions Backup CBF,Model Pr。
 
     **关键点**
 
-    - arXiv:2604.02423v1 Announce
-    - regardless of correctness or
-    - its impacts
+    - arXiv:2604.02401v1 Announce
+    - Model Predictive Shielding
+    - gatekeeper-through a unif
 
-    **影响分析**：arXiv:2604.02423v1 Announce Type:new Abstract:Large language models exhibit sycophancy:the tendency to shift outputs toward user-expresse。
+    **影响分析**：arXiv:2604.02401v1 Announce Type:new Abstract:This paper revisits three backup-based safety filters-Backup Control Barrier Functions B。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.02423)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.02401)
 
 ??? info "5. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.02451v1 Announce Type:new Abstract:Modeling coherence in text has been a task that has excited NLP researchers since a long time. It has applicatio。
+    **摘要**：arXiv:2604.02408v1 Announce Type:new Abstract:Asynchronous inference has emerged as a prevalent paradigm in robotic manipulation,achieving significant progre。
 
     **关键点**
 
-    - arXiv:2604.02451v1 Announce
-    - helping the author fix them.
-    - then use that skeleton to ge
+    - arXiv:2604.02408v1 Announce
+    - achieving significant progre
+    - efficiency. However
 
-    **影响分析**：arXiv:2604.02451v1 Announce Type:new Abstract:Modeling coherence in text has been a task that has excited NLP researchers since a long tim。
+    **影响分析**：arXiv:2604.02408v1 Announce Type:new Abstract:Asynchronous inference has emerged as a prevalent paradigm in robotic manipulation,achievin。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.02451)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.02408)
 
-??? info "6. @openclaw 发布重要更新"
+??? info "6. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2604.02441v1 Announce Type:new Abstract:Hybrid state estimators that combine model-based Kalman filtering with learned components have shown promise on。
+
+    **关键点**
+
+    - arXiv:2604.02441v1 Announce
+    - learned components have show
+    - yet their performance on rea
+
+    **影响分析**：arXiv:2604.02441v1 Announce Type:new Abstract:Hybrid state estimators that combine model-based Kalman filtering with learned components ha。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2604.02441)
+
+??? info "7. @openclaw 发布重要更新"
     **摘要**：Anthropic moved the goalposts:Claude subscriptions no longer cover third-party harnesses like OpenClaw,so that path now needs Extra Usage. If you want less bi。
 
     **关键点**
@@ -116,7 +130,7 @@
 
     **来源**：[原文链接](https://x.com/openclaw/status/2041002065174888578)
 
-??? info "7. @elonmusk 发布重要更新"
+??? info "8. @elonmusk 发布重要更新"
     **摘要**：Incentives drive outcomes Tesla Owners Silicon Valley @teslaownersSV Elon Musk:“The homeless industrial complex is really dark… The network of NGOs should be。
 
     **关键点**
@@ -129,7 +143,7 @@
 
     **来源**：[原文链接](https://x.com/elonmusk/status/2040998798592540961)
 
-??? info "8. @openclaw 发布重要更新"
+??? info "9. @openclaw 发布重要更新"
     **摘要**：Dreaming is OpenClaw’s experimental,opt-in memory consolidation system,promoting meaningful short-term signals into durable memory through explainable light。
 
     **关键点**
@@ -142,7 +156,7 @@
 
     **来源**：[原文链接](https://x.com/openclaw/status/2040998577372021026)
 
-??? info "9. @openclaw 发布重要更新"
+??? info "10. @openclaw 发布重要更新"
     **摘要**：Clawtributors:slightly chaotic,deeply cracked,absolutely carrying. 🙏🦞。
 
     **关键点**
@@ -155,7 +169,7 @@
 
     **来源**：[原文链接](https://x.com/openclaw/status/2040998574972969303)
 
-??? info "10. @elonmusk 发布重要更新"
+??? info "11. @elonmusk 发布重要更新"
     **摘要**：Enough is enough X Freeze @XFreeze The left has officially abandoned reality 🤡 If a father took his child to a doctor to surgically remove an eye so the child。
 
     **关键点**
@@ -168,7 +182,7 @@
 
     **来源**：[原文链接](https://x.com/elonmusk/status/2040994572990640331)
 
-??? info "11. @elonmusk 发布产品更新"
+??? info "12. @elonmusk 发布产品更新"
     **摘要**：🎯 Greg Autry🚀 @GregWAutry To be fair,Hiram Maxim achieved the first powered flight a decade before the Wright bothers,with a huge airplane that lifted three。
 
     **关键点**
@@ -180,19 +194,6 @@
     **影响分析**：🎯 Greg Autry🚀 @GregWAutry To be fair,Hiram Maxim achieved the first powered flight a decade before the Wright bothers,with a huge airpla。
 
     **来源**：[原文链接](https://x.com/elonmusk/status/2040984066917548450)
-
-??? info "12. @elonmusk 发布产品更新"
-    **摘要**：💯 tobi lutke @tobi The word `expert` in media has come to mean pundit with davos-liberal talking points-https://nitter.net/tobi/status/2040852493253443616#m。
-
-    **关键点**
-
-    - 💯 tobi lutke @tobi The wor
-    - davos-liberal talking points
-    - 💯相关进展已由一手来源披露，预计将影响后续产品与行业节奏
-
-    **影响分析**：💯相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2040965188925657434)
 
 ??? info "13. @karpathy 发布重要更新"
     **摘要**：Surprised with how good the comments on github gists are. A lot more helpful,insightful,constructive,a lot less AI... Is it the user community? The markdown。
@@ -302,6 +303,7 @@
 
 ## 历史归档
 
+- [2026-04-06_16-54-36](history/2026-04-06_16-54-36.md)
 - [2026-04-06_15-13-14](history/2026-04-06_15-13-14.md)
 - [2026-04-06_13-41-52](history/2026-04-06_13-41-52.md)
 - [2026-04-06_12-24-01](history/2026-04-06_12-24-01.md)
@@ -421,4 +423,3 @@
 - [2026-03-10](history/2026-03-10.md)
 - [2026-03-09](history/2026-03-09.md)
 - [2026-03-08](history/2026-03-08.md)
-- [2026-03-07](history/2026-03-07.md)
