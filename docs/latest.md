@@ -1,6 +1,6 @@
 # 今日快讯
 
-> 更新时间：2026年04月06日18:39:19
+> 更新时间：2026年04月06日20:07:28
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
@@ -8,8 +8,8 @@
 1. @elonmusk 发布产品更新：💯 Shannon 🇺🇸I stand with America @thewrite。
 2. @elonmusk 发布重要更新：Incentives drive behavior Grok @grok Hunga。
 3. @openclaw 发布重要更新：Give your agent the Molty spicy SOUL upgra。
-4. arxiv.org 发布重要更新：arXiv:2604.02335v1 Announce Type:new Abstr。
-5. arxiv.org 发布重要更新：arXiv:2604.02337v1 Announce Type:new Abstr。
+4. arxiv.org 发布重要更新：arXiv:2604.02334v1 Announce Type:new Abstr。
+5. arxiv.org 发布重要更新：arXiv:2604.02368v1 Announce Type:new Abstr。
 
 ## 分类速览
 
@@ -23,10 +23,10 @@
     - **20. anthropics/claude-code v2.1.92**：Added `forceRemoteSettingsRefresh` policy setti…
 
 === "🧪 论文研究（4）"
-    - **4. arxiv.org 发布重要更新**：arXiv:2604.02335v1 Announce Type:new Abstract:M…
-    - **5. arxiv.org 发布重要更新**：arXiv:2604.02337v1 Announce Type:new Abstract:C…
-    - **6. arxiv.org 发布重要更新**：arXiv:2604.02338v1 Announce Type:new Abstract:M…
-    - **7. arxiv.org 发布重要更新**：arXiv:2604.02340v1 Announce Type:new Abstract:R…
+    - **4. arxiv.org 发布重要更新**：arXiv:2604.02334v1 Announce Type:new Abstract:A…
+    - **5. arxiv.org 发布重要更新**：arXiv:2604.02368v1 Announce Type:new Abstract:A…
+    - **6. arxiv.org 发布重要更新**：arXiv:2604.02476v1 Announce Type:new Abstract:T…
+    - **7. arxiv.org 发布重要更新**：arXiv:2604.02478v1 Announce Type:new Abstract:D…
 
 === "🏢 产品与行业（9）"
     - **1. @elonmusk 发布产品更新**：💯相关进展已由一手来源披露，预计将影响后续产品与行业节奏
@@ -80,56 +80,56 @@
     **来源**：[原文链接](https://x.com/openclaw/status/2041003999856406714)
 
 ??? info "4. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.02335v1 Announce Type:new Abstract:Modeling groundwater flow in three-dimensional fractured crystalline media requires accounting for strong spatia。
+    **摘要**：arXiv:2604.02334v1 Announce Type:new Abstract:As large language models LLM-driven agents transition from isolated task solvers to persistent digital entitie。
 
     **关键点**
 
-    - arXiv:2604.02335v1 Announce
-    - especially when repeated eva
-    - we aim to employ a multileve
+    - arXiv:2604.02334v1 Announce
+    - the emergence of the Agentic
+    - an ecosystem where heterogen
 
-    **影响分析**：arXiv:2604.02335v1 Announce Type:new Abstract:Modeling groundwater flow in three-dimensional fractured crystalline media requires accounti。
+    **影响分析**：arXiv:2604.02334v1 Announce Type:new Abstract:As large language models LLM-driven agents transition from isolated task solvers to persis。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.02335)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.02334)
 
 ??? info "5. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.02337v1 Announce Type:new Abstract:Counterfactual simulation-exploring hypothetical consequences under alternative clinical scenarios-holds pro。
+    **摘要**：arXiv:2604.02368v1 Announce Type:new Abstract:As Large Language Models LLMs exhibit plateauing performance on conventional benchmarks,a pivotal challenge p。
 
     **关键点**
 
-    - arXiv:2604.02337v1 Announce
-    - in silico trials. However
-    - it remains challenging due t
+    - arXiv:2604.02368v1 Announce
+    - a pivotal challenge persists
+    - open-ended tasks characteriz
 
-    **影响分析**：arXiv:2604.02337v1 Announce Type:new Abstract:Counterfactual simulation-exploring hypothetical consequences under alternative clinical s。
+    **影响分析**：arXiv:2604.02368v1 Announce Type:new Abstract:As Large Language Models LLMs exhibit plateauing performance on conventional benchmarks,a。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.02337)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.02368)
 
 ??? info "6. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.02338v1 Announce Type:new Abstract:MoE-PEFT methods combine Mixture of Experts with parameter-efficient fine-tuning for multi-task adaptation,but。
+    **摘要**：arXiv:2604.02476v1 Announce Type:new Abstract:This paper examines the role of threshold logic in understanding generative artificial intelligence. Threshold f。
 
     **关键点**
 
-    - arXiv:2604.02338v1 Announce
-    - parameter-efficient fine-tun
-    - but require separate adapter
+    - arXiv:2604.02476v1 Announce
+    - originally studied in the 19
+    - provide a structurally trans
 
-    **影响分析**：arXiv:2604.02338v1 Announce Type:new Abstract:MoE-PEFT methods combine Mixture of Experts with parameter-efficient fine-tuning for multi-t。
+    **影响分析**：arXiv:2604.02476v1 Announce Type:new Abstract:This paper examines the role of threshold logic in understanding generative artificial intel。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.02338)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.02476)
 
 ??? info "7. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.02340v1 Announce Type:new Abstract:Recent advances in masked diffusion language models MDLMs narrow the quality gap to autoregressive LMs,but th。
+    **摘要**：arXiv:2604.02478v1 Announce Type:new Abstract:Deep learning models excel at detecting anomaly patterns in normal data. However,they do not provide a direct s。
 
     **关键点**
 
-    - arXiv:2604.02340v1 Announce
-    - but their sampling remains e
-    - a large Transformer
+    - arXiv:2604.02478v1 Announce
+    - they do not provide a direct
+    - scalability across diverse c
 
-    **影响分析**：arXiv:2604.02340v1 Announce Type:new Abstract:Recent advances in masked diffusion language models MDLMs narrow the quality gap to autore。
+    **影响分析**：arXiv:2604.02478v1 Announce Type:new Abstract:Deep learning models excel at detecting anomaly patterns in normal data. However,they do no。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.02340)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.02478)
 
 ??? info "8. @openclaw 发布重要更新"
     **摘要**：Anthropic moved the goalposts:Claude subscriptions no longer cover third-party harnesses like OpenClaw,so that path now needs Extra Usage. If you want less bi。
