@@ -1,142 +1,105 @@
-> 更新时间：2026年04月07日16:45:21
+> 更新时间：2026年04月07日18:35:35
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. @elonmusk 发布重要更新：A fever dream Marc Andreessen 🇺🇸 @pmarca O。
-2. @elonmusk 发布重要更新：Yeah Kangmin Lee | 이강민 @kangminlee All lef。
-3. @elonmusk 发布重要更新：Made with Grok Imagine Déborah @dvorahfr T。
-4. @elonmusk 发布产品更新：Yes C3 @C_3C_3 The Left never got over Elo。
-5. arxiv.org 发布重要更新：arXiv:2604.03253v1 Announce Type:new Abstr。
+1. @minimaxagent 发布重要更新：Meet Pocket 📱 Your IM。
+2. arxiv.org 发布重要更新：arXiv:2604.03267v1 Announce Type:new Abstr。
+3. arxiv.org 发布重要更新：arXiv:2604.03277v1 Announce Type:new Abstr。
+4. arxiv.org 发布重要更新：arXiv:2604.03296v1 Announce Type:new Abstr。
+5. arxiv.org 发布重要更新：arXiv:2604.03297v1 Announce Type:new Abstr。
 
 ## 分类速览
 
-=== "🤖 模型进展（2）"
-    - **3. @elonmusk 发布重要更新**：Made with Grok Imagine Déborah @dvorahfr The im…
-    - **10. @anthropicai 发布重要更新**：Our run-rate revenue has surpassed $30 billion…
+=== "🤖 模型进展（3）"
+    - **7. @anthropicai 发布重要更新**：Our run-rate revenue has surpassed $30 billion…
+    - **19. QwenLM/qwen-code v0.0.14**：Added plan mode support for task planning-Fixed…
+    - **20. QwenLM/qwen-code v0.0.13**：Added YOLO mode support for automatic vision mo…
 
 === "🧪 论文研究（4）"
-    - **5. arxiv.org 发布重要更新**：arXiv:2604.03253v1 Announce Type:new Abstract:A…
-    - **6. arxiv.org 发布重要更新**：arXiv:2604.03258v1 Announce Type:new Abstract:L…
-    - **7. arxiv.org 发布 30.3 版本更新**：arXiv:2604.03260v1 Announce Type:new Abstract:W…
-    - **8. arxiv.org 发布重要更新**：arXiv:2604.03261v1 Announce Type:new Abstract:T…
+    - **2. arxiv.org 发布重要更新**：arXiv:2604.03267v1 Announce Type:new Abstract:I…
+    - **3. arxiv.org 发布重要更新**：arXiv:2604.03277v1 Announce Type:new Abstract:R…
+    - **4. arxiv.org 发布重要更新**：arXiv:2604.03296v1 Announce Type:new Abstract:L…
+    - **5. arxiv.org 发布重要更新**：arXiv:2604.03297v1 Announce Type:new Abstract:I…
 
-=== "🏢 产品与行业（14）"
-    - **1. @elonmusk 发布重要更新**：A fever dream Marc Andreessen 🇺🇸 @pmarca Overhe…
-    - **2. @elonmusk 发布重要更新**：Yeah Kangmin Lee | 이강민 @kangminlee All leftwing…
-    - **4. @elonmusk 发布产品更新**：Yes C3 @C_3C_3 The Left never got over Elon buy…
-    - **9. @replit 发布重要更新**：Week 2 winner of the Agent 4 Content Challenge…
-    - **11. @anthropicai 发布重要更新**：Weve signed an agreement with Google and Broadc…
-    - **12. @notionhq 发布重要更新**：Custom Agents 🤝 @SlackHQ Connect your Custom Ag…
-    - **13. @adobefirefly 发布重要更新**：Right now,four astronauts are heading around th…
-    - **14. @replit 发布重要更新**：Find your next 100 customers with Replit
+=== "🏢 产品与行业（13）"
+    - **1. @minimaxagent 发布重要更新**：Meet Pocket 📱 Your IM,your MiniMax Agent Deskto…
+    - **6. @replit 发布重要更新**：Week 2 winner of the Agent 4 Content Challenge…
+    - **8. @anthropicai 发布重要更新**：Weve signed an agreement with Google and Broadc…
+    - **9. @notionhq 发布重要更新**：Custom Agents 🤝 @SlackHQ Connect your Custom Ag…
+    - **10. @replit 发布重要更新**：Find your next 100 customers with Replit
+    - **11. @replit 发布重要更新**：R to @Replit:Read it on todays blog:https://blo…
+    - **12. @replit 发布重要更新**：Ent. Platform Product Manager Corey Wall breaks…
+    - **13. @openai 发布重要更新**：Introducing the OpenAI Safety Fellowship,a new…
 
 ## 全部快讯
 
-??? info "1. @elonmusk 发布重要更新"
-    **摘要**：A fever dream Marc Andreessen 🇺🇸 @pmarca Overheard in Silicon Valley:“Remember ‘hate speech and misinformation’? That was weird.”-https://nitter.net/pmarca。
+??? info "1. @minimaxagent 发布重要更新"
+    **摘要**：Meet Pocket 📱 Your IM,your MiniMax Agent Desktop,finally connected. Most AI agents still need you at your desk. Pocket doesnt. Sort your local files. Send at。
 
     **关键点**
 
-    - A fever dream Marc Andreesse
-    - misinformation’
-    - That was weird.”-https://n
+    - Meet Pocket 📱 Your IM
+    - your MiniMax Agent Desktop
+    - finally connected. Most AI a
 
-    **影响分析**：A fever dream Marc Andreessen 🇺🇸 @pmarca Overheard in Silicon Valley:“Remember ‘hate speech and misinformation’。
+    **影响分析**：Meet Pocket 📱 Your IM,your MiniMax Agent Desktop,finally connected. Most AI agents still need you at your desk. Pocket doesnt. Sort your。
 
-    **来源**：[原文链接](https://x.com/elonmusk/status/2041418536707563585)
+    **来源**：[原文链接](https://x.com/MiniMaxAgent/status/2041444608287379771)
 
-??? info "2. @elonmusk 发布重要更新"
-    **摘要**：Yeah Kangmin Lee | 이강민 @kangminlee All leftwing politics today boils down to preventing young men from taking back their civilization-https://nitter.net/kan。
-
-    **关键点**
-
-    - Yeah Kangmin Lee | 이강민 @kan
-    - Yeah
-
-    **影响分析**：Yeah Kangmin Lee | 이강민 @kangminlee All leftwing politics today boils down to preventing young men from taking back their civilization-ht。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2041402309608194107)
-
-??? info "3. @elonmusk 发布重要更新"
-    **摘要**：Made with Grok Imagine Déborah @dvorahfr The image quality is so good,with the interplay of light,that its hard to believe none of this exists. I wish I ha。
+??? info "2. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2604.03267v1 Announce Type:new Abstract:In this work we present a novel framework for fire safety management in industrial settings through the implemen。
 
     **关键点**
 
-    - Made
-    - Grok Imagine Déborah @dvora
-    - the interplay of light
+    - arXiv:2604.03267v1 Announce
+    - characterization. As a case
+    - we demonstrate how a SoC FPG
 
-    **影响分析**：Made with Grok Imagine Déborah @dvorahfr The image quality is so good,with the interplay of light,that its hard to believe none of this。
+    **影响分析**：arXiv:2604.03267v1 Announce Type:new Abstract:In this work we present a novel framework for fire safety management in industrial settings。
 
-    **来源**：[原文链接](https://x.com/elonmusk/status/2041400506409705582)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.03267)
 
-??? info "4. @elonmusk 发布产品更新"
-    **摘要**：Yes C3 @C_3C_3 The Left never got over Elon buying X. That wasn’t supposed to happen. The Left’s ideas are so bad and damaging they need total control of info。
+??? info "3. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2604.03277v1 Announce Type:new Abstract:Reliable visual place recognition VPR under dynamic real-world conditions is critical for autonomous robots,y。
 
     **关键点**
 
-    - Yes C3 @C_3C_3 The Left ne
-    - damaging they need total con
-    - damaging they need t
+    - arXiv:2604.03277v1 Announce
+    - yet conventional deep networ
+    - energy demands. Inspired by
 
-    **影响分析**：Yes C3 @C_3C_3 The Left never got over Elon buying X. That wasn’t supposed to happen. The Left’s ideas are so bad and damaging they need t。
+    **影响分析**：arXiv:2604.03277v1 Announce Type:new Abstract:Reliable visual place recognition VPR under dynamic real-world conditions is critical for。
 
-    **来源**：[原文链接](https://x.com/elonmusk/status/2041398810170237381)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.03277)
+
+??? info "4. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2604.03296v1 Announce Type:new Abstract:Leveraging 3D information within Multimodal Large Language Models MLLMs has recently shown significant advanta。
+
+    **关键点**
+
+    - arXiv:2604.03296v1 Announce
+    - existing methods
+    - including those using explic
+
+    **影响分析**：arXiv:2604.03296v1 Announce Type:new Abstract:Leveraging 3D information within Multimodal Large Language Models MLLMs has recently shown。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2604.03296)
 
 ??? info "5. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.03253v1 Announce Type:new Abstract:A promising research direction in enabling LLMs to generate consistently correct code involves addressing their。
+    **摘要**：arXiv:2604.03297v1 Announce Type:new Abstract:In the field of Large Language Models LLMs,Attention Residuals have recently demonstrated that learned,selec。
 
     **关键点**
 
-    - arXiv:2604.03253v1 Announce
-    - particularly for code they g
-    - we demonstrate that Code LLM
+    - arXiv:2604.03297v1 Announce
+    - Attention Residuals have rec
+    - selective aggregation over a
 
-    **影响分析**：arXiv:2604.03253v1 Announce Type:new Abstract:A promising research direction in enabling LLMs to generate consistently correct code involv。
+    **影响分析**：arXiv:2604.03297v1 Announce Type:new Abstract:In the field of Large Language Models LLMs,Attention Residuals have recently demonstrated。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.03253)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.03297)
 
-??? info "6. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.03258v1 Announce Type:new Abstract:Large language models LLMs have demonstrated impressive capabilities across various tasks,but the billion-sca。
-
-    **关键点**
-
-    - arXiv:2604.03258v1 Announce
-    - but the billion-scale parame
-    - they require either special
-
-    **影响分析**：arXiv:2604.03258v1 Announce Type:new Abstract:Large language models LLMs have demonstrated impressive capabilities across various tasks。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2604.03258)
-
-??? info "7. arxiv.org 发布 30.3 版本更新"
-    **摘要**：arXiv:2604.03260v1 Announce Type:new Abstract:We introduce Focus,a method that learns which token pairs matter rather than approximating all of them. Learnab。
-
-    **关键点**
-
-    - arXiv:2604.03260v1 Announce
-    - a method that learns which t
-    - distant attention is restric
-
-    **影响分析**：arXiv:2604.03260v1 Announce Type:new Abstract:We introduce Focus,a method that learns which token pairs matter rather than approximating。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2604.03260)
-
-??? info "8. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.03261v1 Announce Type:new Abstract:The rise of generative AI is posing increasing risks to online information integrity and civic discourse. Most c。
-
-    **关键点**
-
-    - arXiv:2604.03261v1 Announce
-    - civic discourse. Most concre
-    - such risks can materialise i
-
-    **影响分析**：arXiv:2604.03261v1 Announce Type:new Abstract:The rise of generative AI is posing increasing risks to online information integrity and civ。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2604.03261)
-
-??? info "9. @replit 发布重要更新"
+??? info "6. @replit 发布重要更新"
     **摘要**：Week 2 winner of the Agent 4 Content Challenge:Marcos Leal 🏆 Built birdie.news,a daily newsletter built entirely around you Video。
 
     **关键点**
@@ -148,7 +111,7 @@
 
     **来源**：[原文链接](https://x.com/Replit/status/2041315351934435360)
 
-??? info "10. @anthropicai 发布重要更新"
+??? info "7. @anthropicai 发布重要更新"
     **摘要**：Our run-rate revenue has surpassed $30 billion,up from $9 billion at the end of 2025,as demand for Claude continues to accelerate. This partnership gives us t。
 
     **关键点**
@@ -161,7 +124,7 @@
 
     **来源**：[原文链接](https://x.com/AnthropicAI/status/2041275563466502560)
 
-??? info "11. @anthropicai 发布重要更新"
+??? info "8. @anthropicai 发布重要更新"
     **摘要**：Weve signed an agreement with Google and Broadcom for multiple gigawatts of next-generation TPU capacity,coming online starting in 2027,to train and serve fr。
 
     **关键点**
@@ -174,7 +137,7 @@
 
     **来源**：[原文链接](https://x.com/AnthropicAI/status/2041275561704931636)
 
-??? info "12. @notionhq 发布重要更新"
+??? info "9. @notionhq 发布重要更新"
     **摘要**：Custom Agents 🤝 @SlackHQ Connect your Custom Agent to Slack to monitor channels for requests,extract action items from threads,and route messages to the right。
 
     **关键点**
@@ -187,20 +150,7 @@
 
     **来源**：[原文链接](https://x.com/NotionHQ/status/2041274543470448724)
 
-??? info "13. @adobefirefly 发布重要更新"
-    **摘要**：Right now,four astronauts are heading around the Moon for the first time in 50 years. And all we can think about is:what do you build when we actually get the。
-
-    **关键点**
-
-    - Right now
-    - four astronauts are heading
-    - #AdobeFirefly #ArtemisII Vid
-
-    **影响分析**：Right now,four astronauts are heading around the Moon for the first time in 50 years. And all we can think about is:what do you build when。
-
-    **来源**：[原文链接](https://x.com/AdobeFirefly/status/2041270762607112506)
-
-??? info "14. @replit 发布重要更新"
+??? info "10. @replit 发布重要更新"
     **摘要**：Find your next 100 customers with Replit! Samuel Spitz @samuel_spitz Introducing Replit AI SDR Find your next 100 customers with AI Video-https://nitter.net。
 
     **关键点**
@@ -213,7 +163,7 @@
 
     **来源**：[原文链接](https://x.com/Replit/status/2041245668711551296)
 
-??? info "15. @replit 发布重要更新"
+??? info "11. @replit 发布重要更新"
     **摘要**：Read it on todays blog:blog.replit.com/product-mana…。
 
     **关键点**
@@ -226,7 +176,7 @@
 
     **来源**：[原文链接](https://x.com/Replit/status/2041207914606805473)
 
-??? info "16. @replit 发布重要更新"
+??? info "12. @replit 发布重要更新"
     **摘要**：Ent. Platform Product Manager Corey Wall breaks down how he addresses a common issue that all PMs face and how he and other PMs can ship faster.。
 
     **关键点**
@@ -239,7 +189,7 @@
 
     **来源**：[原文链接](https://x.com/Replit/status/2041207911993807061)
 
-??? info "17. @openai 发布重要更新"
+??? info "13. @openai 发布重要更新"
     **摘要**：Introducing the OpenAI Safety Fellowship,a new program supporting independent research on AI safety and alignment-and the next generation of talent. openai.com。
 
     **关键点**
@@ -252,7 +202,7 @@
 
     **来源**：[原文链接](https://x.com/OpenAI/status/2041202511647019251)
 
-??? info "18. @notionhq 发布重要更新"
+??? info "14. @notionhq 发布重要更新"
     **摘要**：New:clearer visibility into your Custom Agents,so you can fine-tune them without the guesswork. Perfect time to experiment,theyre free through May 3。
 
     **关键点**
@@ -265,19 +215,7 @@
 
     **来源**：[原文链接](https://x.com/NotionHQ/status/2041199084573475178)
 
-??? info "19. @gammaapp 发布重要更新"
-    **摘要**：150+ users. A dance performance. And a rooftop party. São Paulo is our final stop for Gamma Everywhere. Thank you to everyone who joined us on our first-ever wo。
-
-    **关键点**
-
-    - + users. A dance performance
-    - Mini-documentary coming soon
-
-    **影响分析**：150+ users. A dance performance. And a rooftop party. São Paulo is our final stop for Gamma Everywhere. Thank you to everyone who joined us。
-
-    **来源**：[原文链接](https://x.com/GammaApp/status/2041194945663644157)
-
-??? info "20. @lumalabsai 发布重要更新"
+??? info "15. @lumalabsai 发布重要更新"
     **摘要**：From I have an idea to a full brand identity with visuals,direction,and assets. Just like that. Try it → lumalabs.ai/app Video。
 
     **关键点**
@@ -290,10 +228,76 @@
 
     **来源**：[原文链接](https://x.com/LumaLabsAI/status/2041190782577545726)
 
+??? info "16. @runwayml 发布重要更新"
+    **摘要**：Try the Ad Concepter App today:bit.ly/4v9omu9。
+
+    **关键点**
+
+    - Try the Ad Concepter App tod
+    - R to @runwayml:Try the Ad C
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：R to @runwayml:Try the Ad Concepter App today:https://bit.ly/4v9omu9相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/runwayml/status/2041154629879140580)
+
+??? info "17. @runwayml 发布重要更新"
+    **摘要**：Ad Concept A red luggage that was never picked up from the airport carousel takes its own journey and travels around the world. At the end we hear the door buz。
+
+    **关键点**
+
+    - Ad Concept A red luggage th
+    - travels around the world. At
+    - the luggage full of travel s
+
+    **影响分析**：Ad Concept A red luggage that was never picked up from the airport carousel takes its own journey and travels around the world. At the end。
+
+    **来源**：[原文链接](https://x.com/runwayml/status/2041154627547099296)
+
+??? info "18. @runwayml 发布重要更新"
+    **摘要**：Runaway Luggage. A short brand film that was created using just two input images and a short description of the overall idea using the Ad Concepter App. Full br。
+
+    **关键点**
+
+    - Runaway Luggage. A short bra
+    - a short description of the o
+    - input images below. Video
+
+    **影响分析**：Runaway Luggage. A short brand film that was created using just two input images and a short description of the overall idea using the Ad Co。
+
+    **来源**：[原文链接](https://x.com/runwayml/status/2041154625013711081)
+
+??? info "19. QwenLM/qwen-code v0.0.14"
+    **摘要**：Added plan mode support for task planning-Fixed unreliable editCorrector that injects extra escape characters-Fixed task tool dynamic updates-Added Qwen。
+
+    **关键点**
+
+    - Added plan mode support for
+    - K output
+    - highres support-Enhanced d
+
+    **影响分析**：Added plan mode support for task planning-Fixed unreliable editCorrector that injects extra escape characters-Fixed task tool dynamic。
+
+    **来源**：[原文链接](https://github.com/QwenLM/qwen-code/blob/main/CHANGELOG.md)
+
+??? info "20. QwenLM/qwen-code v0.0.13"
+    **摘要**：Added YOLO mode support for automatic vision model switching with CLI arguments and environment variables.-Fixed ripgrep lazy loading to resolve VS Code IDE。
+
+    **关键点**
+
+    - Added YOLO mode support for
+    - CLI arguments
+    - environment variables.-Fix
+
+    **影响分析**：Added YOLO mode support for automatic vision model switching with CLI arguments and environment variables.-Fixed ripgrep lazy loading to。
+
+    **来源**：[原文链接](https://github.com/QwenLM/qwen-code/blob/main/CHANGELOG.md)
+
 ---
 
 ## 历史归档
 
+- [2026-04-07_18-35-35](history/2026-04-07_18-35-35.md)
 - [2026-04-07_16-45-21](history/2026-04-07_16-45-21.md)
 - [2026-04-07_14-56-58](history/2026-04-07_14-56-58.md)
 - [2026-04-07_13-30-02](history/2026-04-07_13-30-02.md)
@@ -413,4 +417,3 @@
 - [2026-03-19](history/2026-03-19.md)
 - [2026-03-18](history/2026-03-18.md)
 - [2026-03-17](history/2026-03-17.md)
-- [2026-03-16](history/2026-03-16.md)
