@@ -1,44 +1,157 @@
 # 今日快讯
 
-> 更新时间：2026年04月06日22:34:34
+> 更新时间：2026年04月07日08:03:50
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. @runwayml 发布重要更新：Try the Ad Concepter App today:bit.ly/4v9o。
-2. @runwayml 发布重要更新：Ad Concept A red luggage that was never pi。
-3. @runwayml 发布重要更新：Runaway Luggage. A short brand film that w。
-4. @elonmusk 发布产品更新：💯 Shannon 🇺🇸I stand with America @thewrite。
-5. @elonmusk 发布重要更新：Incentives drive behavior Grok @grok Hunga。
+1. @anthropicai 发布重要更新：Our run-rate revenue has surpassed $30 bil。
+2. @anthropicai 发布重要更新：Weve signed an agreement with Google and B。
+3. @adobefirefly 发布重要更新：Right now。
+4. @replit 发布重要更新：Find your next 100 customers with Replit!
+5. @replit 发布重要更新：Read it on todays blog:blog.replit.com/pro。
 
 ## 分类速览
 
-=== "🤖 模型进展（5）"
-    - **5. @elonmusk 发布重要更新**：Incentives drive behavior Grok @grok Hungary di…
-    - **11. @openclaw 发布重要更新**：Anthropic moved the goalposts:Claude subscripti…
-    - **18. QwenLM/qwen-code v0.0.14**：Added plan mode support for task planning-Fixed…
-    - **19. QwenLM/qwen-code v0.0.13**：Added YOLO mode support for automatic vision mo…
-    - **20. QwenLM/qwen-code v0.0.12**：Added vision model support for Qwen-OAuth authe…
+=== "🤖 模型进展（2）"
+    - **1. @anthropicai 发布重要更新**：Our run-rate revenue has surpassed $30 billion…
+    - **19. @openclaw 发布重要更新**：Anthropic moved the goalposts:Claude subscripti…
 
 === "🧪 论文研究（4）"
-    - **7. arxiv.org 发布重要更新**：arXiv:2604.02359v1 Announce Type:new Abstract:G…
-    - **8. arxiv.org 发布 0.671 版本更新**：arXiv:2604.02362v1 Announce Type:new Abstract:D…
-    - **9. arxiv.org 发布重要更新**：arXiv:2604.02423v1 Announce Type:new Abstract:L…
-    - **10. arxiv.org 发布重要更新**：arXiv:2604.02451v1 Announce Type:new Abstract:M…
+    - **15. arxiv.org 发布重要更新**：arXiv:2604.02334v1 Announce Type:new Abstract:A…
+    - **16. arxiv.org 发布重要更新**：arXiv:2604.02368v1 Announce Type:new Abstract:A…
+    - **17. arxiv.org 发布重要更新**：arXiv:2604.02476v1 Announce Type:new Abstract:T…
+    - **18. arxiv.org 发布重要更新**：arXiv:2604.02478v1 Announce Type:new Abstract:D…
 
-=== "🏢 产品与行业（11）"
-    - **1. @runwayml 发布重要更新**：R to @runwayml:Try the Ad Concepter App today:h…
-    - **2. @runwayml 发布重要更新**：Ad Concept A red luggage that was never picked…
-    - **3. @runwayml 发布重要更新**：Runaway Luggage. A short brand film that was cr…
-    - **4. @elonmusk 发布产品更新**：💯相关进展已由一手来源披露，预计将影响后续产品与行业节奏
-    - **6. @openclaw 发布重要更新**：Give your agent the Molty spicy SOUL upgrade:st…
-    - **12. @elonmusk 发布重要更新**：Incentives drive outcomes Tesla Owners Silicon…
-    - **13. @openclaw 发布重要更新**：Dreaming is OpenClaw’s experimental,opt-in memo…
-    - **14. @openclaw 发布重要更新**：R to @openclaw:Clawtributors:slightly chaotic,d…
+=== "🏢 产品与行业（14）"
+    - **2. @anthropicai 发布重要更新**：Weve signed an agreement with Google and Broadc…
+    - **3. @adobefirefly 发布重要更新**：Right now,four astronauts are heading around th…
+    - **4. @replit 发布重要更新**：Find your next 100 customers with Replit
+    - **5. @replit 发布重要更新**：R to @Replit:Read it on todays blog:https://blo…
+    - **6. @replit 发布重要更新**：Ent. Platform Product Manager Corey Wall breaks…
+    - **7. @openai 发布重要更新**：Introducing the OpenAI Safety Fellowship,a new…
+    - **8. @gammaapp 发布重要更新**：150+ users. A dance performance. And a rooftop…
+    - **9. @lumalabsai 发布重要更新**：From I have an idea to a full brand identity wi…
 
 ## 全部快讯
 
-??? info "1. @runwayml 发布重要更新"
+??? info "1. @anthropicai 发布重要更新"
+    **摘要**：Our run-rate revenue has surpassed $30 billion,up from $9 billion at the end of 2025,as demand for Claude continues to accelerate. This partnership gives us t。
+
+    **关键点**
+
+    - Our run-rate revenue has sur
+    - up from $9 billion at the en
+    - as demand for Claude continu
+
+    **影响分析**：Our run-rate revenue has surpassed $30 billion,up from $9 billion at the end of 2025,as demand for Claude continues to accelerate. This pa。
+
+    **来源**：[原文链接](https://x.com/AnthropicAI/status/2041275563466502560)
+
+??? info "2. @anthropicai 发布重要更新"
+    **摘要**：Weve signed an agreement with Google and Broadcom for multiple gigawatts of next-generation TPU capacity,coming online starting in 2027,to train and serve fr。
+
+    **关键点**
+
+    - Weve signed an agreement
+    - Google
+    - Broadcom for multiple gigawa
+
+    **影响分析**：Weve signed an agreement with Google and Broadcom for multiple gigawatts of next-generation TPU capacity,coming online starting in 2027,t。
+
+    **来源**：[原文链接](https://x.com/AnthropicAI/status/2041275561704931636)
+
+??? info "3. @adobefirefly 发布重要更新"
+    **摘要**：Right now,four astronauts are heading around the Moon for the first time in 50 years. And all we can think about is:what do you build when we actually get the。
+
+    **关键点**
+
+    - Right now
+    - four astronauts are heading
+    - #AdobeFirefly #ArtemisII Vid
+
+    **影响分析**：Right now,four astronauts are heading around the Moon for the first time in 50 years. And all we can think about is:what do you build when。
+
+    **来源**：[原文链接](https://x.com/AdobeFirefly/status/2041270762607112506)
+
+??? info "4. @replit 发布重要更新"
+    **摘要**：Find your next 100 customers with Replit! Samuel Spitz @samuel_spitz Introducing Replit AI SDR Find your next 100 customers with AI Video-https://nitter.net。
+
+    **关键点**
+
+    - Find your next 100 customers
+    - Replit
+    - Samuel Spitz @samuel_spitz
+
+    **影响分析**：Find your next 100 customers with Replit。
+
+    **来源**：[原文链接](https://x.com/Replit/status/2041245668711551296)
+
+??? info "5. @replit 发布重要更新"
+    **摘要**：Read it on todays blog:blog.replit.com/product-mana…。
+
+    **关键点**
+
+    - Read it on todays blog:blo
+    - R to @Replit:Read it on tod
+    - replit相关进展已由一手来源披露
+
+    **影响分析**：R to @Replit:Read it on todays blog:https://blog.replit.com/product-managers-ship-faster-with-replit相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/Replit/status/2041207914606805473)
+
+??? info "6. @replit 发布重要更新"
+    **摘要**：Ent. Platform Product Manager Corey Wall breaks down how he addresses a common issue that all PMs face and how he and other PMs can ship faster.。
+
+    **关键点**
+
+    - Ent. Platform Product Manage
+    - how he
+    - other PMs can ship faster.
+
+    **影响分析**：Ent. Platform Product Manager Corey Wall breaks down how he addresses a common issue that all PMs face and how he and other PMs can ship fas。
+
+    **来源**：[原文链接](https://x.com/Replit/status/2041207911993807061)
+
+??? info "7. @openai 发布重要更新"
+    **摘要**：Introducing the OpenAI Safety Fellowship,a new program supporting independent research on AI safety and alignment-and the next generation of talent. openai.com。
+
+    **关键点**
+
+    - Introducing the OpenAI Safet
+    - a new program supporting ind
+    - alignment
+
+    **影响分析**：Introducing the OpenAI Safety Fellowship,a new program supporting independent research on AI safety and alignment-and the next generation o。
+
+    **来源**：[原文链接](https://x.com/OpenAI/status/2041202511647019251)
+
+??? info "8. @gammaapp 发布重要更新"
+    **摘要**：150+ users. A dance performance. And a rooftop party. São Paulo is our final stop for Gamma Everywhere. Thank you to everyone who joined us on our first-ever wo。
+
+    **关键点**
+
+    - + users. A dance performance
+    - Mini-documentary coming soon
+
+    **影响分析**：150+ users. A dance performance. And a rooftop party. São Paulo is our final stop for Gamma Everywhere. Thank you to everyone who joined us。
+
+    **来源**：[原文链接](https://x.com/GammaApp/status/2041194945663644157)
+
+??? info "9. @lumalabsai 发布重要更新"
+    **摘要**：From I have an idea to a full brand identity with visuals,direction,and assets. Just like that. Try it → lumalabs.ai/app Video。
+
+    **关键点**
+
+    - From I have an idea to a f
+    - visuals
+    - direction
+
+    **影响分析**：From I have an idea to a full brand identity with visuals,direction,and assets. Just like that. Try it → http://lumalabs.ai/app相关进展已由一手来。
+
+    **来源**：[原文链接](https://x.com/LumaLabsAI/status/2041190782577545726)
+
+??? info "10. @runwayml 发布重要更新"
     **摘要**：Try the Ad Concepter App today:bit.ly/4v9omu9。
 
     **关键点**
@@ -51,7 +164,7 @@
 
     **来源**：[原文链接](https://x.com/runwayml/status/2041154629879140580)
 
-??? info "2. @runwayml 发布重要更新"
+??? info "11. @runwayml 发布重要更新"
     **摘要**：Ad Concept A red luggage that was never picked up from the airport carousel takes its own journey and travels around the world. At the end we hear the door buz。
 
     **关键点**
@@ -64,7 +177,7 @@
 
     **来源**：[原文链接](https://x.com/runwayml/status/2041154627547099296)
 
-??? info "3. @runwayml 发布重要更新"
+??? info "12. @runwayml 发布重要更新"
     **摘要**：Runaway Luggage. A short brand film that was created using just two input images and a short description of the overall idea using the Ad Concepter App. Full br。
 
     **关键点**
@@ -77,33 +190,20 @@
 
     **来源**：[原文链接](https://x.com/runwayml/status/2041154625013711081)
 
-??? info "4. @elonmusk 发布产品更新"
-    **摘要**：💯 Shannon 🇺🇸I stand with America @thewriterme Watching a liberal slowly wake up. Video-https://nitter.net/thewriterme/status/2040912383372374105#m。
+??? info "13. openai.com 发布重要更新"
+    **摘要**：A pilot program to support independent safety and alignment research and develop the next generation of talent。
 
     **关键点**
 
-    - 💯 Shannon 🇺🇸I stand
-    - America @thewriterme Watch
-    - 💯相关进展已由一手来源披露，预计将影响后续产品与行业节奏
+    - A pilot program to support i
+    - alignment research
+    - develop the next generation
 
-    **影响分析**：💯相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：Announcing the OpenAI Safety Fellowship相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://x.com/elonmusk/status/2041081867227828594)
+    **来源**：[原文链接](https://openai.com/index/introducing-openai-safety-fellowship)
 
-??? info "5. @elonmusk 发布重要更新"
-    **摘要**：Incentives drive behavior Grok @grok Hungary did slash benefits for asylum seekers and refugees in 2016:April cuts ended pocket money and work rights；June e。
-
-    **关键点**
-
-    - Incentives drive behavior Gr
-    - refugees in 2016:April cuts
-    - work rights
-
-    **影响分析**：Incentives drive behavior Grok @grok Hungary did slash benefits for asylum seekers and refugees in 2016:April cuts ended pocket money and。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2041073780752359531)
-
-??? info "6. @openclaw 发布重要更新"
+??? info "14. @openclaw 发布重要更新"
     **摘要**：Give your agent the Molty spicy SOUL upgrade:stronger opinions,less corporate sludge,better instincts,and replies that might finally sound like someone wort。
 
     **关键点**
@@ -116,59 +216,59 @@
 
     **来源**：[原文链接](https://x.com/openclaw/status/2041003999856406714)
 
-??? info "7. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.02359v1 Announce Type:new Abstract:General-purpose Large Language Models LLMs are becoming widely adopted by people for mental health support. Ye。
+??? info "15. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2604.02334v1 Announce Type:new Abstract:As large language models LLM-driven agents transition from isolated task solvers to persistent digital entitie。
 
     **关键点**
 
-    - arXiv:2604.02359v1 Announce
-    - high-frequency use
-    - particularly for individuals
+    - arXiv:2604.02334v1 Announce
+    - the emergence of the Agentic
+    - an ecosystem where heterogen
 
-    **影响分析**：arXiv:2604.02359v1 Announce Type:new Abstract:General-purpose Large Language Models LLMs are becoming widely adopted by people for menta。
+    **影响分析**：arXiv:2604.02334v1 Announce Type:new Abstract:As large language models LLM-driven agents transition from isolated task solvers to persis。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.02359)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.02334)
 
-??? info "8. arxiv.org 发布 0.671 版本更新"
-    **摘要**：arXiv:2604.02362v1 Announce Type:new Abstract:Decoding speech information from scalp EEG remains difficult due to low SNR and spatial blurring. We present CIP。
-
-    **关键点**
-
-    - arXiv:2604.02362v1 Announce
-    - spatial blurring. We present
-    - a dual-pathway model using
-
-    **影响分析**：arXiv:2604.02362v1 Announce Type:new Abstract:Decoding speech information from scalp EEG remains difficult due to low SNR and spatial blur。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2604.02362)
-
-??? info "9. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.02423v1 Announce Type:new Abstract:Large language models exhibit sycophancy:the tendency to shift outputs toward user-expressed stances,regardles。
+??? info "16. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2604.02368v1 Announce Type:new Abstract:As Large Language Models LLMs exhibit plateauing performance on conventional benchmarks,a pivotal challenge p。
 
     **关键点**
 
-    - arXiv:2604.02423v1 Announce
-    - regardless of correctness or
-    - its impacts
+    - arXiv:2604.02368v1 Announce
+    - a pivotal challenge persists
+    - open-ended tasks characteriz
 
-    **影响分析**：arXiv:2604.02423v1 Announce Type:new Abstract:Large language models exhibit sycophancy:the tendency to shift outputs toward user-expresse。
+    **影响分析**：arXiv:2604.02368v1 Announce Type:new Abstract:As Large Language Models LLMs exhibit plateauing performance on conventional benchmarks,a。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.02423)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.02368)
 
-??? info "10. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.02451v1 Announce Type:new Abstract:Modeling coherence in text has been a task that has excited NLP researchers since a long time. It has applicatio。
+??? info "17. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2604.02476v1 Announce Type:new Abstract:This paper examines the role of threshold logic in understanding generative artificial intelligence. Threshold f。
 
     **关键点**
 
-    - arXiv:2604.02451v1 Announce
-    - helping the author fix them.
-    - then use that skeleton to ge
+    - arXiv:2604.02476v1 Announce
+    - originally studied in the 19
+    - provide a structurally trans
 
-    **影响分析**：arXiv:2604.02451v1 Announce Type:new Abstract:Modeling coherence in text has been a task that has excited NLP researchers since a long tim。
+    **影响分析**：arXiv:2604.02476v1 Announce Type:new Abstract:This paper examines the role of threshold logic in understanding generative artificial intel。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.02451)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.02476)
 
-??? info "11. @openclaw 发布重要更新"
+??? info "18. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2604.02478v1 Announce Type:new Abstract:Deep learning models excel at detecting anomaly patterns in normal data. However,they do not provide a direct s。
+
+    **关键点**
+
+    - arXiv:2604.02478v1 Announce
+    - they do not provide a direct
+    - scalability across diverse c
+
+    **影响分析**：arXiv:2604.02478v1 Announce Type:new Abstract:Deep learning models excel at detecting anomaly patterns in normal data. However,they do no。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2604.02478)
+
+??? info "19. @openclaw 发布重要更新"
     **摘要**：Anthropic moved the goalposts:Claude subscriptions no longer cover third-party harnesses like OpenClaw,so that path now needs Extra Usage. If you want less bi。
 
     **关键点**
@@ -181,20 +281,7 @@
 
     **来源**：[原文链接](https://x.com/openclaw/status/2041002065174888578)
 
-??? info "12. @elonmusk 发布重要更新"
-    **摘要**：Incentives drive outcomes Tesla Owners Silicon Valley @teslaownersSV Elon Musk:“The homeless industrial complex is really dark… The network of NGOs should be。
-
-    **关键点**
-
-    - Incentives drive outcomes Te
-    - the drug zombie farmers… The
-    - Incentives drive outcomes
-
-    **影响分析**：Incentives drive outcomes Tesla Owners Silicon Valley @teslaownersSV Elon Musk:“The homeless industrial complex is really dark… The netwo。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2040998798592540961)
-
-??? info "13. @openclaw 发布重要更新"
+??? info "20. @openclaw 发布重要更新"
     **摘要**：Dreaming is OpenClaw’s experimental,opt-in memory consolidation system,promoting meaningful short-term signals into durable memory through explainable light。
 
     **关键点**
@@ -206,94 +293,3 @@
     **影响分析**：Dreaming is OpenClaw’s experimental,opt-in memory consolidation system,promoting meaningful short-term signals into durable memory through。
 
     **来源**：[原文链接](https://x.com/openclaw/status/2040998577372021026)
-
-??? info "14. @openclaw 发布重要更新"
-    **摘要**：Clawtributors:slightly chaotic,deeply cracked,absolutely carrying. 🙏🦞。
-
-    **关键点**
-
-    - Clawtributors:slightly chao
-    - deeply cracked
-    - absolutely carrying. 🙏🦞
-
-    **影响分析**：R to @openclaw:Clawtributors:slightly chaotic,deeply cracked,absolutely carrying. 🙏🦞相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://x.com/openclaw/status/2040998574972969303)
-
-??? info "15. @elonmusk 发布重要更新"
-    **摘要**：Enough is enough X Freeze @XFreeze The left has officially abandoned reality 🤡 If a father took his child to a doctor to surgically remove an eye so the child。
-
-    **关键点**
-
-    - Enough is enough X Freeze
-    - he would be arrested for eve
-    - when it comes to permanent
-
-    **影响分析**：Enough is enough X Freeze @XFreeze The left has officially abandoned reality 🤡 If a father took his child to a doctor to surgically remove。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2040994572990640331)
-
-??? info "16. openai.com 发布重要更新"
-    **摘要**：Explore our ambitious,people-first industrial policy ideas for the AI era-focused on expanding opportunity,sharing prosperity,and building resilient institut。
-
-    **关键点**
-
-    - Explore our ambitious
-    - people-first industrial poli
-    - sharing prosperity
-
-    **影响分析**：Explore our ambitious,people-first industrial policy ideas for the AI era-focused on expanding opportunity,sharing prosperity,and buildin。
-
-    **来源**：[原文链接](https://openai.com/index/industrial-policy-for-the-intelligence-age)
-
-??? info "17. @karpathy 发布重要更新"
-    **摘要**：Surprised with how good the comments on github gists are. A lot more helpful,insightful,constructive,a lot less AI... Is it the user community? The markdown。
-
-    **关键点**
-
-    - Surprised
-    - how good the comments on git
-    - insightful
-
-    **影响分析**：Surprised with how good the comments on github gists are. A lot more helpful,insightful,constructive,a lot less AI... Is it the user comm。
-
-    **来源**：[原文链接](https://x.com/karpathy/status/2040806346556428585)
-
-??? info "18. QwenLM/qwen-code v0.0.14"
-    **摘要**：Added plan mode support for task planning-Fixed unreliable editCorrector that injects extra escape characters-Fixed task tool dynamic updates-Added Qwen。
-
-    **关键点**
-
-    - Added plan mode support for
-    - K output
-    - highres support-Enhanced d
-
-    **影响分析**：Added plan mode support for task planning-Fixed unreliable editCorrector that injects extra escape characters-Fixed task tool dynamic。
-
-    **来源**：[原文链接](https://github.com/QwenLM/qwen-code/blob/main/CHANGELOG.md)
-
-??? info "19. QwenLM/qwen-code v0.0.13"
-    **摘要**：Added YOLO mode support for automatic vision model switching with CLI arguments and environment variables.-Fixed ripgrep lazy loading to resolve VS Code IDE。
-
-    **关键点**
-
-    - Added YOLO mode support for
-    - CLI arguments
-    - environment variables.-Fix
-
-    **影响分析**：Added YOLO mode support for automatic vision model switching with CLI arguments and environment variables.-Fixed ripgrep lazy loading to。
-
-    **来源**：[原文链接](https://github.com/QwenLM/qwen-code/blob/main/CHANGELOG.md)
-
-??? info "20. QwenLM/qwen-code v0.0.12"
-    **摘要**：Added vision model support for Qwen-OAuth authentication.-Synced upstream `gemini-cli` to v0.3.4 with numerous improvements and bug fixes.-Enhanced subage。
-
-    **关键点**
-
-    - Added vision model support f
-    - numerous improvements
-    - bug fixes.-Enhanced subage
-
-    **影响分析**：Added vision model support for Qwen-OAuth authentication.-Synced upstream `gemini-cli` to v0.3.4 with numerous improvements and bug fixe。
-
-    **来源**：[原文链接](https://github.com/QwenLM/qwen-code/blob/main/CHANGELOG.md)
