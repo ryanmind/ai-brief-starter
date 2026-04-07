@@ -1,39 +1,78 @@
-> 更新时间：2026年04月07日20:10:43
+> 更新时间：2026年04月07日22:56:18
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. @minimaxagent 发布重要更新：Meet Pocket 📱 Your IM。
-2. @elonmusk 发布重要更新：A fever dream Marc Andreessen 🇺🇸 @pmarca O。
-3. @elonmusk 发布重要更新：Yeah Kangmin Lee | 이강민 @kangminlee All lef。
-4. @elonmusk 发布重要更新：Made with Grok Imagine Déborah @dvorahfr T。
-5. @elonmusk 发布产品更新：Yes C3 @C_3C_3 The Left never got over Elo。
+1. @runwayml 发布重要更新：Get started now:bit.ly/4sfEyHh。
+2. @runwayml 发布 2.0 版本更新：Seedance 2.0 is now on Runway. Use text。
+3. @replit 发布重要更新：An app for planning parties that people ac。
+4. @minimaxagent 发布重要更新：Meet Pocket 📱 Your IM。
+5. @elonmusk 发布重要更新：A fever dream Marc Andreessen 🇺🇸 @pmarca O。
 
 ## 分类速览
 
 === "🤖 模型进展（2）"
-    - **4. @elonmusk 发布重要更新**：Made with Grok Imagine Déborah @dvorahfr The im…
-    - **11. @anthropicai 发布重要更新**：Our run-rate revenue has surpassed $30 billion…
+    - **7. @elonmusk 发布重要更新**：Made with Grok Imagine Déborah @dvorahfr The im…
+    - **14. @anthropicai 发布重要更新**：Our run-rate revenue has surpassed $30 billion…
 
 === "🧪 论文研究（4）"
-    - **6. arxiv.org 发布重要更新**：arXiv:2604.03253v1 Announce Type:new Abstract:A…
-    - **7. arxiv.org 发布重要更新**：arXiv:2604.03258v1 Announce Type:new Abstract:L…
-    - **8. arxiv.org 发布 30.3 版本更新**：arXiv:2604.03260v1 Announce Type:new Abstract:W…
-    - **9. arxiv.org 发布重要更新**：arXiv:2604.03261v1 Announce Type:new Abstract:T…
+    - **9. arxiv.org 发布重要更新**：arXiv:2604.03253v1 Announce Type:new Abstract:A…
+    - **10. arxiv.org 发布重要更新**：arXiv:2604.03258v1 Announce Type:new Abstract:L…
+    - **11. arxiv.org 发布 30.3 版本更新**：arXiv:2604.03260v1 Announce Type:new Abstract:W…
+    - **12. arxiv.org 发布重要更新**：arXiv:2604.03261v1 Announce Type:new Abstract:T…
 
 === "🏢 产品与行业（14）"
-    - **1. @minimaxagent 发布重要更新**：Meet Pocket 📱 Your IM,your MiniMax Agent Deskto…
-    - **2. @elonmusk 发布重要更新**：A fever dream Marc Andreessen 🇺🇸 @pmarca Overhe…
-    - **3. @elonmusk 发布重要更新**：Yeah Kangmin Lee | 이강민 @kangminlee All leftwing…
-    - **5. @elonmusk 发布产品更新**：Yes C3 @C_3C_3 The Left never got over Elon buy…
-    - **10. @replit 发布重要更新**：Week 2 winner of the Agent 4 Content Challenge…
-    - **12. @anthropicai 发布重要更新**：Weve signed an agreement with Google and Broadc…
-    - **13. @notionhq 发布重要更新**：Custom Agents 🤝 @SlackHQ Connect your Custom Ag…
-    - **14. @adobefirefly 发布重要更新**：Right now,four astronauts are heading around th…
+    - **1. @runwayml 发布重要更新**：R to @runwayml:Get started now:https://bit.ly/4…
+    - **2. @runwayml 发布 2.0 版本更新**：Seedance 2.0 is now on Runway. Use text,image,v…
+    - **3. @replit 发布重要更新**：An app for planning parties that people actuall…
+    - **4. @minimaxagent 发布重要更新**：Meet Pocket 📱 Your IM,your MiniMax Agent Deskto…
+    - **5. @elonmusk 发布重要更新**：A fever dream Marc Andreessen 🇺🇸 @pmarca Overhe…
+    - **6. @elonmusk 发布重要更新**：Yeah Kangmin Lee | 이강민 @kangminlee All leftwing…
+    - **8. @elonmusk 发布产品更新**：Yes C3 @C_3C_3 The Left never got over Elon buy…
+    - **13. @replit 发布重要更新**：Week 2 winner of the Agent 4 Content Challenge…
 
 ## 全部快讯
 
-??? info "1. @minimaxagent 发布重要更新"
+??? info "1. @runwayml 发布重要更新"
+    **摘要**：Get started now:bit.ly/4sfEyHh。
+
+    **关键点**
+
+    - Get started now:bit.ly/4sfE
+    - R to @runwayml:Get started
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：R to @runwayml:Get started now:https://bit.ly/4sfEyHh相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/runwayml/status/2041517522726330476)
+
+??? info "2. @runwayml 发布 2.0 版本更新"
+    **摘要**：Seedance 2.0 is now on Runway. Use text,image,video or audio as inputs to generate stunning multi-shot video sequences with full sound design and dialogue. Av。
+
+    **关键点**
+
+    - Seedance 2.0 is now on Runwa
+    - image
+    - video or audio as inputs to
+
+    **影响分析**：Seedance 2.0 is now on Runway. Use text,image,video or audio as inputs to generate stunning multi-shot video sequences with full sound des。
+
+    **来源**：[原文链接](https://x.com/runwayml/status/2041517519664463940)
+
+??? info "3. @replit 发布重要更新"
+    **摘要**：An app for planning parties that people actually show up to 🎉 Made with Replit Canvas。
+
+    **关键点**
+
+    - An app for planning parties
+    - Replit Canvas
+    - Replit Canvas相关进展已由一手来源披露
+
+    **影响分析**：An app for planning parties that people actually show up to 🎉 Made with Replit Canvas相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/Replit/status/2041516610310033683)
+
+??? info "4. @minimaxagent 发布重要更新"
     **摘要**：Meet Pocket 📱 Your IM,your MiniMax Agent Desktop,finally connected. Most AI agents still need you at your desk. Pocket doesnt. Sort your local files. Send at。
 
     **关键点**
@@ -46,7 +85,7 @@
 
     **来源**：[原文链接](https://x.com/MiniMaxAgent/status/2041444608287379771)
 
-??? info "2. @elonmusk 发布重要更新"
+??? info "5. @elonmusk 发布重要更新"
     **摘要**：A fever dream Marc Andreessen 🇺🇸 @pmarca Overheard in Silicon Valley:“Remember ‘hate speech and misinformation’? That was weird.”-https://nitter.net/pmarca。
 
     **关键点**
@@ -59,7 +98,7 @@
 
     **来源**：[原文链接](https://x.com/elonmusk/status/2041418536707563585)
 
-??? info "3. @elonmusk 发布重要更新"
+??? info "6. @elonmusk 发布重要更新"
     **摘要**：Yeah Kangmin Lee | 이강민 @kangminlee All leftwing politics today boils down to preventing young men from taking back their civilization-https://nitter.net/kan。
 
     **关键点**
@@ -71,7 +110,7 @@
 
     **来源**：[原文链接](https://x.com/elonmusk/status/2041402309608194107)
 
-??? info "4. @elonmusk 发布重要更新"
+??? info "7. @elonmusk 发布重要更新"
     **摘要**：Made with Grok Imagine Déborah @dvorahfr The image quality is so good,with the interplay of light,that its hard to believe none of this exists. I wish I ha。
 
     **关键点**
@@ -84,7 +123,7 @@
 
     **来源**：[原文链接](https://x.com/elonmusk/status/2041400506409705582)
 
-??? info "5. @elonmusk 发布产品更新"
+??? info "8. @elonmusk 发布产品更新"
     **摘要**：Yes C3 @C_3C_3 The Left never got over Elon buying X. That wasn’t supposed to happen. The Left’s ideas are so bad and damaging they need total control of info。
 
     **关键点**
@@ -97,7 +136,7 @@
 
     **来源**：[原文链接](https://x.com/elonmusk/status/2041398810170237381)
 
-??? info "6. arxiv.org 发布重要更新"
+??? info "9. arxiv.org 发布重要更新"
     **摘要**：arXiv:2604.03253v1 Announce Type:new Abstract:A promising research direction in enabling LLMs to generate consistently correct code involves addressing their。
 
     **关键点**
@@ -110,7 +149,7 @@
 
     **来源**：[原文链接](https://arxiv.org/abs/2604.03253)
 
-??? info "7. arxiv.org 发布重要更新"
+??? info "10. arxiv.org 发布重要更新"
     **摘要**：arXiv:2604.03258v1 Announce Type:new Abstract:Large language models LLMs have demonstrated impressive capabilities across various tasks,but the billion-sca。
 
     **关键点**
@@ -123,7 +162,7 @@
 
     **来源**：[原文链接](https://arxiv.org/abs/2604.03258)
 
-??? info "8. arxiv.org 发布 30.3 版本更新"
+??? info "11. arxiv.org 发布 30.3 版本更新"
     **摘要**：arXiv:2604.03260v1 Announce Type:new Abstract:We introduce Focus,a method that learns which token pairs matter rather than approximating all of them. Learnab。
 
     **关键点**
@@ -136,7 +175,7 @@
 
     **来源**：[原文链接](https://arxiv.org/abs/2604.03260)
 
-??? info "9. arxiv.org 发布重要更新"
+??? info "12. arxiv.org 发布重要更新"
     **摘要**：arXiv:2604.03261v1 Announce Type:new Abstract:The rise of generative AI is posing increasing risks to online information integrity and civic discourse. Most c。
 
     **关键点**
@@ -149,7 +188,7 @@
 
     **来源**：[原文链接](https://arxiv.org/abs/2604.03261)
 
-??? info "10. @replit 发布重要更新"
+??? info "13. @replit 发布重要更新"
     **摘要**：Week 2 winner of the Agent 4 Content Challenge:Marcos Leal 🏆 Built birdie.news,a daily newsletter built entirely around you Video。
 
     **关键点**
@@ -161,7 +200,7 @@
 
     **来源**：[原文链接](https://x.com/Replit/status/2041315351934435360)
 
-??? info "11. @anthropicai 发布重要更新"
+??? info "14. @anthropicai 发布重要更新"
     **摘要**：Our run-rate revenue has surpassed $30 billion,up from $9 billion at the end of 2025,as demand for Claude continues to accelerate. This partnership gives us t。
 
     **关键点**
@@ -174,7 +213,7 @@
 
     **来源**：[原文链接](https://x.com/AnthropicAI/status/2041275563466502560)
 
-??? info "12. @anthropicai 发布重要更新"
+??? info "15. @anthropicai 发布重要更新"
     **摘要**：Weve signed an agreement with Google and Broadcom for multiple gigawatts of next-generation TPU capacity,coming online starting in 2027,to train and serve fr。
 
     **关键点**
@@ -187,7 +226,7 @@
 
     **来源**：[原文链接](https://x.com/AnthropicAI/status/2041275561704931636)
 
-??? info "13. @notionhq 发布重要更新"
+??? info "16. @notionhq 发布重要更新"
     **摘要**：Custom Agents 🤝 @SlackHQ Connect your Custom Agent to Slack to monitor channels for requests,extract action items from threads,and route messages to the right。
 
     **关键点**
@@ -200,7 +239,7 @@
 
     **来源**：[原文链接](https://x.com/NotionHQ/status/2041274543470448724)
 
-??? info "14. @adobefirefly 发布重要更新"
+??? info "17. @adobefirefly 发布重要更新"
     **摘要**：Right now,four astronauts are heading around the Moon for the first time in 50 years. And all we can think about is:what do you build when we actually get the。
 
     **关键点**
@@ -213,7 +252,7 @@
 
     **来源**：[原文链接](https://x.com/AdobeFirefly/status/2041270762607112506)
 
-??? info "15. @replit 发布重要更新"
+??? info "18. @replit 发布重要更新"
     **摘要**：Find your next 100 customers with Replit! Samuel Spitz @samuel_spitz Introducing Replit AI SDR Find your next 100 customers with AI Video-https://nitter.net。
 
     **关键点**
@@ -226,7 +265,7 @@
 
     **来源**：[原文链接](https://x.com/Replit/status/2041245668711551296)
 
-??? info "16. @replit 发布重要更新"
+??? info "19. @replit 发布重要更新"
     **摘要**：Read it on todays blog:blog.replit.com/product-mana…。
 
     **关键点**
@@ -239,20 +278,7 @@
 
     **来源**：[原文链接](https://x.com/Replit/status/2041207914606805473)
 
-??? info "17. @replit 发布重要更新"
-    **摘要**：Ent. Platform Product Manager Corey Wall breaks down how he addresses a common issue that all PMs face and how he and other PMs can ship faster.。
-
-    **关键点**
-
-    - Ent. Platform Product Manage
-    - how he
-    - other PMs can ship faster.
-
-    **影响分析**：Ent. Platform Product Manager Corey Wall breaks down how he addresses a common issue that all PMs face and how he and other PMs can ship fas。
-
-    **来源**：[原文链接](https://x.com/Replit/status/2041207911993807061)
-
-??? info "18. @openai 发布重要更新"
+??? info "20. @openai 发布重要更新"
     **摘要**：Introducing the OpenAI Safety Fellowship,a new program supporting independent research on AI safety and alignment-and the next generation of talent. openai.com。
 
     **关键点**
@@ -265,35 +291,11 @@
 
     **来源**：[原文链接](https://x.com/OpenAI/status/2041202511647019251)
 
-??? info "19. @notionhq 发布重要更新"
-    **摘要**：New:clearer visibility into your Custom Agents,so you can fine-tune them without the guesswork. Perfect time to experiment,theyre free through May 3。
-
-    **关键点**
-
-    - New:clearer visibility into
-    - so you can fine-tune them wi
-    - theyre free through May 3
-
-    **影响分析**：New:clearer visibility into your Custom Agents,so you can fine-tune them without the guesswork. Perfect time to experiment,theyre free。
-
-    **来源**：[原文链接](https://x.com/NotionHQ/status/2041199084573475178)
-
-??? info "20. @gammaapp 发布重要更新"
-    **摘要**：150+ users. A dance performance. And a rooftop party. São Paulo is our final stop for Gamma Everywhere. Thank you to everyone who joined us on our first-ever wo。
-
-    **关键点**
-
-    - + users. A dance performance
-    - Mini-documentary coming soon
-
-    **影响分析**：150+ users. A dance performance. And a rooftop party. São Paulo is our final stop for Gamma Everywhere. Thank you to everyone who joined us。
-
-    **来源**：[原文链接](https://x.com/GammaApp/status/2041194945663644157)
-
 ---
 
 ## 历史归档
 
+- [2026-04-07_22-56-18](history/2026-04-07_22-56-18.md)
 - [2026-04-07_20-10-43](history/2026-04-07_20-10-43.md)
 - [2026-04-07_18-35-35](history/2026-04-07_18-35-35.md)
 - [2026-04-07_16-45-21](history/2026-04-07_16-45-21.md)
@@ -413,4 +415,3 @@
 - [2026-03-20_20-49-06](history/2026-03-20_20-49-06.md)
 - [2026-03-20](history/2026-03-20.md)
 - [2026-03-19](history/2026-03-19.md)
-- [2026-03-18](history/2026-03-18.md)
