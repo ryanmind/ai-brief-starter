@@ -1,6 +1,6 @@
 # 今日快讯
 
-> 更新时间：2026年04月08日18:38:44
+> 更新时间：2026年04月08日20:11:09
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
@@ -17,10 +17,10 @@
     - 暂无条目
 
 === "🧪 论文研究（4）"
-    - **6. arxiv.org 发布重要更新**：arXiv:2604.04942v1 Announce Type:new Abstract:E…
-    - **7. arxiv.org 发布重要更新**：arXiv:2604.04943v1 Announce Type:new Abstract:T…
-    - **8. arxiv.org 发布重要更新**：arXiv:2604.05051v1 Announce Type:new Abstract:P…
-    - **9. arxiv.org 发布重要更新**：arXiv:2604.05083v1 Announce Type:new Abstract:W…
+    - **6. arxiv.org 发布重要更新**：arXiv:2604.04953v1 Announce Type:new Abstract:T…
+    - **7. arxiv.org 发布重要更新**：arXiv:2604.04972v1 Announce Type:new Abstract:L…
+    - **8. arxiv.org 发布重要更新**：arXiv:2604.05015v1 Announce Type:new Abstract:W…
+    - **9. arxiv.org 发布重要更新**：arXiv:2604.05039v1 Announce Type:new Abstract:H…
 
 === "🏢 产品与行业（16）"
     - **1. @elonmusk 发布产品更新**：Yes相关进展已由一手来源披露，预计将影响后续产品与行业节奏
@@ -98,56 +98,56 @@
     **来源**：[原文链接](https://x.com/elonmusk/status/2041753450170741214)
 
 ??? info "6. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.04942v1 Announce Type:new Abstract:Enhancing the reasoning capability of large language models LLMs remains a core challenge in natural language。
+    **摘要**：arXiv:2604.04953v1 Announce Type:new Abstract:The domain of automatic video trailer generation is currently undergoing a profound paradigm shift,transitionin。
 
     **关键点**
 
-    - arXiv:2604.04942v1 Announce
-    - yet its reasoning chains oft
-    - Tree-of-Thoughts ToT
+    - arXiv:2604.04953v1 Announce
+    - transitioning from heuristic
+    - visual saliency
 
-    **影响分析**：arXiv:2604.04942v1 Announce Type:new Abstract:Enhancing the reasoning capability of large language models LLMs remains a core challenge。
+    **影响分析**：arXiv:2604.04953v1 Announce Type:new Abstract:The domain of automatic video trailer generation is currently undergoing a profound paradigm。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.04942)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.04953)
 
 ??? info "7. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.04943v1 Announce Type:new Abstract:The reversal curse describes a failure of autoregressive language models to retrieve a fact in reverse order e.。
+    **摘要**：arXiv:2604.04972v1 Announce Type:new Abstract:Large Vision-Language Models LVLMs suffer from prohibitive inference costs due to the massive number of visual。
 
     **关键点**
 
-    - arXiv:2604.04943v1 Announce
-    - training on ``$A B$ but
-    - bidirectional supervision e
+    - arXiv:2604.04972v1 Announce
+    - we propose Representation Co
+    - which we refer to as RCP
 
-    **影响分析**：arXiv:2604.04943v1 Announce Type:new Abstract:The reversal curse describes a failure of autoregressive language models to retrieve a fact。
+    **影响分析**：arXiv:2604.04972v1 Announce Type:new Abstract:Large Vision-Language Models LVLMs suffer from prohibitive inference costs due to the mass。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.04943)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.04972)
 
 ??? info "8. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.05051v1 Announce Type:new Abstract:Patients are increasingly turning to large language models LLMs with medical questions that are complex and di。
+    **摘要**：arXiv:2604.05015v1 Announce Type:new Abstract:With the rapid advancement of video understanding,existing benchmarks are becoming increasingly saturated,expo。
 
     **关键点**
 
-    - arXiv:2604.05051v1 Announce
-    - medical questions that are c
-    - difficult to articulate clea
+    - arXiv:2604.05015v1 Announce
+    - existing benchmarks are beco
+    - exposing a critical discrepa
 
-    **影响分析**：arXiv:2604.05051v1 Announce Type:new Abstract:Patients are increasingly turning to large language models LLMs with medical questions tha。
+    **影响分析**：arXiv:2604.05015v1 Announce Type:new Abstract:With the rapid advancement of video understanding,existing benchmarks are becoming increasi。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.05051)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.05015)
 
 ??? info "9. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.05083v1 Announce Type:new Abstract:While Large Language Models LLMs are increasingly adopted as automated judges for evaluating generated text,t。
+    **摘要**：arXiv:2604.05039v1 Announce Type:new Abstract:Humans have remarkable selective sensitivity to identities-easily distinguishing between highly similar ident。
 
     **关键点**
 
-    - arXiv:2604.05083v1 Announce
-    - their outputs are often cost
-    - highly sensitive to prompt d
+    - arXiv:2604.05039v1 Announce
+    - even across significantly di
+    - progress toward identity-foc
 
-    **影响分析**：arXiv:2604.05083v1 Announce Type:new Abstract:While Large Language Models LLMs are increasingly adopted as automated judges for evaluati。
+    **影响分析**：arXiv:2604.05039v1 Announce Type:new Abstract:Humans have remarkable selective sensitivity to identities-easily distinguishing between。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.05083)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.05039)
 
 ??? info "10. @openclaw 发布重要更新"
     **摘要**：memory-wiki turns OpenClaw memory into a real knowledge layer.-structured claims + evidence-contradiction + freshness tracking-compiled digests for agents。
