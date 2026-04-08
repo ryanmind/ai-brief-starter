@@ -1,300 +1,295 @@
-> 更新时间：2026年04月07日22:56:18
+> 更新时间：2026年04月08日08:06:09
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. @runwayml 发布重要更新：Get started now:bit.ly/4sfEyHh。
-2. @runwayml 发布 2.0 版本更新：Seedance 2.0 is now on Runway. Use text。
-3. @replit 发布重要更新：An app for planning parties that people ac。
-4. @minimaxagent 发布重要更新：Meet Pocket 📱 Your IM。
-5. @elonmusk 发布重要更新：A fever dream Marc Andreessen 🇺🇸 @pmarca O。
+1. @replit 发布重要更新：To use。
+2. @replit 发布重要更新：Not investment advice。
+3. @replit 发布重要更新：Find your next 10x investment with AI 💰 Sa。
+4. @sama 发布重要更新：To celebrate 3 million weekly codex users。
+5. @replit 发布重要更新：Week 3 ends tomorrow night. $5K up for gra。
 
 ## 分类速览
 
 === "🤖 模型进展（2）"
-    - **7. @elonmusk 发布重要更新**：Made with Grok Imagine Déborah @dvorahfr The im…
-    - **14. @anthropicai 发布重要更新**：Our run-rate revenue has surpassed $30 billion…
+    - **17. @anthropicai 发布重要更新**：R to @AnthropicAI:The Claude Mythos Preview sys…
+    - **18. @anthropicai 发布重要更新**：R to @AnthropicAI:You can read a detailed techn…
 
-=== "🧪 论文研究（4）"
-    - **9. arxiv.org 发布重要更新**：arXiv:2604.03253v1 Announce Type:new Abstract:A…
-    - **10. arxiv.org 发布重要更新**：arXiv:2604.03258v1 Announce Type:new Abstract:L…
-    - **11. arxiv.org 发布 30.3 版本更新**：arXiv:2604.03260v1 Announce Type:new Abstract:W…
-    - **12. arxiv.org 发布重要更新**：arXiv:2604.03261v1 Announce Type:new Abstract:T…
+=== "🧪 论文研究（0）"
+    - 暂无条目
 
-=== "🏢 产品与行业（14）"
-    - **1. @runwayml 发布重要更新**：R to @runwayml:Get started now:https://bit.ly/4…
-    - **2. @runwayml 发布 2.0 版本更新**：Seedance 2.0 is now on Runway. Use text,image,v…
-    - **3. @replit 发布重要更新**：An app for planning parties that people actuall…
-    - **4. @minimaxagent 发布重要更新**：Meet Pocket 📱 Your IM,your MiniMax Agent Deskto…
-    - **5. @elonmusk 发布重要更新**：A fever dream Marc Andreessen 🇺🇸 @pmarca Overhe…
-    - **6. @elonmusk 发布重要更新**：Yeah Kangmin Lee | 이강민 @kangminlee All leftwing…
-    - **8. @elonmusk 发布产品更新**：Yes C3 @C_3C_3 The Left never got over Elon buy…
-    - **13. @replit 发布重要更新**：Week 2 winner of the Agent 4 Content Challenge…
+=== "🏢 产品与行业（18）"
+    - **1. @replit 发布重要更新**：R to @Replit:To use,just ask the Agent to use t…
+    - **2. @replit 发布重要更新**：R to @Replit:Not investment advice,for informat…
+    - **3. @replit 发布重要更新**：Find your next 10x investment with AI 💰 Samuel…
+    - **4. @sama 发布重要更新**：To celebrate 3 million weekly codex users,we ar…
+    - **5. @replit 发布重要更新**：Week 3 ends tomorrow night. $5K up for grabs. D…
+    - **6. @elonmusk 发布重要更新**：OpenAI’s Nonprofit to Get Any Damages From Laws…
+    - **7. @nvidia 发布重要更新**：Pinned:x.com/i/article/204159873065…相关进展已由一手来源披…
+    - **8. @notionhq 发布重要更新**：The Notion Way 🫡 Riley Walz @rtwlz Ever wanted…
 
 ## 全部快讯
 
-??? info "1. @runwayml 发布重要更新"
-    **摘要**：Get started now:bit.ly/4sfEyHh。
+??? info "1. @replit 发布重要更新"
+    **摘要**：To use,just ask the Agent to use the stock analyzer skill,or click the + button from the input box after logging in and select the stock analyzer skill。
 
     **关键点**
 
-    - Get started now:bit.ly/4sfE
-    - R to @runwayml:Get started
-    - 预计将影响后续产品与行业节奏
+    - To use
+    - just ask the Agent to use th
+    - or click the + button from t
 
-    **影响分析**：R to @runwayml:Get started now:https://bit.ly/4sfEyHh相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：R to @Replit:To use,just ask the Agent to use the stock analyzer skill,or click the + button from the input box after logging in and sele。
 
-    **来源**：[原文链接](https://x.com/runwayml/status/2041517522726330476)
+    **来源**：[原文链接](https://x.com/Replit/status/2041667381865673159)
 
-??? info "2. @runwayml 发布 2.0 版本更新"
-    **摘要**：Seedance 2.0 is now on Runway. Use text,image,video or audio as inputs to generate stunning multi-shot video sequences with full sound design and dialogue. Av。
+??? info "2. @replit 发布重要更新"
+    **摘要**：Not investment advice,for informational purposes only。
 
     **关键点**
 
-    - Seedance 2.0 is now on Runwa
-    - image
-    - video or audio as inputs to
+    - Not investment advice
+    - for informational purposes o
+    - R to @Replit:Not investment
 
-    **影响分析**：Seedance 2.0 is now on Runway. Use text,image,video or audio as inputs to generate stunning multi-shot video sequences with full sound des。
+    **影响分析**：R to @Replit:Not investment advice,for informational purposes only相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://x.com/runwayml/status/2041517519664463940)
+    **来源**：[原文链接](https://x.com/Replit/status/2041667380729016350)
 
 ??? info "3. @replit 发布重要更新"
-    **摘要**：An app for planning parties that people actually show up to 🎉 Made with Replit Canvas。
+    **摘要**：Find your next 10x investment with AI 💰 Samuel Spitz @samuel_spitz Introducing Replit Stock Analyst Research an investment in minutes with AI Get a valuation。
 
     **关键点**
 
-    - An app for planning parties
-    - Replit Canvas
-    - Replit Canvas相关进展已由一手来源披露
+    - Find your next 10x investmen
+    - AI 💰 Samuel Spitz @samuel_s
+    - AI Get a valuation model
 
-    **影响分析**：An app for planning parties that people actually show up to 🎉 Made with Replit Canvas相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：Find your next 10x investment with AI 💰 Samuel Spitz @samuel_spitz Introducing Replit Stock Analyst Research an investment in minutes with。
 
-    **来源**：[原文链接](https://x.com/Replit/status/2041516610310033683)
+    **来源**：[原文链接](https://x.com/Replit/status/2041667379185512558)
 
-??? info "4. @minimaxagent 发布重要更新"
-    **摘要**：Meet Pocket 📱 Your IM,your MiniMax Agent Desktop,finally connected. Most AI agents still need you at your desk. Pocket doesnt. Sort your local files. Send at。
-
-    **关键点**
-
-    - Meet Pocket 📱 Your IM
-    - your MiniMax Agent Desktop
-    - finally connected. Most AI a
-
-    **影响分析**：Meet Pocket 📱 Your IM,your MiniMax Agent Desktop,finally connected. Most AI agents still need you at your desk. Pocket doesnt. Sort your。
-
-    **来源**：[原文链接](https://x.com/MiniMaxAgent/status/2041444608287379771)
-
-??? info "5. @elonmusk 发布重要更新"
-    **摘要**：A fever dream Marc Andreessen 🇺🇸 @pmarca Overheard in Silicon Valley:“Remember ‘hate speech and misinformation’? That was weird.”-https://nitter.net/pmarca。
+??? info "4. @sama 发布重要更新"
+    **摘要**：To celebrate 3 million weekly codex users,we are resetting usage limits. We will do this every million users up to 10 million. Happy building!
 
     **关键点**
 
-    - A fever dream Marc Andreesse
-    - misinformation’
-    - That was weird.”-https://n
+    - To celebrate 3 million weekl
+    - we are resetting usage limit
 
-    **影响分析**：A fever dream Marc Andreessen 🇺🇸 @pmarca Overheard in Silicon Valley:“Remember ‘hate speech and misinformation’。
+    **影响分析**：To celebrate 3 million weekly codex users,we are resetting usage limits. We will do this every million users up to 10 million. Happy buildi。
 
-    **来源**：[原文链接](https://x.com/elonmusk/status/2041418536707563585)
+    **来源**：[原文链接](https://x.com/sama/status/2041658719839383945)
+
+??? info "5. @replit 发布重要更新"
+    **摘要**：Week 3 ends tomorrow night. $5K up for grabs. Don’t miss your chance. Replit ⠕ @Replit $20,000 up for grabs. 4 weeks. 4 winners. We’re launching the Agent 4 C。
+
+    **关键点**
+
+    - Week 3 ends tomorrow night.
+    - up for grabs. 4 weeks. 4 win
+
+    **影响分析**：Week 3 ends tomorrow night. $5K up for grabs. Don’t miss your chance. Replit ⠕ @Replit $20,000 up for grabs. 4 weeks. 4 winners. We’re lau。
+
+    **来源**：[原文链接](https://x.com/Replit/status/2041645334284353933)
 
 ??? info "6. @elonmusk 发布重要更新"
-    **摘要**：Yeah Kangmin Lee | 이강민 @kangminlee All leftwing politics today boils down to preventing young men from taking back their civilization-https://nitter.net/kan。
+    **摘要**：OpenAI’s Nonprofit to Get Any Damages From Lawsuit wsj.com/tech/ai/elon-musk-as…。
 
     **关键点**
 
-    - Yeah Kangmin Lee | 이강민 @kan
-    - Yeah
+    - OpenAI’s Nonprofit to Get An
+    - st=1EYZuy
 
-    **影响分析**：Yeah Kangmin Lee | 이강민 @kangminlee All leftwing politics today boils down to preventing young men from taking back their civilization-ht。
+    **影响分析**：OpenAI’s Nonprofit to Get Any Damages From Lawsuit https://www.wsj.com/tech/ai/elon-musk-asks-for-openais-nonprofit-to-get-any-damages-from。
 
-    **来源**：[原文链接](https://x.com/elonmusk/status/2041402309608194107)
+    **来源**：[原文链接](https://x.com/elonmusk/status/2041633121712603391)
 
-??? info "7. @elonmusk 发布重要更新"
-    **摘要**：Made with Grok Imagine Déborah @dvorahfr The image quality is so good,with the interplay of light,that its hard to believe none of this exists. I wish I ha。
-
-    **关键点**
-
-    - Made
-    - Grok Imagine Déborah @dvora
-    - the interplay of light
-
-    **影响分析**：Made with Grok Imagine Déborah @dvorahfr The image quality is so good,with the interplay of light,that its hard to believe none of this。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2041400506409705582)
-
-??? info "8. @elonmusk 发布产品更新"
-    **摘要**：Yes C3 @C_3C_3 The Left never got over Elon buying X. That wasn’t supposed to happen. The Left’s ideas are so bad and damaging they need total control of info。
+??? info "7. @nvidia 发布重要更新"
+    **摘要**：x.com/i/article/204159873065…。
 
     **关键点**
 
-    - Yes C3 @C_3C_3 The Left ne
-    - damaging they need total con
-    - damaging they need t
+    - x.com/i/article/204159873065
+    - Pinned:x.com/i/article/2041
+    - 预计将影响后续产品与行业节奏
 
-    **影响分析**：Yes C3 @C_3C_3 The Left never got over Elon buying X. That wasn’t supposed to happen. The Left’s ideas are so bad and damaging they need t。
+    **影响分析**：Pinned:x.com/i/article/204159873065…相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://x.com/elonmusk/status/2041398810170237381)
+    **来源**：[原文链接](https://x.com/nvidia/status/2041632341530177648)
 
-??? info "9. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.03253v1 Announce Type:new Abstract:A promising research direction in enabling LLMs to generate consistently correct code involves addressing their。
-
-    **关键点**
-
-    - arXiv:2604.03253v1 Announce
-    - particularly for code they g
-    - we demonstrate that Code LLM
-
-    **影响分析**：arXiv:2604.03253v1 Announce Type:new Abstract:A promising research direction in enabling LLMs to generate consistently correct code involv。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2604.03253)
-
-??? info "10. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.03258v1 Announce Type:new Abstract:Large language models LLMs have demonstrated impressive capabilities across various tasks,but the billion-sca。
+??? info "8. @notionhq 发布重要更新"
+    **摘要**：The Notion Way 🫡 Riley Walz @rtwlz Ever wanted to NAME A STREET? We’re auctioning off the naming rights to an actual alley in San Francisco. Highest bidder ca。
 
     **关键点**
 
-    - arXiv:2604.03258v1 Announce
-    - but the billion-scale parame
-    - they require either special
+    - The Notion Way 🫡 Riley Walz
+    - We’re auctioning off the nam
+    - The Notion Way 🫡
 
-    **影响分析**：arXiv:2604.03258v1 Announce Type:new Abstract:Large language models LLMs have demonstrated impressive capabilities across various tasks。
+    **影响分析**：The Notion Way 🫡 Riley Walz @rtwlz Ever wanted to NAME A STREET。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.03258)
+    **来源**：[原文链接](https://x.com/NotionHQ/status/2041616564336918927)
 
-??? info "11. arxiv.org 发布 30.3 版本更新"
-    **摘要**：arXiv:2604.03260v1 Announce Type:new Abstract:We introduce Focus,a method that learns which token pairs matter rather than approximating all of them. Learnab。
-
-    **关键点**
-
-    - arXiv:2604.03260v1 Announce
-    - a method that learns which t
-    - distant attention is restric
-
-    **影响分析**：arXiv:2604.03260v1 Announce Type:new Abstract:We introduce Focus,a method that learns which token pairs matter rather than approximating。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2604.03260)
-
-??? info "12. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.03261v1 Announce Type:new Abstract:The rise of generative AI is posing increasing risks to online information integrity and civic discourse. Most c。
+??? info "9. @awscloud 发布重要更新"
+    **摘要**：Announcing Amazon S3 Files. The first and only cloud object store with fully-featured,high-performance file system access. Learn more here. go.aws/4tw17Zg Vide。
 
     **关键点**
 
-    - arXiv:2604.03261v1 Announce
-    - civic discourse. Most concre
-    - such risks can materialise i
+    - Announcing Amazon S3 Files.
+    - only cloud object store
+    - fully-featured
 
-    **影响分析**：arXiv:2604.03261v1 Announce Type:new Abstract:The rise of generative AI is posing increasing risks to online information integrity and civ。
+    **影响分析**：Announcing Amazon S3 Files. The first and only cloud object store with fully-featured,high-performance file system access. Learn more here.。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.03261)
+    **来源**：[原文链接](https://x.com/awscloud/status/2041611271565381968)
 
-??? info "13. @replit 发布重要更新"
-    **摘要**：Week 2 winner of the Agent 4 Content Challenge:Marcos Leal 🏆 Built birdie.news,a daily newsletter built entirely around you Video。
-
-    **关键点**
-
-    - Week 2 winner of the Agent 4
-    - a daily newsletter built ent
-
-    **影响分析**：Week 2 winner of the Agent 4 Content Challenge:Marcos Leal 🏆 Built http://birdie.news,a daily newsletter built entirely around you相关进展已由一手。
-
-    **来源**：[原文链接](https://x.com/Replit/status/2041315351934435360)
-
-??? info "14. @anthropicai 发布重要更新"
-    **摘要**：Our run-rate revenue has surpassed $30 billion,up from $9 billion at the end of 2025,as demand for Claude continues to accelerate. This partnership gives us t。
+??? info "10. @notionhq 发布重要更新"
+    **摘要**：Come build with us. Were hiring across the company:→ AI Conversation Designer,Customer Support → Customer Experience Enablement Leader → Enterprise Technical。
 
     **关键点**
 
-    - Our run-rate revenue has sur
-    - up from $9 billion at the en
-    - as demand for Claude continu
+    - Come build
+    - us. Were hiring across the
+    - Customer Support → Customer
 
-    **影响分析**：Our run-rate revenue has surpassed $30 billion,up from $9 billion at the end of 2025,as demand for Claude continues to accelerate. This pa。
+    **影响分析**：Come build with us. Were hiring across the company:→ AI Conversation Designer,Customer Support → Customer Experience Enablement Leader →。
 
-    **来源**：[原文链接](https://x.com/AnthropicAI/status/2041275563466502560)
+    **来源**：[原文链接](https://x.com/NotionHQ/status/2041592796189257816)
 
-??? info "15. @anthropicai 发布重要更新"
-    **摘要**：Weve signed an agreement with Google and Broadcom for multiple gigawatts of next-generation TPU capacity,coming online starting in 2027,to train and serve fr。
-
-    **关键点**
-
-    - Weve signed an agreement
-    - Google
-    - Broadcom for multiple gigawa
-
-    **影响分析**：Weve signed an agreement with Google and Broadcom for multiple gigawatts of next-generation TPU capacity,coming online starting in 2027,t。
-
-    **来源**：[原文链接](https://x.com/AnthropicAI/status/2041275561704931636)
-
-??? info "16. @notionhq 发布重要更新"
-    **摘要**：Custom Agents 🤝 @SlackHQ Connect your Custom Agent to Slack to monitor channels for requests,extract action items from threads,and route messages to the right。
+??? info "11. @pika_labs 发布重要更新"
+    **摘要**：Ask your Pika AI Self to join a Google Meet to try it out. For all other agents,you can download the Skill on GitHub here:github.com/Pika-Labs/Pika-Sk…。
 
     **关键点**
 
-    - Custom Agents 🤝 @SlackHQ Con
-    - extract action items from th
-    - route messages to the right
+    - Ask your Pika AI Self to joi
+    - you can download the Skill o
+    - R to @pika_labs:Ask your Pi
 
-    **影响分析**：Custom Agents 🤝 @SlackHQ Connect your Custom Agent to Slack to monitor channels for requests,extract action items from threads,and route m。
+    **影响分析**：R to @pika_labs:Ask your Pika AI Self to join a Google Meet to try it out. For all other agents,you can download the Skill on GitHub here。
 
-    **来源**：[原文链接](https://x.com/NotionHQ/status/2041274543470448724)
+    **来源**：[原文链接](https://x.com/pika_labs/status/2041591050909970435)
 
-??? info "17. @adobefirefly 发布重要更新"
-    **摘要**：Right now,four astronauts are heading around the Moon for the first time in 50 years. And all we can think about is:what do you build when we actually get the。
-
-    **关键点**
-
-    - Right now
-    - four astronauts are heading
-    - #AdobeFirefly #ArtemisII Vid
-
-    **影响分析**：Right now,four astronauts are heading around the Moon for the first time in 50 years. And all we can think about is:what do you build when。
-
-    **来源**：[原文链接](https://x.com/AdobeFirefly/status/2041270762607112506)
-
-??? info "18. @replit 发布重要更新"
-    **摘要**：Find your next 100 customers with Replit! Samuel Spitz @samuel_spitz Introducing Replit AI SDR Find your next 100 customers with AI Video-https://nitter.net。
+??? info "12. @pika_labs 发布重要更新"
+    **摘要**：Put them on the spot about what they’re working on. nitter.net/edalgi/status/20412377… Eddyer Android @edalgi Its interesting to be able to make video calls。
 
     **关键点**
 
-    - Find your next 100 customers
-    - Replit
-    - Samuel Spitz @samuel_spitz
+    - Put them on the spot about w
+    - yourself. #pikaaiself @pika_
+    - R to @pika_labs:Put them on
 
-    **影响分析**：Find your next 100 customers with Replit。
+    **影响分析**：Put them on the spot about what they’re working on. nitter.net/edalgi/status/20412377… Eddyer Android @edalgi Its interesting to be able。
 
-    **来源**：[原文链接](https://x.com/Replit/status/2041245668711551296)
+    **来源**：[原文链接](https://x.com/pika_labs/status/2041591048863113519)
 
-??? info "19. @replit 发布重要更新"
-    **摘要**：Read it on todays blog:blog.replit.com/product-mana…。
-
-    **关键点**
-
-    - Read it on todays blog:blo
-    - R to @Replit:Read it on tod
-    - replit相关进展已由一手来源披露
-
-    **影响分析**：R to @Replit:Read it on todays blog:https://blog.replit.com/product-managers-ship-faster-with-replit相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://x.com/Replit/status/2041207914606805473)
-
-??? info "20. @openai 发布重要更新"
-    **摘要**：Introducing the OpenAI Safety Fellowship,a new program supporting independent research on AI safety and alignment-and the next generation of talent. openai.com。
+??? info "13. @pika_labs 发布重要更新"
+    **摘要**：Don’t like what they’re wearing? Ask them to change. Video。
 
     **关键点**
 
-    - Introducing the OpenAI Safet
-    - a new program supporting ind
-    - alignment
+    - Don’t like what they’re wear
+    - Ask them to change. Video
+    - R to @pika_labs:Don’t like
 
-    **影响分析**：Introducing the OpenAI Safety Fellowship,a new program supporting independent research on AI safety and alignment-and the next generation o。
+    **影响分析**：Don’t like what they’re wearing。
 
-    **来源**：[原文链接](https://x.com/OpenAI/status/2041202511647019251)
+    **来源**：[原文链接](https://x.com/pika_labs/status/2041591047273488474)
+
+??? info "14. @pika_labs 发布重要更新"
+    **摘要**：They’re excellent at giving that usually-awkward meeting intro. Video。
+
+    **关键点**
+
+    - They’re excellent at giving
+    - R to @pika_labs:They’re exc
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：R to @pika_labs:They’re excellent at giving that usually-awkward meeting intro.相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/pika_labs/status/2041591045503558135)
+
+??? info "15. @awscloud 发布重要更新"
+    **摘要**：AWS and @AnthropicAI are advancing AI-powered cybersecurity. Were working with Anthropic to help security teams find and fix vulnerabilities in software before。
+
+    **关键点**
+
+    - @AnthropicAI are advancing A
+    - Anthropic to help security t
+    - fix vulnerabilities in softw
+
+    **影响分析**：AWS and @AnthropicAI are advancing AI-powered cybersecurity. Were working with Anthropic to help security teams find and fix vulnerabilitie。
+
+    **来源**：[原文链接](https://x.com/awscloud/status/2041587341228146851)
+
+??? info "16. @lumalabsai 发布重要更新"
+    **摘要**：Ray3.14 now exports EXR at 1080p. Because the people building real pipelines shouldn’t have to compromise on format. Try it now → lumalabs.ai/app Video。
+
+    **关键点**
+
+    - Ray3.14 now exports EXR at 1
+    - @lumalabsai 发布重要更新
+
+    **影响分析**：Ray3.14 now exports EXR at 1080p. Because the people building real pipelines shouldn’t have to compromise on format. Try it now → http://lum。
+
+    **来源**：[原文链接](https://x.com/LumaLabsAI/status/2041584670090121469)
+
+??? info "17. @anthropicai 发布重要更新"
+    **摘要**：The Claude Mythos Preview system card is available here:anthropic.com/claude-mythos-…。
+
+    **关键点**
+
+    - The Claude Mythos Preview sy
+    - R to @AnthropicAI:The Claud
+
+    **影响分析**：R to @AnthropicAI:The Claude Mythos Preview system card is available here:https://anthropic.com/claude-mythos-preview-system-card相关进展已由一手来。
+
+    **来源**：[原文链接](https://x.com/AnthropicAI/status/2041580670774923517)
+
+??? info "18. @anthropicai 发布重要更新"
+    **摘要**：You can read a detailed technical report on the software vulnerabilities and exploits discovered by Claude Mythos Preview here:red.anthropic.com/2026/mytho…。
+
+    **关键点**
+
+    - You can read a detailed tech
+    - exploits discovered by Claud
+    - R to @AnthropicAI:You can r
+
+    **影响分析**：R to @AnthropicAI:You can read a detailed technical report on the software vulnerabilities and exploits discovered by Claude Mythos Preview。
+
+    **来源**：[原文链接](https://x.com/AnthropicAI/status/2041578416487489601)
+
+??? info "19. @anthropicai 发布重要更新"
+    **摘要**：Project Glasswing is just a starting point. No organization can solve these cybersecurity problems alone:industry,open source,researchers,and governments al。
+
+    **关键点**
+
+    - Project Glasswing is just a
+    - open source
+    - researchers
+
+    **影响分析**：Project Glasswing is just a starting point. No organization can solve these cybersecurity problems alone:industry,open source,researchers。
+
+    **来源**：[原文链接](https://x.com/AnthropicAI/status/2041578414482579912)
+
+??? info "20. @anthropicai 发布重要更新"
+    **摘要**：We’re committing up to $100M in Mythos Preview usage credits for our partners and over 40 other organizations that maintain critical software,including open-so。
+
+    **关键点**
+
+    - We’re committing up to $100M
+    - over 40 other organizations
+    - including open-source projec
+
+    **影响分析**：We’re committing up to $100M in Mythos Preview usage credits for our partners and over 40 other organizations that maintain critical softwar。
+
+    **来源**：[原文链接](https://x.com/AnthropicAI/status/2041578412653900255)
 
 ---
 
 ## 历史归档
 
+- [2026-04-08_08-06-09](history/2026-04-08_08-06-09.md)
 - [2026-04-07_22-56-18](history/2026-04-07_22-56-18.md)
 - [2026-04-07_20-10-43](history/2026-04-07_20-10-43.md)
 - [2026-04-07_18-35-35](history/2026-04-07_18-35-35.md)
@@ -414,4 +409,3 @@
 - [2026-03-21_11-44-37](history/2026-03-21_11-44-37.md)
 - [2026-03-20_20-49-06](history/2026-03-20_20-49-06.md)
 - [2026-03-20](history/2026-03-20.md)
-- [2026-03-19](history/2026-03-19.md)
