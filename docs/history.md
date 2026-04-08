@@ -1,36 +1,180 @@
-> 更新时间：2026年04月08日08:06:09
+> 更新时间：2026年04月08日12:15:06
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. @replit 发布重要更新：To use。
-2. @replit 发布重要更新：Not investment advice。
-3. @replit 发布重要更新：Find your next 10x investment with AI 💰 Sa。
-4. @sama 发布重要更新：To celebrate 3 million weekly codex users。
-5. @replit 发布重要更新：Week 3 ends tomorrow night. $5K up for gra。
+1. arxiv.org 发布重要更新：arXiv:2604.04967v1 Announce Type:new Abstr。
+2. arxiv.org 发布重要更新：arXiv:2604.04974v1 Announce Type:new Abstr。
+3. arxiv.org 发布重要更新：arXiv:2604.04980v1 Announce Type:new Abstr。
+4. arxiv.org 发布重要更新：arXiv:2604.05003v1 Announce Type:new Abstr。
+5. @openclaw 发布重要更新：memory-wiki turns OpenClaw memory into a r。
 
 ## 分类速览
 
-=== "🤖 模型进展（2）"
-    - **17. @anthropicai 发布重要更新**：R to @AnthropicAI:The Claude Mythos Preview sys…
-    - **18. @anthropicai 发布重要更新**：R to @AnthropicAI:You can read a detailed techn…
+=== "🤖 模型进展（1）"
+    - **8. @openclaw 发布 2026.4.7 版本更新**：OpenClaw 2026.4.7 🦞 🔮 openclaw infer 🎬 music +…
 
-=== "🧪 论文研究（0）"
-    - 暂无条目
+=== "🧪 论文研究（4）"
+    - **1. arxiv.org 发布重要更新**：arXiv:2604.04967v1 Announce Type:new Abstract:R…
+    - **2. arxiv.org 发布重要更新**：arXiv:2604.04974v1 Announce Type:new Abstract:V…
+    - **3. arxiv.org 发布重要更新**：arXiv:2604.04980v1 Announce Type:new Abstract:E…
+    - **4. arxiv.org 发布重要更新**：arXiv:2604.05003v1 Announce Type:new Abstract:T…
 
-=== "🏢 产品与行业（18）"
-    - **1. @replit 发布重要更新**：R to @Replit:To use,just ask the Agent to use t…
-    - **2. @replit 发布重要更新**：R to @Replit:Not investment advice,for informat…
-    - **3. @replit 发布重要更新**：Find your next 10x investment with AI 💰 Samuel…
-    - **4. @sama 发布重要更新**：To celebrate 3 million weekly codex users,we ar…
-    - **5. @replit 发布重要更新**：Week 3 ends tomorrow night. $5K up for grabs. D…
-    - **6. @elonmusk 发布重要更新**：OpenAI’s Nonprofit to Get Any Damages From Laws…
-    - **7. @nvidia 发布重要更新**：Pinned:x.com/i/article/204159873065…相关进展已由一手来源披…
-    - **8. @notionhq 发布重要更新**：The Notion Way 🫡 Riley Walz @rtwlz Ever wanted…
+=== "🏢 产品与行业（15）"
+    - **5. @openclaw 发布重要更新**：memory-wiki turns OpenClaw memory into a real k…
+    - **6. @openclaw 发布重要更新**：🔗webhook-driven TaskFlow:authenticated webhook…
+    - **7. @openclaw 发布重要更新**：🔮openclaw infer:headless inference hub
+    - **9. @minimax_ai 发布重要更新**：Proud to power @NousResearch s Hermes Agent wit…
+    - **10. @elonmusk 发布 14.3 版本更新**：FSD 14.3 release notes @Tesla_AI Tesla AI @Tesl…
+    - **11. @demishassabis 发布重要更新**：Thanks for the great conversation @cleoabram an…
+    - **12. @replit 发布重要更新**：R to @Replit:To use,just ask the Agent to use t…
+    - **13. @replit 发布重要更新**：R to @Replit:Not investment advice,for informat…
 
 ## 全部快讯
 
-??? info "1. @replit 发布重要更新"
+??? info "1. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2604.04967v1 Announce Type:new Abstract:Robots operating in shared workspaces must maintain safe coordination with other agents whose behavior may chang。
+
+    **关键点**
+
+    - arXiv:2604.04967v1 Announce
+    - other agents whose behavior
+    - continuing under outdated as
+
+    **影响分析**：arXiv:2604.04967v1 Announce Type:new Abstract:Robots operating in shared workspaces must maintain safe coordination with other agents whos。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2604.04967)
+
+??? info "2. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2604.04974v1 Announce Type:new Abstract:Video is a scalable observation of physical dynamics:it captures how objects move,how contact unfolds,and how。
+
+    **关键点**
+
+    - arXiv:2604.04974v1 Announce
+    - how contact unfolds
+    - how scenes evolve under inte
+
+    **影响分析**：arXiv:2604.04974v1 Announce Type:new Abstract:Video is a scalable observation of physical dynamics:it captures how objects move,how cont。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2604.04974)
+
+??? info "3. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2604.04980v1 Announce Type:new Abstract:Experimental access to real honeybee colonies requires robotic systems capable of operating within limited spati。
+
+    **关键点**
+
+    - arXiv:2604.04980v1 Announce
+    - tolerating hive-specific fou
+    - environmental conditions
+
+    **影响分析**：arXiv:2604.04980v1 Announce Type:new Abstract:Experimental access to real honeybee colonies requires robotic systems capable of operating。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2604.04980)
+
+??? info "4. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2604.05003v1 Announce Type:new Abstract:This survey examines recent sensor-based planning and control methods for Unmanned Underwater Vehicles UUVs. I。
+
+    **关键点**
+
+    - arXiv:2604.05003v1 Announce
+    - control methods for Unmanned
+    - uncertain underwater environ
+
+    **影响分析**：arXiv:2604.05003v1 Announce Type:new Abstract:This survey examines recent sensor-based planning and control methods for Unmanned Underwate。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2604.05003)
+
+??? info "5. @openclaw 发布重要更新"
+    **摘要**：memory-wiki turns OpenClaw memory into a real knowledge layer.-structured claims + evidence-contradiction + freshness tracking-compiled digests for agents。
+
+    **关键点**
+
+    - memory-wiki turns OpenClaw m
+    - R to @openclaw:memory-wiki
+
+    **影响分析**：memory-wiki turns OpenClaw memory into a real knowledge layer.-structured claims + evidence-contradiction + freshness tracking-compile。
+
+    **来源**：[原文链接](https://x.com/openclaw/status/2041714276272931286)
+
+??? info "6. @openclaw 发布重要更新"
+    **摘要**：🔗webhook-driven TaskFlow:authenticated webhook ingress；external systems create/drive bound TaskFlows over per-route shared-secret endpoints. docs.openclaw.ai/。
+
+    **关键点**
+
+    - 🔗webhook-driven TaskFlow:au
+    - external systems create/driv
+    - R to @openclaw:🔗webhook-dri
+
+    **影响分析**：🔗webhook-driven TaskFlow:authenticated webhook ingress。
+
+    **来源**：[原文链接](https://x.com/openclaw/status/2041714274221863147)
+
+??? info "7. @openclaw 发布重要更新"
+    **摘要**：🔮openclaw infer:headless inference hub；one CLI surface for model,image,audio,TTS,video,web,embeddings. docs.openclaw.ai/cli/infer。
+
+    **关键点**
+
+    - 🔮openclaw infer:headless in
+    - one CLI surface for model
+    - image
+
+    **影响分析**：🔮openclaw infer:headless inference hub。
+
+    **来源**：[原文链接](https://x.com/openclaw/status/2041714272393162982)
+
+??? info "8. @openclaw 发布 2026.4.7 版本更新"
+    **摘要**：OpenClaw 2026.4.7 🦞 🔮 openclaw infer 🎬 music + video editing 💾 session branch/restore 🔗 webhook-driven TaskFlows 🤖 Arcee,Gemma 4,Ollama vision 🧠 memory-wiki。
+
+    **关键点**
+
+    - OpenClaw 2026.4.7 🦞 🔮 opencl
+    - Gemma 4
+    - Ollama vision 🧠 memory-wiki
+
+    **影响分析**：OpenClaw 2026.4.7 🦞 🔮 openclaw infer 🎬 music + video editing 💾 session branch/restore 🔗 webhook-driven TaskFlows 🤖 Arcee,Gemma 4,Ollama vi。
+
+    **来源**：[原文链接](https://x.com/openclaw/status/2041714270212108657)
+
+??? info "9. @minimax_ai 发布重要更新"
+    **摘要**：Proud to power @NousResearch s Hermes Agent with MiniMax M2.7,and excited for what were building together. Try MiniMax M2.7 in Hermes Agent today → portal.no。
+
+    **关键点**
+
+    - Proud to power @NousResearch
+    - MiniMax M2.7
+    - excited for what were build
+
+    **影响分析**：Proud to power @NousResearch s Hermes Agent with MiniMax M2.7,and excited for what were building together. Try MiniMax M2.7 in Hermes Age。
+
+    **来源**：[原文链接](https://x.com/MiniMax_AI/status/2041707145553694907)
+
+??? info "10. @elonmusk 发布 14.3 版本更新"
+    **摘要**：FSD 14.3 release notes @Tesla_AI Tesla AI @Tesla_AI New release of FSD Supervised now starting to roll out This update brings 20% faster reaction time to furt。
+
+    **关键点**
+
+    - FSD 14.3 release notes @Tesl
+    - among many other improvement
+    - resulting in improvements in
+
+    **影响分析**：FSD 14.3 release notes @Tesla_AI Tesla AI @Tesla_AI New release of FSD Supervised now starting to roll out This update brings 20% faster r。
+
+    **来源**：[原文链接](https://x.com/elonmusk/status/2041697396808454517)
+
+??? info "11. @demishassabis 发布重要更新"
+    **摘要**：Thanks for the great conversation @cleoabram and some competitive Jenga! Really enjoyed talking about all the amazing ways AI is helping to advance science &a。
+
+    **关键点**
+
+    - Thanks for the great convers
+    - some competitive Jenga
+    - Really enjoyed talking about
+
+    **影响分析**：Thanks for the great conversation @cleoabram and some competitive Jenga。
+
+    **来源**：[原文链接](https://x.com/demishassabis/status/2041681474580021536)
+
+??? info "12. @replit 发布重要更新"
     **摘要**：To use,just ask the Agent to use the stock analyzer skill,or click the + button from the input box after logging in and select the stock analyzer skill。
 
     **关键点**
@@ -43,7 +187,7 @@
 
     **来源**：[原文链接](https://x.com/Replit/status/2041667381865673159)
 
-??? info "2. @replit 发布重要更新"
+??? info "13. @replit 发布重要更新"
     **摘要**：Not investment advice,for informational purposes only。
 
     **关键点**
@@ -56,7 +200,7 @@
 
     **来源**：[原文链接](https://x.com/Replit/status/2041667380729016350)
 
-??? info "3. @replit 发布重要更新"
+??? info "14. @replit 发布重要更新"
     **摘要**：Find your next 10x investment with AI 💰 Samuel Spitz @samuel_spitz Introducing Replit Stock Analyst Research an investment in minutes with AI Get a valuation。
 
     **关键点**
@@ -69,7 +213,7 @@
 
     **来源**：[原文链接](https://x.com/Replit/status/2041667379185512558)
 
-??? info "4. @sama 发布重要更新"
+??? info "15. @sama 发布重要更新"
     **摘要**：To celebrate 3 million weekly codex users,we are resetting usage limits. We will do this every million users up to 10 million. Happy building!
 
     **关键点**
@@ -81,7 +225,7 @@
 
     **来源**：[原文链接](https://x.com/sama/status/2041658719839383945)
 
-??? info "5. @replit 发布重要更新"
+??? info "16. @replit 发布重要更新"
     **摘要**：Week 3 ends tomorrow night. $5K up for grabs. Don’t miss your chance. Replit ⠕ @Replit $20,000 up for grabs. 4 weeks. 4 winners. We’re launching the Agent 4 C。
 
     **关键点**
@@ -93,7 +237,7 @@
 
     **来源**：[原文链接](https://x.com/Replit/status/2041645334284353933)
 
-??? info "6. @elonmusk 发布重要更新"
+??? info "17. @elonmusk 发布重要更新"
     **摘要**：OpenAI’s Nonprofit to Get Any Damages From Lawsuit wsj.com/tech/ai/elon-musk-as…。
 
     **关键点**
@@ -105,7 +249,7 @@
 
     **来源**：[原文链接](https://x.com/elonmusk/status/2041633121712603391)
 
-??? info "7. @nvidia 发布重要更新"
+??? info "18. @nvidia 发布重要更新"
     **摘要**：x.com/i/article/204159873065…。
 
     **关键点**
@@ -118,7 +262,7 @@
 
     **来源**：[原文链接](https://x.com/nvidia/status/2041632341530177648)
 
-??? info "8. @notionhq 发布重要更新"
+??? info "19. @notionhq 发布重要更新"
     **摘要**：The Notion Way 🫡 Riley Walz @rtwlz Ever wanted to NAME A STREET? We’re auctioning off the naming rights to an actual alley in San Francisco. Highest bidder ca。
 
     **关键点**
@@ -131,7 +275,7 @@
 
     **来源**：[原文链接](https://x.com/NotionHQ/status/2041616564336918927)
 
-??? info "9. @awscloud 发布重要更新"
+??? info "20. @awscloud 发布重要更新"
     **摘要**：Announcing Amazon S3 Files. The first and only cloud object store with fully-featured,high-performance file system access. Learn more here. go.aws/4tw17Zg Vide。
 
     **关键点**
@@ -144,151 +288,11 @@
 
     **来源**：[原文链接](https://x.com/awscloud/status/2041611271565381968)
 
-??? info "10. @notionhq 发布重要更新"
-    **摘要**：Come build with us. Were hiring across the company:→ AI Conversation Designer,Customer Support → Customer Experience Enablement Leader → Enterprise Technical。
-
-    **关键点**
-
-    - Come build
-    - us. Were hiring across the
-    - Customer Support → Customer
-
-    **影响分析**：Come build with us. Were hiring across the company:→ AI Conversation Designer,Customer Support → Customer Experience Enablement Leader →。
-
-    **来源**：[原文链接](https://x.com/NotionHQ/status/2041592796189257816)
-
-??? info "11. @pika_labs 发布重要更新"
-    **摘要**：Ask your Pika AI Self to join a Google Meet to try it out. For all other agents,you can download the Skill on GitHub here:github.com/Pika-Labs/Pika-Sk…。
-
-    **关键点**
-
-    - Ask your Pika AI Self to joi
-    - you can download the Skill o
-    - R to @pika_labs:Ask your Pi
-
-    **影响分析**：R to @pika_labs:Ask your Pika AI Self to join a Google Meet to try it out. For all other agents,you can download the Skill on GitHub here。
-
-    **来源**：[原文链接](https://x.com/pika_labs/status/2041591050909970435)
-
-??? info "12. @pika_labs 发布重要更新"
-    **摘要**：Put them on the spot about what they’re working on. nitter.net/edalgi/status/20412377… Eddyer Android @edalgi Its interesting to be able to make video calls。
-
-    **关键点**
-
-    - Put them on the spot about w
-    - yourself. #pikaaiself @pika_
-    - R to @pika_labs:Put them on
-
-    **影响分析**：Put them on the spot about what they’re working on. nitter.net/edalgi/status/20412377… Eddyer Android @edalgi Its interesting to be able。
-
-    **来源**：[原文链接](https://x.com/pika_labs/status/2041591048863113519)
-
-??? info "13. @pika_labs 发布重要更新"
-    **摘要**：Don’t like what they’re wearing? Ask them to change. Video。
-
-    **关键点**
-
-    - Don’t like what they’re wear
-    - Ask them to change. Video
-    - R to @pika_labs:Don’t like
-
-    **影响分析**：Don’t like what they’re wearing。
-
-    **来源**：[原文链接](https://x.com/pika_labs/status/2041591047273488474)
-
-??? info "14. @pika_labs 发布重要更新"
-    **摘要**：They’re excellent at giving that usually-awkward meeting intro. Video。
-
-    **关键点**
-
-    - They’re excellent at giving
-    - R to @pika_labs:They’re exc
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：R to @pika_labs:They’re excellent at giving that usually-awkward meeting intro.相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://x.com/pika_labs/status/2041591045503558135)
-
-??? info "15. @awscloud 发布重要更新"
-    **摘要**：AWS and @AnthropicAI are advancing AI-powered cybersecurity. Were working with Anthropic to help security teams find and fix vulnerabilities in software before。
-
-    **关键点**
-
-    - @AnthropicAI are advancing A
-    - Anthropic to help security t
-    - fix vulnerabilities in softw
-
-    **影响分析**：AWS and @AnthropicAI are advancing AI-powered cybersecurity. Were working with Anthropic to help security teams find and fix vulnerabilitie。
-
-    **来源**：[原文链接](https://x.com/awscloud/status/2041587341228146851)
-
-??? info "16. @lumalabsai 发布重要更新"
-    **摘要**：Ray3.14 now exports EXR at 1080p. Because the people building real pipelines shouldn’t have to compromise on format. Try it now → lumalabs.ai/app Video。
-
-    **关键点**
-
-    - Ray3.14 now exports EXR at 1
-    - @lumalabsai 发布重要更新
-
-    **影响分析**：Ray3.14 now exports EXR at 1080p. Because the people building real pipelines shouldn’t have to compromise on format. Try it now → http://lum。
-
-    **来源**：[原文链接](https://x.com/LumaLabsAI/status/2041584670090121469)
-
-??? info "17. @anthropicai 发布重要更新"
-    **摘要**：The Claude Mythos Preview system card is available here:anthropic.com/claude-mythos-…。
-
-    **关键点**
-
-    - The Claude Mythos Preview sy
-    - R to @AnthropicAI:The Claud
-
-    **影响分析**：R to @AnthropicAI:The Claude Mythos Preview system card is available here:https://anthropic.com/claude-mythos-preview-system-card相关进展已由一手来。
-
-    **来源**：[原文链接](https://x.com/AnthropicAI/status/2041580670774923517)
-
-??? info "18. @anthropicai 发布重要更新"
-    **摘要**：You can read a detailed technical report on the software vulnerabilities and exploits discovered by Claude Mythos Preview here:red.anthropic.com/2026/mytho…。
-
-    **关键点**
-
-    - You can read a detailed tech
-    - exploits discovered by Claud
-    - R to @AnthropicAI:You can r
-
-    **影响分析**：R to @AnthropicAI:You can read a detailed technical report on the software vulnerabilities and exploits discovered by Claude Mythos Preview。
-
-    **来源**：[原文链接](https://x.com/AnthropicAI/status/2041578416487489601)
-
-??? info "19. @anthropicai 发布重要更新"
-    **摘要**：Project Glasswing is just a starting point. No organization can solve these cybersecurity problems alone:industry,open source,researchers,and governments al。
-
-    **关键点**
-
-    - Project Glasswing is just a
-    - open source
-    - researchers
-
-    **影响分析**：Project Glasswing is just a starting point. No organization can solve these cybersecurity problems alone:industry,open source,researchers。
-
-    **来源**：[原文链接](https://x.com/AnthropicAI/status/2041578414482579912)
-
-??? info "20. @anthropicai 发布重要更新"
-    **摘要**：We’re committing up to $100M in Mythos Preview usage credits for our partners and over 40 other organizations that maintain critical software,including open-so。
-
-    **关键点**
-
-    - We’re committing up to $100M
-    - over 40 other organizations
-    - including open-source projec
-
-    **影响分析**：We’re committing up to $100M in Mythos Preview usage credits for our partners and over 40 other organizations that maintain critical softwar。
-
-    **来源**：[原文链接](https://x.com/AnthropicAI/status/2041578412653900255)
-
 ---
 
 ## 历史归档
 
+- [2026-04-08_12-15-06](history/2026-04-08_12-15-06.md)
 - [2026-04-08_08-06-09](history/2026-04-08_08-06-09.md)
 - [2026-04-07_22-56-18](history/2026-04-07_22-56-18.md)
 - [2026-04-07_20-10-43](history/2026-04-07_20-10-43.md)
@@ -408,4 +412,3 @@
 - [2026-03-21_13-01-30](history/2026-03-21_13-01-30.md)
 - [2026-03-21_11-44-37](history/2026-03-21_11-44-37.md)
 - [2026-03-20_20-49-06](history/2026-03-20_20-49-06.md)
-- [2026-03-20](history/2026-03-20.md)
