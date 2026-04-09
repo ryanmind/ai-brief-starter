@@ -1,296 +1,295 @@
-> 更新时间：2026年04月08日20:11:09
+> 更新时间：2026年04月09日08:02:31
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. @elonmusk 发布产品更新：Yes X Freeze @XFreeze Soo.... basically-ht。
-2. @elonmusk 发布产品更新：lol James Stephenson @ICannot_Enough The h。
-3. @openclaw 发布 2026.4.8 版本更新：A packaging issue slipped that affected ex。
-4. @elonmusk 发布重要更新：SpaceXAI Colossus 2 now has 7 models in tr。
-5. @elonmusk 发布重要更新：Funny pricing indeed Marc Andreessen 🇺🇸 @p。
+1. openclaw/openclaw 发布产品更新：docs:reorder unreleased changelog。
+2. @replit 发布重要更新：Read part 5 of our 6-part PM series:blog.r。
+3. @replit 发布重要更新：PMs spend an incredible amount of time lau。
+4. openclaw/openclaw 发布产品更新：fixdeps:patch basic-ftp advisory。
+5. Memory/dreaming:harden grounded backfill follow-u：Memory/dreaming:harden grounded backfill f。
 
 ## 分类速览
 
-=== "🤖 模型进展（0）"
+=== "🤖 模型进展（5）"
+    - **7. @notionhq 发布重要更新**：Introducing @claudeai agents in Notion. Your ta…
+    - **10. @notionhq 发布重要更新**：R to @claudeai:Currently in private alpha,join…
+    - **12. @nvidia 发布重要更新**：Open-source software never stops. It only accel…
+    - **15. @notionhq 发布重要更新**：Before,you had two ways to use @claudeai with N…
+    - **20. openai.com 发布重要更新**：The next phase of enterprise AI相关进展已由一手来源披露，预计将…
+
+=== "🧪 论文研究（0）"
     - 暂无条目
 
-=== "🧪 论文研究（4）"
-    - **6. arxiv.org 发布重要更新**：arXiv:2604.04953v1 Announce Type:new Abstract:T…
-    - **7. arxiv.org 发布重要更新**：arXiv:2604.04972v1 Announce Type:new Abstract:L…
-    - **8. arxiv.org 发布重要更新**：arXiv:2604.05015v1 Announce Type:new Abstract:W…
-    - **9. arxiv.org 发布重要更新**：arXiv:2604.05039v1 Announce Type:new Abstract:H…
-
-=== "🏢 产品与行业（16）"
-    - **1. @elonmusk 发布产品更新**：Yes相关进展已由一手来源披露，预计将影响后续产品与行业节奏
-    - **2. @elonmusk 发布产品更新**：lol James Stephenson @ICannot_Enough The headli…
-    - **3. @openclaw 发布 2026.4.8 版本更新**：A packaging issue slipped that affected extensi…
-    - **4. @elonmusk 发布重要更新**：SpaceXAI Colossus 2 now has 7 models in trainin…
-    - **5. @elonmusk 发布重要更新**：Funny pricing indeed Marc Andreessen 🇺🇸 @pmarca…
-    - **10. @openclaw 发布重要更新**：memory-wiki turns OpenClaw memory into a real k…
-    - **11. @openclaw 发布重要更新**：🔗webhook-driven TaskFlow:authenticated webhook…
-    - **12. @openclaw 发布重要更新**：🔮openclaw infer:headless inference hub
+=== "🏢 产品与行业（15）"
+    - **1. openclaw/openclaw 发布产品更新**：docs:reorder unreleased changelog相关进展已由一手来源披露，预…
+    - **2. @replit 发布重要更新**：R to @Replit:Read part 5 of our 6-part PM serie…
+    - **3. @replit 发布重要更新**：PMs spend an incredible amount of time launchin…
+    - **4. openclaw/openclaw 发布产品更新**：fixdeps:patch basic-ftp advisory相关进展已由一手来源披露，预计…
+    - **5. Memory/dreaming:harden grounded backfill follow-u**：Memory/dreaming:harden grounded backfill follow…
+    - **6. openclaw/openclaw 发布产品更新**：docs:update unreleased changelog相关进展已由一手来源披露，预计…
+    - **8. @nvidia 发布重要更新**：For Thomas Chen,solving problems is what makes…
+    - **9. @lumalabsai 发布重要更新**：The path from product to campaign just got fast…
 
 ## 全部快讯
 
-??? info "1. @elonmusk 发布产品更新"
-    **摘要**：Yes X Freeze @XFreeze Soo.... basically-https://nitter.net/XFreeze/status/2041640853614305612#m。
+??? info "1. openclaw/openclaw 发布产品更新"
+    **摘要**：docs:reorder unreleased changelog。
 
     **关键点**
 
-    - Yes X Freeze @XFreeze Soo.
-    - Yes相关进展已由一手来源披露
+    - docs:reorder unreleased cha
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：Yes相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：docs:reorder unreleased changelog相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://x.com/elonmusk/status/2041763142137737577)
+    **来源**：[原文链接](https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md)
 
-??? info "2. @elonmusk 发布产品更新"
-    **摘要**：lol James Stephenson @ICannot_Enough The headline literally said:Sell $TSLA . Check the date. 8 years ago this month. Why? “The competition is coming.” 👀-h。
-
-    **关键点**
-
-    - lol James Stephenson @ICann
-    - “The competition is coming.”
-
-    **影响分析**：lol James Stephenson @ICannot_Enough The headline literally said:Sell $TSLA . Check the date. 8 years ago this month. Why。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2041761154419380444)
-
-??? info "3. @openclaw 发布 2026.4.8 版本更新"
-    **摘要**：A packaging issue slipped that affected extension loading-we updated the release verification script and bumped version to 2026.4.8 github.com/openclaw/opencl。
+??? info "2. @replit 发布重要更新"
+    **摘要**：Read part 5 of our 6-part PM series:blog.replit.com/vibe-coding-…。
 
     **关键点**
 
-    - A packaging issue slipped th
-    - bumped version to 2026.4.8 g
-    - R to @openclaw:A packaging
+    - Read part 5 of our 6-part PM
+    - R to @Replit:Read part 5 of
+    - dashboards相关进展已由一手来源披露
 
-    **影响分析**：A packaging issue slipped that affected extension loading-we updated the release verification script and bumped version to 2026.4.8 github。
+    **影响分析**：R to @Replit:Read part 5 of our 6-part PM series:https://blog.replit.com/vibe-coding-decks-and-dashboards相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://x.com/openclaw/status/2041759063428460762)
+    **来源**：[原文链接](https://x.com/Replit/status/2042012212852629506)
 
-??? info "4. @elonmusk 发布重要更新"
-    **摘要**：SpaceXAI Colossus 2 now has 7 models in training:-Imagine V2-2 variants of 1T-2 variants of 1.5T-6T-10T Some catching up to do.。
-
-    **关键点**
-
-    - SpaceXAI Colossus 2 now has
-    - @elonmusk 发布重要更新
-
-    **影响分析**：SpaceXAI Colossus 2 now has 7 models in training:-Imagine V2-2 variants of 1T-2 variants of 1.5T-6T-10T Some catching up to do.相关进。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2041754402239975479)
-
-??? info "5. @elonmusk 发布重要更新"
-    **摘要**：Funny pricing indeed Marc Andreessen 🇺🇸 @pmarca The pricing tiers for AGI are something like 1 $20/month,2 $200/day = ~$75,000/year,3 $1,000/day = ~$3。
+??? info "3. @replit 发布重要更新"
+    **摘要**：PMs spend an incredible amount of time launching a feature vs building. Building ends when the feature works. Launching ends when everyone else understands it.。
 
     **关键点**
 
-    - Funny pricing indeed Marc An
-    - $200/day = ~$75
-    - /year
+    - PMs spend an incredible amou
+    - @replit 发布重要更新
 
-    **影响分析**：Funny pricing indeed Marc Andreessen 🇺🇸 @pmarca The pricing tiers for AGI are something like 1 $20/month,2 $200/day = ~$75,000/year。
+    **影响分析**：PMs spend an incredible amount of time launching a feature vs building. Building ends when the feature works. Launching ends when everyone e。
 
-    **来源**：[原文链接](https://x.com/elonmusk/status/2041753450170741214)
+    **来源**：[原文链接](https://x.com/Replit/status/2042012211988533502)
 
-??? info "6. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.04953v1 Announce Type:new Abstract:The domain of automatic video trailer generation is currently undergoing a profound paradigm shift,transitionin。
-
-    **关键点**
-
-    - arXiv:2604.04953v1 Announce
-    - transitioning from heuristic
-    - visual saliency
-
-    **影响分析**：arXiv:2604.04953v1 Announce Type:new Abstract:The domain of automatic video trailer generation is currently undergoing a profound paradigm。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2604.04953)
-
-??? info "7. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.04972v1 Announce Type:new Abstract:Large Vision-Language Models LVLMs suffer from prohibitive inference costs due to the massive number of visual。
+??? info "4. openclaw/openclaw 发布产品更新"
+    **摘要**：fixdeps:patch basic-ftp advisory。
 
     **关键点**
 
-    - arXiv:2604.04972v1 Announce
-    - we propose Representation Co
-    - which we refer to as RCP
+    - fixdeps:patch basic-ftp a
+    - 预计将影响后续产品与行业节奏
 
-    **影响分析**：arXiv:2604.04972v1 Announce Type:new Abstract:Large Vision-Language Models LVLMs suffer from prohibitive inference costs due to the mass。
+    **影响分析**：fixdeps:patch basic-ftp advisory相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.04972)
+    **来源**：[原文链接](https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md)
 
-??? info "8. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.05015v1 Announce Type:new Abstract:With the rapid advancement of video understanding,existing benchmarks are becoming increasingly saturated,expo。
-
-    **关键点**
-
-    - arXiv:2604.05015v1 Announce
-    - existing benchmarks are beco
-    - exposing a critical discrepa
-
-    **影响分析**：arXiv:2604.05015v1 Announce Type:new Abstract:With the rapid advancement of video understanding,existing benchmarks are becoming increasi。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2604.05015)
-
-??? info "9. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.05039v1 Announce Type:new Abstract:Humans have remarkable selective sensitivity to identities-easily distinguishing between highly similar ident。
+??? info "5. Memory/dreaming:harden grounded backfill follow-u"
+    **摘要**：Memory/dreaming:harden grounded backfill follow-ups。
 
     **关键点**
 
-    - arXiv:2604.05039v1 Announce
-    - even across significantly di
-    - progress toward identity-foc
+    - Memory/dreaming:harden grou
+    - 预计将影响后续产品与行业节奏
 
-    **影响分析**：arXiv:2604.05039v1 Announce Type:new Abstract:Humans have remarkable selective sensitivity to identities-easily distinguishing between。
+    **影响分析**：Memory/dreaming:harden grounded backfill follow-ups相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.05039)
+    **来源**：[原文链接](https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md)
 
-??? info "10. @openclaw 发布重要更新"
-    **摘要**：memory-wiki turns OpenClaw memory into a real knowledge layer.-structured claims + evidence-contradiction + freshness tracking-compiled digests for agents。
-
-    **关键点**
-
-    - memory-wiki turns OpenClaw m
-    - R to @openclaw:memory-wiki
-
-    **影响分析**：memory-wiki turns OpenClaw memory into a real knowledge layer.-structured claims + evidence-contradiction + freshness tracking-compile。
-
-    **来源**：[原文链接](https://x.com/openclaw/status/2041714276272931286)
-
-??? info "11. @openclaw 发布重要更新"
-    **摘要**：🔗webhook-driven TaskFlow:authenticated webhook ingress；external systems create/drive bound TaskFlows over per-route shared-secret endpoints. docs.openclaw.ai/。
+??? info "6. openclaw/openclaw 发布产品更新"
+    **摘要**：docs:update unreleased changelog。
 
     **关键点**
 
-    - 🔗webhook-driven TaskFlow:au
-    - external systems create/driv
-    - R to @openclaw:🔗webhook-dri
+    - docs:update unreleased chan
+    - 预计将影响后续产品与行业节奏
 
-    **影响分析**：🔗webhook-driven TaskFlow:authenticated webhook ingress。
+    **影响分析**：docs:update unreleased changelog相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://x.com/openclaw/status/2041714274221863147)
+    **来源**：[原文链接](https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md)
 
-??? info "12. @openclaw 发布重要更新"
-    **摘要**：🔮openclaw infer:headless inference hub；one CLI surface for model,image,audio,TTS,video,web,embeddings. docs.openclaw.ai/cli/infer。
+??? info "7. @notionhq 发布重要更新"
+    **摘要**：Introducing @claudeai agents in Notion. Your task board is Claude’s to-do list. @AnthropicAI runs the model and the agent harness. Notion is the orchestration l。
 
     **关键点**
 
-    - 🔮openclaw infer:headless in
-    - one CLI surface for model
-    - image
+    - Introducing @claudeai agents
+    - the agent harness. Notion is
+    - a shared place for teams to
 
-    **影响分析**：🔮openclaw infer:headless inference hub。
+    **影响分析**：Introducing @claudeai agents in Notion. Your task board is Claude’s to-do list. @AnthropicAI runs the model and the agent harness. Notion is。
 
-    **来源**：[原文链接](https://x.com/openclaw/status/2041714272393162982)
+    **来源**：[原文链接](https://x.com/NotionHQ/status/2041982872698155398)
+
+??? info "8. @nvidia 发布重要更新"
+    **摘要**：For Thomas Chen,solving problems is what makes engineering exciting. He helps take NVIDIA’s servers from design to real-world use in data centers smoothly and。
+
+    **关键点**
+
+    - For Thomas Chen
+    - solving problems is what mak
+    - reliably. Visit the link in
+
+    **影响分析**：For Thomas Chen,solving problems is what makes engineering exciting. He helps take NVIDIA’s servers from design to real-world use in data c。
+
+    **来源**：[原文链接](https://x.com/nvidia/status/2041971396163551289)
+
+??? info "9. @lumalabsai 发布重要更新"
+    **摘要**：The path from product to campaign just got faster. Drop in reference images. Describe the shot. Get campaign-ready product photography,immediately. Try it toda。
+
+    **关键点**
+
+    - The path from product to cam
+    - immediately. Try it today →
+    - seed=9ee51e… Video
+
+    **影响分析**：The path from product to campaign just got faster. Drop in reference images. Describe the shot. Get campaign-ready product photography,imme。
+
+    **来源**：[原文链接](https://x.com/LumaLabsAI/status/2041943877951639769)
+
+??? info "10. @notionhq 发布重要更新"
+    **摘要**：Currently in private alpha,join the waitlist:notion.pages.dev.notion.co/d…。
+
+    **关键点**
+
+    - Currently in private alpha
+    - join the waitlist:notion.pa
+    - R to @claudeai:Currently in
+
+    **影响分析**：R to @claudeai:Currently in private alpha,join the waitlist:https://notion.pages.dev.notion.co/dbf98aa0df714719985bc6b687c7c45a相关进展已由一手来源。
+
+    **来源**：[原文链接](https://x.com/NotionHQ/status/2041943463428829594)
+
+??? info "11. @runwayml 发布重要更新"
+    **摘要**：Custom voices are now available for Runway Characters. Design new voices from text prompts and start building Characters that sound exactly like you want them t。
+
+    **关键点**
+
+    - Custom voices are now availa
+    - start building Characters th
+
+    **影响分析**：Custom voices are now available for Runway Characters. Design new voices from text prompts and start building Characters that sound exactly。
+
+    **来源**：[原文链接](https://x.com/runwayml/status/2041940020861223079)
+
+??? info "12. @nvidia 发布重要更新"
+    **摘要**：Open-source software never stops. It only accelerates. Dynamo,@sgl_project,TensorRT LLM,and @vllm_project are constantly optimized by a vast ecosystem of de。
+
+    **关键点**
+
+    - Open-source software never s
+    - @sgl_project
+    - TensorRT LLM
+
+    **影响分析**：Open-source software never stops. It only accelerates. Dynamo,@sgl_project,TensorRT LLM,and @vllm_project are constantly optimized by a。
+
+    **来源**：[原文链接](https://x.com/nvidia/status/2041932953698075086)
 
 ??? info "13. @minimax_ai 发布重要更新"
-    **摘要**：Proud to power @NousResearch s Hermes Agent with MiniMax M2.7,and excited for what were building together. Try MiniMax M2.7 in Hermes Agent today → portal.no。
+    **摘要**：Wrapped our Featured Talk at #HumanX2026 . 🎙️ Linda Sheng,our President of Global Business,sat down with @EricNewcomer and shared how MiniMax builds general i。
 
     **关键点**
 
-    - Proud to power @NousResearch
-    - MiniMax M2.7
-    - excited for what were build
+    - Wrapped our Featured Talk at
+    - our President of Global Busi
+    - sat down
 
-    **影响分析**：Proud to power @NousResearch s Hermes Agent with MiniMax M2.7,and excited for what were building together. Try MiniMax M2.7 in Hermes Age。
+    **影响分析**：Wrapped our Featured Talk at #HumanX2026 . 🎙️ Linda Sheng,our President of Global Business,sat down with @EricNewcomer and shared how Mini。
 
-    **来源**：[原文链接](https://x.com/MiniMax_AI/status/2041707145553694907)
+    **来源**：[原文链接](https://x.com/MiniMax_AI/status/2041932849658655034)
 
-??? info "14. @demishassabis 发布重要更新"
-    **摘要**：Thanks for the great conversation @cleoabram and some competitive Jenga! Really enjoyed talking about all the amazing ways AI is helping to advance science &a。
-
-    **关键点**
-
-    - Thanks for the great convers
-    - some competitive Jenga
-    - Really enjoyed talking about
-
-    **影响分析**：Thanks for the great conversation @cleoabram and some competitive Jenga。
-
-    **来源**：[原文链接](https://x.com/demishassabis/status/2041681474580021536)
-
-??? info "15. @replit 发布重要更新"
-    **摘要**：To use,just ask the Agent to use the stock analyzer skill,or click the + button from the input box after logging in and select the stock analyzer skill。
+??? info "14. @pika_labs 发布重要更新"
+    **摘要**：Pick up! It’s your AI Self calling 🤳 All Pika AI Self agents can now talk on the phone. For when it’s just too difficult to explain,your thumbs are tired,or y。
 
     **关键点**
 
-    - To use
-    - just ask the Agent to use th
-    - or click the + button from t
+    - Pick up
+    - It’s your AI Self calling 🤳
+    - your thumbs are tired
 
-    **影响分析**：R to @Replit:To use,just ask the Agent to use the stock analyzer skill,or click the + button from the input box after logging in and sele。
+    **影响分析**：It’s your AI Self calling 🤳 All Pika AI Self agents can now talk on the phone. For when it’s just too difficult to explain,your thumbs are。
 
-    **来源**：[原文链接](https://x.com/Replit/status/2041667381865673159)
+    **来源**：[原文链接](https://x.com/pika_labs/status/2041930729526063147)
 
-??? info "16. @replit 发布重要更新"
-    **摘要**：Not investment advice,for informational purposes only。
-
-    **关键点**
-
-    - Not investment advice
-    - for informational purposes o
-    - R to @Replit:Not investment
-
-    **影响分析**：R to @Replit:Not investment advice,for informational purposes only相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://x.com/Replit/status/2041667380729016350)
-
-??? info "17. @replit 发布重要更新"
-    **摘要**：Find your next 10x investment with AI 💰 Samuel Spitz @samuel_spitz Introducing Replit Stock Analyst Research an investment in minutes with AI Get a valuation。
+??? info "15. @notionhq 发布重要更新"
+    **摘要**：Before,you had two ways to use @claudeai with Notion:1. Custom Agents Notion runs the harness 2. Claude + MCP Claude runs the harness Now there’s a third。
 
     **关键点**
 
-    - Find your next 10x investmen
-    - AI 💰 Samuel Spitz @samuel_s
-    - AI Get a valuation model
+    - Before
+    - you had two ways to use @cla
+    - Notion:1. Custom Agents No
 
-    **影响分析**：Find your next 10x investment with AI 💰 Samuel Spitz @samuel_spitz Introducing Replit Stock Analyst Research an investment in minutes with。
+    **影响分析**：Before,you had two ways to use @claudeai with Notion:1. Custom Agents Notion runs the harness 2. Claude + MCP Claude runs the harness。
 
-    **来源**：[原文链接](https://x.com/Replit/status/2041667379185512558)
+    **来源**：[原文链接](https://x.com/NotionHQ/status/2041929576369287352)
 
-??? info "18. @sama 发布重要更新"
-    **摘要**：To celebrate 3 million weekly codex users,we are resetting usage limits. We will do this every million users up to 10 million. Happy building!
-
-    **关键点**
-
-    - To celebrate 3 million weekl
-    - we are resetting usage limit
-
-    **影响分析**：To celebrate 3 million weekly codex users,we are resetting usage limits. We will do this every million users up to 10 million. Happy buildi。
-
-    **来源**：[原文链接](https://x.com/sama/status/2041658719839383945)
-
-??? info "19. @replit 发布重要更新"
-    **摘要**：Week 3 ends tomorrow night. $5K up for grabs. Don’t miss your chance. Replit ⠕ @Replit $20,000 up for grabs. 4 weeks. 4 winners. We’re launching the Agent 4 C。
+??? info "16. @perplexity_ai 发布重要更新"
+    **摘要**：The top 10 teams will present their working business live on June 9. Register:perplexity.ai/computer/a/the…。
 
     **关键点**
 
-    - Week 3 ends tomorrow night.
-    - up for grabs. 4 weeks. 4 win
+    - The top 10 teams will presen
+    - R to @perplexity_ai:The top
 
-    **影响分析**：Week 3 ends tomorrow night. $5K up for grabs. Don’t miss your chance. Replit ⠕ @Replit $20,000 up for grabs. 4 weeks. 4 winners. We’re lau。
+    **影响分析**：R to @perplexity_ai:The top 10 teams will present their working business live on June 9. Register:https://www.perplexity.ai/computer/a/the。
 
-    **来源**：[原文链接](https://x.com/Replit/status/2041645334284353933)
+    **来源**：[原文链接](https://x.com/perplexity_ai/status/2041929235116519485)
 
-??? info "20. @nvidia 发布重要更新"
-    **摘要**：x.com/i/article/204159873065…。
+??? info "17. @perplexity_ai 发布重要更新"
+    **摘要**：Today were announcing the Billion Dollar Build. An 8-week competition where teams will use Perplexity Computer to build a company with a path to $1B. Finalists。
 
     **关键点**
 
-    - x.com/i/article/204159873065
-    - Pinned:x.com/i/article/2041
-    - 预计将影响后续产品与行业节奏
+    - Today were announcing the B
+    - a path to $1B. Finalists hav
+    - up to $1M in Computer credit
 
-    **影响分析**：Pinned:x.com/i/article/204159873065…相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：Today were announcing the Billion Dollar Build. An 8-week competition where teams will use Perplexity Computer to build a company with a pa。
 
-    **来源**：[原文链接](https://x.com/nvidia/status/2041632341530177648)
+    **来源**：[原文链接](https://x.com/perplexity_ai/status/2041929222135173466)
+
+??? info "18. @anthropicai 发布重要更新"
+    **摘要**：New on the Engineering Blog:Building Managed Agents-our hosted service for long-running agents-meant solving an old problem in computing:how to design a syste。
+
+    **关键点**
+
+    - New on the Engineering Blog
+    - @anthropicai 发布重要更新
+
+    **影响分析**：New on the Engineering Blog:Building Managed Agents-our hosted service for long-running agents-meant solving an old problem in computing:h。
+
+    **来源**：[原文链接](https://x.com/AnthropicAI/status/2041929199976640948)
+
+??? info "19. @demishassabis 发布重要更新"
+    **摘要**：Great to chat with fellow Londoner @HarryStebbings about the path to AGI and how we’re using AI today to accelerate science &amp；medicine. Appreciated our disc。
+
+    **关键点**
+
+    - Great to chat
+    - fellow Londoner @HarryStebbi
+    - how we’re using AI today to
+
+    **影响分析**：Great to chat with fellow Londoner @HarryStebbings about the path to AGI and how we’re using AI today to accelerate science &amp。
+
+    **来源**：[原文链接](https://x.com/demishassabis/status/2041928454887686305)
+
+??? info "20. openai.com 发布重要更新"
+    **摘要**：OpenAI outlines the next phase of enterprise AI,as adoption accelerates across industries with Frontier,ChatGPT Enterprise,Codex,and company-wide AI agents.。
+
+    **关键点**
+
+    - OpenAI outlines the next pha
+    - as adoption accelerates acro
+    - Frontier
+
+    **影响分析**：The next phase of enterprise AI相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://openai.com/index/next-phase-of-enterprise-ai)
 
 ---
 
 ## 历史归档
 
+- [2026-04-09_08-02-31](history/2026-04-09_08-02-31.md)
 - [2026-04-08_20-11-09](history/2026-04-08_20-11-09.md)
 - [2026-04-08_18-38-44](history/2026-04-08_18-38-44.md)
 - [2026-04-08_16-43-09](history/2026-04-08_16-43-09.md)
@@ -410,4 +409,3 @@
 - [2026-03-22_17-59-33](history/2026-03-22_17-59-33.md)
 - [2026-03-22_16-01-39](history/2026-03-22_16-01-39.md)
 - [2026-03-22_14-18-56](history/2026-03-22_14-18-56.md)
-- [2026-03-22_12-06-21](history/2026-03-22_12-06-21.md)
