@@ -1,143 +1,133 @@
 # 今日快讯
 
-> 更新时间：2026年04月09日12:10:20
+> 更新时间：2026年04月09日13:31:38
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. @elonmusk 发布重要更新：Not someone you want in charge of superpow。
-2. arxiv.org 发布 99.999 版本更新：arXiv:2604.06171v1 Announce Type:new Abstr。
-3. arxiv.org 发布 0.510 版本更新：arXiv:2604.06193v1 Announce Type:new Abstr。
-4. arxiv.org 发布 3.5 版本更新：arXiv:2604.06195v1 Announce Type:new Abstr。
-5. arxiv.org 发布重要更新：arXiv:2604.06196v1 Announce Type:new Abstr。
+1. openclaw/openclaw 发布产品更新：fixbrowser:auto-generate browser control a。
+2. openclaw/openclaw 发布产品更新：fixexec:replace TOCTOU check-then-read wit。
+3. arxiv.org 发布重要更新：arXiv:2604.06233v1 Announce Type:new Abstr。
+4. arxiv.org 发布重要更新：arXiv:2604.06251v1 Announce Type:new Abstr。
+5. arxiv.org 发布重要更新：arXiv:2604.06277v1 Announce Type:new Abstr。
 
 ## 分类速览
 
-=== "🤖 模型进展（2）"
-    - **17. @notionhq 发布重要更新**：Introducing @claudeai agents in Notion. Your ta…
-    - **20. @notionhq 发布重要更新**：R to @claudeai:Currently in private alpha,join…
+=== "🤖 模型进展（3）"
+    - **14. @notionhq 发布重要更新**：Introducing @claudeai agents in Notion. Your ta…
+    - **17. @notionhq 发布重要更新**：R to @claudeai:Currently in private alpha,join…
+    - **19. @nvidia 发布重要更新**：Open-source software never stops. It only accel…
 
 === "🧪 论文研究（4）"
-    - **2. arxiv.org 发布 99.999 版本更新**：arXiv:2604.06171v1 Announce Type:new Abstract:C…
-    - **3. arxiv.org 发布 0.510 版本更新**：arXiv:2604.06193v1 Announce Type:new Abstract:D…
-    - **4. arxiv.org 发布 3.5 版本更新**：arXiv:2604.06195v1 Announce Type:new Abstract:L…
-    - **5. arxiv.org 发布重要更新**：arXiv:2604.06196v1 Announce Type:new Abstract:T…
+    - **3. arxiv.org 发布重要更新**：arXiv:2604.06233v1 Announce Type:new Abstract:S…
+    - **4. arxiv.org 发布重要更新**：arXiv:2604.06251v1 Announce Type:new Abstract:T…
+    - **5. arxiv.org 发布重要更新**：arXiv:2604.06277v1 Announce Type:new Abstract:E…
+    - **6. arxiv.org 发布重要更新**：arXiv:2604.06375v1 Announce Type:new Abstract:A…
 
-=== "🏢 产品与行业（14）"
-    - **1. @elonmusk 发布重要更新**：Not someone you want in charge of superpowerful…
-    - **6. @elonmusk 发布重要更新**：This is messed up C3 @C_3C_3 DeCarlos Brown arr…
-    - **7. @elonmusk 发布重要更新**：Tesla puts a lot of effort into ensuring that o…
-    - **8. @elonmusk 发布重要更新**：Exactly Dave Hawkins @DaveHawkinsX Every time I…
-    - **9. openclaw/openclaw 发布产品更新**：fix:allow disabled plugin config writes #63296…
-    - **10. @minimax_ai 发布重要更新**：Day 3 at #HumanX2026 . What a week
-    - **11. openclaw/openclaw 发布产品更新**：fixwhatsapp:preserve replies across reconnects…
-    - **12. @openclaw 发布 2026.4.9 版本更新**：OpenClaw 2026.4.9 🦞 🧠 Dreaming:REM backfill + d…
+=== "🏢 产品与行业（13）"
+    - **1. openclaw/openclaw 发布产品更新**：fixbrowser:auto-generate browser control auth t…
+    - **2. openclaw/openclaw 发布产品更新**：fixexec:replace TOCTOU check-then-read with ato…
+    - **7. @minimaxagent 发布重要更新**：MiniMax mobile app redesign is live. 🪄 Cleaner…
+    - **8. openclaw/openclaw 发布产品更新**：fix:allow disabled plugin config writes #63296…
+    - **9. @minimax_ai 发布重要更新**：Day 3 at #HumanX2026 . What a week
+    - **10. openclaw/openclaw 发布产品更新**：fixwhatsapp:preserve replies across reconnects…
+    - **11. @openclaw 发布 2026.4.9 版本更新**：OpenClaw 2026.4.9 🦞 🧠 Dreaming:REM backfill + d…
+    - **12. @replit 发布重要更新**：R to @Replit:Read part 5 of our 6-part PM serie…
 
 ## 全部快讯
 
-??? info "1. @elonmusk 发布重要更新"
-    **摘要**：Not someone you want in charge of superpowerful AI Video。
+??? info "1. openclaw/openclaw 发布产品更新"
+    **摘要**：fixbrowser:auto-generate browser control auth token for none/trusted-proxy modes AI #63280 * fix:address issue * fix:address review feedback * fix:fin。
 
     **关键点**
 
-    - Not someone you want in char
-    - 预计将影响后续产品与行业节奏
+    - fixbrowser:auto-generate
+    - fixbrowser:auto-generate bro
+    - openclaw/openclaw 发布产品更新
 
-    **影响分析**：Not someone you want in charge of superpowerful AI相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：fixbrowser:auto-generate browser control auth token for none/trusted-proxy modes AI #63280 * fix:address issue * fix:address review。
 
-    **来源**：[原文链接](https://x.com/elonmusk/status/2042090236206063966)
+    **来源**：[原文链接](https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md)
 
-??? info "2. arxiv.org 发布 99.999 版本更新"
-    **摘要**：arXiv:2604.06171v1 Announce Type:new Abstract:Communications networks now form the backbone of our digital world,with fast and reliable connectivity. However。
-
-    **关键点**
-
-    - arXiv:2604.06171v1 Announce
-    - fast
-    - reliable connectivity. Howev
-
-    **影响分析**：arXiv:2604.06171v1 Announce Type:new Abstract:Communications networks now form the backbone of our digital world,with fast and reliable c。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2604.06171)
-
-??? info "3. arxiv.org 发布 0.510 版本更新"
-    **摘要**：arXiv:2604.06193v1 Announce Type:new Abstract:Depression is underdiagnosed in primary care,yet timely identification remains critical. Recorded clinical enco。
+??? info "2. openclaw/openclaw 发布产品更新"
+    **摘要**：fixexec:replace TOCTOU check-then-read with atomic pinned-fd open in script preflight AI #62333 * fix:address issue * fix:address review feedback * fix。
 
     **关键点**
 
-    - arXiv:2604.06193v1 Announce
-    - yet timely identification re
-    - increasingly common
+    - fixexec:replace TOCTOU ch
+    - atomic pinned-fd open in scr
+    - atomic pinned-fd open …
 
-    **影响分析**：arXiv:2604.06193v1 Announce Type:new Abstract:Depression is underdiagnosed in primary care,yet timely identification remains critical. Re。
+    **影响分析**：fixexec:replace TOCTOU check-then-read with atomic pinned-fd open in script preflight AI #62333 * fix:address issue * fix:address r。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.06193)
+    **来源**：[原文链接](https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md)
 
-??? info "4. arxiv.org 发布 3.5 版本更新"
-    **摘要**：arXiv:2604.06195v1 Announce Type:new Abstract:Large language models often produce unsupported claims. We frame this as a misclassification error at the output。
+??? info "3. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2604.06233v1 Announce Type:new Abstract:Safety-trained language models routinely refuse requests for help circumventing rules. But not all rules deserve。
 
     **关键点**
 
-    - arXiv:2604.06195v1 Announce
-    - where internally generated c
-    - a structural abstention gate
+    - arXiv:2604.06233v1 Announce
+    - rules that are deeply unjust
+    - or rules that admit of justi
 
-    **影响分析**：arXiv:2604.06195v1 Announce Type:new Abstract:Large language models often produce unsupported claims. We frame this as a misclassification。
+    **影响分析**：arXiv:2604.06233v1 Announce Type:new Abstract:Safety-trained language models routinely refuse requests for help circumventing rules. But n。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.06195)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.06233)
+
+??? info "4. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2604.06251v1 Announce Type:new Abstract:This article presents the results of a data science study conducted at a container terminal,aimed at reducing u。
+
+    **关键点**
+
+    - arXiv:2604.06251v1 Announce
+    - aimed at reducing unproducti
+    - container dwell times. We de
+
+    **影响分析**：arXiv:2604.06251v1 Announce Type:new Abstract:This article presents the results of a data science study conducted at a container terminal。
+
+    **来源**：[原文链接](https://arxiv.org/abs/2604.06251)
 
 ??? info "5. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.06196v1 Announce Type:new Abstract:Three-way logical question answering QA assigns $True/False/Unknown$ to a hypothesis $H$ given a premise set $。
+    **摘要**：arXiv:2604.06277v1 Announce Type:new Abstract:Existing hallucination detection methods for large language models LLMs rely on external verification at infer。
 
     **关键点**
 
-    - arXiv:2604.06196v1 Announce
-    - we identify two recurring fa
-    - where answers to $H$
+    - arXiv:2604.06277v1 Announce
+    - requiring gold answers
+    - retrieval systems
 
-    **影响分析**：arXiv:2604.06196v1 Announce Type:new Abstract:Three-way logical question answering QA assigns $True/False/Unknown$ to a hypothesis $H$ g。
+    **影响分析**：arXiv:2604.06277v1 Announce Type:new Abstract:Existing hallucination detection methods for large language models LLMs rely on external v。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.06196)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.06277)
 
-??? info "6. @elonmusk 发布重要更新"
-    **摘要**：This is messed up C3 @C_3C_3 DeCarlos Brown arrests… 1. Capable 2. Capable 3. Capable 4. Capable 5. Capable 6. Capable 7. Capable 8. Capable 9. Capable 10. Ca。
-
-    **关键点**
-
-    - This is messed up C3 @C_3C_
-    - This is messed up
-
-    **影响分析**：This is messed up C3 @C_3C_3 DeCarlos Brown arrests… 1. Capable 2. Capable 3. Capable 4. Capable 5. Capable 6. Capable 7. Capable 8. Capab。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2042089424625004947)
-
-??? info "7. @elonmusk 发布重要更新"
-    **摘要**：Tesla puts a lot of effort into ensuring that our cars don’t run over animals Sawyer Merritt @SawyerMerritt More than 350 million vertebrate animals are kille。
+??? info "6. arxiv.org 发布重要更新"
+    **摘要**：arXiv:2604.06375v1 Announce Type:new Abstract:AI-driven symptom analysis systems face persistent challenges in reliability,interpretability,and hallucinatio。
 
     **关键点**
 
-    - Tesla puts a lot of effort i
-    - autonomous vehicles are much
-    - often saving their lives:Vi
+    - arXiv:2604.06375v1 Announce
+    - interpretability
+    - hallucination. End-to-end ge
 
-    **影响分析**：Tesla puts a lot of effort into ensuring that our cars don’t run over animals Sawyer Merritt @SawyerMerritt More than 350 million vertebra。
+    **影响分析**：arXiv:2604.06375v1 Announce Type:new Abstract:AI-driven symptom analysis systems face persistent challenges in reliability,interpretabili。
 
-    **来源**：[原文链接](https://x.com/elonmusk/status/2042087991347446070)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.06375)
 
-??? info "8. @elonmusk 发布重要更新"
-    **摘要**：Exactly Dave Hawkins @DaveHawkinsX Every time I listen to Bernie Sanders,I think of the pie. He is worried about slicing the pie and distributing the crumbs。
+??? info "7. @minimaxagent 发布重要更新"
+    **摘要**：MiniMax mobile app redesign is live. 🪄 Cleaner reading experience,with light and dark mode support. Download today on the App Store or Google Play. Feedback we。
 
     **关键点**
 
-    - Exactly Dave Hawkins @DaveH
-    - I think of the pie. He is wo
-    - distributing the crumbs to e
+    - MiniMax mobile app redesign
+    - light
+    - dark mode support. Download
 
-    **影响分析**：Exactly Dave Hawkins @DaveHawkinsX Every time I listen to Bernie Sanders,I think of the pie. He is worried about slicing the pie and dist。
+    **影响分析**：MiniMax mobile app redesign is live. 🪄 Cleaner reading experience,with light and dark mode support. Download today on the App Store or Goog。
 
-    **来源**：[原文链接](https://x.com/elonmusk/status/2042087642800779569)
+    **来源**：[原文链接](https://x.com/MiniMaxAgent/status/2042084335680106702)
 
-??? info "9. openclaw/openclaw 发布产品更新"
+??? info "8. openclaw/openclaw 发布产品更新"
     **摘要**：fix:allow disabled plugin config writes #63296 thanks @fuller-stack-dev * fixconfig:ignore synthesized disabled plugin config on write * testconfig:k。
 
     **关键点**
@@ -149,7 +139,7 @@
 
     **来源**：[原文链接](https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md)
 
-??? info "10. @minimax_ai 发布重要更新"
+??? info "9. @minimax_ai 发布重要更新"
     **摘要**：Day 3 at #HumanX2026 . What a week! 🎉 Its been amazing meeting so many of you. From live demos to great conversations about the future of AI,the energy has be。
 
     **关键点**
@@ -162,7 +152,7 @@
 
     **来源**：[原文链接](https://x.com/MiniMax_AI/status/2042080171088638063)
 
-??? info "11. openclaw/openclaw 发布产品更新"
+??? info "10. openclaw/openclaw 发布产品更新"
     **摘要**：fixwhatsapp:preserve replies across reconnects #62892。
 
     **关键点**
@@ -174,7 +164,7 @@
 
     **来源**：[原文链接](https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md)
 
-??? info "12. @openclaw 发布 2026.4.9 版本更新"
+??? info "11. @openclaw 发布 2026.4.9 版本更新"
     **摘要**：OpenClaw 2026.4.9 🦞 🧠 Dreaming:REM backfill + diary timeline UI 🔐 SSRF + node exec injection hardening 🔬 Character-vibes QA evals 📱 Android pairing overhaul yo。
 
     **关键点**
@@ -186,43 +176,7 @@
 
     **来源**：[原文链接](https://x.com/openclaw/status/2042072722902077938)
 
-??? info "13. openclaw/openclaw 发布 2026.4.9 版本更新"
-    **摘要**：chore:prepare 2026.4.9 stable release。
-
-    **关键点**
-
-    - chore:prepare 2026.4.9 stab
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：chore:prepare 2026.4.9 stable release相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md)
-
-??? info "14. openclaw/openclaw 发布 2026.4.9 版本更新"
-    **摘要**：chore:prepare 2026.4.9-beta.1 release。
-
-    **关键点**
-
-    - chore:prepare 2026.4.9-beta
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：chore:prepare 2026.4.9-beta.1 release相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md)
-
-??? info "15. @replit 发布重要更新"
-    **摘要**：PMs spend an incredible amount of time launching a feature vs building. Building ends when the feature works. Launching ends when everyone else understands it.。
-
-    **关键点**
-
-    - PMs spend an incredible amou
-    - @replit 发布重要更新
-
-    **影响分析**：PMs spend an incredible amount of time launching a feature vs building. Building ends when the feature works. Launching ends when everyone e。
-
-    **来源**：[原文链接](https://x.com/Replit/status/2042012211988533502)
-
-??? info "16. @replit 发布重要更新"
+??? info "12. @replit 发布重要更新"
     **摘要**：Read part 5 of our 6-part PM series:blog.replit.com/vibe-coding-…。
 
     **关键点**
@@ -235,7 +189,19 @@
 
     **来源**：[原文链接](https://x.com/Replit/status/2042012212852629506)
 
-??? info "17. @notionhq 发布重要更新"
+??? info "13. @replit 发布重要更新"
+    **摘要**：PMs spend an incredible amount of time launching a feature vs building. Building ends when the feature works. Launching ends when everyone else understands it.。
+
+    **关键点**
+
+    - PMs spend an incredible amou
+    - @replit 发布重要更新
+
+    **影响分析**：PMs spend an incredible amount of time launching a feature vs building. Building ends when the feature works. Launching ends when everyone e。
+
+    **来源**：[原文链接](https://x.com/Replit/status/2042012211988533502)
+
+??? info "14. @notionhq 发布重要更新"
     **摘要**：Introducing @claudeai agents in Notion. Your task board is Claude’s to-do list. @AnthropicAI runs the model and the agent harness. Notion is the orchestration l。
 
     **关键点**
@@ -248,7 +214,7 @@
 
     **来源**：[原文链接](https://x.com/NotionHQ/status/2041982872698155398)
 
-??? info "18. @nvidia 发布重要更新"
+??? info "15. @nvidia 发布重要更新"
     **摘要**：For Thomas Chen,solving problems is what makes engineering exciting. He helps take NVIDIA’s servers from design to real-world use in data centers smoothly and。
 
     **关键点**
@@ -261,7 +227,7 @@
 
     **来源**：[原文链接](https://x.com/nvidia/status/2041971396163551289)
 
-??? info "19. @lumalabsai 发布重要更新"
+??? info "16. @lumalabsai 发布重要更新"
     **摘要**：The path from product to campaign just got faster. Drop in reference images. Describe the shot. Get campaign-ready product photography,immediately. Try it toda。
 
     **关键点**
@@ -274,7 +240,7 @@
 
     **来源**：[原文链接](https://x.com/LumaLabsAI/status/2041943877951639769)
 
-??? info "20. @notionhq 发布重要更新"
+??? info "17. @notionhq 发布重要更新"
     **摘要**：Currently in private alpha,join the waitlist:notion.pages.dev.notion.co/d…。
 
     **关键点**
@@ -286,3 +252,41 @@
     **影响分析**：R to @claudeai:Currently in private alpha,join the waitlist:https://notion.pages.dev.notion.co/dbf98aa0df714719985bc6b687c7c45a相关进展已由一手来源。
 
     **来源**：[原文链接](https://x.com/NotionHQ/status/2041943463428829594)
+
+??? info "18. @runwayml 发布重要更新"
+    **摘要**：Custom voices are now available for Runway Characters. Design new voices from text prompts and start building Characters that sound exactly like you want them t。
+
+    **关键点**
+
+    - Custom voices are now availa
+    - start building Characters th
+
+    **影响分析**：Custom voices are now available for Runway Characters. Design new voices from text prompts and start building Characters that sound exactly。
+
+    **来源**：[原文链接](https://x.com/runwayml/status/2041940020861223079)
+
+??? info "19. @nvidia 发布重要更新"
+    **摘要**：Open-source software never stops. It only accelerates. Dynamo,@sgl_project,TensorRT LLM,and @vllm_project are constantly optimized by a vast ecosystem of de。
+
+    **关键点**
+
+    - Open-source software never s
+    - @sgl_project
+    - TensorRT LLM
+
+    **影响分析**：Open-source software never stops. It only accelerates. Dynamo,@sgl_project,TensorRT LLM,and @vllm_project are constantly optimized by a。
+
+    **来源**：[原文链接](https://x.com/nvidia/status/2041932953698075086)
+
+??? info "20. @minimax_ai 发布重要更新"
+    **摘要**：Wrapped our Featured Talk at #HumanX2026 . 🎙️ Linda Sheng,our President of Global Business,sat down with @EricNewcomer and shared how MiniMax builds general i。
+
+    **关键点**
+
+    - Wrapped our Featured Talk at
+    - our President of Global Busi
+    - sat down
+
+    **影响分析**：Wrapped our Featured Talk at #HumanX2026 . 🎙️ Linda Sheng,our President of Global Business,sat down with @EricNewcomer and shared how Mini。
+
+    **来源**：[原文链接](https://x.com/MiniMax_AI/status/2041932849658655034)
