@@ -1,13 +1,13 @@
-> 更新时间：2026年04月09日13:31:38
+> 更新时间：2026年04月09日15:00:45
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
 1. openclaw/openclaw 发布产品更新：fixbrowser:auto-generate browser control a。
 2. openclaw/openclaw 发布产品更新：fixexec:replace TOCTOU check-then-read wit。
-3. arxiv.org 发布重要更新：arXiv:2604.06233v1 Announce Type:new Abstr。
-4. arxiv.org 发布重要更新：arXiv:2604.06251v1 Announce Type:new Abstr。
-5. arxiv.org 发布重要更新：arXiv:2604.06277v1 Announce Type:new Abstr。
+3. arxiv.org 发布 40.1 版本更新：arXiv:2604.06253v1 Announce Type:new Abstr。
+4. arxiv.org 发布重要更新：arXiv:2604.06256v1 Announce Type:new Abstr。
+5. arxiv.org 发布重要更新：arXiv:2604.06260v1 Announce Type:new Abstr。
 
 ## 分类速览
 
@@ -17,10 +17,10 @@
     - **19. @nvidia 发布重要更新**：Open-source software never stops. It only accel…
 
 === "🧪 论文研究（4）"
-    - **3. arxiv.org 发布重要更新**：arXiv:2604.06233v1 Announce Type:new Abstract:S…
-    - **4. arxiv.org 发布重要更新**：arXiv:2604.06251v1 Announce Type:new Abstract:T…
-    - **5. arxiv.org 发布重要更新**：arXiv:2604.06277v1 Announce Type:new Abstract:E…
-    - **6. arxiv.org 发布重要更新**：arXiv:2604.06375v1 Announce Type:new Abstract:A…
+    - **3. arxiv.org 发布 40.1 版本更新**：arXiv:2604.06253v1 Announce Type:new Abstract:C…
+    - **4. arxiv.org 发布重要更新**：arXiv:2604.06256v1 Announce Type:new Abstract:T…
+    - **5. arxiv.org 发布重要更新**：arXiv:2604.06260v1 Announce Type:new Abstract:T…
+    - **6. arxiv.org 发布重要更新**：arXiv:2604.06265v1 Announce Type:new Abstract:Q…
 
 === "🏢 产品与行业（13）"
     - **1. openclaw/openclaw 发布产品更新**：fixbrowser:auto-generate browser control auth t…
@@ -60,57 +60,57 @@
 
     **来源**：[原文链接](https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md)
 
-??? info "3. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.06233v1 Announce Type:new Abstract:Safety-trained language models routinely refuse requests for help circumventing rules. But not all rules deserve。
+??? info "3. arxiv.org 发布 40.1 版本更新"
+    **摘要**：arXiv:2604.06253v1 Announce Type:new Abstract:Cross-lingual code generation is critical in enterprise environments where multiple programming languages coexis。
 
     **关键点**
 
-    - arXiv:2604.06233v1 Announce
-    - rules that are deeply unjust
-    - or rules that admit of justi
+    - arXiv:2604.06253v1 Announce
+    - fine-tuning large language m
+    - optimizer enhancements can i
 
-    **影响分析**：arXiv:2604.06233v1 Announce Type:new Abstract:Safety-trained language models routinely refuse requests for help circumventing rules. But n。
+    **影响分析**：arXiv:2604.06253v1 Announce Type:new Abstract:Cross-lingual code generation is critical in enterprise environments where multiple programm。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.06233)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.06253)
 
 ??? info "4. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.06251v1 Announce Type:new Abstract:This article presents the results of a data science study conducted at a container terminal,aimed at reducing u。
+    **摘要**：arXiv:2604.06256v1 Announce Type:new Abstract:Training dynamics during grokking concentrate along a small number of dominant update directions-the spectral。
 
     **关键点**
 
-    - arXiv:2604.06251v1 Announce
-    - aimed at reducing unproducti
-    - container dwell times. We de
+    - arXiv:2604.06256v1 Announce
+    - activation probing
+    - sparse autoencoders fail to
 
-    **影响分析**：arXiv:2604.06251v1 Announce Type:new Abstract:This article presents the results of a data science study conducted at a container terminal。
+    **影响分析**：arXiv:2604.06256v1 Announce Type:new Abstract:Training dynamics during grokking concentrate along a small number of dominant update direct。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.06251)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.06256)
 
 ??? info "5. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.06277v1 Announce Type:new Abstract:Existing hallucination detection methods for large language models LLMs rely on external verification at infer。
+    **摘要**：arXiv:2604.06260v1 Announce Type:new Abstract:Test-time scaling investigates whether a fixed diffusion language model DLM can generate better outputs when g。
 
     **关键点**
 
-    - arXiv:2604.06277v1 Announce
-    - requiring gold answers
-    - retrieval systems
+    - arXiv:2604.06260v1 Announce
+    - without additional training.
+    - naive best-of-$K$ sampling i
 
-    **影响分析**：arXiv:2604.06277v1 Announce Type:new Abstract:Existing hallucination detection methods for large language models LLMs rely on external v。
+    **影响分析**：arXiv:2604.06260v1 Announce Type:new Abstract:Test-time scaling investigates whether a fixed diffusion language model DLM can generate b。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.06277)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.06260)
 
 ??? info "6. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.06375v1 Announce Type:new Abstract:AI-driven symptom analysis systems face persistent challenges in reliability,interpretability,and hallucinatio。
+    **摘要**：arXiv:2604.06265v1 Announce Type:new Abstract:Quantum-inspired tensor networks algorithms have shown to be effective and efficient models for machine learning。
 
     **关键点**
 
-    - arXiv:2604.06375v1 Announce
-    - interpretability
-    - hallucination. End-to-end ge
+    - arXiv:2604.06265v1 Announce
+    - efficient models for machine
+    - including anomaly detection.
 
-    **影响分析**：arXiv:2604.06375v1 Announce Type:new Abstract:AI-driven symptom analysis systems face persistent challenges in reliability,interpretabili。
+    **影响分析**：arXiv:2604.06265v1 Announce Type:new Abstract:Quantum-inspired tensor networks algorithms have shown to be effective and efficient models。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.06375)
+    **来源**：[原文链接](https://arxiv.org/abs/2604.06265)
 
 ??? info "7. @minimaxagent 发布重要更新"
     **摘要**：MiniMax mobile app redesign is live. 🪄 Cleaner reading experience,with light and dark mode support. Download today on the App Store or Google Play. Feedback we。
@@ -293,6 +293,7 @@
 
 ## 历史归档
 
+- [2026-04-09_15-00-45](history/2026-04-09_15-00-45.md)
 - [2026-04-09_13-31-38](history/2026-04-09_13-31-38.md)
 - [2026-04-09_12-10-20](history/2026-04-09_12-10-20.md)
 - [2026-04-09_08-02-31](history/2026-04-09_08-02-31.md)
@@ -412,4 +413,3 @@
 - [2026-03-23_11-51-03](history/2026-03-23_11-51-03.md)
 - [2026-03-22_22-07-52](history/2026-03-22_22-07-52.md)
 - [2026-03-22_19-52-10](history/2026-03-22_19-52-10.md)
-- [2026-03-22_17-59-33](history/2026-03-22_17-59-33.md)
