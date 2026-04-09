@@ -1,40 +1,115 @@
-> 更新时间：2026年04月09日20:12:17
+> 更新时间：2026年04月09日23:10:01
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. openclaw/openclaw 发布产品更新：fix:provider-qualified session context lim。
-2. openclaw/openclaw 发布产品更新：fix:start tailscale exposure before sideca。
-3. openclaw/openclaw 发布产品更新：fix:allow CLI task cancel for stuck backgr。
-4. openclaw/openclaw 发布产品更新：fix:preserve iMessage self-chat aliases #6。
-5. @elonmusk 发布重要更新：Video。
+1. openclaw/openclaw 发布产品更新：fix:exclude workspace shadows from channel。
+2. @awscloud 发布重要更新：Over 20 years。
+3. @runwayml 发布重要更新：Learn more:aif.runwayml.com/。
+4. @runwayml 发布重要更新：The Runway AI Festival returns this June t。
+5. openclaw/openclaw 发布产品更新：fixqqbot:add stream config #63746。
 
 ## 分类速览
 
-=== "🤖 模型进展（3）"
-    - **6. @elonmusk 发布重要更新**：Grok will never go to therapy. Never.相关进展已由一手来源…
-    - **8. @elonmusk 发布重要更新**：Generated with @Grok Imagine相关进展已由一手来源披露，预计将影响后…
-    - **18. @notionhq 发布重要更新**：Introducing @claudeai agents in Notion. Your ta…
+=== "🤖 模型进展（2）"
+    - **9. @elonmusk 发布重要更新**：Grok will never go to therapy. Never.相关进展已由一手来源…
+    - **11. @elonmusk 发布重要更新**：Generated with @Grok Imagine相关进展已由一手来源披露，预计将影响后…
 
 === "🧪 论文研究（4）"
-    - **9. arxiv.org 发布重要更新**：arXiv:2604.06233v1 Announce Type:new Abstract:S…
-    - **10. arxiv.org 发布重要更新**：arXiv:2604.06251v1 Announce Type:new Abstract:T…
-    - **11. arxiv.org 发布重要更新**：arXiv:2604.06277v1 Announce Type:new Abstract:E…
-    - **12. arxiv.org 发布重要更新**：arXiv:2604.06375v1 Announce Type:new Abstract:A…
+    - **12. arxiv.org 发布重要更新**：arXiv:2604.06233v1 Announce Type:new Abstract:S…
+    - **13. arxiv.org 发布重要更新**：arXiv:2604.06251v1 Announce Type:new Abstract:T…
+    - **14. arxiv.org 发布重要更新**：arXiv:2604.06277v1 Announce Type:new Abstract:E…
+    - **15. arxiv.org 发布重要更新**：arXiv:2604.06375v1 Announce Type:new Abstract:A…
 
-=== "🏢 产品与行业（13）"
-    - **1. openclaw/openclaw 发布产品更新**：fix:provider-qualified session context limits #…
-    - **2. openclaw/openclaw 发布产品更新**：fix:start tailscale exposure before sidecars相关进…
-    - **3. openclaw/openclaw 发布产品更新**：fix:allow CLI task cancel for stuck background…
-    - **4. openclaw/openclaw 发布产品更新**：fix:preserve iMessage self-chat aliases #61619…
-    - **5. @elonmusk 发布重要更新**：Video相关进展已由一手来源披露，预计将影响后续产品与行业节奏
-    - **7. @elonmusk 发布重要更新**：Cybertruck is so awesome 😎相关进展已由一手来源披露，预计将影响后续产…
-    - **13. @minimaxagent 发布重要更新**：MiniMax mobile app redesign is live. 🪄 Cleaner…
-    - **14. @minimax_ai 发布重要更新**：Day 3 at #HumanX2026 . What a week
+=== "🏢 产品与行业（14）"
+    - **1. openclaw/openclaw 发布产品更新**：fix:exclude workspace shadows from channel setu…
+    - **2. @awscloud 发布重要更新**：Over 20 years,everything changed. Infrastructur…
+    - **3. @runwayml 发布重要更新**：R to @runwayml:Learn more:https://aif.runwayml.…
+    - **4. @runwayml 发布重要更新**：The Runway AI Festival returns this June to NY…
+    - **5. openclaw/openclaw 发布产品更新**：fixqqbot:add stream config #63746相关进展已由一手来源披露，预…
+    - **6. openclaw/openclaw 发布产品更新**：fixqqbot:enforce media storage boundary for all…
+    - **7. openclaw/openclaw 发布产品更新**：fix:provider-qualified session context limits #…
+    - **8. @elonmusk 发布重要更新**：Video相关进展已由一手来源披露，预计将影响后续产品与行业节奏
 
 ## 全部快讯
 
 ??? info "1. openclaw/openclaw 发布产品更新"
+    **摘要**：fix:exclude workspace shadows from channel setup catalog lookups。
+
+    **关键点**
+
+    - fix:exclude workspace shado
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：fix:exclude workspace shadows from channel setup catalog lookups相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md)
+
+??? info "2. @awscloud 发布重要更新"
+    **摘要**：Over 20 years,everything changed. Infrastructure. Scale. Systems. One thing didn’t. See why. go.aws/4mgHxOi Video。
+
+    **关键点**
+
+    - Over 20 years
+    - everything changed. Infrastr
+    - 预计将影响后续产品与行
+
+    **影响分析**：Over 20 years,everything changed. Infrastructure. Scale. Systems. One thing didn’t. See why. https://go.aws/4mgHxOi相关进展已由一手来源披露，预计将影响后续产品与行。
+
+    **来源**：[原文链接](https://x.com/awscloud/status/2042233603921166820)
+
+??? info "3. @runwayml 发布重要更新"
+    **摘要**：Learn more:aif.runwayml.com/。
+
+    **关键点**
+
+    - Learn more:aif.runwayml.com
+    - R to @runwayml:Learn more
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：R to @runwayml:Learn more:https://aif.runwayml.com/相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/runwayml/status/2042232784341594484)
+
+??? info "4. @runwayml 发布重要更新"
+    **摘要**：The Runway AI Festival returns this June to NY and LA to celebrate the worlds best work leveraging AI across Film,Design,New Media,Fashion,Advertising and。
+
+    **关键点**
+
+    - The Runway AI Festival retur
+    - LA to celebrate the worlds
+    - Design
+
+    **影响分析**：The Runway AI Festival returns this June to NY and LA to celebrate the worlds best work leveraging AI across Film,Design,New Media,Fashi。
+
+    **来源**：[原文链接](https://x.com/runwayml/status/2042232782508671211)
+
+??? info "5. openclaw/openclaw 发布产品更新"
+    **摘要**：fixqqbot:add stream config #63746。
+
+    **关键点**
+
+    - fixqqbot:add stream confi
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：fixqqbot:add stream config #63746相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md)
+
+??? info "6. openclaw/openclaw 发布产品更新"
+    **摘要**：fixqqbot:enforce media storage boundary for all outbound local file paths AI #63271 * fix:address issue * fix:address review-pr skill feedback * fix:a。
+
+    **关键点**
+
+    - fixqqbot:enforce media st
+    - fixqqbot:enforce media stora
+    - openclaw/openclaw 发布产品更新
+
+    **影响分析**：fixqqbot:enforce media storage boundary for all outbound local file paths AI #63271 * fix:address issue * fix:address review-pr ski。
+
+    **来源**：[原文链接](https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md)
+
+??? info "7. openclaw/openclaw 发布产品更新"
     **摘要**：fix:provider-qualified session context limits #62493 thanks @neeravmakwana * fixsessions:provider-qualified context limits #62472 * fixsessions:hon。
 
     **关键点**
@@ -46,44 +121,7 @@
 
     **来源**：[原文链接](https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md)
 
-??? info "2. openclaw/openclaw 发布产品更新"
-    **摘要**：fix:start tailscale exposure before sidecars。
-
-    **关键点**
-
-    - fix:start tailscale exposur
-    - 预计将影响后续产品与行业节奏
-
-    **影响分析**：fix:start tailscale exposure before sidecars相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md)
-
-??? info "3. openclaw/openclaw 发布产品更新"
-    **摘要**：fix:allow CLI task cancel for stuck background tasks #62506 thanks @neeravmakwana * Tasks:allow openclaw tasks cancel for CLI runtime #62419 Made-with。
-
-    **关键点**
-
-    - fix:allow CLI task cancel f
-    - Cursor * Tasks:address revi
-    - CLI cancel without session
-
-    **影响分析**：fix:allow CLI task cancel for stuck background tasks #62506 thanks @neeravmakwana * Tasks:allow openclaw tasks cancel for CLI runtime。
-
-    **来源**：[原文链接](https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md)
-
-??? info "4. openclaw/openclaw 发布产品更新"
-    **摘要**：fix:preserve iMessage self-chat aliases #61619 thanks @neeravmakwana * fiximessage:avoid DM self-chat false positives * fiximessage:treat blank desti。
-
-    **关键点**
-
-    - fix:preserve iMessage self
-    - hi@obviy.us&gt
-
-    **影响分析**：fix:preserve iMessage self-chat aliases #61619 thanks @neeravmakwana * fiximessage:avoid DM self-chat false positives * fiximessage。
-
-    **来源**：[原文链接](https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md)
-
-??? info "5. @elonmusk 发布重要更新"
+??? info "8. @elonmusk 发布重要更新"
     **摘要**：Video。
 
     **关键点**
@@ -96,7 +134,7 @@
 
     **来源**：[原文链接](https://x.com/elonmusk/status/2042135870183239802)
 
-??? info "6. @elonmusk 发布重要更新"
+??? info "9. @elonmusk 发布重要更新"
     **摘要**：Grok will never go to therapy. Never. Video。
 
     **关键点**
@@ -108,7 +146,7 @@
 
     **来源**：[原文链接](https://x.com/elonmusk/status/2042135446751473938)
 
-??? info "7. @elonmusk 发布重要更新"
+??? info "10. @elonmusk 发布重要更新"
     **摘要**：Cybertruck is so awesome 😎 Video。
 
     **关键点**
@@ -121,7 +159,7 @@
 
     **来源**：[原文链接](https://x.com/elonmusk/status/2042134561103212707)
 
-??? info "8. @elonmusk 发布重要更新"
+??? info "11. @elonmusk 发布重要更新"
     **摘要**：Generated with @Grok Imagine Video。
 
     **关键点**
@@ -134,7 +172,7 @@
 
     **来源**：[原文链接](https://x.com/elonmusk/status/2042127554224742713)
 
-??? info "9. arxiv.org 发布重要更新"
+??? info "12. arxiv.org 发布重要更新"
     **摘要**：arXiv:2604.06233v1 Announce Type:new Abstract:Safety-trained language models routinely refuse requests for help circumventing rules. But not all rules deserve。
 
     **关键点**
@@ -147,7 +185,7 @@
 
     **来源**：[原文链接](https://arxiv.org/abs/2604.06233)
 
-??? info "10. arxiv.org 发布重要更新"
+??? info "13. arxiv.org 发布重要更新"
     **摘要**：arXiv:2604.06251v1 Announce Type:new Abstract:This article presents the results of a data science study conducted at a container terminal,aimed at reducing u。
 
     **关键点**
@@ -160,7 +198,7 @@
 
     **来源**：[原文链接](https://arxiv.org/abs/2604.06251)
 
-??? info "11. arxiv.org 发布重要更新"
+??? info "14. arxiv.org 发布重要更新"
     **摘要**：arXiv:2604.06277v1 Announce Type:new Abstract:Existing hallucination detection methods for large language models LLMs rely on external verification at infer。
 
     **关键点**
@@ -173,7 +211,7 @@
 
     **来源**：[原文链接](https://arxiv.org/abs/2604.06277)
 
-??? info "12. arxiv.org 发布重要更新"
+??? info "15. arxiv.org 发布重要更新"
     **摘要**：arXiv:2604.06375v1 Announce Type:new Abstract:AI-driven symptom analysis systems face persistent challenges in reliability,interpretability,and hallucinatio。
 
     **关键点**
@@ -186,7 +224,7 @@
 
     **来源**：[原文链接](https://arxiv.org/abs/2604.06375)
 
-??? info "13. @minimaxagent 发布重要更新"
+??? info "16. @minimaxagent 发布重要更新"
     **摘要**：MiniMax mobile app redesign is live. 🪄 Cleaner reading experience,with light and dark mode support. Download today on the App Store or Google Play. Feedback we。
 
     **关键点**
@@ -199,7 +237,7 @@
 
     **来源**：[原文链接](https://x.com/MiniMaxAgent/status/2042084335680106702)
 
-??? info "14. @minimax_ai 发布重要更新"
+??? info "17. @minimax_ai 发布重要更新"
     **摘要**：Day 3 at #HumanX2026 . What a week! 🎉 Its been amazing meeting so many of you. From live demos to great conversations about the future of AI,the energy has be。
 
     **关键点**
@@ -212,7 +250,7 @@
 
     **来源**：[原文链接](https://x.com/MiniMax_AI/status/2042080171088638063)
 
-??? info "15. @openclaw 发布 2026.4.9 版本更新"
+??? info "18. @openclaw 发布 2026.4.9 版本更新"
     **摘要**：OpenClaw 2026.4.9 🦞 🧠 Dreaming:REM backfill + diary timeline UI 🔐 SSRF + node exec injection hardening 🔬 Character-vibes QA evals 📱 Android pairing overhaul yo。
 
     **关键点**
@@ -224,7 +262,20 @@
 
     **来源**：[原文链接](https://x.com/openclaw/status/2042072722902077938)
 
-??? info "16. @replit 发布重要更新"
+??? info "19. openai.com 发布重要更新"
+    **摘要**：Explore the official terms and conditions for the OpenAI Full Fan Mode Contest,including eligibility,entry steps,judging criteria,and prize details. Learn h。
+
+    **关键点**
+
+    - Explore the official terms
+    - conditions for the OpenAI Fu
+    - including eligibility
+
+    **影响分析**：Explore the official terms and conditions for the OpenAI Full Fan Mode Contest,including eligibility,entry steps,judging criteria,and pr。
+
+    **来源**：[原文链接](https://openai.com/index/full-fan-mode-contest-terms-conditions)
+
+??? info "20. @replit 发布重要更新"
     **摘要**：Read part 5 of our 6-part PM series:blog.replit.com/vibe-coding-…。
 
     **关键点**
@@ -237,61 +288,11 @@
 
     **来源**：[原文链接](https://x.com/Replit/status/2042012212852629506)
 
-??? info "17. @replit 发布重要更新"
-    **摘要**：PMs spend an incredible amount of time launching a feature vs building. Building ends when the feature works. Launching ends when everyone else understands it.。
-
-    **关键点**
-
-    - PMs spend an incredible amou
-    - @replit 发布重要更新
-
-    **影响分析**：PMs spend an incredible amount of time launching a feature vs building. Building ends when the feature works. Launching ends when everyone e。
-
-    **来源**：[原文链接](https://x.com/Replit/status/2042012211988533502)
-
-??? info "18. @notionhq 发布重要更新"
-    **摘要**：Introducing @claudeai agents in Notion. Your task board is Claude’s to-do list. @AnthropicAI runs the model and the agent harness. Notion is the orchestration l。
-
-    **关键点**
-
-    - Introducing @claudeai agents
-    - the agent harness. Notion is
-    - a shared place for teams to
-
-    **影响分析**：Introducing @claudeai agents in Notion. Your task board is Claude’s to-do list. @AnthropicAI runs the model and the agent harness. Notion is。
-
-    **来源**：[原文链接](https://x.com/NotionHQ/status/2041982872698155398)
-
-??? info "19. @nvidia 发布重要更新"
-    **摘要**：For Thomas Chen,solving problems is what makes engineering exciting. He helps take NVIDIA’s servers from design to real-world use in data centers smoothly and。
-
-    **关键点**
-
-    - For Thomas Chen
-    - solving problems is what mak
-    - reliably. Visit the link in
-
-    **影响分析**：For Thomas Chen,solving problems is what makes engineering exciting. He helps take NVIDIA’s servers from design to real-world use in data c。
-
-    **来源**：[原文链接](https://x.com/nvidia/status/2041971396163551289)
-
-??? info "20. @lumalabsai 发布重要更新"
-    **摘要**：The path from product to campaign just got faster. Drop in reference images. Describe the shot. Get campaign-ready product photography,immediately. Try it toda。
-
-    **关键点**
-
-    - The path from product to cam
-    - immediately. Try it today →
-    - seed=9ee51e… Video
-
-    **影响分析**：The path from product to campaign just got faster. Drop in reference images. Describe the shot. Get campaign-ready product photography,imme。
-
-    **来源**：[原文链接](https://x.com/LumaLabsAI/status/2041943877951639769)
-
 ---
 
 ## 历史归档
 
+- [2026-04-09_23-10-01](history/2026-04-09_23-10-01.md)
 - [2026-04-09_20-12-17](history/2026-04-09_20-12-17.md)
 - [2026-04-09_18-41-04](history/2026-04-09_18-41-04.md)
 - [2026-04-09_16-54-01](history/2026-04-09_16-54-01.md)
@@ -411,4 +412,3 @@
 - [2026-03-24_08-04-01](history/2026-03-24_08-04-01.md)
 - [2026-03-23_22-46-53](history/2026-03-23_22-46-53.md)
 - [2026-03-23_20-09-44](history/2026-03-23_20-09-44.md)
-- [2026-03-23_13-29-33](history/2026-03-23_13-29-33.md)
