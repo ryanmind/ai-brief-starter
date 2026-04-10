@@ -1,291 +1,290 @@
 # 今日快讯
 
-> 更新时间：2026年04月09日23:10:01
+> 更新时间：2026年04月10日08:04:17
 > 说明：该页面由 `ai-brief` 自动生成并同步。
 
 ## 本期摘要
 
-1. openclaw/openclaw 发布产品更新：fix:exclude workspace shadows from channel。
-2. @awscloud 发布重要更新：Over 20 years。
-3. @runwayml 发布重要更新：Learn more:aif.runwayml.com/。
-4. @runwayml 发布重要更新：The Runway AI Festival returns this June t。
-5. openclaw/openclaw 发布产品更新：fixqqbot:add stream config #63746。
+1. openclaw/openclaw 发布产品更新：docs:add changelog for qa multipass runner。
+2. openclaw/openclaw 发布产品更新：Docs:remove changelog merge markers。
+3. openclaw/openclaw 发布产品更新：docs:remove changelog conflict marker。
+4. @elonmusk 发布重要更新：Tesla driving itself around LA Video。
+5. openclaw/openclaw 发布产品更新：fix:coerce integer plugin config input #63。
 
 ## 分类速览
 
-=== "🤖 模型进展（2）"
-    - **9. @elonmusk 发布重要更新**：Grok will never go to therapy. Never.相关进展已由一手来源…
-    - **11. @elonmusk 发布重要更新**：Generated with @Grok Imagine相关进展已由一手来源披露，预计将影响后…
+=== "🤖 模型进展（4）"
+    - **6. @sama 发布重要更新**：It is very nice to see Codex getting so much lo…
+    - **7. @karpathy 发布重要更新**：Someone recently suggested to me that the reaso…
+    - **15. anthropics/claude-code 发布产品更新**：chore:Update CHANGELOG.md相关进展已由一手来源披露，预计将影响后续产品…
+    - **19. @elonmusk 发布 4.20 版本更新**：Grok Law X Freeze @XFreeze Grok-4.20 just ranke…
 
-=== "🧪 论文研究（4）"
-    - **12. arxiv.org 发布重要更新**：arXiv:2604.06233v1 Announce Type:new Abstract:S…
-    - **13. arxiv.org 发布重要更新**：arXiv:2604.06251v1 Announce Type:new Abstract:T…
-    - **14. arxiv.org 发布重要更新**：arXiv:2604.06277v1 Announce Type:new Abstract:E…
-    - **15. arxiv.org 发布重要更新**：arXiv:2604.06375v1 Announce Type:new Abstract:A…
+=== "🧪 论文研究（0）"
+    - 暂无条目
 
-=== "🏢 产品与行业（14）"
-    - **1. openclaw/openclaw 发布产品更新**：fix:exclude workspace shadows from channel setu…
-    - **2. @awscloud 发布重要更新**：Over 20 years,everything changed. Infrastructur…
-    - **3. @runwayml 发布重要更新**：R to @runwayml:Learn more:https://aif.runwayml.…
-    - **4. @runwayml 发布重要更新**：The Runway AI Festival returns this June to NY…
-    - **5. openclaw/openclaw 发布产品更新**：fixqqbot:add stream config #63746相关进展已由一手来源披露，预…
-    - **6. openclaw/openclaw 发布产品更新**：fixqqbot:enforce media storage boundary for all…
-    - **7. openclaw/openclaw 发布产品更新**：fix:provider-qualified session context limits #…
-    - **8. @elonmusk 发布重要更新**：Video相关进展已由一手来源披露，预计将影响后续产品与行业节奏
+=== "🏢 产品与行业（16）"
+    - **1. openclaw/openclaw 发布产品更新**：docs:add changelog for qa multipass runner相关进展已…
+    - **2. openclaw/openclaw 发布产品更新**：Docs:remove changelog merge markers相关进展已由一手来源披露…
+    - **3. openclaw/openclaw 发布产品更新**：docs:remove changelog conflict marker相关进展已由一手来源…
+    - **4. @elonmusk 发布重要更新**：Tesla driving itself around LA相关进展已由一手来源披露，预计将影…
+    - **5. openclaw/openclaw 发布产品更新**：fix:coerce integer plugin config input #63346 *…
+    - **8. @runwayml 发布重要更新**：R to @runwayml:Get started:https://bit.ly/4tA7i…
+    - **9. @runwayml 发布 2.0 版本更新**：Seedance 2.0 on Runway is now available on all…
+    - **10. @elonmusk 发布重要更新**：Accurate Ricardo @Ric_RTP In 19 days,a jury in…
 
 ## 全部快讯
 
 ??? info "1. openclaw/openclaw 发布产品更新"
-    **摘要**：fix:exclude workspace shadows from channel setup catalog lookups。
+    **摘要**：docs:add changelog for qa multipass runner。
 
     **关键点**
 
-    - fix:exclude workspace shado
+    - docs:add changelog for qa m
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：fix:exclude workspace shadows from channel setup catalog lookups相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：docs:add changelog for qa multipass runner相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
     **来源**：[原文链接](https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md)
 
-??? info "2. @awscloud 发布重要更新"
-    **摘要**：Over 20 years,everything changed. Infrastructure. Scale. Systems. One thing didn’t. See why. go.aws/4mgHxOi Video。
+??? info "2. openclaw/openclaw 发布产品更新"
+    **摘要**：Docs:remove changelog merge markers。
 
     **关键点**
 
-    - Over 20 years
-    - everything changed. Infrastr
-    - 预计将影响后续产品与行
-
-    **影响分析**：Over 20 years,everything changed. Infrastructure. Scale. Systems. One thing didn’t. See why. https://go.aws/4mgHxOi相关进展已由一手来源披露，预计将影响后续产品与行。
-
-    **来源**：[原文链接](https://x.com/awscloud/status/2042233603921166820)
-
-??? info "3. @runwayml 发布重要更新"
-    **摘要**：Learn more:aif.runwayml.com/。
-
-    **关键点**
-
-    - Learn more:aif.runwayml.com
-    - R to @runwayml:Learn more
+    - Docs:remove changelog merge
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：R to @runwayml:Learn more:https://aif.runwayml.com/相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：Docs:remove changelog merge markers相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://x.com/runwayml/status/2042232784341594484)
+    **来源**：[原文链接](https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md)
 
-??? info "4. @runwayml 发布重要更新"
-    **摘要**：The Runway AI Festival returns this June to NY and LA to celebrate the worlds best work leveraging AI across Film,Design,New Media,Fashion,Advertising and。
+??? info "3. openclaw/openclaw 发布产品更新"
+    **摘要**：docs:remove changelog conflict marker。
 
     **关键点**
 
-    - The Runway AI Festival retur
-    - LA to celebrate the worlds
-    - Design
+    - docs:remove changelog confl
+    - 预计将影响后续产品与行业节奏
 
-    **影响分析**：The Runway AI Festival returns this June to NY and LA to celebrate the worlds best work leveraging AI across Film,Design,New Media,Fashi。
+    **影响分析**：docs:remove changelog conflict marker相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://x.com/runwayml/status/2042232782508671211)
+    **来源**：[原文链接](https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md)
+
+??? info "4. @elonmusk 发布重要更新"
+    **摘要**：Tesla driving itself around LA Video。
+
+    **关键点**
+
+    - Tesla driving itself around
+    - 预计将影响后续产品与行业节奏
+
+    **影响分析**：Tesla driving itself around LA相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+
+    **来源**：[原文链接](https://x.com/elonmusk/status/2042348111809691858)
 
 ??? info "5. openclaw/openclaw 发布产品更新"
-    **摘要**：fixqqbot:add stream config #63746。
+    **摘要**：fix:coerce integer plugin config input #63346 * Wizard:coerce integer plugin config input Regeneration-Prompt:| Fix the interactive plugin-config wizard so。
 
     **关键点**
 
-    - fixqqbot:add stream confi
-    - 预计将影响后续产品与行业节奏
+    - fix:coerce integer plugin c
+    - integer&quot
+    - are coerced from text input
 
-    **影响分析**：fixqqbot:add stream config #63746相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：fix:coerce integer plugin config input #63346 * Wizard:coerce integer plugin config input Regeneration-Prompt:| Fix the interactive plu。
 
     **来源**：[原文链接](https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md)
 
-??? info "6. openclaw/openclaw 发布产品更新"
-    **摘要**：fixqqbot:enforce media storage boundary for all outbound local file paths AI #63271 * fix:address issue * fix:address review-pr skill feedback * fix:a。
+??? info "6. @sama 发布重要更新"
+    **摘要**：It is very nice to see Codex getting so much love. We are launching a $100 ChatGPT Pro tier by very popular demand.。
 
     **关键点**
 
-    - fixqqbot:enforce media st
-    - fixqqbot:enforce media stora
-    - openclaw/openclaw 发布产品更新
+    - It is very nice to see Codex
+    - 预计将影响后续产品与行业
 
-    **影响分析**：fixqqbot:enforce media storage boundary for all outbound local file paths AI #63271 * fix:address issue * fix:address review-pr ski。
+    **影响分析**：It is very nice to see Codex getting so much love. We are launching a $100 ChatGPT Pro tier by very popular demand.相关进展已由一手来源披露，预计将影响后续产品与行业。
 
-    **来源**：[原文链接](https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md)
+    **来源**：[原文链接](https://x.com/sama/status/2042342572958630332)
 
-??? info "7. openclaw/openclaw 发布产品更新"
-    **摘要**：fix:provider-qualified session context limits #62493 thanks @neeravmakwana * fixsessions:provider-qualified context limits #62472 * fixsessions:hon。
-
-    **关键点**
-
-    - fix:provider-qualified sess
-    - hi@obviy.us&gt
-
-    **影响分析**：fix:provider-qualified session context limits #62493 thanks @neeravmakwana * fixsessions:provider-qualified context limits #62472。
-
-    **来源**：[原文链接](https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md)
-
-??? info "8. @elonmusk 发布重要更新"
-    **摘要**：Video。
+??? info "7. @karpathy 发布重要更新"
+    **摘要**：Someone recently suggested to me that the reason OpenClaw moment was so big is because its the first time a large group of non-technical people who otherwise。
 
     **关键点**
 
-    - Video
-    - Video相关进展已由一手来源披露
+    - Someone recently suggested t
+    - ChatGPT as a website experi
+    - R to @karpathy:Someone rece
+
+    **影响分析**：Someone recently suggested to me that the reason OpenClaw moment was so big is because its the first time a large group of non-technical pe。
+
+    **来源**：[原文链接](https://x.com/karpathy/status/2042341482531864741)
+
+??? info "8. @runwayml 发布重要更新"
+    **摘要**：Get started:bit.ly/4tA7ivv。
+
+    **关键点**
+
+    - Get started:bit.ly/4tA7ivv
+    - R to @runwayml:Get started
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：Video相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：R to @runwayml:Get started:https://bit.ly/4tA7ivv相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://x.com/elonmusk/status/2042135870183239802)
+    **来源**：[原文链接](https://x.com/runwayml/status/2042336704351137858)
 
-??? info "9. @elonmusk 发布重要更新"
-    **摘要**：Grok will never go to therapy. Never. Video。
+??? info "9. @runwayml 发布 2.0 版本更新"
+    **摘要**：Seedance 2.0 on Runway is now available on all paid plans,including the US. All you need is an image,a video,an idea or a piece of audio to start making your。
 
     **关键点**
 
-    - Grok will never go to therap
-    - 预计将影响后续产品与行业节奏
+    - Seedance 2.0 on Runway is no
+    - including the US. All you ne
+    - a video
 
-    **影响分析**：Grok will never go to therapy. Never.相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：Seedance 2.0 on Runway is now available on all paid plans,including the US. All you need is an image,a video,an idea or a piece of audio。
 
-    **来源**：[原文链接](https://x.com/elonmusk/status/2042135446751473938)
+    **来源**：[原文链接](https://x.com/runwayml/status/2042336701557703020)
 
 ??? info "10. @elonmusk 发布重要更新"
-    **摘要**：Cybertruck is so awesome 😎 Video。
+    **摘要**：Accurate Ricardo @Ric_RTP In 19 days,a jury in Oakland is going to decide whether the entire legal foundation of the AI industry is built on fraud. Everyone。
 
     **关键点**
 
-    - Cybertruck is so awesome 😎 V
-    - Cybertruck is so awesome 😎相关
+    - Accurate Ricardo @Ric_RTP
+    - a jury in Oakland is going t
+    - one grudge
+
+    **影响分析**：Accurate Ricardo @Ric_RTP In 19 days,a jury in Oakland is going to decide whether the entire legal foundation of the AI industry is built。
+
+    **来源**：[原文链接](https://x.com/elonmusk/status/2042335198097129926)
+
+??? info "11. @karpathy 发布重要更新"
+    **摘要**：Judging by my tl there is a growing gap in understanding of AI capability. The first issue I think is around recency and tier of use. I think a lot of people tr。
+
+    **关键点**
+
+    - Judging by my tl there is a
+    - tier of use. I think a lot o
+    - allowed it to inform their v
+
+    **影响分析**：Judging by my tl there is a growing gap in understanding of AI capability. The first issue I think is around recency and tier of use. I thin。
+
+    **来源**：[原文链接](https://x.com/karpathy/status/2042334451611693415)
+
+??? info "12. @nvidia 发布重要更新"
+    **摘要**：Across NVIDIA Jetson and our robotics software stack,we’re focused on making it easy for developers to turn open source innovation,like @openclaw,into deplo。
+
+    **关键点**
+
+    - Across NVIDIA Jetson
+    - our robotics software stack
+    - we’re focused on making it e
+
+    **影响分析**：Across NVIDIA Jetson and our robotics software stack,we’re focused on making it easy for developers to turn open source innovation,like @o。
+
+    **来源**：[原文链接](https://x.com/nvidia/status/2042331349022097466)
+
+??? info "13. @notionhq 发布重要更新"
+    **摘要**：And... Heres what our winners built 👀 1. Auto Proposals Agent → A Custom Agent that transforms sales discovery calls into professional proposal into a template。
+
+    **关键点**
+
+    - And... Heres what our winne
+    - place them into a database f
+    - consultants
+
+    **影响分析**：And... Heres what our winners built 👀 1. Auto Proposals Agent → A Custom Agent that transforms sales discovery calls into professional prop。
+
+    **来源**：[原文链接](https://x.com/NotionHQ/status/2042327699545358720)
+
+??? info "14. @notionhq 发布重要更新"
+    **摘要**：And with that,it’s a wrap! We partnered with @contra + the Notion NYC Community for a Buildathon night of building Notion AI Agents live. Learn more about the。
+
+    **关键点**
+
+    - And with that,it’s a wrap
+    - We partnered
+    - @contra + the Notion NYC Com
+
+    **影响分析**：And with that,it’s a wrap。
+
+    **来源**：[原文链接](https://x.com/NotionHQ/status/2042327696043053424)
+
+??? info "15. anthropics/claude-code 发布产品更新"
+    **摘要**：chore:Update CHANGELOG.md。
+
+    **关键点**
+
+    - chore:Update CHANGELOG.md
+    - chore:Update CHANGELOG.md相关
     - 预计将影响后续产品与行业节奏
 
-    **影响分析**：Cybertruck is so awesome 😎相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：chore:Update CHANGELOG.md相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://x.com/elonmusk/status/2042134561103212707)
+    **来源**：[原文链接](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md)
 
-??? info "11. @elonmusk 发布重要更新"
-    **摘要**：Generated with @Grok Imagine Video。
-
-    **关键点**
-
-    - Generated
-    - @Grok Imagine Video
-    - @Grok Imagine相关进展已由一手来源披露
-
-    **影响分析**：Generated with @Grok Imagine相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
-
-    **来源**：[原文链接](https://x.com/elonmusk/status/2042127554224742713)
-
-??? info "12. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.06233v1 Announce Type:new Abstract:Safety-trained language models routinely refuse requests for help circumventing rules. But not all rules deserve。
+??? info "16. @awscloud 发布重要更新"
+    **摘要**：First look:go.aws/41SM5RI。
 
     **关键点**
 
-    - arXiv:2604.06233v1 Announce
-    - rules that are deeply unjust
-    - or rules that admit of justi
+    - First look:go.aws/41SM5RI
+    - R to @awscloud:First look
+    - 预计将影响后续产品与行业节奏
 
-    **影响分析**：arXiv:2604.06233v1 Announce Type:new Abstract:Safety-trained language models routinely refuse requests for help circumventing rules. But n。
+    **影响分析**：R to @awscloud:First look:https://go.aws/41SM5RI相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.06233)
+    **来源**：[原文链接](https://x.com/awscloud/status/2042316676620767650)
 
-??? info "13. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.06251v1 Announce Type:new Abstract:This article presents the results of a data science study conducted at a container terminal,aimed at reducing u。
-
-    **关键点**
-
-    - arXiv:2604.06251v1 Announce
-    - aimed at reducing unproducti
-    - container dwell times. We de
-
-    **影响分析**：arXiv:2604.06251v1 Announce Type:new Abstract:This article presents the results of a data science study conducted at a container terminal。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2604.06251)
-
-??? info "14. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.06277v1 Announce Type:new Abstract:Existing hallucination detection methods for large language models LLMs rely on external verification at infer。
+??? info "17. @awscloud 发布重要更新"
+    **摘要**：Watch the live conversation shaping where agentic AI goes next. April 28. AWS leaders Matt Garman,Colleen Aubrey,and Julia White. Video。
 
     **关键点**
 
-    - arXiv:2604.06277v1 Announce
-    - requiring gold answers
-    - retrieval systems
+    - Watch the live conversation
+    - Colleen Aubrey
+    - Julia White. Video
 
-    **影响分析**：arXiv:2604.06277v1 Announce Type:new Abstract:Existing hallucination detection methods for large language models LLMs rely on external v。
+    **影响分析**：Watch the live conversation shaping where agentic AI goes next. April 28. AWS leaders Matt Garman,Colleen Aubrey,and Julia White.相关进展已由一手来。
 
-    **来源**：[原文链接](https://arxiv.org/abs/2604.06277)
+    **来源**：[原文链接](https://x.com/awscloud/status/2042316672426459320)
 
-??? info "15. arxiv.org 发布重要更新"
-    **摘要**：arXiv:2604.06375v1 Announce Type:new Abstract:AI-driven symptom analysis systems face persistent challenges in reliability,interpretability,and hallucinatio。
-
-    **关键点**
-
-    - arXiv:2604.06375v1 Announce
-    - interpretability
-    - hallucination. End-to-end ge
-
-    **影响分析**：arXiv:2604.06375v1 Announce Type:new Abstract:AI-driven symptom analysis systems face persistent challenges in reliability,interpretabili。
-
-    **来源**：[原文链接](https://arxiv.org/abs/2604.06375)
-
-??? info "16. @minimaxagent 发布重要更新"
-    **摘要**：MiniMax mobile app redesign is live. 🪄 Cleaner reading experience,with light and dark mode support. Download today on the App Store or Google Play. Feedback we。
+??? info "18. @goodfellow_ian 发布重要更新"
+    **摘要**：My former Brain colleague @AndrewDai just launched @ElorianAI Andrew M. Dai @AndrewDai After almost 12 years in Brain/DeepMind,I’ve finally decided to take t。
 
     **关键点**
 
-    - MiniMax mobile app redesign
-    - light
-    - dark mode support. Download
+    - My former Brain colleague @A
+    - I’ve finally decided to take
+    - Seth
 
-    **影响分析**：MiniMax mobile app redesign is live. 🪄 Cleaner reading experience,with light and dark mode support. Download today on the App Store or Goog。
+    **影响分析**：My former Brain colleague @AndrewDai just launched @ElorianAI Andrew M. Dai @AndrewDai After almost 12 years in Brain/DeepMind,I’ve final。
 
-    **来源**：[原文链接](https://x.com/MiniMaxAgent/status/2042084335680106702)
+    **来源**：[原文链接](https://x.com/goodfellow_ian/status/2042316300660375816)
 
-??? info "17. @minimax_ai 发布重要更新"
-    **摘要**：Day 3 at #HumanX2026 . What a week! 🎉 Its been amazing meeting so many of you. From live demos to great conversations about the future of AI,the energy has be。
-
-    **关键点**
-
-    - Day 3 at #HumanX2026 . What
-    - 🎉 Its been amazing meeting
-    - the energy has been incredib
-
-    **影响分析**：Day 3 at #HumanX2026 . What a week。
-
-    **来源**：[原文链接](https://x.com/MiniMax_AI/status/2042080171088638063)
-
-??? info "18. @openclaw 发布 2026.4.9 版本更新"
-    **摘要**：OpenClaw 2026.4.9 🦞 🧠 Dreaming:REM backfill + diary timeline UI 🔐 SSRF + node exec injection hardening 🔬 Character-vibes QA evals 📱 Android pairing overhaul yo。
+??? info "19. @elonmusk 发布 4.20 版本更新"
+    **摘要**：Grok Law X Freeze @XFreeze Grok-4.20 just ranked #1 in Legal & Government on Chatbot Arena It’s officially outperforming Anthropic’s Opus 4.6 and Google’s Gem。
 
     **关键点**
 
-    - OpenClaw 2026.4.9 🦞 🧠 Dreami
-    - yes. 🦞 github.com/openclaw/o
+    - Grok Law X Freeze @XFreeze
+    - Google’s Gemini 3.1 Pro Grok
+    - do complex tax management I
 
-    **影响分析**：OpenClaw 2026.4.9 🦞 🧠 Dreaming:REM backfill + diary timeline UI 🔐 SSRF + node exec injection hardening 🔬 Character-vibes QA evals 📱 Android。
+    **影响分析**：Grok Law X Freeze @XFreeze Grok-4.20 just ranked #1 in Legal & Government on Chatbot Arena It’s officially outperforming Anthropic’s Opus。
 
-    **来源**：[原文链接](https://x.com/openclaw/status/2042072722902077938)
+    **来源**：[原文链接](https://x.com/elonmusk/status/2042299684182769672)
 
-??? info "19. openai.com 发布重要更新"
-    **摘要**：Explore the official terms and conditions for the OpenAI Full Fan Mode Contest,including eligibility,entry steps,judging criteria,and prize details. Learn h。
-
-    **关键点**
-
-    - Explore the official terms
-    - conditions for the OpenAI Fu
-    - including eligibility
-
-    **影响分析**：Explore the official terms and conditions for the OpenAI Full Fan Mode Contest,including eligibility,entry steps,judging criteria,and pr。
-
-    **来源**：[原文链接](https://openai.com/index/full-fan-mode-contest-terms-conditions)
-
-??? info "20. @replit 发布重要更新"
-    **摘要**：Read part 5 of our 6-part PM series:blog.replit.com/vibe-coding-…。
+??? info "20. @notionhq 发布重要更新"
+    **摘要**：For everyone who has been asking for a tour of our HQ... Thanks for including us @joshk @firstround 🖤 Josh Kopelman @joshk Recently,@ivanhzhao put words to s。
 
     **关键点**
 
-    - Read part 5 of our 6-part PM
-    - R to @Replit:Read part 5 of
-    - dashboards相关进展已由一手来源披露
+    - For everyone who has been as
+    - @ivanhzhao put words to some
+    - building
 
-    **影响分析**：R to @Replit:Read part 5 of our 6-part PM series:https://blog.replit.com/vibe-coding-decks-and-dashboards相关进展已由一手来源披露，预计将影响后续产品与行业节奏。
+    **影响分析**：For everyone who has been asking for a tour of our HQ... Thanks for including us @joshk @firstround 🖤 Josh Kopelman @joshk Recently,@ivan。
 
-    **来源**：[原文链接](https://x.com/Replit/status/2042012212852629506)
+    **来源**：[原文链接](https://x.com/NotionHQ/status/2042299347627622767)
